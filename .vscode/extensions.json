@@ -5,6 +5,8 @@
     "ms-ceintl.vscode-language-pack-pt-br",
     "ms-python.vscode-pylance",
     "ms-python.python",
-    "dongli.python-preview"
+    "dongli.python-preview",
+    "antfu.icons-carbon",
+    "ms-vscode-remote.vscode-remote-extensionpack"
   ]
 }
