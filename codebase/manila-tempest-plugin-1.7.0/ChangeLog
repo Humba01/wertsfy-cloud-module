@@ -1,0 +1,474 @@
+CHANGES
+=======
+
+1.7.0
+-----
+
+* Add functional tests for add multiple subnets feature
+* Add tests for only\_host scheduler hint
+* Remove share metadata test
+* Add support to chose ssh key type
+* Add unstable tag to test with intermittent failures
+* Follow up fixes to recycle bin tests
+* Fix replica cleanup
+* API2.69,Add tests for manila recycle bin
+* Added code to show share network neutron\_net\_id
+* Added test test\_create\_snapshot\_over\_quota\_limit
+* Pre-existing metadata items, set new share metadata
+* Client support force extend share with v2.64
+* Add stable/xena job and drop stable/ussuri job
+* Remove all usage of six library
+* Add enforce\_scope config option for Manila
+* Add unstable tag on some replication tests
+* Fix check to server migration complete test
+
+1.6.0
+-----
+
+* Add tests for scheduler hints of share create
+* Add extra check to server migration complete test
+* Add run tests as thin provisioning
+* Modify share server migration tests
+* Use local variable instead of instance variable
+* [CI] Temporarily disable IPv6 scenario tests
+* Fix tests creating share without using share\_size
+* Fix parsing of share group type json
+* Enable http response extraction
+
+1.5.0
+-----
+
+* Add testcase for share metadata
+* Add stable branch jobs on the plugins master gate
+* Fix class inheritances in base.py
+* Add a validation check that the share has been deleted
+* Setup snapshot extra specs only if required
+* Fix API version test skip logic
+* [ci] Don't install manila-tempest-plugin system-wide
+* setup.cfg: Replace dashes with underscores
+* Fix CephFS snapshot cloning scenario test
+* Reorganize scenario tests
+
+1.4.0
+-----
+
+* Add create share from snapshot in CephFS
+* Added test\_create\_access\_rule\_cephx\_admin\_user testcase
+* Harden manage negative tests
+* Add tests for share size limited by share type
+* Move share server creation check under admin test suite
+* Add "member" role to admin project member users
+* Refactor public share test cases
+* Remove a duplicated skipped functions
+* Consolidate waiters methods
+* Fix extra specs for share type
+* tox miniversion update to 3.1.1
+* Removing an unnecessary 'BaseSharesAltTest' class
+* [Negative] Get share from other project
+* Fixed a sporadic failure in test\_delete\_share\_in\_manage\_error
+* Fix 'ss-type' conflicts in security service tests
+* Enable running multi-backends tests with different share protocols
+* Remove further randomness when calling ddt.data()
+* Moving resource waiters to a new module
+* Moving skip conditions under skip\_check classmethod
+* Fix test tag
+* [CI] Switch cephfs-nfs job to focal fossa
+* Tests: reduce concurrency for cephfs-nfs job
+* Add doc/requirements
+
+1.3.0
+-----
+
+* Update TOX\_CONSTRAINTS\_FILE
+* Adds get default share type function
+* [ci] Switch glusterfs-nfs job to focal fossa
+* [ci] Switch lvm driver job to focal fossa
+* [ci] Switch generic driver job to focal fossa
+* [ci] Switch zfsonlinux job to focal fossa
+* Use the same access rule for both instances
+* [ci] Copy ganesha logs in the ceph-nfs job
+* Preserve the items order when calling ddt.data()
+
+1.2.0
+-----
+
+* Keep few integration jobs running on Bionic
+* Fix export location sent to manage share operation
+* Fix share server migration tests
+* Don't ignore invalid export location ip version
+* Increase CephFS backing file size
+* [Negative] Create share with non allowed share type
+* Add tests for share server migration
+* Remove unused "\_ping\_host\_from\_export\_location" method
+* Add uuid for tests
+* Ping to export location until it is reachable
+* Add share resize scenario tests for CephFS Native
+* Revert CephFS test image to Bionic Beaver
+* SSH over IPv4 when using a storage network
+* Remove experimental flag from share replication feature
+* Fix skip condition for "test\_default\_share\_group\_type\_applied"
+* Add flake8-import-order extension to tox.ini
+* Ensure share server is created when driver handles share servers
+* Fixed InvalidConfiguration() exception to print correct message
+* Zuulv3 native "standalone" GlusterFS native, NFS jobs
+
+1.1.0
+-----
+
+* Verify applying a new cephx rule after a previous failure
+* [ci] Re-enable scenario tests in the LVM job
+* Add Zuulv3 native jobs for the dummy driver
+* Fix ReplicaQuotasNegativeTest
+* Fix usage of tenant\_id in tests
+* Add native zuulv3 job for cephfs nfs
+* Enable snapshot tests in the CephFS job
+* [ci] Temporarily disable scenario tests
+* Seek network resources from tempest
+* Add security service to share networks
+* Stop forcing creation of "isolated" credentials
+* [ci] Use dynamic credential provider in DHSS=False tests
+* Skip snapshot cloning if there is no capability
+* Add CephFS Native scenario tests
+* Preparation for support scenario tests on CephFS Native
+* Add native zuulv3 job for cephfs native
+* Add py38 package metadata
+* Cleanup access rule test skip conditions
+* [Negative] Test different tenants cannot use same cephx id
+* Zuulv3 generic driver testing
+* Fix hacking min version to 3.0.1
+* Test different users in same tenant can use same cephx id
+* Fix pep8 issues
+* Fix dict.values usage
+* Skip multi availability zones test when there is a single az
+* Add native zuulv3 job for container
+* Add native zuulv3 job for lvm
+* TrivialFix: Remove unnecessary import
+* Add native zuulv3 job for zfsonlinux
+* Rename "\_get\_ip\_server\_ip" method to "\_get\_server\_ip"
+* Specifies the appropriate ip address in case of multi-networking
+
+1.0.0
+-----
+
+* Update shrink scenario tests
+* Functional tests for create share from snapshot different pools/azs
+* Removing duplicated availability zones from tests
+* [ussuri][goal] Add CONTRIBUTING.rst
+* Fix floatingip allocation
+* Update docs building
+* Drop install\_command usage in tox
+* Remove experimental flag from share groups feature
+* Remove deprecated scenario image options
+* Fix failing quota tests in stable branches
+* Fix ipv6 skip condition
+* Fix export location used for extend/shrink tests
+* Move skipping conditions under skip\_checks method
+* Tighten asserts around time filters
+* Update share quota functional tests
+* Add function to test user messages query by timestamp
+* Fix export location negative tests
+* Fix hacking test requirement
+* Update hacking for Python3
+* Refactoring skip conditions process
+* Add knowledge of storage network to scenario tests
+* Fix export locations tests
+* Fix link to bug tracker
+* Move all conditions skipped under "skip\_checks" method
+* Fix resources cleanup
+* Use a single keypair for multiple instances
+* [ussuri][goal] Drop python2.7 support
+
+0.4.1
+-----
+
+* Skip subnets test when version 2.51 is not supported
+* Skip update share type tests for microversion lower than 2.50
+* Update subnet test to not use pre-created share network
+* Update the constraints url
+
+0.4.0
+-----
+
+* Adds new functional tests for share-network-subnets
+* Add update share type functional tests
+* Enable share-replica tests in multitenancy enviroments
+* Validate share quota after updating
+* Disable 'project\_id' validation on test\_share\_servers
+* Comment test tags
+* [Negative] Create share over quota limit
+* Increase export IP ping count
+
+0.3.0
+-----
+
+* Look for api microversion header in "Vary" header data
+* Cast block count to integer
+* Cast block count to integer in test\_create\_shrink\_and\_write
+* Skip read-only test for CIFS
+* Clarify help text of network options
+* Fix CIFS access for non-multitenant setup
+* Scenario test: Create/extend share and write data
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Scenario test: Create/shrink share and write data
+* Add devstack plugin to ease integration tests
+* Use setup\_clients classmethod for clients initialization
+
+0.2.0
+-----
+
+* Delete servers before deleting its share network
+* Verify request ID in all manila responses
+* Add functional tests for manage/unmanage of shares in DHSS=True
+* Temporarily disable test\_manage\_invalid
+* Fix microversion request URL
+* Add tests for share type availability\_zones extra-spec
+* Add tests for export location changes in APIv 2.47
+* Scenario test: Create/manage share and write data
+* Fix availability zones tests
+* Migrate CentOS jobs to ubuntu bionic beaver
+* Fix access-rule filter for python3
+* Extend testing for reset state operation
+* Py3: Use urlopen from six.moves.urllib.request
+* Remove glusterfs-nfs job
+* Change openstack-dev to openstack-discuss
+* Add skip\_checks classmethod
+* [Trivial Fix] update home-page url
+* fix tox python3 overrides
+* Fixes test skips in 7c56035bb68d16b52b73de17b61c3bb08e18fe82
+* import zuul job settings from project-config
+
+0.1.0
+-----
+
+* Create a generic share type (api tests)
+* Test is\_default for share type and share group type
+* Skip access metadata tests at unsupported versions
+* s/share\_net/share\_network in scenario tests
+* Add tempest test for share access metadata
+* Skip tests for unsupported micro-versions
+* Fix erroneous test labels in quota tests
+* Add line for PyCharm IDE in gitignore file
+* Move shared logic to base scenario test class
+* Added test for Limit formatting routes when adding resources
+* Add ou to security service tests
+* Revert "After tempest network resource do not be cleared"
+* Update the documentation and release notes links
+* Fix tabs in api/base
+* Remove volume client and usage in scenario tests
+* Test access control for single host addresses
+* Replace http with https for doc links
+* [scenario] Add test case to check for RO access
+* Add a method to download and create a CentOS 7 image
+* After tempest network resource do not be cleared
+* After run manila tempest the share network residue
+* Updated from global requirements
+* Updated from global requirements
+* Allow IPv6 Share Migration tests
+* fix error url
+* Zuul: Remove project name
+* Add IPv6 support to scenario tests
+* Updated from global requirements
+* Remove the max api microversion assertion
+* Moves test\_security\_services and test\_share\_networks tests
+* Moves test\_shares\_actions.py test from manila repo
+* Add .zuul.yaml with Tempest jobs
+* Remove usage of deprecated config 'resources\_prefix'
+* Add new tests to keep repo up to date
+* Initial fixes to plugin repo
+* Apply cookiecutter to newly split project
+* tempest: remove call to set\_network\_resources()
+* [Tempest] Fix tests for pre-existing share network
+* Enable some off-by-default checks
+* Fix cannot deny ipv6 access rules
+* [Trivialfix]Fix typos
+* Use tempest-plugin service client registration
+* Add share groups and share group snapshots quotas
+* Update location of dynamic creds in tempest tests
+* Provide filter name in user messages
+* Fix the exact filter can be filter by inexact value
+* Add quotas per share type
+* Replace test.attr with decorators.attr
+* Enable IPv6 in manila(allow access)
+* User Messages
+* Add like filter
+* Add export-location filter in share and share instance list API
+* Replace the usage of 'admin\_manager' with 'os\_admin'
+* Replace the usage of 'manager' with 'os\_primary'
+* Use parenthesis instead of backslashes in tempest folder
+* Replace assertEqual([], items) with assertEmpty(items)
+* [Share Groups] Add two new fields to SG API object
+* [Share Groups] Fix creation of share group types with wrong specs values
+* [Share groups] Add scheduler filter ConsistentSnapshotFilter
+* Refactor share instances tempest test
+* Change to share access list API
+* Add read-only tests for cephx access rules
+* change user access name limit from 32 to 255 characters
+* Switch to use stable data\_utils
+* Local copy of scenario test base class
+* [Tempest] Fix concurrency in test with listing share servers
+* Remove redundant revert-to-snapshot test option
+* Only return share host for admins using shares API
+* Fix to use correct config options for network\_for\_ssh
+* [Tempest] Refactor api/tests/admin/test\_share\_servers module
+* Update tempest pin to latest commit ref
+* [Tempest] Split up share migration tests to separate classes
+* Use more specific asserts in tests
+* Optimize opposite driver modes migration test
+* Improve test coverage for share migration
+* Fix wrong access-rule negative test
+* Add access-rules tests to improve the coverage
+* Fix creation of share group types using share type names
+* Improve share migration scenario test validation
+* Mountable snapshots scenario tests
+* Add mountable snapshots support
+* NetApp: Support share revert to snapshot
+* [Tempest] Add functional tests for share groups feature
+* Manila Share Groups
+* Add cast\_rules\_to\_readonly to share instances
+* Share Migration Ocata Improvements
+* Refactor Access Rules APIs
+* Implement share revert to snapshot
+* Remove NovaNetworkPlugin
+* [TrivialFix] Add negative test in quota detail
+* Add MapR-FS native driver
+* Allow skipping manila tempest tests
+* Add the ability to check the tenant quota in detail
+* Add create\_share\_from\_snapshot\_support extra spec
+* [TrivialFix] Move share type filter tempest to test\_scheduler\_stats.py
+* Enable scenario tests for LVM and ZFSonLinux drivers
+* [Tempest] Add scenario test creating share from snapshot
+* Fix undefined attribute in scenario test class
+* Replace six.iteritems() with .items()
+* Add share\_type filter support to pool\_list
+* [Tempest] Fix concurrency issue in scenario test
+* Add support for manage/unmanage snapshots in HNAS driver
+* [Tempest] Make share size configurable in scenario tests
+* [Tempest] Port remote\_client into Manila
+* Fix share manage tempest test cleanup
+* [Tempest] Fix visibility of test\_quotas.py module
+* Stop adding ServiceAvailable group option
+* Remove tempest.test usage from manila tests
+* Use assert(Not)In/Greater(Equal)/LessEqual/IsNotNone
+* [TrivialFix] Correct file mode settings
+* Add tempest tests for mtu and gateway fields
+* Modify use of assertTrue(A in B)
+* Improve Share Migration tempest tests
+* share-size not set to 1 with 'manage\_error' state
+* Add share type change to Share Migration
+* Share migration Newton improvements
+* Correct reraising of exception
+* Change assertTrue(isinstance()) by optimal assert
+* Fix Share Migration improper behavior for drivers
+* Fix test bugs for replication CI
+* Implement replication support in huawei driver
+* add access\_key to share\_access\_map
+* manila\_tempest\_tests: fix exception messages
+* Add MTU information in DB and API
+* cephfs\_native: add read-only share support
+* Fix share migration test with snapshot support
+* [Tempest] Fix concurrency in "test\_show\_share\_server" test
+* Fix race condition in tempest test
+* Add snapshot instances admin APIs
+* TrivialFix: Fix a wrong order bug in resource\_cleanup()
+* Add dummy driver
+* [Tempest] Handle errored shares correctly using recreation logic
+* [Tempest] Create heavy scenario resources in parallel
+* Update tempest to newer commit version
+* Delete duplicated broken tempest test
+* Fix snapshot manage Tempest test
+* Add gateway in network\_info and share network API
+* Add share\_size config option
+* Add user\_id and project\_id to snapshot APIs
+* [Tempest] Fix negative replication test
+* [Tempest] Remove noqa filters
+* [Tempest] Bump tempest version
+* [Tempest] Stop using deprecated Tempest opts
+* [Tempest] Add valuable tags to tests
+* Add user\_id echo in manila show/create/manage API
+* Bump Tempest version
+* Fix share server info in CGs created from CGs
+* Skip over quota tests if quota tests disabled
+* Fix tempest.conf generation
+* Fix microversion usage in share manage functional tests
+* Handle manage/unmanage for replicated shares
+* Remove unused tenant\_id variable
+* [Fix CI] Bump Tempest version
+* Fix manage tempest test validation
+* Fix Manage API synchronous call
+* Add tests to ensure snapshots across replicas
+* Fix manage API ignoring type extra specs
+* Fix typos
+* Check share-network in 'share create' API
+* Add tempest tests for Share Replication
+* Fix compatibility with Tempest
+* Move Share Migration code to Data Service
+* Update tempest commit and switch to tempest.lib
+* Update export location retrieval APIs
+* Add Ceph Native driver
+* Implement admin network in generic driver
+* Remove aggressive assert from share server test
+* Fix scenario tests
+* Make consistency group timeout exception message more robust
+* Manage and unmanage snapshot
+* Add possibility to skip quota tests in Tempest
+* Add space to message in manila\_tempest\_tests/tests/api/test\_shares.py
+* Fix tempest test for export locations API
+* Share Replication API and Scheduler Support
+* Fix scheduling with instance properties
+* Add update\_access() method to driver interface
+* tempest: wait for deletion of cert rule
+* Bump tempest version
+* Fix params order in assertEqual
+* Return appropriate data on share create
+* Fix release of resources created by Tempest
+* Fix access rules tempest v2 client
+* Implement export location metadata feature
+* Clean up removed hacking rule from [flake8] ignore lists
+* Fix Manila tempest tests
+* Fix 'extend' API for 2.7+ microversions
+* Delete Share Instance of unmanaged share
+* A tempest test in services API using unsafe assert
+* Replace deprecated [logger/LOG].warn with warning
+* Fix tempest case "test\_delete\_ss\_from\_sn\_used\_by\_share\_server"
+* Change assertTrue(isinstance()) by optimal assert
+* Keep py3.X compatibility for urllib
+* Improve tempest tests for shares listing APIs
+* Remove duplicate keys from dictionary
+* Fix Tempest microversion comparison approach
+* Do not allow to modify access for public share type
+* Allow to set share visibility using "manage" API
+* [CI] Speed up Tempest jobs
+* Change manila\_tempest\_tests to use credentials\_factory
+* Add new URLs for APIs ported from extensions
+* Improve Tempest tests for consistency groups
+* Port admin actions extension to core API
+* remove default=None for config options
+* Sync Manila Tempest plugin with latest Tempest
+* Port availability zones to core API
+* Port used limits to core API
+* Fix list-availability-zones API for PostgreSQL
+* Stop using deprecated tempest options
+* Fix setting of "snapshot\_support" extra spec for tempest
+* Fix response data for API access-allow
+* Fix response data for API access-allow
+* Use random IPs in security service tests
+* Fix setting of "snapshot\_support" extra spec for tempest
+* Fix experimental=True for view in microversion 2.5
+* Fix pool\_list filter tests to match pools exactly
+* Non-admin user can perform 'extra-specs-list'
+* Add 'snapshot\_support' attr to share details
+* Fix task\_state field shown on API < 2.5
+* Return share\_type UUID instead of name in Share API
+* Make scenario tests able to run with DHSS=False
+* Fix Share Migration tempest tests
+* Missing check in ShareManager::manage\_existing()
+* Add v2 Manila API path as base for microversions
+* Fix concurrency issue in tempest test
+* Replaces xrange() with range() for py 2/3 compatibility
+* Fix keypair creation
+* Add functional tests for Manila consistency groups
+* Place tempest microversions test module in proper place
+* Add Share Migration tempest functional tests
+* Add Consistency Groups API
+* Use Tempest plugin interface

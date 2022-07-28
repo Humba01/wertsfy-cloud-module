@@ -1,0 +1,44 @@
+heat_template_version: 2013-05-23
+
+description: >
+  Template for deploying servers based on policies.
+
+parameters: {}
+resources:
+  asg_group:
+    type: OS::Heat::AutoScalingGroup
+    properties:
+      min_size: 2
+      desired_capacity: 3
+      cooldown: 60
+      resource:
+        type: asg_res.yaml
+      max_size: 10
+  asg_scale_out:
+    type: OS::Heat::ScalingPolicy
+    properties:
+      auto_scaling_group_id:
+        get_resource: asg_group
+      adjustment_type: change_in_capacity
+      scaling_adjustment: 1
+      cooldown: 60
+  asg_scale_in:
+    type: OS::Heat::ScalingPolicy
+    properties:
+      auto_scaling_group_id:
+        get_resource: asg_group
+      adjustment_type: change_in_capacity
+      scaling_adjustment: -1
+      cooldown: 60
+  high_cpu_usage:
+    type: OS::Aodh::GnocchiAggregationByResourcesAlarm
+    properties:
+      metric: cpu_util
+      description: utilization greater_than 60%
+      evaluation_periods: 1
+      granularity: 600
+      aggregation_method: mean
+      threshold: 60
+      resource_type: instance
+      comparison_operator: gt
+outputs: {}

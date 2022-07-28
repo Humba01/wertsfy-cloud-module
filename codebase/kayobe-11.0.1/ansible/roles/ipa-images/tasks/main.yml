@@ -1,0 +1,124 @@
+---
+- name: Ensure image download directory exists
+  file:
+    path: "{{ ipa_images_cache_path }}"
+    state: directory
+    owner: "{{ ansible_facts.user_uid }}"
+    group: "{{ ansible_facts.user_gid }}"
+  become: True
+
+- name: Ensure Ironic Python Agent (IPA) images are present
+  vars:
+    image_download_url: "{{ item.url }}"
+    image_download_checksum_url: "{{ item.checksum_url }}"
+    image_download_checksum_algorithm: "{{ item.checksum_algorithm }}"
+    image_download_dest: "{{ item.dest }}"
+  include_role:
+    name: image-download
+  with_items:
+    - url: "{{ ipa_images_kernel_url }}"
+      checksum_url: "{{ ipa_images_kernel_checksum_url }}"
+      checksum_algorithm: "{{ ipa_images_kernel_checksum_algorithm }}"
+      dest: "{{ ipa_images_cache_path }}/{{ ipa_images_kernel_name }}"
+    - url: "{{ ipa_images_ramdisk_url }}"
+      checksum_url: "{{ ipa_images_ramdisk_checksum_url }}"
+      checksum_algorithm: "{{ ipa_images_ramdisk_checksum_algorithm }}"
+      dest: "{{ ipa_images_cache_path }}/{{ ipa_images_ramdisk_name }}"
+  when: item.url is not none
+  loop_control:
+    label: "{{ item.dest }}"
+
+- name: Compute the MD5 checksum of the Ironic Python Agent (IPA) images
+  stat:
+    path: "{{ ipa_images_cache_path }}/{{ item }}"
+    get_checksum: True
+    checksum_algorithm: md5
+    mime: False
+  with_items:
+    - "{{ ipa_images_kernel_name }}"
+    - "{{ ipa_images_ramdisk_name }}"
+  register: ipa_images_checksum
+
+- name: Fail if an image does not exist
+  fail:
+    msg: "{{ item.path }} does not exist"
+  with_items:
+    - path: "{{ ipa_images_cache_path }}/{{ ipa_images_kernel_name }}"
+      exists: "{{ ipa_images_checksum.results[0].stat.exists | bool }}"
+    - path: "{{ ipa_images_cache_path }}/{{ ipa_images_ramdisk_name }}"
+      exists: "{{ ipa_images_checksum.results[1].stat.exists | bool }}"
+  when:
+    - not item.exists
+
+- name: Ensure we have python-ironicclient installed
+  pip:
+    name: python-ironicclient
+    state: latest
+    virtualenv: "{{ ipa_images_venv }}"
+    extra_args: "{% if ipa_images_upper_constraints_file %}-c {{ ipa_images_upper_constraints_file }}{% endif %}"
+
+# To support updating the IPA image, we check the MD5 sum of the cached image
+# files, and compare with the images in Glance (if there are any).
+
+- block:
+    - name: Gather facts about Ironic Python Agent (IPA) kernel image
+      os_image_info:
+        auth_type: "{{ ipa_images_openstack_auth_type }}"
+        auth: "{{ ipa_images_openstack_auth }}"
+        cacert: "{{ ipa_images_openstack_cacert | default(omit, true) }}"
+        interface: "{{ ipa_images_openstack_interface | default(omit, true) }}"
+        image: "{{ ipa_images_kernel_name }}"
+      register: ipa_images_kernel
+
+    - name: Gather facts about Ironic Python Agent (IPA) ramdisk image
+      os_image_info:
+        auth_type: "{{ ipa_images_openstack_auth_type }}"
+        auth: "{{ ipa_images_openstack_auth }}"
+        cacert: "{{ ipa_images_openstack_cacert | default(omit, true) }}"
+        interface: "{{ ipa_images_openstack_interface | default(omit, true) }}"
+        image: "{{ ipa_images_ramdisk_name }}"
+      register: ipa_images_ramdisk
+
+    # The os_image module will get confused if there are multiple images with the
+    # same name, so rename the old images. They will still be accessible via UUID.
+    - name: Ensure old Ironic Python Agent (IPA) images are renamed
+      command: >
+        {{ ipa_images_venv }}/bin/openstack image set {{ item.name }} --name {{ item.name }}.{{ extension }}
+      vars:
+        extension: "{{ item.created_at | replace(':', '-') }}~"
+      with_items:
+        - name: "{{ ipa_images_kernel_name }}"
+          created_at: "{{ ipa_images_kernel.openstack_image.created_at | default }}"
+          checksum: "{{ ipa_images_checksum.results[0].stat.checksum }}"
+          glance_checksum: "{{ ipa_images_kernel.openstack_image.checksum | default }}"
+        - name: "{{ ipa_images_ramdisk_name }}"
+          created_at: "{{ ipa_images_ramdisk.openstack_image.created_at | default }}"
+          checksum: "{{ ipa_images_checksum.results[1].stat.checksum }}"
+          glance_checksum: "{{ ipa_images_ramdisk.openstack_image.checksum | default }}"
+      when:
+        - item.glance_checksum
+        - item.checksum != item.glance_checksum
+      environment: "{{ ipa_images_openstack_auth_env }}"
+
+    - name: Ensure Ironic Python Agent (IPA) images are registered with Glance
+      os_image:
+        auth_type: "{{ ipa_images_openstack_auth_type }}"
+        auth: "{{ ipa_images_openstack_auth }}"
+        cacert: "{{ ipa_images_openstack_cacert | default(omit, true) }}"
+        interface: "{{ ipa_images_openstack_interface | default(omit, true) }}"
+        name: "{{ item.name }}"
+        container_format: "{{ item.format }}"
+        disk_format: "{{ item.format }}"
+        state: present
+        filename: "{{ ipa_images_cache_path }}/{{ item.name }}"
+      with_items:
+        - name: "{{ ipa_images_kernel_name }}"
+          format: aki
+        - name: "{{ ipa_images_ramdisk_name }}"
+          format: ari
+      register: ipa_images_new_images
+
+    - include_tasks: set-driver-info.yml
+      when: ipa_images_update_ironic_nodes | bool
+  vars:
+    ansible_python_interpreter: "{{ ipa_images_venv }}/bin/python"

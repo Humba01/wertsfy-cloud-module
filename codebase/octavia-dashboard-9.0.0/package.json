@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "private": true,
+  "name": "octavia-dashboard",
+  "description": "Octavia Dashboard",
+  "homepage": "https://docs.openstack.org/octavia-dashboard/latest/",
+  "keywords": [
+    "OpenStack",
+    "octavia",
+    "octavia-dashboard",
+    "load-balancer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://opendev.org/openstack/octavia-dashboard"
+  },
+  "bugs": "https://storyboard.openstack.org/#!/project/909",
+  "license": "Apache 2.0",
+  "devDependencies": {
+    "eslint": "1.10.3",
+    "eslint-config-openstack": "1.2.4",
+    "eslint-plugin-angular": "1.0.1",
+    "jasmine-core": "2.4.1",
+    "karma": "1.1.2",
+    "karma-chrome-launcher": "1.0.1",
+    "karma-cli": "1.0.1",
+    "karma-coverage": "1.1.1",
+    "karma-jasmine": "1.0.2",
+    "karma-ng-html2js-preprocessor": "1.0.0",
+    "karma-phantomjs-launcher": "1.0.4",
+    "karma-threshold-reporter": "0.1.15",
+    "phantomjs-prebuilt": "2.1.14"
+  },
+  "scripts": {
+    "postinstall": "octavia_dashboard/post_install.sh",
+    "test": "karma start octavia_dashboard/karma.conf.js --single-run",
+    "lint": "eslint --no-color octavia_dashboard/static"
+  },
+  "dependencies": {}
+}

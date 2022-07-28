@@ -1,0 +1,81 @@
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+- name: "Fail if credential-less deploy is misconfigured"
+  fail:
+    msg: enable_credential_less_deploy requires fast_track and the "manual-management" hardware type
+  when:
+    - enable_credential_less_deploy | bool
+    - (not fast_track | bool or 'manual-management' not in enabled_hardware_types)
+
+- name: "Configure BIOS interfaces if required"
+  set_fact:
+    enabled_bios_interfaces: >-
+      no-bios
+      {%- if "idrac" in enabled_hardware_types -%},idrac-redfish{%- endif -%}
+      {%- if "ilo" in enabled_hardware_types -%},ilo{%- endif -%}
+      {%- if "redfish" in enabled_hardware_types -%},redfish{%- endif -%}
+  when: not enabled_bios_interfaces
+
+- name: "Configure boot interfaces if required"
+  set_fact:
+    enabled_boot_interfaces: >-
+      ipxe,pxe
+      {%- if "idrac" in enabled_hardware_types -%},idrac-redfish-virtual-media{%- endif -%}
+      {%- if "ilo" in enabled_hardware_types -%},ilo-virtual-media{%- endif -%}
+      {%- if "redfish" in enabled_hardware_types -%},redfish-virtual-media{%- endif -%}
+      {%- if "fake-hardware" in enabled_hardware_types -%},fake{%- endif -%}
+  when: not enabled_boot_interfaces
+
+- name: "Configure management interfaces if required"
+  set_fact:
+    enabled_management_interfaces: >-
+      noop
+      {%- if "idrac" in enabled_hardware_types -%},idrac-redfish{%- endif -%}
+      {%- if "ilo" in enabled_hardware_types -%},ilo{%- endif -%}
+      {%- if "ilo5" in enabled_hardware_types -%},ilo5{%- endif -%}
+      {%- if "ipmi" in enabled_hardware_types -%},ipmitool{%- endif -%}
+      {%- if "redfish" in enabled_hardware_types -%},redfish{%- endif -%}
+      {%- if "fake-hardware" in enabled_hardware_types -%},fake{%- endif -%}
+  when: not enabled_management_interfaces
+
+- name: "Configure power interfaces if required"
+  set_fact:
+    enabled_power_interfaces: >-
+      fake
+      {%- if "idrac" in enabled_hardware_types -%},idrac-redfish{%- endif -%}
+      {%- if "ilo" in enabled_hardware_types -%},ilo{%- endif -%}
+      {%- if "ipmi" in enabled_hardware_types -%},ipmitool{%- endif -%}
+      {%- if "redfish" in enabled_hardware_types -%},redfish{%- endif -%}
+      {%- if enable_credential_less_deploy|bool -%},agent{%- endif -%}
+      {%- if "staging-wol" in enabled_hardware_types -%},staging-wol{%- endif -%}
+  when: not enabled_power_interfaces
+
+- name: "Configure raid interfaces if required"
+  set_fact:
+    enabled_raid_interfaces: >-
+      no-raid,agent
+      {%- if "idrac" in enabled_hardware_types -%},idrac-redfish{%- endif -%}
+      {%- if "ilo5" in enabled_hardware_types -%},ilo5{%- endif -%}
+      {%- if "redfish" in enabled_hardware_types -%},redfish{%- endif -%}
+  when: not enabled_raid_interfaces
+
+- name: "Configure vendor interfaces if required"
+  set_fact:
+    enabled_vendor_interfaces: >-
+      no-vendor
+      {%- if "idrac" in enabled_hardware_types -%},idrac-redfish{%- endif -%}
+      {%- if "ilo" in enabled_hardware_types -%},ilo{%- endif -%}
+      {%- if "ipmi" in enabled_hardware_types -%},ipmitool{%- endif -%}
+      {%- if "redfish" in enabled_hardware_types -%},redfish{%- endif -%}
+  when: not enabled_vendor_interfaces

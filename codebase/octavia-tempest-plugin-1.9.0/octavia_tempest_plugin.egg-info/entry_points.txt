@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+octavia-tempest-plugin = octavia_tempest_plugin.plugin:OctaviaTempestPlugin
+

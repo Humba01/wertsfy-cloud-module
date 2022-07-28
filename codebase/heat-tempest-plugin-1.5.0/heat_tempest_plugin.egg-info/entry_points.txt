@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+heat = heat_tempest_plugin.plugin:HeatTempestPlugin
+

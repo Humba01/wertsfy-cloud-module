@@ -1,0 +1,9 @@
+---
+- name: Ensure sysctl parameters are configured
+  hosts: seed:seed-hypervisor:overcloud:infra-vms
+  tags:
+    - sysctl
+  roles:
+    - role: sysctl
+      sysctl_file: "/etc/sysctl.d/kayobe.conf"
+      sysctl_set: "yes"

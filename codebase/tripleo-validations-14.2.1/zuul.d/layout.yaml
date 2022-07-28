@@ -1,0 +1,43 @@
+---
+- project:
+    templates:
+      - tripleo-validations-molecule-jobs
+      - release-notes-jobs-python3
+      - check-requirements
+    check:
+      jobs:
+        - openstack-tox-linters: &tripleo-linters
+            nodeset: centos-8
+        - openstack-tox-docs: &tripleo-docs
+            files:
+              - ^doc/.*
+              - ^groups.yaml
+              - ^molecule-requirements.txt
+              - ^requirements.txt
+              - ^README.rst
+        - tripleo-ci-centos-8-content-provider:
+            dependencies:
+              - openstack-tox-linters
+        - tripleo-ci-centos-8-standalone-tv-validation:
+            vars: &consumer_vars
+              consumer_job: true
+              build_container_images: false
+              remove_tags:
+                - build
+            dependencies:
+              - tripleo-ci-centos-8-content-provider
+        - openstack-tox-py36
+    gate:
+      jobs:
+        - openstack-tox-linters
+        - openstack-tox-docs: *tripleo-docs
+        - tripleo-ci-centos-8-content-provider
+        - tripleo-ci-centos-8-standalone-tv-validation:
+            vars: *consumer_vars
+            dependencies:
+              - tripleo-ci-centos-8-content-provider
+        - openstack-tox-py36
+
+    promote:
+      jobs:
+        - promote-openstack-tox-docs: *tripleo-docs

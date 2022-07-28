@@ -1,0 +1,19 @@
+[console_scripts]
+placement-manage = placement.cmd.manage:main
+placement-status = placement.cmd.status:main
+
+[oslo.config.opts]
+placement.conf = placement.conf.opts:list_opts
+
+[oslo.config.opts.defaults]
+nova.conf = placement.conf.base:set_lib_defaults
+
+[oslo.policy.enforcer]
+placement = placement.policy:get_enforcer
+
+[oslo.policy.policies]
+placement = placement.policies:list_rules
+
+[wsgi_scripts]
+placement-api = placement.wsgi:init_application
+

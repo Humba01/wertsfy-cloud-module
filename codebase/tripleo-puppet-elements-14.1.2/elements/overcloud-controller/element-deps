@@ -1,0 +1,4 @@
+package-installs
+pkg-map
+overcloud-base
+overcloud-openstack-clients

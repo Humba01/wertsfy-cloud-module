@@ -1,0 +1,28 @@
+FROM {{ namespace }}/{{ infra_image_prefix }}base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block keepalived_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{% if base_package_type == 'rpm' %}
+    {% set keepalived_packages = [
+        'hostname',
+        'keepalived'
+    ] %}
+{% elif base_package_type == 'deb' %}
+    {% set keepalived_packages = [
+        'keepalived'
+    ] %}
+{% endif %}
+{{ macros.install_packages(keepalived_packages | customizable("packages")) }}
+
+COPY check_alive.sh /
+
+COPY extend_start.sh /usr/local/bin/kolla_extend_start
+RUN chmod 755 /usr/local/bin/kolla_extend_start /check_alive.sh
+
+{% block keepalived_footer %}{% endblock %}
+{% block footer %}{% endblock %}

@@ -1,0 +1,28 @@
+---
+# Copyright 2021 Red Hat, Inc.
+# All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+
+
+# All variables intended for modification should place placed in this file.
+
+# All variables within this role should have a prefix of "validation_init"
+validation_init_debug: false
+validation_init_prefix: "tripleo"
+validation_init_skeleton_role_dir: "/tmp"
+validation_init_roles_dir: "roles"
+validation_init_zuuld_molecule: "zuul.d/molecule.yaml"
+validation_init_playbooks_dir: "playbooks"
+validation_init_roles_doc_dir: "doc/source/roles"
+validation_init_enabling_ci: true

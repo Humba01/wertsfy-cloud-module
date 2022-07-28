@@ -1,0 +1,168 @@
+# Copyright (c) 2015 Hewlett-Packard Development Company, L.P.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+# TODO(TheJulia): The pxelinux folder is statically coded in ironic.
+# For now, we need to use it, but we can patch that.
+- name: "Set up PXE folders"
+  file:
+    name: "{{ item }}"
+    owner: ironic
+    group: ironic
+    state: directory
+    # FIXME(dtantsur): dnsmasq cannot work if the files are not world readable
+    # or owned by it, I don't understand why.
+    mode: 0755
+  loop:
+    - "{{ tftp_boot_folder }}"
+    - "{{ tftp_boot_folder }}/pxelinux.cfg"
+
+- name: "Set up HTTP folders"
+  file:
+    name: "{{ item }}"
+    owner: ironic
+    group: ironic
+    state: directory
+    mode: "{{ boot_folder_permissions }}"
+  loop:
+    - "{{ http_boot_folder }}"
+    - "{{ http_boot_folder }}/pxelinux.cfg"
+
+- name: "Disable service {{ tftp_service_name }}"
+  service: name="{{ tftp_service_name }}" state=stopped enabled=no
+  ignore_errors: yes
+
+# NOTE(dtantsur): the code to remove boot.ipxe can be removed after Yoga
+- name: Remove the stale boot.ipxe
+  file:
+    path: /etc/ironic/boot.ipxe
+    state: absent
+
+# NOTE(dtantsur): the code to migrate from xinetd can be removed after Xena
+
+- name: "Find xinetd TFTP service configs"
+  find:
+    paths:
+    - /etc/xinetd.d
+    patterns:
+    - "tftp*"
+    follow: yes
+  register: xinetd_tftp_services
+
+- name: "Disable xinetd TFTP service"
+  lineinfile:
+    path: "{{ item }}"
+    line: '  disable         = yes'
+    regexp: '^\s*disable\s*='
+    insertafter: '^{$'
+  loop: "{{ xinetd_tftp_services.files | map(attribute='path') | list }}"
+  register: xinetd_tftp_disable
+  when: xinetd_tftp_services.matched > 0
+
+- name: "Restart xinetd"
+  service:
+    name: xinetd
+    state: restarted
+  when: xinetd_tftp_services.matched > 0
+        and xinetd_tftp_disable is changed
+
+- name: "Download ipxe files if asked"
+  include: get_ipxe.yml
+  when: download_ipxe | bool
+
+- name: "Copy iPXE image into place"
+  copy:
+    src: "{{ ipxe_dir }}/undionly.kpxe"
+    dest: "{{ tftp_boot_folder }}"
+    owner: ironic
+    group: ironic
+    mode: 0644
+    remote_src: true
+
+# NOTE(TheJulia): Copy full iPXE chain loader images in case they are required.
+- name: "Copy full iPXE image into {{ http_boot_folder }}/"
+  copy:
+    src: "{{ ipxe_dir }}/{{ ipxe_full_binary }}"
+    dest: "{{ http_boot_folder }}/"
+    owner: ironic
+    group: ironic
+    mode: 0644
+    remote_src: true
+
+- name: "Copy full iPXE image into /tftpboot"
+  copy:
+    src: "{{ ipxe_dir }}/{{ ipxe_full_binary }}"
+    dest: "{{ tftp_boot_folder }}"
+    owner: ironic
+    group: ironic
+    mode: 0644
+    remote_src: true
+
+- name: "Set up iPXE for EFI booting"
+  block:
+    - name: "Check if the iPXE EFI image is present"
+      stat:
+        path: "{{ ipxe_dir }}/{{ ipxe_efi_binary }}"
+        get_md5: false
+      register: test_ipxe_efi_binary_path
+      ignore_errors: true
+
+    - name: "Abort if iPXE EFI image is missing"
+      fail:
+        msg: >
+          Aborting installation: The {{ ipxe_efi_binary }} image was not found
+          at the {{ ipxe_dir }} location.  Please place this file or consider
+          re-running with download_ipxe set to a value of true.
+      when:
+        - not test_ipxe_efi_binary_path.stat.exists
+
+    - name: "Copy iPXE EFI image into {{ http_boot_folder }}/"
+      copy:
+        src: "{{ ipxe_dir }}/{{ ipxe_efi_binary }}"
+        dest: "{{ http_boot_folder }}/"
+        owner: ironic
+        group: ironic
+        mode: 0644
+        remote_src: true
+
+    - name: "Copy iPXE EFI image into /tftpboot"
+      copy:
+        src: "{{ ipxe_dir }}/{{ ipxe_efi_binary }}"
+        dest: "{{ tftp_boot_folder }}"
+        owner: ironic
+        group: ironic
+        mode: 0644
+        remote_src: true
+
+  when: enable_uefi_ipxe | bool
+
+# Similar logic to below can be utilized to retrieve files
+- name: "Determine if folder exists, else create and populate folder."
+  stat: path="{{ ironic_tftp_master_path }}"
+  register: test_master_images
+
+- name: "Create master_images folder"
+  file: name="{{ ironic_tftp_master_path }}" state=directory owner=ironic group=ironic
+  when: not test_master_images.stat.exists
+
+# TODO(TheJulia): The pxelinux folder is statically coded in ironic.
+# For now, we need to use it, but we can patch that.
+- name: "Inspector - Place default tftp boot file in {{ http_boot_folder }}/pxelinux.cfg/"
+  template:
+    src: inspector-default-boot-ipxe.j2
+    dest: "{{ http_boot_folder }}/pxelinux.cfg/default"
+    owner: ironic
+    group: ironic
+    mode: 0644
+  when: enable_inspector | bool

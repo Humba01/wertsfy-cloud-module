@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+neutron_tests = neutron_tempest_plugin.plugin:NeutronTempestPlugin
+

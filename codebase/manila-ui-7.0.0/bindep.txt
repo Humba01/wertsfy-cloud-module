@@ -1,0 +1,17 @@
+# selenium tests
+firefox [selenium]
+xvfb [selenium platform:dpkg]
+# already part of xorg-x11-server on openSUSE
+xorg-x11-server-Xvfb [selenium platform:redhat]
+
+# Dependency for pdf document generation
+inkscape
+imagemagick [platform:dpkg]
+latexmk [platform:dpkg]
+texlive-xetex [platform:dpkg]
+texlive-fonts-recommended [platform:dpkg]
+texlive [platform:rpm]
+fonts-liberation [platform:dpkg]
+liberation-fonts [platform:rpm]
+librsvg2-bin [platform:dpkg]
+librsvg2 [platform:rpm]

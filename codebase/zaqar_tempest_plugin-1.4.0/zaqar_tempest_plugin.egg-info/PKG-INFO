@@ -1,0 +1,44 @@
+Metadata-Version: 1.1
+Name: zaqar-tempest-plugin
+Version: 1.4.0
+Summary: Tempest plugin zaqar_tempest_plugin
+Home-page: http://www.openstack.org/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ====================
+        Zaqar Tempest Plugin
+        ====================
+        
+        Tempest plugin for Zaqar project.
+        
+        It contains the tempest plugin for the functional testing of Zaqar Project.
+        
+        * Free software: Apache license
+        * Documentation: http://docs.openstack.org/developer/zaqar
+        * Source: http://git.openstack.org/cgit/openstack/zaqar-tempest-plugin
+        * Bugs: http://bugs.launchpad.net/zaqar
+        
+        Running the tests
+        -----------------
+        
+        To run all tests from this plugin, install zaqar, zaqar-tempest-plugin and
+        tempest into your environment, make sure to configure the tempest correctly,
+        and then from the tempest repo, run::
+        
+            $ tempest run --regex zaqar_tempest_plugin --config-file /etc/tempest/tempest.conf
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8

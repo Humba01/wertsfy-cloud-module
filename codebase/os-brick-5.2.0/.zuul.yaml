@@ -1,0 +1,74 @@
+- project:
+    templates:
+      - check-requirements
+      - lib-forward-testing-python3
+      - openstack-python3-yoga-jobs
+      - publish-openstack-docs-pti
+      - release-notes-jobs-python3
+    check:
+      jobs:
+        - os-brick-code-coverage:
+            voting: false
+        - os-brick-src-devstack-plugin-ceph:
+            voting: false
+        - os-brick-src-tempest-lvm-lio-barbican
+        - os-brick-src-tempest-nfs:
+            voting: false
+    gate:
+      jobs:
+        - os-brick-src-tempest-lvm-lio-barbican
+    experimental:
+      jobs:
+        - openstack-tox-pylint
+        - os-brick-mypy
+
+- job:
+    name: os-brick-code-coverage
+    parent: openstack-tox-cover
+    timeout: 2400
+    irrelevant-files: &non-code-files
+      - ^(test-|)requirements.txt$
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+      - ^tools/.*$
+
+- job:
+    name: os-brick-src-devstack-plugin-ceph
+    description: |
+      Tempest job which tests os-brick from source.
+      Former names for this job were:
+        * legacy-tempest-dsvm-full-ceph-plugin-src-os-brick
+    parent: cinder-plugin-ceph-tempest
+    required-projects:
+      - opendev.org/openstack/os-brick
+    irrelevant-files: &doc-files
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+
+- job:
+    name: os-brick-src-tempest-lvm-lio-barbican
+    parent: cinder-tempest-plugin-lvm-lio-barbican
+    description: |
+      Specialized cinder-tempest-lvm-lio-barbican
+      which runs against os-brick from sources.
+      Former names for this job were:
+        * legacy-tempest-dsvm-full-lio-src-os-brick
+    required-projects:
+      - opendev.org/openstack/os-brick
+    irrelevant-files: *doc-files
+
+- job:
+    name: os-brick-src-tempest-nfs
+    parent: devstack-plugin-nfs-tempest-full
+    required-projects:
+      - opendev.org/openstack/os-brick
+    irrelevant-files: *doc-files
+
+- job:
+    name: os-brick-mypy
+    parent: openstack-tox
+    vars:
+      tox_envlist: mypy
+    irrelevant-files: *non-code-files

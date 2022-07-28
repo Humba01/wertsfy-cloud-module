@@ -1,0 +1,61 @@
+---
+# Path to virtualenv in which to install openstacksdk and its dependencies.
+ipa_images_venv:
+
+# Upper constraints file for installation of python-ironicclient.
+ipa_images_upper_constraints_file:
+
+# Authentication type compatible with the 'os_image' Ansible module's
+# auth_type argument.
+ipa_images_openstack_auth_type:
+
+# Authentication parameters compatible with the 'os_image' Ansible module's
+# auth argument.
+ipa_images_openstack_auth: {}
+
+# Authentication parameters in environment variable form, as accepted by the
+# openstack client.
+ipa_images_openstack_auth_env: {}
+
+# CA certificate path.
+ipa_images_openstack_caert:
+
+# Interface (public, internal, admin).
+ipa_images_openstack_interface:
+
+# Path to directory in which to store downloaded images.
+ipa_images_cache_path:
+
+# Name of Ironic deployment kernel image to register in Glance.
+ipa_images_kernel_name:
+
+# URL of Ironic deployment kernel image to download. If unset, an existing
+# image in ipa_images_cache_path will be used.
+ipa_images_kernel_url:
+
+# URL of checksum of Ironic deployment kernel image.
+ipa_images_kernel_checksum_url:
+
+# Algorithm of checksum of Ironic deployment kernel image.
+ipa_images_kernel_checksum_algorithm:
+
+# Name of Ironic deployment ramdisk image to register in Glance.
+ipa_images_ramdisk_name:
+
+# URL of Ironic deployment ramdisk image to download. If unset, an existing
+# image in ipa_images_cache_path will be used.
+ipa_images_ramdisk_url:
+
+# URL of checksum of Ironic deployment ramdisk image.
+ipa_images_ramdisk_checksum_url:
+
+# Algorithm of checksum of Ironic deployment ramdisk image.
+ipa_images_ramdisk_checksum_algorithm:
+
+# Ansible host pattern for limiting which nodes are updated with deploy_ramdisk
+# and deploy_kernel properties
+ipa_images_compute_node_limit: baremetal-compute
+
+# Whether or not to update the deploy_ramdisk and deploy_kernel Ironic node
+# properties
+ipa_images_update_ironic_nodes: False

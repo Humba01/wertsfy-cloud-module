@@ -1,0 +1,62 @@
+fixtures:
+    - AuthenticationFixture
+
+defaults:
+  request_headers:
+    X-Auth-Token: $ENVIRON['OS_TOKEN']
+
+tests:
+- name: environment with parameter
+  desc: 8281d088-0c80-4071-a13d-333b309be6ca
+  POST: /stacks
+  request_headers:
+    content-type: application/json
+  data:
+    files: {}
+    disable_rollback: true
+    parameters: {}
+    stack_name: $ENVIRON['PREFIX']-envstack
+    environment:
+      parameters:
+        test_val: test
+    template:
+      heat_template_version: '2016-04-08'
+      parameters:
+        test_val:
+          type: string
+      resources:
+        test:
+          type: OS::Heat::TestResource
+          properties:
+            value: {get_param: test_val}
+      outputs:
+        output_value:
+          value: {get_attr: [test, output]}
+
+  status: 201
+  response_headers:
+    location: //stacks/$ENVIRON['PREFIX']-envstack/[a-f0-9-]+/
+
+- name: poll for envstack CREATE_COMPLETE
+  desc: 29899c70-9c94-4e24-8988-df76f7eaaa70
+  GET: $LOCATION
+  redirects: True
+  poll:
+    count: 10
+    delay: 2.0
+  response_json_paths:
+    $.stack.stack_status: CREATE_COMPLETE
+
+- name: get stack output
+  desc: f60dd8df-82d1-4228-8926-54d65ebd12e1
+  GET: $LAST_URL/outputs/output_value
+  redirects: True
+  status: 200
+  response_json_paths:
+    $.output.output_value: test
+
+- name: delete envstack
+  desc: 0efde180-cc0e-4f2c-bb18-fa345e8d21ad
+  DELETE: /stacks/$ENVIRON['PREFIX']-envstack
+  redirects: True
+  status: 204

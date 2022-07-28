@@ -1,0 +1,12 @@
+PyYAML>=3.12
+beautifulsoup4>=4.6.0
+castellan>=0.18.0
+django-formtools>=2.2
+horizon>=18.3.1
+iso8601>=0.1.11
+oslo.log>=3.36.0
+pbr!=2.1.0,>=2.0.0
+python-muranoclient>=0.8.2
+pytz>=2013.6
+semantic-version>=2.3.1
+yaql>=1.1.3

@@ -1,0 +1,7 @@
+PyYAML>=3.10.0
+ansible<5.0,>=2.10.0
+cliff>=3.1.0
+netaddr!=0.7.16,>=0.7.13
+oslo.config>=5.2.0
+pbr>=2.0
+selinux

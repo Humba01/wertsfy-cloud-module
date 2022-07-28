@@ -1,0 +1,65 @@
+---
+- hosts: all
+  tasks:
+    - name: Dump host info to logs
+      command: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}/tools/dump_info.sh"
+      args:
+        chdir: "{{ kolla_logs_dir }}"
+
+    - name: Collect various info to logs
+      shell:
+        cmd: |
+          set +o errexit
+          set -o xtrace
+
+          # copy system log
+          sudo cp -r /var/log system_log
+
+          if which journalctl ; then
+              # the journal gives us syslog() and kernel output, so is like
+              # a concatenation of the above.
+              sudo journalctl --no-pager > syslog.txt
+              sudo journalctl --no-pager -u docker.service > docker.log
+          else
+              # assume rsyslog
+              sudo cp /var/log/syslog syslog.txt
+              sudo cp /var/log/kern.log kern_log.txt
+              sudo cp /var/log/upstart/docker.log docker.log
+          fi
+
+          if sudo test -d /var/lib/docker/volumes/kolla_logs/_data; then
+              sudo cp -r /var/lib/docker/volumes/kolla_logs/_data kolla_logs
+          fi
+
+          # sudo config
+          sudo cp -r /etc/sudoers.d ./
+          sudo cp /etc/sudoers sudoers.txt
+
+          df -h > df.txt
+          free  > free.txt
+          sudo parted -l > parted-l.txt
+          mount > mount.txt
+          env > env.txt
+
+          if [ `command -v dpkg` ]; then
+              dpkg -l > dpkg-l.txt
+          fi
+          if [ `command -v rpm` ]; then
+              rpm -qa > rpm-qa.txt
+          fi
+
+          # final memory usage and process list
+          ps -eo user,pid,ppid,lwp,%cpu,%mem,size,rss,cmd > ps.txt
+
+          # docker related information
+          (docker info && docker system df && docker system df -v) > docker-info.txt
+
+          sudo cp -r /etc/kolla kolla_configs
+
+          # last sudo to own all files
+          sudo chown -R {{ ansible_user_id }}: .
+
+          # Parse build logs and extract pkg install info
+          {{ ansible_user_dir }}/{{ zuul.project.src_dir }}/tests/files/process_build_logs.py -l build -b {{ base_distro }} > packages-info.txt
+        executable: /bin/bash
+        chdir: "{{ kolla_logs_dir }}"

@@ -1,0 +1,118 @@
+heat_template_version: wallaby
+
+description: >
+  Ceph OSD service.
+
+parameters:
+  ServiceData:
+    default: {}
+    description: Dictionary packing service data
+    type: json
+  ServiceNetMap:
+    default: {}
+    description: Mapping of service_name -> network name. Typically set
+                 via parameter_defaults in the resource registry.  This
+                 mapping overrides those in ServiceNetMapDefaults.
+    type: json
+  DefaultPasswords:
+    default: {}
+    type: json
+  RoleName:
+    default: ''
+    description: Role name on which the service is applied
+    type: string
+  RoleParameters:
+    default: {}
+    description: Parameters specific to the role
+    type: json
+  EndpointMap:
+    default: {}
+    description: Mapping of service endpoint -> protocol. Typically set
+                 via parameter_defaults in the resource registry.
+    type: json
+  CephAnsibleDisksConfig:
+    type: json
+    description: Disks config settings.
+    default:
+      devices: []
+      osd_scenario: lvm
+      osd_objectstore: bluestore
+  CephEnableDashboard:
+    type: boolean
+    default: false
+    description: Parameter used to trigger the dashboard deployment.
+  CephHciOsdCount:
+    type: number
+    default: 0
+    tags:
+      - role_specific
+    description: |
+      The number of expected Ceph OSDs per HCI node. Used by Ansible
+      module tripleo_derive_hci_parameters when cephadm/HCI is used. Since
+      CephOsdSpec might only specify a description of devices to be used
+      as OSDs (e.g. all devices), and not a list of devices as found in
+      CephAnsibleDisksConfig, this number is necessary in order to know
+      how much CPU/RAM to reserve.
+  CephHciOsdType:
+    type: string
+    default: 'hdd'
+    tags:
+      - role_specific
+    constraints:
+      - allowed_values: ['hdd', 'ssd', 'nvme']
+    description: |
+      CephHciOsdType is the type of data_device (not db_device) used for each
+      HCI node's OSD and must be one of hdd, ssd, or nvme. Used by Ansible
+      module tripleo_derive_hci_parameters when cephadm/HCI is used. Since
+      CephOsdSpec might only specify a description of devices to be used
+      as OSDs (e.g. all devices), and not a list of devices as found in
+      CephAnsibleDisksConfig, the device path is not hard coded so we cannot
+      look up that device in Ironic to determine its type. If CephOsdSpec
+      has data_devices/rotational=1 and db_devices/rotational=0, then set
+      CephHciOsdType to 'hdd', since only the DB/WAL are on SSD. If an OSD
+      data device is an SSD or NVMe SSD, then set the type accordingly so
+      that the derive paramters module can allocate the optimal number of
+      CPUs per device.
+
+resources:
+  CephBase:
+    type: ./ceph-base.yaml
+    properties:
+      ServiceData: {get_param: ServiceData}
+      ServiceNetMap: {get_param: ServiceNetMap}
+      DefaultPasswords: {get_param: DefaultPasswords}
+      EndpointMap: {get_param: EndpointMap}
+      RoleName: {get_param: RoleName}
+      RoleParameters: {get_param: RoleParameters}
+
+outputs:
+  role_data:
+    description: Role data for the Ceph OSD service.
+    value:
+      service_name: ceph_osd
+      firewall_rules:
+        '111 ceph_osd':
+          dport:
+            list_concat:
+              - - '6800-7300'
+              - if:
+                - {get_param: CephEnableDashboard}
+                - - '9100'
+      service_config_settings:
+        collectd:
+          tripleo.collectd.plugins.ceph_osd:
+            - ceph
+          collectd::plugin::ceph::daemons: []
+      puppet_config: {}
+      docker_config: {}
+      external_deploy_tasks:
+        list_concat:
+        - {get_attr: [CephBase, role_data, external_deploy_tasks]}
+        - - name: ceph_osd_external_deploy_init
+            when: step|int == 1
+            tags:
+              - ceph
+            block:
+              - name: Build disk list for cephadm
+                set_fact:
+                  cephadm_disk_list: {get_param: CephAnsibleDisksConfig}

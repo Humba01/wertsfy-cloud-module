@@ -1,0 +1,58 @@
+Metadata-Version: 1.1
+Name: mistral
+Version: 14.0.0
+Summary: Mistral Project
+Home-page: https://docs.openstack.org/mistral/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: Apache License, Version 2.0
+Description: ========================
+        Team and repository tags
+        ========================
+        
+        .. image:: https://governance.openstack.org/tc/badges/mistral.svg
+            :target: https://governance.openstack.org/tc/reference/tags/index.html
+        
+        Mistral
+        =======
+        
+        Workflow Service integrated with OpenStack. This project aims to provide a
+        mechanism to define tasks and workflows in a simple YAML-based language, manage
+        and execute them in a distributed environment.
+        
+        Project Resources
+        -----------------
+        
+        * `Mistral Official Documentation <https://docs.openstack.org/mistral/latest/>`_
+        
+            * `User Documentation <https://docs.openstack.org/mistral/latest/user/index.html>`_
+        
+            * `Administrator Documentation <https://docs.openstack.org/mistral/latest/admin/index.html>`_
+        
+            * `Developer Documentation <https://docs.openstack.org/mistral/latest/developer/index.html>`_
+        
+        * Project status, bugs, and blueprints are tracked on
+          `Launchpad <https://launchpad.net/mistral/>`_
+        
+        * CloudFlow: visualization tool for workflow executions on https://github.com/nokia/CloudFlow
+        
+        * Apache License Version 2.0 http://www.apache.org/licenses/LICENSE-2.0
+        
+        * Release notes for the project can be found at:
+          https://docs.openstack.org/releasenotes/mistral/
+        
+        * Source for the project can be found at:
+          https://opendev.org/openstack/mistral
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux

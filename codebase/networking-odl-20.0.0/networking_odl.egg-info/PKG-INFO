@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: networking-odl
+Version: 20.0.0
+Summary: OpenStack Networking
+Home-page: https://docs.openstack.org/networking-odl/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ==========================
+        Welcome to networking-odl!
+        ==========================
+        
+        .. Team and repository tags
+        
+        .. image:: http://governance.openstack.org/badges/networking-odl.svg
+            :target: http://governance.openstack.org/reference/tags/index.html
+        
+        .. Change things from this point on
+        
+        Summary
+        -------
+        
+        OpenStack networking-odl is a library of drivers and plugins that integrates
+        OpenStack Neutron API with OpenDaylight Backend. For example it has ML2
+        driver and L3 plugin to enable communication of OpenStack Neutron L2
+        and L3 resources API to OpenDayLight Backend.
+        
+        To report and discover bugs in networking-odl the following
+        link can be used:
+        https://bugs.launchpad.net/networking-odl
+        
+        Any new code submission or proposal must follow the development
+        guidelines detailed in HACKING.rst and for further details this
+        link can be checked:
+        https://docs.openstack.org/networking-odl/latest/
+        
+        The OpenDaylight homepage:
+        https://www.opendaylight.org/
+        
+        Release notes for the project can be found at:
+        https://docs.openstack.org/releasenotes/networking-odl/
+        
+        The project source code repository is located at:
+        https://opendev.org/openstack/networking-odl
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Provides-Extra: ceilometer
+Provides-Extra: test

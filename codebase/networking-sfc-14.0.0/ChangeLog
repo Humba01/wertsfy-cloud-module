@@ -1,0 +1,558 @@
+CHANGES
+=======
+
+14.0.0
+------
+
+* Use ovs constants from neutron\_lib.plugins.ml2
+* Fix find group id ERROR
+* Update networking-sfc-tempest-multinode to be run on Focal
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+13.0.0
+------
+
+* [functional] Remove duplicate code from parent test class
+* Use ovs constants from neutron-lib
+* Enable tls-proxy support for test jobs
+* Use assertCountEqual instead of assertItemsEqual
+* pdf-docs: use UPPER\_CONSTRAINTS\_FILE for doc build
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+12.0.0
+------
+
+* Remove six
+* Use TOX\_CONSTRAINTS\_FILE
+* Use unittest.mock instead of mock
+* Fix lower-constraints
+* remove babel.cfg
+* bump py37 to py38 in tox.ini
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+* Fix lower-constraints and pep8 for Focal
+
+11.0.0
+------
+
+* Fix pep8 job
+* Switch to newer openstackdocstheme and reno versions
+* Monkey patch original current\_thread \_active
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+10.0.0
+------
+
+* Cleanup py27 support
+* Remove the dependency on the "mock" package
+
+10.0.0.0b1
+----------
+
+* Drop python 2 support and testing
+* Switch to Ussuri jobs
+* Fix misspell word
+* PDF documentation build
+* [Functional tests] Fix SIGHUP handling tests
+* Update master for stable/train
+
+9.0.0
+-----
+
+* Add Python 3 Train unit tests
+* Update the constraints url
+* Add libpq-dev to bindep.txt to fix gate error
+* Use opendev repository
+* Switch functional jobs to python 3
+* Switch functional job to Zuulv3 syntax
+* Complete move of networking-sfc tempest tests to tempest plugin
+* Update sphinx requirements
+* Switch to native openflow implementation
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Combine two patches to fix gates
+* Replace openstack.org git:// URLs with https://
+* Update master for stable/stein
+
+8.0.0
+-----
+
+* add python 3.7 unit test job
+
+8.0.0.0b1
+---------
+
+* doc: Add policy reference
+* Fix gate issues on master
+* Update OXM\_OF\_PKT\_REG to OXM\_OF\_PKT\_REG0
+* use common rpc and exceptions from neutron-lib
+* Extend timeout of tempest job to 3h
+* tox: make pep8-dev use python3 like pep8
+* fix tox python3 overrides
+* Upgrade pylint to a version that works with python3
+* Update Openflow version from 1.1 to 1.3
+* Increment versioning with pbr instruction
+* Define default policies in code
+* use openstack-lower-constraints-jobs-neutron job template
+* Change openstack-dev to openstack-discuss
+* Don't quote {posargs} in tox.ini
+* add local tox targets for pep8, py3 and py27
+* Correct "openstack sfc port create" and delete superfluous "\"
+* use neutron-lib for common\_db\_mixin methods
+* use db api from neutron-lib
+* Remove those copy words occured twice times in api.rst
+* Update min tox version to 2.0
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* opt in for neutron-lib consumption patches
+* import zuul job settings from project-config
+* use setup\_extension in unit tests
+* fix tox python3 overrides
+* Update reno for stable/rocky
+
+7.0.0
+-----
+
+* remove dead IDAllocator code
+* Add release notes link in README
+* Fix alembic migration template generator script
+* Use get\_marker\_obj from neutron-lib
+* Use i18n from the project
+* Fix requirements
+* Switch to stestr
+* update requirements for neutron-lib 1.18.0
+* Function argument name not used correctly
+
+7.0.0.0b3
+---------
+
+* uncap eventlet
+
+7.0.0.0b1
+---------
+
+* use rpc Connection rather than create\_connection
+* Fix constraints and uncap eventlets
+* Fix new PEP8 errors
+* Delete port chain failed
+* remove unused plugin.get\_plugin\_name()
+* Cleanup test-requirements
+* Revert "DNM: tentative hack to point to neutron-lib master"
+* Updated from global requirements
+* DNM: tentative hack to point to neutron-lib master
+* Update OPNFV link on README
+* add lower-constraints job
+* Avoid tox-install.sh
+* Update links in README
+* use common agent topics from neutron-lib
+* stop mocking vlantransparent LOG in UTs
+* Update reno for stable/queens
+* Remove duplicated 'the' word in documentation
+* Zuul: Remove project name
+* devstack: support lib/neutron
+* Remove the deprecated "giturl" option
+
+6.0.0
+-----
+
+* Updated from global requirements
+* test requirements: move from tempest-lib to tempest
+
+6.0.0.0b2
+---------
+
+* Updated from global requirements
+* Remove setting of version/release from releasenotes
+* Updated from global requirements
+* Updated from global requirements
+* Update l2pop calls to use context instead of session
+* Update OpenStack Client syntax for graphs (doc)
+* Updated from global requirements
+* Zuul: add file extension to playbooks path
+* Remove Zuul v3 standard setups
+* Support the NSH SFC Encapsulation protocol w/ OVS
+* Zuul v3 migration
+* Driver changes for Tap SF support in portchain
+* API and CLI changes for Passive Tap SF
+* Switch to tempest.common.utils
+
+6.0.0.0b1
+---------
+
+* Update SFC Encapsulation documentation to NSH
+* Specify sections in configuration samples
+* Replace all uses of dl\_type with eth\_type
+* Add Service Graph OVS Driver+Agent logic+tests
+* Use common is\_a\_flow\_line() method from ovs\_lib
+* Add Service Graph DB and Plugin logic+tests
+* Updated from global requirements
+* SFC Proxy Port Correlation for Non-Transparent Service Functions
+* Add Service Graph API/extension resource and stubs
+* Shrink Tempest scenario manager copy
+* Use openstack CLI in documentation
+* Update imports for neutron/ml2 config
+* Updated from global requirements
+* Fix unit tests and test configuration
+* SfcOVSBridgeExt: rely on ovs\_lib to use the right OF version
+* Updated from global requirements
+* Updated from global requirements
+* Fix multinode tempest tests
+* Clean tempest gate configuration
+* Update reno for stable/pike
+* Add Service Graph documentation
+* tempest: update on removal of cred manager aliases
+* Added Workflow & OVS flow details for TAP SF
+
+5.0.0.0rc1
+----------
+
+* Updated from global requirements
+* Fix cli unit tests
+* Remove OSC parts
+* Add auto-generated config reference
+* Automatically generate configuration files
+
+5.0.0.0b3
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+* Update documentation links
+* Update doc URLs, add main doc link in readme
+* Rearrange existing documentation to fit the new standard layout
+* Switch to openstackdocstheme
+* Turn on warning-is-error for sphinx build
+* Use flake8-import-order plugin
+* Updated from global requirements
+* Replace the usage of 'manager' with 'os\_primary'
+* Updated from global requirements
+* Updated from global requirements
+* Fix code for upcoming pylint 1.7.1
+* Updated from global requirements
+* Fix html\_last\_updated\_fmt for Python3
+
+5.0.0.0b2
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+* Trivial fix typos
+* OVS Driver tests: scope Flow Rules to Port Chains
+* use attribute functions/operations from neutron-lib
+* Updated from global requirements
+* Require Port Pairs to share same correlation type
+* Updated from global requirements
+* Updated from global requirements
+* test fix: follow neutron change Id22faa1f6179c2fdf8a136972d65f10749c9fc2e
+* Re-enable translation tox tests
+* Updated from global requirements
+* remove delete\_flow variant, now supported by neutron ovs\_lib
+* Correct dl\_type for non-SFC-proxied hops
+* Create Port\_Mapping Support with OVS Driver and Agent
+* Fix group id for symmetric flows reverse path
+* devstack: use l2\_agent lib to configure sfc ext
+* Remove OVS compilation on functional and fullstack jobs
+* Use new enginefacade
+* SFC Proxy processing for non-transparent Service Functions
+* Disable new N537 hacking check from next neutron-lib
+* Migrate neutron.plugins.common to neutron-lib
+* Fix UT failures with multiple flow classifiers
+* Updated from global requirements
+
+5.0.0.0b1
+---------
+
+* Replace space with underscore in doc file
+* Add missing specifications in main toctree
+* Detail installation steps in main documentation
+* Updated from global requirements
+* Updated from global requirements
+* Remove log translations
+* Follow OVSCookieBridge refactoring in neutron
+* Replace insertion-mode with tap-enabled
+* Update internal links in documentation
+* Enable placement-api in devstack job config
+* Fix formatting of System Design and Workflow
+* fix tempest multinode test failure   - enable nova vnc in localrc per bug 1381568's suggestion   - use admin\_manager to create client for multinode tests
+* Use data\_utils from tempest.lib
+* Updated from global requirements
+* Add all extensions to the tempest run
+* Be explicit about the extensions being tested
+* Port Chain Tap for passive Service Function
+* Fix N536 hacking check from neutron-lib
+* Delete stale port-chain db entry
+* Updated from global requirements
+* Use neutron-lib's context module
+* Update reno for stable/ocata
+* consume ServicePluginBase from neutron-lib
+
+4.0.0
+-----
+
+* Fix release note formatting
+* Add reno release notes
+* tempest: Switch to local copy of tempset/scenario/manager.py
+* Support MPLS correlation without SFC Proxy
+* Sync the flake8 extensions with neutron-lib
+* Default chain parameters per parameter
+* Drop localrc references
+* Symmetric Chain Support Tempest Scenario Test
+* Symmetric Chain Support Unit\_test drivers test
+* Include SRC/DST IP in the flowclassifier from logical ports
+* Symmetric Chain Support Unit\_test
+* Symmetric Chain Support Tempest Api Test
+* Use simple dict update and dict literal to optimize code
+* Symmetric Chain Support for OVS driver and agent
+* Optimize and clean-up sfc\_driver
+* Pass update\_flowrule\_status in driver.py
+* General clean up and optimize the code after PyCharm inspect code
+* Remove useless file subunit-trace.py
+* Optimize unit test test\_driver
+* Fix possible reference before assignment errors
+* Optimized imports to comply OpenStack style guideline
+* Remove unused keyword parameters, and fix pylint wrong-import-order
+* Add detail error message for SSH timeout in scenario tests
+* Make the pep8 env detect style errors again
+* Updated from global requirements
+* Remove useless returns, modify code to use kwargs
+* Optimize \_resolve\_resource\_path logic
+* Clean requirements
+* Remove support for py34
+* Fix Annotator Errors
+* Use https instead of http for git.openstack.org
+* Update hacking version
+* Prepare for using standard python tests
+* Import type\_vxlan in the base tests
+* Remove unused oslo-config-generator parts
+* Use stevedore testing interface
+* Switch to decorators.idempotent\_id
+* Replace six.iteritems with dict.items()
+* Updated from global requirements
+* Functional tests: use neutron rootwrap filters
+* Use ostestr everywhere
+* Remove unused empty file
+* Fix extension loading functional test
+* Remove unused module index in documentation
+* Use neutron-lib portbindings api-def
+* Remove support for py33
+* Updated from global requirements
+* Use project\_id instead of tenant\_id in DB models/OVS driver
+* Reflect neutron-lib migration of agent extensions from neutron
+* Fix intermittent tempest test failures
+* Fix flow deletion unit tests
+* Fix functional and tempest tests
+* Updated from global requirements
+* Fix Json Port Chain create response example
+* Fix typos in functions name
+* Updated from global requirements
+* Enable PEP8 tests everywhere
+* Move db migration tests to functional tests
+* Use ovs devstack plugin functions from neutron
+* Replaces uuid.uuid4 with uuidutils.generate\_uuid()
+* Fix neutronclient.i18n.\_() DeprecationWarning
+* Updated from global requirements
+* Updated from global requirements
+* Update OVS handling and test hooks
+* Fix permissions of tools/ostestr\_compat\_shim.sh
+* Fix devstack all-in-one installation
+* added cli parameters validation
+* Filter out tenant\_id in OSC commands output
+* Use DB field sizes instead of \_MAX\_LEN constants
+* Use ExtensionDescriptor from neutron-lib
+* Remove PLURALS
+* Show team and repo badges on README
+* Add reno for release notes management
+* Add script for neutron-lib source periodic job
+* Updated from global requirements
+* Remove unused LOG to keep code clean
+* Fix file permissions
+* Replace 'assertFalse(a in b)' with 'assertNotIn(a, b)'
+* Switch to using plugins directory in lieu of neutron manager
+* Allow SFC installation with q-agt service only
+* Make osc entry points distinctive
+
+3.0.0
+-----
+
+* Updated from global requirements
+* add multinode support for tempest
+* Remove last vestiges of oslo-incubator
+* Add sfc commands to openstackclient
+* Remove deprecation warnings for model\_base
+* Fix deprecation warning in tests
+* Fix file permissions
+* Updated from global requirements
+* refactor parameter validation
+* Updated from global requirements
+* Using --strict and add priority for del\_flows
+* Fix random DB unit test failure
+* Added support of symmetric chain parameter in API
+* Bring models in sync with migrations, add test
+* Replace OVSSfcAgent by a L2 agent extension
+* Networking-sfc / OVN Driver Details of the OVN northbound DB schema have been removed
+* Use constraints environment for testing
+* Fix bug where a chain\_id could not be specified
+* Remove retrying from requirements
+* Fix typo in db.py
+* Force tempest tests to run sequentially
+* Updated from global requirements
+* Include alembic migrations in module
+* Enable plugins to determine if they want to rebuild OVS
+* Change query for port-pair-group and port-chain id. Fix bug 1625186
+* driver interface: introduce precommit, postcommit
+* fix tempest tests failure
+* Use neutron-lib model\_base
+* OVS Driver and Agent for Symmetric Port Chains
+* Revert "Revert "Rename DB columns: tenant -> project"" Modified unit tests
+* [api-ref] Remove unused parameter
+* [api-ref] Remove temporary block in conf.py
+* make functional test not skip the testcases
+* Fix order of arguments in assertEqual
+
+2.0.0
+-----
+
+* Remove tempest from test\_requirements.txt, which could cause package incompatible. This happened sometimes when running devstack at stable/mitaka, change #351486 added tempest testcases didn't test at stable/mitaka, and stack.sh would fail due to tempest requiring some python packages newer than installed
+* Config logABug feature for networking-sfc api-ref
+* Unifying parameters type
+* Remove logging import unused
+* Remove unused CONF import
+* set [flowclassifier] section drivers to be ovs in devstack setup
+* Revert "Rename DB columns: tenant -> project"
+* Add OVS driver cross-subnet check
+* Revert "update ovs agent code to catchup neutron's changes."
+* Add chain\_id, port\_pair\_group\_parameters and weight to API documentation
+* Add chain\_id support in port chain and group\_id support in port pair group
+* Also add port pair group parameters when creating port pair group
+* update flow classifer api to be more smart to parse parameters
+* Get ready for os-api-ref sphinx theme change
+* Fix the mistakes in the comments
+* Add weight in service\_function\_params when creating port pair
+* update ovs agent code to catchup neutron's changes
+* ignore build directory in pep8 tests
+* update db migration auto generation code
+* move all db migration files from newton branch to mitaka branch
+* Fix the typo in the file
+* Rename DB columns: tenant -> project
+* Enable DeprecationWarning in test environments
+* Updated from global requirements
+* Add Python 3.5 classifier and venv
+* add tempest testcases
+* add functional tests
+* Update the home-page info with the developer documentation
+* Fix bug that restarting ovs agent will eliminate existing port chains' flow rules
+* Remove execute permission of common py files in networking-sfc
+* API reference fixes for tox run
+* Correct reraising of exception
+* Fix order of arguments in assertEqual
+* Updated from global requirements
+* Fix raise when egress does not belong to a host
+* remove unnecessary code and simplify the logic in ovs
+* Use protocol definitions from neutron-lib
+* Fix test deprecation warnings
+* Adds API Reference documentation
+* There are some word problems to be corrected
+* Delete unused LOG to keep code clean
+* removed sfc\_encap\_mode config option
+* The typo needs to be fixed:releated/mechanim
+* Updated from global requirements
+* Fix order of arguments in assertEqual
+* Fix the document missing
+* Fix tox unit test issue
+* Set logical\_source\_port optional in db
+* Cleanup dead Code and Simplify the logic in ovs driver and ovs agent.   - Clean the dead Code which is not used anymore.   - Simplify some code logic, remove unnecessary complex logic to     make the code easy to understand
+* Updated from global requirements
+* Expose classifier driver pre-commit error to the user
+* Case sensitive errors in Networking-sfc documentation
+* FlowClassifier driver - add missing space in error log
+* Fix the wrong sequence number display
+* Remove check\_i18n checks
+* Fix delete\_flow\_classifier error message
+* Tox: Remove exclude directories that no longer exist
+* Use converters from neutron-lib
+* Updated from global requirements
+* Set default flow classifier driver
+* Change port-pair-group CRUD for update in port-chain
+* driver\_manager: remove unused docstring
+* make ovs driver to support update port chain with modifying port-pair-groups
+* Add unittests for ovs agent
+* Add unittests for ovs driver
+* fix bug that new nova instance cannot get ip address in multinodes   - In multinodes, the flood flow rule is not generated correctly.   - When node instance starts, it sends dhcp broadcast request to   - dhcp agent. The broadcast packet drops in br-tun because there   - is only default rule to deal with flood packet in br-tun.   - The reason is ovs-agent uses mod-flow to add flood flow but   - in openvswitch 2.4. The behavior is a little different from   - openvswitch 2.0. It will not add a new flow rule if there is no   - matching in existing flow rules. The change to to change the   - ovs action to install flood entry from mod-flow to add-flow.   - The updated action behaves similar as other ovs actions like   - installing unicast entry or installing arp responder entry
+* Updated from global requirements
+* Move some flow classifier fields restriction from api to ovs driver
+* Fixes port chain creation fails
+* Fix the bug that updating a port chain to add a flow classifier may not work
+* Fixes create\_connection() takes no arguments error
+* Switch to using hacking checks from neutron-lib
+* Fix pep8 import errors
+* \_get\_tenant\_id\_for\_create is now removed
+* Updated from global requirements
+* Fix coverage option and execution
+* Modified ext-list name field for user readablity
+* Removes unused requirements
+* Remove use of LOG.warn()
+* Updated from global requirements
+* Remove unnecessary \_\_init\_\_.py in top directory
+* Fix pep8 error E226
+* update README.rst to be more precise
+* Support backward compatibility of L2population
+* correct README.rst format
+* update networking-sfc code to mitaka version
+* Add contributors section in README docucment
+* check flow classifiers conflict between port chains
+* add missing db migration files
+
+1.0.0
+-----
+
+* Realizing SFC: OVS Agent and OVS
+* Implementing SFC OVS Driver
+* Updated from global requirements
+* update flow classifier api
+* move networking-sfc project to post-versioning
+* Trivial addition of a space in a help string
+* Updated workflow doc for ease of use
+* Implementing Common Driver Manager Framework
+* remove python 2.6 trove classifier
+* Implementing Port-Chain
+* Implementing Flow Classifier
+* Updated from global requirements
+* Implementing Command line support for networking-sfc
+* Improve examples for how to use networking-sfc Devstack plugin
+* Deprecated tox -downloadcache option removed
+* Updated from global requirements
+* add /etc/neutron/rootwrap.d to support devstack
+* Make sure correct branch of neutron is pulled in
+* Implementing devstack support in networking-sfc
+* Updated from global requirements
+* Updated from global requirements
+* Add a warning about the unreleased nature of the SFC API
+* Modified devref documents for more clarity
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Realizing SFC (2/5): Introducing alembic DB migration framework
+* Realizing SFC (1b/5): Adding additional tox and test settings
+* Refactored documents as per neutron standards
+* Updated from global requirements
+* Updated from global requirements
+* Amendments to API document
+* Fleshing out introductory documentation for networking-sfc
+* Realizing SFC (1/6)
+* Fix some spelling and format typo in api manual
+* Updated from global requirements
+* Update hyperlinks from Gerrit to rendered docs
+* Port Chain OVS Driver and Agent
+* API for Service Chaining
+* Service Chain System Design and Flow
+* Updated from global requirements
+* Add neutronclient to test dependencies
+* API for Service Chaining
+* Initial Cookiecutter dump
+* Added .gitreview

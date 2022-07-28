@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+barbican_tests = barbican_tempest_plugin.plugin:BarbicanTempestPlugin
+

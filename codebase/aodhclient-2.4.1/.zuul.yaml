@@ -1,0 +1,5 @@
+- project:
+    templates:
+      - openstack-python3-yoga-jobs
+      - publish-openstack-docs-pti
+      - openstackclient-plugin-jobs

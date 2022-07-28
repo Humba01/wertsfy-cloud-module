@@ -1,0 +1,9 @@
+---
+features:
+  - |
+    Adds support for emulating UEFI bare metal machines in the testing
+    environment. Pass ``default_boot_mode=uefi`` to enable.
+issues:
+  - |
+    UEFI testing with network boot does not work on Ubuntu Focal because of
+    TFTP issues.

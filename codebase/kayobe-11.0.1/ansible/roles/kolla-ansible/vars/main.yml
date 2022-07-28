@@ -1,0 +1,232 @@
+---
+# Path to Kolla Ansible installation directory.
+kolla_ansible_install_dir: "{{ kolla_ansible_venv }}/share/kolla-ansible"
+
+###############################################################################
+# Inventory configuration.
+
+# Full default seed inventory contents.
+kolla_seed_inventory_default: |
+  # This file is managed by Ansible. Do not edit.
+
+  {{ lookup('template', "seed.j2") }}
+
+# Full seed inventory contents.
+kolla_seed_inventory: "{{ kolla_seed_inventory_custom or kolla_seed_inventory_default }}"
+
+# Default overcloud inventory containing a mapping from top level groups to
+# hosts.
+kolla_overcloud_inventory_default_top_level: "{{ lookup('template', 'overcloud-top-level.j2') }}"
+
+# Overcloud inventory containing a mapping from top level groups to hosts.
+kolla_overcloud_inventory_top_level: "{{ kolla_overcloud_inventory_custom_top_level or kolla_overcloud_inventory_default_top_level }}"
+
+# Default overcloud inventory containing a mapping from components to top level
+# groups.
+kolla_overcloud_inventory_default_components: "{{ lookup('template', 'overcloud-components.j2') }}"
+
+# Overcloud inventory containing a mapping from components to top level groups.
+kolla_overcloud_inventory_components: "{{ kolla_overcloud_inventory_custom_components or kolla_overcloud_inventory_default_components }}"
+
+# Default overcloud inventory containing a mapping from services to components.
+kolla_overcloud_inventory_default_services: "{{ lookup('template', 'overcloud-services.j2') }}"
+
+# Overcloud inventory containing a mapping from services to components.
+kolla_overcloud_inventory_services: "{{ kolla_overcloud_inventory_custom_services or kolla_overcloud_inventory_default_services }}"
+
+# Full default overcloud inventory contents. By default this will be the
+# concatenation of the top level, component, and service inventories.
+kolla_overcloud_inventory_default: |
+  # This file is managed by Ansible. Do not edit.
+
+  # Overcloud inventory file for kolla-ansible.
+
+  {{ kolla_overcloud_inventory_top_level }}
+
+  {{ kolla_overcloud_inventory_components }}
+
+  {{ kolla_overcloud_inventory_services }}
+
+# Full overcloud inventory contents. By default this will be the concatenation
+# of the top level, component, and service inventories.
+kolla_overcloud_inventory: "{{ kolla_overcloud_inventory_custom or kolla_overcloud_inventory_default }}"
+
+# List of names of all top level groups in the inventory.
+kolla_overcloud_top_level_groups: >
+  {{ kolla_overcloud_inventory_top_level_group_map.values() |
+     selectattr('groups', 'defined') |
+     map(attribute='groups') |
+     sum(start=[]) |
+     unique |
+     list }}
+
+# Path to the kolla ansible seed inventory directory.
+kolla_seed_inventory_path: "{{ kolla_config_path }}/inventory/seed"
+
+# Path to the kolla ansible overcloud inventory directory.
+kolla_overcloud_inventory_path: "{{ kolla_config_path }}/inventory/overcloud"
+
+###############################################################################
+# Feature configuration.
+
+# List of features supported by Kolla as enable_* flags.
+kolla_feature_flags:
+  - aodh
+  - barbican
+  - blazar
+  - ceilometer
+  - ceilometer_horizon_policy_file
+  - ceilometer_ipmi
+  - cells
+  - central_logging
+  - ceph_rgw
+  - ceph_rgw_loadbalancer
+  - cinder
+  - cinder_backend_hnas_nfs
+  - cinder_backend_iscsi
+  - cinder_backend_lvm
+  - cinder_backend_nfs
+  - cinder_backend_quobyte
+  - cinder_backup
+  - cinder_horizon_policy_file
+  - cloudkitty
+  - collectd
+  - container_healthchecks
+  - cyborg
+  - designate
+  - destroy_images
+  - elasticsearch
+  - elasticsearch_curator
+  - etcd
+  - external_mariadb_load_balancer
+  - fluentd
+  - freezer
+  - glance
+  - glance_horizon_policy_file
+  - glance_image_cache
+  - gnocchi
+  - gnocchi_statsd
+  - grafana
+  - hacluster
+  - haproxy
+  - haproxy_memcached
+  - heat
+  - heat_horizon_policy_file
+  - horizon
+  - horizon_blazar
+  - horizon_cloudkitty
+  - horizon_designate
+  - horizon_freezer
+  - horizon_heat
+  - horizon_ironic
+  - horizon_magnum
+  - horizon_manila
+  - horizon_masakari
+  - horizon_mistral
+  - horizon_monasca
+  - horizon_murano
+  - horizon_neutron_vpnaas
+  - horizon_octavia
+  - horizon_sahara
+  - horizon_senlin
+  - horizon_solum
+  - horizon_tacker
+  - horizon_trove
+  - horizon_vitrage
+  - horizon_watcher
+  - horizon_zun
+  - influxdb
+  - ironic
+  - ironic_ipxe
+  - ironic_neutron_agent
+  - ironic_pxe_uefi
+  - iscsid
+  - kafka
+  - keepalived
+  - keystone
+  - keystone_federation
+  - keystone_horizon_policy_file
+  - kibana
+  - kuryr
+  - loadbalancer
+  - magnum
+  - manila
+  - manila_backend_cephfs_native
+  - manila_backend_cephfs_nfs
+  - manila_backend_generic
+  - manila_backend_glusterfs_nfs
+  - manila_backend_hnas
+  - mariabackup
+  - mariadb
+  - masakari
+  - memcached
+  - mistral
+  - monasca
+  - multipathd
+  - murano
+  - neutron
+  - neutron_agent_ha
+  - neutron_bgp_dragent
+  - neutron_dvr
+  - neutron_horizon_policy_file
+  - neutron_infoblox_ipam_agent
+  - neutron_metering
+  - neutron_mlnx
+  - neutron_packet_logging
+  - neutron_port_forwarding
+  - neutron_provider_networks
+  - neutron_qos
+  - neutron_segments
+  - neutron_sfc
+  - neutron_sriov
+  - neutron_trunk
+  - neutron_vpnaas
+  - nova
+  - nova_fake
+  - nova_horizon_policy_file
+  - nova_serialconsole_proxy
+  - nova_ssh
+  - octavia
+  - octavia_driver_agent
+  - openstack_core
+  - openvswitch
+  - osprofiler
+  - outward_rabbitmq
+  - ovn
+  - ovs_dpdk
+  - placement
+  - prometheus
+  - prometheus_alertmanager
+  - prometheus_blackbox_exporter
+  - prometheus_cadvisor
+  - prometheus_ceph_mgr_exporter
+  - prometheus_elasticsearch_exporter
+  - prometheus_fluentd_integration
+  - prometheus_haproxy_exporter
+  - prometheus_memcached_exporter
+  - prometheus_mysqld_exporter
+  - prometheus_node_exporter
+  - prometheus_openstack_exporter
+  - prometheus_rabbitmq_exporter
+  - prometheus_server
+  - qdrouterd
+  - rabbitmq
+  - redis
+  - sahara
+  - senlin
+  - skydive
+  - solum
+  - storm
+  - swift
+  - swift_recon
+  - swift_s3api
+  - tacker
+  - telegraf
+  - trove
+  - trove_singletenant
+  - vitrage
+  - vitrage_prometheus_datasource
+  - vmtp
+  - watcher
+  - zookeeper
+  - zun

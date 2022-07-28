@@ -1,0 +1,8 @@
+- project:
+    templates:
+      - openstack-python3-yoga-jobs
+      - check-requirements
+      - publish-openstack-docs-pti
+      - release-notes-jobs-python3
+      - openstack-lower-constraints-jobs
+      - openstack-cover-jobs

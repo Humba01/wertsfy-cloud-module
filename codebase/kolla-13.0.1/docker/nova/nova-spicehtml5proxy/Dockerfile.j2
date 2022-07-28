@@ -1,0 +1,54 @@
+FROM {{ namespace }}/{{ image_prefix }}nova-base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block nova_spicehtml5proxy_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{# NOTE(mgoddard): EPEL required for spice-html5 package. Not provided by EPEL8 #}
+{{ macros.enable_extra_repos(['epel']) }}
+
+{% if install_type == 'binary' %}
+    {% if base_package_type == 'rpm' %}
+
+        {% set nova_spicehtml5proxy_packages = [
+            'openstack-nova-spicehtml5proxy',
+            'python3-numpy',
+            'spice-html5'
+        ] %}
+
+    {% elif base_package_type == 'deb' %}
+
+        {% set nova_spicehtml5proxy_packages = [
+            'nova-spiceproxy',
+            'websockify'
+        ] %}
+
+    {% endif %}
+
+{% elif install_type == 'source' %}
+    {% if base_package_type == 'rpm' %}
+
+        {% set nova_spicehtml5proxy_packages = [
+            'python3-numpy',
+            'spice-html5'
+        ] %}
+
+    {% elif base_package_type == 'deb' %}
+
+        {% set nova_spicehtml5proxy_packages = [
+            'spice-html5',
+            'websockify'
+        ] %}
+
+    {% endif %}
+{% endif %}
+
+{{ macros.install_packages(nova_spicehtml5proxy_packages | customizable("packages")) }}
+
+{% block nova_spicehtml5proxy_footer %}{% endblock %}
+{% block footer %}{% endblock %}
+
+USER nova

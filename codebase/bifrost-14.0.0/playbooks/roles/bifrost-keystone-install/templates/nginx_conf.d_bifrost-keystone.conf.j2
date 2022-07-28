@@ -1,0 +1,17 @@
+# {{ ansible_managed }}
+server {
+{% if enable_tls | bool %}
+    listen 5000 ssl http2;
+    ssl_certificate     {{ tls_certificate_path }};
+    ssl_certificate_key {{ nginx_private_key_path }};
+{% else %}
+    listen 5000;
+{% endif %}
+    access_log {{ nginx_log_dir }}/keystone/access.log;
+    error_log {{ nginx_log_dir }}/keystone/error.log;
+    location / {
+        uwsgi_pass unix:///run/uwsgi/keystone-public.socket;
+        include uwsgi_params;
+        uwsgi_param SCRIPT_NAME '';
+    }
+}

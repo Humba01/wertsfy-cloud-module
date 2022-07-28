@@ -1,0 +1,36 @@
+Metadata-Version: 1.2
+Name: telemetry_tempest_plugin
+Version: 1.6.0
+Summary: Tempest plugin for Telemetry Projects
+Home-page: https://www.openstack.org/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ========================
+        Telemetry Tempest Plugin
+        ========================
+        
+        Tempest plugin for Telemetry Project.
+        
+        It contains tempest tests for Aodh, Ceilometer, and Gnocchi Projects.
+        
+        * Free software: Apache license
+        * Documentation: https://docs.openstack.org/ceilometer/latest/
+        * Source: https://opendev.org/openstack/telemetry-tempest-plugin
+        * Bugs: https://bugs.launchpad.net/ceilometer
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6

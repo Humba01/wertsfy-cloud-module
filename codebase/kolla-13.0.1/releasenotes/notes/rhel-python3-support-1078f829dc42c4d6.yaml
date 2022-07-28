@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Adds initial support for python 3 packages for RHEL systems provided by
+    RDO.

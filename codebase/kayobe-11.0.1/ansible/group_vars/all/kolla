@@ -1,0 +1,649 @@
+---
+###############################################################################
+# Kolla installation.
+
+# Type of Kolla control installation. One of 'binary' or 'source'.
+kolla_ctl_install_type: source
+
+# Path to directory for kolla source code checkout.
+kolla_source_path: "{{ source_checkout_path ~ '/kolla' }}"
+
+# URL of Kolla source code repository if type is 'source'.
+kolla_source_url: "https://opendev.org/openstack/kolla"
+
+# Version (branch, tag, etc.) of Kolla source code repository if type is
+# 'source'. Default is {{ openstack_branch }}.
+kolla_source_version: "{{ openstack_branch }}"
+
+# Path to virtualenv in which to install kolla.
+kolla_venv: "{{ virtualenv_path ~ '/kolla' }}"
+
+# Path in which to generate kolla configuration.
+kolla_build_config_path: "{{ config_path ~ '/kolla' }}"
+
+###############################################################################
+# Kolla-ansible installation.
+
+# Type of Kolla-ansible control installation. One of 'binary' or 'source'.
+kolla_ansible_ctl_install_type: source
+
+# Path to directory for kolla-ansible source code checkout.
+kolla_ansible_source_path: "{{ lookup('env', 'KOLLA_SOURCE_PATH') | default(lookup('env', 'PWD') ~ '/src/kolla-ansible', true) }}"
+
+# URL of Kolla Ansible source code repository if type is 'source'.
+kolla_ansible_source_url: "https://opendev.org/openstack/kolla-ansible"
+
+# Version (branch, tag, etc.) of Kolla Ansible source code repository if type
+# is 'source'. Default is {{ openstack_branch }}.
+kolla_ansible_source_version: "{{ openstack_branch }}"
+
+# Path to virtualenv in which to install kolla-ansible.
+kolla_ansible_venv: "{{ lookup('env', 'KOLLA_VENV_PATH') | default(lookup('env', 'PWD') ~ '/venvs/kolla-ansible', true) }}"
+
+# Extra requirements to install inside the kolla-ansible virtualenv.
+kolla_ansible_venv_extra_requirements: []
+
+# Path to Kolla-ansible configuration directory.
+kolla_config_path: "{{ lookup('env', 'KOLLA_CONFIG_PATH') | default('/etc/kolla', true) }}"
+
+# Path to Kolla-ansible node custom configuration directory.
+kolla_node_custom_config_path: "{{ kolla_config_path }}/config"
+
+###############################################################################
+# Kolla configuration.
+
+# Kolla base container image distribution. Options are "centos", "debian",
+# "ubuntu". Default is {{ os_distribution }}.
+kolla_base_distro: "{{ os_distribution }}"
+
+# Kolla container image type: binary or source.
+kolla_install_type: "source"
+
+# Docker namespace to use for Kolla images.
+kolla_docker_namespace: "openstack.kolla"
+
+# Url of docker registry to use for Kolla images.
+kolla_docker_registry: "{{ docker_registry }}"
+
+# Whether docker should be configured to use an insecure registry for Kolla
+# images. Default is false, unless docker_registry_enabled is true and
+# docker_registry_enable_tls is false.
+kolla_docker_registry_insecure: "{{ docker_registry_enabled | bool and not docker_registry_enable_tls | bool }}"
+
+# Username to use to access a docker registry.
+kolla_docker_registry_username:
+
+# Password to use to access a docker registry.
+kolla_docker_registry_password:
+
+# Kolla OpenStack release version. This should be a Docker image tag.
+# Default is {{ openstack_release }}.
+kolla_openstack_release: "{{ openstack_release }}"
+
+# Docker tag applied to built container images. Default is
+# {{ kolla_openstack_release }}.
+kolla_tag: "{{ kolla_openstack_release }}"
+
+# Dict mapping names of sources to their definitions for
+# kolla_install_type=source. See kolla.common.config for details.
+# Example:
+# kolla_sources:
+#   ironic-base:
+#     type: git
+#     location: https://github.com/openstack/ironic
+#     reference: master
+kolla_sources:
+  bifrost-base:
+    type: "git"
+    location: "{{ kolla_bifrost_source_url }}"
+    reference: "{{ kolla_bifrost_source_version }}"
+
+###############################################################################
+# Kolla image build configuration.
+
+# List of regular expressions matching names of container images to build for
+# the seed.
+seed_container_image_regex_map:
+  - regex: bifrost
+    enabled: True
+
+# List of regular expressions matching names of container images to build for
+# the seed.
+seed_container_image_regexes: "{{ seed_container_image_regex_map | selectattr('enabled') | map(attribute='regex') | list }}"
+
+# List of container image sets for the seed. This is used when building
+# container images to determine which images to build.
+seed_container_image_sets:
+  - type: source
+    regexes: "{{ seed_container_image_regexes | join(' ') }}"
+
+# List of regular expressions matching names of container images to build for
+# overcloud hosts.
+overcloud_container_image_regex_map:
+  - regex: ^aodh
+    enabled: "{{ kolla_enable_aodh | bool }}"
+  - regex: ^barbican
+    enabled: "{{ kolla_enable_barbican | bool }}"
+  - regex: ^blazar
+    enabled: "{{ kolla_enable_blazar | bool }}"
+  - regex: ^ceilometer
+    enabled: "{{ kolla_enable_ceilometer | bool }}"
+  - regex: ^cinder
+    enabled: "{{ kolla_enable_cinder | bool }}"
+  - regex: ^cloudkitty
+    enabled: "{{ kolla_enable_cloudkitty | bool }}"
+  - regex: ^collectd
+    enabled: "{{ kolla_enable_collectd | bool }}"
+  - regex: ^cron
+    enabled: True
+  - regex: ^cyborg
+    enabled: "{{ kolla_enable_cyborg | bool }}"
+  - regex: ^designate
+    enabled: "{{ kolla_enable_designate | bool }}"
+  - regex: ^dnsmasq
+    enabled: "{{ kolla_enable_ironic | bool }}"
+  - regex: ^elasticsearch
+    enabled: "{{ kolla_enable_elasticsearch | bool }}"
+  - regex: ^etcd
+    enabled: "{{ kolla_enable_etcd | bool }}"
+  - regex: ^fluentd
+    enabled: "{{ kolla_enable_fluentd | bool }}"
+  - regex: ^glance
+    enabled: "{{ kolla_enable_glance | bool }}"
+  - regex: ^gnocchi
+    enabled: "{{ kolla_enable_gnocchi | bool }}"
+  - regex: ^grafana
+    enabled: "{{ kolla_enable_grafana | bool }}"
+  - regex: ^haproxy$
+    enabled: "{{ kolla_enable_haproxy | bool }}"
+  - regex: ^heat
+    enabled: "{{ kolla_enable_heat | bool }}"
+  - regex: ^horizon
+    enabled: "{{ kolla_enable_horizon | bool }}"
+  - regex: ^influxdb
+    enabled: "{{ kolla_enable_influxdb | bool }}"
+  - regex: ^ironic
+    enabled: "{{ kolla_enable_ironic | bool }}"
+  - regex: ironic-neutron-agent
+    enabled: "{{ kolla_enable_ironic_neutron_agent | bool }}"
+  - regex: ^iscsid
+    enabled: "{{ kolla_enable_iscsid | bool }}"
+  - regex: ^kafka
+    enabled: "{{ kolla_enable_kafka | bool }}"
+  - regex: ^keepalived
+    enabled: "{{ kolla_enable_keepalived | bool }}"
+  - regex: ^keystone
+    enabled: "{{ kolla_enable_keystone | bool }}"
+  - regex: ^kibana
+    enabled: "{{ kolla_enable_kibana | bool }}"
+  - regex: kolla-toolbox
+    enabled: True
+  - regex: ^logstash
+    enabled: "{{ kolla_enable_monasca | bool }}"
+  - regex: ^kuryr
+    enabled: "{{ kolla_enable_kuryr | bool }}"
+  - regex: ^magnum
+    enabled: "{{ kolla_enable_magnum | bool }}"
+  - regex: ^manila
+    enabled: "{{ kolla_enable_manila | bool }}"
+  - regex: ^mariadb
+    enabled: "{{ kolla_enable_mariadb | bool }}"
+  - regex: ^masakari
+    enabled: "{{ kolla_enable_masakari | bool }}"
+  - regex: ^memcached
+    enabled: "{{ kolla_enable_memcached | bool }}"
+  - regex: ^mistral
+    enabled: "{{ kolla_enable_mistral | bool }}"
+  - regex: ^multipathd
+    enabled: "{{ kolla_enable_multipathd | bool }}"
+  - regex: ^murano
+    enabled: "{{ kolla_enable_murano | bool }}"
+  - regex: neutron-server
+    enabled: "{{ kolla_enable_neutron | bool }}"
+  # Neutron SFC agent not currently supported on CentOS binary builds.
+  - regex: "neutron-\\(dhcp\\|l3\\|metadata\\|openvswitch\\)-agent"
+    enabled: "{{ kolla_enable_neutron | bool }}"
+  - regex: neutron-mlnx-agent
+    enabled: "{{ kolla_enable_neutron_mlnx | bool }}"
+  - regex: ^nova
+    enabled: "{{ kolla_enable_nova | bool }}"
+  - regex: ^octavia
+    enabled: "{{ kolla_enable_octavia | bool }}"
+  - regex: ^openvswitch
+    enabled: "{{ kolla_enable_openvswitch | bool }}"
+  - regex: ^ovn
+    enabled: "{{ kolla_enable_ovn | bool }}"
+  - regex: ^ovsdpdk
+    enabled: "{{ kolla_enable_ovs_dpdk | bool }}"
+  - regex: ^placement
+    enabled: "{{ kolla_enable_placement | bool }}"
+  - regex: ^prometheus
+    enabled: "{{ kolla_enable_prometheus | bool }}"
+  - regex: ^qdrouterd
+    enabled: "{{ kolla_enable_qdrouterd | bool }}"
+  - regex: ^rabbitmq
+    enabled: "{{ kolla_enable_rabbitmq | bool }}"
+  - regex: ^redis
+    enabled: "{{ kolla_enable_redis | bool }}"
+  - regex: ^sahara
+    enabled: "{{ kolla_enable_sahara | bool }}"
+  - regex: ^senlin
+    enabled: "{{ kolla_enable_senlin | bool }}"
+  - regex: ^skydive
+    enabled: "{{ kolla_enable_skydive | bool }}"
+  - regex: ^solum
+    enabled: "{{ kolla_enable_solum | bool }}"
+  - regex: ^storm
+    enabled: "{{ kolla_enable_storm | bool }}"
+  - regex: ^swift
+    enabled: "{{ kolla_enable_swift | bool }}"
+  - regex: ^tacker
+    enabled: "{{ kolla_enable_tacker | bool }}"
+  - regex: ^telegraf
+    enabled: "{{ kolla_enable_telegraf | bool }}"
+  - regex: ^tgtd
+    enabled: "{{ kolla_enable_cinder | bool or kolla_enable_ironic | bool }}"
+  - regex: ^trove
+    enabled: "{{ kolla_enable_trove | bool }}"
+  - regex: ^vitrage
+    enabled: "{{ kolla_enable_vitrage | bool }}"
+  - regex: ^vmtp
+    enabled: "{{ kolla_enable_vmtp | bool }}"
+  - regex: ^watcher
+    enabled: "{{ kolla_enable_watcher | bool }}"
+  - regex: ^zookeeper
+    enabled: "{{ kolla_enable_zookeeper | bool }}"
+  - regex: ^zun
+    enabled: "{{ kolla_enable_zun | bool }}"
+
+# List of regular expressions matching names of container images to build for
+# overcloud hosts.
+overcloud_container_image_regexes: "{{ overcloud_container_image_regex_map | selectattr('enabled') | map(attribute='regex') | list }}"
+
+# List of regular expressions matching names of container images to build for
+# overcloud hosts. These images only support source builds.
+overcloud_container_image_regex_map_source:
+  - regex: freezer
+    enabled: "{{ kolla_enable_freezer | bool }}"
+  - regex: monasca
+    enabled: "{{ kolla_enable_monasca | bool }}"
+
+# List of regular expressions matching names of container images to build for
+# overcloud hosts. These images onlt support source builds.
+overcloud_container_image_regexes_source: "{{ overcloud_container_image_regex_map_source | selectattr('enabled') | map(attribute='regex') | list }}"
+
+# List of container image sets for overcloud hosts. This is used when building
+# container images to determine which images to build.
+overcloud_container_image_sets:
+  # Default image type.
+  - regexes: "{{ overcloud_container_image_regexes | join(' ') }}"
+  # Source-only images.
+  - regexes: "{{ overcloud_container_image_regexes_source | join(' ') }}"
+    type: source
+
+# Dict mapping Jinja2 block names in kolla's Docker images to their contents.
+kolla_build_blocks: {}
+
+# Dict mapping image customization variable names to their values.
+# Each variable takes the form:
+# <image name>_<customization>_<operation>
+# Hyphens in the image name must be replaced with underscores. The
+# customization is most commonly packages. The operation should be one of
+# override, append or remove. The value should be a list.
+kolla_build_customizations: {}
+
+###############################################################################
+# Kolla-ansible inventory configuration.
+
+# Full custom seed inventory contents.
+kolla_seed_inventory_custom:
+
+# List of names of default host variables to pass through from kayobe hosts to
+# the kolla-ansible seed host, if set. See also
+# kolla_seed_inventory_pass_through_host_vars_map.
+kolla_seed_inventory_pass_through_host_vars_default:
+  - "ansible_host"
+  - "ansible_port"
+  - "ansible_ssh_private_key_file"
+  - "kolla_api_interface"
+  - "kolla_bifrost_network_interface"
+
+# List of names of additional host variables to pass through from kayobe hosts
+# to the kolla-ansible seed host, if set. See also
+# kolla_seed_inventory_pass_through_host_vars_map.
+kolla_seed_inventory_pass_through_host_vars_extra: []
+
+# List of names of host variables to pass through from kayobe hosts to
+# the kolla-ansible seed host, if set. See also
+# kolla_seed_inventory_pass_through_host_vars_map.
+kolla_seed_inventory_pass_through_host_vars: >-
+  {{ kolla_seed_inventory_pass_through_host_vars_default +
+     kolla_seed_inventory_pass_through_host_vars_extra }}
+
+# Dict mapping names of default variables in
+# kolla_seed_inventory_pass_through_host_vars to the variable to use in
+# kolla-ansible. If a variable name is not in this mapping the kayobe name is
+# used.
+kolla_seed_inventory_pass_through_host_vars_map_default:
+  kolla_api_interface: "api_interface"
+  kolla_bifrost_network_interface: "bifrost_network_interface"
+
+# Dict mapping names of extra variables in
+# kolla_seed_inventory_pass_through_host_vars to the variable to use in
+# kolla-ansible. If a variable name is not in this mapping the kayobe name is
+# used.
+kolla_seed_inventory_pass_through_host_vars_map_extra: {}
+
+# Dict mapping names of variables in
+# kolla_seed_inventory_pass_through_host_vars to the variable to use in
+# kolla-ansible. If a variable name is not in this mapping the kayobe name is
+# used.
+kolla_seed_inventory_pass_through_host_vars_map: >-
+  {{ kolla_seed_inventory_pass_through_host_vars_map_default |
+     combine(kolla_seed_inventory_pass_through_host_vars_map_extra) }}
+
+# Custom overcloud inventory containing a mapping from top level groups to
+# hosts.
+kolla_overcloud_inventory_custom_top_level:
+
+# Custom overcloud inventory containing a mapping from components to top level
+# groups.
+kolla_overcloud_inventory_custom_components:
+
+# Custom overcloud inventory containing a mapping from services to components.
+kolla_overcloud_inventory_custom_services:
+
+# Full custom overcloud inventory contents. By default this will be the
+# concatenation of the top level, component, and service inventories.
+kolla_overcloud_inventory_custom:
+
+# List of groups mapped to kolla storage group.
+kolla_overcloud_inventory_storage_groups:
+  - "storage"
+
+# Dict mapping from kolla-ansible groups to kayobe groups and variables. Each
+# item is a dict with the following items:
+# * groups: A list of kayobe ansible groups to map to this kolla-ansible group.
+# * vars: A dict mapping variable names to values for hosts in this
+#         kolla-ansible group.
+kolla_overcloud_inventory_top_level_group_map:
+  control:
+    groups:
+      - controllers
+  network:
+    groups:
+      - network
+  compute:
+    groups:
+      - compute
+  monitoring:
+    groups:
+      - monitoring
+  storage:
+    groups:
+      "{{ kolla_overcloud_inventory_storage_groups }}"
+
+# List of names of top level kolla-ansible groups. Any of these groups which
+# have no hosts mapped to them will be provided with an empty group definition.
+kolla_overcloud_inventory_kolla_top_level_groups:
+  - "control"
+  - "network"
+  - "compute"
+  - "monitoring"
+  - "storage"
+  - "deployment"
+
+# List of names of default host variables to pass through from kayobe hosts to
+# kolla-ansible hosts, if set. See also
+# kolla_overcloud_inventory_pass_through_host_vars_map.
+kolla_overcloud_inventory_pass_through_host_vars_default:
+  - "ansible_host"
+  - "ansible_port"
+  - "ansible_ssh_private_key_file"
+  - "kolla_network_interface"
+  - "kolla_api_interface"
+  - "kolla_storage_interface"
+  - "kolla_cluster_interface"
+  - "kolla_swift_storage_interface"
+  - "kolla_swift_replication_interface"
+  - "kolla_provision_interface"
+  - "kolla_inspector_dnsmasq_interface"
+  - "kolla_dns_interface"
+  - "kolla_tunnel_interface"
+  - "kolla_external_vip_interface"
+  - "kolla_neutron_external_interfaces"
+  - "kolla_neutron_bridge_names"
+
+# List of names of additional host variables to pass through from kayobe hosts
+# to kolla-ansible hosts, if set. See also
+# kolla_overcloud_inventory_pass_through_host_vars_map.
+kolla_overcloud_inventory_pass_through_host_vars_extra: []
+
+# List of names of host variables to pass through from kayobe hosts to
+# kolla-ansible hosts, if set. See also
+# kolla_overcloud_inventory_pass_through_host_vars_map.
+kolla_overcloud_inventory_pass_through_host_vars: >-
+  {{ kolla_overcloud_inventory_pass_through_host_vars_default +
+     kolla_overcloud_inventory_pass_through_host_vars_extra }}
+
+# Dict mapping names of default variables in
+# kolla_overcloud_inventory_pass_through_host_vars to the variable to use in
+# kolla-ansible. If a variable name is not in this mapping the kayobe name is
+# used.
+kolla_overcloud_inventory_pass_through_host_vars_map_default:
+  kolla_network_interface: "network_interface"
+  kolla_api_interface: "api_interface"
+  kolla_storage_interface: "storage_interface"
+  kolla_cluster_interface: "cluster_interface"
+  kolla_swift_storage_interface: "swift_storage_interface"
+  kolla_swift_replication_interface: "swift_replication_interface"
+  kolla_provision_interface: "provision_interface"
+  kolla_inspector_dnsmasq_interface: "ironic_dnsmasq_interface"
+  kolla_dns_interface: "dns_interface"
+  kolla_tunnel_interface: "tunnel_interface"
+  kolla_neutron_external_interfaces: "neutron_external_interface"
+  kolla_neutron_bridge_names: "neutron_bridge_name"
+
+# Dict mapping names of additional variables in
+# kolla_overcloud_inventory_pass_through_host_vars to the variable to use in
+# kolla-ansible. If a variable name is not in this mapping the kayobe name is
+# used.
+kolla_overcloud_inventory_pass_through_host_vars_map_extra: {}
+
+# Dict mapping names of variables in
+# kolla_overcloud_inventory_pass_through_host_vars to the variable to use in
+# kolla-ansible. If a variable name is not in this mapping the kayobe name is
+# used.
+kolla_overcloud_inventory_pass_through_host_vars_map: >-
+  {{ kolla_overcloud_inventory_pass_through_host_vars_map_default |
+     combine(kolla_overcloud_inventory_pass_through_host_vars_map_extra) }}
+
+###############################################################################
+# Kolla-ansible configuration.
+
+# Virtualenv directory where Kolla-ansible's ansible modules will execute
+# remotely on the target nodes. If None, no virtualenv will be used.
+kolla_ansible_target_venv: "{{ virtualenv_path ~ '/kolla-ansible' }}"
+
+# Password to use to encrypt the kolla-ansible passwords.yml file.
+kolla_ansible_vault_password: "{{ lookup('env', 'KAYOBE_VAULT_PASSWORD') | default }}"
+
+# Whether TLS is enabled for the external API endpoints.
+kolla_enable_tls_external: "{{ kolla_enable_tls_internal if public_net_name == internal_net_name else 'no' }}"
+
+# Whether TLS is enabled for the internal API endpoints.
+kolla_enable_tls_internal: "no"
+
+# Whether debug logging is enabled.
+kolla_openstack_logging_debug: "False"
+
+# Upper constraints file for installation of Kolla.
+kolla_upper_constraints_file: "{{ pip_upper_constraints_file }}"
+
+# User account to use for Kolla SSH access.
+kolla_ansible_user: kolla
+
+# Primary group of Kolla SSH user.
+kolla_ansible_group: kolla
+
+# Whether to use privilege escalation for all operations performed via Kolla
+# Ansible.
+kolla_ansible_become: false
+
+# Whether to create a user account, configure passwordless sudo and authorise
+# an SSH key for Kolla Ansible. Default is 'true'.
+kolla_ansible_create_user: true
+
+###############################################################################
+# Kolla feature flag configuration.
+
+# Enable core OpenStack services. This includes:
+# glance, keystone, neutron, nova, heat, and horizon.
+kolla_enable_openstack_core: "yes"
+
+# These roles are required for Kolla to be operation, however a savvy deployer
+# could disable some of these required roles and run their own services.
+kolla_enable_glance: "{{ kolla_enable_openstack_core | bool }}"
+kolla_enable_haproxy: "yes"
+kolla_enable_keepalived: "{{ kolla_enable_haproxy | bool }}"
+kolla_enable_keystone: "{{ kolla_enable_openstack_core | bool }}"
+kolla_enable_mariadb: "yes"
+kolla_enable_memcached: "yes"
+kolla_enable_neutron: "{{ kolla_enable_openstack_core | bool }}"
+kolla_enable_nova: "{{ kolla_enable_openstack_core | bool }}"
+kolla_enable_rabbitmq: "yes"
+
+# OpenStack services can be enabled or disabled with these options
+kolla_enable_aodh: "no"
+kolla_enable_barbican: "no"
+kolla_enable_blazar: "no"
+kolla_enable_ceilometer: "no"
+kolla_enable_central_logging: "no"
+kolla_enable_cinder: "no"
+kolla_enable_cinder_backend_iscsi: "{{ kolla_enable_cinder_backend_lvm | bool or kolla_enable_cinder_backend_zfssa_iscsi | bool }}"
+kolla_enable_cinder_backend_lvm: "no"
+kolla_enable_cinder_backend_zfssa_iscsi: "no"
+kolla_enable_cloudkitty: "no"
+kolla_enable_collectd: "no"
+kolla_enable_cyborg: "no"
+kolla_enable_designate: "no"
+kolla_enable_elasticsearch: "{{ 'yes' if kolla_enable_central_logging | bool or kolla_enable_osprofiler | bool or kolla_enable_skydive | bool or kolla_enable_monasca | bool else 'no' }}"
+kolla_enable_etcd: "no"
+kolla_enable_fluentd: "yes"
+kolla_enable_freezer: "no"
+kolla_enable_gnocchi: "no"
+kolla_enable_grafana: "no"
+kolla_enable_heat: "{{ kolla_enable_openstack_core | bool }}"
+kolla_enable_horizon: "{{ kolla_enable_openstack_core | bool }}"
+kolla_enable_influxdb: "{{ kolla_enable_monasca | bool or kolla_enable_cloudkitty | bool }}"
+kolla_enable_ironic_ipxe: "no"
+kolla_enable_ironic: "no"
+kolla_enable_ironic_neutron_agent: "{{ kolla_enable_neutron | bool and kolla_enable_ironic | bool }}"
+kolla_enable_iscsid: "{{ (kolla_enable_cinder | bool and kolla_enable_cinder_backend_iscsi | bool) or kolla_enable_ironic | bool }}"
+kolla_enable_kafka: "{{ kolla_enable_monasca | bool }}"
+kolla_enable_kibana: "{{ 'yes' if kolla_enable_central_logging | bool or kolla_enable_monasca | bool else 'no' }}"
+kolla_enable_kuryr: "no"
+kolla_enable_magnum: "no"
+kolla_enable_manila: "no"
+kolla_enable_masakari: "no"
+kolla_enable_mistral: "no"
+kolla_enable_monasca: "no"
+kolla_enable_multipathd: "no"
+kolla_enable_murano: "no"
+kolla_enable_neutron_mlnx: "no"
+kolla_enable_neutron_provider_networks: "no"
+kolla_enable_octavia: "no"
+kolla_enable_openvswitch: "{{ kolla_enable_neutron | bool }}"
+kolla_enable_ovn: "no"
+kolla_enable_ovs_dpdk: "no"
+kolla_enable_osprofiler: "no"
+kolla_enable_placement: "{{ kolla_enable_nova | bool or kolla_enable_zun | bool }}"
+kolla_enable_prometheus: "no"
+kolla_enable_qdrouterd: "no"
+kolla_enable_redis: "no"
+kolla_enable_sahara: "no"
+kolla_enable_senlin: "no"
+kolla_enable_skydive: "no"
+kolla_enable_solum: "no"
+kolla_enable_storm: "{{ kolla_enable_monasca | bool }}"
+kolla_enable_swift: "no"
+kolla_enable_tacker: "no"
+kolla_enable_telegraf: "no"
+kolla_enable_trove: "no"
+kolla_enable_vitrage: "no"
+kolla_enable_vmtp: "no"
+kolla_enable_watcher: "no"
+kolla_enable_zookeeper: "{{ kolla_enable_kafka | bool or kolla_enable_storm | bool }}"
+kolla_enable_zun: "no"
+
+###############################################################################
+# Passwords and credentials.
+
+# Dictionary containing default custom passwords to add or override in the
+# Kolla passwords file.
+kolla_ansible_default_custom_passwords:
+  # SSH key authorized in hosts deployed by Bifrost.
+  bifrost_ssh_key:
+    private_key: "{{ lookup('file', ssh_private_key_path) }}"
+    public_key: "{{ lookup('file', ssh_public_key_path) }}"
+  # SSH key authorized by kolla user on Kolla hosts.
+  kolla_ssh_key:
+    private_key: "{{ lookup('file', ssh_private_key_path) }}"
+    public_key: "{{ lookup('file', ssh_public_key_path) }}"
+  docker_registry_password: "{{ kolla_docker_registry_password }}"
+
+# Dictionary containing custom passwords to add or override in the Kolla
+# passwords file.
+kolla_ansible_custom_passwords: "{{ kolla_ansible_default_custom_passwords }}"
+
+###############################################################################
+# OpenStack API addresses.
+
+# Virtual IP address of OpenStack internal API. Default is the vip_address
+# attribute of the internal network.
+kolla_internal_vip_address: "{{ internal_net_name | net_vip_address }}"
+
+# Fully Qualified Domain Name (FQDN) of OpenStack internal API. Default is the
+# fqdn attribute of the internal network if set, otherwise
+# kolla_internal_vip_address.
+kolla_internal_fqdn: "{{ internal_net_name | net_fqdn or kolla_internal_vip_address }}"
+
+# Virtual IP address of OpenStack external API. Default is the vip_address
+# attribute of the external network.
+kolla_external_vip_address: "{{ public_net_name | net_vip_address }}"
+
+# Fully Qualified Domain Name (FQDN) of OpenStack external API. Default is the
+# fqdn attribute of the external network if set, otherwise
+# kolla_external_vip_address.
+kolla_external_fqdn: "{{ public_net_name | net_fqdn or kolla_external_vip_address }}"
+
+###############################################################################
+# TLS certificate bundle management
+
+# External API certificate bundle.
+#
+# When kolla_enable_tls_external is true, this should contain an X.509
+# certificate bundle for the external API.
+#
+# Note that this should be formatted as a literal style block scalar.
+# TODO(mgoddard): Remove the deprecated support for kolla_tls_cert in the
+# Ussuri cycle.
+kolla_external_tls_cert: "{{ kolla_tls_cert | default }}"
+
+# Path to a CA certificate file to use for the OS_CACERT environment variable
+# in public-openrc.sh file when TLS is enabled, instead of Kolla-Ansible's
+# default.
+kolla_external_fqdn_cacert:
+
+# Internal API certificate bundle.
+#
+# When kolla_enable_tls_internal is true, this should contain an X.509
+# certificate bundle for the internal API.
+#
+# Note that this should be formatted as a literal style block scalar.
+kolla_internal_tls_cert:
+
+# Path to a CA certificate file to use for the OS_CACERT environment variable
+# in admin-openrc.sh file when TLS is enabled, instead of Kolla-Ansible's
+# default.
+kolla_internal_fqdn_cacert:

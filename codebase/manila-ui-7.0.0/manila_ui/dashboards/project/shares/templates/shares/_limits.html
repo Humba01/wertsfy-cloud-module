@@ -1,0 +1,68 @@
+{% load i18n horizon humanize bootstrap %}
+
+<h3>{% trans "Description" %}:</h3>
+
+<p>{% trans "Select parameters of share you want to create. " %}</p>
+
+<h3>{% trans "Metadata" %}:</h3>
+  <p>
+    {% trans "One line - one action. Empty strings will be ignored." %}<br />
+    {% trans "To add metadata use:" %}
+    <pre>key=value</pre>
+  </p>
+
+<h3>{% trans "Share Limits" %}</h3>
+
+<div class="quota_title">
+  <div class="pull-left">
+    <strong>{% trans "Total Gibibytes" %}</strong>
+  </div>
+  <span class="pull-right">
+    {% blocktrans with used=usages.totalShareGigabytesUsed|intcomma quota=usages.maxTotalShareGigabytes|intcomma|quotainf %}{{ used }} of {{ quota }} GiB Used{% endblocktrans %}
+  </span>
+</div>
+
+{{ minifyspace }}
+<div id="quota_size"
+     data-progress-indicator-for="id_size"
+     data-quota-limit="{{ usages.maxTotalShareGigabytes }}"
+     data-quota-used={% block gigabytes_used_progress %}"{{ usages.totalShareGigabytesUsed }}"{% endblock %}
+     class="quota_bar">
+  {% widthratio usages.totalShareGigabytesUsed usages.maxTotalShareGigabytes 100 as gigabytes_percent %}
+  {% bs_progress_bar gigabytes_percent 0 %}
+</div>
+{{ endminifyspace }}
+
+<div class="quota_title">
+  <div class="pull-left">
+    <strong>{% block type_title %}{% trans "Number of Shares" %}{% endblock %}</strong>
+  </div>
+  <span class="pull-right">
+    {% block used_of_quota %}
+      {% blocktrans with used=usages.totalSharesUsed|intcomma quota=usages.maxTotalShares|intcomma|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
+    {% endblock %}
+  </span>
+</div>
+
+{{ minifyspace }}
+<div id={% block type_id %}"quota_shares"{% endblock %}
+     data-quota-limit={% block total_progress %}"{{ usages.maxTotalShares }}"{% endblock %}
+     data-quota-used={% block used_progress %}"{{ usages.totalSharesUsed }}"{% endblock %}
+     class="quota_bar">
+  {% block show_progress_bar %}
+    {% widthratio usages.totalSharesUsed usages.maxTotalShares 100 as shares_percent %}
+    {% widthratio 100 usages.maxTotalShares 1 as single_step %}
+    {% bs_progress_bar shares_percent single_step %}
+  {% endblock %}
+</div>
+{{ endminifyspace }}
+
+<script type="text/javascript" charset="utf-8">
+  if(typeof horizon.Quota !== 'undefined') {
+    horizon.Quota.init();
+  } else {
+    addHorizonLoadEvent(function() {
+      horizon.Quota.init();
+    });
+  }
+</script>

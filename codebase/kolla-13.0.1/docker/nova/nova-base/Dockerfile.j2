@@ -1,0 +1,129 @@
+FROM {{ namespace }}/{{ image_prefix }}openstack-base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block nova_base_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{{ macros.enable_extra_repos(['libvirt', 'openvswitch']) }}
+{{ macros.configure_user(name='nova', groups='qemu') }}
+
+{% if install_type == 'binary' %}
+    {% if base_package_type == 'rpm' %}
+
+        {% set nova_base_packages = [
+                'openstack-nova-common',
+                'openvswitch'
+        ] %}
+
+        {% if base_arch == 'x86_64' %}
+            {% set nova_base_packages = nova_base_packages + [
+                'edk2-ovmf'
+            ] %}
+        {% elif base_arch == 'aarch64' %}
+            {% set nova_base_packages = nova_base_packages + [
+                'edk2-aarch64'
+            ] %}
+        {% endif %}
+
+    {% elif base_package_type == 'deb' %}
+
+        {% set nova_base_packages = [
+                'nova-common',
+                'openvswitch-switch',
+                'python3-nova'
+        ] %}
+
+        {% if base_arch == 'x86_64' %}
+            {% set nova_base_packages = nova_base_packages + [
+                'ovmf'
+            ] %}
+        {% elif base_arch == 'aarch64' %}
+            {% set nova_base_packages = nova_base_packages + [
+                'qemu-efi',
+            ] %}
+        {% endif %}
+    {% endif %}
+
+{{ macros.install_packages(nova_base_packages | customizable("packages")) }}
+
+{% elif install_type == 'source' %}
+    {% if base_package_type == 'rpm' %}
+
+        {% set nova_base_packages = [
+                'openvswitch'
+        ] %}
+        {% if base_arch == 'x86_64' %}
+            {% set nova_base_packages = nova_base_packages + [
+                'edk2-ovmf'
+            ] %}
+        {% elif base_arch == 'aarch64' %}
+            {% set nova_base_packages = nova_base_packages + [
+                'edk2-aarch64'
+            ] %}
+        {% endif %}
+
+    {% elif base_package_type == 'deb' %}
+
+        {% set nova_base_packages = [
+            'dnsmasq',
+            'ebtables',
+            'iproute2',
+            'iptables',
+            'openssh-client',
+            'openvswitch-switch',
+            'python3-libvirt'
+        ] %}
+        {% if base_arch == 'x86_64' %}
+            {% set nova_base_packages = nova_base_packages + [
+                'ovmf'
+            ] %}
+        {% elif base_arch == 'aarch64' %}
+            {% set nova_base_packages = nova_base_packages + [
+                'qemu-efi',
+            ] %}
+        {% endif %}
+
+    {% endif %}
+
+{{ macros.install_packages(nova_base_packages | customizable("packages")) }}
+
+ADD nova-base-archive /nova-base-source
+ADD plugins-archive /
+
+{% set nova_base_pip_packages = [
+    '/nova'
+] %}
+
+{% set nova_base_plugins_pip_packages = [
+    '/plugins/*'
+] %}
+
+# NOTE(hrw): nova lists powervm in requirements and it wants 'futures' on py3.6 which can not be installed.
+# So let drop it as we do not support POWER architecture.
+RUN ln -s nova-base-source/* nova \
+    && sed -i -e "/^pypowervm/d" nova/requirements.txt \
+    && {{ macros.install_pip(nova_base_pip_packages | customizable("pip_packages")) }} \
+    && mkdir -p /etc/nova/ \
+    && cp -r /nova/etc/nova/* /etc/nova/ \
+    && chown -R nova: /etc/nova/ \
+    && sed -i 's|^exec_dirs.*|exec_dirs=/var/lib/kolla/venv/bin,/sbin,/usr/sbin,/bin,/usr/bin,/usr/local/bin,/usr/local/sbin|g' /etc/nova/rootwrap.conf \
+    && if [ "$(ls /plugins)" ]; then \
+        {{ macros.install_pip(nova_base_plugins_pip_packages) }}; \
+    fi
+
+COPY nova_sudoers /etc/sudoers.d/kolla_nova_sudoers
+RUN chmod 750 /etc/sudoers.d \
+    && chmod 440 /etc/sudoers.d/kolla_nova_sudoers
+
+{% endif %}
+
+
+COPY extend_start.sh /usr/local/bin/kolla_extend_start
+
+RUN touch /usr/local/bin/kolla_nova_extend_start \
+    && chmod 755 /usr/local/bin/kolla_extend_start /usr/local/bin/kolla_nova_extend_start
+
+{% block nova_base_footer %}{% endblock %}

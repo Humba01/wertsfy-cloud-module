@@ -1,0 +1,9 @@
+Routes>=2.3.1
+WebOb>=1.8.2
+eventlet>=0.26.1
+msgpack>=1.0.0
+netaddr>=0.7.18
+oslo.config>=5.1.0
+ovs>=2.8.0
+pbr>=2.0.0
+six>=1.10.0

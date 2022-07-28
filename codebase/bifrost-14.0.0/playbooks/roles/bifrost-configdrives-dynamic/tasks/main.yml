@@ -1,0 +1,136 @@
+# Copyright (c) 2015 Hewlett-Packard Development Company, L.P.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+- import_role:
+    name: bifrost-cloud-config
+
+# Note(TheJulia): This step allows us to collect things that
+# ironic knows, that we do not know potentially, such as an UUID
+# should a node have been created without one.
+- name: "Collecting node facts"
+  os_ironic_node_info:
+    cloud: "{{ cloud_name | default(omit) }}"
+    auth_type: "{{ auth_type | default(omit) }}"
+    auth: "{{ auth | default(omit) }}"
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+    ironic_url: "{{ ironic_url | default(omit) }}"
+    uuid: "{{ uuid | default() }}"
+    name: "{{ name | default() }}"
+    skip_items:
+      - instance_info
+  register: node_info
+
+- name: "Set UUID from Ironic"
+  set_fact:
+    uuid: "{{ node_info.node.uuid }}"
+  when: uuid is undefined
+
+- name: "Identify ssh_public_key from ssh_public_key_path"
+  include: ssh_public_key_path.yaml
+  when: ssh_public_key is undefined
+
+- name: "Make temporary folder to build configdrive"
+  tempfile:
+    state: directory
+  register: variable_configdrive_location
+
+- name: "Make metadata folders - /openstack/<version>"
+  file:
+    state: directory
+    name: "{{ variable_configdrive_location.path }}/{{ uuid }}/openstack/{{ item }}/"
+  loop: "{{ metadata_versions }}"
+
+- name: "Place template in each openstack/<version> folder"
+  template:
+    src: openstack_meta_data.json.j2
+    dest: "{{ variable_configdrive_location.path }}/{{ uuid }}/openstack/{{ item }}/meta_data.json"
+  loop: "{{ metadata_versions }}"
+
+- name: "Generate network_data"
+  network_metadata:
+    ipv4_address: "{{ ipv4_address | default('') }}"
+    ipv4_gateway: "{{ ipv4_gateway | default(omit) }}"
+    ipv4_interface_mac: "{{ ipv4_interface_mac | default(omit) }}"
+    ipv4_nameserver: "{% if ipv4_nameserver is string %}['{{ ipv4_nameserver }}']{% else %}{{ ipv4_nameserver | default(omit) }}{% endif %}"
+    ipv4_subnet_mask: "{{ ipv4_subnet_mask | default('') }}"
+    vlan_id: "{{ vlan_id | default(omit) }}"
+    network_mtu: "{{ network_mtu | default(omit) }}"
+    nics: "{{ node_info.node.nics | default(omit) }}"
+    node_network_data: "{{ node_network_data | default(omit) }}"
+  when: addressing_mode is undefined or "dhcp" not in addressing_mode
+
+- name: "Place network data template in each openstack/<version> folder"
+  template:
+    src: network_data.json.j2
+    dest: "{{ variable_configdrive_location.path }}/{{ uuid }}/openstack/{{ item }}/network_data.json"
+  loop: "{{ metadata_versions }}"
+  when:
+    - addressing_mode is undefined or "dhcp" not in addressing_mode
+
+- name: "Make metadata folder - /openstack/content"
+  file:
+    state: directory
+    name: "{{ variable_configdrive_location.path }}/{{ uuid }}/openstack/content/"
+
+- name: "Write network Debian style interface template"
+  template: src=interfaces.j2 dest={{ variable_configdrive_location.path }}/{{ uuid }}/openstack/content/0000
+  when: write_interfaces_file | bool
+
+- name: "Check if mkisofs is available"
+  command: mkisofs --help
+  ignore_errors: yes
+  register: test_mkisofs
+
+- name: "Check if genisoimage is available"
+  command: genisoimage --help
+  ignore_errors: yes
+  register: test_genisoimage
+
+- name: "fail if genisoimage is not available."
+  fail: msg="Neither mkisofs or genisoimage is available. Cannot make config drive files."
+  when: test_genisoimage.rc != 0 and test_mkisofs.rc != 0
+
+- name: "If mkisofs is not available, fallback to genisoimage"
+  set_fact:
+    iso_gen_utility: "genisoimage"
+  when: test_mkisofs.rc != 0
+
+- name: "Make config drive files"
+  become: yes
+  command: "{{ iso_gen_utility }} -R -V config-2 -o {{ http_boot_folder }}/configdrive-{{ uuid }}.iso {{ variable_configdrive_location.path }}/{{ uuid }}"
+
+- name: "Make config drive files base64 encoded and gzip compressed"
+  become:  yes
+  shell: |
+    set -o pipefail
+    gzip -c {{ http_boot_folder }}/configdrive-{{ uuid }}.iso | base64 > {{ http_boot_folder }}/configdrive-{{ uuid }}.iso.gz
+  args:
+    executable: /bin/bash
+
+- name: "Cleanup configdrive .iso files"
+  become: yes
+  file:
+    state: absent
+    name: "{{ http_boot_folder }}/configdrive-{{ uuid }}.iso"
+
+- name: "Cleanup configdrive temp folder"
+  become: yes
+  file:
+    state: absent
+    force: yes
+    name: "{{ variable_configdrive_location.path }}"
+
+- name: "Set the configdrive URL"
+  set_fact:
+    deploy_config_drive: "{{ deploy_url_protocol }}://{{ internal_ip }}:{{ file_url_port }}/configdrive-{{ uuid }}.iso.gz"

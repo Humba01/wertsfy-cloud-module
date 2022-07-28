@@ -1,0 +1,13 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block form_attrs %}enctype="multipart/form-data"{% endblock %}
+
+{% block modal-body-right %}
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% blocktrans %} Deploys a VNFFG.<br/>
+        VNF Mapping is a list of logical VNFD name to VNF instance name
+        mapping. Example<br/>
+        VNFD1:VNF1, VNFD2: VNF2<br/>
+       {% endblocktrans %}</p>
+{% endblock %}

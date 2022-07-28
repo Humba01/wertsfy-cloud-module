@@ -1,0 +1,197 @@
+CHANGES
+=======
+
+4.5.0
+-----
+
+* Temporarily disable capsule tests
+
+4.4.0
+-----
+
+* Migrate from testr to stestr
+* setup.cfg: Replace dashes with underscores
+
+4.3.0
+-----
+
+* Add doc/requirements
+* Change image in glance driver test
+* Use tempest's ServiceClients rather than Manager
+
+4.2.0
+-----
+
+* Increase timeout to create a container or capsule
+* [goal] Migrate zun-tempest-plugin jobs to focal
+* Sleep 1 second to wait for logs
+* Use entrypoint in test\_commit\_container
+* Add container network connectivity test
+* Remove assertion of neutron port tagging
+* Test container in subnet without gateway\_ip
+* Add py38 package metadata
+* Switch to newer openstackdocstheme and reno versions
+* Verify capsule's containers status
+* Fix stable branch py2 job
+* Update "python setup.py build\_sphinx" to build\_sphinx
+* Fix hacking min version to 3.0.1
+* Update hacking for Python3
+* Add stable/ussuri job on master gate
+* Remove six
+
+4.0.0
+-----
+
+* Update docs building
+* Add test case for requested host
+* Add stable/train job to CI
+* Remove stable/queens job
+* Drop python 2.7 support and testing
+
+3.1.0
+-----
+
+* Skip tests if glance is not available
+* Bump the openstackdocstheme extension to 1.20
+* Blacklist sphinx 2.1.0 (autodoc bug)
+* Add tempest test for rebuild
+* Add tempest test for init containers
+* Disable SSL certificate validation
+* Switch to the new canonical constraints URL on master
+* Remove tests for docker container
+* Sync Sphinx requirement
+* Remove assertion of neutron port tags removal
+* Remove assertion of resource constraint
+* Add test for exposing container ports
+* Remove etcd job from gate
+* Replace git.openstack.org URLs with opendev.org URLs
+* Add python3 job back
+* Verify container's port attributes
+* Update tempest documentation
+* Add stable/stein job to gate
+* OpenDev Migration Patch
+* Remove image\_pull\_policy field
+* Use xenial node to run stable/queens devstack
+* Test capsule with cinder volume
+
+3.0.0
+-----
+
+* Ensure capsules is deleted
+* Minor cleanup on the TestCapsule class
+* Cap capsule tests to api version 1.31
+* Test create ipv4 port on dual net
+* Test running container from dual\_net
+* Refactor port creation code
+* Use Zun's API to cleanup network after test
+* Move docker network cleanup logic
+* Change openstack-dev to openstack-discuss
+* Replacing the link in HACKING.rst
+* Move create\_subnet into base class
+* Move create\_network logic into base class
+* Fix incorrect usage of assertTrue
+* Add tempest test for legacy API version
+* Test dynamic-created cinder volume
+* Revert "Revert "Re-enable update container test""
+* Revert "Revert "Re-enable rename container test""
+* Don't force delete containers
+* Add test case for injected file
+* Add tests for get/put\_archive with encoded data
+* Change type of command from string to list
+* switch documentation job to new PTI
+* Run tempest job on stable/rocky branch
+* import zuul job settings from project-config
+
+2.0.0
+-----
+
+* Use 'volumev3' as a service type
+* Test full capsule template
+* Run tempest tests with stable branch
+* Test container bind-mount cinder volume
+* fix tox python3 overrides
+* Revert "Disable two container restart test cases"
+* Disable two container restart test cases
+* Revert "Re-enable update container test"
+* Revert "Re-enable rename container test"
+* Re-enable update container test
+* Re-enable rename container test
+* Drop py34 and py33 target in tox.ini
+* Skip container update test
+* Add test cases for capsule
+* Disable test\_rename\_container test
+* Tempest tests to verify shared network
+* Fix the command for running specific test
+* Update links in README
+* Add tempest test for the 'nets' parameter
+* Updated from global requirements
+* Updated from global requirements
+* Cleanup the created security groups
+* Handle python 2 and 3 compatibility
+* Test remove security group in tempest tests
+* Add tempest tests for get\_archive/put\_archive
+* Fix Docker-py 3.1.0 return generator
+* Update our service definition
+* update home-page url
+* Update tox.ini  file
+* Use random name in tempest tests
+* Zuul: Remove project name
+
+1.0.0
+-----
+
+* Change name to zun-tempest-plugin
+* Updated from global requirements
+* Add tempest test for network attach/detach
+* Rename 'tenant' to 'project' in tempest-plugin
+* Fix Zun-tempest-plugin's documentation
+* Fix git repo link error in README
+* Use admin client to retrieve container host
+* Refactor test\_delete\_container
+* Test container delete without 'force'
+* Set api\_version on tempest tests
+* Increase the timeout for creating container
+* Fixed requirements and test-requirements for zun tempest plugin
+* Add Zuul v3 tempest jobs
+* Rework README
+* Make container DELETE async
+* Delete containers created in tests only
+* Use the right docker url to pull image
+* Remove dependency on Zun
+* The strategy to fix multi-node gate
+* Rename the namespace to zun\_tempest\_plugin
+* Apply cookiecutter to newly split project
+* Fix the broken add\_security\_group endpoint
+* Get python3 tempest tests job to pass
+* Add tempest tests for security groups
+* Clean up network resources after tempest tests
+* Support python 3.5
+* Fixed an issue that container's host is None
+* Warning on running tempest tests
+* Change the tempest test interval to 2s
+* Add tempest test for container commit
+* Add more tempest tests for container run
+* Add tempest tests for 'stats' endpoint
+* Change to git.openstack.org
+* Add tempest tests for 'top' on container
+* Add tempest test for container rename
+* Correct how to run tempest test in README.rst
+* Remove unused LOG
+* Handle the case that the time is zero
+* changed the spelling
+* Support to provide 'image\_driver' during container create
+* Add container-update API
+* Ensure api can work as expected with boolean query params
+* Make start/stop/pause/unpause/restart/kill action async
+* Add validators to the controllers
+* Typo Fix
+* Changed the RPC API from "call" to "cast" for run
+* Add more functional tests
+* Implement the sandbox proposal - Part 1
+* Enforce policy on service api
+* Add some functional test case
+* Functional: Add post\_test\_hook
+* Stop adding ServiceAvailable group option
+* Add tempest case to test container operaton
+* Initial work for zun tempest plugin
+* Added .gitreview

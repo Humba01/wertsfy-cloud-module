@@ -1,0 +1,5 @@
+---
+other:
+  - |
+    Removes the ``neutron-sfc-agent`` image. It was deprecated and marked for
+    removal during Queens release.

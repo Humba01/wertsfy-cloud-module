@@ -1,0 +1,190 @@
+# variables in header
+x-openstack-request-id:
+  description: >
+    A unique ID for tracking the request. The request ID associated with the request
+    appears in the log lines for that request. By default, the middleware configuration
+    ensures that the request ID appears in the log files.
+  in: header
+  required: true
+  type: string
+
+# variables in path
+port_chain_id:
+  description: |
+      The UUID of the port-chain.
+  in: path
+  required: true
+  type: string
+
+# variables in query
+
+# variables in body
+chain_id:
+  description: |
+      The UUID of the port-chain.
+  in: body
+  required: true
+  type: string
+chain_parameters:
+  description: |
+    A dictionary of chain parameters.
+  in: body
+  required: false
+  type: object
+classifier_name:
+  description: |
+      The name of the flow-classifier.
+  in: body
+  required: true
+  type: string
+description:
+  description: |
+      Text describing this parameter.
+  in: body
+  required: false
+  type: string
+destination_ip_prefix:
+  description: |
+    The destination IP prefix.
+  in: body
+  required: false
+  type: string
+destination_logical_port:
+  description: |
+    The UUID of the destination logical port.
+  in: body
+  required: false
+  type: string
+destination_port_range_max:
+  description: |
+    Maximum destination protocol port.
+  in: body
+  required: false
+  type: integer
+destination_port_range_min:
+  description: |
+    Minimum destination protocol port.
+  in: body
+  required: false
+  type: integer
+egress_port_id:
+  description: |
+    The UUID of the egress Neutron port.
+  in: body
+  required: true
+  type: string
+ethertype:
+  description: |
+    L2 ethertype. Can be IPv4 or IPv6 only.
+  in: body
+  required: false
+  type: string
+flow_classifier_id:
+  description: |
+      The UUID of the flow-classifier.
+  in: body
+  required: true
+  type: string
+flow_classifiers:
+  description: |
+      List of flow-classifier UUIDs.
+  in: body
+  required: false
+  type: array
+ingress_port_id:
+  description: |
+    The UUID of the ingress Neutron port.
+  in: body
+  required: true
+  type: string
+l7_parameters:
+  description: |
+    A dictionary of L7 parameters.
+  in: body
+  required: false
+  type: object
+port_chain_name:
+  description: |
+      The name of the port-chain.
+  in: body
+  required: true
+  type: string
+port_pair_group_id:
+  description: |
+      The UUID of the port-pair-group.
+  in: body
+  required: true
+  type: string
+port_pair_group_name:
+  description: |
+      The name of the port-pair-group.
+  in: body
+  required: true
+  type: string
+port_pair_groups:
+  description: |
+      List of port-pair-group UUIDs.
+  in: body
+  required: true
+  type: array
+port_pair_id:
+  description: |
+      The UUID of the port-pair.
+  in: body
+  required: true
+  type: string
+port_pair_name:
+  description: |
+      The name of the port-pair.
+  in: body
+  required: true
+  type: string
+port_pairs:
+  description: |
+      List of port-pair UUIDs.
+  in: body
+  required: true
+  type: array
+protocol:
+  description: |
+    IP protocol.
+  in: body
+  required: false
+  type: string
+service_function_parameters:
+  description: |
+    A dictionary of service function parameters.
+  in: body
+  required: false
+  type: object
+source_ip_prefix:
+  description: |
+    The source IP prefix.
+  in: body
+  required: false
+  type: string
+source_logical_port:
+  description: |
+    The UUID of the source logical port.
+  in: body
+  required: false
+  type: string
+source_port_range_max:
+  description: |
+    Maximum source protocol port.
+  in: body
+  required: false
+  type: integer
+source_port_range_min:
+  description: |
+    Minimum source protocol port.
+  in: body
+  required: false
+  type: integer
+tenant_id:
+  description: |
+     The UUID of the tenant in a multi-tenancy cloud.
+  in: body
+  required: true
+  type: string
+

@@ -1,0 +1,4 @@
+---
+features:
+  - |
+    Adds a new ``get_pip`` macro that allows to bootstrap 'pip' in image.

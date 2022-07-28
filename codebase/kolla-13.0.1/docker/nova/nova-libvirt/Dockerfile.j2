@@ -1,0 +1,97 @@
+FROM {{ namespace }}/{{ infra_image_prefix }}base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block nova_libvirt_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{{ macros.configure_user(name='nova', groups='qemu') }}
+
+{{ macros.enable_extra_repos(['ceph', 'libvirt', 'openvswitch']) }}
+
+{% if base_package_type == 'rpm' %}
+
+    {% set nova_libvirt_packages = [
+        'ceph-common',
+        'cyrus-sasl-scram',
+        'libguestfs',
+        'libvirt-client',
+        'libvirt-daemon',
+        'libvirt-daemon-config-nwfilter',
+        'libvirt-daemon-driver-nwfilter',
+        'openvswitch',
+        'qemu-kvm',
+        'trousers'
+    ] %}
+    {% if base_arch == 'x86_64' %}
+        {% set nova_libvirt_packages = nova_libvirt_packages + [
+            'edk2-ovmf'
+        ] %}
+    {% elif base_arch == 'aarch64' %}
+        {% set nova_libvirt_packages = nova_libvirt_packages + [
+            'edk2-aarch64'
+        ] %}
+    {% endif %}
+
+{% elif base_package_type == 'deb' %}
+
+    {% set nova_libvirt_packages = [
+        'ceph-common',
+        'ebtables',
+        'libvirt-clients',
+        'libvirt-daemon-system',
+        'openvswitch-switch',
+        'pm-utils',
+        'python3-cephfs',
+        'python3-rados',
+        'python3-rbd',
+        'qemu-block-extra',
+        'qemu-system',
+        'trousers'
+    ] %}
+
+    {% if base_arch == "aarch64" %}
+        {% set nova_libvirt_packages = nova_libvirt_packages + [
+            'qemu-efi-aarch64'
+        ] %}
+    {% elif base_arch == "x86_64" %}
+        {% set nova_libvirt_packages = nova_libvirt_packages + [
+            'ovmf',
+        ] %}
+        # NOTE(hrw): Debian merged 'qemu-kvm' into 'qemu-system-ARCH' in 5.0-9
+        {% if base_distro == 'ubuntu' %}
+            {% set nova_libvirt_packages = nova_libvirt_packages + [
+                'qemu-kvm'
+            ] %}
+        {% endif %}
+    {% endif %}
+
+    {% if base_arch in ['aarch64', 'x86_64'] %}
+        {% set nova_libvirt_packages = nova_libvirt_packages + [
+            'dmidecode',
+            'xen-utils'
+        ] %}
+    {% endif %}
+
+    {% if base_distro in ['debian'] %}
+        {% set nova_libvirt_packages = nova_libvirt_packages + [
+            'usermode'
+        ] %}
+    {% endif %}
+{% endif %}
+
+{{ macros.install_packages(nova_libvirt_packages | customizable("packages")) }}
+
+{% if base_package_type == 'deb' %}
+
+RUN rm -f /etc/libvirt/qemu/networks/default.xml /etc/libvirt/qemu/networks/autostart/default.xml
+
+{% endif %}
+
+COPY extend_start.sh /usr/local/bin/kolla_extend_start
+RUN chmod 755 /usr/local/bin/kolla_extend_start
+
+{% block nova_libvirt_footer %}{% endblock %}
+{% block footer %}{% endblock %}

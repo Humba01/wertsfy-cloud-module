@@ -1,0 +1,3 @@
+[sahara.cluster.plugins]
+ambari = sahara_plugin_ambari.plugins.ambari.plugin:AmbariPluginProvider
+

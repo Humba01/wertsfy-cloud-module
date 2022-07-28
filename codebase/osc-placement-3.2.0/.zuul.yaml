@@ -1,0 +1,35 @@
+- project:
+    templates:
+      - openstack-python3-yoga-jobs
+      - check-requirements
+      - publish-openstack-docs-pti
+      - release-notes-jobs-python3
+      - openstackclient-plugin-jobs
+    check:
+      jobs:
+        - openstack-tox-functional-py36:
+            required-projects:
+              - openstack/placement
+        - openstack-tox-functional-py37:
+            required-projects:
+              - openstack/placement
+        - openstack-tox-functional-py38:
+            required-projects:
+              - openstack/placement
+        - openstack-tox-functional-py39:
+            required-projects:
+              - openstack/placement
+    gate:
+      jobs:
+        - openstack-tox-functional-py36:
+            required-projects:
+              - openstack/placement
+        - openstack-tox-functional-py37:
+            required-projects:
+              - openstack/placement
+        - openstack-tox-functional-py38:
+            required-projects:
+              - openstack/placement
+        - openstack-tox-functional-py39:
+            required-projects:
+              - openstack/placement

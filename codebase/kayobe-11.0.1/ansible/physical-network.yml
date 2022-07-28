@@ -1,0 +1,170 @@
+---
+# Switch configuration depends on the type of switch, so groups hosts by their
+# switch type and apply tasks/roles to the relevant groups.
+
+- name: Group hosts by their switch type and apply configuration filters
+  hosts: switches
+  gather_facts: no
+  vars:
+    # Set this variable to True to configure the network for hardware
+    # discovery.
+    physical_network_enable_discovery: False
+    # Set this variable to True to deconfigure the network for hardware
+    # discovery.
+    physical_network_disable_discovery: False
+    # Set this variable to a comma-separated list of names of interfaces to
+    # configure in order to restrict configuration to a subset of interfaces.
+    physical_network_interface_limit: ''
+    # Set this variable to a comma-separated list of descriptions of interfaces
+    # to configure in order to restrict configuration to a subset of
+    # interfaces.
+    physical_network_interface_description_limit: ''
+    # Set this variable to True in order to display the candidate switch
+    # configuration and exit without applying it.
+    physical_network_display: False
+    # List of supported values for the 'switch_type' variable.
+    supported_switch_types:
+      - arista
+      - dellos6
+      - dellos9
+      - dell-powerconnect
+      - junos
+      - mellanox
+      - nclu
+      - openvswitch
+  tasks:
+    - name: Fail if both interface name and description limits are specified
+      fail:
+        msg: >
+          The interface name and interface description limits are mutually
+          exclusive.
+      when:
+        - physical_network_interface_limit != ''
+        - physical_network_interface_description_limit != ''
+
+    - name: Fail if the switch type is not defined
+      fail:
+        msg: >
+          The switch type is not defined or is unrecognised. Configure the type
+          of each host in the 'switches' group via the 'switch_type' variable.
+      when: switch_type is not defined or
+            switch_type not in supported_switch_types
+
+    - name: Group hosts by their switch type
+      group_by:
+        key: "switches_of_type_{{ switch_type }}"
+      changed_when: false
+
+    - name: Group hosts by whether display mode is set
+      group_by:
+        key: "switches_in_display_mode_{{ physical_network_display | bool }}"
+      changed_when: false
+
+    - name: Add discovery interface configuration when enabling discovery
+      set_fact:
+        switch_interface_config: >
+          {{ switch_interface_config | combine(switch_interface_config_enable_discovery) }}
+      when: physical_network_enable_discovery | bool
+
+    - name: Add discovery interface configuration when disabling discovery
+      set_fact:
+        switch_interface_config: >
+          {{ switch_interface_config | combine(switch_interface_config_disable_discovery) }}
+      when: physical_network_disable_discovery | bool
+
+    - name: Restrict switch interfaces to requested subset by name
+      set_fact:
+        switch_interface_config: >
+          {{ switch_interface_config |
+             switch_interface_config_select_name(physical_network_interface_limit.split(",")) }}
+      when: physical_network_interface_limit != ''
+
+    - name: Restrict switch interfaces to requested subset by description
+      set_fact:
+        switch_interface_config: >
+          {{ switch_interface_config |
+             switch_interface_config_select_description(physical_network_interface_description_limit.split(",")) }}
+      when: physical_network_interface_description_limit != ''
+
+- name: Display switch configuration
+  hosts: switches_in_display_mode_True
+  gather_facts: no
+  tasks:
+    - name: Display the candidate global switch configuration
+      debug:
+        var: switch_config
+
+    - name: Display the candidate switch interface configuration
+      debug:
+        var: switch_interface_config
+
+- name: Ensure Arista physical switches are configured
+  hosts: switches_of_type_arista:&switches_in_display_mode_False
+  gather_facts: no
+  roles:
+    - role: ssh-known-host
+
+    - role: arista-switch
+      arista_switch_type: "{{ switch_type }}"
+      arista_switch_provider: "{{ switch_arista_provider }}"
+      arista_switch_config: "{{ switch_config }}"
+      arista_switch_interface_config: "{{ switch_interface_config }}"
+
+- name: Ensure DellOS physical switches are configured
+  hosts: switches_of_type_dellos6:switches_of_type_dellos9:&switches_in_display_mode_False
+  gather_facts: no
+  roles:
+    - role: ssh-known-host
+
+    - role: dell-switch
+      dell_switch_type: "{{ switch_type }}"
+      dell_switch_provider: "{{ switch_dellos_provider }}"
+      dell_switch_config: "{{ switch_config }}"
+      dell_switch_interface_config: "{{ switch_interface_config }}"
+
+- name: Ensure Dell PowerConnect physical switches are configured
+  hosts: switches_of_type_dell-powerconnect:&switches_in_display_mode_False
+  gather_facts: no
+  roles:
+    - role: ssh-known-host
+
+    - role: stackhpc.dell-powerconnect-switch
+      dell_powerconnect_switch_type: "{{ switch_type }}"
+      dell_powerconnect_switch_provider: "{{ switch_dell_powerconnect_provider }}"
+      dell_powerconnect_switch_config: "{{ switch_config }}"
+      dell_powerconnect_switch_interface_config: "{{ switch_interface_config }}"
+
+- name: Ensure Juniper physical switches are configured
+  hosts: switches_of_type_junos:&switches_in_display_mode_False
+  gather_facts: no
+  roles:
+    - role: ssh-known-host
+
+    - role: junos-switch
+      junos_switch_type: "{{ switch_type }}"
+      junos_switch_provider: "{{ switch_junos_provider }}"
+      junos_switch_config_format: "{{ switch_junos_config_format }}"
+      junos_switch_config: "{{ switch_config }}"
+      junos_switch_interface_config: "{{ switch_interface_config }}"
+
+- name: Ensure Mellanox physical switches are configured
+  hosts: switches_of_type_mellanox:&switches_in_display_mode_False
+  gather_facts: no
+  roles:
+    - role: ssh-known-host
+
+    - role: stackhpc.mellanox-switch
+      mellanox_switch_type: "{{ switch_type }}"
+      mellanox_switch_provider: "{{ switch_mellanox_provider }}"
+      mellanox_switch_config: "{{ switch_config }}"
+      mellanox_switch_interface_config: "{{ switch_interface_config }}"
+
+- name: Ensure Cumulus physical switches are configured with NCLU
+  hosts: switches_of_type_nclu:&switches_in_display_mode_False
+  gather_facts: no
+  roles:
+    - role: ssh-known-host
+
+    - role: nclu-switch
+      nclu_switch_config: "{{ switch_config }}"
+      nclu_switch_interface_config: "{{ switch_interface_config }}"

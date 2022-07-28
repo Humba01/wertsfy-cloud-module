@@ -1,0 +1,13 @@
+eventlet!=0.32.0,>=0.30.1
+os-win>=5.5.0
+oslo.concurrency>=4.5.0
+oslo.context>=3.4.0
+oslo.i18n>=5.1.0
+oslo.log>=4.6.1
+oslo.privsep>=2.6.2
+oslo.serialization>=4.2.0
+oslo.service>=2.8.0
+oslo.utils>=4.12.1
+pbr>=5.8.0
+requests>=2.25.1
+tenacity>=6.3.1

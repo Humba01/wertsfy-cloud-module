@@ -1,0 +1,13 @@
+---
+repos:
+  - repo: https://gitlab.com/pycqa/flake8.git
+    rev: 3.8.4
+    hooks:
+      - id: flake8
+        language_version: python3
+        args: ['--config=setup.cfg']
+        pass_filenames: false
+  - repo: https://github.com/pre-commit/mirrors-pylint
+    rev: v2.6.0
+    hooks:
+      - id: pylint

@@ -1,0 +1,6 @@
+PyYAML>=3.12
+cliff!=2.9.0,>=2.8.0
+pbr!=2.1.0,>=2.0.0
+python-dateutil>=2.5.3
+requests>=2.14.2
+stevedore>=1.20.0

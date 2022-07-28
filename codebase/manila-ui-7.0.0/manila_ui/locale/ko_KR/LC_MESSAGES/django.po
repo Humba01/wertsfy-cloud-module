@@ -1,0 +1,1846 @@
+# Eunseop Shin <kairos9603@khu.ac.kr>, 2016. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2017. #zanata
+# minwook-shin <minwook0106@gmail.com>, 2017. #zanata
+# ByungYeol Woo <wby1089@gmail.com>, 2018. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: manila-ui VERSION\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2021-02-16 07:07+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-10-21 07:06+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"Language-Team: Korean (South Korea)\n"
+"Language: ko_KR\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid ""
+"\"Manage\" an existing share from a Manila host. This will make the share "
+"visible within OpenStack. <br> <br> This is equivalent to the <tt>'manila "
+"manage'</tt> command."
+msgstr ""
+"Manila 호스트에서 기존 공유를 \"관리\"합니다. 이렇게하면 OpenStack에서 공유"
+"를 확인할 수 있습니다. <br> <br> <tt>'manila manage'</tt> 명령과 동일합니다."
+
+#, python-format
+msgid "%(used)s of %(quota)s GiB Used"
+msgstr "%(quota)s 중 %(used)s GIB 사용됨"
+
+#, python-format
+msgid "%(used)s of %(quota)s Used"
+msgstr "%(quota)s 중 %(used)s 사용됨"
+
+#, python-format
+msgid "%sGiB"
+msgstr "%sGiB"
+
+msgid "(Quota exceeded)"
+msgstr "(Quota 초과)"
+
+msgid "Access Key"
+msgstr "접근 키"
+
+msgid "Access Level"
+msgstr "엑세스 레벨"
+
+msgid "Access Rules"
+msgstr "접속 규칙"
+
+msgid "Access To"
+msgstr "에 엑세스"
+
+msgid "Access Type"
+msgstr "엑세스 타입"
+
+msgid "Access to"
+msgstr "에 접근"
+
+msgctxt "Current status of share network"
+msgid "Active"
+msgstr "활성화됨"
+
+msgctxt "Current status of share server"
+msgid "Active"
+msgstr "활성화됨"
+
+msgid "Add"
+msgstr "추가"
+
+msgid "Add Rule"
+msgstr "규칙 추가"
+
+msgid "Add Security Service"
+msgstr "보안 서비스 추가"
+
+msgid "Add Share Snapshot Rule"
+msgstr "공유 스냅샷 규칙 추가"
+
+msgid ""
+"Add policy rule to snapshot, 'ip' rule represents ip address, 'user' rule "
+"represents username or usergroup, 'cephx' rule represents ceph auth ID, and "
+"'cert' rule represents certificate."
+msgstr ""
+"스냅샷에 정책 규칙을 추가합니다. 'ip' 규칙은 IP 주소를, 'user' 규칙은 사용자 "
+"이름이나 사용자 그룹을, 'cephx' 규칙은 ceph auth ID를, 'cert' 규칙은 인증서"
+"를 타나냅니다."
+
+msgid "Add rule"
+msgstr "규칙 추가"
+
+msgid "Add security services to share network."
+msgstr "공유 네트워크에 보안 서비스 추가."
+
+msgid "All keys and values must be in range from 1 to 255."
+msgstr "모든 키와 값은 1 에서 255까지의 범위에 있어야 합니다."
+
+msgid "All pairs that are in field for left are set for this metadata."
+msgstr "왼쪽 필드에 있는 모든 쌍은 이 메타데이터로 설정됩니다."
+
+msgid "All pairs that are in field for left are set for this share group type."
+msgstr "왼쪽 필드에 있는 모든 쌍이 공유 그룹 타입으로 설정됩니다."
+
+msgid "All pairs that are in field for left are set for this share type."
+msgstr "왼쪽 필드에 있는 모든 쌍은 공유 타입으로 설정됩니다."
+
+msgid "Allow project access to share group type."
+msgstr "프로젝트가 공유 그룹 유형에 액세스하도록 허용"
+
+msgid "Allow project access to share type."
+msgstr "프로젝트가 공유 유형에 엑세스하도록 허용합니다."
+
+msgid "At least one security service must be specified."
+msgstr "최소한 하나의 보안 서비스를 지정해야 합니다."
+
+msgid "At least one share type must be specified."
+msgstr "적어도 하나의 공유 유형이 지정되어야 합니다."
+
+msgid "Availability Zone"
+msgstr "가용 구역"
+
+msgid "Availability zone"
+msgstr "가용성 존"
+
+msgctxt "Current status of replica"
+msgid "Available"
+msgstr "사용 가능"
+
+msgctxt "Current status of share"
+msgid "Available"
+msgstr "사용 가능"
+
+msgctxt "Current status of snapshot"
+msgid "Available"
+msgstr "사용 가능"
+
+msgid "Available networks"
+msgstr "사용가능한 네트워크"
+
+msgid "Available projects"
+msgstr "사용 가능한 프로젝트"
+
+msgid "Available security services"
+msgstr "이용가능한 보안 서비스"
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Cancel Migration"
+msgstr "마이그레이션 취소"
+
+msgid "Cancel migration"
+msgstr "마이그레이션 취소"
+
+msgid "Cancel migration of a Share"
+msgstr "공유에 대한 마이그레이션 취소"
+
+msgid ""
+"Cancel migration of a migrating share. <br> <br> This is equivalent to the "
+"<tt>'manila migration-cancel'</tt> command."
+msgstr ""
+"마이그레이션 공유에서 마이그레이션을 취소합니다. <br> <br> <tt>'manila "
+"migration-cancel'</tt> 명령과 동일합니다."
+
+msgid "Choose a snapshot"
+msgstr "스냅샷 선택"
+
+msgid "Complete Migration"
+msgstr "마이그레이션 완료"
+
+msgid "Complete migration"
+msgstr "마이그레이션 완료"
+
+msgid "Complete migration of a Share"
+msgstr "공유에 대한 마이그레이션 완료"
+
+msgid ""
+"Complete migration of a migrating share to another Manila host. This "
+"operation is expected to be disruptive. <br> <br> This is equivalent to the "
+"<tt>'manila migration-complete'</tt> command."
+msgstr ""
+"다른 Manila 호스트로 마그레이션 중인 공유를 마이그레이션 완료로 변경합니다. "
+"이 작업은 서비스에 영향이 있을 수 있습니다. <br> <br> <tt>'manila migration-"
+"complete'</tt> 명령과 동일합니다."
+
+msgid "Confirm Migration Cancelling of Share"
+msgstr "공유에 대한 마이그레이션 취소 확인"
+
+msgid "Confirm Migration Completion of Share"
+msgstr "공유에 대한 마이그레이션 완료 확인"
+
+msgid "Confirm Obtaining migration progress of Share"
+msgstr "공유에 대한 마이그레이션 진행사항을 가져오는 것에 대해 확인합니다"
+
+msgid "Confirm Password"
+msgstr "비밀번호 확인"
+
+msgid "Confirm Unmanage Share"
+msgstr "공유 관리 해제 확인"
+
+msgid "Create"
+msgstr "생성"
+
+msgid "Create Group Share Type"
+msgstr "공유 그룹 타입 생성"
+
+msgid "Create Replica"
+msgstr "레플리카 생성"
+
+msgid "Create Security Service"
+msgstr "보안 서비스 생성"
+
+msgid "Create Share"
+msgstr "공유 생성"
+
+msgid "Create Share Group"
+msgstr "공유 그룹 생성"
+
+msgid "Create Share Group Snapshot"
+msgstr "공유 그룹 스냅샷 생성"
+
+msgid "Create Share Group Type"
+msgstr "공유 그룹 타입 생성"
+
+msgid "Create Share Network"
+msgstr "공유 네트워크 생성"
+
+msgid "Create Share Replica"
+msgstr "공유 레플리카 생성"
+
+msgid "Create Share Snapshot"
+msgstr "공유 스냅샷 생성"
+
+msgid "Create Share Type"
+msgstr "공유 유형 생성"
+
+msgid "Create a Share"
+msgstr "공유 생성"
+
+msgid "Create share replica in specific availability zone."
+msgstr "특정 가용 구역 내 공유 레플리카 생성"
+
+msgid "Created"
+msgstr "생성됨"
+
+msgid "Created At"
+msgstr "생성 시점"
+
+msgid "Created at"
+msgstr "생성 시점"
+
+msgctxt "Current status of replica"
+msgid "Creating"
+msgstr "생성 중"
+
+msgctxt "Current status of share"
+msgid "Creating"
+msgstr "생성 중"
+
+msgctxt "Current status of share server"
+msgid "Creating"
+msgstr "생성 중"
+
+msgctxt "Current status of snapshot"
+msgid "Creating"
+msgstr "생성 중"
+
+#, python-format
+msgid "Creating replica for share \"%s\"."
+msgstr "공유 \"%s\"를 위한 레플리카를 생성하는 중. "
+
+#, python-format
+msgid "Creating rule for \"%s\""
+msgstr "\"%s\"를 위한 생성 규칙"
+
+#, python-format
+msgid "Creating share \"%s\""
+msgstr "공유 \"%s\"를 생성하는중"
+
+#, python-format
+msgid "Creating share group \"%s\""
+msgstr "공유 그룹 \"%s\" 생성"
+
+#, python-format
+msgid "Creating share group snapshot \"%s\"."
+msgstr "공유 그룹 스냅샷 \"%s\" 생성."
+
+#, python-format
+msgid "Creating share snapshot \"%s\"."
+msgstr "공유 스냅샷 \"%s\" 생성"
+
+#, python-format
+msgid "Creating snapshot rule for \"%s\""
+msgstr "\"%s\"의 스냅샷 규칙 생성 중"
+
+msgid "Current Size (GiB)"
+msgstr "현재 크기 (GiB)"
+
+msgid "DNS IP"
+msgstr "DNS IP"
+
+msgid "Delete Replica"
+msgid_plural "Delete Replicas"
+msgstr[0] "레플리카 삭제"
+
+msgid "Delete Rule"
+msgid_plural "Delete Rules"
+msgstr[0] "규칙 삭제"
+
+msgid "Delete Security Service"
+msgid_plural "Delete Security Services"
+msgstr[0] "보안 서비스 삭제"
+
+msgid "Delete Share"
+msgid_plural "Delete Shares"
+msgstr[0] "공유 삭제"
+
+msgid "Delete Share Group"
+msgid_plural "Delete Share Groups"
+msgstr[0] "공유 그룹 삭제"
+
+msgid "Delete Share Group Snapshot"
+msgid_plural "Delete Share Group Snapshots"
+msgstr[0] "공유 그룹 스냅샷 삭제"
+
+msgid "Delete Share Group Type"
+msgid_plural "Delete Share Group Types"
+msgstr[0] "공유 그룹 유형 삭제"
+
+msgid "Delete Share Network"
+msgid_plural "Delete Share Networks"
+msgstr[0] "공유 네트워크 삭제"
+
+msgid "Delete Share Server"
+msgid_plural "Delete Share Server"
+msgstr[0] "공유 서버 삭제"
+
+msgid "Delete Share Snapshot"
+msgid_plural "Delete Share Snapshots"
+msgstr[0] "공유 스냅샷 삭제"
+
+msgid "Delete Share Snapshot Rule"
+msgid_plural "Delete Share Snapshot Rules"
+msgstr[0] "공유 스냅샷 규칙 삭제"
+
+msgid "Delete Share Type"
+msgid_plural "Delete Share Types"
+msgstr[0] "공유 유형 삭제"
+
+msgid "Delete Snapshot"
+msgid_plural "Delete Snapshots"
+msgstr[0] "스냅샷 삭제"
+
+msgid "Deleted Replica"
+msgid_plural "Deleted Replicas"
+msgstr[0] "레플리카 삭제됨"
+
+msgid "Deleted Rule"
+msgid_plural "Deleted Rules"
+msgstr[0] "규칙 삭제됨"
+
+msgid "Deleted Security Service"
+msgid_plural "Deleted Security Services"
+msgstr[0] "보안 서비스 삭제됨"
+
+msgid "Deleted Share"
+msgid_plural "Deleted Shares"
+msgstr[0] "삭제된 공유"
+
+msgid "Deleted Share Group"
+msgid_plural "Deleted Share Groups"
+msgstr[0] "공유 그룹 삭제됨"
+
+msgid "Deleted Share Group Snapshot"
+msgid_plural "Deleted Share Group Snapshots"
+msgstr[0] "공유 그룹 스냅샷 삭제됨"
+
+msgid "Deleted Share Group Type"
+msgid_plural "Deleted Share Group Types"
+msgstr[0] "공유 그룹 유형이 삭제됨"
+
+msgid "Deleted Share Network"
+msgid_plural "Deleted Share Networks"
+msgstr[0] "삭제된 공유 네트워크"
+
+msgid "Deleted Share Server"
+msgid_plural "Deleted Share Server"
+msgstr[0] "삭제된 공유 서버"
+
+msgid "Deleted Share Snapshot"
+msgid_plural "Deleted Share Snapshots"
+msgstr[0] "삭제된 공유 스냅샷"
+
+msgid "Deleted Share Snapshot Rule"
+msgid_plural "Deleted Share Snapshot Rules"
+msgstr[0] "삭제된 공유 스냅샷 규칙"
+
+msgid "Deleted Share Type"
+msgid_plural "Deleted Share Types"
+msgstr[0] "삭제된 공유 유형"
+
+msgid "Deleted Snapshot"
+msgid_plural "Deleted Snapshots"
+msgstr[0] "삭제된 스냅샷"
+
+msgctxt "Current status of replica"
+msgid "Deleting"
+msgstr "Deleting"
+
+msgctxt "Current status of share"
+msgid "Deleting"
+msgstr "삭제 중"
+
+msgid "Description"
+msgstr "설명"
+
+msgid "Description:"
+msgstr "설명:"
+
+msgid "Destination host and pool where share will be migrated to."
+msgstr "공유가 마이그레이션 될 대상 호스트와 풀."
+
+msgid "Domain"
+msgstr "도메인"
+
+msgid "Driver handles share servers"
+msgstr "드라이버는 공유 서버를 다룹니다"
+
+msgid "Driver options ('volume_id' for Generic driver, etc...)"
+msgstr "드라이버 옵션 (Generic 드라이브에 대한 'volume_id' 등)"
+
+#, python-format
+msgid "Duplicated keys '%s'."
+msgstr "중복된 키 '%s'."
+
+msgid "Edit"
+msgstr "편집"
+
+msgid "Edit Security Service"
+msgstr "보안 서비스 편집"
+
+msgid "Edit Share"
+msgstr "공유편집"
+
+msgid "Edit Share Metadata"
+msgstr "공유 메타데이터 편집"
+
+msgid "Edit Share Network"
+msgstr "공유 네트워크 편집"
+
+msgid "Edit Share Snapshot"
+msgstr "공유 스냅샷 편집"
+
+msgid "Edit Share network"
+msgstr "공유 네트워크 편집"
+
+msgid ""
+"Enforces migration of the share snapshots to the destination. If set to "
+"True, host-assisted migration will not be attempted."
+msgstr ""
+"목적지로 공유 스냅샷의 마이그레이션을 강제합니다. True일 경우 호스트 지원 마"
+"이그레이션을 시도하지 않습니다."
+
+msgid ""
+"Enforces migration to be nondisruptive. If set to True, host-assisted "
+"migration will not be attempted."
+msgstr ""
+"마이그레이션을 무중단이 되도록 강제. True일 경우 호스트 지원 마이그레이션을 "
+"시도하지 않습니다."
+
+msgid ""
+"Enforces migration to keep the share writable while contents are being "
+"moved. If set to True, host-assisted migration will not be attempted."
+msgstr ""
+"컨텐츠가 옮겨지는 도중 공유의 쓰기 가능을 유지하도록 마이그레이션을 강제합니"
+"다. True일 경우 호스트 지원 마이그레이션을 시도하지 않습니다."
+
+msgid ""
+"Enforces migration to preserve all file metadata when moving its contents. "
+"If set to True, host-assisted migration will not be attempted."
+msgstr ""
+"컨텐츠를 옮길 때 모든 파일을 보존하기 위해 마이그레이션을 강제합니다. True일 "
+"경우 호스트 지원 마이그레이션을 시도하지 않습니다."
+
+msgid ""
+"Enforces the use of the host-assisted migration approach, which bypasses "
+"driver optimizations."
+msgstr "호스트 지원 마이그레이션 방식의 사용을 강제합니다."
+
+msgctxt "Current status of replica"
+msgid "Error"
+msgstr "에러"
+
+msgctxt "Current status of share"
+msgid "Error"
+msgstr "에러"
+
+msgctxt "Current status of share network"
+msgid "Error"
+msgstr "에러"
+
+msgctxt "Current status of share server"
+msgid "Error"
+msgstr "오류"
+
+msgctxt "Current status of snapshot"
+msgid "Error"
+msgstr "오류"
+
+msgid "Expected only pairs of key=value."
+msgstr "key=value 쌍만을 기대합니다."
+
+msgid "Export location"
+msgstr "위치 내보내기"
+
+msgid "Export location of share. Example for NFS: 1.2.3.4:/path/to/share"
+msgstr "공유에 대한 내보내기 위치. NFS 예시: 1.2.3.4:/path/to/share"
+
+msgid "Export locations"
+msgstr "위치 내보내기"
+
+msgid "Extend"
+msgstr "확장"
+
+msgid "Extend Share"
+msgstr "공유 확장"
+
+#, python-format
+msgid "Extend share \"%s\""
+msgstr "공유 \"%s\" 확장"
+
+msgid "Extend the size of a share. "
+msgstr "공유 크기가 늘어났습니다."
+
+msgctxt "Current status of share"
+msgid "Extending Error"
+msgstr "확장중 에러"
+
+msgid ""
+"Extra spec 'driver_handles_share_servers'  is required and should have "
+"boolean value."
+msgstr ""
+"부가 스펙 'driver_handles_share_servers'가 필요하고 불리언 값이 있어야 합니"
+"다."
+
+msgid ""
+"Extra spec 'driver_handles_share_servers' is required and should have "
+"boolean value."
+msgstr ""
+"부가 스펙 'driver_handles_share_servers'가 필요하고 불리언 값이 있어야 합니"
+"다."
+
+msgid "Extra specs"
+msgstr "부가 스펙"
+
+msgid "Force Host Assisted Migration"
+msgstr "호스트 지원 마이그레이션 강제"
+
+msgid "From here you can modify name and description of a security service."
+msgstr "여기서 보안 서비스의 이름과 설명을 수정할 수 있습니다."
+
+msgid ""
+"From here you can modify name and description of a share group snapshot."
+msgstr "여기서 공유 그룹 스냅샷의 이름과 설명을 수정할 수 있습니다."
+
+msgid "From here you can modify name and description of a share network."
+msgstr "여기서 공유 네트워크의 이름과 설명을 수정할 수 있습니다."
+
+msgid "From here you can modify name and description of a snapshot."
+msgstr "여기서 스냅샷의 이름과 설명을 수정할 수 있습니다."
+
+msgid ""
+"From here you can modify name, description and visibility of a share group."
+msgstr "여기서 공유 그룹의 이름, 설명, 표시 여부를 수정할 수 있습니다."
+
+msgid "From here you can modify name, description and visibility of a share."
+msgstr "여기서 공유의 이름, 설명, 표시 여부를 수정할 수 있습니다."
+
+msgid "From here you can revert the share to its latest snapshot."
+msgstr "여기서 가장 최근의 스냅샷으로 공유를 되돌릴 수 있습니다."
+
+msgid "From here you can update share network info. "
+msgstr "여기서 공유 네트워크 정보를 업데이트 할 수 있습니다."
+
+msgid "From here you can update the default share quotas (max limits)."
+msgstr "여기서 기본 공유 quotas (최대 한도)를 업데이트 할 수 있습니다."
+
+msgid "Get Migration Progress"
+msgstr "마이그레이션 진행사항 가져오기"
+
+msgid "Get migration progress"
+msgstr "마이그레이션 진행사항 가져오기"
+
+msgid "GiB"
+msgstr "GiB"
+
+msgid ""
+"Got improper value for field 'driver_options'. Expected only pairs of "
+"key=value."
+msgstr ""
+"'driver_options' 필드에 대해 적절하지 않은 값을 얻었습니다. key=value 쌍만을 "
+"기대합니다."
+
+msgid "Group specs"
+msgstr "그룹 사양"
+
+msgid "Here can be modified extra-specs for share type."
+msgstr "여기서 공유 타입에 대한 부가 스펙을 수정할 수 있습니다."
+
+msgid "Here can be modified group-specs for share group type."
+msgstr "여기서 공유 그룹 타입에 대한 그룹 스펙을 수정할 수 있습니다."
+
+msgid "Host"
+msgstr "호스트"
+
+msgid "Host of share"
+msgstr "공유 호스트"
+
+msgid "Host to migrate share"
+msgstr "공유를 마이그레이션할 호스트"
+
+msgid "Host where share is located, example: some.host@driver[#pool]"
+msgstr "공유가 위치할 호스트, 예시: some.host@driver[#pool]"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "IP Version"
+msgstr "IP 버전"
+
+msgid "Id"
+msgstr "Id"
+
+#, python-format
+msgid ""
+"Improper value set to required extra spec "
+"'spec_driver_handles_share_servers'. Allowed values are %s. Case insensitive."
+msgstr ""
+"필요한 부가 스펙 'spec_driver_handles_share_servers' 을 설정하는 데 적절하지 "
+"않은 값입니다. 허용 값은 %s 로 대소문자를 구별하지 않습니다."
+
+msgctxt "Current status of share server"
+msgid "In-use"
+msgstr "사용 중"
+
+msgctxt "Current status of snapshot"
+msgid "In-use"
+msgstr "사용 중"
+
+msgctxt "Current status of share network"
+msgid "Inactive"
+msgstr "비활성화 됨"
+
+#, python-format
+msgid "Key '%s' has improper length."
+msgstr "키 '%s' 길이가 적절하지 않습니다."
+
+#, python-format
+msgid "Key can not contain spaces. See string '%s'."
+msgstr "키는 공백을 포함할 수 없습니다. 문자열 '%s' 를 살펴 봅니다."
+
+#, python-format
+msgid "Keys should not contain spaces. Error in '%s'."
+msgstr "키는 공백을 포함하지 않아야 합니다. '%s' 에 오류가 있습니다."
+
+msgid "Limit"
+msgstr "제한"
+
+msgid "Manage"
+msgstr "관리"
+
+msgctxt "Current status of share"
+msgid "Manage Error"
+msgstr "관리 오류"
+
+msgid "Manage Replicas"
+msgstr "레플리카 관리"
+
+msgid "Manage Rules"
+msgstr "관리 규칙"
+
+msgid "Manage Share"
+msgstr "공유 관리"
+
+msgid "Manage Share Group Type Access"
+msgstr "공유 그룹 유형 액세스 관리"
+
+msgid "Manage Share Snapshot Rules"
+msgstr "공유 스냅샷 규칙 관리"
+
+msgid "Manage Share Type Access"
+msgstr "공유 유형 액세스 관리"
+
+msgid "Metadata"
+msgstr "메타데이터"
+
+msgid "Migrate Share"
+msgstr "공유 마이그레이션"
+
+msgid "Migrate a Share"
+msgstr "공유 마이그레이션"
+
+msgid ""
+"Migrate an existing share to another Manila host. This will move all your "
+"share data from one host to another. <br> <br> This is equivalent to the "
+"<tt>'manila migration-start'</tt> command."
+msgstr ""
+"기존 공유를 다른 Manila 호스트로 마이그레이션 합니다. 이렇게하면 모든 공유 데"
+"이터가 명령을 실행한 호스트에서 다른 호스트로 이동합니다. <br> <br> "
+"<tt>'manila migration-start'</tt> 명령과 동일합니다."
+
+msgctxt "Current status of share"
+msgid "Migrating"
+msgstr "이전 중"
+
+msgctxt "Current status of share"
+msgid "Migrating to"
+msgstr "로 이전 중"
+
+#, python-format
+msgid "Migration of share %(name)s is at %(progress)s percent."
+msgstr "공유 %(name)s 에 대한 마이그레이션이 현재 %(progress)s 퍼센트입니다."
+
+msgid "Mount snapshot support"
+msgstr "스냅샷 마운트 지원"
+
+msgid "Name"
+msgstr "이름"
+
+msgid "Net Details"
+msgstr "네트워크 상세 정보"
+
+msgid "Network"
+msgstr "네트워크"
+
+msgid "Network Type"
+msgstr "네트워크 유형"
+
+msgid "Networks"
+msgstr "네트워크"
+
+msgid "Neutron Net"
+msgstr "Neutron Net"
+
+msgid "Neutron Subnet"
+msgstr "Neutron 서브넷"
+
+msgid "New Size (GiB)"
+msgstr "새 크기 (GiB)"
+
+msgid "New share network to be set in migrated share"
+msgstr "마이그레이션된 공유에서 설정될 새로운 공유 네트워크"
+
+msgid "New share type to be set in migrating share"
+msgstr "마이그레이션된 공유에서 설정될 새로운 공유 네트워크 타입"
+
+msgid "New size must be greater than current size."
+msgstr "새로 정하는 크기는 현재 크기보다 커야합니다."
+
+msgid "No projects found."
+msgstr "프로젝트를 찾을 수 없습니다."
+
+msgid "No projects selected."
+msgstr "선택한 프로젝트가 없습니다."
+
+msgid "No security services found."
+msgstr "보안 서비스를 찾을 수 없습니다."
+
+msgid "No security services selected."
+msgstr "보안 서비스가 선택되지 않았습니다."
+
+msgid "No source, empty share"
+msgstr "소스가 없음, 빈 공유"
+
+msgid "No source, empty share group"
+msgstr "소스가 없음, 빈 공유 그룹"
+
+msgid "Nondisruptive"
+msgstr "무중단"
+
+msgid "Nova Net"
+msgstr "Nova Net"
+
+msgid "Number of Share Snapshots"
+msgstr "공유 스냅샷 갯수"
+
+msgid "Number of Shares"
+msgstr "공유 갯수"
+
+msgid "Obtain Progress"
+msgstr "진행사항 가져오기"
+
+msgid "Obtain migration progress of a Share"
+msgstr "공유에 대한 마이그레이션 진행사항 가져오기"
+
+msgid ""
+"Obtains migration progress of a migrating share. <br> <br> This is "
+"equivalent to the <tt>'manila migration-get-progress'</tt> command."
+msgstr ""
+"마이그레이션 중인 공유에 대한 진행률을 얻습니다. <br> <br>  <tt>'malila "
+"migration-get-progress'</tt> 명령과 동일합니다."
+
+msgid "One line - one action. Empty strings will be ignored."
+msgstr "One line - 하나의 동작. 빈 문자열은 무시됩니다."
+
+msgid "Overview"
+msgstr "개요"
+
+msgid "Password"
+msgstr "암호"
+
+msgid "Passwords do not match."
+msgstr "비밀번호가 일치하지 않습니다."
+
+msgid "Placeholder for description of share group type access managing form."
+msgstr "공유 그룹 타입 접근 관리 양식에 대한 설명을 위한 자리 표시자입니다."
+
+msgid "Placeholder for description of share type access managing form."
+msgstr "굥유 타입 접근 관리 양식에 대한 설명을 위한 자리 표시자입니다."
+
+msgid "Preserve Metadata"
+msgstr "메타데이터 보존"
+
+msgid "Preserve Snapshots"
+msgstr "스냅샷 보존"
+
+msgid "Project"
+msgstr "프로젝트"
+
+msgid "Projects with access to share group type"
+msgstr "공유 그룹 유형에 대한 액세스를 포함하는 프로젝트"
+
+msgid "Projects with access to share type"
+msgstr "공유 유형에 대한 엑세스를 포함하는 프로젝트"
+
+msgid "Protocol"
+msgstr "프로토콜"
+
+msgid "Public"
+msgstr "공용"
+
+msgid "Quota Name"
+msgstr "Quota 이름"
+
+msgid "Replica Details"
+msgstr "레플리카 상세 정보"
+
+#, python-format
+msgid "Replica Details: %(replica_display_name)s"
+msgstr "레플리카 상세정보: %(replica_display_name)s"
+
+msgid "Replica State"
+msgstr "레플리카 상태"
+
+msgid "Replica state"
+msgstr "레플리카 상태"
+
+msgid "Replicas"
+msgstr "레플리카"
+
+msgid "Reset Replica State"
+msgstr "레플리카 상태 리셋"
+
+msgid "Reset Replica Status"
+msgstr "레플리카 상태 리셋"
+
+msgid "Reset Share Group Snapshot Status"
+msgstr "공유 그룹 스냅샷 상태 재설정"
+
+msgid "Reset Share Group Status"
+msgstr "공유 그룹 상태 초기화"
+
+msgid "Reset Status"
+msgstr "상태 재설정"
+
+msgid "Reset replica state"
+msgstr "레플리카 상태 초기화"
+
+msgid "Reset replica status"
+msgstr "레플리카 상태 초기화"
+
+msgid "Reset share replica's state with ID"
+msgstr "ID와 공유 레플리카 상태를 초기화"
+
+msgid "Reset share replica's status with ID"
+msgstr "ID로 공유 레플리카 상태를 초기화"
+
+msgid "Reset state"
+msgstr "state 리셋"
+
+msgid "Reset status"
+msgstr "리셋 status"
+
+#, python-format
+msgid "Reseting replica ('%(id)s') state from '%(from)s' to '%(to)s'."
+msgstr "레플리카 ('%(id)s') 상태를 '%(from)s' 에서 '%(to)s' 로 초기화합니다."
+
+#, python-format
+msgid "Reseting replica ('%(id)s') status from '%(from)s' to '%(to)s'."
+msgstr "레플리카 ('%(id)s') 상태를 '%(from)s' 에서 '%(to)s' 로 초기화합니다."
+
+#, python-format
+msgid "Reseting share group ('%(id)s') status from '%(from)s' to '%(to)s'."
+msgstr "공유 그룹 ('%(id)s') 상태를 '%(from)s' 에서 '%(to)s' 로 초기화."
+
+#, python-format
+msgid ""
+"Reseting share group snapshot ('%(id)s') status from '%(from)s' to '%(to)s'."
+msgstr "공유 그룹 스냅샷 ('%(id)s') 상태를 '%(from)s' 에서 '%(to)s' 로 초기화."
+
+msgid "Resync"
+msgstr "재동기화"
+
+msgid "Resync Replica"
+msgstr "레플리카 재동기화"
+
+msgid "Resync replica"
+msgstr "레플리카 재동기화"
+
+msgid "Resync share replica with ID"
+msgstr "ID로 공유 레플리카 재동기화"
+
+#, python-format
+msgid "Resync'ing replica '%s'"
+msgstr "레플리카 '%s'  재동기화 중"
+
+msgid "Revert Share"
+msgstr "공유 되돌리기"
+
+msgid "Revert Share to a Snapshot"
+msgstr "공유를 스냅샷으로 되돌리기"
+
+msgid "Revert share to a snapshot"
+msgstr "공유를 스냅샷으로 되돌리기"
+
+msgctxt "Current status of share"
+msgid "Reverting Error"
+msgstr "되돌리기 에러"
+
+msgid "Rules"
+msgstr "규칙"
+
+msgid "Save Changes"
+msgstr "변경사항 저장"
+
+msgid "Security Service Details"
+msgstr "보안 서비스 상세 정보"
+
+#, python-format
+msgid "Security Service Details: %(service_display_name)s"
+msgstr "보안 서비스 상세정보: %(service_display_name)s"
+
+msgid "Security Service Overview"
+msgstr "보안 서비스 개요"
+
+msgid "Security Services"
+msgstr "보안 서비스"
+
+msgid "Security services within share network"
+msgstr "공유 네트워크 내 보안 서비스 "
+
+msgid "Segmentation Id"
+msgstr "구분 Id"
+
+msgid "Select parameters of share group you want to create. "
+msgstr "만들고자 하는 공유 그룹의 매개변수를 선택하세요."
+
+msgid "Select parameters of share you want to create. "
+msgstr "만들고자 하는 공유의 매개변수를 선택하세요."
+
+msgid "Selected Networks"
+msgstr "선택된 네트워크"
+
+msgid "Selected Projects"
+msgstr "선택된 프로젝트"
+
+msgid "Selected projects"
+msgstr "선택한 프로젝트"
+
+msgid "Selected security services"
+msgstr "선택된 보안 서비스"
+
+msgid "Server"
+msgstr "서버"
+
+msgid "Set Replica as Active"
+msgstr "레플리카를 활성화 상태로 설정"
+
+msgid "Set as Active"
+msgstr "활성화 상태로 설정"
+
+msgid "Set maximum quotas for the project."
+msgstr "프로젝트에대한 최대 quota를 설정합니다."
+
+msgid "Set share replica with ID"
+msgstr "ID와 공유 리플리카 설정"
+
+#, python-format
+msgid "Setting replica \"%s\" as active..."
+msgstr "레플리카 \"%s\"를 활성화 상태로 설정"
+
+msgid "Share"
+msgstr "공유"
+
+#, python-format
+msgid "Share \"%(s)s\" has been reverted to \"%(ss)s\" snapshot successfully"
+msgstr "성공적으로 공유 \"%(s)s\"는 스냅샷 \"%(ss)s\"으로 되돌려졌습니다."
+
+msgid "Share Details"
+msgstr "공유 상세 정보"
+
+#, python-format
+msgid "Share Details: %(share_display_name)s"
+msgstr "공유 상세정보: %(share_display_name)s"
+
+#, python-format
+msgid "Share Details: %(share_name)s"
+msgstr "공유 세부 사항: %(share_name)s"
+
+msgid "Share Group"
+msgstr "공유 그룹"
+
+msgid "Share Group Details"
+msgstr "공유 그룹 새부 정보"
+
+#, python-format
+msgid "Share Group Details: %s"
+msgstr "공유 그룹 상세 정보: %s"
+
+msgid "Share Group Name"
+msgstr "공유 그룹 이름"
+
+msgid "Share Group Overview"
+msgstr "공유 그룹 개요"
+
+msgid "Share Group Snapshot"
+msgstr "공유 그룹 스냅샷"
+
+msgid "Share Group Snapshot Details"
+msgstr "공유 그룹 스냅샷 상세 정보"
+
+#, python-format
+msgid "Share Group Snapshot Details: %(sgs_display_name)s"
+msgstr "공유 그룹 스냅샷 세부 사항: %(sgs_display_name)s"
+
+msgid "Share Group Snapshot Overview"
+msgstr "공유 그룹 스냅샷 개요"
+
+msgid "Share Group Snapshots"
+msgstr "공유 그룹 스냅샷"
+
+msgid "Share Group Type"
+msgstr "공유 그룹 유형"
+
+msgid "Share Group Types"
+msgstr "공유 그룹 타입"
+
+msgid "Share Groups"
+msgstr "공유 그룹"
+
+msgid "Share ID"
+msgstr "공유 ID"
+
+msgid "Share Instance Details"
+msgstr "공유 인스턴스 상세 정보"
+
+#, python-format
+msgid "Share Instance Details: %s"
+msgstr "공유 인스턴스 세부 사항: %s"
+
+msgid "Share Instance Overview"
+msgstr "공유 인스턴스 개요"
+
+msgid "Share Instances"
+msgstr "공유 인스턴스"
+
+msgid "Share Limits"
+msgstr "공유 제한"
+
+msgid "Share Name"
+msgstr "공유 이름"
+
+msgid "Share Network"
+msgstr "공유 네트워크"
+
+msgid "Share Network Details"
+msgstr "공유 네트워크 상세 정보"
+
+#, python-format
+msgid "Share Network Details: %(network_display_name)s"
+msgstr "공유 네트워크 상세 정보: %(network_display_name)s"
+
+msgid "Share Network Info"
+msgstr "공유 네트워크 정보"
+
+msgid "Share Network Overview"
+msgstr "공유 네트워크 개요"
+
+msgid "Share Networks"
+msgstr "공유 네트워크"
+
+msgid "Share Overview"
+msgstr "공유 개요"
+
+msgid "Share Protocol"
+msgstr "공유 프로토콜"
+
+msgid "Share Quotas"
+msgstr "공유 Quotas"
+
+msgid "Share Replica Overview"
+msgstr "공유 레플리카 개요"
+
+msgid "Share Replicas"
+msgstr "공유 레플리카"
+
+#, python-format
+msgid "Share Replicas: %(share_display_name)s"
+msgstr "공유 레플리카 : %(share_display_name)s"
+
+msgid "Share Rules"
+msgstr "공유 규칙"
+
+#, python-format
+msgid "Share Rules: %(share_display_name)s"
+msgstr "공유 규칙들: %(share_display_name)s"
+
+msgid "Share Server"
+msgstr "공유 서버"
+
+msgid "Share Server Details"
+msgstr "공유 서버 상세 정보"
+
+#, python-format
+msgid "Share Server Details: %(server_name)s"
+msgstr "공유 서버 세부 사항: %(server_name)s"
+
+msgid "Share Server Id"
+msgstr "공유 서버 Id"
+
+msgid "Share Server Overview"
+msgstr "공유 서버 개요"
+
+msgid "Share Servers"
+msgstr "공유 서버"
+
+msgid "Share Snapshot Details"
+msgstr "공유 스냅샷 상세 정보"
+
+msgid "Share Snapshot Name"
+msgstr "공유 스냅샷 이름"
+
+msgid "Share Snapshot Overview"
+msgstr "공유 스냅샷 개요"
+
+msgid "Share Snapshot Rules"
+msgstr "공유 스냅샷 규칙"
+
+msgid "Share Snapshots"
+msgstr "공유 스냅샷"
+
+msgid "Share Snapshots Storage"
+msgstr "공유 스냅샷 저장소"
+
+msgid ""
+"Share Snapshots are used for storing share changes and creating shares. "
+msgstr "스냅샷 공유는 공유 변화내역 저장과 공유 생성에 사용됩니다."
+
+msgid "Share Source"
+msgstr "공유 소스"
+
+msgid "Share Storage"
+msgstr "공유 저장소"
+
+msgid "Share Type"
+msgstr "공유 유형"
+
+msgid "Share Types"
+msgstr "공유 유형"
+
+msgid "Share Types (multiple available)"
+msgstr "공유 유형 (복수 사용 가능)"
+
+msgid "Share Types (one available)"
+msgstr "공유 유형 (단일 사용 가능)"
+
+#, python-format
+msgid ""
+"Share cannot be extended to %(req)iGiB as you only have %(avail)iGiB of your "
+"quota available."
+msgstr ""
+"사용가능한 quota의 %(avail)iGiB에서 %(req)iGiB로 공유를 확장하지 못했습니다."
+
+msgid "Share gigabytes"
+msgstr "기가바이트 공유"
+
+msgid "Share name to be assigned"
+msgstr "할당될 공유 이름"
+
+msgid "Share network"
+msgstr "공유 네트워크"
+
+msgid ""
+"Share networks contain network data, that will be used for creation of "
+"service VM, where will be hosted shares."
+msgstr ""
+"공유 네트워크에는 공유 데이터가 있는 서비스 VM을 만드는데 사용되는 네트워크 "
+"데이터가 포함됩니다."
+
+#, python-format
+msgid "Share replica %s has been deleted."
+msgstr "공유 레플리카 %s 를 삭제하였습니다."
+
+msgid "Share server"
+msgstr "공유 서버"
+
+#, python-format
+msgid "Share size must be equal to or greater than the snapshot size (%sGiB)"
+msgstr "공유 크기는 스냅샷 크기 (%sGiB)보다 크거나 같아야합니다."
+
+msgid "Share snapshot gigabytes"
+msgstr "스냅샷 기가바이트 공유"
+
+msgid "Share snapshots"
+msgstr "스냅샷 공유"
+
+msgid "Share type"
+msgstr "공유 유형"
+
+msgid "Share types"
+msgstr "공유 유형"
+
+msgid "Shared Quotas"
+msgstr "공유 Quota"
+
+msgid "Shares"
+msgstr "공유"
+
+msgid "Shares on this server"
+msgstr "서버 공유"
+
+msgid "Sid"
+msgstr "Sid"
+
+msgid "Size"
+msgstr "크기"
+
+msgid "Size (GiB)"
+msgstr "크기 (GiB)"
+
+msgid "Snapshot"
+msgstr "스냅샷"
+
+#, python-format
+msgid "Snapshot Details: %(snapshot_display_name)s"
+msgstr "스냅샷 상세정보: %(snapshot_display_name)s"
+
+msgid "Snapshot ID"
+msgstr "스냅샷 ID"
+
+msgid "Snapshot Overview"
+msgstr "스냅샷 개요"
+
+#, python-format
+msgid "Snapshot Rules: %(snapshot_display_name)s"
+msgstr "스냅샷 규칙: %(snapshot_display_name)s"
+
+msgid "Source"
+msgstr "소스"
+
+msgid "Source SG Snapshot"
+msgstr "소스 SG 스냅샷"
+
+msgid "Source Share Group"
+msgstr "공유 그룹 원본"
+
+msgid "Source Share Group Snapshot"
+msgstr "공유 그룹 스냅샷 소스"
+
+msgid "Source Type"
+msgstr "소스 유형"
+
+msgid "Source share group snapshot"
+msgstr "소스 공유 그룹 스냅샷"
+
+msgid ""
+"Specify the new share network for the share. Do not specify this parameter "
+"if the migrating share has to be retained within its current share network."
+msgstr ""
+"공유에 사용될 새 공유 네트워크를 지정하세요. 만약 마이그레이션 공유가 현재 공"
+"유 네트워크 안에서 유지되어야 한다면 이 매개변수를 지정하면 안 됩니다."
+
+msgid ""
+"Specify the new share type for the share. Do not specify this parameter if "
+"the migrating share has to be retained with its current share type."
+msgstr ""
+"공유를 위한 새로운 공유 유형을 지정하세요. 만약 마이그레이션 공유가 현재 공"
+"유 유형 내에서 유지되어야 한다면 이 매개변수를 지정하면 안 됩니다."
+
+msgid "Specs"
+msgstr "사양"
+
+msgid "Start migration"
+msgstr "마이그레이션 시작"
+
+msgid "Status"
+msgstr "상태"
+
+msgid "Submit"
+msgstr "제출"
+
+msgid "Subnet"
+msgstr "서브넷"
+
+#, python-format
+msgid "Successfully created security service: %s"
+msgstr "보안 서비스: %s 를 성공적으로 생성하였습니다"
+
+#, python-format
+msgid "Successfully created share group type: %s"
+msgstr "성공적으로 생성됨. 공유 그룹 타입: %s"
+
+#, python-format
+msgid "Successfully created share network: %s"
+msgstr "공유 네트워크: %s 를 성공적으로 생성하였습니다"
+
+#, python-format
+msgid "Successfully created share type: %s"
+msgstr "공유 유형: %s 를 성공적으로 생성하였습니다"
+
+#, python-format
+msgid "Successfully sent the request to cancel migration of  share: %s."
+msgstr "공유 %s 에 대한 마이그레이션 취소 요청을 성공적으로 전송하였습니다."
+
+#, python-format
+msgid "Successfully sent the request to complete migration of  share: %s."
+msgstr ""
+"공유 %s 에 대한 마이그레이션을 완료하기 위해 요청을 성공적으로 전송하였습니"
+"다."
+
+#, python-format
+msgid "Successfully sent the request to manage share: %s"
+msgstr "공유를 관리하기 위해 요청을 성공적으로 전송하였습니다: %s"
+
+#, python-format
+msgid "Successfully sent the request to migrate share: %s."
+msgstr "요청을 마이그레이션 공유에 성공적으로 보냈습니다: %s."
+
+#, python-format
+msgid "Successfully sent the request to unmanage share: %s"
+msgstr "공유를 관리 해제하기 위해 요청을 성공적으로 전송하였습니다: %s"
+
+#, python-format
+msgid "Successfully updated extra specs for share type '%s'."
+msgstr "공유 유형 '%s' 에 대한 부가 스펙 갱신을 성공하였습니다."
+
+#, python-format
+msgid "Successfully updated group specs for share group type '%s'."
+msgstr "공유 그룹 타입 '%s'의 그룹 스펙을 성공적으로 갱신하였습니다."
+
+#, python-format
+msgid "Successfully updated security service \"%s\""
+msgstr "시큐리티 서비스 %s를 성공적으로 업데이트 하였습니다."
+
+msgid "Task state"
+msgstr "작업 상태"
+
+msgid ""
+"The security service can be used by backend drivers to configure clients, "
+"for more secure using of share."
+msgstr ""
+"보안 서비스는 백엔드 드라이버를 통한 공유를 보다 더 안전하게 사용하기위해 클"
+"라이언트를 구성하는데 사용할 수 있습니다."
+
+msgid ""
+"The share group type defines the characteristics of a share group backend."
+msgstr "공유 그룹 타입은 공유 그룹 백엔드 특성을 정의합니다."
+
+#, python-format
+msgid "The share size cannot be less than the snapshot size (%sGiB)"
+msgstr "공유 크기는 스냅샷 크기 (%sGiB)보다 작을 수 없습니다."
+
+msgid "The share type defines the characteristics of a share backend."
+msgstr "공유 타입은 공유 백엔드에대한 특성을 정의합니다."
+
+msgid "To add extra-specs use:"
+msgstr "부가 스펙을 추가하기 위해 사용합니다:"
+
+msgid "To add group-specs use:"
+msgstr "그룹 스펙을 추가하려면 다음을 사용합니다:"
+
+msgid "To add metadata use:"
+msgstr "메타데이터를 추가하려면 사용합니다:"
+
+msgid "To unset extra-specs use:"
+msgstr "부가 스펙을 설정 해제하려면 다음을 사용합니다:"
+
+msgid "To unset group-specs use:"
+msgstr "그룹 스펙을 설정 해제하려면 다음을 사용합니다:"
+
+msgid "To unset metadata use:"
+msgstr "메타데이터를 설정 해제하려면 다음을 사용합니다:"
+
+msgid "Total Gibibytes"
+msgstr "총 Gibibytes"
+
+msgid "Type"
+msgstr "유형"
+
+msgid "Unable to add rule."
+msgstr "규칙을 추가할 수 없습니다."
+
+msgid "Unable to add snapshot rule."
+msgstr "스냅샷 규칙을 추가할 수 없음."
+
+#, python-format
+msgid "Unable to cancel migration of share %s at this moment."
+msgstr "현재 공유 %s 에 대한 마이그레이션 취소를 가져올 수 없습니다."
+
+#, python-format
+msgid "Unable to complete migration of share %s."
+msgstr "공유 %s 에 대한 마이그레이션을 완료할 수 없습니다."
+
+msgid "Unable to create security service."
+msgstr "보안 서비스를 생성할 수 없습니다."
+
+msgid "Unable to create share group snapshot."
+msgstr "공유 그룹 스냅샷을 생성할 수 없습니다."
+
+msgid "Unable to create share group type."
+msgstr "공유 그룹 유형을 생성할 수 없습니다."
+
+msgid "Unable to create share group."
+msgstr "공유 그룹을 생성할 수 없습니다."
+
+msgid "Unable to create share network."
+msgstr "공유 네트워크를 생성할 수 없습니다."
+
+msgid "Unable to create share replica."
+msgstr "공유 레플리카를 생성할 수 없습니다."
+
+msgid "Unable to create share snapshot."
+msgstr "공유스냅샷을 생성할 수 없습니다"
+
+msgid "Unable to create share type."
+msgstr "공유 유형을 생성할 수 없습니다."
+
+msgid "Unable to create share."
+msgstr "공유를 생성할 수 없습니다."
+
+#, python-format
+msgid "Unable to create share. %s"
+msgstr "공유 %s를 생성할 수 없습니다."
+
+#, python-format
+msgid "Unable to delete replica \"%s\"."
+msgstr "레플리카 \"%s\" 를 삭제할 수 없습니다."
+
+#, python-format
+msgid "Unable to delete rule \"%s\"."
+msgstr "규칙 \"%s\" 를 삭제 할 수 없습니다."
+
+#, python-format
+msgid "Unable to delete share \"%s\". "
+msgstr "공유 %s를 제거할 수 없습니다. "
+
+#, python-format
+msgid ""
+"Unable to delete share group snapshot \"%s\". One or more share groups "
+"depend on it."
+msgstr ""
+"공유 그룹 스냅샷 \"%s\"을 삭제할 수 없습니다. 하나 이상의 공유 그룹이 의존하"
+"고 있습니다."
+
+#, python-format
+msgid "Unable to delete snapshot \"%s\". One or more shares depend on it."
+msgstr ""
+"\"%s\" 스냅샷을 삭제할 수 없습니다. 하나 이상의 공유에 의존하고 있습니다."
+
+#, python-format
+msgid "Unable to delete snapshot rule \"%s\"."
+msgstr "스냅샷 규칙 \"%s\"를 삭제할 수 없습니다."
+
+msgid "Unable to extend share."
+msgstr "공유를 확장할수 없습니다."
+
+msgid "Unable to get information about share group type access."
+msgstr "공유 그룹 유형 액세스에 관련된 정보를 얻을 수 없습니다."
+
+msgid "Unable to get information about share type access."
+msgstr "공유 유형 액세스에 관련된 정보를 가져올 수 없습니다."
+
+msgid "Unable to get list of projects."
+msgstr "프로젝트 목록을 가져올 수 없습니다."
+
+msgid "Unable to get manila default quota."
+msgstr "Manila 기본 quota 값을 찾을 수 없습니다."
+
+msgid "Unable to get the security services hosts"
+msgstr "보안 서비스 호스트를 가져올 수 없습니다."
+
+#, python-format
+msgid "Unable to get the specified share group '%s' for snapshot creation."
+msgstr "스냅샷 생성을 위한 지정된 공유 그룹 '%s' 를 얻을 수 없습니다."
+
+msgid "Unable to load the specified share group snapshot."
+msgstr "지정된 공유 그룹 스냅샷을 불러들일 수 없습니다."
+
+msgid "Unable to load the specified snapshot."
+msgstr "지정한 스냅샷을 불러올 수 없습니다."
+
+msgid "Unable to manage share"
+msgstr "공유를 관리할 수 없습니다"
+
+#, python-format
+msgid "Unable to migrate share %s."
+msgstr "공유 %s를 마이그레이션할 수 없습니다."
+
+#, python-format
+msgid "Unable to obtain progress of migration of share %s at this moment."
+msgstr "현재 공유 %s 에 대한 마이그레이션 과정을 가져올 수 없습니다."
+
+#, python-format
+msgid "Unable to reset state of replica '%s'."
+msgstr "레플리카 '%s' 상태를 초기화할 수 없습니다"
+
+#, python-format
+msgid "Unable to reset status of replica '%s'."
+msgstr "레플리카 '%s' 상태를 초기화할 수 없습니다."
+
+#, python-format
+msgid "Unable to reset status of share group '%s'."
+msgstr "공유 그룹 '%s' 상태를 초기화할 수 없습니다."
+
+#, python-format
+msgid "Unable to reset status of share group snapshot '%s'."
+msgstr "공유 그룹 스냅샷 '%s'의 상태를 초기화할 수 없습니다."
+
+#, python-format
+msgid "Unable to resync replica '%s'."
+msgstr "레플리카 '%s' 를 재동기화할 수 없습니다."
+
+msgid "Unable to retrieve default share quotas."
+msgstr "기본 공유 quotas 를 찾을 수 없습니다."
+
+msgid "Unable to retrieve list of projects."
+msgstr "프로젝트 목록을 가져올 수 없습니다."
+
+msgid "Unable to retrieve quotas."
+msgstr "쿼터(quota)를 찾을 수 없습니다."
+
+#, python-format
+msgid "Unable to retrieve replica '%s'."
+msgstr "레플리카 '%s' 를 가져올 수 없습니다."
+
+#, python-format
+msgid "Unable to retrieve security service '%s' details."
+msgstr "보안 서비스 '%s'의 상세정보를 가져올 수 없습니다."
+
+msgid "Unable to retrieve security services"
+msgstr "보안 서비스를 가져올 수 없습니다"
+
+msgid "Unable to retrieve security_service."
+msgstr "security_service를 찾지 못했습니다."
+
+msgid "Unable to retrieve share details."
+msgstr "공유 세부 사항을 가져올 수 없습니다."
+
+#, python-format
+msgid "Unable to retrieve share group '%s'."
+msgstr "공유 그룹 '%s'를 가져올 수 없습니다."
+
+msgid "Unable to retrieve share group details."
+msgstr "공유 그룹 상세 정보를 가져올 수 없습니다."
+
+#, python-format
+msgid "Unable to retrieve share group snapshot '%s'."
+msgstr "공유 그룹 스냅샷  '%s'을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share group snapshot details."
+msgstr "공유 그룹 스냅샷 세부 사항을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share group snapshot list."
+msgstr "공유 그룹 스냅샷 목록을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share group snapshot."
+msgstr "공유 그룹 스냅샷을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share group snapshots."
+msgstr "공유 그룹 스냅샷을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share group types."
+msgstr "공유 그룹 유형을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share group."
+msgstr "공유 그룹을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share groups."
+msgstr "공유 그룹 상태를 가져올 수 없습니다."
+
+msgid "Unable to retrieve share instance details."
+msgstr "공유 인스턴스 세부 사항을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share instances."
+msgstr "공유 인스턴스를 가져올 수 없습니다."
+
+msgid "Unable to retrieve share limit information."
+msgstr "공유 최대 사용량 정보를 찾지 못 했습니다."
+
+msgid "Unable to retrieve share list."
+msgstr "공유 목록을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share network details."
+msgstr "공유 네트워크 상세정보를 가져올 수 없습니다."
+
+msgid "Unable to retrieve share network."
+msgstr "공유네트워크를 가져올 수 없습니다."
+
+msgid "Unable to retrieve share networks"
+msgstr "공유 네트워크를 가져올 수 없습니다"
+
+msgid "Unable to retrieve share replicas."
+msgstr "공유 레플리카를 가져올 수 없습니다."
+
+msgid "Unable to retrieve share rules."
+msgstr "공유 규칙을 찾을 수 없습니다."
+
+msgid "Unable to retrieve share server details."
+msgstr "공유 서버 세부 사항을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share servers"
+msgstr "공유 서버를 가져올 수 없습니다"
+
+msgid "Unable to retrieve share snapshot list."
+msgstr "공유 스냅샷 목록을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share snapshot rules."
+msgstr "공유 스냅샷 규칙을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share snapshot."
+msgstr "공유 스냅샷을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share snapshots list."
+msgstr "공유 스냅샷 목록을 찾을 수 없습니다."
+
+msgid "Unable to retrieve share snapshots."
+msgstr "공유 스냅샷을 찾지 못했습니다."
+
+msgid "Unable to retrieve share types."
+msgstr "공유 유형을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share."
+msgstr "공유를 찾을 수 없습니다."
+
+#, python-format
+msgid "Unable to retrieve share. %s"
+msgstr "공유 %s를 가져올 수 없습니다. "
+
+msgid "Unable to retrieve share_gruop_type."
+msgstr "공유 그룹 유형을 가져올 수 없습니다."
+
+msgid "Unable to retrieve share_type."
+msgstr "share_type 을 가져올 수 없습니다."
+
+msgid "Unable to retrieve snapshot details."
+msgstr "스냅샷 상세정보를 찾을 수 없습니다."
+
+msgid "Unable to retrieve snapshot."
+msgstr "스냅샷을 찾을 수 없습니다."
+
+msgid "Unable to retrieve volume details."
+msgstr "볼륨 세부 사항을 가져올 수 없습니다."
+
+msgid "Unable to revert share to the snapshot."
+msgstr "공유를 스냅샷으로 되돌릴 수 없습니다."
+
+#, python-format
+msgid "Unable to set replica '%s' as active."
+msgstr "레플리카 \"%s\"를 활성화 상태로 설정 할 수 없습니다. "
+
+msgid "Unable to unmanage share."
+msgstr "공유를 관리 해제할 수 없습니다."
+
+#, python-format
+msgid "Unable to update access for share group type \"%s\"."
+msgstr "공유 그룹 유형 \"%s\"에 대한 업데이트를 할 수 없습니다."
+
+#, python-format
+msgid "Unable to update access for share type \"%s\"."
+msgstr "공유 유형 \"%s\" 에 대한 액세스를 업데이트할 수 없습니다."
+
+msgid "Unable to update default quotas."
+msgstr "기본 할당량을 업데이트할 수 없습니다."
+
+msgid "Unable to update extra_specs for share type."
+msgstr "공유 유형에 대한 extra_specs 을 업데이트할 수 없습니다."
+
+msgid "Unable to update group_specs for share group type."
+msgstr "공유 그룹 유형의 그룹 스펙을 업데이트할 수 없습니다."
+
+msgid "Unable to update security service."
+msgstr "보안 서비스를 업데이트 할 수 없습니다."
+
+msgid "Unable to update share group snapshot."
+msgstr "공유 그룹 스냅샷을 업데이트할 수 없습니다."
+
+msgid "Unable to update share group type."
+msgstr "공유 그룹 유형을 업데이트할 수 없습니다."
+
+msgid "Unable to update share group."
+msgstr "공유 그룹을 업데이트할 수 없습니다."
+
+msgid "Unable to update share metadata."
+msgstr "공유 메타데이터를 업데이트할 수 없습니다."
+
+#, python-format
+msgid "Unable to update share network \"%s\"."
+msgstr "공유 네트워크 \"%s\"를 업데이트 할 수 없습니다."
+
+msgid "Unable to update share network."
+msgstr "공유 네트워크를 업데이트 할 수 없습니다."
+
+msgid "Unable to update share snapshot."
+msgstr "공유 스냅샷을 업데이트할 수 없습니다."
+
+msgid "Unable to update share type."
+msgstr "공유 유형을 업데이트할 수 없습니다."
+
+msgid "Unable to update share."
+msgstr "공유를 업데이트할 수 없습니다."
+
+msgid "Unknown"
+msgstr "알 수 없음"
+
+msgid "Unmanage"
+msgstr "관리 해제"
+
+msgctxt "Current status of share"
+msgid "Unmanage Error"
+msgstr "관리되지 않은 에러"
+
+msgid "Unmanage Share"
+msgstr "공유 관리 해제"
+
+msgid "Update"
+msgstr "업데이트"
+
+msgid "Update Share Group"
+msgstr "공유 그룹 업데이트"
+
+msgid "Update Share Group Snapshot"
+msgstr "공유 그룹 스냅샷 업데이트"
+
+msgid "Update Share Group Type"
+msgstr "공유 그룹 유형 업데이트"
+
+msgid "Update Share Network"
+msgstr "공유 네트워크 업데이트"
+
+msgid "Update Share Snapshot"
+msgstr "공유 스냅샷 업데이트"
+
+msgid "Update Share Type"
+msgstr "공유 유형 업데이트"
+
+msgid "Update Share group Type"
+msgstr "공유 그룹 유형 업데이트"
+
+msgid "Update share network"
+msgstr "공유 네트워크 업데이트"
+
+msgid "Updated"
+msgstr "업데이트됨"
+
+msgid "Updated At"
+msgstr "업데이트"
+
+#, python-format
+msgid "Updated access for share group type \"%s\"."
+msgstr "공유 그룹 유형 \"%s\"에 대한 액세스가 업데이트 되었습니다."
+
+#, python-format
+msgid "Updated access for share type \"%s\"."
+msgstr "공유 유형 \"%s\" 에 대한 엑세스를 업데이트하였습니다."
+
+#, python-format
+msgid "Updated share network \"%s\"."
+msgstr "공유 네트워크 \"%s\" 업데이트됨."
+
+#, python-format
+msgid "Updating share \"%s\""
+msgstr "공유 \"%s\" 업데이트 중"
+
+#, python-format
+msgid "Updating share group \"%s\""
+msgstr "공유 그룹 \"%s\" 업데이트 중"
+
+#, python-format
+msgid "Updating share group snapshot \"%s\""
+msgstr "공유 그룹 스냅샷 \"%s\" 업데이트 중"
+
+#, python-format
+msgid "Updating share metadata \"%s\""
+msgstr "공유 메타데이터 \"%s\" 업데이트중"
+
+#, python-format
+msgid "Updating share network \"%s\""
+msgstr "공유 네트워크 \"%s\" 업데이트 중."
+
+#, python-format
+msgid "Updating share snapshot \"%s\""
+msgstr "공유 스냅샷 \"%s\" 업데이트 중"
+
+msgid "Use share group snapshot as a source"
+msgstr "공유 그룹 스냅샷을 소스로 사용"
+
+msgid "Use snapshot as a source"
+msgstr "소스로 스냅샷 사용"
+
+msgid "User"
+msgstr "사용자"
+
+msgid "Visibility"
+msgstr "가시성"
+
+msgid ""
+"When a share is \"unmanaged\", the share will no longer be visible within "
+"OpenStack. Note that the share will not be deleted. <br> <br> This is "
+"equivalent to the <tt>'manila unmanage'</tt> command."
+msgstr ""
+"공유가 \"관리되지 않음\"으로 된 경우, 더이상 OpenStack에서 확인할 수 없습니"
+"다. 공유는 삭제되지 않습니다. <br> <br> <tt>'manila unmanage'</tt> 명령과 동"
+"일합니다."
+
+msgid "Writable"
+msgstr "쓰기가능"
+
+msgid "as Active?"
+msgstr "활성화로?"
+
+msgid "key=value pairs per line can be set"
+msgstr "한 행 당 key=value 쌍을 설정 가능합니다"

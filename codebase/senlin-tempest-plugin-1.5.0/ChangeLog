@@ -1,0 +1,694 @@
+CHANGES
+=======
+
+1.5.0
+-----
+
+* Add victoria/wallaby/xena stable branch jobs on master gate
+* API test list receiver negative
+* API test list receiver by action\cluster
+* Create receiver name length out 255
+* API for list all service for senlin engine
+* API for list actions by status
+* Add doc/requirements
+* Switch to stestr
+
+1.4.0
+-----
+
+* Moving IRC network reference to OFTC
+
+1.3.0
+-----
+
+* negative cases for update receiver
+* updates a receiver
+* negative cases for update action
+* Rmove six forgotten before
+* list profile type operation
+
+1.2.0
+-----
+
+* Remove all usage of six library
+* Cleanup py27 support
+* Add stable branch jobs on the plugins master gate
+
+1.0.0
+-----
+
+* Drop python 2.7 support and testing
+* Check for max supported api version
+* Always clean up nodes and cluster
+* Add tests for new tainted field in nodes
+* Remove check for content-length on delete
+* Fix Health Check tests
+* update http link to https
+* Replace Chinese punctuation with English punctuation
+
+0.3.0
+-----
+
+* Switch to the new canonical constraints URL on master
+* update git.openstack.org to opendev
+* Update tests to work with updated cluster delete
+* OpenDev Migration Patch
+* edit cluster resize with capacity is equal 0
+
+0.2.0
+-----
+
+* Check required health policy version
+* Generate profile spec baed on tempest config
+* Check required microversion
+* Bump openstacksdk to 0.24.0
+* Bump cirros image version to 0.4.0
+* Update hacking version to latest
+* Update hacking version to latest
+* Fix health policy tests
+* Update cirros image name to match latest devstack
+* Change openstack-dev to openstack-discuss
+* Skip health policy tests that are failing
+* Add test for resource locked
+* Increase timeout and move lifecycle hook test
+* Fix test hook
+* Add tempest test cases for health policy
+* fix tox python3 overrides
+* pep8 test default use python3
+* Add testcase for policy schema validation
+* import zuul job settings from project-config
+* Enable test\_lifecycle\_hook\_message
+
+0.1.0
+-----
+
+* Check valid values for start\_time and end\_time
+* Updated from global requirements
+* Updated from global requirements
+* Skip integration tests for lifecycle hooks
+* Disable receiver integration test
+* Further improve api tests
+* Improve testing
+* Update OpenStack Style Commandments address
+* Add tests for lifecycle hooks
+* Remove deletion policy 1.0 from tests
+* Zuul: Remove project name
+* Attempt to fix integration tests
+* Last bits fixing py3 compatibility
+* Fix negative tests to make py3 happy
+* Fix broken test cases
+* Temporary fix for api tests
+* Remove obsolete tempest-lib
+* Fix senlin tempest plugin to work properly
+* Fix gerrit link
+* Fix tox
+* Fix some trivial bugs
+* Complete refactoring of directory structure
+* Refactor directory again
+* Tweak for new directory layout
+* First cut of senlin-tempest plugin
+* Updated from global requirements
+* Updated from global requirements
+* Use set\_network\_resources
+* Fix to use "." to source script files
+* Use StopWatch to get the leftover time for timeout
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove test for msgfmt import
+* Updated from global requirements
+* Enable some off-by-default checks
+* Updated from global requirements
+* Updated from global requirements
+* Update and optimize documentation links
+* Update URLs in documents according to document migration
+* Switch from oslosphinx to openstackdocstheme
+* Updated from global requirements
+* Remove senlin-admin skeleton
+* Updated from global requirements
+* Upgrade from docker-py to docker
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Replace test.attr with decorators.attr
+* Updated from global requirements
+* Trivial fix typos
+* remove 'health\_check' param for scaling actions
+* Updated from global requirements
+* Updated from global requirements
+* Trivial: Use correct words in inequality assertions
+* Updated from global requirements
+* Use Senlin generic driver to manage cinder\_v2 driver
+* update 'admin\_manager' to 'os\_admin'
+* Updated from global requirements
+* Optimize the link address
+* Add 'rm -f .testrepository/times.dbm' command in testenv
+* revise api to support "health\_check"
+* Enable workflow
+* Supports nova server non-admin integration test
+* Updated from global requirements
+* Add cidr, ip\_version to sub\_net create
+* Updated from global requirements
+* Revert "Remove WebOb from requirements"
+* Support network\_client and network operations
+* Use py35 for api and functional tests
+* Support compute\_client and keypair create/delete
+* Updated from global requirements
+* Update senlin tempest guide
+* Remove WebOb from requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* API test for 'profile\_only' parameter (v1.6)
+* Added CORS support to Senlin
+* Indicating the location tests directory in oslo\_debug\_helper
+* fix setup.cfg Remove references to Python 3.4
+* Fix a command error in doc, profile name missed
+* Updated from global requirements
+* [Fix gate]Update test requirement
+* Updated from global requirements
+* Revise data check in cluster action
+* revise dumping event notifications
+* Fix image used for tests
+* Add a NFV VDU profile in contrib
+* Updated from global requirements
+* Remove a py34 environment from tox
+* Ensure server zone is updated properly
+* Updated from global requirements
+* revise tempest api test for policy 2
+* revise tempest api test for profile/policy types
+* revise tempest api test for node 2
+* revise tempest api test for events
+* revise tempest api test for policy 1
+* revise tempest api test for profile 2
+* revise tempest api test for profile 1
+* revise versioned objects' exception message
+* Return support status in policy type show
+* Fix typo in policy-type-list related code
+* revise tempest api test for node 1
+* Return support status in profile type show
+* revise tempest api test for cluster 5
+* Updated from global requirements
+* revise tempest api for cluster 4
+* revise tempest api for cluster 3
+* revise tempest api for cluster 2
+* unify exceptions' message
+* revise BadRequest exception message
+* Updated from global requirements
+* improve tempest api for action show
+* improve tempest test for action list
+* revise tempest api test for cluster policy
+* revise tempest api test for cluster-1
+* Updated from global requirements
+* Bump API micro-version to 1.5
+* API test for node-operation call
+* Split API tests for node actions
+* API test for cluster-collect
+* Split API tests for cluster actions
+* Updated from global requirements
+* Delete python bytecode file
+* Updated from global requirements
+* Updated from global requirements
+* Fix Senlin tempest plugin
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Temporarily disable failed receiver integration test
+* Add event dispatcher pluggin infrastructure
+* Updated from global requirements
+* Show team and repo badges on README
+* Updated from global requirements
+* Add a hacking check rule
+* Updated from global requirements
+* Fix an error in integration test
+* revise error handling in cluster-add-nodes
+* revise error handling in replace\_nodes
+* Updated from global requirements
+* Updated from global requirements
+* Add toggle in devstack plugin to run senlin-api under Apache2
+* Add support to have Senlin API run under Apache
+* Updated from global requirements
+* Updated from global requirements
+* Replaces uuid.uuid4 with uuidutils.generate\_uuid()
+* Updated from global requirements
+* API support to cluster-replace-nodes v2
+* Updated from global requirements
+* API layer objectified policy detach and update
+* Integration test for message receiver
+* Minor revise clustering\_client for tempest test
+* Add Zaqar messaging client for tempest integration test
+* Add a bandit environment to tox
+* Updated from global requirements
+* functional test for batch policy
+* action handler support batch policy
+* Updated from global requirements
+* Add missed requirement of keystoneauth1
+* Updated from global requirements
+* Updated from global requirements
+* API and functional test for node replace
+* Integrate osprofiler into Senlin
+* Support api microversion for tempest API test
+* Add 'jsonschema' to required packages
+* Updated from global requirements
+* Updated from global requirements
+* Revise lb\_policy version
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Stop adding ServiceAvailable group option
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Address a TODO item in integration test
+* Creating new keypair for integration test
+* Fix integration test
+* Add missing ":command:" markup for the command
+* Updated from global requirements
+* Updated from global requirements
+* Fix nova\_v2 test driver
+* Updated from global requirements
+* Updated from global requirements
+* Use openstack client in profile examples readme file uniformly
+* Fix container profile samples and README file
+* Remove unused LOG and CONF
+* Updated from global requirements
+* Fix cluster status setting when RESIZE
+* Profile validation for nova server
+* Fix oslo.i18n in senlin project
+* Add negative API tests for policy validation
+* Add API tests for policy validation
+* Add API tests for profile validation
+* Add negative API tests for profile validation
+* Add API tests for profile validation
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove usage of mox/mox3
+* Fix nova\_v2 fake driver
+* Updated from global requirements
+* Throw and catch EResourceUpdate properly
+* Use constraints in tox.ini
+* Add fencing support into Driver and Profile
+* Updated from global requirements
+* Use SDK status wait when creating stacks
+* Updated from global requirements
+* Minior revise pre/post\_test\_hook
+* Correct the installation doc
+* Updated from global requirements
+* Remove discover from test-requirements
+* Fix tox.ini for docs venv
+* Updated from global requirements
+* Make lb timeout configurable
+* Integration test for heat stack cluster
+* Integration test for nova server cluster
+* Initial work for integration test
+* Update the home-page info with the developer documentation
+* Add hacking check to ensure LOG.warn is not used
+* Add docs for configuration options
+* Consolidate configuration options
+* Improve coverage test
+* Updated from global requirements
+* Updated from global requirements
+* Fix coverage test
+* Introduce microversion-parse package
+* Change "senlin profile-create" to "openstack cluster profile create"
+* Updated from global requirements
+* Add Python 3.5 classifier and venv
+* Fix delete API of profile/policy/receiver resources
+* Add driver for Zaqar v2 API
+* Updated from global requirements
+* Updated from global requirements
+* Define api test in tox.ini
+* Updated from global requirements
+* Remove deprecated functional test code
+* Add tempest functional test for cluster resize
+* Add tempest functional test for webhook receiver
+* Add tempest functional test for lb policy
+* Add tempest functional test for scaling policy
+* Add missing negative tempest API test cases
+* Add tempest functional test for cluster scale in/out
+* Add tempest functional test for node basic operations
+* Don't create network during API and functional tests
+* Updated from global requirements
+* Rework some util functions for tempest test
+* Add tempest functional test for cluster membership
+* Add tempest functional test for basic cluster operations
+* Make tempest utils available for both api and functional tests
+* Initial work for tempest functional test
+* Updated from global requirements
+* Fix oslo.config.opts in setup.cfg
+* Relocate openstack\_test driver
+* Add negative tempest API test for cluster check/recover
+* Add negative tempest API test for cluster-policy-update
+* Add negative tempest API test for cluster policy attach/detach
+* Add negative tempest API test for cluster-del-nodes
+* Add negative tempest API test for cluster-add-nodes
+* Add negative tempest API test for cluster scale in/out
+* Add negative tempest API test for cluster resize
+* Common negative tempset API test for cluster action
+* Add rally plugin for cluster-size
+* Updated from global requirements
+* Add API test for cluster policy\_update action
+* Add API test for cluster policy\_detach action
+* Add API test for cluster policy\_attach action
+* Add API  test for cluster recover action
+* Add API test for cluster check action
+* Add API test for cluster del\_nodes action
+* Add API test for cluster add\_nodes action
+* Util function for parsing JsonPath
+* Add negative tempset API test for node actions
+* Add negative tempset API test for api-version
+* Updated from global requirements
+* Add negative tempset API test for resource delete
+* Add two negative tempest API tests for cluster\_policy
+* Add negative tempest API test for receiver create
+* Updated from global requirements
+* Add negative tempest API test for profile create
+* Add negative tempest API test for policy-create
+* Add negative tempest API test for cluster\_policy show
+* Add API test for node recover action
+* Fix cluster-policies list API
+* Reorg cluster\_polcy related tempest API test
+* Add negative tempest API test for all resource list APIs
+* Fix an error in action API doc
+* Add API test for cluster scale\_in action
+* Add API test for cluster scale\_out action
+* Revise cluster resize test
+* Add negative tempest API test for profile/policy update
+* Minor revise cluster\_update and profile\_update
+* Minor revise profile\_update API
+* Initialize docker driver
+* Add negative tempest API test for node update
+* Add negative tempest API test for cluster update
+* Add negative tempest API test for resource show
+* Minor tweak negative tempest API test
+* Updated from global requirements
+* Add negative tempest API test for cluster create
+* Add negative tempest API test for node create
+* Add negative tempest API test for resource get
+* Add negative tempest API test for delete notfound
+* Unify the naming of tempest API test cases
+* Updated from global requirements
+* Updated from global requirements
+* Rename event table columns
+* Updated from global requirements
+* Rework tempest policy functions into utils
+* Rework node utility functions in tempest
+* Fix tempest runs
+* Revise receiver util function calls
+* Remove 'get\_test\_cluster' function
+* Make create\_a\_cluster return a UUID
+* Further tune the tempest api tests
+* Further tune tempest api tests
+* Further tune tempest api tests
+* Move test cluster creation into a util module
+* [trivial] Tune tox.ini
+* Move build info api test to its own directory
+* Add negative tempest API test for cluster\_delete
+* Add tempest test for API event show
+* Updated from global requirements
+* Add negative tempest API test for http conflict cases
+* Fix typos in tempest API tests for profile\_delete
+* Updated from global requirements
+* Tune health manager module
+* Initialization of versioned objects
+* Add tempest API test for API version show
+* Add negative test for cluster show
+* Updated from global requirements
+* Updated from global requirements
+* Reorg profile\_type and policy\_type tempest API tests
+* Add tempest API test for API versions list
+* Add tempest tests for events list API
+* Trivial fix to README doc
+* Rename container profile
+* Migrate to os-api-ref upstream library
+* Updated from global requirements
+* Fix functional tests
+* Add tempest tests for build-info API
+* Add API tests for action list/show
+* Add API test for cluster policies list/show
+* Add create\_test\_policy function to base test class
+* Updated from global requirements
+* Add API test for receiver show
+* Add API test for receiver list
+* Add gate scripts for tempest
+* Fix minor issues of profiles tests
+* Add API test for policy show
+* Add API test for policy list
+* Add support for container profile
+* Revert "Fix minor issues of profiles tests"
+* Add API test for profile type show/list
+* Fix minor issues of profiles tests
+* Add API test for profile list
+* Add API test for profile show
+* Add API test for profile update
+* Add API tests for profile delete
+* Add API tests for profile create
+* Add API tests for policy type list/show
+* Add tempest API test for Node show/list
+* Add tempest API test for cluster show/list
+* [TrivialFix] Add missing \`help\` in README.rst
+* Updated from global requirements
+* Add API tests for node action
+* Add API tests for cluster action
+* Updated from global requirements
+* Add tempest tests for policy create/delete/update API
+* Add tempest test cases for node create/delete/update API
+* Add tempest tests for receiver create/delete API
+* Reorg existing tempeset test cases
+* Updated from global requirements
+* Revert "Add Rally plugin for Senlin tempest"
+* Add a profile example
+* Add API doc content (1)
+* Updated from global requirements
+* Add Rally plugin for Senlin tempest
+* Clarify some guidelines on contribution
+* Rename tempest\_tests to tempest
+* Updated from global requirements
+* Reorganize profile example dir
+* Initial tempest plugin framework
+* Updated from global requirements
+* Remove concurrency constraint for functional tests
+* Updated from global requirements
+* Updated from global requirements
+* Re-enable E402 check
+* Add hacking rule for api\_version
+* Fix tox env for coverage test
+* Updated from global requirements
+* Support to affinity policy
+* separate two different commands in two lines
+* Updated from global requirements
+* Update doc/docbkx/README.rst
+* Remove unused \`paramiko\`
+* Updated from global requirements
+* Updated from global requirements
+* Remove an unneeded requirement
+* Add senlin dashboard info in README.rst file
+* Add a specs directory to hold design proposals
+* Updated from global requirements
+* Fine tune the HACKING.rst document
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Fix spelling mistake
+* Updated from global requirements
+* Reorg sample profiles directory
+* Updated from global requirements
+* Remove version from setup.cfg
+* Updated from global requirements
+* Make senlin-engine a console script entry point
+* Make senlin-api a console script entry point
+* Updated from global requirements
+* Make senlin-manage a console\_script entry point
+* Method's default argument shouldn't be mutable
+* Ensure that jsonutils.%(fun)s must be used instead of json.%(fun)s
+* Updated from global requirements
+* Revert "Pass environment variables of proxy to tox"
+* DISRUPTIVE: add version to profile/policy types
+* add debug testenv in tox
+* Attempt to fix gate about PEP8 errors
+* Updated from global requirements
+* Change the right subdirectory for user doc
+* Updated from global requirements
+* Use assertIsNone rather than assertEqual(A, None)
+* Exclude releasenotes while run flake8 tests
+* Make health\_mgr\_opts auto generate to config sample
+* Updated from global requirements
+* Updated from global requirements
+* Revise 'Heat' to 'Senlin' in doc/docbkx/README.rst
+* Remove local copy of api doc
+* Updated from global requirements
+* Updated from global requirements
+* Remove croniter useless requirement
+* Remove argparse useless requirement
+* Remove kombu as a dependency for Senlin
+* Pass environment variables of proxy to tox
+* Fix placement policy organization
+* Updated from global requirements
+* Updated from global requirements
+* Force releasenotes warnings to be treated as errors
+* Remove trigger implementations
+* Add reno for release notes generation
+* Support single test
+* Update doc environ to use OpenStack docs theme
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Delete .pyc files before running test
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Put py34 first in the env order of tox
+* Updated from global requirements
+* Complete README file under tools subdirectory
+* Add option to generate sample conf file
+* Bump development version to 0.2.0
+* Updated from global requirements
+* Mark branch as 0.1
+* Change the repositories from stackforge to openstack
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Rename batch policy to be senlin.policy.batching
+* Add py3 support to setup.cfg
+* Updated from global requirements
+* Remove PolicyAction class
+* Updated from global requirements
+* Removed some requirement entries
+* Updated from global requirements
+* Sample profiles with type and version keys
+* Remove half-baked profile types
+* Rename policy type names
+* Updated from global requirements
+* Improve devstack plugin
+* Enable triggers for stevedore
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Add fake nova\_v2 driver for functional test
+* Updated from global requirements
+* Replace python-openstacksdk with openstacksdk
+* Updated from global requirements
+* Fix gate job of Senlin functional test
+* Updated from global requirements
+* Updated from global requirements
+* Fix tox environment for coverage test
+* Use Senlin generic driver to manage nova\_v2 driver
+* Updated from global requirements
+* Fix coverage test
+* Ceilometer alarm trigger support
+* Start point of Senlin functional tests
+* Updated from global requirements
+* Relocate Senlin unit tests
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove some unused dependencies
+* Updated from global requirements
+* Updated from global requirements
+* Remove requirements.txt from tox.ini
+* Updated from global requirements
+* Updated from global requirements
+* Revise devstack README.rst with new git repo
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove tox and requirements hacking
+* Updated from global requirements
+* Updated from global requirements
+* Fix tox environment for package version problems
+* First step of getting started doc
+* Remove unneeded OS\_TEST\_DBAPI\_ADMIN\_CONNECTION
+* Fix flake8 test directories
+* Switch from MySQL-python to PyMySQL
+* Switch to use oslo.service
+* Switch to use ostestr
+* Updated from global requirements
+* Bump oslo.utils version
+* Sync requirements versions
+* Bump python-keystoneclient version
+* Bump requirement versions
+* Bump sqlalchemy-migrate version
+* Sync with global requirements
+* Fix some misses of README.rst
+* Fix two README.rst errors
+* Sync cryptography version with global requirement
+* Sync pbr version requirement
+* Bump oslo.middleware to 1.2.0
+* Sync-up global requirements
+* Add ScalingInPolicy and ScalingOutPolicy
+* Bump version to 2015.2
+* Sync oslo.config version requirement
+* Resync requirements
+* Revised the README file
+* Trivial fixes for devstack integration
+* Integrate senlin with devstack
+* Tuning tox configuration
+* Update setup.cfg to reflect new reality
+* Migrate to oslo.policy
+* Encrypt webhook url
+* Allowing translations to come in
+* Add nova server profile to setup.cfg
+* Added some docs about hacking and testing
+* Added doc into build tree
+* Bump requirement versions
+* Fixing initial PEP8 and python check errors
+* Bump oslo.context to 0.2.0
+* Bump oslo.db version to 1.5.0
+* Bump oslo.config to 1.9.0
+* Bump sqlalchemy-migrate version to >= 0.9.5
+* Bump oslo\_log version requirement to 0.4.0
+* Avoid 1.7.0 oslo.messaging
+* Bump openstacksdk version to 0.4.1
+* Added oslo.log to requirements
+* Re-enable senlin/tests/\* files to be flake tested
+* Bump six version to 1.9.0
+* Migrating to use oslo\_log
+* Bump keystoneclient version to 1.1.0
+* Bump keystonemiddleware version
+* Fixed oslo\_messaging package version requirement
+* Bump oslo.messaging to 1.6.0+
+* Enable E265 and H307 PEP8 checking
+* Fixed H233, H402 PEP8 errors
+* Enable E202 and F812 PEP8 checking
+* Enforce PEP8 F402 checking
+* Removed one more PEP8 error
+* Fixed H404 and related pep8 errors
+* Remove clients module from setup config
+* Revised project requirements
+* Removed lockfile from test requirements
+* Restrict oslo\_messaging version as suggested
+* Bump eventlet to 0.16.1
+* Example spec for creating profile of os.heat.stack type
+* Bump keystonecllient to 1.0.0
+* Move configuration file generation into tools
+* Synchronized with global-requirements
+* Fixed Oslo.i18n namespace error in tests module
+* Allow eventlet version > 0.16.0
+* Cap eventlet version due to bugs found
+* Sync global requirements oslo.serialization
+* Synchronized from global requirements
+* Added some checkings to be ignored
+* Bump oslo.db version to 1.3.0
+* Initial verion of API specification
+* Include README.md into setup
+* Switch to oslo.context
+* Replaced README.rst with README.md
+* Initial commit
+* Fixed SQLAlchemy version requirement
+* Remove osprofiler for now
+* Switch to oslo.config
+* Initial version
+* Initial version
+* Make pip install a possibility
+* Initial version of admin-guide docs
+* Initial version copied from Heat
+* Initial version of package dependencies
+* Fixed non error
+* Initial version of tox configuration
+* Initial version of setup configuration
+* Initial copy of project files from Heat
+* Initialial commit

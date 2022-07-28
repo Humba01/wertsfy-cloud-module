@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: keystone_tempest_plugin
+Version: 0.9.0
+Summary: Tempest plugin keystone_tempest_plugin
+Home-page: https://docs.openstack.org/keystone/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: =======================
+        keystone-tempest-plugin
+        =======================
+        
+        Tempest plugin keystone_tempest_plugin
+        
+        Tempest plugin for functional testing of keystone's LDAP and federation
+        features. More information can be found in the `keystone developer
+        documentation`_.
+        
+        .. _`keystone developer documentation`: https://docs.openstack.org/developer/keystone/devref/development_best_practices.html#api-scenario-tests
+        
+        * Free software: Apache license
+        * Documentation: https://docs.openstack.org/keystone/latest/
+        * Source: http://opendev.org/openstack/keystone-tempest-plugin
+        * Bugs: http://bugs.launchpad.net/keystone_tempest_plugin
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7

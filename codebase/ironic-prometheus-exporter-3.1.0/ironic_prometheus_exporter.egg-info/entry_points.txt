@@ -1,0 +1,4 @@
+[oslo.messaging.notify.drivers]
+file_exporter = ironic_prometheus_exporter.messaging:SimpleFileDriver
+prometheus_exporter = ironic_prometheus_exporter.messaging:PrometheusFileDriver
+

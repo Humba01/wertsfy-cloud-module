@@ -1,0 +1,233 @@
+CHANGES
+=======
+
+13.0.0
+------
+
+* Use LOG.warning instead of deprecated LOG.warn
+* connection too much when large scale failure
+* Updating python testing classifier as per Yoga testing runtime
+* host monitor by consul
+* Updating python testing classifier as per Yoga testing runtime
+* Fix a typo
+* Fix some typos
+* Fix home\_page in setup.cfg
+* Add note for package maintainers in requirements.txt
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+12.0.0
+------
+
+* Fix hostmonitor to respect quorum
+* [CI] Gate on the same jobs as Masakari
+* [CI] Run cover jobs
+* Deprecate masakari-processmonitor
+* Use pre-provided libvirt-python
+* Use some better linting
+* Generate PDF documentation
+* [doc] Add config reference guide
+* move DriverBase to the base dir
+* [doc] Add masakari monitors usage
+* Remove conditionals for an ancient openstacksdk
+* Fix hostmonitor hanging forever after certain exceptions
+* Fix typos
+* Fix several code comment errors in process monitor
+* Replace "split(' ')" with "split()" in masakari-monitors
+* [community goal] Update contributor documentation
+* setup.cfg: Replace dashes with underscores
+* Fix one reno
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+11.0.0
+------
+
+* Repeated check to determine host status
+* [hostmonitor] Add pacemaker\_node\_type option
+* Drop CAP\_NET\_ADMIN
+* Drop unused samples
+* Revert "remove py37"
+* remove unused configration
+* remove unicode from code
+* remove unused script
+* remove py37
+* Drop lower-constraints
+* Update TOX\_CONSTRAINTS\_FILE
+* [CI] Add periodic jobs
+* Add py38 package metadata
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+10.0.0
+------
+
+* Fix tox for py38 and lower-contraints
+* [goal] Migrate testing to ubuntu focal
+* Add .stestr/ to .gitignore
+* Add missing keystoneauth1 to requirements.txt
+* Fix constraints URL enforcement for lower-constraints
+* Drop Babel from reqs
+* [goal] Migrate testing to ubuntu focal
+* Use keystoneauth1 config option loading for masakari client
+* Replace assertRaisesRegexp with assertRaisesRegex
+* Remove elementtree deprecated methods
+* Remove unnecessary continue statement
+* drop mock from lower-constraints
+* repeated parsing
+* Switch to newer openstackdocstheme and reno versions
+* Remove translation sections from setup.cfg
+* Remove six
+* Fix hacking min version to 3.0.1
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+* reset nova-compute process name
+
+9.0.0
+-----
+
+* Use unittest.mock instead of third party mock
+* Cleanup py27 support
+* Update and replace http with https for doc links
+* Check config file for hostname
+* Update hacking for Python3
+* Use hostname to avoid clash with section
+* [ussuri][goal] Drop python 2.7 support and testing
+* Update constraints path to preferred static location
+* Update master for stable/train
+* Use crm\_mon for pacemaker-remote deployments
+
+8.0.0
+-----
+
+* Add Python 3 Train unit tests
+* add libvirt-python for libvirt package
+* Remove deprecated shell scripts
+* Switch to using stestr
+* Use template for lower-constraints
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Switch from oslosphinx to openstackdocstheme
+* Update master for stable/stein
+
+7.0.0
+-----
+
+* Run all jobs by default using python3
+* Add line for PyCharm IDE in gitignore file
+* Removed unnecessary parantheses in yield statements
+
+7.0.0.0b1
+---------
+
+* Increment versioning with pbr instruction
+* import zuul job settings from project-config
+* fix tox python3 overrides
+* Pass region\_name and interface parameters during connection initialization
+* Update reno for stable/rocky
+
+6.0.0
+-----
+
+* Remove python-openstackclient from global-requirements
+
+6.0.0.0b3
+---------
+
+* add lower-constraints job
+* Fix stable branch releasenotes
+* Introspective Instance Monitoring through QEMU Guest Agent
+
+6.0.0.0b2
+---------
+
+* Remove dependency on python-masakariclient
+* Update for new openstacksdk changes to masakari-monitors
+
+6.0.0.0b1
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+* Update for upcoming openstacksdk changes to masakari-monitors
+* Replaces yaml.load() with yaml.safe\_load()
+
+5.0.0
+-----
+
+* Use status\_code instead of http\_status
+* fix misspelling of 'configuration'
+* Support specify connection uri for libvirt
+
+4.0.0
+-----
+
+* Updated from global requirements
+* Remove an extra word in process\_list.yaml.sample
+* Use os-testr and add PY35 support
+* Add testcases of hostmonitor
+* Remove log translations
+* Pass correct parameters to '\_get\_connection' method
+* Fix typo of hostmonitor
+* Change the required olso.privsep version
+* Fix typo of processmonitor
+* Add testcases of ha and processmonitor
+* Add testcases of instancemonitor
+* Change the condition of success or failure of notifying
+* Fix syntax errors of README.rst
+* Remove data\_files definition from setup.cfg
+
+3.0.1
+-----
+
+* Add README.rst
+* Add warning messages about deprecation to process/host monitor
+* Skip notification retry processing when HTTP status is 409
+* Fix global name '\_' is not defined
+* Return user-friendly error message when monkey\_patch enabled
+* Add hacking check to ensure \_ is imported
+* Add implement of calling pre and post script
+* Add implement of sending notification
+* Add implement of preventing split-brain
+* Add implement of sending a notification
+* Add implement of comparing host status
+* Add implement of monitoring host
+* Add implement of restarting processes
+* Add implement of monitoring processes
+* Add unit test codes of instancemonitor
+* Add implement of loading hostmonitor driver
+* Add python hostmonitor only main process
+* Add common notification sending functions
+* Add initial start of processes
+* Loading the process list written in YAML
+* Add python processmonitor only main process
+* Add missing packages in requirements.txt
+* Using ServiceLauncher instead of ProcessLauncher
+* Change the section name of settings that related keystone
+* Update to match latest global-requirements
+* Add stop method to terminate child process
+* Fix missing translations for log messages
+* Remove conversion of 'retry\_interval' parameter
+* Remove unnecessary return and pass statements
+* Fix unexpected bash error raised by hostmonitor
+* Add the start scripts of processmonitor and hostmonitor
+* Refactor: Move domainEventRegisterAny method in a loop
+* Fix the regular expression for the check state of RA
+* Change service type and service name
+* Allow masakari-instancemonitor command anywhere
+* To allow processmonitor recognize proc.list which exists anywhere
+* Fix processmonitor's invalid messages
+* masakari-instancemonitor: fix incorrect module specification
+
+2.0.0
+-----
+
+* Remove unnecessary methods
+* Add hostmonitor
+* Add processmonitor
+* Add implementation of notifying
+* Add implementation of handling events
+* Add instancemonitor only main process
+* Add a mechanism to use the oslo libraries
+* Initial Cookiecutter Commit
+* Added .gitreview

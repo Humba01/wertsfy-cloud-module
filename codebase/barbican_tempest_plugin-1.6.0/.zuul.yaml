@@ -1,0 +1,119 @@
+- project:
+    templates:
+      - tempest-plugin-jobs
+      - check-requirements
+    check:
+      jobs:
+        - barbican-tempest-plugin-simple-crypto
+        - barbican-tempest-plugin-simple-crypto-secure-rbac
+        - barbican-tempest-plugin-simple-crypto-xena
+        - barbican-tempest-plugin-simple-crypto-wallaby
+        - barbican-tempest-plugin-simple-crypto-victoria
+        - barbican-tempest-plugin-simple-crypto-ussuri
+        - barbican-tempest-plugin-simple-crypto-ipv6-only
+        - barbican-tempest-plugin-simple-crypto-castellan-src
+        - barbican-tempest-plugin-simple-crypto-cursive
+    gate:
+      queue: barbican
+      jobs:
+        - barbican-tempest-plugin-simple-crypto
+
+- job:
+    name: barbican-tempest-plugin-simple-crypto
+    parent: devstack-tempest
+    required-projects: &barbican-tempest-reqs
+      - opendev.org/openstack/barbican
+      - opendev.org/openstack/barbican-tempest-plugin
+      - opendev.org/openstack/python-barbicanclient
+    vars: &barbican-tempest-vars
+      devstack_plugins:
+        barbican: https://opendev.org/openstack/barbican
+      devstack_localrc:
+        NOVA_BACKEND: LVM
+        LVM_VOLUME_CLEAR: none
+      devstack_local_conf:
+        post-config:
+          $NOVA_CONF:
+            glance:
+              verify_glance_signatures: True
+            ephemeral_storage_encryption:
+              key_size: 256
+              cipher: aes-xts-plain64
+              enabled: True
+        test-config:
+          $TEMPEST_CONFIG:
+            auth:
+              tempest_roles: creator
+            image-feature-enabled:
+              # this may be removed soon, as api_v1 is false since tempest>=20
+              api_v1: False
+            ephemeral_storage_encryption:
+              enabled: True
+      tox_envlist: all
+      tempest_test_regex: barbican
+      tempest_plugins:
+        - barbican-tempest-plugin
+
+- job:
+    name: barbican-tempest-plugin-simple-crypto-secure-rbac
+    parent: barbican-tempest-plugin-simple-crypto
+    vars:
+      devstack_local_conf:
+        post-config:
+          $BARBICAN_CONF:
+            oslo_policy:
+              enforce_new_defaults: True
+              enforce_scope: True
+        test-config:
+          $TEMPEST_CONFIG:
+            # FIXME(redrobot): Tempest errors out when you try to create a
+            # system-scope admin because of a neutron client issue where a
+            # tenant_id is required.
+            # To work around that issue we disable create_isolate_networks
+            # here, and we also skip a lot of tests that require that feature.
+            # We should be able to re-enable this once Tempest is fixed.
+            # See: https://review.opendev.org/c/openstack/tempest/+/781553
+            auth:
+              create_isolated_networks: False
+            barbican_rbac_scope_verification:
+              enforce_scope: True
+
+- job:
+    name: barbican-tempest-plugin-simple-crypto-xena
+    parent: barbican-tempest-plugin-simple-crypto
+    override-checkout: stable/xena
+
+- job:
+    name: barbican-tempest-plugin-simple-crypto-wallaby
+    parent: barbican-tempest-plugin-simple-crypto
+    override-checkout: stable/wallaby
+
+- job:
+    name: barbican-tempest-plugin-simple-crypto-victoria
+    parent: barbican-tempest-plugin-simple-crypto
+    nodeset: openstack-single-node-bionic
+    override-checkout: stable/victoria
+
+- job:
+    name: barbican-tempest-plugin-simple-crypto-ussuri
+    parent: barbican-tempest-plugin-simple-crypto
+    nodeset: openstack-single-node-bionic
+    override-checkout: stable/ussuri
+
+- job:
+    name: barbican-tempest-plugin-simple-crypto-ipv6-only
+    parent: devstack-tempest-ipv6
+    required-projects: *barbican-tempest-reqs
+    vars: *barbican-tempest-vars
+
+- job:
+    name: barbican-tempest-plugin-simple-crypto-castellan-src
+    parent: barbican-tempest-plugin-simple-crypto
+    required-projects:
+      - opendev.org/openstack/castellan
+
+- job:
+    name: barbican-tempest-plugin-simple-crypto-cursive
+    parent: barbican-tempest-plugin-simple-crypto
+    required-projects:
+      - opendev.org/x/cursive

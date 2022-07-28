@@ -1,0 +1,29 @@
+Package: rabbitmq-server
+Pin: version 3.8.*
+Pin-Priority: 1000
+
+# RabbitMQ wants 23+ and we want to stay on 23 if possible
+Package: erlang*
+Pin: version 1:23.*
+Pin-Priority: 1000
+
+# FIXME(mgoddard): Pinning to 4.0.* to avoid bug 1930867.
+Package: td-agent*
+Pin: version 4.0.*
+Pin-Priority: 1000
+
+# NOTE(mgoddard): logstash 7.9.x is the last version that supports
+# Elasticsearch OSS.
+Package: logstash-oss
+Pin: version 7.9.*
+Pin-Priority: 1000
+
+# NOTE(hrw): we do not want backports unless requested
+Package: *
+Pin: release n=bullseye-backports
+Pin-Priority: -1000
+
+# NOTE(hrw): let us list some backports
+Package: openvswitch* python3-openvswitch ovn-*
+Pin: release n=bullseye-backports
+Pin-Priority: 1024

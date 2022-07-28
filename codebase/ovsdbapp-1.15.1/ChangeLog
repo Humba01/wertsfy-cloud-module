@@ -1,0 +1,483 @@
+CHANGES
+=======
+
+1.15.1
+------
+
+* Log what exception caused abort of the transaction
+
+1.15.0
+------
+
+* Update QoS register in "QoSAddCommand" if exists
+
+1.14.0
+------
+
+* Use "api.lookup" to search for a "Logical\_Switch"
+* Move linters dependencies to tox.ini
+* Allow functional tests to pass on older OVN w/o IC
+* Remove ovsdb\_connection singleton for tests
+* Add cooperative\_yield() to OvsdbIdl
+* Check WaitEvents for match after other events
+* Capture test run logging
+* nb: add support for set of addresses API
+
+1.13.0
+------
+
+* nb: add support for lrp's gateway chassis API
+* nb: provide lrp\_get method
+* nb: provide 'discard' value for nexthop
+* nb: set chassis\_name for new gateway chassis
+* tools: run functional tests against ovn/main branch
+* nb: fix route.output\_port name
+* ic: add support for OVN\_IC\_Northbound schema
+* tools: fix OvsOvnVenvFixture init
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+* Add support for OVN NB Logical\_Router\_Policy table
+
+1.12.0
+------
+
+* Improve "OvsdbIdl.from\_server" method
+* Make exceptions in the event logs easier to read
+
+1.11.0
+------
+
+* ovn: support allow-stateless ACL verb
+* Actually close the connection in Connection.stop()
+* Don't spam retries 100s of times a second
+* Fix docs job
+* setup.cfg: Replace dashes with underscores
+
+1.10.0
+------
+
+* Add an active wait in the "Backend.lookup"
+* Use py3 as the default runtime for tox
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+1.9.0
+-----
+
+* Log the name of the command in execute()
+* Make it possible to just retrieve schema json
+
+1.8.0
+-----
+
+* [ovn nb] Acl add: Avoid setting columns that have no values
+* Drop py37 and add py38 test
+* Update Python3 wallaby unit tests
+* Add northbound API support for meters
+* Fix NB API definition "lb\_add" method signature
+* Fix gate failure
+
+1.7.0
+-----
+
+* Add update\_tables method to Idl
+* Ensure lists of Commands can be stringfied
+* requirements: Drop os-testr
+* Bump ovs minimum version for support of indexing
+* Don't give up when an Exception happens in idl.run
+* Avoid race condition with RowEvent handling
+* Don't compile OVS kernel module
+* Don't use name mangling when we don't need it
+* Update master for stable/victoria
+
+1.5.0
+-----
+
+* Stop to use the \_\_future\_\_ module
+* Add lock when calling idl.run()
+* Add a cause description to "TimeoutException"
+* Fix thread/threading change in unit test
+* Correct variable names for test
+* Add "if\_exists" parameter to "QoSDelCommand"
+* Change TestOvnNbIndex.test\_find to use Port\_Group
+* Add MAC\_Binding index lookup
+* Handle index lookups in DbFindCommand
+* Fix pep8 job
+* Switch from unittest2 compat methods to Python 3.x methods
+* Make it more obvious when errors are ignored
+
+1.4.0
+-----
+
+* Add QoSDelExtIdCommand
+* drop mock from lower-constraints
+* Only create indices if connection is not running
+* Switch to newer openstackdocstheme and reno versions
+
+1.3.0
+-----
+
+* Add indexed column support to ovsdbapp
+* Remove translation sections from setup.cfg
+* OVNNB backend: Fix LbDelCommand when using vip param
+* Import ABCs from 'collections.abc'
+* Fix hacking min version to 3.0.1
+* Don't create new API instance in fixtures
+* Add "inactivity\_probe" parameter to "enable\_connection\_uri"
+* Fix spurious test failure
+* Allow read-only Commands to bypass txns in execute()
+* Tempest job inherits from Neutron tempest OVN job
+* Stop iterating on first matching QoS rule
+* Accept a Row as a result in AddCommand
+* Don't let an Exception in one event affect others
+* Remove the dependency on the "mock" package
+* Update master for stable/ussuri
+* Remove all usage of six library
+* Update hacking for Python3
+
+1.1.0
+-----
+
+* Call row.verify() when updating map columns with db\_set
+* Do not try to execute transaction if command list is empty
+
+1.0.0
+-----
+
+* More robustly handle venv ovs/ovn paths
+* Log invalid address values in lsp\_set\_addresses
+* Make it possible to reference a newly created object within a transaction
+* Make ovndir configurable
+* Drop python 2 support and testing
+* Fix debug\_venv for ovn split
+* Add consts for OVN install path
+* Switch to Ussuri jobs
+* ovn\_northbound: make all list commands ReadOnlyCommand
+
+0.18.0
+------
+
+* Handle unset OVN\_SRCDIR
+* Default testenv to basepython = python3
+* Fix building OVS after python2 removal
+* Change EAFP to LBYL style in nested transaction
+* Handle the ovs/ovn split
+* Update master for stable/train
+* Help with troubleshooting failures from venv.py
+* PDF documentation build
+* Update Zuul jobs: Enable docs publishing
+
+0.17.0
+------
+
+* Add HA Chassis Group related commands
+* Fix the url, change http to https
+* Add commands to set and get LRP options
+* Add Python 3 Train unit tests
+* Sync Sphinx requirement
+* Update the UPPER\_CONSTRAINTS\_FILE for tox
+
+0.16.0
+------
+
+* Replace openstack repository by opendev
+* Move WaitForPortBindingEvent out from testing code
+* Make Event logging more useful by default
+* TrivialFix: Fix the chassis\_del comment in Southbound API
+* Change the order of parameters for lsp\_bind method
+* Allow match\_ip in LrNatDelCommand to be IP network
+* Add missing tox environment "functional-py36"
+* OpenDev Migration Patch
+* add an option to let the user choose the right time to start connection
+* Make it possible to opt out of nested transactions
+* Update master for stable/stein
+* Add db\_create\_row method
+* Add mock.patch.stopall cleanup handler to base test class
+* Mock Thread for both connection tests
+* Remove vtep-related code from venv testing
+* modify RowEvent hash key
+* Make event debug log more useful
+* Pass kwargs from execute to transaction()
+* Switch functional and tempest jobs to python3
+* Bump appdirs lower constraint
+* Break out match\_fn from matches
+
+0.15.0
+------
+
+* Convert base commands to ReadOnlyCommand
+* Allow read-only Commands to bypass txns in execute()
+* Update home-page
+
+0.14.0
+------
+
+* Attempt to fetch the schema from any remote
+* Fix a typo in docstring
+* Change openstack-dev to openstack-discuss
+* Add Gateway\_Chassis support
+* Group tests in same class to run in same group
+* Fix functional tests timeout race condition
+* Migrate tempest job to zuul v3 native
+* Expand retry behavior to cover other python-ovs methods
+* Add WaitEvent to the API
+
+0.13.0
+------
+
+* ut: Patch get\_ident for race transaction test
+* Move ovsdbapp jobs to its tree
+* Make nested transaction thread aware
+* NBDB API: Add param if\_exists for methods using db\_remove()
+* add python 3.6 unit test job
+* import zuul job settings from project-config
+* Check for oslo library usage
+* fix tox python3 overrides
+* Pass posargs to pylint, not flake8
+* update pylint to 1.9.2
+* Remove the oslo-utils dependency
+* Update reno for stable/rocky
+* Update reno for stable/rocky
+* Ensure timeout on queueing transaction
+
+0.12.0
+------
+
+* Use api.lookup instead of idlutils.row\_by\_record
+* Make it possible to run functional tests again
+* Switch to stestr
+* Fix python3 compat with debug\_venv.py
+* Port Group's letfovers
+* Add Port Group ACL commands
+
+0.11.0
+------
+
+* Add Port\_Group commands
+* Improve DbListCommand operation from O(n^2) to O(n)
+* Add QoS command for ovn northbound db
+* add lower-constraints job
+* Change external\_ids to columns, in dns\_add API
+* Updated from global requirements
+* Transaction: Handle NOT\_LOCKED status
+* TOX/pep8: Enforce the use of python2
+* Fix spelling error
+* Updated from global requirements
+* Update reno for stable/queens
+* Ensure idl.run() called on TRY\_AGAIN
+* Updated from global requirements
+* Updated from global requirements
+* Add LrGet command
+* Update OvsdbConnectionUnavailable error message
+* Updated from global requirements
+* Avoid tox\_install.sh for constraints support
+* Document \*\_extenal\_ids methods in open\_vswitch/api.py
+* Display attempt number during transaction commit
+* Extend transaction with multiple commands
+* IP should be optional in lsp\_set\_addresses
+* Support setting of interface external-ids
+
+0.9.0
+-----
+
+* Don't throw NotConnectedError in queue\_txn
+* Updated from global requirements
+
+0.8.0
+-----
+
+* Don't wait on TRY\_AGAIN when calling commit\_block()
+* Add DNS APIs
+
+0.7.0
+-----
+
+* Add set\_column(s) for ovs\_idl backend
+* Change parent to parent\_name in lsp\_add
+* Don't add non-strings to external\_ids
+
+0.6.0
+-----
+
+* Allow to stop and restart connections in Backend
+* Allow use of installed OVS if OVS\_SRCDIR not set
+* Updated from global requirements
+* Updated from global requirements
+* Don't return garbage if table has no index col
+* Have debug\_venv use OVN venv
+* nb\_schema: Use normalize\_ip\_port even for lb ips
+* Add backward compatible connection attribute
+* Fix BridgeFixture
+* Move ovsdb\_connection definition to Backend
+* Add native IDL tests from neutron
+* Updated from global requirements
+
+0.5.0
+-----
+
+* Add RowView versions of db\_find and db\_list
+* Add OVN\_Southbound API support
+* venv: Change --enable-dummy default to override
+* Updated from global requirements
+* Don't create a sandbox chassis by default
+* Update reno for stable/pike
+* venv: Split OvsVenvFixture to OVS and OVN
+* Return False when comparing a RowEvent to something else
+* Add RowEvent mechanism from networking-ovn
+* Add command for deleting row column values
+* Update the documentation link for doc migration
+* Adding {LS|LSP|DHCP\_options}\_get to OVN Northbound API
+* Removes unnecessary utf-8 encoding
+* Drop MANIFEST.in - it's not needed by pbr
+* There is no documentation for ovsdbapp
+* Add ability to debug OVS virtual environments
+* Modify LSP List command to return all ports
+* Fix \_ls\_add-based tests
+* rearrange existing documentation to fit the new standard layout
+* Switch from oslosphinx to openstackdocstheme
+* Enable warning-is-error in doc build
+* Add OVN\_Northbound API LR, LRP, and LB commands
+* Add Windows support when using eventlet with monkey\_patch
+* Updated from global requirements
+* Add OVN Northbound API for LS, LSP, and DHCP
+* pylint: Disable duplicate-code for check
+* The python 3.5 is added
+* Enable pylint 1.4.5
+* Updated from global requirements
+* Remove ignoring \_ builtin usage for pep8
+* Fix vlog level filtering
+* Fix condition\_map type checking for strings
+* Make schema-agnostic db commands part of base API
+* Updated from global requirements
+* Updated from global requirements
+
+0.4.0
+-----
+
+* Updated from global requirements
+* Pass the Idl directly to Connection
+* Allow choosing vlog levels to patch and restoring the vlog
+* Remove all the deprecated methods and parameters from Connection
+* Add a description to README.rst
+* Remove empty unit test directory
+* Break out BaseCommand into backend.ovs\_idl
+* Fixes retrieving row\_by\_record for ports on Windows
+* Ignore .testrepository and editor(s) files
+
+0.3.0
+-----
+
+* Use neutron-lib's tox\_install.sh
+* Remove get\_schema\_helper retry/try\_add\_manager parameters
+* Pass a connection to OvsdbIdl.\_\_init\_\_()
+* Updated from global requirements
+* Add unit tests from Neutron
+
+0.2.0
+-----
+
+* Refactor to give other schemas a place to live
+* Updated from global requirements
+* Fix Python 3 compatibility in idlutils
+* Fix all broken jobs
+
+0.1.0
+-----
+
+* Add some bridge and port functional tests
+* Add openvswitch as a bindep dependency
+* Add missing tenacity requirement
+* Updated from global requirements
+* Set OVS inactivity\_probe to vsctl\_timeout when adding manager
+* Add .gitreview
+* raise TimeoutException from exceptions not api
+* Re-add TimeoutException
+* Fix pep8/cookiecutter test running
+* Add cookiecutter output
+* Add requirements.txt
+* Fix new base exception name
+* Update changes to mention previous API.get() change
+* Add setup.py
+* Remove oslo\_utils dependency
+* Remove oslo\_log dependency
+* Neutron should call vlog.use\_python\_logger itself
+* Remove the CLI implementation
+* Remove neutron/oslo from helpers
+* Remove oslo\_config dependency
+* Remove neutron.\_i18n usage
+* Remove neutron\_lib dependency
+* Remove oslo uuidutils dependency
+* Fix imports for new project location
+* Add 'ovsdbapp/' from commit '10e3bdac29a6be24d2a53e78c9a00b2a8f0f6d07'
+* Initial commit
+* Clean up ovsdb-native's use of verify()
+* Move ovsdb\_nested transaction to ovs\_lib
+* Support ovsdb-client monitor with remote connection
+* Replaces uuid.uuid4 with uuidutils.generate\_uuid()
+* Fix python3 issues with devstack
+* ovsdb: don't erase existing ovsdb managers
+* Refactor OVSDB native lib to be more customizable
+* Handle db\_add in transaction for new objects
+* Log OVS IDL library errors to neutron logs
+* Replace retrying with tenacity
+* Generate OVSDB schema helper in a separate method
+* set\_db\_attribute differs between vsctl and native
+* Allow to override Idl class in OVSDB Connection
+* Add db\_add to OVSDB API
+* Handle uuid references within an ovsdb transaction
+* Fix wrong use of six.moves.queue.get()
+* Use row.uuid as getattr works for inserted row
+* Fix a spelling error
+* Fix module import for ovs\_vsctl\_timeout option
+* Refactoring config options of agent/common/ovs\_lib
+* Add in missing translations for exceptions
+* Wait for vswitchd to add interfaces in native ovsdb
+* Pass timeout in milliseconds to timer\_wait
+* enable OVSDB native interface by default
+* functional: fix OVSFW failure with native OVSDB api
+* ovsdb: Don't let block() wait indefinitely
+* unit: fix ValueError on TransactionQueue init with py34
+* Allow OVSDB Connection to register certain tables
+* Use exceptions from neutron-lib
+* idlutils: add in missing translations
+* Fix module's import order
+* Python3: Fix using dictionary keys() as list
+* Fixes typos Openstack -> OpenStack
+* Make sure datapath\_type is updated on bridges changed
+* Wrong usage of "an"
+* Use \_ from neutron.\_i18n
+* Move i18n to \_i18n, as per oslo\_i18n guidelines
+* Automatically generate neutron core configuration files
+* Fix typo for OVSDB
+* Log error instead of exception trace
+* Fix some reST field lists in docstrings
+* Fix misuse of log marker functions in neutron
+* Do not use log hints for exceptions
+* Just call set-manager if connecting fails
+* Check idl.run() return value before blocking
+* ovsdb: Fix a few docstring
+* Add config option to specify ovs datapath
+* Add new ovs DB API to inquire interfaces name list in a bridge
+* ovs\_lib: Fix native implementation of db\_list
+* OVS native DBListcommand if\_exists support
+* Add Create/Destroy API to OVS QoS BW Limiting
+* ovsdb: attempt to enable connection\_uri for native impl on startup
+* ovsdb: session.rpc never initialized
+* Make \_val\_to\_py and \_py\_to\_val not private
+* Python 3: do not index a dict\_values object
+* Python 3: use six.string\_types instead of basestring
+* Allow users to run 'tox -epy34'
+* Correct typo for matching non-dict ovsdb rows
+* Enhance OVSDB Transaction timeout configuration
+* allow OVSDB connection schema to be configurable
+* Add OVSDB connection as a parameter to the transaction
+* Fix native OVSDB db\_get handling for UUID columns
+* OVSDB python binding should use row.delete() to remove rows
+* Handle non-index lookups in native OVSDB backend
+* Store and log correct exception info
+* OVS agent support on Hyper-V
+* Moves ovs\_lib to agent/common
+* Add native OVSDB implementation of OVSDB API
+* Migrate to oslo.log
+* Remove root\_helper arg for ovs\_lib
+* Reorganize OVSDB API

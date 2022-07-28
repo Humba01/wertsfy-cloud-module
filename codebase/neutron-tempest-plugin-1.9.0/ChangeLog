@@ -1,0 +1,843 @@
+CHANGES
+=======
+
+1.9.0
+-----
+
+* Recover ssh interface config and interface reload
+* Move RULE\_TYPE\_MINIMUM\_PACKET\_RATE under setup method
+* Honour ssh\_key\_type config for keypair and ssh clients
+* Adapt StatefulConnection class to advance image
+* Re enable trunk\_subport\_lifecycle scenario test
+* Readd jobs for neutron-fwaas master branch
+* Add test to verify DHCP port IP address modification
+* Test port.resource\_request format with min bw and min pps rules
+* Fix test\_port\_resource\_request\_inherited\_policy test
+* Update irrelevant-files to skip run of untouched jobs
+* Re-enable IPv6Test in OVN scenario job
+* Use random policy names in test\_qos and test\_qos\_negative
+* Update irrelevant-files for scenario jobs
+* Use random name in qos test\_list\_policy\_filter\_by\_name
+* Add local ip scenario tests
+* Update python testing classifier
+* Add Local IP API tests
+* QoS min pps API tests
+* Update PortTestCasesResourceRequest for new Neutron API ext
+* Add logs for test\_floatingip\_port\_details
+* Add logging API delete corresponding SG test
+* Add 'port-device-profile' to the API extensions list
+* Add jobs definitions for Xena branch
+* Restructure move to nested virt nodes
+* Set SG quota for specific project
+* Add test\_create\_and\_update\_port\_with\_dns\_name
+* Update irrelevant-files for stadium project's tests
+* Update irrelevant-files for api/scenario jobs
+* Switch scenario jobs to nested-virt nodes
+* Add test\_create\_port\_with\_dns\_name
+* test\_list\_agent: pop 'alive' from agent dict
+* Log console output for mac\_learning and multicast tests
+* Use admin\_client to list admin's servers' ports
+* Add stateless security group test case
+* [stable/rocky] Regroup tests exclusion list and add new failing ones
+* Use LOG.warning instead of deprecated LOG.warn
+* Increase guest os ready timeout
+* Remove ussuri jobs from the project's CI queues
+* Don't use Ubuntu minimal in the Rocky and Queens scenario jobs
+
+1.8.0
+-----
+
+* [train]: add designate-tempest-plugin as req
+* Increase "neutron-tempest-plugin-scenario-ovn" timeout to 3h
+* [stable/{train,stein}] Use old guest image for these branches
+* [stable/stein] Regroup tests exclusion list and add new failing ones
+* Add a config option for BGP speaker scheduling
+* Run designate scenario job on OVN
+* Use an older version of neutron-tempest-plugin for stein jobs
+* Use Ubuntu minimal image as advanced guest image
+
+1.7.0
+-----
+
+* Make neutron-tempest-plugin-vpnaas job OVS based
+* Add skip function for IPv6Test tests
+* Add tap-as-a-service API tests
+* Refactoring - Use existing Tempest APIs in "QoS bandwidth limit rule" tests
+* Use default "ds512M" advance image in older stable branches (II)
+* Use default "ds512M" advance image in older stable branches
+* Checking IP version from extra-dhcp-options
+* Check if advanced image flavor already exists
+* neutron-lib: Skip tempest job for changes in unit tests code
+* Create a 384MB flavor for advance image
+* setup.cfg: Replace dashes with underscores
+* Configure a NetworkManager profile with ipv6 supported format
+* Add new scenario jobs for distributed dhcp
+* Fix StatefulConnection to not to fail on exit
+* Add test for mac learning
+* Add API tests for basic address\_groups CRUD operations
+* Disable test\_established\_tcp\_session\_after\_re\_attachinging\_sg in LB job
+* Enable tls-proxy in jobs where it was disabled
+* Update definition of the neutron-tempest-plugin-dvr-multinode-scenario
+
+1.6.0
+-----
+
+* Bump OVN version for master jobs
+* Update service client access test\_dns\_integration
+* Fix test\_allocate\_ips\_are\_from\_correct\_subnet on ML2/OVN backend
+* Changed minversion in tox to 3.18.0
+* Cleanup Security Group rules after TC execution
+* Add a test for overlapping SG rules
+* Fix required extensions for the subnet's service type API tests
+* Revert "Skip scenario tests if HA router will not be active"
+* Enable tls-proxy support for test jobs
+* Remove allowed\_address\_pair API tests
+* Switch neutron-tempest-plugin-api job to be ML2/OVN
+* Added test for reattached security groups
+* New API test for subnet's service types
+* Remove "active" attribute from the allowed\_address\_pairs
+* Change way how tcpdump result is checked in multicast test
+* Explicitly set jobs sfc and bgpvpn to ML2/OVS
+* Remove train jobs from the project's CI queues
+* Switch neutron-tempest-plugin-api job to be ML2/OVS
+
+1.5.0
+-----
+
+* Fix test to prevent network leak
+* QoS rule negative tests
+* Move back designate scenario job to the check queue
+* Rewrite stein jobs using tempest\_exclude\_regex
+* Unset new rolevar for run-tempest role for rocky jobs
+* Fix DNS scenario tests
+* Add QoS negative test, test\_rule\_create\_rule\_non\_existent\_policy
+* Skip scenario tests if HA router will not be active
+* Wait for HA router to be active on at least one agent
+* Add iptables and listening sockets to debug info
+* Add jobs definitions for the stable/wallaby branch
+
+1.4.0
+-----
+
+* New test, extends test\_subport\_connectivity
+* Set proper OVS\_SYSCONFDIR for the job wher OVS is compiled
+* Revert "Mark test\_floatingip\_port\_details test as unstable"
+* ovn: Collect OVN logs
+* Fix multicast scenario test
+* jobs: remove devstack-gate references
+* Add a scenario test for remote address group
+* Add tempest API tests for address groups RBAC
+* Enable l3\_ha in neutron config for scenario jobs
+* Add update QoS rule test step to fip-qos scenario
+* Delete qos policies created during scenario tests
+* Add skip funtion for checking enabled extensions in the l3 agent
+* Explicitly set jobs to ML2/OVS
+* Add test for default DNS zone per tenant
+* Switch to new rolevar for run-temepst role
+* Limit execution of the neutron CI jobs on some irrelevant file
+* Move designate scenario job to the experimental queue temporary
+* Delete router test - API scenario
+* test\_metadata\_routed: save console log
+* Add first VLAN Transparency tests
+* Remove stein jobs from the project's queues
+* Create security groups with the same name
+* Unmark port\_forwarding tests as unstable (cont.)
+* Add doc/requirements
+
+1.3.0
+-----
+
+* Move fwaas jobs to the experimental queue
+* Use tempest's ServiceClients rather than Manager
+* New test case: "test\_port\_with\_fixed\_ip"
+* Router appended twice to routers list when created with create\_router\_by\_client
+* Add IPv6 port API test class and basic test
+* test list the network(ipv6) ip usage stats
+* negative cases for qos policy
+* Mark test\_dhcp\_port\_status\_active api test as unstable
+* New "test\_remove\_associated\_ports" negative test case
+* remove all unused local variable
+* Switch neutron-tempest-plugin-api job to be uwsgi based
+* Add method to reserve the external subnet cidrs
+* start using available\_features cfg option from tempest
+* Set concurrency of scenario tests to 3
+* Disable Cinder services in all neutron-tempest-plugin jobs
+* Mark test\_subport\_connectivity as unstable for now
+* "\_log\_ns\_network\_status" log if namespace does not exist
+* Update TOX\_CONSTRAINTS\_FILE
+* [Scenario] New test to check extra\_dhcp\_opts
+* Implement "get\_hostname" in SSH client class
+* Unmark port\_forwarding tests as unstable
+* Consolidate some tempest tests in the neutron-tempest-plugin jobs
+* Fix access to dictionary variable "server"
+* Remove six
+* Make neutron-tempest-plugin-bgpvpn-bagpipe voting again
+* Skip WritableMtuTest for OVN
+* Disable Swift services in all scenario jobs
+* Temporary blacklist test\_trunk\_subport\_lifecycle in the ovn job
+* Use different job definition for linuxbridge jobs runs on Xenial
+* Check VM's console log before trying to SSH to it
+* Skip fip\_qos test is there is no L3 agent with extension enabled
+* Improve logging of network state on the test host
+* Add more port\_forwarding tests
+* Replace assertItemsEqual with assertCountEqual
+* Minor improvement in: test\_qos\_basic\_and\_update
+* remove unused local variable
+* Add jobs template for stable/victoria branch
+* Use Cirros 0.5.1 in scenario jobs for all branches
+* Improve logging of vm's console output when test fails
+* Mark some bgpvpn scenario tests unstable
+* Improve logging of vm's console output
+* Wait longer time for FIP to be updated by L3 agent
+* [SFC] Mark test test\_update\_port\_pair\_group\_remove\_port\_pairs as unstable
+
+1.2.0
+-----
+
+* Set binding:profile upon port creation
+* Migrate CI jobs to Ubuntu Focal
+* Test metadata over IPv6
+* Bump advanced image to ubuntu 18.04
+* Update hacking for Focal
+* cases associated with the port
+* nagative cases for port
+* sort secgroups by name
+* negative cases for router interface
+* Remove propagate\_uplink\_status API related tests
+* Remove dvr-multinode-scenario-queens job from the check queue
+* Add flag to forbid packet loss during remote ping test
+* Verify admin deletion not to fail
+* case for update qos rule, rule or policy non-existent
+* Stop disabling TLS for tests
+* Make dynamic routing tests use clients as others
+* Fix neutron-dynamic-routing tests when DVR is disabled
+* test\_port\_forwarding\_to\_2\_servers: netcat listen stops too soon
+* Fix cert handling for dynamic routing tests
+* Add test: Editing and deleting port forwarding TCP rule
+* Fix openvswitch-iptables\_hybrid ussuri branch
+* Add test for checking intra security group isolation
+* Add neutron-tempest-plugin-scenario-ovn jobs
+* Move neutron-tempest-plugin-dvr-multinode-scenario job to experimental
+* Remove jobs for neutron-fwaas master branch
+* Check interface is present in the VM
+* Preserve floating IP address in FloatingIpMultipleRoutersTest
+* Add "test\_port\_forwardings\_negative" module
+* Add timeout to check\_connectivity method
+* Mark VPNaaS scenario tests as unstable
+* Enable bridge debugging services on the ci jobs
+* test sort ascending and descending qos policies by name
+* Switch to newer openstackdocstheme and reno versions
+* update qos policy with long name and long description
+* Add py38 package metadata
+* Have vpnaas job definition inherit irrelevant files
+* Use default network type during PortTestCasesResourceRequest setup
+* Reorganize zuul jobs definitions
+* Add new scenario test for IPv6 hot plug
+* Add test\_ping\_global\_ip\_from\_vm\_with\_fip
+* Add job templates for stable/ussuri branch
+* Add nose to requirements.txt
+* Added new API test\_sg\_rules\_quota\_decrease\_less\_than\_created
+* Ensure that external network don't have any ports before deletion
+* Test security group creation with insufficient rules quota
+* Fix issue when disassociating resources from firewall group
+* Fix test\_multicast\_between\_vms\_on\_same\_network
+* Only install plugin system-wide if INSTALL\_TEMPEST is set
+* Added new API test\_create\_sg\_rules\_when\_quota\_disabled
+
+1.1.0
+-----
+
+* Update docs building
+* Set higher timeout for tests in scenario jobs
+* Add tempest api tests for subnet pools RBAC
+* Added new API test\_sg\_rules\_quota\_values
+* Add tempest api tests for address scopes RBAC
+* Replace old requires-python with python-requires
+* Disable negative subnetpool test
+* Protect vs unordered results in TrunkTestInheritJSONBase
+
+1.0.0
+-----
+
+* Test connectivity after migration of the server with trunk
+* Fix how nc is called in qos test
+* Fixed test\_sg\_quota\_increased test
+* Change wait parameter for ping command
+* Add test\_reuse\_ip\_address\_with\_other\_fip..
+* Added description to test\_sg\_rules\_quota\_increased
+* Add test "test\_create\_instance\_in\_network\_with\_attached\_policy"
+* QoS - Change the way we measure bw limits
+* Adding new test of security group rules quota increased
+* Add test "attach\_previously\_used\_port\_to\_new\_instance"
+* Disable trunk subports connectivity test on Rocky iptables\_hybrid job
+* Rocky jobs will now be run with same version of plugin
+* Helper class for BaseSecGroupRulesQuota tests
+* Fix logging of console output in scenario tests
+* Add tagging of ports during bulk creation
+* Log vms' console output in scenario tests
+* Add list security group rules API test
+
+0.9.0
+-----
+
+* [ussuri][goal] Drop python 2.7 support and testing
+* Disable security group quotas in NetworkSecGroupTest
+* Increase default security group quota up to 150
+* Fix intermittent port\_forwarding test failures
+* Fix how nc client and server are run in scenario tests
+* Make bgpvpn-bagpipe tempest job voting again
+* Pin designate-tempest-plugin for Stein/Rocky/Queens branches
+* Add port-range remote\_group security group testcase
+* Enhance the test\_multicast\_between\_vms\_on\_same\_network test
+* Remove references to "tenant\_id" in test\_security\_groups
+* Modify rocky jobs to run with correct py version
+* Remove references to "tenant\_id" in test\_qos
+* Fix test\_connectivity\_dvr\_and\_no\_dvr\_routers\_in\_same\_subnet test
+* Drop all Rocky jobs from both check and gate queues
+* Stop using not existing ShellCommandError exception class
+* Change the default multicast group range
+* Remove "unstable\_test" decorator local implementation
+* Adding pattern to check\_remote\_connectivity function
+
+0.8.0
+-----
+
+* Use different CIDRs for private and public subnets
+* Add debugging information in case of SSH connection error
+* Remove TEMPEST\_BRANCH var from neutron queens job
+* Fix neutron-tempest-plugin tag for queens jobs
+* Negative tests for security group quota
+* Security group assignment negative tests
+* Use default cirros image to reap the benefits of infra cache
+* Fix how netcat is called when started as server
+* Remove unused method "create\_network\_keystone\_v3"
+* Positive tests for security group quota
+* Remove references to "tenant\_id" in test\_shared\_network\_extension
+* Revert "Switch neutron-dynamic-routing job to be non-voting temporaray"
+* Switch fwaas jobs to be non-voting and non gating temporary
+* Stop re-using client connections
+* Add "test\_delete\_agent\_negative"
+* Add test to attach and detach policies with regular client
+* Migrate neutron-vpnaas tests to neutron-tempest-plugin
+* Add test to create policy with multiple rules
+* Temporarily limit SFC testing concurrency
+* Use python 3 on all nodes in multinode job
+* Queens jobs will now be run with same version of plugin
+* Extend tests for external DNS integration
+
+0.7.0
+-----
+
+* Add stable/train jobs definitions
+* bgp\_speaker\_extensions: Don't execute the negative tests under smoke
+* Mark port\_forwarding scenario test as unstable temporary
+* Mark multicast scenario test as unstable for now
+* Switch neutron-dynamic-routing job to be non-voting temporaray
+* Check parameters returned in "list\_network\_segment\_ranges"
+* Add scenario test for port forwarding and UDP
+* Fix list of API extensions for dvr and designate jobs
+* Switch bagpipe-bgpvpn job to be run using Python3
+* Add test to create and update DSCP values
+* Make one agent untouchable in test\_agent\_management
+* Disable scenario test for trunk subports connectivity on Queens
+* Add stadium projects jobs to the gate queue
+* Fix errors in designate scenarios jobs
+* Add tests for L3 conntrack helper
+
+0.6.0
+-----
+
+* Move neutron-dynamic-routing BGP tests from stadium
+* Run FWaaS and SFC jobs on all file changes
+* Add retry decorator to SSH "execute" method
+* Update the constraints url
+* Tempest test for Neutron extension: extraroute-atomic
+* Skip multicast test if there is no python3 on VM
+* Use \_create\_admin\_router() where possible
+* Clean routers in DvrRoutersNegativeTestExtended
+* Start enforcing E125 flake8 directive
+
+0.5.0
+-----
+
+* Force the kill of the "nc" process only if timeout
+* Add new job neutron-tempest-plugin-scenario-openvswitch-iptables\_hybrid
+* Add new job neutron-tempest-plugin-scenario-openvswitch
+* Refactor the test\_qos.QoSTestMixin.\_check\_bw function
+* Bump the openstackdocstheme extension to 1.20
+* Blacklist sphinx 2.1.0 (autodoc bug)
+* Test updating FIP with a different port
+* Add tempest tests for DVR router state management
+
+0.4.0
+-----
+
+* Add possibility to disable running stadium projects tests
+* Test multi-cast messaging between VMs
+* Migrate neutron-fwaas tests to neutron-tempest-plugin
+* Add logging of servers console in scenario test\_port\_forwardings
+* Update flake8 style enforcement
+* Change order of creating vms and plug routers in scenario test
+* Add API tests for subnet pool prefix operations
+* Sync Sphinx requirement
+* Additional test cases for port forwardings API
+* Re-enable internal DNS tests
+* Fix: test fails due to image not found
+* Scenario test for port forwarding
+* Scenario test case to check connectivity when dvr and non-dvr routers used
+* Ensure DNS configuration from conf
+* Remove networking-bgpvpn job from template
+* Normalize url without port with schema default port
+* Add base API tests for port forwarding
+* Add case for router east west traffic
+* Add API test case to check if SG displays all rules
+* Rehome tempest tests from networking-bgpvpn repo
+* Change legacy security group rule check
+* Dropping support for py35
+* Remove obsolete docs job from neutron-tempest-plugin-jobs
+* Migrate networking-sfc tests to neutron-tempest-plugin
+* Replace git.openstack.org URLs with opendev.org URLs
+* Add api test for DVR coverting back to centralized
+* OpenDev Migration Patch
+* Add additional config option "default\_image\_is\_advanced"
+* Add definition of jobs running on stable/stein branch
+* Switch job definitions to use new "tempest\_plugin" variable
+* Addition of negative test: network creation with an above the limit mtu value. The value max\_mtu can be configured in tempest.conf
+* Mark test\_floatingip\_port\_details test as unstable
+* Min bw rule operations should be rejected on non-physnet ports/networks
+
+0.3.0
+-----
+
+* Replace openstack.org git:// URLs with https://
+* Don't customize image before upload it to Glance by default
+* Reenable tests cases in NetworkMigrationFromHA
+* Remove test\_port\_resource\_request\_no\_provider\_net
+* add assert to ping test
+* Add API test for network segment range extension
+* Add logging of the test steps in NetworkWritableMtuTest
+* Add tempest api tests for security groups RBAC
+* Fix L3 agent scheduler tests in multinode environments
+* Fix neutron-tempest-plugin tox pep8 setup
+* Log port details when FloatingIP port details test fails
+* Added test\_ports suite and a new test
+* Allow NetworkWritableMtuTest to run on GENEVE (OVN) networks
+* Make provider network creation more error proof
+* tests for port-resource-request
+* Update test\_trunk after adding new ip command tool
+* Add ip command tool for manually manage devices on VM
+* Keep stable branch jobs on Ubuntu Xenial
+* Remove unnecessary entries in resource prefix map
+* Use self.create\_port instead of client.create\_port
+* Turn the list of extensions into multi-line
+* Fix the extension list across jobs
+* Remove deprecated extension "tag" and "tag-ext"
+* Test floatingip pools service plugin
+* Change openstack-dev to openstack-discuss
+* Update test cases after security group menthods improvements
+* Switch tempest plugin jobs to Python 3
+* Add scenario test for trunk E2E flow
+* call remove\_router\_extra\_routes only when extra\_routes is enabled
+* Test propagate\_uplink\_status on create port
+* Create wrapper tool for both local and remote shell command execution
+* Improve security groups management
+* Fix race condition in test\_security\_groups
+* Fix execute\_script method to avoid infinite wait
+* Add new test cases for network ip availability
+* Make sure only one port\_id is given
+* Enhance scenario test to cover network dns\_domain
+* Fix creating subnet without gateway
+* Two fixes on test\_list\_available\_zones
+* Add network availability zones client
+* Move test cases from networking-midonet repository
+* Add connectivity test via 2 routers and tenant networks
+* Use advanced image only when it's necessary
+* test for minimum bw ingress direction
+* Remove test\_rule\_create\_fail\_for\_direction\_ingress
+* Fix flake8 E405 errors
+* Fix flake8 E265 errors
+* Fix flake8 H404 errors
+* Update QoS scenario test
+* Fix raising TimeoutException in tests
+* Migrate dvr multinode scenario to zuulv3 syntax
+* Add guest image customization to DevStack plugin
+* Wait for floating IP to be DOWN before checking port details
+* Refactor test cases after adding new params to create\_floatingip
+* Add jobs for stable/rocky branch
+* Mark NetworkMigrationFromHA scenario tests as unstable
+* Update trunk tests to use create\_trunk method
+* Add release notes job to zuul template
+* Fix bash cmd used in scenario trunk tests
+* Add delete\_agent to NetworkClientJSON
+* Revert "Use nested virt in scenario jobs"
+* Add tests to assert filter validation
+* import zuul job settings from project-config
+* Reuse SSH connections for executing multiple commands
+* Consolidate irrelevant-files in zuul config
+* Deprecate BaseTempestTestCase.create\_and\_associate\_floatingip method
+* Create floating IPs with additional parameters
+* Cleanup Tempest tests legacy resources
+
+0.2.0
+-----
+
+* Add test tools for executing socat on guest images
+* Add create\_trunk and delete\_trunk methods
+* fix tox python3 overrides
+* Stop running designate scenario job on docs-only changes
+* Assert extensions match in config file and server
+* Skip test\_connectivity\_min\_max\_mtu if cirros image is used
+* Wait until all router ports are DOWN before migration
+* Use nested virt in scenario jobs
+* FloatingIPQosTest: Stop inheriting QoSTest class
+* update requirements for neutron-lib 1.18.0
+* Add scenario test for fip port\_details
+* Add a scenario test for internal dns\_name
+* fix tox python3 overrides
+* Skip filter validation tests
+* Refactor tests to use create\_network convenience params
+* Add convenience parameters to create\_network
+* Allow to connect to SSH server using an intermediate SSH server
+
+0.1.0
+-----
+
+* Add script to customize Ubuntu guest images
+* Move create\_keypair to api.base module and add creation params
+* Test port mac\_address update
+* Use latest Ubuntu 16.04 LTS guest image
+* Rename neutron-tempest-plugin-jobs-stable template
+* Enable dns\_domain\_ports extension in tempest config
+* Remove incorrect filter on listing subnets
+* Switch neutron-tempest-plugin-api job to zuul v3 format
+* Add wait-for-server scenario methods to wraps waiters
+* Switch to stestr
+* Allow network configuration for mtu tests
+* Log VM console output in remote\_connectivity\_check
+* Make neutron-tempest-plugin-designate-scenario voting
+* Tempest: Add l3-ha extension requirement for HA tests
+* trunk: Start dhclient only if it's not running
+* Allow skipping subnet CIDRs reservation when creating subnet
+* Allow creating subnet without a gateway
+* Make neutron-tempest-plugin-scenario-linuxbridge job gating
+* Fix some pep8 errors, update tox.ini
+* Make test\_detail\_quota() test more generic
+* Add tests for floatingip port\_details
+* Mark trunk tests as unstable
+* Add stable jobs to the gate
+* Require standard-attr-segment on test
+* Revert "Skip Floating IP QoS scenario test in DVR environment"
+* Fix automatic subnet CIDR generation
+* Fix support for proxy URL from tempest.conf
+* [Scenario] Enable "qos-fip" network extension in tempest config
+* Mark DVR/HA migration tests unstable
+* uncap eventlet
+* Test timestamp with segment resource
+* Fix some pep8 warnings
+* Increase address allocation size for subnet pool tests with IPv4
+* Make test\_create\_port\_when\_quotas\_is\_full more generic
+* Tempest linuxbridge scenario switch to Zuul v3 template
+* Add assumption for dvr tests
+* Skip Floating IP QoS scenario test in DVR environment
+* Add a missing extension check (qos-fip)
+* Add floating IP QoS test cases
+* Don't share a network with all tenants
+* Fix the old or invalid doc links
+* Updated from global requirements
+* Fix documentation build
+* Switch linuxbridge-scenario job to be voting
+* Unmark tests as unstable once bug 1740885 was fixed
+* Ignore irrelevant changes for tempest jobs
+* [QoS] Add API test for create port with admin's QoS policy
+* Update tox debug env
+* use EGRESS\_DIRECTION and INGRESS\_DIRECTION from neutron-lib
+* Update of Openstack Commandments url
+* Zuul: Remove project name
+* Updated from global requirements
+* Add support MTU tests in the same network type
+* SNAT - Check connectivity to the gateway IP
+* Do not assume all protocols in neutron-lib are usable for SG
+* Revert "SNAT - Check connectivity to an external IP"
+* Add api test for logging extension
+* SNAT - Check connectivity to an external IP
+* Create port with vnic type from config
+* Rename tox\_venvlist (2/2)
+* Rename tox\_venvlist (1/2)
+* Switched from q-dns to neutron-dns service name
+* Allow test runner to pick the number of workers
+* Allow to configure max vlans for trunk port tests
+* Added scenario: spawn instance with port associated to security group
+* Add scenario that verifies proper functionality of remote group
+* trunk: Skip trunk tests because of bug 1740885
+* Tests for DNS integration
+* trunk: Create vxlan network when testing inherit
+* Fix multinode scenario
+* Add decorator to mark unstable tests
+* test\_floating\_ips\_admin\_actions: clean up floating ip
+* test\_routers\_ha: Unify creating routers
+* api: Add HA router delete test
+* Add devstack plugin to ease integration tests
+* Skip tempest jobs for doc/\* only changes
+* tempest: Use kwargs for create\_server
+* Add test for negative security group range scenario
+* Fix scenario base functions
+* Added zuulv3 jobs for testing neutron tempest plugin
+* Add duplicated idempotent\_ids checks
+* Add tests for external network
+* Remove zuulv3 based neutron tempest plugin jobs
+* Added test suite and case to cover 'availability zone'
+* Code Sync from neutron project to newly created neutron-tempest-plugin
+* Inherited zuulv3 neutron tempest plugin jobs
+* Refactored Neutron tempest plugin directory structure
+*  Apply cookiecutter to newly split project
+* Tempest: Fix cleaning of subnets
+* Tempest: change way how QoS policies are cleaned
+* Tempest: Fix cleaning of networks after API tests
+* Fix default qos policy when creating network
+* Stop using v2 identity API
+* Fix DefaultSubnetPool API test
+* Allow to set/modify network mtu
+* Fixing test\_convert\_default\_subnetpool\_to\_non\_default
+* Add API test for port dns\_domain
+* Don't check full subnet body in test\_filtering\_shared\_subnets
+* tests: don't set description in test\_blank\_update\_clears\_association
+* Bump network rev on RBAC change
+* use neutron-lib auto allocated topology apidef
+* [Tempest] Running Trunk test with advanced image only
+* Extend Quota API to report usage statistics
+* Tempest: Fix DeprecationWarning for Read-only property
+* Adding option to check VM connectivity with packet of given size
+* Tempest: Adopt keystone api v3 for tests
+* Replace test.attr() with decorators.attr()
+* ovs-fw: Use TRANSIENT table for traffic classification
+* New API call to get details of supported QoS rule type
+* Tempest: Add default-subnetpools tests
+* API compare-and-swap updates based on revision\_number
+* Replace the usage of 'admin\_manager' with 'os\_admin'
+* use service type constants from neutron\_lib plugins
+* Fix list QoS rule\_types tempest API test
+* test\_floatingip: Add a case for SRC without FIP
+* Fix tempest router creation
+* tempest-api: Skip test if deployment has not enough agents
+* Fix some tempest deprecation warnings
+* tempest: Make \_create\_router\_with\_client obey enable\_snat=False
+* Manually increment revision numbers in revision plugin
+* api: work around Routes cutting off suffix from resource id
+* api-tests: Common way to define required extensions
+* Add "default" behaviour to QoS policies
+* Changing create\_server to be "non class method"
+* Fix tempest test failing with segments extension
+* Change PATH for "ip addr list" command so it could work with cloud-user
+* Add tempest test for l3-ha extension
+* Disable QoS scenario tests differently
+* Fix tempest router migration test when HA enabled, v2
+* Revert "Fix tempest router migration test when HA enabled"
+* tempest: Obey ssh\_timeout config option
+* Fix tempest router migration test when HA enabled
+* tests: removed 'retargetable' framework
+* tempest: Obey identity\_feature\_enabled.api\_v2\_admin in a few tests
+* Add QoS bandwidth limit for instance ingress traffic
+* Remove unused parameter in test\_extension\_driver\_port\_security.py
+* Creating subnet for tagged network without GW
+* Tempest: Edited bash commands to work with multiple OSes
+* Add a skip check to make sure that vlan is actually in available\_type\_drivers
+* Add api test to create vxlan network
+* Replace six.iteritems with dict.items(Part-1)
+* Check permutations of router migrations
+* Allow self-sharing RBAC rules to be deleted without usage check
+* fix overaggressive 403->404 conversion
+* Add string validation on security group's name
+* Tempest: Fixing L3 agent hosting router for DVR setup
+* Quota list API returns project\_id
+* Fix tempest router timestamp test when HA enabled
+* Inherit segmentation details for trunk subports if requested
+* Retrieve fresh network DB data before getting it in ml2
+* Fix Quota error while running tests
+* Log instance interface addrs in subport test
+* On update\_tags, clean up tags from the requested resource only
+* Update is\_default field only when specified in the request
+* Fix trunk subport scenario test
+* Switch to use idempotent\_id decorator from tempest.lib
+* Configure HA as False when creating a router for DVR tests
+* tempest: Skip QoS test until fixed
+* Remove logging import unused
+* Add a tempest scenario for floating-ip
+* Adding cleanup of floating ips
+* Switch to use test\_utils.call\_until\_true
+* Simplify the QoS bandwidth test to increase reliability
+* Enhance tag mechanism
+* Use addCleanup instead of tearDown
+* tempest: Log server console output of failed SSH
+* trunk: Add tempest test validating subport connectivity
+* Fix importing old path for exceptions
+* neutron-lib: use L3 constant
+* Checking functionality of DVR
+* Raise AssertionError instead of eventlet.timeout.Timeout when failing
+* Replaces uuid.uuid4 with uuidutils.generate\_uuid()
+* Fix ext alias in revision API test
+* Use DB field sizes instead of \_MAX\_LEN constants
+* Remove test cases that moved to tempest
+* Added log messages while creating neutron objects
+* Bulk creation of SecurityGroups
+* tempest: Fix qos extension check
+* Tempest tests uses only supported QoS rule types
+* Add missing revises\_on\_change attribute
+* Using a new security group in scenario tests
+* Disallow specifying too long name and description for qos
+* Replace assertEqual(None, \*) with assertIsNone in tests
+* Retire deprecations for constants, exceptions, attributes
+* test\_routers\_flavors: Skip if requirements are not met
+* Have RouterRoute object increment Router revision
+* Extend project\_id in object dicts (Newton only)
+* Add api test for create update network and port with dns
+* Disallow specifying too long name for meter-label
+* Refetch subnet/network from DB in ML2 update ops
+* Add missing revision number altercations
+* tests: Move testtools to 3rd party libraries section
+* Fix ML2 revision\_number handling in port updates
+* API tests: Check MTU sanity of trunk/subport
+* Clean-up Tempest test networks with project\_id
+* Add MAC address to subports in trunk\_details
+* Add basic status transition trunk scenario test
+* Add admin api tests for project-id
+* Add API test to ensure IPs can be added by subnet
+* Add common way to extend standard attribute models
+* Include timezone in timestamp fields
+* Correct floating IP extra attributes updating issues
+* Prevent use filter(lambda obj: test(obj), data)
+* Disable DHCP on test\_create\_port\_when\_quotas\_is\_full
+* Accept and return project\_id for API calls
+* Defer setting 'ha'/'distributed' flags in L3 code
+* Make optional the validation of filters
+* Use correct exception in L3 driver controller
+* Detect DBReferenceError when deleting flavor
+* Add API test for L3 Flavors
+* Include timestamps in trunk API test comparisions
+* Expose revision\_number to trunk API
+* Change 'revision' to 'revision\_number'
+* Add timestamp fields for neutron ext resources
+* qos: require min\_kbps parameter for minimum bandwidth rule
+* Expose timestamp attributes on trunk API
+* Expose description attribute on trunk API
+* Remove unnecessary setUp and resource\_setup
+* Remove unused config.CONF
+* Add QoS minimum bandwidth rule for instance egress traffic
+* Fix internal server error during updating QoS rule
+* Using revision\_number to ensure no overlap in \*one\* network
+* Use more specific asserts in tests
+* Implement the DELETE method for get-me-a-network
+* Revert "Fix NoSuchOptError on identity config option lookup"
+* Filter out external networks in NetworksSearchCriteriaTest
+* Fix NoSuchOptError on identity config option lookup
+* Add API test for tag
+* Add floating IP test to ensure backwards compat
+* Check target\_tenant when create rbac policy
+* Fix for creation of network environment twice
+* Added API extensions to detect sorting/pagination features
+* Increment revision numbers on object changes
+* Add API tests for router and DHCP port status
+* Add some negative policy router interface tests
+* Prohibit deletion of ports currently in use by a trunk
+* Revisit (add|remove)\_subports request body
+* Enable passive deletes on trunk deletion
+* Removed smoke tags from \*SearchCriteriaTest test cases
+* Add new attributes to trunk model
+* QoSTest: skip if qos extension is not available
+* Fill in trunk\_details on port resource
+* Improve cleanup logic for trunk tests
+* Add object versioning to QoS DSCP
+* qos basic scenario
+* Skip TrunksSearchCriteriaTest if the extension is not available
+* List only admin\_state\_up auto-allocated resources
+* next() is incompatible in test\_network\_ip\_availability.py
+* Remove unused LOG
+* Add sorting and pagination tests for trunk resources
+* Enable CRUD for trunk ports
+* Use tempest.lib tenants\_client
+* Fix simple typos
+* Create auto allocated networks in disabled state
+* Make pep8 job great again
+* Change addCleanup create\_tenant to delete\_tenant, fix gate
+* Tempest: fix a typo
+* qos: added api sorting/pagination tests for policies
+* objects: switch base plugin class to using subnetpool object
+* Added sorting/pagination tests for routers
+* Added sorting/pagination tests for subnets
+* tests: fetch unshared subnetpools only
+* Fix update of shared QoS policy
+* Add sanity check for idempotent id's in tempest tests
+* tests: added sorting/pagination api tests for subnetpools
+* Match filter criteria when constructing URI for href based iteration
+* qos: Add API test for shared policy
+* Use IPv[46]\_BITS instead of IPV[46]\_MAX\_PREFIXLEN
+* Adding basic connectivity scenario to Neutron
+* Added API tests for page\_reverse and href next/previous links
+* tests: cover port with existing sorting/pagination api tests
+* tests: validate sorting and pagination for networks
+* Add quota tests in api tests
+* Add negative API tests that try to remove the resources in use
+* Remove a SGs API test following sync to Tempest
+* Fix update target tenant RBAC external path
+* Remove BGP code from neutron
+* Add test that ensures subnet is usable after update
+* Add a missing address-scope extension check
+* Mark remaining negative subnetpool tests with 'negative' tag
+* Removed smoke tags from all -api job tests
+* tempest: enable hacking rule checks
+* Return a 404 on quota delete if entry not found
+* Use tempest plugin interface
+* Fix broken Tempest conf options in API tests
+* DSCP QoS rule implementation
+* Copy tempest.common.tempest\_fixtures in to Neutron
+* Fix tempest lib import in API tests
+* Add a description field to all standard resources
+* Continue the fwaas decoupling and cleanup
+* Add Queries For BGP Route Lookups
+* Switch to using in-tree tempest lib
+* API test for get-me-network
+* Add BGP Dynamic Routing DB Model and Basic CRUD
+* Remove vpnaas tests from the Neutron API tree
+* Test helpers to facilitate testing BGP dynamic routing
+* Delete Tempest fork, import from tempest and tempest\_lib
+* LBaaS tests code removal
+* Fix API tests
+* Keep py3.X compatibility for urllib
+* Trival: Remove unused logging import
+* Refactor the subnetpools API tests
+* Optimize "open" method with context manager
+* Remove default=None for configuration bindings
+* Fixed a bunch of typos throughout Neutron
+* Introduce an API test for specified floating ip address
+* Use tempest-lib's token\_client
+* Fix missing value types for log message
+* Neutron RBAC API and network support
+* Replace 'import json' with oslo\_serialization
+* Use oslo.log library instead of system logging module
+* Fix get\_objects to allow filtering
+* Add API tests for non-accessible policies
+* Replaces reduce with six.moves.reduce for py 2/3 compatibility
+* Cleaned up some TODO comments for feature/qos that do not apply anymore
+* Fix accessing shared policies, add assoc tests
+* Add update tests for policies and rules
+* Introduce mechanism to determine supported qos rule types for a plugin
+* QoS: Remove type attribute from QoS rules
+* Base infrastructure for QoS API tests
+* Flavor Framework implementation
+* Python3: do not use urllib.urlencode
+* Use string exception casting everywhere
+* Python 3: use dict.values instead of dict.itervalues
+* Python 3: use next() instead of iterator.next()
+* Python3: use six.iteritems() instead of dict.iteritems()
+* Python 3: Use six.moves.range
+* Allow users to run 'tox -epy34'
+* Move orphaned api test - deux
+* Move orphaned api test
+* Move API tests to neutron.test.api
+* Simplify retargetable test framework
+* Add API tests for subnetpool allocation
+* Test to verify  shared attribute of network
+* Api tests to cover network mtu attribute
+* Update api tests from tempest
+* Migrate to oslo.log
+* Initial copy of api tests from tempest
+* Add script to copy neutron api tests from tempest

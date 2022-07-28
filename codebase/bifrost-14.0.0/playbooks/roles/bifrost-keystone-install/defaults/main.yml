@@ -1,0 +1,86 @@
+---
+enable_keystone: false
+
+keystone_source_install: true
+# *_git_url can be overridden by local clones for offline installs
+keystone_git_url: https://opendev.org/openstack/keystone
+keystone_git_folder: /opt/stack/keystone
+
+keystone_lockout_security_attempts: -1
+keystone_lockout_duration: 1800
+
+skip_install: False
+# set to true to skip installing ironic dependencies
+skip_package_install: False
+# set to true to skip generation of configs and ironic db configuration
+skip_bootstrap: False
+# set to true to skip starting ironic services and dependencies
+skip_start: False
+
+# Parameters for connecting to mysql for database manipulation.
+mysql_username: "root"
+mysql_password: ""
+
+# Support for CORS configuration
+# By default CORS support is disabled.
+enable_cors: false
+# Origin to accept for CORS requests
+cors_allowed_origin: "http://localhost:8000"
+# bifrost utilizes noauth mode by default and as such
+# the setting should be set to false. This setting should
+# not need to be modified by the user.
+enable_cors_credential_support: false
+
+network_interface: "virbr0"
+ans_network_interface: "{{ network_interface | replace('-', '_') }}"
+internal_ip: "{{ hostvars[inventory_hostname]['ansible_' + ans_network_interface]['ipv4']['address'] }}"
+
+api_protocol: "{{ 'https' if enable_tls | bool else 'http' }}"
+keystone_api_url: "{{ api_protocol }}://{{ internal_ip }}:5000/v3"
+
+# Settings related to installing bifrost in a virtual environment
+bifrost_venv_dir: "{{ lookup('env', 'VENV') or '/opt/stack/bifrost' }}"
+bifrost_venv_env:
+  VIRTUAL_ENV: "{{ bifrost_venv_dir }}"
+  PATH: "{{ bifrost_venv_dir }}/bin:{{ ansible_env.PATH }}" # include regular path via lookup env
+  pydoc: "python -m pydoc"
+ansible_python_interpreter: "{{ bifrost_venv_dir + '/bin/python3' }}"
+
+# Directory (on the controller) to keep the passwords
+password_dir: "{{ lookup('env', 'HOME') }}/.config/bifrost"
+
+admin_username: admin
+admin_password: "{{ lookup('password', password_dir + '/admin_password') }}"
+
+
+# NOTE(dtantsur): various URLs in configuration files don't like special
+# symbols in passwords.
+service_password: "{{ lookup('password', password_dir + '/service_password chars=ascii_letters,digits') }}"
+
+keystone:
+  debug: true
+  bootstrap:
+    enabled: true
+    username: "{{ admin_username }}"
+    password: "{{ admin_password }}"
+    project_name: admin
+    admin_url: "{{ keystone_api_url }}"
+    public_url: "{{ keystone_api_url }}"
+    internal_url: "{{ api_protocol }}://127.0.0.1:5000/v3/"
+    region_name: "RegionOne"
+  message_queue:
+    username: keystone
+    password: "{{ service_password }}"
+    host: localhost
+    port: 5672
+  database:
+    name: keystone
+    username: keystone
+    password: "{{ service_password }}"
+    host: localhost
+
+# Enable TLS support.
+enable_tls: false
+tls_root: /etc/bifrost
+tls_certificate_path: "{{ tls_root }}/bifrost.crt"
+nginx_private_key_path: /etc/nginx/keystone.pem

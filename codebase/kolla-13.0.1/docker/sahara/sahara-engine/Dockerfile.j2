@@ -1,0 +1,35 @@
+FROM {{ namespace }}/{{ image_prefix }}sahara-base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block sahara_engine_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{% if install_type == 'binary' %}
+    {% if base_package_type == 'rpm' %}
+        {% set sahara_engine_packages = [
+            'nc',
+            'openstack-sahara-engine',
+        ] %}
+    {% elif base_package_type == 'deb' %}
+        {% set sahara_engine_packages = [
+            'netcat',
+            'sahara-engine',
+        ] %}
+    {% endif %}
+{% elif install_type == 'source' %}
+    {% if base_package_type == 'rpm' %}
+       {% set sahara_engine_packages = ['nc'] %}
+    {% elif base_package_type == 'deb' %}
+        {% set sahara_engine_packages = ['netcat'] %}
+    {% endif %}
+{% endif %}
+
+{{ macros.install_packages(sahara_engine_packages | customizable("packages")) }}
+
+{% block sahara_engine_footer %}{% endblock %}
+{% block footer %}{% endblock %}
+
+USER sahara

@@ -1,0 +1,87 @@
+storlets (1.0.0, OpenStack Queens)
+  * Minor bug fixes and rework on the zuul config
+
+storlets (0.7.0)
+  * Migrate legacy gate job from OpenStack project config
+
+  * Minor bug fixes
+
+storlets (0.6.0)
+  * Moving installation code to be as devstack plugin
+    - This work also moves several non-python storlets code out from the
+      docker image. Those code will be included in storlets package.
+
+  * Minor improvements and bug fixes
+
+storlets (0.5.0, Openstack Pike)
+  * Extending IPython intgration
+
+  * Storlet execution on GET with multiple files using a single stream
+    using MULTIPART MIME
+
+  * Additional refactoring and minor fixes
+
+storlets (0.4.0, Openstack Ocata)
+  * Big-Tent changes:
+     - Restructurng the repository to be OpenStack 'compliant'
+     - Port s2aio to devstack for Swift and Keystone
+     - Port installation to Xenial
+     - Move to Keystone V3
+
+  * Initial IPython integration: Deploy a storlet from IPython.
+
+  * Better coverage of python functional tests.
+
+  * Various minor improvements and bug fixes.
+
+storlets (0.3.0, Openstack Newton)
+
+  * Python support for writing storlets. This large
+    chunk of work involved refactoring, improving and
+    unit testing much of the code that deals with
+    storlets invocation in general.
+
+  * Storlets can be invoked on multiple objects. Multiple
+    objects can be specified when invoking a storlet on GET/COPY.
+    With multiple inputs, the storlet is invoked on the proxy with
+    multiple input streams (as opposed to the traditional single input
+    stream).
+
+  * Introduction of Storlets ACLs. The storlet middleware now supports
+    a POST verb for allowing a certain user READ access to a container
+    ony via a certain storlet. Thus, a user which has no read access
+    to a container can get access only if the request has the appropriate
+    storlet specified in the X-Run-Storlet header.
+
+  * Aligning the storlets team procedures and repo towards becoming part
+    of the bit tent. This includes moving the weekly meetings to
+    #openstack-meeting, change the review process to include 2 reviewers,
+    initial py35 test env, etc.
+
+storlets (0.2.0, Openstack Mitaka)
+
+  * First storlets release since it was open sourced.
+
+  * Most of the code has been refactored to ease maintainability
+    this includes: breaking the middleware to base, proxy and object handlers
+    restructure the gateway code to allow easier addition of new gateways
+    simplification of the swift-docker communicartion code
+
+  * Unit tests has been added to most of the python code
+
+  * The documentation has been re-written and updated with focus
+    on installation
+
+  * functional tests have been enriched
+
+  * Added the ability to invoke a storlet on copy including support
+    for swift COPY middleware
+
+  * Added the ability to process single range requests on object nodes
+    to allow better performance when working with Spark.
+
+  * This release is tested with Swift 2.7.0, and Openstack Keystone Mitaka
+
+storlets (0.1.0, Openstack Mitaka)
+
+  * Storlets are in the open within Openstack CI

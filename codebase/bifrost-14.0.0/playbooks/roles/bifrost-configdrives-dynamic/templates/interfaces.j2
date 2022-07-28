@@ -1,0 +1,18 @@
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+auto {{ node_default_network_interface }}
+{% if addressing_mode is defined and "dhcp" in addressing_mode %}
+iface {{ node_default_network_interface }} inet dhcp
+{% else %}
+iface {{ node_default_network_interface }} inet static
+address {{ ipv4_address }}
+netmask {{ ipv4_subnet_mask }}
+{% if ipv4_gateway | default('') != '' %}
+gateway {{ ipv4_gateway }}
+{% endif %}
+{% if ipv4_nameserver | default('') != '' %}
+dns-nameservers {{ ipv4_nameserver }}
+{% endif %}
+{% endif %}

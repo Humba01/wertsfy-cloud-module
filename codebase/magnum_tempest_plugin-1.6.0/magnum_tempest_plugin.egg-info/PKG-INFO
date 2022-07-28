@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: magnum-tempest-plugin
+Version: 1.6.0
+Summary: Tempest plugin for Magnum Project
+Home-page: https://opendev.org/openstack/magnum-tempest-plugin
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ===============================
+        openstack Magnum Tempest Plugin
+        ===============================
+        
+        Tempest plugin for Magnum Project
+        
+        It contains the tempest tests for testing Container Infrastructure Management
+        Service for OpenStack.
+        
+        * Free software: Apache license
+        * Documentation: https://docs.openstack.org/magnum/latest
+        * Source: https://opendev.org/openstack/magnum-tempest-plugin
+        * Bugs: https://storyboard.openstack.org/#!/project/openstack/magnum-tempest-plugin
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8

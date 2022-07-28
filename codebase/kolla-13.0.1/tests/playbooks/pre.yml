@@ -1,0 +1,115 @@
+---
+- hosts: all
+  roles:
+    - bindep
+  vars_files:
+    - ../vars/zuul.yml
+  tasks:
+    - name: Create dir for kolla logs
+      file:
+        path: "{{ kolla_logs_dir }}"
+        state: directory
+
+    - name: Dump host info to logs
+      command: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}/tools/dump_info.sh"
+      args:
+        chdir: "{{ kolla_logs_dir }}"
+
+    - name: Create dir for kolla build logs
+      file:
+        path: "{{ kolla_build_logs_dir }}"
+        state: directory
+
+    - name: Install Python3 setuptools and family
+      package:
+        name:
+          - python3-pip
+          - python3-setuptools
+          - python3-virtualenv
+          - python3-wheel
+      become: true
+
+    # NOTE(hrw): On RedHat systems it is part of python3-virtualenv
+    - name: Install virtualenv on Debian systems
+      package:
+        name:
+          - virtualenv
+      become: true
+      when:
+        ansible_os_family == "Debian"
+
+    - name: Create virtualenv
+      command: python3 -m virtualenv {{ virtualenv_path }} --python python3
+
+    - name: Install kolla
+      command: "{{ virtualenv_path }}/bin/python -m pip install {{ zuul.project.src_dir }}"
+
+    - name: Configure Docker repo for Debian/Ubuntu
+      block:
+        - name: Add key for Docker APT repository
+          apt_key:
+            url: "{{ nodepool_docker_proxy }}/{{ ansible_distribution | lower }}/gpg"
+            state: present
+
+        - name: Add Docker APT repository
+          apt_repository:
+            repo: "deb {{ nodepool_docker_proxy }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} stable"
+            state: present
+      when: ansible_os_family == "Debian"
+      become: true
+
+    - name: Configure Docker repo for CentOS
+      block:
+        - name: Add Docker YUM repository
+          yum_repository:
+            name: docker
+            description: Docker
+            baseurl: "{{ nodepool_docker_proxy }}/centos/7/$basearch/stable"
+            enabled: yes
+            gpgcheck: yes
+            gpgkey: "{{ nodepool_docker_proxy }}/centos/gpg"
+            # module_hotfixes: True  # enabled below (dnf, not yum, feature)
+
+        - name: Enable module_hotfixes in Docker YUM repository
+          lineinfile:
+            path: /etc/yum.repos.d/docker.repo
+            line: 'module_hotfixes=True'
+      when: ansible_os_family == "RedHat"
+      become: true
+
+    - name: Ensure /etc/docker exists
+      become: true
+      file:
+        path: /etc/docker
+        state: directory
+        mode: 0755
+
+    - name: Configure registry-mirror in daemon.json
+      become: true
+      copy:
+        dest: /etc/docker/daemon.json
+        content: |
+          {
+            "registry-mirrors": [
+              "http://{{ zuul_site_mirror_fqdn }}:8082/"
+            ]
+          }
+
+    # NOTE(yoctozepto): We configure Docker before installing it because Debuntu starts services
+    # during installation.
+    - name: Install Docker
+      package:
+        name: docker-ce
+      become: true
+
+    - name: Ensure Docker service is started
+      service:
+        name: docker
+        state: started
+      become: true
+
+    - name: Ensure Docker socket is world-writable
+      file:
+        path: /run/docker.sock
+        mode: 0666
+      become: true

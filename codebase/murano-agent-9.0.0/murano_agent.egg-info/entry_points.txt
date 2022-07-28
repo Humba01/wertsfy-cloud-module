@@ -1,0 +1,6 @@
+[console_scripts]
+muranoagent = muranoagent.cmd.run:main
+
+[oslo.config.opts]
+muranoagent = muranoagent.opts:list_opts
+

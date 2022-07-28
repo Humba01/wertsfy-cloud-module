@@ -1,0 +1,21 @@
+---
+- project:
+    templates:
+      - check-requirements
+      - openstack-cover-jobs
+      - openstack-python3-yoga-jobs
+      - publish-openstack-docs-pti
+      - release-notes-jobs-python3
+      - periodic-stable-jobs
+      - periodic-jobs-with-oslo-master
+    check:
+      jobs:
+        - openstack-tox-linters
+        - masakari-functional-devstack-multinode
+        - masakari-functional-devstack-ipv6
+    gate:
+      queue: masakari
+      jobs:
+        - openstack-tox-linters
+        - masakari-functional-devstack-multinode
+        - masakari-functional-devstack-ipv6

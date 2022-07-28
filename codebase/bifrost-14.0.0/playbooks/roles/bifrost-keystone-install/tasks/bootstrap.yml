@@ -1,0 +1,267 @@
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+- name: "Check that the provided interface is defined"
+  fail:
+    msg: >
+      Network interface {{ network_interface }} is not known to Ansible.
+      If you're testing Bifrost on virtual machines, do not forget to invoke
+      "bifrost-cli testenv" or use the "bifrost-create-vm-nodes" role first.
+      If you're using Bifrost on real bare metal, you have to provide the
+      network interface via the "network_interface" variable or the
+      --network-interface argument to "bifrost-cli install".
+  when: ('ansible_' + ans_network_interface) not in hostvars[inventory_hostname]
+
+- name: "Get keystone-wsgi-public location"
+  shell: echo $(dirname $(which keystone-wsgi-public))
+  register: keystone_install_prefix
+  environment: "{{ bifrost_venv_env }}"
+
+# NOTE(sean-k-mooney) only the MySQL db is started during bootstrapping.
+# all other services are started in the Start phase.
+- name: "Start database service"
+  service: name={{ mysql_service_name }} state=started enabled=yes
+
+- name: "Set mysql_username if environment variable mysql_user is set"
+  set_fact:
+    mysql_username: "{{ lookup('env', 'mysql_user') }}"
+  when: lookup('env', 'mysql_user') | length > 0
+  no_log: true
+
+- name: "Set mysql_password if environment variable mysql_pass is set"
+  set_fact:
+    mysql_password: "{{ lookup('env', 'mysql_pass') }}"
+  when: lookup('env', 'mysql_pass') | length > 0
+  no_log: true
+
+- name: "Set MySQL socket fact for Red Hat family"
+  set_fact:
+    mysql_socket_path: "/var/lib/mysql/mysql.sock"
+  when: ansible_os_family | lower == 'redhat'
+
+- name: "Set MySQL socket fact for Debian family"
+  set_fact:
+    mysql_socket_path: "/var/run/mysqld/mysqld.sock"
+  when: ansible_os_family | lower == 'debian'
+
+- name: "Set MySQL socket fact for other systems"
+  set_fact:
+    mysql_socket_path: "/var/run/mysql/mysql.sock"
+  when: (ansible_os_family | lower) not in ['redhat', 'debian']
+
+- name: "MySQL - Creating DB"
+  mysql_db:
+    login_unix_socket: "{{ mysql_socket_path | default(omit) }}"
+    name: "{{ keystone.database.name }}"
+    state: present
+    encoding: utf8
+    login_user: "{{ mysql_username | default(None) }}"
+    login_password: "{{ mysql_password | default(None) }}"
+  register: test_created_keystone_db
+  when: keystone.database.host == 'localhost'
+
+- name: "MySQL - Creating user for keystone"
+  mysql_user:
+    login_unix_socket: "{{ mysql_socket_path | default(omit) }}"
+    name: "{{ keystone.database.username }}"
+    password: "{{ keystone.database.password }}"
+    priv: "{{ keystone.database.name }}.*:ALL"
+    state: present
+    login_user: "{{ mysql_username | default(None) }}"
+    login_password: "{{ mysql_password | default(None) }}"
+  when: keystone.database.host == 'localhost'
+
+- name: "Bootstrap Nginx"
+  import_role:
+    name: bifrost-nginx-install
+    tasks_from: bootstrap
+
+- name: "Generate TLS parameters"
+  include_role:
+    name: bifrost-tls
+  vars:
+    dest_private_key_path: "{{ nginx_private_key_path }}"
+    dest_private_key_owner: "{{ nginx_user }}"
+    dest_private_key_group: "{{ nginx_user }}"
+  when: enable_tls | bool
+
+- name: "Create an keystone service group"
+  group:
+    name: "keystone"
+
+- name: "Create an keystone service user"
+  user:
+    name: "keystone"
+    group: "keystone"
+
+- name: "Ensure /etc/keystone exists"
+  file:
+    name: "/etc/keystone"
+    state: directory
+    owner: "keystone"
+    group: "{{ nginx_user }}"
+    mode: 0750
+
+- name: "Update ownership on upgrade from Xena"
+  file:
+    name: "/etc/keystone"
+    state: directory
+    owner: "keystone"
+    recurse: yes
+
+- name: "Write keystone configuration from template"
+  template:
+    src: keystone.conf.j2
+    dest: "/etc/keystone/keystone.conf"
+    owner: "keystone"
+    group: "keystone"
+    mode: 0700
+
+- name: "Apply/Update keystone DB Schema"
+  command: keystone-manage db_sync
+  environment: "{{ bifrost_venv_env }}"
+
+- name: "Setup Fernet key repositories"
+  command: >
+    keystone-manage fernet_setup
+    --keystone-user="keystone" --keystone-group="{{ nginx_user }}"
+  environment: "{{ bifrost_venv_env }}"
+
+- name: "Setup Keystone Credentials"
+  command: >
+    keystone-manage credential_setup
+    --keystone-user="keystone" --keystone-group="{{ nginx_user }}"
+  environment: "{{ bifrost_venv_env }}"
+
+- name: "Setting external Keystone public URL"
+  set_fact:
+    keystone_public_url: "{{ api_protocol }}://{{ public_ip }}:5000/v3"
+  when: public_ip is defined
+
+- name: "Setting internal Keystone URL"
+  set_fact:
+    keystone_private_url: "{{ api_protocol }}://{{ private_ip }}:5000/v3"
+  when: private_ip is defined and private_ip | length > 0
+
+- name: "Bootstrap Keystone Database"
+  command: >
+    keystone-manage bootstrap
+    --bootstrap-username="{{ keystone.bootstrap.username }}"
+    --bootstrap-password="{{ keystone.bootstrap.password }}"
+    --bootstrap-project-name="{{ keystone.bootstrap.project_name }}"
+    --bootstrap-service-name="keystone"
+    --bootstrap-admin-url="{{ keystone.bootstrap.admin_url | default(keystone_api_url) }}"
+    --bootstrap-public-url="{{ keystone.bootstrap.public_url | default(keystone_public_url) | default(keystone_api_url) }}"
+    --bootstrap-internal-url="{{ keystone.bootstrap.internal_url | default(keystone_private_url) | default(keystone_api_url) }}"
+    --bootstrap-region-id="{{ keystone.bootstrap.region_name }}"
+  environment: "{{ bifrost_venv_env }}"
+  when:
+    - test_created_keystone_db.changed
+    - keystone.bootstrap.enabled | bool
+    - keystone.database.host == 'localhost'
+
+- name: "Ensure /var/www/keystone exists"
+  file:
+    name: "/var/www/keystone"
+    state: directory
+    owner: "keystone"
+    group: "{{ nginx_user }}" # TODO(TheJulia): Split webserver user/group.
+    mode: 0755
+
+- name: "Add keystone to web server group"
+  user:
+    name: "keystone"
+    append: yes
+    groups: "{{ nginx_user }}" # TODO(TheJulia): Split webserver user/group.
+
+- name: "Make folder for keystone logs"
+  file:
+    name: "/var/log/nginx/keystone"
+    state: directory
+    owner: "{{ nginx_user }}"
+    group: "{{ nginx_user }}" # TODO(TheJulia): Split webserver user/group.
+    mode: 0755
+
+# Note(ashestakov): "copy" module in ansible doesn't support recursive
+# copying on remote host. "cp" command used instead.
+- name: "Copy keystone-wsgi-public  to /var/www/keystone/public"
+  command: cp -r "{{ keystone_install_prefix.stdout }}/keystone-wsgi-public" /var/www/keystone/public
+
+- name: "Ensure owner and mode of keystone-wsgi-public"
+  file:
+    path: /var/www/keystone/public
+    owner: "keystone"
+    group: "{{ nginx_user }}"
+    mode: 0754
+
+- name: "Bootstrap uWSGI"
+  include_role:
+    name: bifrost-uwsgi-install
+    tasks_from: bootstrap
+
+- name: "Place keystone uWSGI config"
+  template:
+    src: uwsgi-keystone.ini.j2
+    dest: /etc/uwsgi/apps-available/keystone-public.ini
+    owner: "{{ nginx_user }}"
+    group: "{{ nginx_user }}" # TODO(TheJulia): Split webserver user/group.
+    mode: 0755
+
+# NOTE(dtantsur): can be removed after Yoga
+- name: "Remove keystone admin config if present"
+  file:
+    path: /etc/uwsgi/apps-available/keystone-admin.ini
+    state: absent
+
+- name: "Enable keystone in uWSGI"
+  file:
+    src: "/etc/uwsgi/apps-available/keystone-public.ini"
+    dest: "/etc/uwsgi/apps-enabled/keystone-public.ini"
+    state: link
+
+- name: "Place nginx configuration for keystone"
+  # TODO(TheJulia): Refactor this so we use sites-enabled, but bifrost's
+  # handling of co-existence needs to be cleaned up first.
+  template:
+    src: nginx_conf.d_bifrost-keystone.conf.j2
+    dest: /etc/nginx/conf.d/bifrost-keystone.conf
+    owner: "{{ nginx_user }}"
+    group: "{{ nginx_user }}" # TODO(TheJulia): Split webserver user/group.
+    mode: 0755
+
+- block:
+    - name: "Explicitly allow keystone port (TCP) on selinux"
+      seport:
+        ports: "5000"
+        proto: tcp
+        setype: http_port_t
+        state: present
+
+    - name: Copy keystone policy file to temporary directory
+      copy:
+        src: keystone_policy.te
+        dest: /tmp/keystone_policy.te
+
+    - name: Check keystone policy module
+      command: checkmodule -M -m -o /tmp/keystone_policy.mod /tmp/keystone_policy.te
+
+    - name: Package keystone policy module
+      command: semodule_package -m /tmp/keystone_policy.mod -o /tmp/keystone_policy.pp
+
+    - name: Include keystone policy module
+      command: semodule -i /tmp/keystone_policy.pp
+
+    - name: Enable keystone policy module
+      command: semodule -e keystone_policy
+  when: (ansible_os_family == 'RedHat' or ansible_os_family == 'Suse') and
+         ansible_selinux.status == 'enabled' and ansible_selinux.mode == "enforcing"

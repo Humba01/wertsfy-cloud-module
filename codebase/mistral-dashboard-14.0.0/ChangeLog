@@ -1,0 +1,442 @@
+CHANGES
+=======
+
+14.0.0
+------
+
+* [community goal] Update contributor documentation
+* setup.cfg: Replace dashes with underscores
+* Use py3 as the default runtime for tox
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+* Setting DEFAULT to False
+* Fix gate jobs
+
+12.0.0
+------
+
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+11.0.0
+------
+
+* [goal] Migrate testing to ubuntu focal
+* Cleanup for Refactor-error-messages
+* Use unittest.mock instead of mock
+* Switch to newer openstackdocstheme and reno versions
+* Bump default tox env from py37 to py38
+* Add py38 package metadata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+10.0.0
+------
+
+* s/assertItemsEqual/assertCountEqual/g
+* Remove six usage
+* Drop Django 1.11 support
+
+10.0.0.0b1
+----------
+
+* [ussuri][goal] Drop python 2.7 support and testing
+* Switch to Ussuri jobs
+* Use Horizon project template for django jobs
+* Update master for stable/train
+
+9.0.0.0rc1
+----------
+
+* Fix error when use keystone federation
+
+9.0.0.0b1
+---------
+
+* Refactor error messages
+* Add Python 3 Train unit tests
+* Remove redundant exception handling
+* Remove the ErrorHandleTests class
+* Modify the name of action\_executions panel
+* Follow the new PTI for document build
+* Add the unit test for executions
+* Add the unit test for cron\_triggers
+* Add the unit test for update\_action\_execution
+* Add the unit test for create and update action
+* Add the unit test for executions detail
+* Add the unit test for workflows detail
+* Add the unit test for workbooks detail
+* Add the unit test for tasks detail
+* Add the unit test for cron\_triggers detail
+* Add the unit test for action\_executions detail
+* Add the unit test for actions detail
+* Modify the url of upper\_constraints\_file
+* fix the Bug of test in workflows panel
+* fix the Bug of test in workbooks panel
+* fix the Bug of test in tasks panel
+* fix the Bug of test in executions panel
+* fix the Bug of test in action\_executions panel
+* fix the Bug of test in cron\_triggers panel
+* fix the Bug of test in actions panel
+* Use openstack-python3-train-jobs for python3 test runtime
+* Add python 3.7 classifier to setup.cfg
+* Blacklist sphinx 2.1.0 (autodoc bug)
+* Correct error messages on update action execution form
+* The columns out of page range
+* Unified button style on Execute form in workflow panel
+* Change action\_execution to action\_executions in url
+* Indent four spaces
+* Update sphinx dependency
+* Remove try: ... finally: pass
+* Add asterisk mark for the required field
+* Add python37 job
+* Translate executions state
+* Add asterisk mark for the required field
+* Switch to stestr
+* Dropping the py35 testing
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Fix the bug of the py27 test
+* Update master for stable/stein
+
+8.0.0
+-----
+
+* Change openstack-dev to openstack-discuss
+* Update min tox version to 2.0
+* Remove setup.py check from pep8 job
+* Increment versioning with pbr instruction
+* Update links in README
+* add python 3.6 unit test job
+* import zuul job settings from project-config
+* Drop nose dependencies
+* fix mistral dashbaord workflow execution form bug
+* Update reno for stable/rocky
+
+7.0.0
+-----
+
+* Drop mox, no longer needed
+* Add the restructuredtext check to the flake8 job
+* fix tox python3 overrides
+* Ignore the .eggs directory
+
+7.0.0.0b2
+---------
+
+* Fix the README formatting
+* Django 2.0 support
+* support py3
+
+7.0.0.0b1
+---------
+
+* Fix workflow language link
+* Add py35 to tox.ini
+* Updated from global requirements
+* Remove mox3 from test-requiremens.txt
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Update reno for stable/queens
+
+6.0.0
+-----
+
+* Updated from global requirements
+
+6.0.0.0b2
+---------
+
+* Drop django\_openstack\_auth from requirements.txt
+
+6.0.0.0b1
+---------
+
+* Revert "Migrate mistral-dashboard to zuul v3"
+* Migrate mistral-dashboard to zuul v3
+* Updated from global requirements
+* Fix CSS for "Cancel" button in workflow execution
+* Updated from global requirements
+* Expand parameter list for workflow execution
+* Updated from global requirements
+* Updated from global requirements
+* Update reno for stable/pike
+* Update the URLs
+
+5.0.0
+-----
+
+* Updated from global requirements
+* Updated from global requirements
+* Change author
+* Updated from global requirements
+* Remove newlines from test data
+
+5.0.0.0b2
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+
+5.0.0.0b1
+---------
+
+* Updated from global requirements
+* Optimize the link address
+* Make the definition section of the wb/wf create section editable
+* Added link to Create Action form Edit
+* Fix "Workflow" section of "Action Execution Details" view
+* Change the Next button to Validate
+* Added test for mistral-dashboard cron\_triggers
+* Fix oslo\_debug\_helper not running
+* Updated from global requirements
+* Add test for mistral-dashboard action\_executions
+* Update test requirement
+* Update .gitignore
+* Reorganize docs
+* Fix 'tox -ereleasenotes' Error
+* Replace github with git.openstack.org
+* Updated from global requirements
+* Update reno for stable/ocata
+
+4.0.0.0rc1
+----------
+
+* Updated from global requirements
+* Updated from global requirements
+* Removed unnecessary utf-8 encoding
+* Task table - type column would refer to workflow executions accordingly
+* Remove django<1.8 from tests
+* Move \_50\_mistral.py file into enabled folder
+* Remove the dependency on horizon repo
+* Fixed: Dashboard: "Run action" functionality doesn't work
+* add CONTRIBUTING.rst
+* Add Constraints support
+* Updated from global requirements
+* Workflow list - added missing fields
+* Added links to DSL docs in create/update views
+* Fix docs-gate for mistral-dashboard
+* Changed "Task Details" to "Task Execution Details"
+
+4.0.0.0b2
+---------
+
+* mistral-dashboard:fixed boolean field design bug
+* mistral-dashboard: added action executions screens
+* Updated from global requirements
+* Show team and repo badges on README
+
+4.0.0.0b1
+---------
+
+* Fixed action screen "run" button CSS issue
+* Remove mox in test-requirement.txt
+* Added reno for stable/mitaka, stable/liberty and stable/newton
+* Adding files to .gitignore
+* Cleanup unused files
+* mistral-dashboard: entities name change for system consistency
+* Updated from global requirements
+* Delete \*openstack/common\* in flake8 exclude list
+* Updated from global requirements
+* Updated from global requirements
+* Enable release notes translation
+* Maintain releasenotes for mistral dashboard
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Added sphinix config to setup.cfg
+
+3.0.0.0rc1
+----------
+
+* Clean imports in code
+* Remove .mailmap and AUTHORS file since it's no longer needed
+* Clean imports in code
+
+3.0.0.0b3
+---------
+
+* Updated from global requirements
+* Remove requirements satisfied by horizon
+* Removed 'pull\_right' option
+* Fixed unit tests issue
+* Updated from global requirements
+
+3.0.0.0b2
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+
+2.0.0.0rc1
+----------
+
+* Updated from global requirements
+
+2.0.0.0b3
+---------
+
+* Fix [ui] Actions screen pagination supports only descending order
+* UI: Actions screen improvements
+* Fix gate-mistral-dashboard-python34
+* UI: fixed workflow execution don't work
+* UI: table pagination logic encapsulation
+* Updated from global requirements
+* Update URLs to Django 1.8 style
+* UI: Cron trigger create modal
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Mistral-dashboard:  Actions screen
+
+2.0.0.0b2
+---------
+
+* Updated from global requirements
+* UI: Enable CSS use in mistral dashboard
+* UI: Cron Trigger screens - list and overview
+* UI: Execution & task screens - state info tooltip
+* Remove "builtins = \_" from tox.ini
+* UI: Task screen auto refresh
+* Use the default \`url\` tag instead
+* UI: Execution screen auto refresh
+* Delete python bytecode before every test run
+* Remove version from setup.cfg
+* UI: Execution pagination on client side
+
+2.0.0.0b1
+---------
+
+* Updated from global requirements
+* UI: Execution update - update description modal
+* UI: Execution update - table actions
+* UI:Actions list:remove desc column+details screen
+* UI: Task & Execution screen refactored
+* UI: Task & Execution screen refactored
+* Updated from global requirements
+* UI: Execution Overview screen refactored
+* executions overview screen: workflow link
+* Added home-page link in setup.cfg file
+* Set version for Mitaka
+* mistral-dashboard: refer dashboard debug instructions to the updated mistral trbouelshooting page
+* Add .mailmap for pbr AUTHORS generation
+* Update AUTHORS file
+* mistral-dashboard: refer dashboard debug instructions to the updated mistral trbouelshooting page
+* Add .mailmap for pbr AUTHORS generation
+* Update AUTHORS file
+* Changed titles of modal forms
+
+1.0.0.0rc1
+----------
+
+* Updated from global requirements
+* Updated from global requirements
+* Mistral-dashboard:  Tasks list-addition of Execution detail screen
+
+1.0.0.0b3
+---------
+
+* Updated from global requirements
+* Remove the test cases for handle\_errors to fix the py27 gate issue
+* Updated from global requirements
+* mistral-dashboard: added Task details overview screen infrastructure
+* Rename Mistral dashboard to Workflow
+* Add tables filter action support
+* Restrict the pbr version to sync with global requirement
+* Add actions and executions unit tests
+* Add unit tests for tasks
+* mistral-dashboard: executions input & output modal header - added corresponding name
+* mistral-dashboard executions list table: input & output sections content via a modal
+* Update AUTHORS
+* mistral-dashboard - fixed the installation readme: fixed an issue where horizon was not showing mistral dashboard upon installation
+* Add unit tests for workbooks
+* mistral-dashboard Execution enhancements
+* Tasks list - removal and addition of a column
+
+1.0.0.0b2
+---------
+
+* Fixed bug in error handing
+* Correct wrong argument name in workbook\_delete()
+* Add delete action support
+* Add update action support
+* Add create action support
+* Add mistral APIException as a Recoverable Exception
+* Add 'update' and 'delete' unit tests for workflows
+* mistral-dashboard documentation
+* Add 'index' and 'create' unit tests for workflows
+* Added execution get method to mistral-dashboard api
+* Show Action definition
+* Add actions panel
+* Add test helpers and test data
+* Add \*.lock and .secret\_key\_store to .gitignore
+* Added delete button to execution screen ui on mistral-dashboard
+* added git clone explanation
+* Add update workbook support
+* Show task result when click the id
+* Fix errors when user click execution id
+* Add delete workbook support
+* Add update workflow support
+* Add create workbook support
+* Remove H101, H803, H238 from ignore list
+* Remove H302 check
+* Add delete workflow support
+* Add create workflow support
+* Fix H306 errors
+* Show workbook definition
+* Refactor workbook table fields
+* Show workflow definition
+* Adding info on how to install mistraldashboard module in venv
+* Enable Unit Test
+* Refactor workflow table fields
+* Reduce API client object in a request
+* Add handle\_error decorator to API calls
+* Ignore swap files from getting into repository
+* Wrap mistralclient code in api.py
+* Not compressing the mistral specific css
+* Switch to v2 mistral api
+
+1.0.0.0b1
+---------
+
+* Removing redundant header from setup.py
+* Update .gitreview file for project rename
+
+2015.1.0
+--------
+
+* Updating AUTHORS file
+
+0.1.1
+-----
+
+* Making style changes and adding AUTHORS file
+* Fix showing all statuses in UI
+* Update requirements according to global requirements (master)
+
+0.1
+---
+
+* Fix missing static folder
+* Reenable Task view inside Executions
+* Modify to use API v2
+* Enable hacking check H306
+* Fixing readme file
+* Fixing dependency to Mistral client
+
+0.0.4
+-----
+
+* Readme updates
+* Make use of /executions endpoint API
+* Horizon plugin system compatibility
+* Color statuses for both executions and tasks
+* Add Task's output and parameters columns
+* Move dashboard from python-mistralclient
+* Add .gitreview
+* Initial commit

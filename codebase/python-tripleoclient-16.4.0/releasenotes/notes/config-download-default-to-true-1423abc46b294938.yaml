@@ -1,0 +1,5 @@
+---
+features:
+  - Using --config-download is now the default. A new CLI argument,
+    --no-config-download (or --stack-only) can be used to disable the
+    config-download workflow.

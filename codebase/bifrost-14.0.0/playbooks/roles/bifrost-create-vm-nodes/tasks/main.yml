@@ -1,0 +1,144 @@
+# Copyright (c) 2015 Hewlett-Packard Development Company, L.P.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+- name: "Update apt cache if Ubuntu/Debian"
+  apt:
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+
+- name: "Enable CRB repository for CentOS Stream 9"
+  command: dnf config-manager --set-enabled crb
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_version|int >= 9
+
+- name: "Load distribution defaults"
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "../defaults/required_defaults_{{ ansible_distribution }}.yml"
+    - "../defaults/required_defaults_{{ ansible_os_family }}.yml"
+
+- name: "Include OS version-specific defaults"
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "../defaults/required_defaults_{{ ansible_distribution }}_{{ ansible_distribution_release }}.yml"
+    - "../defaults/required_defaults_{{ ansible_distribution }}_{{ ansible_distribution_version }}.yml"
+    - "../defaults/dummy-defaults.yml"
+
+- name: "Install required packages"
+  package:
+    name: "{{ required_packages }}"
+    state: present
+
+# NOTE(dtantsur): workaround for https://bugzilla.redhat.com/show_bug.cgi?id=1840485
+- name: "Work around libgrypt issue on RHEL/CentOS 8.3"
+  package:
+    name: libgcrypt
+    state: latest
+  when: ansible_distribution in ['RedHat', 'CentOS']
+
+- name: ensure installation root folder exists
+  become: yes
+  file:
+    state: directory
+    dest: "{{ git_root }}"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
+
+- name: download requirements via git
+  git:
+    dest: "{{ reqs_git_folder }}"
+    force: "{{ force_update_repos | bool }}"
+    repo: "{{ reqs_git_url }}"
+    version: "{{ reqs_git_branch }}"
+    update: "{{ update_repos | bool }}"
+    clone: yes
+  when: not copy_from_local_path | bool
+
+- name: ensure ownership of requirements
+  file:
+    path: "{{ reqs_git_folder }}"
+    owner: "{{ ansible_env.SUDO_USER | default(ansible_user_id) }}"
+    group: "{{ ansible_user_gid }}"
+    recurse: yes
+  when: not copy_from_local_path | bool
+
+- name: remove existing requirements
+  file:
+    path: "{{ reqs_git_folder }}"
+    state: absent
+  when:
+    - copy_from_local_path | bool
+    - update_repos | bool
+
+- name: copy requirements from local path
+  copy:
+    src: "{{ reqs_git_url }}/"
+    dest: "{{ reqs_git_folder }}/"
+    remote_src: yes
+    force: "{{ update_repos | bool }}"
+    owner: "{{ ansible_env.SUDO_USER | default(ansible_user_id) }}"
+    group: "{{ ansible_user_gid }}"
+  when: copy_from_local_path | bool
+
+- include: prepare_libvirt.yml
+
+- name: truncate explicit list of vm names
+  set_fact:
+    test_vm_node_names: "{{ test_vm_node_names[:(test_vm_num_nodes|int)] }}"
+
+- name: generate test vm names
+  set_fact:
+    generated_test_vm_node_names: "{{ generated_test_vm_node_names|default([]) + [item] }}"
+  with_sequence: count={{ test_vm_num_nodes | int }} format={{ test_vm_node_name_base }}%i
+  when: test_vm_node_names | length == 0
+
+- name: set test vm names
+  set_fact:
+    test_vm_node_names: "{{ generated_test_vm_node_names }}"
+  when: test_vm_node_names | length == 0
+
+- name: create placeholder var for vm entries in JSON format
+  set_fact:
+    testvm_json_data: {}
+    testvm_nodes_json: []
+
+- include: create_vm.yml
+  loop: "{{ test_vm_node_names }}"
+
+- name: write to baremetal json file
+  copy:
+    dest: "{{ baremetal_json_file }}"
+    content: "{{ testvm_json_data | to_nice_json }}"
+
+- name: write to nodes json
+  copy:
+    dest: "{{ baremetal_nodes_json }}"
+    content: "{{ {'nodes': testvm_nodes_json} | to_nice_json }}"
+
+- name: Ensure the baremetal data file can be read by the user executing Ansible
+  file:
+    path: "{{ baremetal_json_file }}"
+    owner: "{{ ansible_env.SUDO_USER }}"
+  when:
+    - ansible_env.SUDO_USER is defined
+    - baremetal_json_file | length > 0
+
+- name: Ensure the nodes json file can be read by the user executing Ansible
+  file:
+    path: "{{ baremetal_nodes_json }}"
+    owner: "{{ ansible_env.SUDO_USER }}"
+  when:
+    - ansible_env.SUDO_USER is defined
+    - baremetal_nodes_json | length > 0

@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: mistral-tempest-tests
+Version: 1.4.0
+Summary: Tempest plugin for Mistral project
+Home-page: https://opendev.org/openstack/mistral-tempest-plugin
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ======================
+        Mistral Tempest plugin
+        ======================
+        
+        Tempest plugin for Mistral Project.
+        
+        It contains the tempest plugin for the functional testing of Mistral Project.
+        
+        * Free software: Apache license
+        * Documentation: https://docs.openstack.org/mistral/latest
+        * Release notes: https://docs.openstack.org/releasenotes/mistral/
+        * Source: https://opendev.org/openstack/mistral-tempest-plugin
+        * Bugs: https://bugs.launchpad.net/mistral
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8

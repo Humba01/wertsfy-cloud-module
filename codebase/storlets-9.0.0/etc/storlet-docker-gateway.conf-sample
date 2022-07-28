@@ -1,0 +1,11 @@
+[DEFAULT]
+host_root = /home/docker_device
+cache_dir = /home/docker_device/cache/scopes
+log_dir = /home/docker_device/logs/scopes
+script_dir = /home/docker_device/scripts
+storlets_dir = /home/docker_device/storlets/scopes
+pipes_dir = /home/docker_device/pipes/scopes
+docker_repo = localhost:5001
+restart_linux_container_timeout = 10
+storlet_timeout = 40
+max_containers_per_node = 0

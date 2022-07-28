@@ -1,0 +1,550 @@
+CHANGES
+=======
+
+3.5.0
+-----
+
+* Add Python3 yoga unit tests
+
+3.4.0
+-----
+
+* Fix lower-constraints job
+* Add Python3 xena unit tests
+
+3.3.0
+-----
+
+* Add Python3 wallaby unit tests
+
+3.2.0
+-----
+
+* drop mock from lower-constraints
+* Stop to use the \_\_future\_\_ module
+* Cap jsonschema 3.2.0 as the minimal version
+* Switch to newer openstackdocstheme and reno versions
+* Fix hacking min version to 3.0.1
+* Bump default tox env from py37 to py38
+* Add py38 package metadata
+* Use unittest.mock instead of third party mock
+* Remove six usage
+* Add Python3 victoria unit tests
+* Drop pypy testing
+
+3.1.0
+-----
+
+* Cleanup py27 support
+* Update hacking for Python3
+* Update the minversion parameter
+* Deprecated the yamlutils module
+
+3.0.0
+-----
+
+* Drop python 2.7 support and testing
+
+2.9.0
+-----
+
+* Bump the openstackdocstheme extension to 1.20
+* Blacklist sphinx 2.1.0 (autodoc bug)
+* Add Python 3 Train unit tests
+* Update contraints url
+* Fix sphinx requirements
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Uncap jsonschema
+
+2.8.0
+-----
+
+* Fix some pep8 error
+* Change openstack-dev to openstack-discuss
+* Add Python 3.6 classifier to setup.cfg
+* Switch to stestr
+* Use templates for cover and lower-constraints
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Update the home-page
+
+2.7.1
+-----
+
+* fix tox python3 overrides
+
+2.7.0
+-----
+
+* add lower-constraints job
+* Follow the new PTI for document build
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Update links in README
+* Updated from global requirements
+* Updated from global requirements
+* Imported Translations from Zanata
+* Updated from global requirements
+
+2.6.1
+-----
+
+* Updated from global requirements
+* Updated from global requirements
+
+2.6.0
+-----
+
+* Updated from global requirements
+* Avoid tox\_install.sh for constraints support
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Cleanup test-requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+
+2.5.0
+-----
+
+* Updated from global requirements
+* Update the documentation link for doc migration
+* Replace uuid.uuid4() with uuidutils.generate\_uuid()
+* Fixed wrap from taking negative values
+* Move installation and uasge to README.rst
+* switch to openstackdocstheme
+* Updated from global requirements
+* import content from cli-reference in openstack-manuals
+* move existing content into the new standard structure
+* Turn on warning-is-error in sphinx build
+* Updated from global requirements
+* Updated from global requirements
+
+2.4.0
+-----
+
+* Fix dashboard  Authentication failed error
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Optimize the link address
+
+2.3.0
+-----
+
+* Updated from global requirements
+* Updated from global requirements
+* Remove support for py34
+* Remove log translations
+* Updated from global requirements
+* Updated from global requirements
+* [Fix gate]Update test requirement
+* Updated from global requirements
+* Add keystone V3 support
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+
+2.2.0
+-----
+
+* Add debug to tox enviroment
+* Add Python 3.5 classifier and venv
+* Removes unnecessary utf-8 coding
+* Add Constraints support
+* Replace six.iteritems() with .items()
+* Updated from global requirements
+* Changed the home-page link
+* Remove the pep8 ignore
+* Show team and repo badges on README
+* Remove white space between print ()
+* Fix py35 gate
+* Add \_\_ne\_\_ built-in function
+* Remove the 'MANIFEST.in'
+* Updated from global requirements
+* Remove the openstack-common.conf and dirs in solumclient
+* Updated from global requirements
+* Updated from global requirements
+* Remove all the openstack dir
+* Remove the openstack/common/cliutils.py to common/cliutils.py
+* Updated from global requirements
+* Update .gitignore to ignore .idea of PyCharm
+
+2.1.1
+-----
+
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Add oslo.i18n to requirements
+* Updated from global requirements
+* Fix translation setup
+* Switch to oslo\_i18n
+* Remove openstack/common/uuidutils.py
+* Remove openstack/common/strutils.py
+* Remove openstack/common/importutils.py
+* Switch to oslo\_log
+
+2.1.0
+-----
+
+* Updated from global requirements
+* Updated from global requirements
+* Adding cfg module to contain creds
+* Remove discover from test-requirements
+* Updated from global requirements
+* Updated from global requirements
+* Correct reraising of exception
+* Replace raw\_input with input to make PY3 compatible
+* Send user creds through headers
+* Updated from global requirements
+* Trigger setup and name override flag
+* solum workflow logs Add "created\_at"
+* App show with id
+* Updated from global requirements
+* Skip credentials prompt for public repo
+* Update solum CLI create command help
+* Update solum client to support private repositories
+* Updated from global requirements
+* Display updated\_at field on app show
+* Deduplicated error messages regarding invalid names
+* Updated from global requirements
+* Supporting param-file as part of lp create
+* Updated from global requirements
+* Updated from global requirements
+* LP name start with alpha char
+* app name must start with alphabet character
+* Adding pretty-table
+* Do not allow uppercase letters in app name
+* Removing assemblies
+* Updated from global requirements
+* Updated from global requirements
+* Adding a flag to allow making lp optional in app create
+* Updated from global requirements
+* Updated from global requirements
+
+2.0.1
+-----
+
+* Remove unused Oslo Incubator log
+
+2.0.0
+-----
+
+* Updated from global requirements
+* Validate app\_data based on json schema
+* Updated from global requirements
+* Updating app get display to display 'target\_instances'
+* Fixing mangled help text
+* Adds support to deploy already created DU
+* Added logs support for apps
+* Validate scale target input
+* Making help message consistent
+* Adding app scale command
+* Updated from global requirements
+* Allow parameters file with multiple sections
+* Updated from global requirements
+* Fix argument order for assertEqual to (expected, observed)
+* Delete python bytecode before every test run
+* Put py34 first in the env order of tox
+* Drop py33 support
+* Remove py26 support
+* Updated from global requirements
+* app create with param file fails
+* Updated from global requirements
+* Validating lp specified in appfile
+
+1.2.7
+-----
+
+* Fixing interactive app create failure
+* Move oldapp create help to deprecated section
+* Deprecate assembly logs
+* Added created\_at in the output of solum app cmds
+* help commands modified
+* Validate app data on the client side
+* Handle app file not found error
+* Solum client help clean up
+* Connecting app logs to workflow
+* Display all workflows and status on app show
+* Updated from global requirements
+* Dispaly error on app create with invalid lp
+* Fix languagepack create with long-form args
+* Display status field in workflow list output
+* Adding workflow commands usage
+* Will now pass the py27 and py34 gates
+* Replace assertTrue(isinstance()) with assertIsInstance()
+* Updated from global requirements
+* Updated from global requirements
+* Added created\_at to language pack logs
+* Updated from global requirements
+* Triggers ported over to apps
+* Change ignore-errors to ignore\_errors
+* Updated from global requirements
+* Update .gitreview for project rename
+* Updated from global requirements
+* Removing trigger\_uri and description from app deploy o/p
+* Support for specifying parameter file
+* Support for specifying port using commandline flag
+* Unittest command input
+* Supporting run command
+* Requesting app source code details
+* Requesting languagepack from user
+* Requesting name from user
+* Added validation checks and app-file flag to app create
+* Adds new app and workflow commands
+* New mock release(1.1.0) broke unit/function tests
+* Drop use of 'oslo' namespace package
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+
+1.2.6
+-----
+
+* Ensuring artifact name is lower case
+* Fix more plan-not-found errors in app commands
+* Checking if the app name is valid
+* Updated from global requirements
+* Printing out filtered list of READY languagepacks
+* Fix "app show" NotFound error message
+* Replace pprint with json.dumps for --json
+* Add client debug and insecure flags
+
+1.2.5
+-----
+
+* Updated help message
+* Refactoring show\_public\_key method
+* Send private flag to API
+* Validate and translate git urls into the right format
+* Upload app public key in app-create
+* Add exception states when solum cli cannot connect to endpoint
+* Accept unit test command as an input in the CLI during 'app create'
+* Add app name|uuid argument to "solum app logs"
+* Catch empty artifact names
+* Remove refenrence to LP metadata in help message
+* Don't ask for Github creds if we don't need them
+* Refactored github tools to prefer token-based auth
+* Adds 'solum info' and 'solum --version' to help
+* Default app status to REGISTERED
+* accept languagepack name or uuid when prompting during 'app create'
+* Accept application ports as a flag during 'app create'
+* Fix 'langpack' consistency issue
+
+1.2.4
+-----
+
+* Username bugfix in github workflow
+
+1.2.3
+-----
+
+* Remove urllib quote from trigger URLs
+* Updating docstring with solum app logs help message
+* Better error checking in solum info
+* Adds "solum info" command for connection info
+* Validate plan and lp names in app and lp create
+* Retry Github requests with 2FA
+* Checking for lp in planfile; prompting if not specified
+* Mention paramfile in app create help
+* Add "lp" alias for languagepack in commands
+* Fixing a bug where empty name in artifact was getting set
+* Displaying app logs
+* Requesting port; defaulting to 80 if not specified
+* Make mention of resource-specific help messages
+* Updated from global requirements
+* Adds a --version argument
+* Add a --workflow option to app-create
+* Fixing incorrect list add command in filter\_lps
+* Choose a LP to build an app only if it is READY
+* Look up lps by name for 'languagepack logs'
+* Changing git\_repo parameter flag in languagepack create
+* Updating help commands to show name and uuid as arguments
+* Erroring out if there are no registered languagepacks
+* Addressing pep8 issue
+* Removing plan, component, pipeline commands from CLI display
+* Removing metadata argument from language pack create
+* Removing display of help screen when errors occur
+* Allowing LP specification on cmd line
+* Taking run\_cmd as input on the CLI
+* Adding languagepack commands to solum help
+* Plan validation correction
+* Fix for broken languagepack logs command
+* Added status to app show
+* Added checks for mandatory parameters in a plan file
+* Language pack does not return source\_uri during creation
+* Show workflow info in assembly show
+* Fix OOB error in app-list
+* Fixes use of plan['artifacts'] in app-create
+* Change LP 'state' to 'status'
+* Added except handlr to plan create to display exact error
+* Adds a --json flag to request JSON output
+* Adding git key and trigger tools to app-create
+* Renames exc.BaseException to exc.CommandException
+* Providing description in app create if not present
+* Use parse\_args in lp create command
+* Fixing comments that describe how to use LP commands
+* Remove assembly-delete logic from app delete
+* Display app\_uri in app show/create responses
+* Adds trigger\_uri to app show and app create reponses
+* Fixing typo in language pack creation
+* Renamed --planfile to --plan-file in app-create
+* Consolidate Solum and Builder API
+* Fix LP show command bug
+* Fix the LP list call in App create
+* Fix Assembly logs bug
+* Don't allow duplicate LP names
+* Accept parameter file in the App create command
+* Support for Languagepack list and show commands
+* Return useful message when name is not unique
+* Updated from global requirements
+* Fix plan create language\_pack reference
+* Adds first set of 'app' commands
+* Better parsing and help messages
+* Rename 'app' to 'plan' in CLI
+* Make languagepack metadata an option input
+* Updated from global requirements
+* Add created\_at and updated\_at to assembly
+
+1.2.2
+-----
+
+* Update solum-app-setup
+* Fix requirements for solum-app-setup
+* Allow overriding solum endpoint defined in the service catalog
+* Workflow documentation is now in infra-manual
+* Rename 'app' to 'plan' in CLI
+* A CI setup tool
+* Updated from global requirements
+* Custom variables
+* Bug in CLI when pointing to Solum API directly
+* Updated from global requirements
+* Adds "solum assembly logs <assembly\_id>" command
+* Added solum assembly logs command
+* Updated from global requirements
+* Support for languagepack build command
+* Updated from global requirements
+* Updated from global requirements
+* Switch to using oslotest package
+* Sync oslo modules from oslo-incubator
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Work toward Python 3.4 support and testing
+* Plan create/show will display artifact public ssh keys if present
+
+1.2.1
+-----
+
+* Updated from global requirements
+* Updated from global requirements
+* Add workbook\_name and last\_execution to "pipeline show"
+* CLI changes for supporting custom language packs
+* Make assembly name mandatory during assembly creation
+* Get plan show working
+* Allow an empty yaml list
+* Pass in description during assembly creation
+* Add the basic pipeline commands
+* Add yaml safe loader and dumper
+* Add list Plan in YAML format
+* Expose component resource in CLI
+* Updated from global requirements
+* Add put Plan in YAML
+* Add post Plan in YAML
+* Updated from global requirements
+* Fix new pep8 checks so we can get the new hacking package
+
+1.1.0
+-----
+
+* Removed usage of the py3kcompat module
+
+1.0.1
+-----
+
+* Fixes the dict comparison in the tests
+* Bugfix when submitting language pack
+* cleaning up index.rst file
+* Refactor the plan/app commands to respect the CrudManager Design
+* Delete assembly and plan by name as well as id. Fixes-bug: #1317975
+* When creating an assembly find the plan\_uri from the name
+* Allow showing/deleting by name as well as uuid
+* Add a FindMixin class to help with getting resources by name
+* Improve the context of error messages
+* Improve the output when there is a functional error
+* Updated from global requirements
+* Updated from global requirements
+* Corrected 'collection\_key' and 'key'
+* Print meaningul error when invalid target specified and exit
+
+1.0.0
+-----
+
+* Return 'trigger\_uri' on assembly create and show
+* Updated from global requirements
+* Return 'application\_uri' attribute on assembly create and show
+* Replace get action with show
+* Adding commands for LanguagePack
+* Updated from global requirements
+* Fix assertEqual argument order in tests
+* Fix client error handling
+* Add app get command
+* Factor out common code in test\_plan
+* Factor out common code in test\_assembly
+* Remove unnecessary print statements from solum cmdline client
+* Add uri to the output of "solum app create"
+* make sure the package name is used to get the version
+* Stop printing "Solum Python Command..."
+* Updating the help message
+* Change plan\_uuid to plan\_uri in assembly
+* Adding 'assembly get' command
+* work around the pypy bug
+* Set the service\_type for the builder
+* Add more tests for command line client
+* Remove unnecessary print statements from solum cmdline client
+* Fix solumclient alias overlap with package name in tests
+* Switch to oslosphinx
+* Updated from global requirements
+* Connect assembly commands and Rest API
+* Add plan manager and corresponding tests
+* Add solum builder client
+* Sync oslo modules from oslo-incubator
+* Updated from global requirements
+* Updated from global requirements
+* Connect CLI and python client
+* Add console script entry point for solum
+* Add more methods to Component manager
+* Add more methods to Assembly manager
+* Use CrudManager for assembly and component
+* Remove tox locale overrides
+* Support building wheels (PEP-427)
+* Solum M1 argparse-based Python CLI
+* Add assembly and component resource managers
+* Add initial solum client code
+* Sync oslo modules from oslo-incubator
+* Add bash driver for coverage tool
+* Updated from global requirements
+* Sync oslo apiclient module
+* Add log module from oslo-incubator
+* Add test module from oslo-incubator
+* Add apiclient module from oslo-incubator
+* Remove unused install\_venv\_common from openstack-common.conf
+* Add reasons to ignore flake8 checks as comments
+* Add HACKING.rst
+* Update hacking version to match with global requirements
+* Update README
+* Fix pep8 W292 violation
+* Initial commit created using OpenStack cookiecutter template

@@ -1,0 +1,11 @@
+[Unit]
+Description={{ service_name }} service
+
+[Service]
+Type=notify
+ExecStart={{ service_path }}/{{ service_name }} --config-file {{ config_file }}
+User=ironic
+
+[Install]
+WantedBy=multi-user.target
+Alias={{ service_name }}.service

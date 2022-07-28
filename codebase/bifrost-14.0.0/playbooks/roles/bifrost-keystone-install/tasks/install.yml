@@ -1,0 +1,54 @@
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+- name: "Install packages"
+  package:
+    name: "{{ required_packages }}"
+    state: present
+
+- name: "Install Nginx"
+  import_role:
+    name: bifrost-nginx-install
+    tasks_from: install
+
+# NOTE(TheJulia) While we don't necessarilly require /opt/stack any longer
+# and it should already be created by the Ansible setup, we will leave this
+# here for the time being.
+- name: "Ensure /opt/stack is present"
+  file: name=/opt/stack state=directory owner=root group=root
+  when: not skip_install | bool
+
+- name: "Install uWSGI"
+  include_role:
+    name: bifrost-uwsgi-install
+    tasks_from: install
+
+- name: "Install pymysql"
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: pymysql
+
+- name: "Install python-openstackclient"
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: python-openstackclient
+
+- name: "Install keystone"
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: keystone
+    sourcedir: "{{ keystone_git_folder }}"
+    source_install: "{{ keystone_source_install }}"

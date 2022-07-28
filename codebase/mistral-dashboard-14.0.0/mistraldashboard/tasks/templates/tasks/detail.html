@@ -1,0 +1,76 @@
+<span class="mistral-wrapper detail-screen">
+{% extends 'mistral/default/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Task Execution Details" %}{% endblock %}
+
+{% block page_header %}
+    <h1>
+        {% trans "Task Execution Details" %}
+    </h1>
+{% endblock page_header %}
+
+{% block main %}
+    <div class="detail">
+        <h4>{% trans "Overview" %}</h4>
+        <hr class="header_rule">
+        <dl class="dl-horizontal">
+            <dt>{% trans "Name" %}</dt>
+            <dd>{{ task.name }}</dd>
+            <dt>{% trans "ID" %}</dt>
+            <dd>{{ task.id }}</dd>
+            <dt>{% trans "Type" %}</dt>
+            <dd>
+                <a href="{{ task.type_url }}"
+                   title="{{task.type |title}} {% trans "list of the corresponding task" %}">
+                   {{ task.type |title }}
+                </a>
+            </dd>
+            {% if task.state_info %}
+                <dt>{% trans "State Info" %}</dt>
+                <dd>{{ task.state_info }}</dd>
+            {% endif %}
+            <div class="line-space">
+                <dt>{% trans "State" %}</dt>
+                <dd>{{ task.state }}</dd>
+            </div>
+            <br/>
+            <dt>{% trans "Creation Date" %}</dt>
+            <dd>{{ task.created_at|parse_isotime }}</dd>
+            <dt>{% trans "Time Since Created" %}</dt>
+            <dd>{{ task.created_at|parse_isotime|timesince }}</dd>
+            <br/>
+            <dt>{% trans "Update Date" %}</dt>
+            <dd>{{ task.updated_at|parse_isotime }}</dd>
+            <dt>{% trans "Time Since Updated" %}</dt>
+            <dd>{{ task.updated_at|parse_isotime|timesince }}</dd>
+            <br/>
+            <dt>{% trans "Result" %}</dt>
+            <dd>{{ task.result }}</dd>
+            <dt>{% trans "Published" %}</dt>
+            <dd>{{ task.published }}</dd>
+        </dl>
+    </div>
+
+    <div class="detail">
+        <h4>{% trans "Workflow" %}</h4>
+        <hr class="header_rule">
+        <dl class="dl-horizontal">
+            <dt>{% trans "Workflow Name" %}</dt>
+            <dd>
+                <a href="{{ task.workflow_detail_url }}"
+                   title="{{task.workflow_name}} {% trans "overview" %}">
+                    {{ task.workflow_name }}
+                </a>
+            </dd>
+            <dt>{% trans "Workflow Execution ID" %}</dt>
+            <dd>
+                <a href="{{ task.execution_url }}"
+                   title="{{ task.workflow_execution_id }} {% trans "overview" %}">
+                    {{ task.workflow_execution_id }}
+                </a>
+            </dd>
+        </dl>
+    </div>
+{% endblock %}
+</span>

@@ -1,0 +1,86 @@
+{% macro install_packages(packages, chain=False, clean=clean_package_cache) -%}
+{% if packages is defined and packages|length > 0 -%}
+    {% if not chain -%} RUN {% endif -%}
+    {%- if base_package_type == 'rpm' -%}
+        {{ distro_package_manager }} -y install {{ packages | join(' ') }}
+        {%- if clean %} \
+    && {{ distro_package_manager }} clean all && rm -rf /var/cache/{{ distro_package_manager }}{% endif -%}
+    {%- elif base_package_type == 'deb' -%}
+        {#-
+          debian_package_install is a utility method to build up an appropriate
+          set of commands to install packages in a debian-based environment that
+          may include URL links to a .deb package
+        -#}
+        {{ debian_package_install(packages, clean) }}
+    {%- endif %}
+{%- endif %}
+{%- endmacro %}
+
+{# Be Extra vigilant about introducing any extra whitespace at the
+   end of the macro for chaining purposes -#}
+{% macro rpm_security_update(cleanup) -%}
+    {{ distro_package_manager }} -y distro-sync --security --sec-severity=Important --sec-severity=Critical
+    {%- if cleanup %} \
+    && {{ distro_package_manager }} clean all && rm -rf /var/cache/{{ distro_package_manager }}{% endif -%}
+{%- endmacro %}
+
+{% macro sed(file='', expressions=[]) -%}
+{% if file != '' and expressions|length >0 %}
+    RUN {% for expression in expressions %} sed -i "{{ file }}" -e "{{ expression }}" {% if not loop.last %} && {% endif %} {% endfor %}
+{% else %}
+    RUN echo "file and expressions must be set to use the sed macro"; /bin/false
+{% endif %}
+{%- endmacro %}
+
+{% macro install_pip(packages, constraints = true) %}
+{%- if packages is sequence and packages|length > 0 -%}
+    python3 -m pip --no-cache-dir install --upgrade{{ ' ' }}
+    {%- if constraints %}-c /requirements/upper-constraints.txt {% endif -%}
+    {{ packages | join(' ') }}
+{%- else -%}
+    true
+{%- endif -%}
+{% endmacro %}
+
+{% macro configure_user(name, groups=None, shell=None, homedir=None) %}
+{% set user=users[name] %}
+{%- if not homedir %}
+{% set homedir='/var/lib/' + name %}
+{%- endif %}
+RUN usermod --append --home {{ homedir }} --groups kolla {{ name }} \
+    {%- if groups %}
+    && usermod --append --groups {{ groups }} {{ name }} \
+    {%- endif %}
+    {%- if shell %}
+    && chsh --shell {{ shell }} {{ name }} \
+    {%- endif %}
+    && mkdir -p {{ homedir }} \
+    && chown -R {{ user.uid }}:{{ user.gid }} {{ homedir }}
+{% endmacro %}
+
+{% macro install_fluent_plugins(binary, plugins, chain=False) -%}
+{% if plugins is defined and plugins|length > 0 -%}
+    {% if not chain -%} RUN {% endif -%}
+    {%- if binary == 'td-agent' -%}
+        ulimit -n 65536 && td-agent-gem install {{ plugins | join(' ') }}
+    {%- else -%}
+        ulimit -n 65536 && gem install --minimal-deps {{ plugins | join(' ') }}
+    {%- endif %}
+{%- endif %}
+{%- endmacro %}
+
+{% macro enable_extra_repos(repos) %}
+
+{{ handle_repos(repos, 'enable') }}
+
+{% endmacro %}
+
+{% macro disable_extra_repos(repos) %}
+
+{{ handle_repos(repos, 'disable') }}
+
+{% endmacro %}
+
+{% macro add_binary_source_envs() %}
+ENV KOLLA_INSTALL_TYPE={{ install_type }}
+{% endmacro %}

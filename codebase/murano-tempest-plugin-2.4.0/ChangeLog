@@ -1,0 +1,172 @@
+CHANGES
+=======
+
+2.4.0
+-----
+
+* Add stable/xena jobs on master gate
+
+2.3.1
+-----
+
+* [community goal] Update contributor documentation
+
+2.3.0
+-----
+
+* Add victoria/wallaby stable branch jobs on master gate
+
+2.2.0
+-----
+
+* [goal] Migrate murano-tempest-plugin jobs to focal
+* Remove retired congress
+* Switch to newer openstackdocstheme and reno versions
+* Add py38 package metadata
+* Fix hacking min version to 3.0.1
+* Add stable branch jobs on the plugins master gate
+* Update docs building
+
+2.0.0
+-----
+
+* Remove six usage
+* Cleanup py27 support
+* Fix hacking test requirement
+* Update to hacking 3.0
+* Update hacking for Python3
+* [ussuri][goal] Drop python 2.7 support and testing
+* Remove use of deprecated config options for volume API selection
+
+1.1.0
+-----
+
+* Update contraints url
+* Sync Sphinx requirement
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+
+1.0.0
+-----
+
+* Remove possible existing packages in deployment test
+* Removed older version of python added 3.5/3.6
+* Fix python2 and python3 compatible
+* Change openstack-dev to openstack-discuss
+* Replacing the link in HACKING.rst
+* [Trivial Fix] update home-page url
+* import zuul job settings from project-config
+
+0.1.0
+-----
+
+* Revert "Skip test\_deploy\_app\_with\_volume\_creation\_readonly test to unblock murano gate"
+* Add a space for the skip message
+* Use tempest.lib.decorators instead of nose
+* Move functional test to murano-tempest-plugin
+* Update README.rst for murano-tempest-plugin
+* Add release notes link to README
+* change default python 3 env in tox to 3.5
+* fix tox python3 overrides
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove obsolete json.loads with \_parse\_resp
+* Fix for python3
+* Zuul: Remove project name
+* Add 'orchestration' config group for murano tempest
+* Updated from global requirements
+* Updated from global requirements
+* Revert "Skip test\_deploy\_app\_with\_volume\_creation\_from\_backup test to unblock murano gate"
+* Follow Zuul v3 naming conventions
+* Add apt-get update in application deployment
+* Skip test\_deploy\_app\_with\_volume\_creation\_from\_backup test to unblock murano gate
+* Add murano tempest job
+* Skip test\_deploy\_app\_with\_volume\_creation\_readonly test to unblock murano gate
+* Add requests to requirements
+* Fix tempest-dsvm-murano-cfapi NoSuchOptError
+* Fix pep8 error
+* Update requirements and add tempest.test\_plugins
+* Initial Cookiecutter Commit for murano-tempest-plugin
+* Added Tempest API client methods and Tempest tests for sessions and deployments
+* Added Tempest tests for publicizing a package
+* Added Tempest negative tests for environments
+* Refine skip messages
+* Handle available volume client versions
+* Add idempotent\_id decorators to murano\_tempest\_tests
+* Update testtools.testcase.attr to decorators.attr
+* Make cinder volume attachments available
+* Init the orchestration client from config (part2)
+* Init the orchestration client from config
+* Unskip test\_deploy\_app\_with\_volume\_creation test
+* Use default credentials if None has been passed
+* Skip cinder volume creation test
+* Remove long-ago deprecated show\_categories
+* Use tempest.test.BaseTestCase for murano tempest tests
+* Replace six.iteritems() with .items()
+* Allow users to assign a security group to an app
+* Stop using aliases for creds manager
+* Fix config type of run\_service\_broker\_tests to Boolean
+* Add mising timeout to ApplicationCatalogClient
+* Make CinderVolume attachment info available
+* Change cred provider to enforce dynamic config
+* Renames wait\_for\_volume\_status in tempest tests for consistency
+* Make use of already registered group
+* Deleting dates from dictionaries to skip it in assert
+* Fix removes date\_time items from dictionaries
+* Reduce the amount of smoke tests from 61 to 40
+* Don't purge random stacks
+* Move test with cinder backup creation to the IsolatedAdmin suite
+* Unblocking the gate
+* Repair cinder integration tests
+* Add environment edit API
+* Allow to PUT an empty object model
+* Make tests compose packages in temporarily directory
+* Revert "Fix config group for SSL in tempest test"
+* Fix config group for SSL in tempest test
+* Refactor 'wait\_for\_environment\_deploy' function
+* Add tempest versioning test suite
+* Add deployment murano tempest test
+* Add cinder volumes attachment tests
+* Add base and packages for tempest murano scenario tests
+* Do not override credential provider in tenant isolation tests
+* Refactor tempest utils readlines() to read()
+* Enable static action tests with glare backend
+* Add tempest GLARE sanity check tests
+* Initial implementation of artifacts client in tempest plugin
+* Fix cfapi test job
+* fix a spelling mistake: applcation should be application
+* Implement API call and RPC call for static actions
+* Including a description field for environment and environment templates
+* Fix application template update
+* Change to tempest stable API
+* Update obsolete way of initialize tempest client manager
+* Replace obsolete way of get creds in tempest tests
+* Support GLARE configuration in Murano tempest plugin
+* Fix tempest.conf generation
+* Do not force admin credentials in service broker test suite
+* Upgrade bind function to use murano actions
+* Do not use list lenght checks in Env-Templates test suite
+* Update tempest plugin after tempest-lib deprecation
+* Ability to have several MuranoPL classes in single YAML file
+* Support unversioned keystone endpoints
+* Don't use list lenght check in Repository test suite
+* Fix incorrect result of listing templates
+* Remove xfail in service broker negative tests
+* Fix spelling typos
+* Add environment templates test suite to the tempest plugin
+* Add categories management test suite to the tempest plugin
+* Add service management tests suite to the tempest plugin
+* Add session management test suite to the tempest plugin
+* Add environment management test suite to the tempest plugin
+* Add application catalog repository tests to the tempest plugin
+* Adjust '410 Gone' exception in service broker negative tests
+* [cfapi] Add multiple tests for cfapi service
+* Replacing application\_catalog with application-catalog
+* Add binding test for cfapi
+* Add negative test for cfapi last\_status route
+* Add provision and deprovision test for cfapi
+* Update functional tests due to tempest update
+* Initial commit for service broker tests in tempest plugin
+* Initial empty repository

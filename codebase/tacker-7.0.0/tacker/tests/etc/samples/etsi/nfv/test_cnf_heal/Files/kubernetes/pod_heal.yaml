@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vdu2-heal
+  namespace: default
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: IfNotPresent
+    name: webserver2
+    ports:
+    - containerPort: 8080

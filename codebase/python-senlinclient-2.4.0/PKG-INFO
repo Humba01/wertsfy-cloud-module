@@ -1,0 +1,42 @@
+Metadata-Version: 1.2
+Name: python-senlinclient
+Version: 2.4.0
+Summary: OpenStack Clustering API Client Library
+Home-page: https://docs.openstack.org/python-senlinclient/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ========================
+        Team and repository tags
+        ========================
+        
+        .. image:: https://governance.openstack.org/tc/badges/python-senlinclient.svg
+            :target: https://governance.openstack.org/tc/reference/tags/index.html
+        
+        .. Change things from this point on
+        
+        OpenStackClient Plugin for Senlin Clustering Service
+        ====================================================
+        
+        This is a client library for Senlin built on the Senlin clustering API. It
+        provides a plugin for the openstackclient command-line tool.
+        
+        Development takes place via the usual OpenStack processes as outlined in the
+        `developer guide <https://docs.openstack.org/infra/manual/developers.html>`_.
+        The master repository is in `Git <https://opendev.org/openstack/python-senlinclient>`_.
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6

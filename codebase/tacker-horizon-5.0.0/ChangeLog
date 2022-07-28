@@ -1,0 +1,658 @@
+CHANGES
+=======
+
+5.0.0
+-----
+
+* Update python testing classifier
+* Fix rendering failure in the VNF Manager tab
+* Add Python3 yoga unit tests
+
+4.0.0
+-----
+
+* Add tacker-horizon integration test framework
+* Fix retrieval of VNF details in NFV dashboard
+* Drop block storage v2 API
+* Remove broken link from tacker horizon guide
+* setup.cfg: Replace dashes with underscores
+* Update min version of tox
+* Add Python3 xena unit tests
+
+3.0.0
+-----
+
+* Dropping explicit unicode literal
+* Update TOX\_CONSTRAINTS\_FILE
+* Move tacker-horizon to new hacking 4.0.0
+* Add Python3 wallaby unit tests
+
+2.0.0
+-----
+
+* Cleanup for Refactor-error-messages
+* Fix generating empty pagination link in TableTab
+* [goal] Migrate testing to ubuntu focal
+* Bump default tox env from py37 to py38
+* Add py38 package metadata
+* Quick fix for installation guide
+* Fix for broken link in Tacker Horizon Guide
+* Stop to use the \_\_future\_\_ module
+* Switch to newer openstackdocstheme and reno versions
+* Switch to hacking 3.0
+* Add Python3 victoria unit tests
+
+1.0.0
+-----
+
+* Drop Django 1.11 support
+* translation: drop babel extractor definitions
+* Use constraints file
+* Use Horizon project template for django jobs
+* Drop python 2.7 support and testing
+
+0.15.0
+------
+
+* Generate PDF documentation
+* Add Python 3 Train unit tests
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Creating VNFD in Dashboard doesn't work
+
+0.14.0
+------
+
+* Drop py35 jobs
+* Update json module to jsonutils
+* Update tox.ini for python3
+
+0.13.0
+------
+
+* update python version in setup.cfg
+* fix tox python3 overrides
+* Update hacking version
+* Change openstack-dev to openstack-discuss
+* Use template for lower-constraints
+* Update http link to https link
+* 1110\_tox\_version\_too\_low
+* Update the min version of tox to 2.0
+* Remove use\_mox directive
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Drop nose dependencies
+* Fix format errors in README
+
+0.12.0
+------
+
+* Fix errors in README
+* TEMPLATE\_\* settings were deprecated
+* Add py36 testenv
+* Fix compress failure
+* Require the (soon-to-be) Rocky version of Horizon
+* Remove Nose from tacker-horizon
+* Add python3 django 1.11 job instead of django 2.0 job
+* Django 2.0 support
+* Fix VNF catalog does not show service types
+* Add docs to local test tox
+* add lower-constraints job
+* Add tacker-horizon docs
+* Add OpenStack profiler to tacker-horizon's tacker api wrapper
+* Fix Vnffgmanager panel wrong classname
+* Re-structure tacker-horizon static dir
+* Updated from global requirements
+* Add Horizon UIs for managing Kubernetes VIMs
+* Add Default VIM value column in VIM Management
+* Update README.rst
+* Update the outdated links in repo
+
+0.11.0
+------
+
+* Updated from global requirements
+* Fix logging of password during create\_vim
+* Updated from global requirements
+* Updated from global requirements
+
+0.10.0
+------
+
+* Update urls to Django 1.8 style
+* Updated from global requirements
+
+0.9.0
+-----
+
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Change show\_vnfd to show\_nsd to fix the NSD detail error
+* Updated from global requirements
+* Updated from global requirements
+* Switch to oslo\_log
+* Updated from global requirements
+* sync test-requirements with global requirements
+* Updated from global requirements
+* Add python-tackerclient in requirements.txt
+
+0.7.0
+-----
+
+* Remove tacker-horizon to make this JS path right
+* Add missing files for rpm-packaging
+* Updated from global requirements
+
+0.6.0
+-----
+
+* Updated from global requirements
+* Allow VNF creation from inline template
+* VNFFG Manager Tab throwing attribute error
+* move api call to outside the for loop
+* Add Panel for NSD
+* Move \_80\_nfv.py file to enabled folder in tacker\_horizon folder
+* Get service type according to tacker server change
+* Updated from global requirements
+* Show team and repo badges on README
+* tacker-horizon doesn't show detailed VNF info
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+
+0.5.0
+-----
+
+* VNFFG Manager fixes
+* Adds VNFFG support in Tacker-horizon
+* Adds audit support for VNF, VIM and VNFD resources
+
+0.4.0
+-----
+
+* Add domain name field for VIM register
+* improved validation of OnBoard VNF form
+* Added option to set default vim
+* check extension of toscal file
+* Updated from global requirements
+* Add .idea/ to tacker-horizon .gitignore
+* Updated from global requirements
+* Register VIM description field modified to be rendered as multi lines
+* Add "Description" parameter while creating VNF in horizon
+* Set the max\_length of the VNFD/VNF/VIM Name to 255
+* Updated from global requirements
+* Add Error Reason column in VNFManager tab
+* Add "Description" parameter while onboarding VNF in horizon
+* Updated from global requirements
+* Display VNF instance details in Tacker Horizon
+* Display VIM status in horizon
+* Make VNF Name mandatory for VNFD/VNF in Tacker Horizon
+* Make VIM description optional for Register VIM form in horizon
+* Raise correct error when api.tacker.get\_vnf fail
+* Updated from global requirements
+* VNF Catalog should handle user input vnfd name
+* VNF name and VIM name should be optional
+
+0.3.0
+-----
+
+* Fix config and param data handling for Deploy VNF
+* Implement Horizon support for multisite VIM
+* Add translation support for tacker-horizon
+* Remove deprecated models.py
+* Fix home page URL
+* Fix pep8 error and enable flake8 options
+* Updated from global requirements
+* Use NFV nomenclature for VNF and VNFD method names
+* Add support to display VNFD template in horizon
+* Updated from global requirements
+* Updated from global requirements
+* Fixup test-requirements to avoid tarballs install
+* Updated from global requirements
+* Add \*.lock and .secret\_key\_store to .gitignore
+* Fix pep8 errors in tacker-horizon
+* Fix pep8 errors in tacker-horizon
+* Update setup.py
+* Fix flake8 errors
+* Fix whitespace flake8 errors
+* Setup unit test framework
+* Renamed 'servicevm' in tacker-horizon
+* remove python 2.6 trove classifier
+
+0.2.0
+-----
+
+* Adds capability to specify config file
+* Update .gitreview for new namespace
+* Fixes VNF state being stuck in PENDING\_CREATE
+* Implementation of tacker MANO API horizon changes
+* Parameterization support added for VNFD templates
+* Remove "print" statement from tacker-horizon repo
+* Drop down list for selecting VNFD IDs added
+* Fixes VNF and VNFd deletion issues from Horizon
+* Update with instructions to restart apache server
+* Tacker Horizon: ImportError: No module named openstack\_dashboard.dashboards
+* Add test dir to tox runs
+* Fix tacker\_horizon package namespace and README instruction
+* Fix installation step in the README
+* Add module init for tacker\_horizon package
+* Move dashboard file under tacker\_horizon package
+* Move and rename the dashboard extension file
+* Add copyright header
+* Add package setup scripts for tacker-horizon
+* Cleanup unused references in tox.ini
+* Add initial installation instructions to README
+* Add initial git repository and test related files
+* Add Tacker API helper for Tacker Horizon UI
+* Enable nfv screen in Tacker Horizon UI
+* Add NFV dashboard for Tacker Horizon UI
+* Initial commit
+* handle corner cases in vnf listing
+* Set initial vnf status
+* ERROR handling: handle empty desc
+* Fix row background status staying yellow
+* Handler empty service\_type
+* Change delete button labels
+* Fixup vnf services string
+* Added delete buttons for VNF Catalog and VNF Manager
+* Handle NoneType error in vnf-manager table
+* Display vnf description from vnf-instance
+* Add get\_vnf to horizon tacker api
+* Add VNF row status update support
+* Add tacker to api list
+* VNFD: display vnfd services
+* Tacker API integration
+* Tacker API integration
+* Initial commit of NFV and VNF Manager UI screens
+* Initial commit of NFV and VNF Manager UI screens
+* [Launch Instance Fix] Settings for volume name
+* Revert "Refactoring the exceptions lists"
+* [Launch Instance Fix] Conditionally enable UI
+* [Launch Instance Fix] Enabling loading script from local file
+* [Launch Instance Fix] Glance rest API fix
+* [Sahara] fix sahara client calls
+* Pass SSL parameters to sahara client
+* Launch Instance - MultiRegion Support / Networks
+* Launch Instance - MultiRegion Support / Networks
+* Refactoring the exceptions lists
+* Fetch user's projects from request.user
+* Fix web-server memory overrun when downloading objects from Swift
+* Updated keystone api for roles and edit
+* passing wrong dict in lbaas
+* Add 7 missed meters in Resource Usage Panel
+* Add --location option to image create
+* Remove duplicated \_\_init\_\_ from api/fwaas.py
+* Adds configuration support to associate firewall to routers
+* [Launch Instance Fix] Add details to Select Flavor step
+* [Launch Instance Fix] Split Security & Access in 2
+* [Sahara] Added indirect access support
+* [Data\_processing] fix job\_executions table
+* Use novaclient v2 instead v1\_1
+* Admin state column added in firewall table
+* Adds initial SRIOV creation/config support
+* Add fallback on sahara endpoint lookup
+* Fixing typo in Cinder API
+* Fixing typo in Glance API
+* Replace usage of urllib in nova rest api
+* Show ports from shared nets in floating IP assoc
+* Launch Instance Step - Configuration
+* Launch Instance Model
+* Add "Preview Stack" action to Stacks table
+* Double check admin password when update user password
+* Updated parsing of catalog to handle bad format
+* Replacing data\_processing with data-processing
+* REST API to support create instance angular (Neutron)
+* Keystone REST API single project GET
+* Rest API for Users list filter
+* Adding policy rest endpoint for angular
+* Nova Flavor Server Extensions Rest APIs - Angular
+* Fix typo errors in comments for api modules
+* spelling mistakes on display outputs and docsstrings
+* Add orchestration service status reporting
+* Read access to config via REST
+* Network Rest API for Angular Front End
+* Migrate all instances from host marked for maintenance
+* Cinder REST API for angular front end
+* Add service catalog get for keystone REST API
+* Base launch instance wizard
+* Serial Console
+* Nova REST API for angular front end
+* move Users Edit Password into separate form
+* Glance Rest API for Angular Front End
+* Fixing Ceilometer measurements descriptions and comment typos
+* List shared firewall policies/rules in Project panel
+* Add support for Trove Replication
+* added detail page for keypair
+* [Sahara] Support Cinder availability zones
+* Alter verb usage for keystone REST and add Angular service
+* New admin volume panel to manage/unmanage volumes
+* Add ram-hours in overview page
+* Quality of life improvements to APIVersionManager
+* Correct the policy check call in keystone
+* Adding filtering to data\_processing tables
+* Handle RequestURITooLong error in large instance table
+* Throw a warning message when failed to get pool detail
+* Add "Suspend" and "Resume" actions to Stacks table
+* Keystone REST API for angular front end
+* Add "Check Stack" action to Stacks table
+* List port for distributed router interface
+* Orchestration Resource types panel
+* adopt namespace-less oslo imports
+* Switch from oslo.utils to oslo\_utils
+* Make ipmi meters be visible in Horizon
+* REST API for angular front end
+* Changing term 'name' to 'slug'
+* View encryption metadata for encrypted volumes
+* Add support for volume transfers
+* Display the vip name in the floating IP association dialog
+* Add missing nova meters for metering
+* Creating a new user with an existing user name
+* Base Glance Metadata Definitions Admin UI
+* Add bootable flag to edit volume panel
+* Add volume type encryption delete
+* Clean '/tmp' after image upload from horizon
+* Provide tenant\_id in Neutron create requests
+* Standardizing translation of "-"
+* Adding Host Server to instance detail page
+* Add volume type encryption to horizon
+* Handle situation when endpoint deleted
+* Remove port\_id from floating ip disassociate
+* Stack update call needs password
+* Support for resizing a trove instance
+* Renaming a user name with an existing user name
+* Support nova service-disable/enable for Hypervisor
+* Fix Instance Details error when using Cinder V2
+* Add support for locking and unlocking servers
+* Honor keystone policy file when creating client
+* Fix incorrect ca arguments for calling ceilometer client
+* wrong message while deleting non empty pseudo folder
+* Handle negative values in total\*Used for Cinder absolute limits
+* Use cinder API v2, remove support for v1
+* Do not log keystone token
+* Fix E128 errors in remaining openstack\_dashboard/
+* Hiding device name field when unhandled
+* Fix E127 errors in remaining openstack\_dashboard/
+* [Sahara] Support Nova availability zones
+* Improve list groups roles performance
+* Use timeutils from oslo.utils
+* Fix an encoding exception when creating a public\_url
+* Remove @author tags from copyright statements
+* Warn OPENSTACK\_QUANTUM\_NETWORK setting as deprecated
+* fix redirect for admin user password relogin
+* Display only reachable IP as Floating IP association target
+* Revert "Remove the update default quotas feature"
+* Revert "Remove the update default quotas feature"
+* Add HA mode support for Neutron router
+* [Sahara] Added ability to specify security groups for node group
+* Workaround for negative vals in total\*Used in nova absolute\_limits
+* horizon ignores region for identity service
+* Reuse API client object in a request
+* Translation feedback - Add contextual marker for short strings
+* swift: Respect the OPENSTACK\_SSL\_NO\_VERIFY setting
+* Add columns to the job executions page
+* Show floating IP associated with Load Balancer VIP
+* Enable QOS Specs to be associated with volume type
+* Enable host aggregate metadata update
+* Widget to expose the metadata catalog from glance
+* QOS edit, create, and delete functionality
+* QOS Specs - added edit feature
+* fix the logic of api.lbaas.\_pool\_list
+* Show floating IPs from other projects of admin instance table
+* Allow setting config drive option when launching instance
+* Volume Types tab with QOS Specs
+* Need ability to evacuate host in syspanel
+* Display Network panels based on neutron ext-list
+* Instance Action Dashboard Blueprint
+* Disable Floating IP features if Neutron router is disabled
+* Add "Edit Router" to allow to change router type
+* Upload volume to image service
+* Enable changing volume type of a volume
+* Horizon changes for DVR
+* Domain Role assignment to Users
+* Separating Identity Dashboard and using RBAC
+* Separating Identity Dashboard and using RBAC
+* Add Volume Snapshots table to Admin Volumes
+* Enable updating the status of a volume
+* add Previous link to Project > Stacks table
+* Support assignment for network to DHCP agent
+* Fix Flake8 style warnings in openstack\_dashboard/
+* Use default\_project\_id as user project for keystone v3
+* Remove use of "quota\_tenant\_usages" in Volumes page
+* Add metadata option to Nova Create API Wrapper
+* Remove per-feature extension check method in api/neutron
+* Add knobs for setting MAC learning on ports
+* Add support for trove incremental backups
+* Tolerate service catalog and endpoint connection errors
+* Initial support for datastore in Horizon
+* Volume Type Extra Specs support
+* Add ability to manage image custom properties
+* Adding cluster\_template and cluster panels for Sahara
+* Run router dashboard unit tests by default
+* Fixing subproject test runs
+* Add support for resize of Trove volume
+* Adding support for volume backups
+* Network topology crashes with timing issue
+* Fixes bad performance when editing project members
+* add Previous link to Admin > Images table
+* Raise sane error when failing to modify security group
+* Specify a Network During Database Instance Create
+* Check neutron agent extension support in Info page
+* Adding sahara client api code
+* Add encryption indicator for volumes
+* Display cinder services in System Info
+* Introduce safer access to resource meters
+* APIDictWrapper getitem lookups fail for non str
+* Image uploads should always happen in the background
+* Do not delete properties when create image from URL
+* volume details page does not show source image details
+* Use six.add\_metaclass instead of \_\_metaclass\_\_
+* Fix Instance Image Name cell value
+* Fixed several typos in comments
+* Adding bootable as a column in volumes table
+* Add update method of snapshot name and description
+* Remove extraneous vim configuration comments
+* Fix endpoint error when running keystone on apache
+* Add missing comma in Volume ResourceWrapper class
+* Use the domain filter provided by keystoneclient
+* Add pagination to stack list
+* Plugin-based panel group configuration
+* Enable settings/change password on keystone v3
+* Remove the update default quotas feature
+* Remove the update default quotas feature
+* Create links in LBaaS detail pages
+* Clarify description string for image metric
+* Disables the clear text password UI by default
+* Remove get\_resource\_or\_fake method in VPN panel
+* Stop altering the glance API URL
+* Decrypt and display VM generated password
+* Heat Stack update view/form
+* Host aggregates panel
+* Plugin-based panel configuration
+* Basic support for Cinder v2
+* Fix typo
+* Add disk config option support
+* Adds support for Nova RDP console
+* Reduce number of novaclient calls
+* Keep py3.X compatibility for urllib
+* Use six.moves.urllib.parse instead of urlparse
+* Fixing issue with VXLAN network profile create
+* Don't lose AttributeError in API Wrappers
+* 1279979 Neutron TypeError when token invalid
+* Bug fix on neutron's API to return the correct target ID
+* Fix typo in ceilometer.py
+* Fix misspellings in horizon
+* Add create volume from volume
+* Remove leftovers of "# noqa"
+* Get instance networking information from Neutron
+* Removing duplicated classes from lbaas.py and vpn.py
+* Add volume extend functionality support
+* Add update method of volume name and description
+* Remove "Delete" buttons when VPN objects are in use
+* Replace asserts in \_\_init\_\_ files with \_\_all\_\_
+* Remove #noqa from most common imports and add them to import\_exceptions
+* Fixed sphinx ERRORs
+* Allowing snapshoting attached volume
+* Fix typo error
+* Cannot view detailed image with empty name
+* Make Neutron API name consistent
+* Allows the user to create an object without file
+* Centralizing page size code, reading cookie
+* Common keystone version fallback
+* Plugin-based dashboard configuration
+* Add ability to configure read access of container
+* Abstraction of Ceilometer meters information
+* Remove returns of user\_update api
+* Show success msg when container deletion succeeds
+* Deleting statistics tables from resource usage page
+* Logging user out after self password change
+* Update troveclient to 1.0.0
+* Gate on H4xx docstrings for pep8
+* Live migration support
+* VIP creation fails if ip address is not specified
+* Importing from trove-client compat first
+* Add option to disable server password fields
+* Importing from trove-client compat
+* Show AZ for instances
+* Use a @cached\_property decorator
+* Fix a bug some optional field in LBaaS are mandatory
+* Display LBaaS pool/member status in the tables
+* Adds router rules support to router details
+* Adds pseudo-folder creation
+* Add filtering parameters to list requests
+* Add Availability Zone to Volume screens
+* Add keystoneclient CredentialsManager if missing
+* Use HEAD when retrieving Container details
+* Use HEAD when viewing Object details
+* Show an error message on instance launch error
+* Limit the odds of making N calls to Glance for image names
+* Create links between FWaaS resources
+* Convert generator to list in Heat list API call
+* Add support for loadbalancer providers
+* Ensure to return empty when no secgroup is associated to VM
+* Allow region override for url\_for
+* Fixing database instance launch workflow
+* Remove gettext\_lazy of log message in nexus/profile impl
+* Optimization of ceilometer API
+* Fix help string for peer\_address and peer\_id
+* Determine security group API dynamically
+* Fix Instance secgroup update error with Nova secgroup
+* enabling trove to work in multi-region deployment
+* Replace OpenStack LLC with OpenStack Foundation
+* PEP8 E126 has been resolved
+* Make troveclient optional
+* Don't display non-tenant Floating IP in Floating IP project tab
+* added tab showing all servers assigned to a hypervisor
+* FWaaS Horizon panel
+* Create links between VPN resources
+* VPNaaS UI implementation
+* PEP8 E121 has been resolved
+* Add Cisco N1K plugin support in Horizon
+*     Adds support for passing extra tenant attributes to keystoneclient
+* Custom CA certificate for verifying SSL connections
+* added Network Agents to System Info panel
+* "# noqa" cleanup
+* Improved boot from volume
+* Define flavor for each project
+* Adding panels for trove
+* Use the horizon\_pagesize value in the session cookie
+* Allow admins to update default quotas
+* Fix the Domain context for Projects panel
+* Add ceilometer api and the tests for it
+* Use proper method name for assembling the aggregate\_list
+* Add update method of security group name and description
+* View and update Neutron project quotas
+* Show Neutron floating IPs quotas on Overview
+* Small "H302 check" cleanup
+* Enable H302 check
+* Implement assignment of Project Roles to Group
+* Display the container and object metadata
+* Clean-up code issues related to reboot
+* Adding rebuild action under Project/Instances
+* Always display the Domains panel for Keystone V3
+* Adds hypervisor statistics to admin dashboard
+* Enable H201: do not write "except:"
+* Update implementation and remove TODO comment
+* calling nova extensions api to enable certain nova features
+* Flavor ID added to Flavor creation form
+* Ignore non-existing attr in APIResourceWrapper \_\_repr\_\_
+* Add column "Uptime" to instances overview
+* adding aggregates panel to admin dashboard
+* added Compute Services to System Info panel
+* Prevent an array index exception if server does not have an image
+* Neutron Security Group native support
+* Prompt for password on stack create
+* update Quantum references to Neutron
+* adding hypervisors panel to admin dashboard
+* Enable hacking H101 test
+* Region selector enabling multi-region support
+* Remove pool selection from "Add Monitor" page
+* Use Python 3.x compatible except construct
+* Sort imports alphabetically
+* remove unused imports
+* Enable "Start Instance" and "Shut Off Instance" buttons
+* Mix snapshots and images tables together
+* switching to use limits instead of quotas
+* Adding pagination to the tenant views
+* Refactoring url\_for to remove admin parameter
+* Add edit buttons for vip, member and monitor
+* Resizing a server by means of changing its flavor
+* Add availability zone choice to launch instance
+* Pop 'password' in user\_update v3 if it is left blank
+* Group CRUD and Management in Admin Dashboard
+* Adding CRUD for roles
+* Added insecure SSL support to quantum api
+* Adding Domain CRUD in Admin Dashboard
+* Access to heat API via python-heatclient
+* Allow users to change their passwords
+* Shows a warning message when deleting a container that contains data
+* Use ugettext\_lazy instead of ugettext
+* Make discovery of version for KS catalog smarter
+* Add ability to create a volume from an image
+* Enable parsing of Identity Service V3 catalog
+* Make pagination tunable through the settings panel
+* Enable using multiple API versions for Identity Service
+* Remove workaround for keystone
+* Adding pagination to the instance views
+* Allow users to create a rich network topology
+* Disable LB panel by default; allow UUID for Sec Group ID
+* Hide unnecessary fields based on Loadbalancer Monitor type
+* rm invalid args when updating quotas with nova api
+* Allow non-admin users to clear router gateway properly
+* blueprint quantum-lbaas
+* Fix images/snapshots table pagination
+* Fix a TypeError when working in a Folsom env
+* Add support for both soft and hard reboot options
+* Added encryption support for volumes
+* Resolve API import issues (quantum)
+* Support adding/removing instance security groups
+* Improved security group rule editing
+* Remove placeholder objects for subfolders
+* Adds API Access information to Access & Security panel
+* Properly enable/disable project/user edit via setting
+* Quantum Floating IP support
+* Add support for SPICE consoles
+* save the original requestor's IP so it doesn't get overwritten
+* Ensure to use api.<category>.<method>
+* Absolute limits of -1 should be treated as unlimited
+* Allow insecure authentication
+* Catch another breakage, when cinder is unavailable
+* Migrate an instance from the admin dashboard
+* Support Quantum L3 function
+* Improve Quantum panels to Folsom advanced features
+* Disable Launch Button based on quotas
+* Fixed unicode for object copy
+* Avoid cinder calls, when cinder is unavailable
+* Fixes bug 1086290 https://bugs.launchpad.net/horizon/+bug/1086290, edit-flavor broken when flavor has extra specs. Includes unittest for the same, and modified mock data to to include extra-specs Change-Id: I286d97568daff26bbd03418b2ea0b808caceadba
+* show swap disk in listing and forms in flavors syspanel
+* Fix handling of UUID-typed flavor ids
+* Unifies Horizon conf
+* Reworks quotas and services panels into System Info panel
+* Flavor Extra Specs support
+* Added support for volume types
+* Enable quota data from multiple sources
+* Splits OpenStack Dashboard bits from framework app code
+* set the admin\_pass when creating the server

@@ -1,0 +1,42 @@
+---
+# This playbook will ensure that all baremetal compute nodes in the overcloud
+# ironic inventory are available. Supported initial states include 'enroll' and
+# 'manageable'.
+
+# We install openstacksdk in a virtualenv on one of the controllers, and delegate to
+# it when executing the stackhpc.os-ironic-state role.
+
+- name: Ensure baremetal compute nodes are available in ironic
+  hosts: controllers[0]
+  gather_facts: true
+  vars:
+    venv: "{{ virtualenv_path }}/openstacksdk"
+  roles:
+    - role: stackhpc.os_openstacksdk
+      os_openstacksdk_venv: "{{ venv }}"
+      os_openstacksdk_install_epel: "{{ dnf_install_epel }}"
+      os_openstacksdk_state: latest
+      os_openstacksdk_upper_constraints_file: "{{ pip_upper_constraints_file }}"
+
+- name: Ensure baremetal compute nodes are available in ironic
+  hosts: baremetal-compute
+  gather_facts: False
+  vars:
+    venv: "{{ virtualenv_path }}/openstacksdk"
+    ansible_python_interpreter: "{{ venv }}/bin/python"
+    # Whether to wait for the state transition to complete.
+    baremetal_compute_wait: True
+    # Time to wait for state transition to complete, if baremetal_compute_wait
+    # is True.
+    baremetal_compute_timeout: 1200
+  roles:
+    - role: stackhpc.os-ironic-state
+      os_ironic_state_auth_type: "{{ openstack_auth_type }}"
+      os_ironic_state_auth: "{{ openstack_auth }}"
+      os_ironic_state_cacert: "{{ openstack_cacert }}"
+      os_ironic_state_interface: "{{ openstack_interface }}"
+      os_ironic_state_name: "{{ inventory_hostname }}"
+      os_ironic_state_provision_state: "provide"
+      os_ironic_state_wait: "{{ baremetal_compute_wait }}"
+      os_ironic_state_timeout: "{{ baremetal_compute_timeout }}"
+      os_ironic_state_delegate_to: "{{ groups['controllers'][0] }}"

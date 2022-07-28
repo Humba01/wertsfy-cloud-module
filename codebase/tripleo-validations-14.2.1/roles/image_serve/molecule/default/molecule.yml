@@ -1,0 +1,24 @@
+---
+# inherits {REPO}/.config/molecule/config.yml
+# To override default values, please take a look at the config.yml.
+
+platforms:
+  - name: ubi8
+    hostname: ubi8
+    image: ubi8/ubi:8.2
+    registry:
+      url: registry.access.redhat.com
+    etc_hosts:
+      undercloud.ctlplane.mydomain.tld: "127.0.0.1"
+    dockerfile: ../../../../.config/molecule/Dockerfile
+    override_command: true
+    command: /sbin/init
+    privileged: true
+    pkg_extras: python*-setuptools
+    volumes:
+      - /etc/ci/mirror_info.sh:/etc/ci/mirror_info.sh:ro
+    environment: &env
+      http_proxy: "{{ lookup('env', 'http_proxy') }}"
+      https_proxy: "{{ lookup('env', 'https_proxy') }}"
+    ulimits: &ulimit
+      - host

@@ -1,0 +1,11 @@
+- project:
+    templates:
+      - openstack-python3-yoga-jobs
+      - openstack-lower-constraints-jobs
+      - publish-openstack-docs-pti
+    check:
+      jobs:
+        - openstack-tox-pylint
+    gate:
+      jobs:
+        - openstack-tox-pylint

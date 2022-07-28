@@ -1,0 +1,31 @@
+---
+- name: Ensure timezone is configured
+  hosts: seed-hypervisor:seed:overcloud:infra-vms
+  tags:
+    - timezone
+  tasks:
+    - import_role:
+        name: stackhpc.timezone
+      become: True
+
+- name: Ensure ntp group exists
+  hosts: all
+  gather_facts: no
+  tags:
+    - ntp
+  tasks:
+    - name: Ensure ntp group exists
+      fail:
+        msg: >-
+          The 'ntp' group does not exist in the Ansible inventory.
+      run_once: true
+      when:
+        - "'ntp' not in groups"
+
+- name: Ensure Chrony is installed and configured
+  hosts: ntp
+  tags:
+    - ntp
+  tasks:
+    - import_role:
+        name: ntp

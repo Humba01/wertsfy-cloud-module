@@ -1,0 +1,41 @@
+FROM {{ namespace }}/{{ image_prefix }}manila-base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block manila_data_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{% if install_type == 'binary' %}
+    {% if base_package_type == 'deb' %}
+
+        {% set manila_data_packages = [
+                'manila-data'
+        ] %}
+
+    {% endif %}
+
+{% elif install_type == 'source' %}
+    {% if base_package_type == 'rpm' %}
+
+        {% set manila_data_packages = [
+                'nfs-utils'
+        ] %}
+
+     {% elif base_package_type == 'deb' %}
+
+        {% set manila_data_packages = [
+                'nfs-common'
+        ] %}
+
+    {% endif %}
+
+{% endif %}
+
+{{ macros.install_packages(manila_data_packages | customizable("packages")) }}
+
+{% block manila_data_footer %}{% endblock %}
+{% block footer %}{% endblock %}
+
+USER manila

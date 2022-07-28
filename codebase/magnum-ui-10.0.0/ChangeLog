@@ -1,0 +1,602 @@
+CHANGES
+=======
+
+10.0.0
+------
+
+* Updating python testing classifier as per Yoga testing runtime
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+9.0.0
+-----
+
+* Default \`floating\_ip\_enabled\` to true in cluster template
+* Update horizon nodejs template
+* Add overlay2 to Docker storage driver dropdown
+* Support zero workers nodes on Horizon dashboard
+* Remove hard\_limit check in dashboard
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+8.0.0
+-----
+
+* Imported Translations from Zanata
+* Use TOX\_CONSTRAINTS\_FILE
+* Update lower-constraints for new pip
+* Imported Translations from Zanata
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+* [goal] Migrate testing to ubuntu focal
+
+7.0.0
+-----
+
+* Support enable/disable loadbalancer when creating cluster
+* [goal] Migrate testing to ubuntu focal
+* Fix py36 job setup
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix npm jobs
+* drop mock from lower-constraints
+* Fix formatting issue in workflow message
+* Stop to use the \_\_future\_\_ module
+* Switch to newer openstackdocstheme and reno versions
+* Fix cluster resize
+* Show cluster health status
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add py38 package metadata
+* Imported Translations from Zanata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+6.0.0
+-----
+
+* Imported Translations from Zanata
+* Use unittest.mock instead of third party mock
+* Imported Translations from Zanata
+* Add pytest requirement to fix jobs
+* Use default-worker instead of production\_group
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix pyScss version in lower-constraints.txt
+* Remove six usage
+* Imported Translations from Zanata
+* Fix failure of installing magnum-ui plugin with devstack
+* Drop Django 1.11 support
+* Imported Translations from Zanata
+* translation: drop babel extractor definitions
+* Add requirements.txt to docs reqs
+* Improve cluster launch workflow
+* Register the Cluster Upgrade view
+* Add rolling upgrade ui
+* Add ui for resizing clusters
+* Add fedora-coreos distro
+* Set empty default value for docker\_storage\_driver
+* Add missing hidden option to cluster template
+* [ussuri][goal] Drop python 2.7 support and testing
+* Use Horizon project template for django jobs
+* Update master for stable/train
+* Generate PDF documentation
+* Update the constraints url
+
+5.2.0
+-----
+
+* Update sphinx dependency
+* Imported Translations from Zanata
+* Changes for url transition to OpenDev
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Update master for stable/stein
+
+5.1.0
+-----
+
+* Imported Translations from Zanata
+* Replace openstack.org git:// URLs with https://
+* Imported Translations from Zanata
+* Add nodejs10 jobs on bionic
+* Switch to horizon-nodejs4-jobs template
+* Add release notes for stein
+* Update json module to jsonutils
+* Imported Translations from Zanata
+* Update hacking version
+* Update the bugs link to storyboard
+* Imported Translations from Zanata
+* Change openstack-dev to openstack-discuss
+* Bump horizon for Stein
+* Update http link to https link
+* Change openstack-dev to openstack-discuss
+* Imported Translations from Zanata
+* fix typo in releasenotes
+* Fix cluster update instead of cluster template update
+* fix text for master flavor / node flavor
+* Imported Translations from Zanata
+* Fix image URL for cluster template overview
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Use initial maps for supported network and volume drivers
+* Display master\_flavor\_id and flavor\_id when updating cluster
+* Limit cluster update properties
+* Support api-version when building client
+* Add blueprints link in documents
+* fix tox python3 overrides
+* Imported Translations from Zanata
+* Add upper-constraints.txt into post-install
+* Support Calico as network driver for k8s
+* Disable rotate certificate
+* Cleanup .zuul.yaml
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* When selecting a image for cluster, many invalid images are shown. If a project has a lot of images, options can be quite long, and cause wrong selctiong by mistake. So I add a filter after fetching images, now images that has "os\_distro" property and it's value is one of "fedora-atomic", "coreos" and "ubuntu" are shown
+* Add swarm-mode as COE
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix JS error on routed-details-view when execute show-certificate
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Fix show certificate button returning invalid CA
+* Remove mox3 from doc/requirements.txt
+* Imported Translations from Zanata
+* Update reno for stable/rocky
+* Drop nose dependencies
+* Imported Translations from Zanata
+
+5.0.0
+-----
+
+* Imported Translations from Zanata
+* Prepare to support python3.6
+* fix tox python3 overrides
+* Add release notes for Rocky
+* Modify the 'tox.ini' file
+* Add Apple OS X ".DS\_Store" to ".gitignore" file
+* Modify the '.gitignore' file
+* Clear selections for table view
+* Add python3 django 1.11 job instead of django 2.0 job
+* Rename test files to test\_\* pattern
+* Imported Translations from Zanata
+* Fix postinstall for npm job
+* Add py35dj20 job
+* Imported Translations from Zanata
+* Remove mox3 from test-requirements.txt
+* Fix tox jobs and remove tox\_helper.sh
+* Fix unicode type judgment
+* Follow the new PTI for document build
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Bump min version of magnumclient
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Reproduce navigations
+* Install Horizon from git repository in tox test
+* Imported Translations from Zanata
+* Enable to update Lables for cluster template
+* Add update action for quotas
+* Add delete action for quota
+* Add create action for quotas
+* Add quotas panel for admin
+* Add releasenotes links to README
+* Drop testenvs using django<=1.10 from tox
+* Updated from global requirements
+* add lower-constraints job
+* Add documentation link to README
+* Updated from global requirements
+* Install horizon directly from pypi
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update reno for stable/queens
+
+4.0.0
+-----
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add release notes for Queens
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Remove link to Stack
+* Updated from global requirements
+* Imported Translations from Zanata
+* Add javascript tests
+* Add stats and quota information for cluster table view
+* Use text-download service on horizon
+* Imported Translations from Zanata
+* Fix issue the deleted item is selected again with batch delete
+* Remove empty file
+* Imported Translations from Zanata
+* Fix update for labels
+* Add flavor, master flavor and labels for cluster create
+* Add insecure\_registry for cluster template
+* Add noValue filter for cluster template parameters
+* Show flavor\_id on cluster details view
+* Add APIs for Quotas
+* Imported Translations from Zanata
+* Add attributes for cluster to show
+* Use load-edit directive for Sign Certificate action
+* Add '.idea' into .gitignore
+* Imported Translations from Zanata
+* Remove setting of version/release from releasenotes
+* Updated from global requirements
+* Drop django\_openstack\_auth from requirements.txt
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Update and replace http with https for doc links
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update reno for stable/pike
+
+3.0.0
+-----
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fixed typo
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add release notes for Pike
+* Imported Translations from Zanata
+* Fix update action
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Use pbr autodoc feature rather than custom logic
+* Add configuration guide into docs
+* rearrange existing documentation to fit the new standard layout
+* Add REST API for stats list
+* Add CA rotate action for cluster
+* Add rollback option for cluster
+* Add docker volume size option for cluster
+* Imported Translations from Zanata
+* Fix URLs for each resource
+* Updated from global requirements
+* Switch from oslosphinx to openstackdocstheme
+* Updated from global requirements
+* Improve docs build
+* Clean up doc/ and releasenotes/
+* Imported Translations from Zanata
+* hacking: Specify white list rules in noqa explicity
+* ignore nose test results
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix html\_last\_updated\_fmt for Python3
+* Modify some spelling mistakes
+* Updated from global requirements
+* Change inputs for networks of cluster template into pulldowns
+* Set keypair properly on Create Cluster dialog
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Add dcos support for magnum-ui
+* Updated from global requirements
+* Fix breadcrumbs
+* Refresh test environment
+* Updated from global requirements
+* Updated from global requirements
+* Use detailRoute constant for path of details view
+* Updated from global requirements
+* Change http into https for home-page
+* Update test requirement
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update reno for stable/ocata
+* Remove support for py34
+* Imported Translations from Zanata
+
+2.2.0
+-----
+
+* Ocata summary release notes
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Remove Xstatic packages from requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fixed typo in the name "Overlay"
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix typo
+* Add release notes for update actions
+* Add update action for cluster
+* Change cluster creating action for using json schema
+* Add update action for cluster template
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Add release notes for Ocata
+* Imported Translations from Zanata
+* Change cluster\_template creating action for using json schema
+* Updated from global requirements
+* Imported Translations from Zanata
+* Add Python 3.5 classifier and venv
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Using sys.exit(main()) instead of main()
+* Set reasonable name to browser title bar
+* Use horizon's common "views" for Angular
+* Imported Translations from Zanata
+* Update $modal to $uibModal
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Use initAction instead initScope
+* Change creation actions to global
+* Imported Translations from Zanata
+* Create template without keypair and fix REST data
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Allow keypair in cluster creation
+* Remove mox in helpers.py
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Show team and repo badges on README
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add CONTRIBUTING.rst
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add javascript tests for deleteClustersDeleteService
+* Update karma coverage threshold values
+* Add javascript tests for clusterOverviewController
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Add javascript tests for clusterCreate
+* Change javascript tests for templateSpecController
+* Updated from global requirements
+* Imported Translations from Zanata
+* Add javascript tests for clusterSignCertificate model and service
+* Add javascript tests for clusterCreateInfoController
+* Don't include openstack/common in flake8 exclude list
+* Drop MANIFEST.in - it's not needed by pbr
+* Add javascript tests for clusterShowCertificateService
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Add javascript tests for ClusterTemplateCreateService
+* fix typo
+* Add javascript tests for templateOverviewController
+* Add javascript tests for ClusterTemplateModel
+* Imported Translations from Zanata
+* Add javascript tests for deleteClusterTemplateDeleteService
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Enable release notes translation
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Add javascript tests for create label/network/spec
+* Add javascript tests for createClusterTemplateInfoController
+* Imported Translations from Zanata
+* Updated from global requirements
+* Add Apache 2.0 license to source file
+* Fix URL for release notes in docs
+* Updated from global requirements
+* Imported Translations from Zanata
+* Remove unnecessary magnum\_ui/models.py file
+* Move listFunction and add javascript tests for cluster services
+* Fix column label on cluster table
+* Use Chrome for JS unit tests
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add javascript test for magnum.service.js
+* Add release notes for Newton
+* Add javascript tests for actions.modules.js
+* Update home page link in cfg file
+
+2.1.0
+-----
+
+* Imported Translations from Zanata
+* Add reno for releasenotes management
+* Ignore node\_modules in pep8
+* Fix showing Cluster Template info on Cluster details
+* Imported Translations from Zanata
+* Add .mo to .gitignore
+* Restrain a unnecessary request when a user click a panel
+* Shorten panel group caption
+* Add a file in karma.conf to pass js tests
+* Clean imports in code
+* Cleanup the test settings
+* Imported Translations from Zanata
+* Enable test coverage in run\_test.sh and tox
+* Imported Translations from Zanata
+* Fix eslint errors on Clusters and the others
+* Reorder item actions for cluster
+* Use "cluster" and "cluster\_template" of magnumclient
+* Fix eslint errors on Cluster Templates
+* Setup JavaScript test environment
+* Imported Translations from Zanata
+* Add sign certificate action to cluster panel
+* Add show certification action to cluster panel
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add REST api for Certificates
+* Imported Translations from Zanata
+* Revirt removing REST API loading
+* Use BadRequest in REST API
+* Revert "Clean up $scope usage"
+* Imported Translations from Zanata
+
+2.0.0
+-----
+
+* Fix tox and tests
+* Imported Translations from Zanata
+* Fix typo for bp/cluster-template-options
+* Imported Translations from Zanata
+* Fix typo
+* Clean up $scope usage
+* Add cluster template options
+* Rename bay and baymodel for 'Soft StringFreeze' milestone
+* Fix typo
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Use upper constraints for all jobs in tox.ini
+* Updated from global requirements
+* Add insecure/ca-cert option for magnumclient
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Use Horizon's Angular registry of Actions and Views
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Move enabled files
+* Rename service to 'container-infra'
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Updated from global requirements
+* Move magic-search bar out of the table structure
+* Updated from global requirements
+* Remove Container panel and action
+* Imported Translations from Zanata
+* Fix translation test
+* Imported Translations from Zanata
+* Remove version number to fix build
+
+1.0.0
+-----
+
+* tox tests should respect upper-constraints.txt
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Re-fix workflow styles
+* Fix workflow display and markup
+* Add Create Container action into Bay item action
+* Imported Translations from Zanata
+* Remove unused attribute "ssh\_authorized\_key"
+* Imported Translations from Zanata
+* Add setup description in DevStack
+* Fix Devstack and Magnum-ui interaction
+* Add DevStack plugin
+* Imported Translations from Zanata
+* Add actions to Bay detail view
+* Imported Translations from Zanata
+* Fix styles of table views
+* Add actions to Container detail view
+* Remove py27dj17 from tox.ini
+* Specify pbr version of magnum-ui
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add Create Bay action into BayModel item action
+* Refactor actions in Container table
+* Use action register service for BayModel actions
+* Refactor actions in Bay table
+* Remove unnecessary import lines from scss files
+* Remove unused pngmath Sphinx extension
+* Add missing <tr> tag in BayModel table view
+* Add actions to BayModel detail view
+* Remove unnecessary translate attribute for docker\_volume\_size
+* Add volume\_driver attribute to baymodel
+* Refactor actions in BayModel table view
+* Show human readable size and units
+* Imported Translations from Zanata
+* Update URLs to Django 1.8 style
+* Display "None" for "name" of the resource created without name
+* Add Bay Model Create View
+* Remove html5mode and hashPrefix setting from $locationProvider
+* Add link to bay view in create container dialog
+* Add link to baymodel view in create bay dialog
+* Replace deprecated library function os.popen() with subprocess
+* Imported Translations from Zanata
+* Add 'network-driver' and 'labels' to baymodel
+* Add stack\_id to bay detail view
+* Imported Translations from Zanata
+* Fix H405 violations
+* Use Horizon's plugin registration system
+* Add detail view for container
+* Change "a" tag to "button" tag for "Create" button
+* Imported Translations from Zanata
+* Support "null" to Bay Create Timeout in bay detail view
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Remove py26 and py33 support from setup.cfg
+* Deprecated tox -downloadcache option removed
+* Add "WEBROOT" variable to "base" tag in template HTML
+* Imported Translations from Zanata
+* Remove unnecessary translate attribute from bay detail view
+* Imported Translations from Zanata
+* Add detail view for bay
+* Add detail view for baymodel
+* Add REST API to get single baymodel
+* Add REST API to get single container
+* Add REST API to get single bay
+* Imported Translations from Zanata
+* Add create action to containers panel
+* Remove unnecessary double quote from bay create dialog
+* Refactor translate attribute and gettext() in bay panel
+* Add {$$} markup into hz-page-header's header attribute
+* Remove extra "translate" attribute from bay-create workflow
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Proper translation integration
+* Translation setup
+* Add Magic Search to Containers table
+* Add a panel and table to display Containers
+* Add Magic Search into Bay table
+* Add Magic Search into Bay Model table
+* Revice REST APIs
+* Add create action to bay panel
+* Add API for container create, delete, list, show
+* Add table view for Bay
+* Bay REST API
+* Fix select all button in table view
+* Add Bay Model Table View
+* The function name mistake in "api.rest.magnum"
+* API for Bays
+* API for BayModel
+* Add magnum api client
+* Fix setup.cfg
+* Initial skeleton repo
+* Added .gitreview

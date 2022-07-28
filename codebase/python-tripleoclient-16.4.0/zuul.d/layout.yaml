@@ -1,0 +1,33 @@
+- project:
+    templates:
+      - check-requirements
+      - openstackclient-plugin-jobs
+      - openstack-python3-ussuri-jobs
+      - publish-openstack-docs-pti
+      - release-notes-jobs-python3
+      - tripleo-buildimage-jobs
+      - tripleo-build-containers-jobs
+      - tripleo-multinode-container-minimal-pipeline
+      - tripleo-undercloud-jobs-pipeline
+      - tripleo-standalone-scenarios-pipeline
+      - tripleo-upgrades-wallaby-pipeline
+    check:
+      jobs:
+        - tripleo-ci-centos-8-content-provider:
+            dependencies:
+              - openstack-tox-pep8
+              - openstack-tox-py36
+              - openstack-tox-py37
+        - tripleo-ci-centos-8-containers-undercloud-minion:
+            vars:
+              consumer_job: true
+              build_container_images: false
+              remove_tags:
+                - build
+            dependencies:
+              - tripleo-ci-centos-8-content-provider
+            files:
+              - ^config-generator/.*minion.*$
+              - ^tripleoclient/config/.*minion.*$
+              - ^tripleoclient/v1/.*minion.*$
+              - ^tripleoclient/v1/tripleo_deploy.py$

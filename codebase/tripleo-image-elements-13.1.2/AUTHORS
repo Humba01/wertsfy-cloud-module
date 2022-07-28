@@ -1,0 +1,209 @@
+Adam Gandelman <adamg@ubuntu.com>
+Alex Holden <alex@alexjonasholden.com>
+Alex Schultz <aschultz@redhat.com>
+Alexis Lee <alexisl@hp.com>
+Alexis Lee <lxsli@hp.com>
+Alistair Coles <alistair.coles@hp.com>
+Ana Krivokapic <akrivoka@redhat.com>
+Andrea Frittoli <andrea.frittoli@hp.com>
+Andrea Rosa <andrea.rosa@hp.com>
+Andreas Florath <andreas.florath@telekom.de>
+Andreas Jaeger <aj@suse.com>
+Arata Notsu <notsu@virtualtech.jp>
+Ben Nemec <bnemec@redhat.com>
+Ben Nemec <openstack@nemebean.com>
+Bob Fournier <bfournie@redhat.com>
+Brad P. Crochet <brad@redhat.com>
+Brian Haley <brian.haley@hp.com>
+Brian Hou <brianhou89@gmail.com>
+Carlos Camacho <ccamacho@redhat.com>
+Chandan Kumar (raukadah) <chkumar@redhat.com>
+Chris Jones <chris.jones@canonical.com>
+Chris Jones <cmsj@tenshu.net>
+Chris Krelle <nobodycam@gmail.com>
+Christian Berendt <berendt@b1-systems.de>
+Chuck Short <chucks@redhat.com>
+Clint Byrum <clint.byrum@hp.com>
+Clint Byrum <clint@fewbar.com>
+Coleman Corrigan <coleman.corrigan@hp.com>
+Corey Bryant <corey.bryant@canonical.com>
+Dan Prince <dprince@redhat.com>
+Darragh Bailey <dbailey@hp.com>
+Dave McNally <dave.mcnally@hp.com>
+David Hill <dhill@redhat.com>
+David Vallee Delisle <dvalleed@redhat.com>
+David Vallee Delisle <dvd@redhat.com>
+Derek Higgins <derekh@redhat.com>
+Devananda van der Veen <devananda.vdv@gmail.com>
+Dima Shulyak <dshulyak@mirantis.com>
+Dirk Mueller <dirk@dmllr.de>
+Donagh McCabe <donagh.mccabe@hp.com>
+Doug Hellmann <doug@doughellmann.com>
+Dougal Matthews <dougal@redhat.com>
+Eamonn O'Toole <eamonn.otoole@hp.com>
+Ed Bak <ed.bak2@hp.com>
+Elizabeth Krumbach <lyz@princessleia.com>
+Emett Speer <speer.emett@gmail.com>
+Emilien Macchi <emilien@redhat.com>
+Endre Karlson <endre.karlson@hp.com>
+Erik Colnick <erik.colnick@hp.com>
+Flavio Percoco <flaper87@gmail.com>
+François Charlier <francois.charlier@redhat.com>
+Gerry Drudy <gerry.drudy@hp.com>
+Ghanshyam Mann <gmann@ghanshyammann.com>
+Ghe Rivero <ghe.rivero@gmail.com>
+Ghe Rivero <ghe.rivero@hp.com>
+Ghe Rivero <ghe@debian.org>
+Ghe Rivero <ghe@rivero.io>
+Giulio <gfidente@redhat.com>
+Giulio Fidente <gfidente@redhat.com>
+Gonéri Le Bouder <goneri.lebouder@enovance.com>
+Graeme Gillies <ggillies@redhat.com>
+Greg Lucas <glucas@tesora.com>
+Gregory Haynes <greg@greghaynes.net>
+Haneef Ali <haneef.ali@hp.com>
+Hervé Beraud <hberaud@redhat.com>
+Ian Main <imain@redhat.com>
+Ian Wienand <iwienand@redhat.com>
+Imre Farkas <ifarkas@redhat.com>
+JUN JIE NAN <nanjj@cn.ibm.com>
+James E. Blair <jeblair@redhat.com>
+James Polley <jp@jamezpolley.com>
+James Slagle <jslagle@redhat.com>
+Jan Grant <jan.grant@hp.com>
+Jan Provaznik <jprovazn@redhat.com>
+Jay Dobies <jason.dobies@redhat.com>
+Jeffrey J. Walls <jeff.walls@hp.com>
+Jerry Zhao <zhaoxinyu@huawei.com>
+Jiri Stransky <jistr@redhat.com>
+Joe Gordon <joe.gordon0@gmail.com>
+John Trowbridge <trown@redhat.com>
+Jon-Paul Sullivan <jonpaul.sullivan@hp.com>
+Jonathan Brownell <brownell@hp.com>
+Joseph Davis <joseph.a.davis@hp.com>
+Juan Antonio Osorio Robles <jaosorior@redhat.com>
+Julia Kreger <juliaashleykreger@gmail.com>
+Julie Pichon <jpichon@redhat.com>
+Kambiz Aghaiepour <kambiz@redhat.com>
+Kiall Mac Innes <kiall@hp.com>
+Ladislav Smola <lsmola@redhat.com>
+Lennart Regebro <lregebro@redhat.com>
+Lennart Regebro <regebro@gmail.com>
+Loganathan Parthipan <parthipan@hp.com>
+Lon Hohberger <lhh@redhat.com>
+Lorcan <lorcan.browne@hp.com>
+Lucas Alvares Gomes <lucasagomes@gmail.com>
+Lukas Bezdicka <lbezdick@redhat.com>
+Mariusz <mariusz.karpiarz@vscaler.com>
+Mark McLoughlin <markmc@redhat.com>
+Martin André <m.andre@redhat.com>
+Martin André <martin.andre@kvhasia.com>
+Mathieu Velten <mathieu.velten@cern.ch>
+Matthew Flusche <mflusche@redhat.com>
+Matthew Gilliard <matthew.gilliard@hp.com>
+Matthew Macdonald-Wallace <matthew.macdonald-wallace@hp.com>
+Michael Johnson <johnsom@hp.com>
+Michael Kerrin <michael.kerrin@hp.com>
+Michael Tupitsyn <mikhail.tupitsyn@hp.com>
+Michele Baldessari <michele@acksyn.org>
+Mike Burns <mburns@redhat.com>
+Min Pae <sputnik13@gmail.com>
+Mitsuhiro SHIGEMATSU <shigematsu.mitsuhiro@lab.ntt.co.jp>
+Monty Taylor <mordred@inaugust.com>
+NTTdocomo <openstack-contributor-ml@nttdocomo.com>
+NTTdocomo-openstack <openstack-contributor-ml@nttdocomo.com>
+Natal Ngétal <hobbestigrou@erakis.eu>
+Nguyen Hai Truong <truongnh@vn.fujitsu.com>
+Nicholas Randon <nicholas.randon@hp.com>
+NoBodyCam <nobodycam@gmail.com>
+Oliver Walsh <owalsh@redhat.com>
+Om Kumar <om.kumar@hp.com>
+Ondřej Nový <ondrej.novy@firma.seznam.cz>
+OpenStack Release Bot <infra-root@openstack.org>
+Phil Neal <phil.neal@hp.com>
+Radomir Dopieralski <openstack@sheep.art.pl>
+Ralf Haferkamp <rhafer@suse.de>
+Richard Su <rwsu@redhat.com>
+Robert Collins <rbtcollins@hp.com>
+Robert Collins <robertc@robertcollins.net>
+Roman Podoliaka <rpodolyaka@mirantis.com>
+Roman Podolyaka <rpodolyaka@mirantis.com>
+Ronelle Landy <rlandy@redhat.com>
+Ryan Brady <rbrady@redhat.com>
+Ryan Moore <ryan.moore@hp.com>
+Ryan O'Hara <rohara@redhat.com>
+Sagi Shnaidman <sshnaidm@redhat.com>
+Sascha Peilicke <saschpe@gmx.de>
+Sascha Peilicke <speilicke@suse.com>
+Saurabh Surana <saurabh.surana@hp.com>
+Shane Wang <shane.wang@intel.com>
+Sorin Sbarnea <ssbarnea@redhat.com>
+Stefano Canepa <stefano.canepa@hp.com>
+Stephen Ma <stephen.ma@hp.com>
+Stephen Mulcahy <stephen.mulcahy@hp.com>
+Steve Baker <sbaker@redhat.com>
+Steve Kowalik <steven@wedontsleep.org>
+Steve McLellan <steven.j.mclellan@gmail.com>
+Steven Hardy <shardy@redhat.com>
+Stuart McLaren <stuart.mclaren@hp.com>
+Summer Barringer <yves.summer@gmail.com>
+Surya Prakash Singh <surya.singh@nectechnologies.in>
+Sushil Kumar <sushil.kumar2@globallogic.com>
+Sven Anderson <sven@redhat.com>
+Swapnil Kulkarni (coolsvap) <me@coolsvap.net>
+Therese McHale <therese.mchale@hp.com>
+Thom Leggett <thom@tteggel.org>
+Thomas Bechtold <tbechtold@suse.com>
+Thomas Herve <thomas.herve@enovance.com>
+Tim Miller <tim.miller.0@gmail.com>
+Tom Cammann <tom.cammann@hp.com>
+Tom Hancock <Tom.Hancock@hp.com>
+Tom Hancock <tom.hancock@hp.com>
+Tom Howley <tom.howley@hp.com>
+Tomas Sedovic <tomas@sedovic.cz>
+Tomas Sedovic <tsedovic@redhat.com>
+Trent Geerdes <trent.geerdes@hp.com>
+Tzu-Mainn Chen <tzumainn@redhat.com>
+Victor Lowther <victor.lowther@gmail.com>
+Wes Hayutin <weshayutin@gmail.com>
+Wojciech Dec <wdec@cisco.com>
+Xiao Xi LIU <liuxx@cn.ibm.com>
+XiaojueGuan <guanalbertjone@gmail.com>
+Yanis Guenane <yanis@guenane.org>
+Yanis Guenane <yguenane@redhat.com>
+Yolanda Robla <yroblamo@redhat.com>
+Yolanda Robla Mota <yroblamo@redhat.com>
+Zhenzan Zhou <zhenzan.zhou@intel.com>
+Zhuo Zhen <zhenz@uchicago.edu>
+andrea-frittoli <andrea.frittoli@hp.com>
+chriskrelle <chriskrelle@tooltester.(none)>
+confi-surya <singh.surya64mnnit@gmail.com>
+daniel-a-nguyen <dan.nguyens.mail@gmail.com>
+dekehn <dekehn@gmail.com>
+geerdest <geerdest@Z420.(none)>
+gujin <gu.jin@99cloud.net>
+howardlee <lihongweibj@inspur.com>
+huang.zhiping <huang.zhiping@99cloud.net>
+jacky06 <zhang.min@99cloud.net>
+janonymous <janonymous.codevulture@gmail.com>
+jiangfei <jiangfei0622@huawei.com>
+lifeless <robertc@robertcollins.net>
+lin-hua-cheng <os.lcheng@gmail.com>
+lokesh <lokesh.s@hp.com>
+marios <marios@redhat.com>
+nilakhya <nilakhya.chatterjee@globallogic.com>
+pcrews <gleebix@gmail.com>
+pengyuesheng <pengyuesheng@gohighsec.com>
+ptoohill1 <phillip.toohill@rackspace.com>
+qingszhao <zhao.daqing@99cloud.net>
+rabi <ramishra@redhat.com>
+root <root@instack.localdomain>
+sayalilunkad <sayali.lunkad@suse.com>
+sbauza <sbauza@free.fr>
+shartapa <tapans@hp.com>
+tanlin <lin.tan@intel.com>
+tapans@hp.com <tapans@hp.com>
+tengqm <tengqim@cn.ibm.com>
+vinshvin <adam.vinsh@hp.com>
+zhangyanxian <zhang.yanxian@zte.com.cn>
+zhouxinyong <zhouxinyong@inspur.com>

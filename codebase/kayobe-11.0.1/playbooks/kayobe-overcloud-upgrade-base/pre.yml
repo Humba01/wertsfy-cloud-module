@@ -1,0 +1,26 @@
+---
+- hosts: primary
+  tasks:
+    # NOTE(mgoddard): The kayobe dev config by default expects a bridge -
+    # breth1 - to exist with an IP address of 192.168.33.3.
+    - import_role:
+        name: kayobe-network-bootstrap
+      vars:
+        bridge_interface: breth1
+        bridge_ip: 192.168.33.3
+        bridge_prefix: 24
+        bridge_port_interface: dummy1
+
+    # NOTE(mgoddard): Use the name zz-overrides.yml to ensure this takes
+    # precedence over the standard config files.
+    - name: Ensure kayobe-config override config file exists
+      template:
+        src: overrides.yml.j2
+        dest: "{{ previous_kayobe_config_src_dir }}/etc/kayobe/zz-overrides.yml"
+      vars:
+        is_previous_release: true
+
+    - name: Ensure kolla-ansible globals.yml override config file exists
+      template:
+        src: globals.yml.j2
+        dest: "{{ previous_kayobe_config_src_dir }}/etc/kayobe/kolla/globals.yml"

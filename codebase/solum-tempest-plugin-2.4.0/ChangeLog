@@ -1,0 +1,60 @@
+CHANGES
+=======
+
+2.4.0
+-----
+
+* Add victoria/wallaby/xena stable branch jobs on master gate
+* Remove the ReleaseReporter
+
+2.3.0
+-----
+
+* [goal] Migrate solum-tempest-plugin jobs to focal
+* Fix hacking min version to 3.0.1
+* Add stable branch jobs on the plugins master gate
+* Update docs building, cleanup
+
+2.0.0
+-----
+
+* Remove six usage
+* Cleanup py27 support
+* Drop python 2.7 support and testing
+
+1.1.0
+-----
+
+* Fix invalid link
+* Add Python 3 Train unit tests
+* Update contraints url
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Removed older version of python added 3.5/3.6
+* Update solum camp config
+* Add to tempest plugin
+* Python 2/3 compatible[2]
+* Python 2/3 compatible
+* Change openstack-dev to openstack-discuss
+* Optimizing the safety of the http link site in HACKING.rst
+* [Trivial Fix] update home-page url
+* import zuul job settings from project-config
+
+1.0.0
+-----
+
+* Remove the unused docs
+* Update the README.rst file
+* Switch to use stestr for unit test
+* Update the documentation and release notes links
+* change default python 3 env in tox to 3.5
+* fix tox python3 overrides
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove the version test
+* Move tempest tests from solum repo to solum-tempest-plugin
+* Initial Cookiecutter Commit
+* Added .gitreview

@@ -1,0 +1,70 @@
+Metadata-Version: 1.2
+Name: python-brick-cinderclient-ext
+Version: 1.5.0
+Summary: python-cinderclient extension for local storage management
+Home-page: http://docs.openstack.org/cinder/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ========================
+        Team and repository tags
+        ========================
+        
+        .. image:: https://governance.openstack.org/tc/badges/python-brick-cinderclient-ext.svg
+            :target: https://governance.openstack.org/tc/reference/tags/index.html
+        
+        .. Change things from this point on
+        
+        =============================
+        python-brick-cinderclient-ext
+        =============================
+        
+        OpenStack Cinder Brick client for local volume attachement
+        
+        Features
+        --------
+        
+        * Get volume connector information
+        
+        
+        Dependencies
+        ------------
+        
+        Requires dependency::
+        
+        * python-cinderclient
+        
+        Optional dependencies based on Cinder driver's protocol::
+        
+        * open-iscsi, udev - for volume attachment via iSCSI
+        
+        NOTE (e0ne): current version is tested on Linux and Windows hosts
+        
+        For any other information, refer to the parent projects, Cinder and
+        python-cinderclient::
+        
+        *  https://opendev.org/openstack/cinder
+        *  https://opendev.org/openstack/python-cinderclient
+        
+        * License: Apache License, Version 2.0
+        * Documentation: https://docs.openstack.org/python-brick-cinderclient-ext/latest/
+        * Source: https://opendev.org/openstack/python-brick-cinderclient-ext
+        * Bugs: https://bugs.launchpad.net/python-cinderclient
+        * Release notes: https://docs.openstack.org/releasenotes/python-brick-cinderclient-ext
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6

@@ -1,0 +1,9 @@
+---
+- name: Ensure docker is configured
+  hosts: docker
+  tags:
+    - docker
+  vars:
+    - docker_upper_constraints_file: "{{ pip_upper_constraints_file }}"
+  roles:
+    - role: docker

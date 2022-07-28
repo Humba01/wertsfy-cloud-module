@@ -1,0 +1,4 @@
+[console_scripts]
+bifrost_inventory = bifrost.inventory:main
+bifrost_inventory.py = bifrost.inventory:main
+

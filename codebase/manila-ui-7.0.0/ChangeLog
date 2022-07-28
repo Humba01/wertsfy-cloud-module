@@ -1,0 +1,619 @@
+CHANGES
+=======
+
+7.0.0
+-----
+
+* Update python-manilaclient and horizon required
+* Add platform annotation in bindep.txt
+* Update python testing classifier
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+6.0.0
+-----
+
+* Follow up patch for API v2.45, fixes bug on rule metadata form
+* API v2.46, added 'is\_default' field to share group types
+* API v2.46, added 'is\_default' field to share types
+* API v2.45, adds metadata support to access rules
+* Set parent share az when creating a share from snapshot
+* Changed minversion in tox to 3.18.0
+* Fix share group creation with share types
+* [CI] Temporarily set integration test job to non-voting
+* Fix parsing names in switched fields
+* setup.cfg: Replace dashes with underscores
+* Remove nova networking
+* Support policy-in-code and deprecated policy
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+5.0.0.0rc1
+----------
+
+* follow up fix to share-shrinking
+*  API v2.44, added 'ou' field to security service
+* filter search by extra spec for share type list
+* Add example of logging setting for Manila
+* Addition of share shrinking feature to Manila-UI
+* remove unicode from code
+* Imported Translations from Zanata
+* Define the default policy file
+* tox miniversion update to 3.1.1
+* Updates testenv to py38 and removes RIZON\_INTEGRATION\_TESTS\_CONFIG\_FILE
+* Use TOX\_CONSTRAINTS\_FILE
+* API v2.41, create share type with description
+* Adds "message\_level" to user messages panel
+* Update requirements
+* API v2.40, share groups quotas
+* Add py38 package metadata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Improve label for Share Update Form
+* Changes to Share Update Functionality in Manila UI
+* Imported Translations from Zanata
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+4.0.0
+-----
+
+* Remove install unnecessary packages
+* Improve unit test coverage for manila.py
+* Make \`\`cover\`\` job non-voting
+* User messages panel
+* tox: specify ignore\_basepython\_conflict
+* [goal] Migrate testing to ubuntu focal
+* Drop legacy dsvm job & change zuulv3 integration job
+* Switch to newer openstackdocstheme and reno versions
+* Fix hacking min version to 3.0.1
+* TrivialFix: Remove unnecessary future import
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+* [ussuri][goal] Change contributor guide
+* Imported Translations from Zanata
+* Drop install\_command usage in tox
+* Imported Translations from Zanata
+
+3.0.0
+-----
+
+* Remove mock from requirements
+* Cleanup py27 support
+* Imported Translations from Zanata
+* Add pytest to test-requirements
+* Add support for API version 2.38
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add support for API version 2.34
+* Fix pyScss version in lower-constraints.txt
+* Use unittest.mock instead of third party mock
+* Update hacking for Python3
+* Add availability zone field for public shares
+* Add missing translation support markings
+* Raise python-manilaclient req to 1.29.0
+* Update API version to 2.33
+* Imported Translations from Zanata
+* Remove six usage
+* Drop Django 1.11 support
+* translation: drop babel extractor definitions
+* Error handling: Use exceptions.handle instead of check\_message
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Drop python2.7 support
+* Drop snapshot\_support param from share\_type\_create
+* Change Ussuri python jobs template
+* Switch to Ussuri jobs
+* Use Horizon project template for django jobs
+* Switch from django string\_concat to format\_lazy
+* Imported Translations from Zanata
+* Update the constraints url
+* Imported Translations from Zanata
+* Update master for stable/train
+
+2.19.0
+------
+
+* Add PDF documentation build
+* Updated to get quotas data for Modify Quotas dialog Share tab
+* Replace the old-operator in installation docs
+* Limit envlist to py37 for Python 3 Train goal
+* Use openstack-python3-train-jobs for python3 test runtime
+* Modify the url of upper\_constraints\_file
+* Remove the get\_item method
+* Update sphinx dependency
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Add Python 3.6 and Python 3.7 jobs
+* Dropping the py35 testing
+* Update master for stable/stein
+
+2.18.0
+------
+
+* Fix share replica details page for non-admins
+* Don't show host field in project tables
+* Add share servers to share network detail
+* Show share network details to non-admin
+* Replace openstack.org git:// URLs with https://
+* base job has changed to bionic
+* Imported Translations from Zanata
+* [CI] Run integration tests with tls-proxy
+* Add manila-ui integration tests
+
+2.17.0
+------
+
+* Run dsvm job under python3
+* Update hacking version
+* migrate legacy job to bionic
+* Imported Translations from Zanata
+* Change openstack-dev to openstack-discuss
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* fix tox python3 overrides
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add ability to test Manila UI with Horizon master branch
+* Use templates for cover and lower-constraints
+* Remove dead code
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Fix location for coverage reports
+* Imported Translations from Zanata
+* Drop nose dependencies
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Use 'trimmed' for blocktrans in multi-line strings
+* Update reno for stable/rocky
+
+2.16.0
+------
+
+* Imported Translations from Zanata
+* Fix quotas retrieval for shares and snapshots tables
+* Remove use\_mox directive
+* Drop Django depdency from requirements.txt
+* Update the home-page link
+* Add Apple OS X ".DS\_Store" to ".gitignore" file
+* Add line for PyCharm IDE in gitignore file
+* Add py36 testenv
+* fix tox python3 overrides
+* Update installation docs for Manila UI
+* Imported Translations from Zanata
+* Add python3 django 1.11 job instead of django 2.0 job
+
+2.15.0
+------
+
+* Consume py35 project template from project-config
+* Remove unnecessary noqa
+* Fix UT failures due to horizon tenant\_limit\_usages drop
+* Imported Translations from Zanata
+* Require the (soon-to-be) Rocky version of Horizon
+* Add release notes link to README
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Django 2.0 support
+* Remove try-catch from test\_data imports
+* Make manila-ui python3 compatible
+* Imported Translations from Zanata
+* add lower-constraints job
+* Fix warnings on py27 environment
+
+2.14.0
+------
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Move the job manila-ui-dsvm in-tree
+* Updated from global requirements
+* Use EXTRA\_TABS/EXTRA\_STEPS mechanism to handle manila quotas
+* Update links in README
+* Add horizon to requirements
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update reno for stable/queens
+* Imported Translations from Zanata
+* Correct django template pattern in babel-django.cfg
+* Updated from global requirements
+* Imported Translations from Zanata
+
+2.13.0
+------
+
+* Imported Translations from Zanata
+* Updated from global requirements
+* Import user and admin guide from horizon
+* Reorganize manila-ui documentation
+* Remove empty files
+* Updated from global requirements
+
+2.12.0
+------
+
+* Remove setting of version/release from releasenotes
+* Updated from global requirements
+* Drop django\_openstack\_auth from requirements.txt
+* Updated from global requirements
+
+2.11.0
+------
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix quota bars in Create Share panel
+* Updated from global requirements
+* Imported Translations from Zanata
+* Add quota.type field when reporting share usage
+* Manila-UI breaks Horizon's "Network" panel group
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* doc migration: warning-is-error
+* Update reno for stable/pike
+* doc migration: new directory layout
+* doc migration: openstackdocstheme
+* Imported Translations from Zanata
+* Updated from global requirements
+
+2.10.1
+------
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Optimize the link address
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+
+2.10.0
+------
+
+* Add support of share groups
+* Imported Translations from Zanata
+* Updated from global requirements
+* Update URLs in documentation
+* Updated from global requirements
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Update .gitignore to ignore .eggs
+* Imported Translations from Zanata
+* Enable some off-by-default checks
+* Imported Translations from Zanata
+* Some tweaks for modal forms
+
+2.9.0
+-----
+
+* Imported Translations from Zanata
+* Refactor project dashboard
+* Refactor admin dashboard
+* Fix compatibility with latest horizon
+* Use parse\_isotime filters for Share Replicas table columns
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Fix compatibility with Horizon
+* Updated from global requirements
+* Imported Translations from Zanata
+* Fix NotImplementedError and use new way to define action\_present/past
+* Fix 'cover' tox job
+* Fix manila quota operations
+* Fix share creation from snapshot
+* Add possibility to revert a share to a snapshot
+* Update tox envlist
+* Updated from global requirements
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+
+2.8.0
+-----
+
+* Updated from global requirements
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Clean docs/build before building docs
+* Fix 2 CI breakages
+* Updated from global requirements
+* Update test requirement
+* Correct the actual path for setting DJANGO\_SETTINGS\_MODULE
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix Manage Replicas button availability
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Remove link to modindex
+* Update reno for stable/ocata
+
+2.7.0
+-----
+
+* Add mountable snapshots support to manila-ui
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Implement Share Migration Ocata improvements
+* Bump microversion to 2.26
+* Add MapRFS protocol
+
+2.6.0
+-----
+
+* Updated from global requirements
+* Changed the home-page of manila-ui
+* Imported Translations from Zanata
+* Update settings file with all available config options
+* Only show available share protocols on share creation modal
+* Disable creation of public shares per configuration
+* Fix some typos in cover.sh
+* Ignore current share's size in extend quota bar
+* Moves OPENSTACK\_MANILA\_SETTINGS TO local\_settings.d/
+* Imported Translations from Zanata
+* Updated from global requirements
+* Add access key column to rules table
+* Show team and repo badges on README
+* Imported Translations from Zanata
+* Adds Manila-UI Devstack plugin
+* Update README.rst file with more info
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Updated from global requirements
+* Enable release notes translation
+* Updated from global requirements
+* Fix broken unit tests
+* Fix metadata\_to\_str function code injection vulnerability
+* Fix migration-start id-dependent form
+* Fix display of Delete share replica button
+* Clean imports in code
+* Update reno for stable/newton
+* Imported Translations from Zanata
+* Read list of AZs using manila's API instead of nova's
+* Imported Translations from Zanata
+* Change Create Replica button availability
+
+2.5.0
+-----
+
+* Add share type change to Share Migration UI
+* Add Share Migration support
+* Add share replication support
+
+2.4.0
+-----
+
+* [Trivial] Fix Share Network details field
+* Fix tables layout
+* Use upper constraints in tox installs
+* Imported Translations from Zanata
+* Disable creation of public share types per configuration
+* Updated from global requirements
+* Fix py27 and py27dj19 gates
+* Updated from global requirements
+* Fix get\_disabled\_quotas
+* Correct typo
+* Update Django 1.10 tox env
+* Fix Django 1.9 unit tests
+* Delete openstack/common from the exclude list of flake8 in tox
+* Remove unit tests warnings
+* Imported Translations from Zanata
+* Updated from global requirements
+* Table actions improvement
+* Remove Cinder leftovers from Create Snapshot View
+* Fix improperly rendered Create Snapshot modal form
+* Remove incorrect docstrings
+* Update Share Metadata modal form refactoring
+* Fix unit tests for Django 1.9
+* Register apps in unit tests properly
+* Fix unit tests
+* Updated from global requirements
+* Fix improperly rendered Edit Share modal form
+* Fix improperly rendered Update Security Service modal form
+
+2.3.0
+-----
+
+* Fix Edit Snapshot action
+* Remove vim headers
+* Updated from global requirements
+* Unit test for Create Share Type
+* Updated from global requirements
+* Update Share Snapshot modal form refactoring
+* Create Share Snapshot modal form refactoring
+* Imported Translations from Zanata
+* Extend Share and Add Rule modals refactoring
+* Fix error handling for 'extend' share operation
+* Updated from global requirements
+* Updated from global requirements
+* Fix py27 tox job
+* Clean Update Share Type modal form
+* Clean Shares modal forms
+* Clean Security Services modal forms
+* Imported Translations from Zanata
+* Clean Create Share Network modal form
+* Clean Create Share Type modal form
+* Remove discover from test-requirements
+* Add RDO install instructions for Manila UI
+* Updated from global requirements
+
+2.2.0
+-----
+
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Add support for releasenotes
+* Create private share types
+* Imported Translations from Zanata
+* Cleanup of CreateShareType form
+* Update HTML template for snapshot detailed page
+* Update HTML template for share network detailed page
+* Update HTML template for security service detailed page
+* Imported Translations from Zanata
+* Updated from global requirements
+* Fix usages view on project/overview page
+* Update detailed page for share servers
+* Fix mocks in unit tests
+* Remove redundant API calls from admin dashboard
+* Add share instances tab to admin dashboard
+* Updated from global requirements
+* Add 'cephx' access type
+* Enable translation for manila-ui
+* Updated from global requirements
+* Register Manilaclient exceptions in Horizon
+* Updated from global requirements
+* Use latest Manila API microversion
+* Place all unit tests under single subdir
+* Make 'cover' job use always venv
+* Upgrade coverage tox job
+* Updated from global requirements
+
+2.1.0
+-----
+
+* Updated from global requirements
+
+2.0.0
+-----
+
+* Updated from global requirements
+* Fix compatibility with Manilaclient and Horizon
+* remove python 3.3 trove classifier
+* Drop MANIFEST.in - it's not needed with PBR
+* Remove "builtins = \_" from tox.ini
+* remove python 2.6 trove classifier
+* Can not create a LDAP security-service with no auth
+* Remove import of unnecessary modules from Horizon
+* Fix call to Client() with 2 api\_version args
+* Updated from global requirements
+* Remove unused Manila API methods
+* Updated from global requirements
+* Use "GiB" and "gibibyte" labels in share panels
+* Updated from global requirements
+* Updated from global requirements
+
+1.2.0
+-----
+
+* Updated from global requirements
+* Change ignore-errors to ignore\_errors
+* Use v2 API of Manila
+* Updated requirements and unit tests config
+* Disable button 'create snapshot' if share not snapshottable
+* Fix broken unit test
+* Add availability zones support to manila-ui
+* Fix set/unset extra specs for share type update form
+* Remove overrides reference from Manila-UI plug-in
+* Add extend support to manila-ui
+* Fix breakage of unit tests
+* Switch to post-versioning
+
+1.1.0
+-----
+
+* Fix broken unit tests
+* Remove usage of openstack.common.\_i18n module
+* Add mock manilaclient to APITestCase class
+* Use UPDATE\_HORIZON\_CONFIG for manila\_ui.overrides
+* Show test names and results instead of "." and "S"
+* Set new address of manila-ui repo in file README.rst
+* Add .gitreview file for manila-ui
+* Set version number to 1.1.0
+* Fix AttrError on share creation form with django 1.6-1.7
+* Fix pep8 violations
+* Make status values translatable
+* Upgrade to django 1.7
+* Reduce title duplication, concatenation in Project Shares
+* Fix pep8 violations
+* Remove horizon patch installation from README
+* Remove unused templates
+* Reduce title duplication, concatenation in Admin Shares
+* Enable unit testing via tox
+* Update unit test instructions in README
+* Remove unused unit test code
+* Skip broken unit tests
+* Fix pep8 violations via run\_tests.sh -p
+* Enable unit tests to run standalone
+* Include unit test instructions
+* Remove broken links from README
+* Revert "Fix error referencing missing attribute"
+* Adjust expected strings
+* Fix error referencing missing attribute
+* Fix metadata conversion
+* Expect exception properly
+* Add missing mock calls
+* Resolve unit test failures from missing keystone data
+* Ignore secret key lock files
+* Enable unit tests to resolve urls properly
+* Bump manilaclient version to 1.0.4
+* Fix two typos in share network messages
+* Fix pep8 violations
+* Add nova-network support to share-networks of Manila
+* Open Liberty development
+* Add version into setup.cfg
+* Update README to include needed horizon patch
+* Add installation instructions
+* Pull all snapshots on admin tab
+* Make share name in 'manage' form optional
+* Update share type creation form
+* Switch couple of elements on share creation form
+* Display attr 'host' on share detailed page
+* Fix view of projects selection for private share types
+* Fix appearance of share delete button in projects tab
+* Add attr 'has\_snapshot' for each share in share table
+* Add support of API manage/unmanage for Manila
+* Add support for setting of share type access
+* Make tab 'Share Types' starting from both capitals
+* Add posibility to set visibility attr for share types
+* Add support of 'is\_public' attr for shares
+* Show all export locations on share detail page
+* Fix view of metadata on shares tab
+* Add links to snapshot and share network on shares detailed page
+* Fix share creation form when share\_type is not provided
+* Rename deprecated "sid" to "user" (security services for shares)
+* Fix access rules handling
+* Remove logic that was moved into override.py
+* Change overview label to "Share Networks"
+* Incoporate get\_item filter
+* Enable full quota, overview functionality
+* Get quotas working enough to permit creating shares
+* Remove unused references to mox
+* Initial attempt to get unit tests working
+* Fix pep8 violations
+* Enable projects, admin panels to load
+* Import code from manila\_kilo branch of manila UI
+* Initial project creation

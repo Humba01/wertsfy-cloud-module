@@ -1,0 +1,303 @@
+CHANGES
+=======
+
+0.12.0
+------
+
+* Bump pod exec timeout in Service connectivity tests
+* Remove support for OCP Routes
+* Limit number of K8s API requests
+* Improve test\_egress\_np\_to\_service\_wo\_selectors
+* Temporarily disable stable jobs
+* Amend NP CRD pod selector check loop
+* Define new test\_endpoints\_object\_removal config option
+* Fix lb\_reconcile\_timeout exception formatting
+* Add test\_service\_with\_not\_ready\_endpoints test
+* Amend check\_sg\_rules\_for\_np() method
+* Add wait until active LB in NP test
+* Tune curl repetitions value
+* Ensure lb is active before checking connectivity
+* Fix check\_controller\_pod\_status\_for\_time\_period()
+* Fix test\_port\_pool when namespace is created
+* Remove LB\_TIMEOUT in favor of lb\_build\_timeout
+* Change get\_readiness\_state() return type
+* Fallback from V1EndpointPort to CoreV1EndpointPort
+* Small improvement in method definition and reference
+* Fix Namespace handling in port pool
+* Update scale deployment
+* Update test\_service\_without\_selector test
+* Increase timeout waiting for namespace deletion
+* Enable kuryr tempests tests again
+* Ensure connectivity is checked after members are configured
+* Ensure lb is ACTIVE before connectivity check
+* Add sleep between calls to Octavia API
+* Add xena jobs on master gate
+* Fix Namespace handling
+* Add Kuryr-tempest-plugin test for LoadBalancer Reconciliation
+
+0.11.0
+------
+
+* Check LB members when scaling a deployment
+* Check service longevity
+
+0.10.0
+------
+
+* setup.cfg: Replace dashes with underscores
+* Add service hairpin traffic test
+* Add stable/wallaby jobs on master gate
+* Adds tests for making listener timeouts configurable
+
+0.9.0
+-----
+
+* Fix create\_vm\_for\_connectivity\_test
+* Adds connectivity test for SCTP service
+* Increase the timeout for controller to be ready
+* Make stable/train job non-voting
+* Updates Kuryr tempest README
+* Adds Kuryr-sctp-demo application
+* Make Stein gate non-voting
+* New test for services without selectors with NP
+* Change registry from docker.io to quay.io for test container image
+* Remove uselsess files and tests
+
+0.8.0
+-----
+
+* Create Tempest case to ensure Services without Selectors
+* Use registry at quay.io instead of docker.io
+* Split checks in test\_network\_policy\_add\_remove\_pod
+* Add stable/victoria job
+* Increase timeout to read pod commands results
+* Use abc in network policy tests
+* Fixing test\_ipblock\_network\_policy\_sg\_rules
+* Add test\_network\_policy\_add\_remove\_pod
+* Remove releasenotes test from envlist
+* Fix container test image
+* Bump py37 to py38 in tox.ini
+* [goal] Migrate kuryr-tempest-plugin jobs to focal
+
+0.7.0
+-----
+
+* Fail get\_controller\_pod\_names when no pods found
+* Support for vifs being in 'spec' and 'status' objects
+* Remove skip of test\_service\_udp\_ping
+* Support KuryrLoadbalancer CRD
+* Adapt NP tests to new CRD format
+* Fix test in order to work with new kuryrport CRD
+* Skip service\_udp\_ping until Bug 1886909 is fixed
+* Workaround missing DIB on stable jobs
+* Retrieve KuryrNets CR when supported
+* Use unittest.mock instead of mock
+* Switch to newer openstackdocstheme version
+* Add py38 package metadata
+* Raise timeout exception kuryrnetwork events
+* Fix a typo in base
+* Raise Time out exception for Network policy events
+
+0.6.0
+-----
+
+* Fix hacking min version to 3.0.1
+* Add stable branch jobs on the plugins master gate
+* Install plugin system-wide if INSTALL\_TEMPEST is set
+* Adapt Network Policy tempest tests for IPv6
+* Update docs building, py27 cleanup
+* Check connectivty from within the cluster
+* Add retry for check ports in test\_port\_pool
+* Retry exec\_command\_in\_pod
+* Adapt namespace test to the kuryrnetwork CRD object
+* Limit time for pod creation
+* Check ingress and egress IPBlock rules for NP
+* Fix Python 2 compatiblity
+* Basic IPv6 support
+* Fix the decorator argument for failing test
+* [ussuri][goal] Drop python 2.7 support and testing
+* Mark test\_ipblock\_network\_policy\_sg\_rules as unstable
+* Adjust initial ports list in port\_pool test
+* Reduce flakiness of pod creation timeout
+* Add a check for ClusterIP IP of LB service
+* Increading a timeout to 120 seconds on CRD creation
+* Mark test\_namespace\_sg\_isolation as unstable
+* Ensure correct failure message is checked on CRD validation
+* Fix Python 3 compatibility in network policy tests
+* Skip Namespace isolation when NP is enabled
+* Testing basic Network policy IPBlock functionality
+* Adjust expected number of ports to config values
+* Add subnet\_per\_namespace config option
+* Adjust initial ports list in port\_pool test
+* Make the label of kuryr-controller customizable
+* Update the constraints url
+* Modify settings for port pool tests
+* Adjust port pool tests to python3
+* Test recreate namespace and pod
+* Increase timeout LB build and kuryr annotation timeout
+
+0.5.0
+-----
+
+* Remove dependency on openshift Python client
+* Update README with installation and test run information
+* Use label selector to get kuryr controller pods
+* update sphinx requirement to match upstream
+* Check connectivity to an existing pod in test\_ha
+* Enhance svc namespace isolation for LoadBalancer type svc
+* Fixing service connectivity testing
+* Ensure CRD validation is only checked if enabled
+* Ensure empty/fail replies are not counted
+* Remove test\_kuryr\_tempest\_plugin.py
+* Ensure Kuryr CRDs are validated
+* Removing threading option
+* detect failed curl when streamed from pod
+* Create/delete network policy in non-default namespace
+* OpenDev Migration Patch
+* Delete namespace with network policy on it
+* Set IfNotPresent imagePullPolicy for created pods
+* Update rootfs.tar.xz for kuryr/demo
+* Remove usage of oslosphinx
+
+0.4.1
+-----
+
+* Test CRD podSelector update
+* Rerun test in a single thread if multi-thread failed
+* Service cleanup should be optional
+* Testing port\_pool\_min and port\_pool\_max
+* Use assertTrue in checking pod connectivity
+* Working with noop for vif\_pool\_driver
+
+0.4.0
+-----
+
+* Add a cloud provider config option
+* Checking connectivity from host to pod/service in the namespace
+* Making sure all the pods reside on the same node for port\_pool
+* Multi worker tests
+* Log info in case of failure at parsing curl response
+* Enhance wait\_service\_status function
+* Synchronize port pool tests
+* Use kuryr-kubernetes-tempest-jobs project template
+* Fixup kuryr\_daemon\_enabled option description
+* Change openstack-dev to openstack-discuss
+* Add possibility to build with podman/buildah
+* Add network policy gate to experimental pipeline
+* Check the number of neutron ports after controller restart
+* Moving delete\_namespace to addCleanup in port\_pool testing
+* Add timeout to calls for ws\_client.py functions
+* Add timeout parameter to 'connect\_get\_namespaced\_pod\_exec'
+* Update port pool with non-default values
+* Add connectivity test for service UDP
+* Update service functions to support UDP
+* Function for updating configMap
+* Update EP LBaaS state annotation check
+* Add support for UDP in  kuryr/demo container
+* A/P HA tests
+* Sync up with kuryr-kubernetes gates
+* Merging port pool and namespace gates
+* Limit the scope of try-except block
+* Use read\_namespaced\_pod to get a pod
+* fix tox python3 overrides
+* Update the URL in doc
+* Do not rely on ps to check the daemon
+* Fixing wait\_for\_pod\_status function
+* Check that kuryr-cni runs as a daemon
+* Remove direct calls to os\_client for SGs
+* Refactor options definitons
+* Add Network Policy tests
+* OCP-Router - add support for OCP routes
+* Using pod ready condition for pod readiness check
+* Add kuryr-controller restart test to ports pool
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Fix test namespace request to include schema
+* Use ThreadPool and requests instead of subprocess
+* NPWG multi-vif driver tempest tests
+* Create service with UDP protocol
+
+0.3.0
+-----
+
+* Create service with unsupported type
+* Namespace tests: use requests instead of subprocess
+* Testing VM to loadBalancer service connectivity
+* Ensure create\_namespace function waits for CRD annotation
+* Use expected pod output as a constant
+* Namespace svc isolation tempest coverage
+* Fix delete namespace resources function
+* Namespace isolation tempest coverage
+* devstack: Move container build to stack extra
+* Make Port and http/https configurable for the test container
+* Add -Ss to curl executions
+* Get rid of cmp() usage and randomize pod labels
+* Adapt plugin to new annotation format
+* Add compatibility with old Pod annotations
+* Fix the TypeError exception in 'get\_service\_ip' function
+* Use class-level skips when necessary
+* Using port id instead of port name in get\_pod\_port
+* Add kubernetes\_project\_name config option
+* Fix get LoadBalancer IP implementation
+* Test restart of CNI and Controller kuryr pods
+* Add new octavia serial experimental job
+* Upgrade musl(from alpine) and busybox versions
+* Sync zuul projects with kuryr-kubernetes
+* Restore service tests
+* Disable load balancer service scenario
+* Explicitly disable service tests by default
+* Skip service tests
+* Namespace network resources cleanup
+* Remove sleep 3600 when creating container
+* Update url in HACKING.rst
+* Increase ping counter to avoid tests flakiness
+* Move tempest plugin install to the end
+* Testing curl to the service of type LoadBalancer
+* Add tempest coverage for namespace creation
+* Make \`body\` arg conditional when deleting service
+* Add V1DeleteOptions when deleting Service
+* Testing curl succeeds from pod to the service
+* Revert "Skip service test"
+* Apply cap from upper reqs
+* Skip service test
+* Testing service creation and connectivity
+* Updated from global requirements
+
+0.2.0
+-----
+
+* demo container: Include ssl certificates
+* Adding pools and containerized jobs to .zuul
+* Updated from global requirements
+* Ensure port name includes namespace name
+* Check connectivity from Pod to VM
+* test\_container: Add non-layered demo test image
+* Migrate kuryr-tempest-plugin to zuulv3 syntax
+* Testing port pool feature
+* Fix missing blank space in plugin conditional
+* Add a devstack plugin for Kuryr Tempest Plugin
+* Updated from global requirements
+* Testing pod to pod connectivity
+* Fix pep8 tox job
+* Fix \`create\_pod\` for 4.0 kubernetes client
+* Updated from global requirements
+* Add scenario test manager
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Skip test\_list\_pods
+* Updated from global requirements
+* Add initial documentation
+
+0.1.0
+-----
+
+* Change gerrit remote to openstack infra
+* Fix dummy pep8 issue
+* Extend pods testing
+* Extends base network admin test
+* [WIP] Add k8s client
+* Add a dummy test
+* Add kuryr base test class
+* Initial Commit

@@ -1,0 +1,33 @@
+FROM {{ namespace }}/{{ infra_image_prefix }}base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block iscsid_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{% if base_package_type == 'rpm' %}
+    {% set iscsid_packages = [
+        'iscsi-initiator-utils',
+        'python3-rtslib',
+        'targetcli'
+    ] %}
+
+{% elif base_package_type == 'deb' %}
+    {% set iscsid_packages = [
+        'open-iscsi',
+        'python3-rtslib-fb',
+        'targetcli-fb'
+    ] %}
+
+{% endif %}
+
+{{ macros.install_packages(iscsid_packages | customizable("packages"))  }}
+
+COPY extend_start.sh /usr/local/bin/kolla_extend_start
+RUN chmod 755 /usr/local/bin/kolla_extend_start \
+    && rm /etc/iscsi/initiatorname.iscsi
+
+{% block iscsid_footer %}{% endblock %}
+{% block footer %}{% endblock %}

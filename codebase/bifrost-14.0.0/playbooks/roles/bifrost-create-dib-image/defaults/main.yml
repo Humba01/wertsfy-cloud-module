@@ -1,0 +1,28 @@
+---
+dib_os_element: "debian"
+dib_init_element: "simple-init"
+dib_env_vars:
+  http_proxy: "{{ lookup('env','http_proxy') }}"
+  https_proxy: "{{ lookup('env','https_proxy') }}"
+  DIB_INSTALLTYPE_simple_init: repo
+  DIB_INSTALLTYPE_pip_and_virtualenv: package
+  LANG: C
+  LC_ALL: C
+  LC_MESSAGES: C
+build_ramdisk: false
+dib_trace: false
+dib_uncompressed: false
+dib_clearenv: false
+dib_notmpfs: false
+dib_offline: false
+dib_skipbase: false
+dib_packages: ""
+ipa_git_folder: /opt/stack/ironic-python-agent
+reqs_git_folder: /opt/stack/requirements
+ipa_builder_git_folder: /opt/stack/ironic-python-agent-builder
+# Settings related to installing bifrost in a virtual environment
+bifrost_venv_dir: "{{ lookup('env', 'VENV') or '/opt/stack/bifrost' }}"
+bifrost_venv_env:
+  VIRTUAL_ENV: "{{ bifrost_venv_dir }}"
+  PATH: "{{ bifrost_venv_dir }}/bin:{{ ansible_env.PATH }}" # include regular path via lookup env
+ansible_python_interpreter: "{{ bifrost_venv_dir + '/bin/python3' }}"

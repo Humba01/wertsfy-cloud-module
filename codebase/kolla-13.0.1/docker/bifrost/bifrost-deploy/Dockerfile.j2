@@ -1,0 +1,33 @@
+FROM {{ namespace }}/{{ image_prefix }}bifrost-base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block bifrost_deploy_header %}{% endblock %}
+
+ENV container docker
+
+{% import "macros.j2" as macros with context %}
+
+RUN rm -f $(find /lib/systemd/system/sysinit.target.wants/ ! -name systemd-tmpfiles-setup.service -type l); \
+    rm -f /lib/systemd/system/multi-user.target.wants/*; \
+    rm -f /etc/systemd/system/*.wants/*; \
+    rm -f /lib/systemd/system/local-fs.target.wants/*; \
+    rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
+    rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
+    rm -f /lib/systemd/system/basic.target.wants/*; \
+    rm -f /lib/systemd/system/anaconda.target.wants/*;
+
+{% set bifrost_deploy_packages = [
+    'e2fsprogs',
+    'systemd-sysv',
+] %}
+
+{{ macros.install_packages(bifrost_deploy_packages | customizable("packages")) }}
+
+# Clear any customisation by Kolla to entrypoint & command
+ENTRYPOINT []
+CMD [ "/sbin/init" ]
+
+{% block bifrost_deploy_footer %}{% endblock %}
+{% block footer %}{% endblock %}

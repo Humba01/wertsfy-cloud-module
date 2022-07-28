@@ -1,0 +1,6 @@
+lxml!=3.7.0,>=3.4.1
+oslo.config>=5.2.0
+pbr!=2.1.0,>=2.0.0
+requests>=2.14.2
+tempest>=17.1.0
+testtools>=2.2.0

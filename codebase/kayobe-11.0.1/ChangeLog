@@ -1,0 +1,1487 @@
+CHANGES
+=======
+
+11.0.1
+------
+
+* docs: Improve all-in-one scenario
+* Document seed\_enable\_snat
+* CI: Use correct TD agent repository version
+* Fix installation prefix detection
+* CI: always return host configure test results
+
+11.0.0
+------
+
+* Infra VMs: fix some playbook host patterns
+* CI: add Infra VM jobs
+* Ubuntu: add upgrade jobs to gate
+
+11.0.0.0rc2
+-----------
+
+* infra VMs: use wait\_for rather than wait\_for\_connection
+* Fix --check argument for overcloud host configure
+* Drop become in stackhpc.libvirt-vm for seed vm provision
+* CI: Disable heat in upgrade jobs to save disk space
+* Fix link syntax in release note
+* Update .gitreview for stable/xena
+
+11.0.0.0rc1
+-----------
+
+* Support Ansible diff mode
+* Add the missing documentation for mariadb recovery
+* Remove stale config dump from seed hypervisor host configure
+* Add missing hook support for environment-create
+* Prevent Bifrost from using firewalld
+* Allow Docker to use insecure registry when deployed by Kayobe
+* Add reno about chrony removal
+* [release] Sync Kolla Ansible inventory for Xena
+* Use OpenStack Xena release
+* [release] Sync Kolla Ansible feature flags for Xena
+* Add missing apt playbook for infrastructure VMs
+* CI: add host configure tests for firewalld
+* Use merge\_configs and merge\_yaml to generate Kolla configs
+* Update Kolla images namespace to openstack.kolla
+* Infra VMs: follow up
+* Add support for configuring tuned profile
+* Fix wrong filename in bifrost docs
+* Fix IPA builder version typo
+* firewalld: support infra VMs
+* Set proxy option in early dnf invocation
+* Enable consistent network device naming
+* Ubuntu systemd-networkd: VLAN ifname heuristics
+* Add support for infrastructure VMs
+* Support configuration of firewalld
+* CI: enable DNF tests on all CentOS versions
+* CI: enable DNF tests on CentOS Stream 8
+* Ubuntu: add upgrade jobs in CI
+* Build and deploy source type images by default
+* Revert to installing Docker SDK with upper constraints
+* Bump up Ansible supported versions
+* seed: Disable SNAT configuration by default
+* Import merge\_configs and merge\_yaml from Kolla Ansible
+* CI: Disable libvirt debug logs
+* Make setup module arguments configurable
+* Support Ansible collections
+* Remove haproxy and keepalived groups
+* Add support for apt proxy setting
+* CI: Fix bashate ignores
+* Revert to Xena IPA images
+* CI: Avoid molecule 3.5.x
+* CI: Remove IPA images from saved /etc/kolla
+* Add missing quotes to Docker registry TLS example
+* CI: Log disk usage details
+* Fix typo in inspector.yml
+* Sync documentation with kolla\_openstack\_custom\_config
+* CI: Fix get\_logs.sh docker logs output
+* Allow passing arguments to dev/environment-setup.sh
+* Allow to configure name of root disk image to provision
+* Fix typo in IP allocation filename
+* CI: Fix multiple failures
+* docs: fix heading styles in upgrading page
+* Fix overcloud introspection data save
+* Use ansible\_facts to reference facts
+* Fix configuration check without public API network
+* Add twentyFiveGigE to port descriptions in inspector rules
+* dnf: add metalink argument to custom dnf repository
+* Fix documentation links for routed control plane networks
+* Add Arista switch support for the Neutron ML2 genericswitch driver
+* Remove references to resolv.conf workaround
+* Update ntp role to match code style
+* Ubuntu: Set MTU for veth in the network files
+* Fix capitalisation of Ansible task name
+* kolla: Set neutron\_plugin\_agent to OVN when it's enabled
+* Add missing font for PDF generation
+* Use stream8 images with molecule
+* Remove stale DIB\_DISABLE\_KERNEL\_CLEANUP references
+* Remove iscsi deploy interface
+* Support setting docker registry credentials to the empty string
+* Prevent matching unrelated images
+* Remove outdated upgrade step
+* Fix url to ansible site in kolla-ansible.rst
+* docs: Stop setting os\_distribution in development all-in-one
+* docs: add variable for current branch
+* Revert "CI: Fix libvirt errors caused by latest edk2-ovmf"
+* CI: test base container image build in seed jobs
+* Fix container image builds
+* Revert "Use OpenStack Wallaby release"
+* Ubuntu: ensure /usr/bin/python is python3
+* Optimise order of inspector\_processing\_hooks
+* docs: Update Freenode to OFTC
+* ntp: check for ntp group in inventory
+* docs: improve automated seed development info
+* CI: Fix libvirt errors caused by latest edk2-ovmf
+* chrony: cleanup during overcloud host upgrade
+* Add kayobe overcloud service prechecks command
+* Remove default time sources from customisable configuration
+* docs: add reno and upgrade info for CentOS Stream
+* Fix overcloud post configure Python interpreter issues
+* CentOS Stream: update DNF repo file names
+* Make docker registry network mode configurable
+* Fixes for Ansible 2.10
+* CI: Remove unused Docker images after overcloud upgrade
+* Adds support for configuring chrony
+* [release] Set previous\_release to wallaby
+* Ubuntu: add documentation & release note
+* setup.cfg: Replace dashes with underscores
+* Add os\_release variable, build CentOS stream images
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+* Ubuntu: avoid shadowing of networkd config files
+
+10.0.0.0rc1
+-----------
+
+* Ubuntu: CI: rely on os\_distribution, remove interfaces pause
+* Ubuntu: simplify OS distro selection
+* Replace custom serial loop with throttle
+* Ubuntu: define implied VLAN parent interfaces in networkd
+* Revert to binary images for nova
+* [release] Tidy release notes for Wallaby
+* Ubuntu: install qemu-img on seed-hypervisor
+* docs: aio: add note with link to automated setup
+* Switch to reboot module
+* Use OpenStack Wallaby release
+* Use released version of mrlesmithjr.mdadm
+* [release] add kolla feature flag sync scripts and update docs
+* [release] Sync Kolla Ansible feature flags and inventory for Wallaby
+* Disable Bifrost cleaning by default
+* Add release note for multiple environments
+* Exclude shared directories when creating environments
+* CI: switch to quay.io for container images
+* Ubuntu: support policy-based routing in systemd-networkd
+* Ubuntu: support systemd-networkd
+* Fix typo in CI playbook
+* Remove ntp.yml configuration file
+* CI: use retries for control host bootstrap in seed VM jobs
+* Add documentation for multiple environments
+* Ubuntu: refactor network.yml playbook
+* CentOS Stream 8: switch default seed VM image
+* CI: Switch to CentOS Stream 8
+* CentOS Stream 8: Use /usr/bin/which instead of bash function
+* Exit when environment clashes are detected
+* Fix help texts of inventory options
+* Support additional pass through host variables
+* Detect multiple inventories automatically
+* Support passing multiple Kayobe inventory arguments
+* Add a command to create a new Kayobe environment
+* Support multiple environments from a single configuration
+* Add output printing to host-command-run
+* Add --nocache option to container image build
+* zuul: add more irrelevant files
+* Remove stale comment
+* CI: increase Ansible Galaxy retries & add delay
+* CI: Use the same redirection syntax everywhere
+* CI: Use firewall script from previous release
+* Document requirements for symlinks used by custom playbooks
+* Ubuntu: AppArmor config for seed VM provisioning
+* Bump max Ansible version to 2.10
+* CI: Fix IP address detection in baremetal compute test
+* Update seed VM image to CentOS 8.3
+* Fix overcloud provision with fast track enabled
+* Add Ironic enabled\_bios\_interfaces and default\_bios\_interface settings
+* Change docker\_registry network\_mode to host
+* Support extra kernel options specified as strings instead of lists
+* Fix formatting of extra kernel options for Bifrost
+* Refactor veth configuration role variable generation
+* Refactor network filter plugins to a Python module
+* CI: Use cached cirros image for seed vm job
+* Avoid fact gathering for group\_by
+* Ubuntu: document overcloud development environment
+* Fix documentation of control host bootstrap
+* Ubuntu: update Apt cache before package installation
+* Ubuntu: container image build
+* CI: Add Ubuntu seed job
+* CI: add Ubuntu seed VM job
+* CI: Ubuntu host configure job
+* CI: add Ubuntu overcloud deploy job
+* CI: Fix overcloud and seed VM jobs on vexxhost clouds
+* Revert ironic custom configuration
+* Add support for custom shm\_size for seed container(s)
+* CI: retry overcloud jobs that land on vexxhost clouds
+* Report available entropy
+* CI: display VM console log on ping or SSH failure
+* Ubuntu: fix deployment image build
+* Add ipa\_build\_upper\_constraints\_file variable
+* Remove patch from kolla-ansible dependencies
+* Wait for overcloud manage and provide state transitions
+* Update IPA docs and test build with extra-hardware
+* [docs] Improve contributor's automated setup document
+* Remove CentOS 7 image resolv.conf workaround
+* Test building seed deployment images in the seed job
+* Add documentation for routed control plane networks
+* [docs] Update main documentation page
+* Remove extra space characters
+* Fix deployment image build in Victoria
+* Remove trailing whitespace
+* Adapt to changes from the Bifrost Victoria release
+* Quote kolla limit when calling kolla-ansible
+* Fix unit tests on macOS
+* Make it clearer that hyphen replacement is not automatic
+* Fix --limit with commas
+* Ubuntu: support non-persistent veth configuration
+* Ubuntu: fix pip configuration for kolla user
+* Ubuntu: Use . to source shell scripts
+* bifrost: Retain default value of true for enable\_inspector\_discovery
+* Fix reno link
+* Remove Retired Karbor Support
+* Fix overcloud provisioning
+* Fix implementation of kayobe seed hypervisor host package update
+* CI: fix race condition in kolla-ansible-host-vars role tests
+* Fix overcloud host image resolv workaround on CentOS 8.3
+* Fixes for CentOS 8.3
+* Add ensure-python task
+* Fix copying Swift ring files
+* Stop using platform-python
+* Fix /tmp/swift-rings/backups/ files deletion
+* Remove retired Searchlight support
+* Remove retired Qinling support
+* Update TOX\_CONSTRAINTS\_FILE
+* Revert "Use OpenStack Victoria release"
+* CI: add dummy1 port for seed upgrade and VM jobs
+* Fix Python setup when venv is not used
+* Fix ansible-lint star expansion
+* CI: set previous\_release to Victoria
+* Support for firewalld ZONE option in network interfaces configuration
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+9.0.0.0rc1
+----------
+
+* Use OpenStack Victoria release
+* docs: Add link back to Train CentOS 8 migration page
+* docs: Add initial all-in-one scenario
+* Fix "Wait for the ironic node to be inspected" task
+* Fix failures in Docker storage driver check
+* Synchronise global extra variables files with defaults
+* Fix filtering of network names set to an empty string
+* Configure bifrost to use firewalld trusted zone
+* Add variables for API VIP address and FQDN
+* Switch default docker storage driver to overlay2
+* dev: fix test scripts when ironic is disabled
+* Disable overcloud networks for Ironic when unused
+* Disable ironic in the overcloud by default
+* When EPEL install flag is not set
+* Bump Ansible version range to 2.9 - 2.9
+* Performance: avoid set\_fact in Kolla Ansible host vars
+* CI: Add a CentOS 8 overcloud job with TLS enabled
+* Revert "CI: workaround overcloud upgrade issue with ironic"
+* CI: workaround overcloud upgrade issue with ironic
+* Remove unneeded doc requirements in molecule tox env
+* Add missing barbican.conf support
+* CI: Fix kayobe-tox-molecule job
+* Performance: Parallelise Kolla Ansible host vars generation
+* Bump hacking min version to 3.0.1
+* Docker registry basic auth
+* docs: Move development section under contributor guide
+* Remove unnecessary requirements from tox.ini
+* Remove support for deprecated Yum variables
+* Support neutron-mlnx-agent
+* Update shebang for Python 3 script
+* Avoid setting IPADDR=0.0.0.0
+* Performance: skip LVM configuration if no groups configured
+* Move dnf.yml earlier in host configure workflow
+* Update hacking for Python3
+* Document that kolla\_tag may need to be changed when upgrading
+* docs: Move configuration reference to subpath
+* docs: Move getting started to a separate page
+* Install bash-completion in dev-tools
+* Performance: refactor pip configuration
+* Remove XenAPI integration
+* Add support for custom Aodh configuration
+* Make pip\_index\_url variable conditional
+* Fix ansible-lint after upgrade to 4.3.1
+* Skip broken ansible-lint
+* Support setting ethtool options on network interfaces
+* Block Ansible 2.9.12
+* Add support for custom Masakari configuration
+* Docker registry TLS
+* Set endpoint type variables to publicURL in public-openrc.sh
+* Update seed VM image to CentOS 8.2
+* Sync kolla-ansible inventory for Ussuri
+* Add common groups to kolla-ansible inventory
+* Add py38 package metadata
+* Remove opendaylight support
+* Sync zookeeper feature flag with kolla-ansible
+* Update hook link instructions to use relative path
+* Fix network configuration when no eth0 interface is present
+* Add support for custom options in static routes
+* Remove mongodb integration
+* Remove the neutron-fwaas since it retired
+* Fix network configuration of network hosts
+* Fix condition of placement image build
+* Remove retired congress
+* Allow to customise hardware inspection timeouts
+* Remove remaining mentions of neutron-lbaas
+* Support configuration of Bifrost's Ironic extra kernel parameters
+* Add missing colon
+* Add seed VM provisioning CI job
+* Update image regexes
+* Update feature flag defaults
+* Fix kolla-ansible config when a network is named 'external'
+* Fix seed VM interface ordering
+* CI: Update IPA images during upgrade
+* IPA: Switch to IPA builder and CentOS 8
+* Remove python 2 cleanup
+* CI: set previous\_release to ussuri
+* Revert "Use OpenStack Ussuri release"
+* Update feature flags
+* Switch to newer openstackdocstheme and reno versions
+* Fix kayobe baremetal compute commands
+* Fix ironic inspector store endpoint configuration
+* Correct a typo in the document
+* Add framework to deploy user-defined containers on seed
+* Disable broken linting of literalinclude sphinx directive
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+* Remove DIB kernel cleanup workaround
+
+8.0.0.0rc1
+----------
+
+* Fix documented name of time configuration file
+* [Community goal] Update the contributor guide
+* Update openrc files after overcloud service upgrade
+* Copy custom certificates
+* Add note about hardware package dropping python 2 support
+* Fix docker-devicemapper playbook
+* Stop to use the \_\_future\_\_ module
+* Fix external API interface with out an IP address
+* Bump version of os-images role
+* Use OpenStack Ussuri release
+* docs: fix route configuration example syntax
+* CI: mark pytest results as a Zuul artifact
+* Don't disable SELinux if it is not installed
+* CI: Encrypt passwords.yml in overcloud host configure job
+* Python 3: fix Ansible Vault password helper
+* Remove six
+* CentOS 8: add docs and release note
+* Move timezone configuration from ntp.yml to time.yml
+* Remove support for CentOS 7 and Python 2
+* Add ability to run playbooks before and after a kayobe command
+* Add support for encrypted block devices
+* Make the root disk image build command more visible
+* Fix pygments style
+* Add ussuri prelude to release notes
+* Upgrade Vagrant VM to CentOS 8
+* Install coreutils package before using configdrive role
+* Fix multiple CI failures
+* Remove newline from default public\_net\_name
+* Fix concurrency issues while adding SSH keys to known\_hosts
+* CentOS 8: Fix network configuration persistence
+* Improve formatting in release note
+* Fix ironic inspector rule creation idempotency
+* Define default variables for Monasca config
+* CentOS 8: separate kolla build tag from deploy tag
+* Improve SSH known host error messages
+* Enable 'data' LVM group only for Docker devicemapper
+* Cleanup py27 support
+* Remove nameservers with any IP in overcloud resolv.conf workaround
+* Fix passwords.yml generation with vault encryption on Python 3
+* Use upper constraints when installing Tenks
+* Docs: fix reference to deprecated external\_net\_name
+* Avoid writing out requirements.txt in kolla-ansible role
+* Allow OVS bridges to connect directly to interface
+* Docs: Ansible tuning
+* Run kolla-ansible bootstrap-servers as kolla user
+* CI: Add overcloud host configure job
+* Update inventory templates for Ussuri
+* CentOS 8: seed VM & bifrost
+* Filter out switch port descriptions on Ruckus switches
+* Fix seed VM provisioning on a remote seed hypervisor
+* Avoid unconditional fact gathering
+* Add kolla\_enable\_openstack\_core variable
+* Use Ansible connection reset support in docker role
+* Prevent openrc files from using wrong OS\_CACERT value
+* Use unittest.mock instead of PyPI mock
+* Update documentation for release tasks
+* Install python-openstackclient using upper constraints
+* Switch to stackhpc fork of resmo.ntp
+* Support custom Ansible configuration
+* Don't use become for Kolla Ansible
+* Fix loading of Monasca Grafana dashboards
+* Add support for stopping overcloud services
+* CentOS 8: Enable seed upgrade job
+* CentOS 8: Enable overcloud upgrade job
+* CentOS 8: Support DNF
+* Remove ceph block device support
+* CentOS 8: Add seed and overcloud CI jobs, drop CentOS 7 jobs
+* Blacklist Ansible 2.8.9
+* CentOS 8: Disable ntpd, enable chrony container
+* Skip resmo.ntp role if ntp\_service\_enabled is false
+* Remove seed\_hypervisor\_libvirt\_pool\_capacity variable
+* Add support for configuring Cumulus switches with NCLU
+* [ussuri][goal] More cleanup for python 2.7 drop
+* Junos switch: update ncclient to 0.6.7+
+* Bump Ansible version range to 2.8 - 2.9
+* CentOS 8: Bump MichaelRigart.interfaces to 1.4.0
+* Make Kayobe code compatible with Python 3
+* Allow setting pip\_proxy
+* CentOS 8: Use ansible\_playbook\_python for localhost dependencies
+* CI: Test SSH connectivity to deployed instances
+* CI: set previous\_release to train
+* Fix Kayobe overcloud introspection data save
+* Remove activate-virtualenv and deactivate-virtualenv roles
+* Switch from shade to openstacksdk
+* Make docker registry volume configurable
+* Use latest release of StackHPC iDRAC role
+* Revert "Use OpenStack Train release"
+* Make local kolla-ansible Python executable configurable
+* CI: Redirect stderr to ansible logs
+* Docs: Configure firewall to allow testing of baremetal
+* Fix error logging of dev/functions
+* Docs: fix libvirt connection URI for tenks
+* Fix sphinx8 script used by pep8
+* [docs] Change CoreOS URLs to Centos URLs fir IPA
+* Stop gzipping logs in get-logs.sh
+* Docs: show other versions
+* [ussuri][goal] Drop python 2.7 support and testing
+* Update docs building
+* Fix seed VM provision
+* Fix IPA builds without packages specified
+* Fix overcloud provisioning due to Bifrost IPA rename
+* Update master for stable/train
+
+7.0.0.0rc1
+----------
+
+* Add prelude to mark the first release as part of Kolla
+* Add Nova Cells documentation
+* Support customising nova-conductor and proxy groups for cells
+* Support custom Kolla group\_vars
+* Sync comment with default value of pip\_upper\_constraints\_file
+* Fix Train release notes
+* Switch default IPA images to centos
+* Bump stack.libvirt-vm role to 1.8.0
+* Adds support for Ansible 2.8, bump mimimum to 2.6
+* Use OpenStack Train release
+* Use mariabackup for database backups
+* Support internal API TLS encryption
+* Add kayobe as openstack project for release notes
+* Add example to Bridges and VLANs section
+* Improve docs on kolla-ansible
+* Add support for custom Elasticsearch config
+* Switch to generic package module
+* Use {{ openstack\_branch }} as version of kolla-ansible in ansible tests
+* Improve detection of base path
+* Task to generate nginx.conf in inspection-store missing \`become: True\`
+* Use internal API endpoints in overcloud API interaction
+* Add cross references from deployment to config docs
+* Support installing packages in IPA images
+* Add command to deploy only containers
+* Fix kolla-ansible role tests
+* Remove workaround for kolla-ansible post-deploy
+* CI: Remove workaround for upgrading from Rocky
+* Synchronise kolla-ansible inventory and globals.yml
+* Remove stop-chrony.yml
+* Document requirements for BIOS and RAID configuration
+* Improve docs on updating the Ansible control host
+* Add documentation for Bifrost and IPA configuration
+* Add docker\_registry\_mirrors to docker.yml
+* Add note to docs about overcloud node names being required
+* Fix customised inventory section
+* Add freezer to image build regex
+* Fix use of IPA images in Bifrost without a checksum
+* Use versioned links to OpenStack documentation
+* tox: Keeping going with docs
+* Add reference to zero touch provisioning blog in docs
+* Fix kayobe overcloud provision without seed in limit
+* Only stop chrony on nodes in kolla inventory
+* Remove unused IPA config variables
+* Fix kolla ansible virtualenv creation on the seed
+* Stop running kolla-target-venv in seed hypervisor host upgrade
+* Stop gathering facts for host command run
+* Revert to yatesr.timezone role
+* Remove some references to Github
+* Pass package list to Ansible package modules
+* Use docker\_custom\_config variable
+* Example should use hyphen instead of underscore
+* Add new variables for customising the deployment image in Bifrost
+* CI: Increase job run attempts
+* Fix baremetal serial console autoenable
+* CI: Don't set cpu mode
+* Remove sphinx from test-requirements.txt
+* Build pdf doc
+* Add nova-super-conductor to inventory
+* Install libffi headers
+* Try running \`docker info\` again if it fails
+* Fix issue with image download when checksum url is none
+* format pxe\_append\_params as string and not a list
+* Add ansible tag headers to Host Configuration doc page
+* Blacklist sphinx 2.1.0 (autodoc bug)
+* Fix validation of locally built IPA when ironic is disabled
+* Update the constraints url
+* Allow Kayobe to wipe virtualized disks
+* Fix kayobe-overcloud-centos CI job flakiness
+* Use releases.o.o for upper constraints
+* Update docs after repo rename x/ to openstack/
+* Fix after x/kayobe rename
+* CI: Remove rocky pin from molecule requirements
+* CI: set previous\_release to stein
+* Don't list tasks for config dump
+* Fix container image build with multiple regexes
+* Fix typo in docs
+* Use earliest-version 6.0.0 for Stein reno
+* Add source code orientation to development docs
+* Set provisioning and cleaning networks as non-shared
+* Only set up the kolla ansible venv on hosts in the kolla ansible inventory
+* Execute kayobe in verbose mode in CI
+* Add support for Arista switches
+* Revert "Use OpenStack Stein release"
+* Include branch name in URL for IPA on master
+* Update release notes for stable/stein
+* Update release documentation
+* Fix formatting of lists of commands in release notes
+
+6.0.0.0rc1
+----------
+
+* Update packages in virtualenvs
+* Generate openrc files during control host bootstrap
+* Only run ncclient installation task once
+* Sort overcloud inventory hosts and groups
+* Restrict ncclient to 0.6.2 to avoid unknown host key issue
+* Remove storage management network from controllers
+* Update links to docs and IRC for kolla governance
+* Publish docs and release notes on openstack.o.o
+* Move to openstackdocstheme for docs & release notes
+* Fix typo in upgrade documentation
+* Stop allocating network and broadcast addresses
+* Build placement images by default
+* Revert "Workaround: stop bifrost services before seed upgrade"
+* Use new kolla-ansible upgrade-bifrost command
+* Add support for custom CloudKitty configuration
+* Bump version of stackhpc.dell-powerconnect-switch
+* Fix typo
+* Fix parsing of etc/kayobe/ceph.yml with no variables defined
+* Ignore --limit for localhost plays
+* Fix inspector iPXE boot with UEFI compute nodes
+* Disable chrony container by default
+* Change examples to apply all security-related package updates
+* Add support for overriding OpenStack configuration globally
+* CI: Don't create an external network in init-runonce
+* Move paramiko cap to test-requirements.txt
+* Add retries to ansible galaxy install for all envs
+* Workaround: stop bifrost services before seed upgrade
+* Adds support for Ansible 2.7, bump mimimum to 2.5
+* Support customising refactored HAProxy config
+* Fix custom ironic python agent environmental variables
+* Updating Jinja filters to conform to Ansible 2.5+
+* Add support for custom Ceilometer configuration
+* Sync Sphinx requirement
+* Provide keystone.conf to kolla-ansible by default
+* Restrict cliff to <2.15.0
+* Remove mentions of UUID Keystone token provider
+* Use BatchMode to check whether host is accessible via SSH
+* Cap paramiko to releases below 2.5.0
+* Support customising Prometheus config
+* Add command to update packages on the seed hypervisor host
+* Docs: improve package update admin docs
+* Add alternative tenks deploy and teardown entrypoints
+* Improve diagnostics for seed jobs
+* Build logstash when monasca is enabled
+* Add support for custom Blazar configuration
+* Add support for custom Gnocchi configuration
+* List Xtrabackup configuration file in documentation
+* Correct statement about default kolla images
+* Use OpenStack Stein release
+* Remove duplicate docs job
+* Fix two links in the docs pointing to repo on github (moved to opendev)
+* Add ceph\_disks and mdadm\_arrays to service placement docs
+* Add commands for database backup and recovery
+* Add welcome page overview doc
+* Remove out of date statements
+* Add external resources section
+* Remove release notes readthedocs webhook job
+* Multiple updates for Kayobe
+* Add config tags to kolla-openstack play
+* Update supported CentOS version
+* Fix overcloud introspection data save
+* Fix table generation
+* Small update to automated development docs
+* Support arbitrarily named Docker drivers
+* DRY out Zuul job configuration
+* Fix setup.cfg syntax error, not allowed comment in files section
+* Use x/kayobe for storyboard link
+* Update git.openstack.org to opendev.org
+* Support for Ceph and Swift storage networks, and improvements to Swift
+* OpenDev Migration Patch
+* Add openstack\_release and openstack\_branch
+* Use master version of dependencies
+* Remove inspector\_manage\_firewall variable
+* Don't enable grafana when monasca is enabled
+* Update service configuration documentation
+* Support custom keepalived config
+* Prevent use of KVM for Tenks VMs in CI
+* Skip bare metal testing in CI
+* Always remove temporary file containing passwords
+* Add support for configuring software RAID arrays using mdadm
+* Add missing space in argument description
+* Fix YAML code execution issue
+* Add python 3.6 jobs
+* Fix tox cover environment on python 3.6
+* Add Prometheus OpenStack exporter to services
+* Fix release note markup
+* Update release notes for stable/rocky
+
+5.0.0.0rc1
+----------
+
+* Run yamllint on etc/kayobe during pep8 tox env
+* Print output of dump-config in case of errors
+* Fix generation of globals.yml
+* Document support for configuring LVM on seed hypervisor
+* Don't cd to /tmp in environment-setup.sh
+* Allocate IPs separately from configuring network
+* Support configuration of yum.conf
+* Support custom HAProxy config
+* Don't pull registry image from private registry
+* Update development scripts for control plane deployment
+* Automatically enable serial consoles on post configure
+* Add commands to run command on hosts
+* Remove support for deploying cAdvisor
+* Remove support for deploying Prometheus node-exporter
+* Support including and excluding files from config save
+* Support complete installation of Kayobe as a python package
+* Prune unused Galaxy roles during upgrade
+* Use a fork of the yatesr.timezone role
+* Update role requirements for CA certificate support
+* Convert network MTU to an integer
+* Add support for CA certificate parameter
+* Allow to configure Docker Registry via environment variables
+* Modify default of kolla\_docker\_registry
+* Update stackhpc.libvirt-vm and stackhpc.libvirt-host roles
+* Fix seed VM provision failure on Ansible 2.6
+* Allow to configure where to deploy a Docker Registry
+* Limit overcloud-extras playbook runs to overcloud nodes
+* Add support for setting defroute
+* Allow Kayobe to set kolla\_external\_fqdn\_cacert
+* use include\_tasks and import\_playbook instead of include
+* Fix download of ahuffman.resolv
+* Improve kayobe --version output
+* Support configuring LVM on the seed hypervisor
+* Add docs on building images
+* Add docs on host configuration
+* Document a backup procedure for the seed
+* Allow Kayobe to wipe NVMe disks
+* Update manage-lvm role to v0.1.4
+* Perform ironic online data migrations prior to seed upgrade
+* Test upgrading seed services in CI
+* Add kayobe seed service upgrade command
+* Generate bifrost hostvars prior to provisioning
+* Fix bifrost automation tasks for Rocky
+* Use host vars files for kolla ansible inventory
+* Remove documentation and use of dell\_switch\_delegate\_to
+* Fix physical network configuration on Dell switches
+* Use public FQDN for OS\_AUTH\_URL in public-openrc.sh
+* Make seed deploy job voting again
+* Fix reference to Kolla-Ansible inventory
+* Add check of pip install in the virtualenv
+* Change openstack-dev to openstack-discuss
+* Update grafana-conf role
+* Remove tasks for Ansible <= 2.3
+* Reorganise administration guide into sections
+* Make ansible\_host optional for all switch types
+* Fix variable shadowing
+* Added manila.conf details to kolla-ansible documentation
+* Enable manila extra config merge #28058
+* Add support for a custom octavia.conf file
+* Retry adding custom repos until success
+* Bump zuul job timeouts
+* Seed hypervisor user bootstrapping skipped
+* Add --quiet flag to CI diagnostics collection
+* Save previous kayobe & kolla configuration
+* Use infra Docker registry mirror during CI
+* Add tenks-deploy.sh dev script
+* Quote and escape extra vars passed to ansible
+* Add documentation about physical network config
+* Update dependencies to Rocky
+* Add release.sh, a script for creating releases
+* Use zuul's install-docker role
+* Fix a small typo
+* Add note about LLDP workaround for switches on Dell OS 9.11
+* Add commands to enable and disable the serial console
+* Move group\_vars for switches group to all group
+* Bump Ansible to 2.6.x
+* Remove legacy Ironic driver references
+* Use kolla variable to set inspector DHCP config
+* Fix use of --ask-vault-pass argument
+* Add 'octavia' in to the list of paths to search for custom configs
+* Test upgrades in CI
+* Add missing space in argument description
+* Improve irrelevant-files for Zuul jobs
+* Fix description of --display argument
+* Summary should be a one liner
+* Add --disable-discovery argument to physical network
+* Update release notes for stable/queens
+* Add a zuul template to update readthedocs
+* Synchronise config with kayobe-config
+
+4.0.0.0rc1
+----------
+
+* Fix inspector dnsmasq interface name
+* Support configuration of custom fluentd inputs
+* Fix list of valid switch types to include 'dellos6' or 'dellos9'
+* Remove extra configuration for InfluxDB
+* Fix IPA image download
+* Use readthedocs for release notes
+* Cleanup zuul jobs
+* Update some project home page to latest
+* Save kolla-generated per-node configuration in CI logs
+* Fix typos in task names
+* Fix seed vm deprovision
+* Fix naming of Kolla install type config option
+* Include kayobe in zuul project list
+* Use pxe\_filter instead of deprecated manage\_firewall
+* Use a virtualenv for remote operations by default
+* Allow installing extra packages inside the kolla-ansible virtualenv
+* Support custom config for Barbican
+* Update python dependencies in kolla-ansible virtualenv
+* Check nova VM status in CI
+* Use openstack-hosted development config
+* Use infra's PyPI mirror during using CI
+* Fix Monasca kolla\_enable flags
+* Add support for deploying Apache Storm
+* Add support for deploying Monasca
+* Use force rebuild feature in stackhpc.os-images role
+* Add monasca to image regex list
+* Add host package update to upgrade procedures
+* Support installing PyPI packages via a mirror
+* Update ironic IPA deployment images
+* Per-host network interface configuration
+* Fix command for copying the Kayobe configuration
+* Update the bug link for more accuracy
+* Fix duplicate listing of MariaDB image
+* Support dhcp-hostsdir option in inspector dnsmasq template
+* Switch inspection store to use stable docker image
+* Cleanup unused code
+* Add commands to update packages on hosts
+* RabbitMQ upgrade fails due to stale /etc/hosts
+* Fixes for baremetal compute commands
+* Fix kayobe overcloud service config save
+* Add Open vSwitch as a supported switch type
+* Pin Ansible Galaxy dependencies
+* Install setuptools when using easy\_install
+* Use overlay Docker storage driver for seed-base
+* Template inspector.ipxe
+* Make installation of epel-release optional
+* Add kolla project dependencies to Zuul configuration
+* Point README and docs to official release notes
+* Use host networking for inspection store
+* Fix ironic inspector rule registration
+* Add support for deploying Prometheus
+* Fix path to virtualenv in usage guide
+* Add support for the Ironic Neutron agent
+* Support configuring rp\_filter mode
+* Support configuring tunnel network
+* Persistent sysctls broken due to missing .conf suffix
+* Reconcile all 'Ansible control host' references
+* Fix the task name
+* Add necessary \_ for setup.cfg
+* Fix typo doc administration
+* Make kolla ansible user and group configurable
+* Fix handling of switch\_type variable in Ansible 2.5
+* Don't assume user's primary group name is the same as username
+* Add 'venvs' to list of things which we don't want git to track
+* Add support for configuring MariaDB
+* Add support for Mellanox switches running MLNX-OS
+* Adds a separate admin network
+* Add support for Dell PowerConnect switches in NGS
+* Add Dell PowerConnect switch support
+* Support forcing rebuild of deployment images
+* add cloud-init workaround
+* Add support for neutron provider networks
+* create parent directories for extra config files
+* Adds new command to rename baremetal compute nodes
+* fix tox python3 overrides
+* Make tftp server listen on the internal interface
+* Enable iPXE boot in ironic
+* kolla dnsmasq server should listen on inspection interface
+* Support Ansible 2.5
+* Adds configuration option for separate cleaning network
+* Adds controllers to inspection network by default
+* Add some regex for build image
+* Make provisioning workload physical network configurable
+* Fix empty kolla\_overcloud\_inventory\_storage\_groups
+* Add the storage group to the inventory
+* Fix Ansible warnings for use of until with {{ }}
+* Replace Chinese quotes with English quotes
+* Specify Vagrant box version
+* Add documentation for custom ansible playbooks
+* Change reserved keyword 'action' to 'kayobe\_action'
+* Support installing galaxy roles from kayobe-config
+* Update kayobe-config repo URL to openstack/kayobe-config
+* Collect kayobe and kolla configuration in deployment CI jobs
+* Fix yamllint issues in kolla-openstack role
+* Add vault password and config path to env vars
+* Test nova server (VM) boot in overcloud job
+* Configure SELinux state in kolla ansible
+* Don't create a virtualenv for kolla on the seed hypervisor
+* Fix permissions of kolla-ansible target virtualenv
+* Support DHCP for managed network interfaces
+* Allow resolv.conf configuration to be prevented
+* Make kayobe ansible user bootstrap optional
+* Build release notes using reno
+* Disable live-restore by default
+* Add preliminary support for Monasca APIs
+* Use queens version of dependencies
+* Update release notes to mention TLS certicate bundle handling
+* Yum custom repo creation requires root
+* Support docker live-restore option
+* Add support for custom yum repositories
+* Add CI job for molecule tests
+* Add a job for seed deployment
+* Change github URLs to git.openstack.org
+* Follow the new PTI for document build
+* Add support for configuring InfluxDB
+* Fix variable name - disable\_selinux\_reboot\_timeout
+* Don't restart cloud-init when disabling it
+* Use control group for Zookeeper
+* Add support for deploying Apache Kafka
+* Support copying TLS cert bundles into place
+* Add overcloud deployment job
+* Add disable\_selinux\_do\_reboot variable
+* Specify MTU in bifrost configdrive network\_data.json
+* Add support for deploying Zookeeper
+* Update README & CONTRIBUTING for OpenStack process
+* Fix use of tags with overcloud post configure
+* Use pbr to build the project
+* Use stestr for running unit tests, add a coverage environment
+* Fix py35 python tests
+* Add .gitreview file
+* Add initial in-repo Zuul jobs
+* Fix tilde expansion in development environment function library
+
+3.1.0
+-----
+
+* Add release note for Grafana post-deployment config
+* Add release notes & bump version for kayobe 3.1.0 release
+* Improve automated development environment documentation
+* Support upper constraints for kolla target virtual environment
+* Issue #130: De-nest storage groups
+* Add documentation on writing tests
+* Don't specify -c flag to pip if no upper constraints
+* Fix kolla-ceph tests
+* Define defaults for kolla upper constraints file
+* User correct prefix for docker upper constraints variable
+* Don't install Python docker module
+* Remove PyYAML
+* Respect Kolla upper constraints in virtual envs
+* Comment out disable\_cloud\_init in overcloud.yml
+* Remove pip install sphinx from pep8 tox environment
+* Add disable cloud-init support
+* Add documentation on running tests
+* Add a molecule scenario for kolla-openstack - enable-everything
+* More fixes for kolla-openstack role defaults
+* Make kolla-openstack molecule test pass
+* Add a simple molecule scenario for the kolla-openstack role
+* Add molecule test utilities
+* Add a tox environment & dependencies for running molecule tests
+* Make gitignore for galaxy roles more sane
+* Address review comments
+* Add designate config override
+* Add kolla\_enable\_monasca flag
+* Update unit tests and fix issue highlighted by them
+* Move setting of Grafana admin username out of Kayobe config
+* Remove admin\_user override in grafana.ini
+* Set the Monasca control plane project ID
+* Fixes for ceph block device tagging (#1)
+* add tag for ceph + storage node
+* Dev automation documentation review changes
+* Address dev environment review comments
+* Add bashate to pep8 tox environment
+* Add configuration for ironic enable and default rescue interfaces
+* Use ansible\_user\_id instead of ansible\_user
+* Ensure virtualenv parent directory exists for kolla and kolla-ansible
+* Add scripting around the development environment
+* Fix undefined variable in cadvisor role
+* Added missing files per PR review
+* Use Kolla default login name for Grafana
+* roles/cadvisor: Added
+* Update comment wording
+* Use monitoring node IP address for Grafana if no HAProxy
+* Organise and update grafana-conf role variables
+* Ignore pep8 warning
+* Use the grafana-conf role to clone the DB repo
+* Address review comments
+* Support configuring Grafana
+* Don't require kolla\_api\_interface on localhost
+* Support configuring API interface via overcloud inventory file
+* Pass MTU configuration to seed VM's configdrive
+* Add gitignore for libvirt-host and libvirt-vm roles
+* Configure all DNS servers for bifrost-provisioned overcloud hosts
+* Install pip when not using a kayobe target virtualenv
+* Workaround issue in CentOS cloud images with resolv.conf
+* Add a unit test for kayobe seed service deploy
+* Check whether image cache directory is writeable
+* Remove SELinux reboot from development docs
+* Add kayobe user bootstrap support for the seed-hypervisor
+* Support monitoring hosts by default in overcloud inventory
+* Add support for configuring Grafana
+* Add extra conf for cinder and ceph
+* Fix copy image ipa on seed
+* Fix storage config for docker-ce
+* Update contributing guide with IRC channel
+* Add IRC channel to README
+* Create and install kolla-ansible virtual environment in host configure
+* Add missing kayobe command entry points to setup.py
+* Fix compute-node-discovery.yml - missing register
+* Always run dump-config.yml playbook in host configure
+* Tag all (well, some of) the things (plays)
+* Add a comment about the ansible version limit for kolla-ansible
+* Create and install virtualenvs on seed/seed-hv/overcloud host upgrade
+* Don't fail if compute node is powered off in compute-node-discovery.yml
+* CLI changes and release notes for remote virtualenvs
+* Use (de)activate-virtualenv role to activate virtualenvs
+* Support configuration of a remote virtualenv for kayobe
+* Support configuration of a remote virtualenv for kolla-ansible
+* Add an issue template
+* Add unit tests for various host configure commands
+* Use a requirements file to install kolla-ansible, update ansible to 2.3
+* Update python docker package requirement note in role READMEs
+* Add more detail on baremetal compute state transitions
+* Improve bare metal compute node management
+* add collectd regex
+* Add docker registry config to kolla-ansible role test
+* Initial unit testing of ansible - kolla-ansible role
+* Add missing defaults for kolla-ansible docker configuration
+* Add a variable to kolla-ansible role for path to passwords.yml
+* Use ansible\_user\_id rather than ansible\_user
+* Don't quote a boolean value in globals.yml
+* Allow controllers and seed groups to be non-existent in kolla-ansible role
+* Remove support for colocated kolla & kolla-ansible
+* Only check presence of locally built IPA image on first controller
+* Move libvirt-host and libvirt-vm to Ansible Galaxy roles
+* Add blank line after pip install task
+* Added python-ironicclient (would be better going in the os-openstackclient role, but that's on galaxy
+* Use largest MTU of interfaces when determining OVS veth MTU
+* Sync sample inspector.yml config with group\_vars
+* Support multiple external networks
+* Fix support for provisioning and external networks on different physical networks
+* Remove config-mgmt group, instead use localhost
+* Use a separate task to destroy node exporter, opensm and docker registry containers
+* Refactor Vagrantfile to support VMware
+* Add container-image-builders group
+* Ignore contents of .vagrant
+* Add documentation on custom kolla-ansible configuration
+* Update documentation for container-image-builders group
+* Convert variable to bool in group\_by
+* Extend /etc/hosts fixup playbook for the loopback IP
+* Add enable flag and image regex for manila
+* Add missing variables for seed VM data volume config to seed-vm.yml
+* Add support for free-form configuration of kolla-build.conf
+* Make more container image builds conditional
+* Don't specify a docker registry when kolla\_docker\_registry is defined but None
+* Add an ansible group for container image builders
+* Fix image build regex
+* Add manila extra config path
+* No need for a virtualenv in TravisCI - already running in one
+* Add a tox environment ansible-syntax for checking ansible syntax
+* Move galaxy requirements.yml to top level
+* Update external-net.yml to use the stackhpc.os-networks role
+* Fix dell playbook inclusion
+* add ldap conf for keystone and horizon
+* Add support for setting MTU on veth interfaces
+* Remove stale script configure-kayobe.sh
+* Use a build matrix for TravisCI
+* Add heat configuration mk2
+* Add support for free-form configuration of heat
+* Don't run baremetal compute tasks when ironic is disabled
+* The default group doesn't need to be configurable
+* add conf regex for build image
+* Added a comment to explain what's going on with kolla\_nova\_compute\_ironic\_host
+* (potential) fix for https://github.com/stackhpc/kayobe/issues/71
+* Add creation for directory CA docker
+* [roles/node-exporter] Added NTP collector
+* [roles/node-exporter] collector option here has changed to path
+* [roles/node-exporter] Remove restart-retries for Docker 17.05
+* add CA conf for private registry
+* Allow for non-existent groups in kolla-ansible top level group mapping
+* Add documentation for virtualised compute hosts
+* Move configuration guide to a separate ToC
+* Create a baremetal-compute group for baremetal compute nodes
+* Add a check for controllers without ironic enabled
+* Add configuration for virtualised compute hosts
+* Add custom for dns interface
+* Don't provide compute nodes that are in maintenance mode
+* Fix default for idrac\_network\_ips - should be a dict
+* add conf for private registry
+* Add support for custom horizon configuration
+* network.rst: Document delay and lacp\_rate options
+* networks.py: Added up/down-delay and lacp rate options
+* Add a variable to configure which hosts run nova compute for ironic
+* Add workaround for ansible bug 8743 to yum configs
+* network.rst: Document xmit\_hash\_policy option
+* networks.py: Added xmit\_hash\_policy to bonding option filters
+* redhat.yml: Added wildcard name to make update cache work
+* Don't overwrite custom kolla-ansible configuration files, merge them
+* Fix typo in release notes
+* commands.py: Added Yum configuration to seed VM and hypervisor sections
+* Add a command to check network connectivity between hosts
+* ansible/yum.yml: Added seed-hypervisor to yum playbook
+* Updated Yum roles with review comments
+* commands.py: Wrapped line to make Travis happy
+* group\_vars: yum: Disable use of local mirror by default
+* Added yum-cron update\_cmd option
+* roles/yum-cron: Split from yum role
+* Added default config file for yum role variables
+* commands.py: Move yum playbook up
+* roles/yum: redhat.yml: Removed surplus when statements
+* roles/yum: Added yum\_cron\_enabled option
+* ansible/yum.yml: Added playbook
+* roles/yum: Prefix all options with yum\_
+* roles/yum: Use YAML styled options
+* roles/yum: Added use\_local\_mirror
+* roles/yum: Use yum instead of package
+* roles/yum: Fixed update\_cache options
+* roles/yum: Added yum-cron configuration
+* commands.py: Added yum role to host configure
+* roles/yum: Added base YUM repo configuration for local mirror
+* roles/node-exporter: Fixed surplus command option
+* Revert "Use a local branch of MichaelRigart.interfaces role until merged upstream"
+* Set the Vagrant development VM's hostname
+* Use a local branch of MichaelRigart.interfaces role until merged upstream
+* Restrict prometheus node exporter to overcloud hosts running docker
+* Fix kolla\_docker\_registry\_username and kolla\_docker\_registry\_password
+* Add ceph config file for kolla (#48)
+* Added Prometheus node exporter role (#34)
+* Add support for configuration of IP route tables and rules
+* Use kolla-ansible's defaults for neutron ML2 mechanism drivers
+* Update container-image-build.yml
+* Update container-image-build.yml
+* Update globals.yml.j2
+* Update kolla.yml
+* Update kolla
+* Update container-image-build.yml
+* Update kolla.yml
+* Update kolla
+* add credentiels for registry
+* Disable swift by default
+* Change kolla build configuration path variable
+* Improve networking documentation
+* In latest Docker 17.05 restart-retires and unless-stopped are mutually exclusive. Remove restart-retries where used
+* Fix operator precedence issue in controller network list
+* Add no\_log to kolla\_passwords module argument
+* Don't fail to register introspection rules when variable is None
+* Fix ansible warnings for when clauses with curly braces
+* Add missing variable kolla\_enable\_heat
+* Add extra config for heat
+* Add all extra-configurable services to release notes
+*  add version for ironic api (#37)
+* add version for ironic api
+* Rework custom kolla-ansible configuration
+* Add support for configuration of custom fluentd filters
+* Add support for custom neutron and nova config files
+* Remove nova configuration options which are not necessary in pike
+* Add a --display argument to kayobe physical network configure
+* Allow limiting physical network interface configuration to subsets
+* Don't fail to register introspection rules when variable is None
+* Add support for --skip-tags and --kolla-skip-tags
+* Support additional options for neutron generic switch driver config
+* Enable inspector firewall management by default
+* Change name of element for diskimage-builder
+* Add ElasticSearch as a Kolla feature flag
+* Use local\_action instead of delegate\_to in switch config tasks
+* Update development configuration for Kayobe 3.0.0 pike release
+* Remove explicit setting of versionless keystone endpoints in k-a
+* Fix SSH reconnection for docker role in Ansible 2.3
+* Remove stale variable from junos role invocation
+* Remove default filter from junos switch timeout
+* Install ncclient python package for junos switches on ansible 2.3+
+* Python devel packages not typically installed, add as a base package requirement
+* Update RedHat.yml
+
+3.0.0
+-----
+
+* Kayobe 3.0.0 release
+* Fix installation documentation syntax
+* Update documentation for new control host directory layout
+* Add documentation on generating and saving overcloud service configuration
+* Perform docker-py upgrade to docker prior to installing kolla
+* Fix container image pull command
+* Configure kolla-ansible before pulling container images
+* Add initial unit tests for kayobe CLI commands
+* Ensure kolla virtualenv contains docker package rather than docker-py
+* Add node\_config\_directory variable to overcloud service config save playbook
+* Apply RabbitMQ workaround for issue #14 to all overcloud hosts
+* Add --node-config-dir argument to overcloud service configuration save
+* Make --node-config-dir required when generating overcloud service configuration
+* Fix pep8 failure in CLI, remove stale comment
+* Improve help output for kayobe CLI commands
+* Add save playbook
+* Add deployment image build to upgrade guide
+* Don't use {{ project }} for overcloud service configuration generate
+* WIP: changes for drac-pxe role to improve reliability
+* Add commands to generate and save overcloud service configuration
+* Upgrade docker SDK for python during overcloud host upgrade
+* Add workaround for ansible issue #21188 to inspection store
+* Add a note to requirements.txt about Ansible dell network module bug 30350
+* Relax requirements.txt to allow ansible 2.3
+* Move two neutron options from custom neutron.conf to globals.yml
+* Update software dependencies to pike releases
+* Update to use pike requirements
+* Add kolla\_enable\_ flags for new services added in Pike
+* Kayobe 2.0.0 release
+* Stop using KOLLA\_BASE\_PATH to set base\_path
+* Untangle configuration of kolla and kolla-ansible
+* Separate network configuration from high level kayobe configuration
+* Add kayobe overcloud host upgrade
+* Add a workaround for ansible bug 8743 for users.yml
+* Fix singleplatform-eng.users role entry in requirements.yml
+* Use vars: to pass variables to roles included via an include\_role task
+* Fix galaxy role upgrade
+* Add release notes for implemented but unreleased features
+* Fix some 'issues' raised by ansible-lint
+* Allow kolla-ansible prechecks to be skipped
+* Add ability to run ansible-lint
+* Remove recurse argument from source\_checkout\_path creation
+* Simplify installation instructions with multiple platforms
+* Use become when creating image cache directory for seed VM
+* Allow switch ports to be excluded from NGS trunk port list
+* Use the singleplatform-eng.users role to create the kayobe ansible user
+* Support configuration of user accounts
+* Support the netmiko\_juniper driver for Junipers in genericswitch
+* Use hosts in the network group for default NGS trunk ports
+* Use controller sysctl parameters as the defaults for monitoring hosts
+* Advertise internal ironic API to nodes during provisioning
+* Add configuration of inspection allocation pool for dev environment
+* Pass though host variables from kayobe to kolla-ansible inventory
+* Add support for Ubuntu control hosts
+* Fix check for SELinux status in kolla-ansible role
+* Use . instead of source
+* Add TravisCI status badge to README
+* Add static configuration of eth1 in development environment
+* Disabled vagrant auto-configure of interface
+* Add release notes to index TOC
+* Add Travis CI config
+* Add sphinx8, a thin wrapper around doc8 that supports sphinx
+* Add support for a free-form configuration directory for glance
+* Add network configuration for gateways in provisioning and inspection networks
+* Add a data store for ironic inspector introspection data
+* Support KAYOBE\_BASE\_PATH in kayobe python module
+* Add support for configuration of sysctl parameters
+* Send default gateway DHCP option during workload inspection
+* Use provisioning network to access TFTP server during workload inspection
+* Add release notes to documentation, with notes for 1.0.0 and 1.1.0
+* Decompose overcloud inventory file into top level, components, and services
+* Determine overcloud\_groups variable more intelligently
+* Add network group, move neutron and load balancing services to it
+* Add <type>\_network\_interfaces for controllers, monitoring, seed, seed-hypervisor
+* Add ansible\_host and ansible\_user definitions for seed-hypervisor
+* Add -kl/--kolla-limit argument to limit kolla-ansible target hosts
+* Fix pep8 errors
+* Changes to MichaelRigart.interfaces role now merged upstream
+* Separate the external network into external and public
+* Add support for setting bmc\_type=intel for Intel BMCs
+* Disable selinux during provision
+* Sync /vagrant folder using virtualbox shared folder
+* We don't need to set the gateway for aio network
+* Fix incorrect ansible module in overcloud-ipa-images.yml
+* Update development guide to include pulling container images
+* Add command to save overcloud introspection data
+* Perform all host network configuration in a single pass
+* Explicitly set IP=0.0.0.0 on interfaces with no IP address
+* Fix serialisation of ip-allocation role
+* Fix destroy of opensm and docker-registry containers
+* Don't pull opensm or docker-registry images when disabled or destroying
+* Improve configuration of IPA collectors and benchmarks
+* Improve ironic deployment image build for overcloud
+* Add command to build IPA deployment images for the seed
+* Add the ability to call --list-tasks
+* Fix test\_utils error due unmocked subprocess call
+* Fix kolla-ansible unit test failures
+* Don't install bifrost into local virtualenv
+* Add stackhpc.os-images role to role dependencies
+* Work around issue with delegate\_to not respecting ansible\_user
+* Add a value for inspector LLDP interface in development config
+* Fix syntax for inclusion of openstackclient role
+* Remove unnecessary comma from JunOS switch config
+* Fix typo in junos switch provider for SSH private key file
+* Updates to juniper switch configuration
+* Add documentation for setting up a development VM
+* Improve Vagrantfile, add development configuration
+* Workaround ansible\_selinux fact either being a dict or false
+* Run kolla-ansible configuration in host configure
+* Support docker overlay storage driver
+* Don't fail when iscsi services are not installed
+* Set default value of kolla\_enable\_haproxy to True
+* Fix defaults for environment variable lookups
+* Allow base\_path to be configured via /home/stackhpc-mark/kayobe env var
+* Improvements to seed VM provisioning
+* Change ownership of libvirt volume to qemu:qemu after creation
+* Add support for physical\_network attribute of networks
+* Fix issue with adding user to docker group
+* Add support for bonded (LAG) host network interfaces
+* Add support for configuration of Juniper switches
+* Fix up configuration and comments for networks
+* Add kayobe seed vm deprovision command
+* Add configuration for seed hypervisor
+* Improve automation of seed VM network configuration
+* Remove inactive network interface definitions from seed group vars
+* Set default for seed VM image to CentOS 7 cloud image
+* Use virtualenv\_path for all virtualenvs
+* Add virtualenv\_path variable, the base path for creation of virtualenvs
+* Add base\_path variable to simplify configuration of paths
+* Add missing Ansible bug 8743 workarounds to config samples
+* Only run configuration tasks of kolla-ansible
+* Run kolla-ansible configuration during kayobe seed service deploy
+* Fix seed introspection rules
+* Add libvirt-host role
+* Fix docker MTU configuration when no MTU specified
+* Fix kolla-ansible.yml when no seed or controller hosts exist
+* Install kolla-ansible during kayobe control host bootstrap
+* Add a comment in the ip-allocation role about Yum and virtualenvs
+* Fix ip\_allocation module for netaddr-0.7.5
+* Update kayobe installation dependencies
+* Add documentation and examples for ip\_allocation module
+* Install package dependencies in ip-allocation role
+* Fix ip\_allocation module when allocation file does not exist
+* Fix typo in bootstrap role
+* Add networks for out-of-band management
+* Update setup.py version to 1.1.0
+
+1.1.0
+-----
+
+* Fix upgrade of docker-registry and opensm containers
+* Add minimal configuration of murano
+* Quote container image build regexes
+* Fix default variable name for kolla\_extra\_magnum
+* Support configuration of Fluentd output plugins
+* Support destroying the overcloud services
+* Support passing additional function arguments to kolla-ansible
+* Use correct version in setup.py, 1.0.0
+* Add a note on upgrading ironic deployment images
+* Fix overcloud image pull command for non-kolla services
+* Remove configuration of inspector ramdisk\_logs\_dir
+* Change docs link in README to readthedocs hosted documentation
+* Move administration tasks from the deployment guide to a new page
+* Add an upgrade guide
+* Update kolla-ansible inventory for pike
+* Don't include kolla-ansible.yml from kolla.yml
+* Alter ansible version constraint to <2.3.0
+* Add control host upgrade, stop using yum on host
+* Rename usage docs to deployment, separate out usage
+* Add support for static routes on networks
+* Handle configuration dump failures in host configure
+* Force no check mode during configuration dump
+* Add check flag to ansible function arguments
+* Redirect stderr to kolla-build.log during container image build
+* Synchronise example config files
+
+1.0.0
+-----
+
+* Use correct variable name in introspection rule plays
+* Add ipmi\_address variables for Dell compute node inventory
+* Correct role name in provision-net.yml
+* Default docker registry to disabled
+* Add configuration to deploy a Docker registry on a controller
+* Support interface name map for Dell LLDP switch port workaround
+* Allow extra free-form configuration of ironic inspector's dnsmasq service
+* Add documentation of idrac-bootstrap.yml playbook variable idrac\_limit
+* Add configuration of OpenSM Infiniband subnet manager in a Docker container
+* Add minimal configuration of sahara
+* Fix broken unit tests
+* Add tool to count LOC
+* Perform IP allocation after discovering overcloud hosts
+* Fix specification of ansible intersected limits
+* Small fixes for disable-glean role
+* Add support for limiting target iDRACs in idrac-bootstrap.yml
+* Fix environment variable lookup for vault password
+* Fix compute node limit for compute-node-provide.yml
+* Update README with magnum support
+* Add support for monitoring nodes
+* Add a role to disable glean
+* Support ifup on either end of a veth pair
+* Add documentation of reconfiguration and upgrade commands
+* Add documentation of network configuration
+* Separate configuration docs from usage
+* Support updates of the kolla passwords.yml file
+* Support vault encrypted config files with kolla-ansible
+* Run kolla-ansible playbook on overcloud service deploy
+* Support barbican service, defaults to disabled
+* Allow extra free-form configuration for nova
+* Allow configuration of neutron extension drivers
+* Extract neutron-net role into a separate project on galaxy
+* Extract nova-flavor role into a separate project on galaxy
+* Make external networks external
+* Add a playbook to create a neutron network for the external network
+* Support configuration of controller ports for neutron ML2 generic switch driver
+* Support extra user configuration for magnum.conf
+* Allow neutron routers to be configured in neutron-net role
+* Allow kolla build customisations to be added
+* Add flag to enable magnum service
+* Factor out compute node inventory generation into a separate playbook
+* Add a playbook and role to configure Dell compute nodes to PXE boot
+* Add a playbook and role to set the boot mode (bios, uefi) of Dell servers
+* Fixes now pushed upstream to MichaelRigart.interfaces role
+* Support existing flavors in compute node flavor registration
+* Allow target compute nodes to be limited in compute-node-provide.yml
+* Fix IPA image registration
+* typo
+* Avoid Ansible 2.3, does odd things, for now
+* Premature optimisation: prevent checksum during stat unless required
+* Allow IPA images to be built locally
+* Support encryption of configuration using Ansible Vault
+* Allow utils.run\_command to return command output
+* Bring switch\_interface group variable file up to date
+* Move shade, openstackclient and projects roles to Ansible Galaxy
+* Add heat\_stack\_owner role to test project
+* Refactor test-project role into a general role for project registration
+* Add a playbook to register nova flavors for baremetal nodes
+* Add a playbook to make compute nodes available in ironic
+* Remove test-infra.yml playbook
+* Add doc8 for documentation style checking, fix the one issue found
+* Fix minor flake8 issues
+* License kayobe project under Apache2
+* Allow compute nodes being discovered to be limited
+* iDRAC bootstrap - allow port descriptions to be empty, make control host configurable
+* Add CLI commands to reconfigure and upgrade the overcloud services
+* Separate IP allocation pool for inspection from kayobe and neutron pools
+* Add validation of OpenStack auth parameters
+* Check BMC type is supported in kayobe overcloud bios raid configure
+* Add inspector rules to add system vendor to metadata, use to set bmc\_type
+* Add kayobe overcloud hardware inspect command
+* Generate a public environment file for accessing external APIs as admin
+* Add additional ironic inspector collectors
+* Allow nodes in deploy failed state to be deprovisioned
+* Add missing footer for neutron.yml
+* Add config file with defaults for ipa.yml
+* Support configuration of BIOS and RAID for controllers
+* Add a BMC configuration file to consolidate IPMI credentials and BMC type
+* Add missing CLI commands to usage documentation
+* Add version requirements to dependencies
+* Add missing return values from kayobe CLI wrapper methods
+* During inspection, only add PXE boot port
+* Pass kayobe CLI's verbose option through to ansible
+* Separate physical configuration for discovery
+* Create an SSH key in test project playbook if none exists
+* Allow specification of container images to build
+* Support specification of separate IP allocation pool for Neutron
+* Install ipmitool before compute node discovery
+* Add configuration of Neutron including genericswitch mech driver
+* Allow inspector plugin list to be extended
+* Move to stackhpc-4.0.0.1 branch of kolla and kolla-ansible
+* Flesh out Ironic configuration, particularly drivers
+* Use versionless Keystone endpoints
+* Add support for configuration of Jinja2 blocks in kolla images
+* Remove overridden yum repositories and keys
+* Enable IP routing and SNAT in seed for use during provisioning
+* Flesh out usage documentation
+* Fix --wipe-disks argument to host configure
+* Add some future goals to the feature list
+* Fix semantics of a unit test
+* Expand documentation and change to sphinx from MarkDown
+* Correct module name in ironic-inspector-rules role README
+* Create README for ironic-inspector-rules role
+* Update README for dell-switch role
+* Update README for dell-switch-bmp role
+* Add README files for dell-switch and dell-switch-bmp roles
+* Use workaround for Ansible issue with dynamic delegate\_to
+* Playbook and role to register a test project and other resources
+* Add a playbook to trigger discovery of compute nodes
+* Support registration of Neutron subnets without a gateway IP address
+* Add inspector rules to workaround Dell switch LLDP issues
+* Add default values for inspector rule interpolation variables
+* Install EPEL whenever we install pip
+* Dell switch: Add spaces before interface config to ensure correct match
+* Add physical switches to known SSH hosts
+* Support Neutron VLAN networks
+* Add kayobe 'overcloud deprovision command'
+* Fix overcloud provision playbook for provisioning multiple nodes
+* Remove executable bit from veth interface config files
+* Add support for Bare Metal Provisioning (BMP) of Dell switches via seed
+* Add filter for network prefix
+* Add support for bootstrapping iDRACs on Dell servers
+* Add a net\_mask filter
+* Move Dell switch configuration to a dell-switch role
+* Add an argument to host configure to wipe block devices
+* Parameter encapsulation for Docker role
+* Update main.yml
+* Read setup.py install\_requires from requirements.txt file
+* Second pass at Docker MTU assignment
+* Introduce 1450 MTU for Docker-encapsulated networking
+* Add EPEL repo for python-pip
+* Add ansible and netaddr as dependencies of kayobe
+* Use forked interfaces role with support for improved interface bouncing
+* Use forked interfaces role with support for MTU configuration
+* Add support for configuring MTU on network interfaces
+* Use our fork of the network interfaces role until a fix has been merged
+* Remove --bifrost-limit CLI argument - now works with --limit
+* Check controller nodes' provisioning states and proceed to available
+* Wait for controller nodes to become active after provisioning
+* Use static IP on provisioning network to access the seed
+* Add kayobe CLI command to configure the physical network
+* Improve permissions around Kolla configuration
+* Remove kolla-host role, replace with a dev-tools role to install useful packages
+* Add support for registering a provisioning network and subnet in Neutron
+* Add introspection rules for overcloud
+* Add support for registering IPA images in overcloud
+* Use shade role in test playbooks
+* Refactor a shade role out of ironic-inspector-roles
+* Add tags for kolla, kolla-openstack and kolla-bifrost roles
+* Add commands for building seed and overcloud container images
+* Simplify specification of playbooks in CLI
+* Add configuration for Bifrost image to Kolla globals.yml
+* Ensure Kolla hosts are not running iSCSI initiator services
+* Improve configuration of Ironic and Ironic inspector
+* Improve network configuration & external network support
+* Improve comments around network roles
+* Remove PROBLEMS, as it is out of date
+* Synchronise Kolla inventory template with upstream
+* Use Kolla config path to install openrc
+* Workaround for lack of python selinux module on PyPI
+* Install ansible in the kolla virtualenv to ensure jinja2>=2.8
+* Discovery of overcloud hosts from Bifrost's Ironic inventory
+* Ensure kayobe CLI option groups aren't duplicated
+* Update Kolla inventory with seed IP address after provisioning
+* Break kolla-ansible playbook out of kolla playbook
+* Add an inspector rule to store the PXE interface MAC address
+* Allocate IPs in serial to prevent allocation race conditions
+* Configure LVM and Docker direct-lvm storage on the controllers
+* Add initial work on network configuration for management network
+* Add playbooks for interactions with DRACs
+* Add more introspection rules - local boot, LLDP description to name
+* A couple of small dependency fixes
+* Add network interface configuration variables to config files
+* Install Bifrost into Kayobe virtualenv
+* Configure Docker to use direct-lvm storage backend
+* Add support for configuration of LVM PVs, VGs and LVs
+* Bifrost & inspector: add rules, configure IPA ramdisk & kernel
+* Separate configuration of host OS from service deployment
+* Change default namespace to stackhpc and release to 4.0.0.0rc1 (Ocata)
+* Support configuration of Bifrost inspection hooks and kernel params
+* Add playbooks to build seed and overcloud Docker images
+* Support configuration of Kolla build sources
+* Changes to .gitignore
+* Allow Kolla's docker namespace to be configured
+* Support Ironic inspector in Bifrost container
+* Flesh out the README with installation and usage information
+* Add unit tests and style checks for Kayobe python module
+* Add kayobe python module with CLI
+* Update Kolla inventory with seed VM IP
+* Add disable-selinux element to controller image recipe
+* Add support for Bifrost dib\_os\_release
+* Support Ocata split of kolla-ansible from kolla, allow custom kolla passwords
+* Create dump path locally in dump-config.yml
+* Use custom kolla configuration path in post-deploy
+* Add kolla-build.yml playbook to support building images on the seed
+* Update test playbooks
+* Add support for Kolla's enable\_haproxy flag and allow it to be false
+* Add Ansible group variables file for seed Ansible SSH host
+* Add support for adding a user account for SSH access
+* Add a simple command to dump Ansible configuration for one or more hosts
+* Make SSH keys configurable
+* Increase reboot wait timeout in disable-selinux for non-virt hosts
+* Add support for allocation pools to IP allocation role
+* Support Kolla install from source
+* Initial mega commit of Kayobe
+* Add first iteration of PoC deployment scripts
+* Initial commit

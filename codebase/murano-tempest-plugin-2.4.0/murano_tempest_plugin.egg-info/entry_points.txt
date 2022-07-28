@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+murano_tests = murano_tempest_tests.plugin:MuranoTempestPlugin
+

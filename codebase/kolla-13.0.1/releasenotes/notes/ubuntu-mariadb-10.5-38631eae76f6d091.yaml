@@ -1,0 +1,4 @@
+---
+upgrade:
+  - |
+    Ubuntu now uses MariaDB 10.5 to sync with Debian.

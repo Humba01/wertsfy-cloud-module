@@ -1,0 +1,7 @@
+[run]
+branch = True
+source = mistral_lib
+
+
+[report]
+ignore_errors = True

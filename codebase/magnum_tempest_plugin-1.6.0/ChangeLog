@@ -1,0 +1,192 @@
+CHANGES
+=======
+
+1.6.0
+-----
+
+* Add stable branch jobs on the plugins master gate
+
+1.5.0
+-----
+
+* Extend default glance limit
+
+1.4.0
+-----
+
+
+1.3.0
+-----
+
+* Switch to new rolevar for run-temepst role
+* Switch to using Focal for testing
+* Disable test\_create\_cluster\_with\_zero\_nodes
+
+1.2.0
+-----
+
+* Keep magnum-tempest-plugin-tests-api job running on Bionic
+
+1.1.0
+-----
+
+* Fix HTTP 400 error
+* Stop to use the \_\_future\_\_ module
+* Switch to newer openstackdocstheme and reno versions
+* Add py38 package metadata
+* Remove six
+* Update docs building, cleanup
+* Updated from global requirements
+* [ci] Define/enable magnum-tempest-plugin-tests-api
+* [ci] Support fedora-coreos in magnum-tempest-plugin
+
+1.0.0
+-----
+
+* [ussuri][goal] Drop python 2.7 support and testing
+* Replace git.openstack.org URLs with opendev.org URLs
+
+0.3.0
+-----
+
+* Print status\_reason in the log
+* Add idempotent ID for ClusterTest cases
+* Cap sphinx on py2
+* Do not use sitepackages for functional tests
+* OpenDev Migration Patch
+* Support to run cluster test using existing cluster template
+* Fix skipping of tests
+
+0.2.0
+-----
+
+* python3 compatibility fix
+* add option for docker\_storage\_driver
+* Update home-page
+* fix tox python3 overrides
+* Update hacking version to latest
+* Update the bugs link to storyboard
+* fix bug link in readme
+* Change openstack-dev to openstack-discuss
+* Add options for coe and network\_driver
+* Add python 3.6 unit test job
+* Fix the slowest test
+* Update the hacking to latest
+* Removed older version of python added 3.5
+* fix tox python3 overrides
+* fix typo
+* import zuul job settings from project-config
+
+0.1.0
+-----
+
+* Switch to stestr and fixing gate
+* Switch to stestr
+* Fix links to build docs
+* Add find and bash to whitelist\_externals
+* Refactored magnum tempest plugin
+* Fixed project name in .gitreview
+* Apply cookiecutter to newly split project
+* Launch k8s scheduler & controller-manager as system containers
+* tests: Use swarm-mode for api tests
+* Copy service configurations also
+* Add swarm-mode driver
+* Copy cluster nodes logs always whether tests pass or fail
+* Add a hacking rule for string interpolation at logging String interpolation should be delayed to be handled by the logging code, rather than being done at the point of the logging call. See the oslo i18n guideline \* https://docs.openstack.org/oslo.i18n/latest/user/guidelines.html#adding-variables-to-log-messages and \* https://github.com/openstack-dev/hacking/blob/master/hacking/checks/other.py#L39
+* Use 'sudo' to access /etc/sysconfig/heat-params
+* Set clustertemplate:publish to admin only
+* Fix config type of copy\_logs from string to Boolean
+* Remove log translations
+* ci: Rename ssh key
+* [k8s] Get logs of controller-manager and scheduler
+* Upgrade to Fedora 25
+* Add an API to rotate a cluster CA certificate
+* Fix gate: caused by tempest(removal of "service" param)
+* Modify variable's using method in Log Messages
+* Remove docker\_volume\_size from functional-test
+* [Trivial] Fix two typos in magnum
+* Allow keypair to be added during cluster create
+* Remove fixed\_network from functional tests
+* Remove default=None when set value in Config
+* Rename Bay DB, Object, and internal usage to Cluster
+* Rename Bay to Cluster in functional tests
+* Revert "Update mesos slave to mesos agent"
+* Add cluster to cert commands
+* Simplify test\_create\_list\_sign\_delete\_clusters() tempest test
+* Rename Bay to Cluster in api
+* Fix tempest.conf generation
+* Add i18n translation for Log messages
+* Add test for update baymodel public
+* Support for async bay operations
+* Functional: validate OpenStack resources
+* Remove kube-user.yaml
+* Fix copying logs from nodes
+* Add functional test for public baymodel
+* Add functional test for image/flavor validation
+* Create a base class for tempest tests
+* Update mesos slave to mesos agent
+* tempest: Allow the old-style name project name
+* tempest: Don't hardcode external network id
+* Delete certs when deleting bay
+* Gate: fix the credential object type error
+* Gate: fix tempest config error
+* Update Magnum service name and description
+* Correct parameter order for assertEqual() method
+* Use the latest atomic image name
+* Copy logs if test failed and bay nodes existed
+* Replace tempest-lib with tempest.lib
+* Functional: Add prefix when copy logs on failure
+* Grab heat-params for debugging
+* Log copy for failed functional tests cannot be disabled
+* Functional tests should support DNS nameserver config
+* Notify Heat only if kube-apiserver is running
+* Fix two issues that broke the gate
+* Fix an incorrect key path on copying logs
+* Switch to Atomic 23
+* Rename flavor name used in gate tests
+* Fix baymodel with invalid parameter can updated
+* Replace deprecated LOG.warn with LOG.warning
+* Bay status returns None initially after create
+* Functional test for flavor validation in bay creation
+* Functional: Set private key outside of remote\_exec
+* Remove minion dependency on master
+* Fix baymodel with invalid parameter can created
+* Copy logs on test failure
+* Remove unused attribute "ssh\_authorized\_key"
+* certificate sign with a non-existing cert should throw HTTP 400
+* Add master\_flavor\_id to baymodel data funtion test
+* Add tempest logging to bay\_client and test\_bay helper methods
+* Fix string formatting bug
+* Add magnum certificate api tests
+* Reduce memory consumption of gate tests
+* Fix invalid import order
+* Fix gate issues with functional-api job
+* Enable Tempest without devstack
+* Add func test to validate baymodel-update referenced by bay
+* Validates baymodel volume\_driver requests
+* Improve Tempest credential provider usage
+* Change 404 to 400 when resource not found exception raises
+* Gate: Fixed an Unauthorized error on api tests
+* Enable test\_magnum\_service\_list\_needs\_admin
+* Delete negative case of create bay without name
+* Add magnum bay api tempest tests
+* Increase size of Docker volume size
+* Fix Docker storage configuration for Swarm
+* Swithc to using dynamic credentials in tempest tests
+* Migration to utilize tempest plugin
+* Copy Docker containers configs/logs
+* Functional: only copy logs on exception
+* Record diagnostic info from bay nodes
+* Adds Magnum Container Network Model to Swarm
+* API: use baymodel\_ident to update a baymodel
+* Add Magnum config for default network driver per COE
+* Add support for allowable network drivers configuration
+* Fix argument order in assertEqual to (expect, obs)
+* Refactor config setup to reduce complexity
+* Fix order of arguments in assertEqual
+* Functional tests for magnum service
+* Baymodel create should allow no network\_driver specified
+* Adds client test for labels
+* Fix H405 and E131 ignored pep8 rules
+* Fix funtional gate: specify missing network\_driver
+* Functional tests with Tempest - BayModel CRUD

@@ -1,0 +1,868 @@
+CHANGES
+=======
+
+3.0.0
+-----
+
+* Cinder store: Wait for device resize
+* Correct attachment\_complete call
+* Pass valid IP address to os-brick
+* [RBD] Clone v2: Image is unusable if deletion fails
+* Updating python testing classifier as per Yoga testing runtime
+* Imported Translations from Zanata
+* nit: Correct debug log
+* Cleanup devstack jobs
+* Fix documentation build with Sphinx>=4.2.0
+* Fix typos
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+2.7.0
+-----
+
+* Xena cycle Release Notes
+* Raise correct exception from "Quota full"
+* Add volume multiattach handling
+* Drop lower-constraints job
+* Glance cinder nfs: Block creating qcow2 volumes
+* Doc: Use Block Storage API v3
+* Add cinder's new attachment support
+
+2.6.0
+-----
+
+* s3: Optimize WRITE\_CHUNKSIZE to minimize an overhead
+* setup.cfg: Replace dashes with underscores
+* Allow any Keystone domain for cinder store
+* vmware: Use cookiejar from oslo.vmware client directly
+* Pass multipath config while creating connector object
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+* swift: Take into account swift\_store\_endpoint
+
+2.5.0
+-----
+
+* Wallaby cycle Release Notes
+* Run glance functional job on glance\_store
+* Validate volume type during volume create
+* Cinder store: Use v3 API by default
+* Fix lower\_constraints and requirements
+* Replace md5 with oslo version
+
+2.4.0
+-----
+
+* Imported Translations from Zanata
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+* Update user/project referencing from context
+
+2.3.0
+-----
+
+* Drop snapshot in use log from ERROR to WARN
+* Add a little more test coverage for rbd resize logic
+* Bring FakeData utility over from glance
+* Correct default type name reference
+* Support Cinder multiple stores
+* Handle sparse images in glance\_store
+* Ramp up rbd resize to avoid excessive calls
+
+2.2.0
+-----
+
+* Copy data files to glance upon installation
+* [Trivial]Add missing white space between words
+* [goal] Migrate glance\_store jobs to focal
+* zuul: glance\_store-src-ceph-tempest replaces a legacy job
+* use stevedore to load extensions
+* requirements: Drop os-testr
+* Remove translation sections from setup.cfg
+* Fix mock import in unit tests
+* Don't allow image creation with encrypted nfs volumes
+
+2.1.0
+-----
+
+* Release notes for Victoria Milestone 1
+* Stop to use the \_\_future\_\_ module
+* Switch to newer openstackdocstheme and reno versions
+* Cap jsonschema 3.2.0 as the minimal version
+* Fix hacking min version to 3.0.1
+* Imported Translations from Zanata
+* Add lock per share for cinder nfs mount/umount
+* Clarify the filesystem\_store\_metadata\_file config option
+* Fix: API returns 503 if one of the store is mis-configured
+* Bump default tox env from py37 to py38
+* Add py38 package metadata
+* Bump cinder/os-brick requirements
+* Use unittest.mock instead of third party mock
+* Imported Translations from Zanata
+* Add Python3 victoria unit tests
+* Enforce constraints for docs dependencies
+* Cleanup py27 support
+* Update hacking for Python3
+* Update master for stable/ussuri
+
+2.0.0
+-----
+
+* Release note for 1.2.0
+* Add config for cinder mounting needs
+* Refactor methods in cinder store
+* Add S3 store support to glance\_store
+* Fix for BufferedReader sets is\_zero\_size true for a chunk
+* Image upload fails if cinder multipath is enabled
+* Drop support for tempest-full
+* Restore quotes removal for swift config in Python3
+* Drop python 2.7 support and testing
+* Re-use swift\_store\_cacert for Keystone session
+* doc: Clean up unnecessary left vertical lines
+* Imported Translations from Zanata
+
+1.1.0
+-----
+
+* Remove sheepdog store driver
+* Add release notes link in readme
+* Imported Translations from Zanata
+* Release note for 1.0.1
+* Update master for stable/train
+* Register reserved store configs
+* Remove warning filter
+* Set zero size only when nothing is written
+* Fix option load for swift/vmware
+
+1.0.0
+-----
+
+* Release note and documentation for 1.0.0
+* Deprecate Sheepdog driver
+* Change location metadata key 'backend' to 'store'
+* Remove sheepdog tests from zuul config
+* Add Python 3 Train unit tests
+
+0.29.1
+------
+
+* Add 0.29.1 releasenotes
+* Revert "Change location metadata key 'backend' to 'store'"
+
+0.29.0
+------
+
+* Rethinking file system access
+* Remove outdated line in tox.ini
+* Change location metadata key 'backend' to 'store'
+* Add location prefix url to store instance
+* Add releasenote for option removal
+* Removed 'store\_capabilities\_update\_min\_interval' config option
+* Dropping the py35 testing
+* Modify deprecation warning for stores options
+* Cap sphinx for py2 to match global requirements
+* Replace git.openstack.org URLs with opendev.org URLs
+* Fix failing tips-py35 jobs
+* OpenDev Migration Patch
+* Do not include ETag when puting manifest in chunked uploads
+* Update irrelevant-files for tempest tests
+* Python3: Fix return type on CooperativeReader.read
+* Uncap jsonschema
+* Update master for stable/stein
+* Prevent unicode object error from zero-byte read
+* Return bytes even when get()ing a zero-byte image from swift
+
+0.28.0
+------
+
+* Stein cycle Release Notes
+* Update help text for rbd\_ceph\_conf
+* Filesystem driver: add chunk size config option
+* Fix python3 compatibility of rbd get\_fsid
+* Do not raise StopIteration
+* add python 3.7 unit test job
+* Fix some types in the FS and VMware drivers
+* Imported Translations from Zanata
+* Update mailinglist from dev to discuss
+* Use template for lower-constraints
+* Update deprecation notices
+* Catch rbd NoSpace exception
+* Remove moxstubout usage
+
+0.27.0
+------
+
+* Add statement explaining "tips" job configuration
+* Provision to add new config options in sample config file
+* Imported Translations from Zanata
+* add lib-forward-testing-python3 test job
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* Fix defaults for ConfigParser
+* Change rbd default conf path
+* import zuul job settings from project-config
+* remove bandit from testing
+* Refactor periodic "tips" jobs
+* Imported Translations from Zanata
+* Move doc8 to test requirements
+* Remove team diversity tags note in README
+* Wrap interface function for multihash correctly
+* cinder: Support os-brick privsep filters
+* Update reno for stable/rocky
+
+0.26.0
+------
+
+* Consider Cinder back-end as production ready
+* Remove config option help translation
+* Deprecate store\_add\_to\_backend()
+* Multihash Implementation for Glance
+
+0.25.0
+------
+
+* Address multi store nits
+* Add release notes for 0.25.0
+* Multi store support for cinder driver
+* Update tox.ini to conform to the PTI
+* Follow the new PTI for document build
+* Multi store support for http, swift, sheepdog and vmware driver
+* Enable multi store support for glance
+* Deprecate stores, default\_store config options
+* specify region on creating cinderclient
+* cinder: Specify mountpoint host param to attach API
+* Deprecate store\_capabilities\_update\_min\_interval
+* Update links in README
+
+0.24.0
+------
+
+* use only exceptions for uri validations
+* fix tox python3 overrides
+* Update conf.py to align with openstackdocstheme
+* Add periodic tips jobs
+* Add glance\_store disclaimer to docs
+* Remove tox\_install.sh
+* uncap eventlet
+* add lower-constraints job
+* Fix wrong links in glance\_store
+* Updated from global requirements
+* Updated from global requirements
+* Clean imports in code
+* Imported Translations from Zanata
+* Migrate legacy jobs to project repository
+* Updated from global requirements
+* Imported Translations from Zanata
+* Add doc8 to pep8 check for glance\_store project
+* Add .stestr to gitignore
+* Update reno for stable/queens
+* Updated from global requirements
+* process spelling error
+* Imported Translations from Zanata
+
+0.23.0
+------
+
+* Add Queens release note
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Fix some wrong url and add license
+* Updated from global requirements
+* Updated from global requirements
+* Fix BufferedReader writing zero size chunks
+* Updated from global requirements
+* Updated from global requirements
+* Use cached auth\_ref instead of gettin a new one each time
+* Remove setting of version/release from releasenotes
+* Updated from global requirements
+* Updated from global requirements
+* Imported Translations from Zanata
+* TrivialFix: Correct reST field lists in docstrings
+* Revert "Remove team:diverse-affiliation from tags"
+* Expand sz to size
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Imported Translations from Zanata
+* Updated from global requirements
+* Update reno for stable/pike
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove team:diverse-affiliation from tags
+
+0.21.0
+------
+
+* Updated from global requirements
+* Add release note for Pike
+* Cinder driver: TypeError in \_open\_cinder\_volume
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* set warning-is-error for documentation build
+* switch from oslosphinx to openstackdocstheme
+* rearrange existing documentation according to the new standard layout
+* Updated from global requirements
+* Updated from global requirements
+* Fix html\_last\_updated\_fmt for Python3
+* Fixed tests due to updated oslo.config
+* Initialize privsep root\_helper command
+* Don't fail when trying to unprotect unprotected snapshot on RBD
+* Updated from global requirements
+* Add python 3.5 in classifier and envlist
+* Imported Translations from Zanata
+* Update maintainer's email address
+* Updated from global requirements
+* Buffered reader: Upload recovery for swift store
+* Updated from global requirements
+* Replace six.iteritems() with .items()
+* Removes unnecessary utf-8 coding for glance\_store
+* Use HostAddressOpt for store opts that accept IP and hostnames
+* Updated from global requirements
+* An unit test passes because is launched as non-root user
+* Update test requirement
+* Updated from global requirements
+* Updated from global requirements
+* Fix SafeConfigParser DeprecationWarning in Python 3.2+
+* Update reno for stable/ocata
+* Correct error msg variable that could be unassigned
+* Fixing string formatting bug in log message
+
+0.20.0
+------
+
+* Updated from global requirements
+* Remove debtcollector in requirements.txt
+* Log at error when we intend to reraise the exception
+* Suppress oslo-config DeprecationWarning during functional test
+* Disable verification for Keystone session in Swift
+
+0.19.0
+------
+
+* Raise exc when using multi-tenant and swift+config
+* Updated from global requirements
+* Use storage\_url in DB for multi-tenant swift store
+* Add alt text for badges
+* Fix a typo in help text
+* Show team and repo badges on README
+* take into consideration created volume size in cinder backend
+* Updated from global requirements
+* Move rootwrap config files from etc/\* into etc/glance/\*
+* Update README
+* Convert to keystoneauth
+* Updated from global requirements
+* Fix a typo in rootwrap.conf and glance\_cinder\_store.filters
+* Fix dbg msg when swift can't determine image size
+* Refactor get\_manager\_for\_store in an OO manner
+* Add cinder\_volume\_type to cinder store configuration
+* Enable release notes translation
+* Updated from global requirements
+* Do not require entry-point dependencies in tests
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Sheepdog: fix command execution failure
+* Update home-page url in setup.cfg
+* Do not call image.stat() when we only need the size
+* TrivialFix: Merge imports in code
+* standardize release note page ordering
+* Clean imports in code
+* Reason to return sorted list of drivers for opts
+* Updated from global requirements
+* Always return a sorted list of drivers for configs
+* Fix doc build if git is absent
+* Improve tools/tox\_install.sh
+* Update reno for stable/newton
+
+0.18.0
+------
+
+* Fix header passed to requests
+* Updated from global requirements
+
+0.17.0
+------
+
+* Add release notes for 0.17.0
+* Release note for glance\_store configuration opts
+* Improving help text for Swift store opts
+* Improving help text for Swift store util opts
+* Improve help text of cinder driver opts
+* Fix help text of swift\_store\_config\_file
+* Improving help text for backend store opts
+* Remove "Services which consume this" section
+* Improve the help text for Swift driver opts
+* Updated from global requirements
+* Improving help text for Sheepdog opts
+* Use constraints for all tox environments
+* Improve help text of http driver opts
+* Improve help text of filesystem store opts
+* Improve help text of rbd driver opts
+* Improving help text for Glance store Swift  opts
+* Remove deprecated exceptions
+* Improve the help text for vmware datastore driver opts
+* Updated from global requirements
+
+0.16.0
+------
+
+* Updated from global requirements
+* Updated from global requirements
+* Remove S3 driver
+
+0.15.0
+------
+
+* Fix cinder config string as per current i18n state
+* Sheepdog:modify default addr
+* Cleanup i18n marker functions to match Oslo usage
+* Updated from global requirements
+* Don't include openstack/common in flake8 exclude list
+
+0.14.0
+------
+
+* Add bandit to pep8 and bandit testenv
+* Remove unused variable in vmware store
+* Imported Translations from Zanata
+* Split functional tests apart
+* Updated from global requirements
+* Check that size is a number
+* Replace dict.iterkeys with six.iterkeys to make PY3 compatible
+* cinder: Fix get\_size return value
+* The function add calculation size\_gb need improve
+* Updated from global requirements
+* Updated from global requirements
+* Fix argument order for assertEqual to (expected, observed)
+* Updated from global requirements
+* Updated from global requirements
+* Remove -c from tox.ini
+* tox respects upper-constraints.txt
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Fix minor misspellings affecting Config Reference Guide
+* Remove verbose option from glance\_store tests
+* Updated from global requirements
+* Updated from global requirements
+* Improve help text of swift driver opts
+* Updated from global requirements
+* Add functional tests for swift
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Fix releasenotes to pass reno gates
+* Updated from global requirements
+* tox: use os-testr instead of testr
+* Fix swiftclient mocks
+* Deprecate swift driver options properly
+* Fix typos in config files
+* Setup defaults for swift driver authentication
+* Fix doc generation warnings and errors
+* trivial:fixing one W503 pep8 error
+* Module docs are not generated
+* Fix cinder store to support Cinder RemoteFS backends
+* Missing params in store\_add\_to\_backend docstring
+* Mock swiftclient's functions in tests
+* Update reno for stable/mitaka
+
+0.13.0
+------
+
+* Add https ca\_file and insecure options to VMware Store
+* swift: Do not search storage\_url for ks v2
+
+0.12.0
+------
+
+* Fix misspelling in the releasenote support-cinder-upload
+* Add new config options for HTTPS store
+* Implement get, add and delete for cinder store
+* Implement re-authentication for swift driver
+* Implement swift store connection manager
+* Updated from global requirements
+* test\_http\_get\_redirect is not testing redirects correctly
+* Switch VMWare Datastore to use Requests
+* Updated from global requirements
+* Add base for functional tests
+* Add small image verifier for swift backend
+* Switch HTTP store to using requests
+
+0.11.0
+------
+
+* Change approach to request storage url for multi-tenant store
+* Remove unused parameters from swift connection init
+* Sheepdog: fix image-download failure
+* LOG.warn is deprecated in python3
+* Updated from global requirements
+* Updated from global requirements
+* Use url\_for from keystoneclient in swift store
+* Remove deprecated  datastore\_name, datacenter\_path
+* Add backend tests from glance
+* Fix some inconsistency in docstrings
+* Updated from global requirements
+* Change Swift zero-size chunk behaviour
+* Sheepdog: fix upload failure in API v2
+* Remove unnecessary re-raise of NotFound exception
+* Updated from global requirements
+* Add signature verifier to backend drivers
+* Use oslo\_utils.encodeutils.exception\_to\_unicode()
+* Fix default mutables for set\_acls
+* Deprecate unused Exceptions
+* Remove unnecessary auth module
+* Updated from global requirements
+* Deprecate the S3 driver
+* Document supported drivers and maintainers
+* Remove the gridfs driver
+* Set documented default directory for filesystem
+* Imported Translations from Zanata
+* Updated from global requirements
+* Swift store: do not send a 0 byte chunk
+* Store.get\_size: handle HTTPException
+* Replace deprecated library function os.popen() with subprocess
+* Updated from global requirements
+* Deprecated tox -downloadcache option removed
+* Add docs section to tox.ini
+* Replace assertEqual(None, \*) with assertIsNone in tests
+* Updated from global requirements
+* Remove duplicate keys from dictionary
+* Remove unreachable code
+* Sheepdog: Change storelocation format
+* Updated from global requirements
+* Add reno for release notes management in glance\_store
+* Put py34 first in the env order of tox
+* Updated from global requirements
+* Add list of supported stores to help
+* Add functional testing devstack gate hooks
+
+0.10.0
+------
+
+* Rel notes for 0.10.0
+* Updated from global requirements
+* Remove useless config.py file
+* vmware: check for response body in error conditions
+* remove default=None for config options
+* Updated from global requirements
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Remove deprecated glance\_store opts from default section
+* Updated from global requirements
+* Improving GlanceStoreException
+* Activate pep8 check that \_ is imported
+* '\_' is used by i18n
+* VMware: Fix missing space in error message
+* Handle swift store's optional dependency
+* Fix swift store tests for latest swiftclient
+
+0.9.1
+-----
+
+* rbd: re-add the absolute\_import and with\_statement imports
+
+0.9.0
+-----
+
+*  Release notes 0.9.0 and corrected library version
+* Updated from global requirements
+* Catch InvalidURL when requesting store size
+* Imported Translations from Transifex
+* Add proxy support to S3 Store
+* Prevent glance-api hangups during connection to rbd
+* rbd driver cannot delete residual image from ceph in some cases
+
+0.8.0
+-----
+
+* Imported Translations from Transifex
+* Add explicit dependencies for store dependencies
+* Support V3 authentication with swift
+
+0.7.1
+-----
+
+* rbd: make sure features is an int when passed to librbd.create
+
+0.7.0
+-----
+
+* setup.cfg: add Python 3 classifiers
+* Remove usage of assert\_called\_once in mocks
+* Add .eggs/\* to .gitignore
+* Imported Translations from Transifex
+* Updated from global requirements
+* Make cinderclient a more optional dependency
+* Port S3 driver to Python 3
+* Do not used named args when using swiftclient
+* logging failed exception info for add image operation
+* Fix random test error in swift store delete
+* Port swift driver to Python 3
+* Port vmware driver to Python 3
+* RBD: Reading rbd\_default\_features from ceph.conf
+* Move glance\_store tests into the main package
+* Use six.moves to fix imports on Python 3
+* Move python-cinderclient to test-requirements.txt
+* Updated from global requirements
+
+0.6.0
+-----
+
+* Add release notes for 0.6.0
+* Drop py26 support
+* Port remaining tests to Python 3
+* Fix Python 3 issues
+* Close a file to fix a resource warning on Python 3
+* Port exception\_to\_str() to Python 3
+* Disable propagating BadStoreConfiguration
+* Sync up with global-requirements
+
+0.5.0
+-----
+
+* Add release notes for 0.5.0
+* Drop use of 'oslo' namespace package
+* Fix RBD delete image on creation failure
+* Use is\_valid\_ipv6() from oslo.utils
+* Properly instantiate Forbidden exception
+* Update README to work with release tools
+* Remove ordereddict from requirements
+* gridfs: add pymongo to test-requirements and update tests
+* Add release notes for 0.1.10-0.3.0
+* Only warn on duplicate path on fs backend
+* Propagate BadStoreConfiguration to library user
+* Handle optional dependency in vmware store
+* Update oslo libraries
+* Initialize vmware session during store creation
+
+0.4.0
+-----
+
+* Add release notes for 0.4.0
+* Fix intermittent failure in test\_vmware\_store
+* Deprecate the gridfs store
+* Remove incubative openstack.common.context module
+* Update help text with sample conf
+* Use oslo\_config.cfg.ConfigOpts in glance\_store
+* Make dependency on boto entirely conditional
+* Move from oslo.utils to oslo\_utils (supplement)
+* Fix timeout during upload from slow resource
+
+0.3.0
+-----
+
+* Throw NotFound exception when template is gone
+* Deprecate VMware store single datastore options
+* Use oslo\_utils.units where appropriate
+* VMware: Support Multiple Datastores
+
+0.2.0
+-----
+
+* Correct such logic in store.get() when chunk\_size param provided
+* Support for deleting images stored as SLO in Swift
+* Enable DRIVER\_REUSABLE for vmware store
+
+0.1.12
+------
+
+* Show fully qualified store name in update\_capabilities() logging
+* Move to hacking 0.10
+* Fix sorting query string keys for arbitrary url schemes
+* Unify using six.moves.range rename everywhere
+
+0.1.11
+------
+
+* Remove duplicate key
+* Add coverage report to run\_test.sh
+* Use a named enum for capability values
+* Check VMware session before uploading image
+* Add capabilities to storage driver
+* Fixing PEP8 E712 and E265
+* Convert httpretty tests to requests-mock
+* Replace snet config with endpoint config
+* Rename oslo.concurrency to oslo\_concurrency
+* Remove retry on failed uploads to VMware datastore
+* Remove old dependencies
+* Validate metadata JSON file
+* Use default datacenter\_path from oslo.vmware
+* Remove unused exception StorageQuotaFull
+* Move from oslo.config to oslo\_config
+* Move from oslo.utils to oslo\_utils
+* Add needed extra space to error message
+* Define a new parameter to pass CA cert file
+* Use testr directly from tox
+* Raise appropriate exception if socket error occurs
+* Swift Store to use Multiple Containers
+* Use testr directly from tox
+* Remove deprecated options
+* Correct GlanceStoreException to provide valid message - glance\_store
+* Catch NotFound exception in http.Store get\_size
+* VMware store: Re-use api session token
+
+0.1.10
+------
+
+
+0.1.9
+-----
+
+* Test swift multi-tenant store get context
+* Test swift multi-tenant store add context
+* Use oslo.concurrency
+* Move cinder store to use auth\_token
+* Swift Multi-tenant store: Fix image upload
+* Use statvfs instead of df to get available space
+* Fix public image ACL in multi-tenant Swift mode
+* Updated run\_tests.sh to run tests in debug mode
+* Remove validate\_location
+* Imported Translations from Transifex
+* Add coverage to test-requirements.txt
+* Imported Translations from Transifex
+* Switch to using oslo.utils
+* Remove network\_utils
+* Recover from errors while deleting image segments
+* VMware store: Use the Content-Length if available
+* Backporting S3 multi-part upload functionality to glace\_store
+* Make rbd store's pool handling more universal
+* s3\_store\_host parameter with port number
+* Enhance configuration handling
+* Enable F841 check
+* Portback part change of adding status field to image location
+* Mark glance\_store as being a universal wheel
+* Imported Translations from Transifex
+* Use oslo.serialization
+* Fix H402
+* Portback part change of enabling F821 check
+* Adding common.utils.exception\_to\_str() to avoid encoding issue
+* Replace stubout with oslotest.moxstubout
+* Fix RBD store to use READ\_CHUNKSIZE and correct return of get()
+* Add a run\_tests.sh
+* Run tests parallel by default
+* Add ordereddict to reqs for py2.6 compatibility
+* rbd: fix chunk size units
+* Imported Translations from Transifex
+* Stop using intersphinx
+* Cleanup shebang in non-executable module
+* Correct Sheepdog store configuration
+* Correct base class of no\_conf driver
+* Handle session timeout in the VMware store
+* Add entry-point for oslo.config options and update registering logic
+* Configure the stores explicitly
+* Imported Translations from Transifex
+* Return the right filesize when chunk\_size != None
+* Allowing operator to configure a permission for image file in fs store
+* Align swift's store API
+
+0.1.7
+-----
+
+* Add \`OPTIONS\` attribute to swift.Store function
+
+0.1.5
+-----
+
+* Add missing stores to setup.cfg
+* Set group for DeprecatedOpts
+* Complete random\_access for the filesystem store
+* Work toward Python 3.4 support and testing
+
+0.1.3
+-----
+
+* Register store's configs w/o creating instances
+
+0.1.2
+-----
+
+* Add deprecated options support for storage drivers
+* Rename locale files for glance\_store rename
+* Update .gitreview for project rename
+
+0.1.1
+-----
+
+* Rename glance.store to glance\_store
+* Port of 97882f796c0e8969c606ae723d14b6b443e2e2f9
+* Port of 502be24afa122eef08186001e54c1e1180114ccf
+* Fix collection order issues and unit test failures
+
+0.1.0
+-----
+
+
+0.0.1a2
+-------
+
+* Fix development classifier
+* Imported Translations from Transifex
+* Package glance's package entirely
+
+0.0.1a1
+-------
+
+* Split CHUNKSIZE into WRITE/READ\_CHUNKSIZE
+* Port swift store
+* Add validate\_location
+* Fix some Exceptions incompatibilities
+* Imported Translations from Transifex
+* Setup for glance.store for translation
+* Set the right classifiers in setup.cfg
+* Remove version string from setup.cfg
+* Add .gitreview to the repo
+* Fix flake8 errors
+* Adopt oslo.i18n
+* Pull multipath support from glance/master
+* Update from oslo-incubator
+* Pass offset and chunk\_size to the \`get\` method
+* Migrate vmware store
+* Move FakeHTTPResponse to a common utils module
+* Removed commented code
+* Remove deprecated \_schedule\_delayed\_delete\_from\_backend function
+* BugFix: Point to the exceptions module
+* BugFix: define scheme outside the \`try\` block
+* Add a way to register store options
+* Update functions signatures w/ optional context
+* Remove old scrubber options
+* Move exceptions out of common and add backends.py
+* Use exception
+* Remove dependency on oslo-log
+* Add offset and chunk\_size to the get method
+* Migrate the rbd store
+* Use register\_store\_schemes everywhere
+* Add missing context keyword to the s3 store
+* Migrate cinder store
+* Remove location\_strategy, it belongs to Glance
+* S3 store ported
+* Move options registration to \_\_init\_\_
+* GridFS Store
+* Port sheepdog and its test suite
+* Update from oslo-inc and added processutils
+* Fix http store tests
+* Added fake driver, restored base tests, fixed load driver issue
+* Use context when needed
+* Add context=None to http store methods
+* Remove old exceptions
+* HTTP migrated
+* Accept a message keyword in exceptions
+* Filesystem driver restored
+* Move drivers under \_driver
+* Added testr
+* Config & Import fixes
+* Move base test to glance/store
+* Deprecate old options, make the list shorter
+* Add glance.store common
+* Add tests w/ some fixes, although they don't run yet
+* Update gitignore
+* Add requirements and testr
+* Add oslo-inc modules
+* Copying from glance

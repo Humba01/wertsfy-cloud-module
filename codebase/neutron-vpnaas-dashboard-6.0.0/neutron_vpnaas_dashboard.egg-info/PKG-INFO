@@ -1,0 +1,38 @@
+Metadata-Version: 1.2
+Name: neutron-vpnaas-dashboard
+Version: 6.0.0
+Summary: Neutron VPNaaS Dashboard
+Home-page: https://docs.openstack.org/neutron-vpnaas-dashboard/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ========================
+        Neutron VPNaaS Dashboard
+        ========================
+        
+        OpenStack Dashboard panels for Neutron VPNaaS
+        
+        * Documentation: https://docs.openstack.org/neutron-vpnaas-dashboard/latest/
+        * Source: https://opendev.org/openstack/neutron-vpnaas-dashboard
+        * Bugs: https://bugs.launchpad.net/neutron-vpnaas-dashboard
+        * Release Notes: https://docs.openstack.org/releasenotes/neutron-vpnaas-dashboard/
+        
+        Team and repository tags
+        ------------------------
+        
+        .. image:: https://governance.openstack.org/tc/badges/neutron-vpnaas-dashboard.svg
+            :target: https://governance.openstack.org/tc/reference/tags/index.html
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6

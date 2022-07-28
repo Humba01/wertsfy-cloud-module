@@ -1,0 +1,4 @@
+---
+- name: Check ironic boot config
+  check_ironic_boot_config:
+    nodes: "{{ lookup('ironic_nodes', wantlist=True) }}"

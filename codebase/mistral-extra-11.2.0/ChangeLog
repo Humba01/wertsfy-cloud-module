@@ -1,0 +1,322 @@
+CHANGES
+=======
+
+11.2.0
+------
+
+* Use Block Storage API v3 instead of API v2
+
+11.1.0
+------
+
+* [community goal] Update contributor documentation
+* Fix hacking version
+* Update master for stable/wallaby
+
+11.0.0
+------
+
+* Remove retired Qinling support
+* Update master for stable/victoria
+* Fix serialization of OpenStack actions
+
+10.1.0
+------
+
+* drop mock from lower-constraints
+* Switch to newer openstackdocstheme and reno versions
+* Fix hacking min version to 3.0.1
+* add pep inspection to get\_action\_list.py
+* Use unittest.mock instead of third party mock
+* Update master for stable/ussuri
+
+10.0.1
+------
+
+* Move preinstalled workflows to mistral-extra
+
+10.0.0
+------
+
+* Mock Qinling fake client method
+* Mock Zun fake client method
+* Correct the mistral-extra package name
+* Move openstack actions to mistral-extra
+* Fix requirements, tox , zuul
+
+10.0.0.0b1
+----------
+
+* Start README.rst with a better title
+* [ussuri][goal] Drop python 2.7 support and testing
+* tox: Keeping going with docs
+* Switch to Ussuri jobs
+* Sync Sphinx requirement
+* Update the constraints url
+
+9.0.0.0rc1
+----------
+
+* Fix misspell word
+* Add Python 3 Train unit tests
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Dropping the py35 testing
+
+8.0.0.0rc1
+----------
+
+* Change openstack-dev to openstack-discuss in setup.cfg
+* Update hacking version to latest
+
+8.0.0.0b1
+---------
+
+* Add Python 3.6 in setup.cfg
+* Remove setup.py check from pep8 job
+* Increment versioning with pbr instruction
+* Don't quote {posargs} in tox.ini
+* Update home-page URL
+* add python 3.6 unit test job
+* import zuul job settings from project-config
+
+7.0.0
+-----
+
+* Update Mistral Extra description
+* Add the restructuredtext check to the flake8 job
+* fix tox python3 overrides
+
+7.0.0.0b2
+---------
+
+* Switch to using stestr
+
+7.0.0.0b1
+---------
+
+* Update links in README
+* Update links in README
+
+6.0.0
+-----
+
+* Fix tox.ini to use new constraints list management style
+
+6.0.0.0b3
+---------
+
+* Revert "Migrate mistral-extra to zuul v3"
+* Migrate mistral-extra to zuul v3
+
+5.0.0
+-----
+
+* Change author
+
+5.0.0.0b2
+---------
+
+* Optimize the link address
+
+5.0.0.0b1
+---------
+
+* Correct the description on a calculator task
+* Set up mistral-extra with the ability to run unit tests
+* Removes unnecessary utf-8 encoding
+* Add clone vm example
+* Show team and repo badges on README
+
+3.0.0.0rc1
+----------
+
+* Restructure mistral-extra repo
+
+3.0.0.0b2
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+* Remove .mailmap since it's no longer needed
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove AUTHORS file
+* Updated from global requirements
+
+3.0.0.0b1
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+
+2.0.0.0rc1
+----------
+
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove argparse from requirements
+
+2.0.0.0b2
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+* Drop py33 support
+* Remove py26 support
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Fixing argument name in example
+* Fixing upgrade kernel example
+* Adding new example - crawl data from VMs
+* Adding new example - upgrade ubuntu VM kernel
+* Updated from global requirements
+* Add .mailmap for pbr AUTHORS generation
+* Update AUTHORS file
+
+1.0.0.0rc1
+----------
+
+* Updated from global requirements
+* Updated yaml configuration for tasks
+* Delete unused lockfile dependency in test-requirement.txt
+* Migrate README files to RST
+* Activate pep8 check that \_ is imported
+
+1.0.0.0b3
+---------
+
+* Adjusting examples to YAQL 1.0
+
+1.0.0.0b2
+---------
+
+* Removing redundant header from setup.py
+* Update .gitreview file for project rename
+* Adjust examples to last Mistral updates
+
+2015.1.0rc1
+-----------
+
+* Removing "policies" keyword from example workflows
+* Removing v1 examples
+
+2015.1.0b3
+----------
+
+* Adjust all examples in mistral-extra
+
+2015.1.0b2
+----------
+
+* Fixing 'publish' clauses in example workflows
+* Fix README for OpenStack example
+
+2015.1.0b1
+----------
+
+* Adding readme for multiple services example
+* Adding readme for vyatta firewall example
+* Adding README.md to zabbix\_machine\_registration example
+* Adding README file for "join" example
+* Adding README file for "tenant statistics" example
+* Fixing README files
+* Add "create vm with volume" example that demonstrates "join"
+* Relayouting v2 examples
+* Add tenant statistics example with "join"
+* Refactor std.email action in examples
+* Adjust calculator example
+
+0.1.1
+-----
+
+* Fix zabbix example
+* Adjust zabbix workflow
+* Add workflow for registration in multiple services
+* Add Vyatta example
+* Add zabbix example
+* Adding tenant statistics example
+* Rename vm\_job to calculator
+* Adjust vm\_job example
+* Fix markdown in README.md
+* Modify vm\_job example
+* Update requirements according to global requirements (master)
+
+0.1
+---
+
+* Adding workbook names to all examples
+* Renaming 'parameters' to 'input' in nova example
+* Renaming 'parameters' to 'input' in vm\_job example
+* Adding parameters to vm\_job workflow
+* Removing 'start-task' property in vm\_job example
+* Adjust openstack actions examples
+* Update README file for the vm\_job example
+* Adjust webhooks example
+* Adjust vm\_job example
+* Adding 'vm\_job' example based on v2 DSL
+* Relayouting examples and refactoring OpenStack examples for v2
+* Work toward Python 3.4 support and testing
+* Add examples on OpenStack actions
+* Cleaning up index.rst file
+* Update requirements due to global-requirements
+* Add vagrant environment with devstack and mistral
+
+0.0.4
+-----
+
+* Fixing create\_vm\_example.yaml
+* Fixing access to OpenStack related data in "create VM" example
+* Fixing "publish" clause in example workbooks
+* Fix run\_vm\_job example
+* Fixed typos to make create\_vm example work
+
+0.0.2
+-----
+
+* Fixed issues with tarball
+
+0.0.1
+-----
+
+* Fix README files for examples
+* Fix create VM example YAML
+* Fixing 'deleteVM' action output in vm\_job example
+* Delete run.py from run\_vm\_job\_example
+* Add create VM example readme
+* Improve webhooks example readme
+* Add README to run\_vm\_job example
+* Error handling in run\_vm\_job example
+* Improving "Run VM Job" example
+* Fix run\_vm\_job according to new namespaces style
+* Modify run\_vm\_job example
+* Fixing webhooks examples to work with new actions design
+* Fix web\_app example for use list of arguments
+* Add a real work example job for creating VM
+* Fix send\_email action in YAML
+* Add script to allow update dependencies in all envs
+* Rename 'events' to 'triggers'
+* Remove mock dependency
+* Add send\_email task to webhook example
+* Added demo web application
+* Working on vm\_job example
+* Rename "target\_task" to "task"
+* Beautifying scheduling webhooks example
+* Removing redundant sections from "webhooks" example DSL
+* Working on Mistral examples
+* Fix typos in simple\_app
+* Move mistral demo-app to mistral-extra
+* Preparing project skeleton
+* Adding .gitignore file
+* Create README.md

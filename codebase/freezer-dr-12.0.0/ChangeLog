@@ -1,0 +1,182 @@
+CHANGES
+=======
+
+12.0.0
+------
+
+* Update gate ci
+* update python37 to python38
+* Fix pylint error
+
+11.0.0
+------
+
+* [ussuri][goal] Update contributor documentation
+
+10.0.0
+------
+
+* Update the project metadata
+* update py37 to py38
+* Update CI jobs for wallaby
+* Fix hacking min version to 3.0.1
+
+9.0.0
+-----
+
+* Fix pylint testing for Ubuntu Focal
+* Remove mock  from lower-constraints
+* Remove the \_\_future\_\_ modulue
+* Remove keystone v2 related code
+* Remove the unused coding style modules
+
+8.0.0
+-----
+
+* Cleanup py27 support
+* Remove six useage
+* Add py36 in envlist
+* [ussuri][goal] Drop python 2.7 support and testing
+* Switch to Ussuri jobs
+
+7.2.0
+-----
+
+* Update hacking
+* Sync Sphinx requirement
+* Add bindep to fix py37 tests
+* Add Python 3 Train unit tests
+* Add the py37 testing job
+* Drop the py35 testing, add the py37 testing
+* OpenDev Migration Patch
+* Dropping the py35 testing
+
+7.1.0
+-----
+
+* Add py36 for developers
+
+7.0.0
+-----
+
+* Change openstack-dev to openstack-discuss
+* Update .gitignore
+* Update tox minversion to 2.0
+* Update tox.ini and fix pep8 errors
+* Update pbr version
+* Define get\_info method in evacuator backend drivers
+* Set default notifier endpoint
+* Don't quote {posargs} in tox.ini
+* Use openstackdocstheme
+* add python 3.6 unit test job and switch documentation job to new PTI
+* import zuul job settings from project-config
+* fix tox python3 overrides
+* Fix notifier should only notify successfully evacuated nodes
+* update pylint
+* [WIP] Implement Slack notification plugin
+* Fix notifier manager typos
+* Switch to stestr
+* Add py36 testenv
+* replace iteritems with items
+* update print statement to work for python 2 and 3
+* replace file with open
+
+7.0.0.0b1
+---------
+
+* Update homepage url for freezer
+
+6.0.0
+-----
+
+* Cleanup test-requirements
+* Fix wrong links
+
+5.0.0
+-----
+
+* Removed unused config options
+
+5.0.0.0b3
+---------
+
+* Update .gitignore
+* Fix update nodes in fencers
+* Refactoring fencers
+* Refactor evacuators
+
+5.0.0.0b2
+---------
+
+* Update freezer-dr for pike goal python 3.5
+
+5.0.0.0b1
+---------
+
+* Remove py34 from tox
+* Remove unused components from requirements
+* [Fix gate]Update test requirement
+
+4.0.0
+-----
+
+* Added pbr version in setup.py as it's required
+* Remove link to modindex
+
+4.0.0.0b3
+---------
+
+* Add LICENSE file
+
+4.0.0.0b2
+---------
+
+* Allow Monasca driver to process enabled nodes only
+* Add gencofig tox target
+* Change according to preferred word choice
+* Show team and repo badges on README
+* Added python-monascaclient and Added more doc for Monasca driver
+* Notify if metrics are not defined or not added for hosts
+* Implemented Monasca Monitoring Driver
+* Refactor the base monitoring driver
+* Added py35 environement configuration to tox.ini
+* Updating freezer-dr osclient
+* Docstrings should not start with a space
+* Updating requirements
+
+3.0.0.0rc1
+----------
+
+* Allow the evacuator to enable passing shared storage parameter to nova
+* Remvoe Version from Freezer-dr
+
+3.0.0.0b1
+---------
+
+* Added .gitreview
+* Updating notification templates
+* Updating freezer-dr version
+* Updating setup.cfg and README files
+* Updating setup.cfg and README files
+* Adding pep8, pylint, coverage, sphinx testing
+* Removing .gitreview
+* freezer-dr big bang
+* Dummy evacuator and monitor driver for testing
+* Adding CREDITS.rst
+* Adding Osha description and enhancing templates Fixing some template issues and adding osha description and how it works
+* Some small improvements to pass pep8 and pep257
+* Add oslo.log dependency in requirements.txt
+* Adding HACKING.rst to follow Openstack Guidelines
+* Adding Notification System and Notification Drivers Support sending notification emails in case of any problem happened
+* Evacuation is working now and node will be evacuated but ? We need to contact nova guys to ask why when we disable or enable a node the node state is always going up even if the node is powereded off. We had to wait and retry many times for 1 minute at least to give nova compute sometime to update nova api with it's state
+* Buidling a plugable evacuators  - still need some work !
+* Fixing keystone Configuration adding keystone\_authtoken to config file and remove keystone old section
+* Add disable node to osclient
+* Adding libvirt Fencer driver
+* Fixing typo fencor > fencer
+* Modified diagrams
+* Adding Fencing plugable system
+* Adding support for plugable monitoring systems adding support for pbr restructuring osha
+* Big Bang
+* Add diagram
+* Added .gitreview

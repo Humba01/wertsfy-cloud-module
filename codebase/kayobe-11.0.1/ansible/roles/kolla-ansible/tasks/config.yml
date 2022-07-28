@@ -1,0 +1,171 @@
+---
+# NOTE: We're not looping over the two inventory files to avoid having the file
+# content displayed in the ansible-playbook output.
+
+- name: Check whether the legacy Kolla overcloud inventory files exist
+  stat:
+    path: "{{ item }}"
+    get_attributes: no
+    get_checksum: no
+    get_mime: no
+  register: inventory_stat
+  with_items:
+    - "{{ kolla_seed_inventory_path }}"
+    - "{{ kolla_overcloud_inventory_path }}"
+  loop_control:
+    label: "{{ item | basename }}"
+
+- name: Ensure the legacy Kolla overcloud inventory file is absent
+  file:
+    path: "{{ item.item }}"
+    state: absent
+  with_items: "{{ inventory_stat.results }}"
+  when:
+    - item.stat.exists
+    - item.stat.isreg
+  loop_control:
+    label: "{{ item.item | basename }}"
+
+- name: Ensure the Kolla Ansible configuration directories exist
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ ansible_facts.user_uid }}"
+    group: "{{ ansible_facts.user_gid }}"
+    mode: 0750
+  become: True
+  with_items:
+    - "{{ kolla_config_path }}"
+    - "{{ kolla_seed_inventory_path }}"
+    - "{{ kolla_overcloud_inventory_path }}/group_vars"
+    - "{{ kolla_node_custom_config_path }}"
+
+- name: Write environment file into Kolla configuration path
+  copy:
+    dest: "{{ kolla_config_path ~ '/.environment' }}"
+    content: |
+      {{ kayobe_environment }}
+  when: (kayobe_environment | default('')) | length > 0
+
+- name: Ensure the Kolla global configuration file exists
+  merge_yaml:
+    sources: "{{ kolla_globals_paths | product(['/kolla/globals.yml']) | map('join') | unique | list }}"
+    dest: "{{ kolla_config_path }}/globals.yml"
+    mode: 0640
+  vars:
+    kolla_docker_custom_config: "{{ lookup('template', 'daemon.json.j2') }}"
+
+- name: Ensure the Kolla seed inventory file exists
+  copy:
+    content: "{{ kolla_seed_inventory }}"
+    dest: "{{ kolla_seed_inventory_path }}/hosts"
+    mode: 0640
+
+- name: Ensure the Kolla overcloud inventory file exists
+  copy:
+    content: "{{ kolla_overcloud_inventory }}"
+    dest: "{{ kolla_overcloud_inventory_path }}/hosts"
+    mode: 0640
+
+- name: Look for custom Kolla overcloud group vars
+  stat:
+    path: "{{ kolla_overcloud_group_vars_path }}"
+  register: kolla_ansible_custom_overcloud_group_vars
+
+- name: Copy over custom Kolla overcloud group vars
+  copy:
+    src: "{{ kolla_overcloud_group_vars_path }}"
+    dest: "{{ kolla_overcloud_inventory_path }}/"
+  when: kolla_ansible_custom_overcloud_group_vars.stat.exists
+
+- name: Ensure the Kolla passwords file exists
+  vars:
+    # NOTE(mgoddard): Use the Python interpreter used to run ansible-playbook,
+    # since this has Python dependencies available to it (PyYAML).
+    ansible_python_interpreter: "{{ ansible_playbook_python }}"
+  kolla_passwords:
+    src: "{{ kolla_ansible_passwords_path }}"
+    dest: "{{ kolla_ansible_passwords_path }}"
+    mode: 0640
+    sample: "{{ kolla_ansible_install_dir }}/etc_examples/kolla/passwords.yml"
+    overrides: "{{ kolla_ansible_custom_passwords }}"
+    vault_password: "{{ kolla_ansible_vault_password }}"
+    virtualenv: "{{ kolla_ansible_venv or omit }}"
+
+- name: Ensure the Kolla passwords file is copied into place
+  copy:
+    src: "{{ kolla_ansible_passwords_path }}"
+    dest: "{{ kolla_config_path }}/passwords.yml"
+    remote_src: True
+
+- block:
+    - name: Ensure external HAProxy TLS directory exists
+      file:
+        path: "{{ kolla_external_fqdn_cert | dirname }}"
+        state: directory
+        recurse: yes
+
+    - name: Ensure the external HAProxy TLS certificate bundle is copied into place
+      copy:
+        content: "{{ kolla_external_tls_cert }}"
+        dest: "{{ kolla_external_fqdn_cert }}"
+  when:
+    - kolla_external_tls_cert is not none
+    - kolla_external_tls_cert | length > 0
+
+- block:
+    - name: Ensure internal HAProxy TLS directory exists
+      file:
+        path: "{{ kolla_internal_fqdn_cert | dirname }}"
+        state: directory
+        recurse: yes
+
+    - name: Ensure the internal HAProxy TLS certificate bundle is copied into place
+      copy:
+        content: "{{ kolla_internal_tls_cert }}"
+        dest: "{{ kolla_internal_fqdn_cert }}"
+  when:
+    - kolla_internal_tls_cert is not none
+    - kolla_internal_tls_cert | length > 0
+
+# Copy across all certificates in $KAYOBE_CONFIG_PATH/kolla/certificates.
+
+- name: Find certificates
+  find:
+    path: "{{ kolla_ansible_certificates_path }}"
+    recurse: true
+  register: find_src_result
+
+- name: Find previously copied certificates
+  find:
+    path: "{{ kolla_config_path }}/certificates"
+    recurse: true
+  register: find_dest_result
+
+- name: Ensure certificates exist
+  copy:
+    src: "{{ kolla_ansible_certificates_path }}/"
+    dest: "{{ kolla_config_path }}/certificates"
+    mode: 0600
+    # If certificates are encrypted, don't decrypt them at the destination.
+    decrypt: false
+  when: find_src_result.files | length > 0
+
+- name: Ensure unnecessary certificates are absent
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ find_dest_result.files }}"
+  when:
+    - item.path | relpath(kolla_config_path ~ '/certificates/') not in src_files
+    - item.path != kolla_external_fqdn_cert
+    - item.path != kolla_internal_fqdn_cert
+  vars:
+    # Find the list of files in the source.
+    src_files: >-
+      {{ find_src_result.files |
+         map(attribute='path') |
+         map('relpath', kolla_ansible_certificates_path) |
+         list }}
+  loop_control:
+    label: "{{ item.path }}"

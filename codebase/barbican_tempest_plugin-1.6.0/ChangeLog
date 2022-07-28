@@ -1,0 +1,142 @@
+CHANGES
+=======
+
+1.6.0
+-----
+
+* Add stable/xena jobs on master gate
+* Update python testing classifier
+* Add secure-rbac test for Consumers
+* Temporarily delete two bad tests for consumers
+* Add secure-rbac test for Container ACL API
+* Add cross-project tests for Containers
+* Add secure-rbac tests for Secret ACL
+* Add secure-rbac tests for Secret Metadata
+
+1.5.0
+-----
+
+* Add secure-rbac tests for Quotas across projects
+* Enforce scope in RBAC testing
+* Add secure-rbac tests for Orders across projects
+* Refactor orders cleanup
+* Add secure-rbac test for Containers
+* Add secure-rbac test for Secrets across projects
+* Refactor secret cleanup
+* Let the orders complete before using them
+
+1.4.0
+-----
+
+* Don't use legacy exponent for RSA
+* Use the encryption provider constants (2)
+* Add stable/wallaby jobs on master gate
+* Add secure-rbac tests for TransportKeys API
+* Add secure-rbac tests for SecretStores API
+* Add secure-rbac tests for Quotas
+* Add secure-rbac tests for Orders
+* Add secure-rbac tests for Containers
+
+1.3.0
+-----
+
+* Add secure-rbac gate
+* Initial patch to add barbican rbac tests
+* Update TOX\_CONSTRAINTS\_FILE
+* Remove old pep8 ignores that are no longer necessary
+
+1.2.1
+-----
+
+* [goal] Keep barbican-tempest-plugin stable jobs to bionic
+* Copy created image into all available glance stores
+* Fix test\_signed\_image\_upload\_boot\_failure skip method
+* fix urls in README
+* Update hacking for Python3
+
+1.2.0
+-----
+
+* Add py38 package metadata
+* Remove six
+* Remove a dummy test
+
+1.1.0
+-----
+
+* Fix setup.cfg keywords
+* bump py37 to py38 in tox.ini
+* Deprecate scenario.img\_dir option
+* Ceph Multibackend changes
+* [goal] Migrate testing to ubuntu focal
+* zuul: migrate and clean the tempest native jobs
+* Use the encryption provider constants
+
+1.0.0
+-----
+
+* Add certificate validation scenario tests
+* [ussuri][goal] Drop python 2.7 support and testing
+* Remove use of deprecated config options for volume API selection
+* Update the constraints url
+
+0.3.0
+-----
+
+* Remove oslosphinx
+* OpenDev Migration Patch
+* Add option to toggle validation of signed image
+* Remove Manager class
+
+0.2.0
+-----
+
+* import zuul job settings from project-config
+* Switch to stestr
+
+0.1.0
+-----
+
+* Remove volume v1 API service client usage
+* Added support of volume api\_v3 client
+* Use addCleanup to detach volume instead of explicit detach
+* Update the old doc links
+* Add six as requirement
+* Verify instance snapshots when using signed images
+* Updated from global requirements
+* Updated from global requirements
+* Revert "Remove duplicate configuration"
+* Address verifier DeprecationWarning
+* Validate instances are accessible before messing with their disks
+* Zuul: Remove project name
+* Remove duplicate configuration
+* Add connection test to help diagnose failure
+* Fixed \_log\_console\_output call on failure
+* Add .zuul.yaml
+* Replace deprecated function in tempest
+* Add ephemeral disk encryption scenario test
+* Replace the usage of 'manager' with 'os\_primary'
+* Fixes for py35
+* add deps for barbican-tempest-plugin
+* Fix tox command for running tests
+* Add volume encryption scenario tests
+* Add oslotest to test-requirements.txt
+* Switch to local copy of scenario test base class
+* Removes unnecessary utf-8 encoding
+* Add image signing scenario
+* Replaced python 3.4 to 3.5
+* Drop MANIFEST.in
+* Fix oslotest import error
+* Add idempotent\_id lines for tests
+* Remove tempest-lib from requirements.txt
+* Add pre\_test\_hook
+* Update the project README
+* Add a QuotaClient and quota API tests
+* Add an OrderClient and order API tests
+* Added Secret Metadata client and unit tests
+* Add a ConsumerClient and consumer API tests
+* Add a ContainerClient and container API tests
+* Fill in remaining Secrets API and tests
+* Register client and add first test
+* Add initial plugin structure
+* Added .gitreview

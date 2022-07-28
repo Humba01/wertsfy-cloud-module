@@ -1,0 +1,61 @@
+<p translate>
+  A pool represents a group of members over which the load balancing will be applied.
+</p>
+<p>
+  <strong translate>Algorithm:</strong>
+  <translate>
+  The load balancer algorithm that distributes traffic to the pool members.
+  </translate>
+  <ul>
+    <li translate>
+      LEAST_CONNECTIONS: Allocates requests to the instance with the least number of active
+      connections.
+    </li>
+    <li translate>
+      ROUND_ROBIN: Rotates requests evenly between multiple instances.
+    </li>
+    <li translate>
+      SOURCE_IP: Requests from a unique source IP address are consistently directed to the same instance.
+    </li>
+  </ul>
+</p>
+<p>
+  <strong translate>Protocol:</strong>
+  <translate>
+  The protocol for which this pool and its members listen. A valid value is HTTP, HTTPS, PROXY, PROXYV2, TCP, UDP or SCTP.
+  </translate>
+</p>
+<p>
+  <strong translate>Session Persistence:</strong>
+  <translate>
+  The type of session persistence for distributing traffic to the pool members.
+  </translate>
+  <ul>
+    <li translate>
+      SOURCE_IP: Session persistence based on source ip.
+    </li>
+    <li translate>
+      HTTP_COOKIE: Session persistence based on http cookie.
+    </li>
+    <li translate>
+      APP_COOKIE: Session persistence based on application cookie.
+    </li>
+  </ul>
+</p>
+<p>
+  <strong translate>TLS Enabled:</strong>
+  <translate>
+  Enable TLS for backend re-encryption, communications between the load
+  balancer and the member servers are encrypted.
+  </translate>
+</p>
+<p>
+  <strong translate>TLS Cipher String:</strong>
+  <translate>
+  A string of the allowed ciphers using the OpenSSL syntax. The syntax
+  is a colon separated list of the chiphers, ex.
+  "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256"
+  Note, don't include quotation marks. An empty string sets the default TLS
+  Cipher String configured in Octavia.
+  </translate>
+</p>

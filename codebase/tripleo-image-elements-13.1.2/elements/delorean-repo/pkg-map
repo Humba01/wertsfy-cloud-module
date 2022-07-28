@@ -1,0 +1,12 @@
+{
+  "release": {
+    "centos": {
+      "8": {
+        "yum_plugin_priorities_package": ""
+      }
+    }
+  },
+  "default": {
+    "yum_plugin_priorities_package": "yum-plugin-priorities"
+  }
+}

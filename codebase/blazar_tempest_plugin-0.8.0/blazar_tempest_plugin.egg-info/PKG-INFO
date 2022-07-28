@@ -1,0 +1,34 @@
+Metadata-Version: 1.1
+Name: blazar-tempest-plugin
+Version: 0.8.0
+Summary: Tempest plugin for Blazar Project
+Home-page: https://docs.openstack.org/blazar/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: =====================
+        Blazar Tempest Plugin
+        =====================
+        
+        Tempest plugin for Blazar Project
+        
+        It contains the tempest plugin for the functional testing of Blazar Project.
+        
+        * Free software: Apache license
+        * Documentation:  https://docs.openstack.org/blazar-tempest-plugin/latest/
+        * Source: https://opendev.org/openstack/blazar-tempest-plugin
+        * Bugs: https://bugs.launchpad.net/blazar
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9

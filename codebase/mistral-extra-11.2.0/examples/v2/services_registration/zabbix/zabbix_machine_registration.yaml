@@ -1,0 +1,103 @@
+---
+version: "2.0"
+
+name: zabbix
+
+actions:
+  zabbix:
+    base: std.http
+    base-input:
+      url: "http://<% $.host %>/zabbix/api_jsonrpc.php"
+      method: POST
+      body:
+        jsonrpc: 2.0
+        method: <% $.method %>
+        params: <% $.params %>
+        auth: <% $.auth %>
+        id: 1
+      headers:
+        Content-Type: application/json
+    input:
+     - host
+     - method
+     - params
+     - auth
+    output:
+      result: <% $.content %>
+
+  zabbix_auth:
+    base: std.http
+    base-input:
+      url: "http://<% $.host %>/zabbix/api_jsonrpc.php"
+      method: POST
+      body:
+        jsonrpc: 2.0
+        method: user.authenticate
+        params:
+          user: <% $.username %>
+          password: <% $.password %>
+        id: 0
+      headers:
+        Content-Type: application/json
+    input:
+     - host
+     - username
+     - password
+    output:
+      auth: <% $.content.result %>
+
+workflows:
+  register_in_zabbix:
+    type: direct
+
+    input:
+      - machine_ip
+      - machine_port
+      - zabbix_host
+      - zabbix_username
+      - zabbix_password
+
+    tasks:
+      get_zabbix_auth:
+        action: zabbix_auth host=<% $.zabbix_host %> username=<% $.zabbix_username %> password=<% $.zabbix_password %>
+        publish:
+          zabbix_auth: <% task(get_zabbix_auth).result.auth %>
+        on-success:
+          - zabbix_host_group_create
+
+      zabbix_host_group_create:
+        action: zabbix method="hostgroup.create" auth=<% $.zabbix_auth %> host=<% $.zabbix_host %>
+        input:
+          params:
+            - name: Mistral demo group
+        publish:
+          hostgroup_id: <% task(zabbix_host_group_create).result.result.result.groupids[0] %>
+        on-success:
+          - zabbix_host_create
+
+      zabbix_host_create:
+        action: zabbix method="host.create" auth=<% $.zabbix_auth %> host=<% $.zabbix_host %>
+        input:
+          params:
+            host: Mistral host
+            ip: <% $.machine_ip %>
+            port: <% $.machine_port %>
+            useip: 1
+            groups:
+              - groupid: <% $.hostgroup_id %>
+        publish:
+          host_id: <% $.zabbix_host_create.result.result.hostids[0] %>
+        on-success:
+          - zabbix_item_create
+
+      zabbix_item_create:
+        action: zabbix method="item.create" auth=<% $.zabbix_auth %> host=<% $.zabbix_host %>
+        input:
+          params:
+            description: Simple check on host (ping)
+            type: 3
+            delay: 5
+            key_: 'icmpping'
+            hostid: <% $.host_id %>
+        publish:
+          item_id: <% task(zabbix_item_create).result.result.result.itemids[0] %>

@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Improves the skipped images feature, allowing filtering based on used image
+    distribution, installation type and processor architecture.

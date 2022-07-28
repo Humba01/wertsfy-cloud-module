@@ -1,0 +1,18 @@
+---
+prelude: |
+    Features based on ETSI NFV specifications, REST API and data models:
+
+    - ETSI NFV-SOL003 v2.6.1: VNF Lifecycle Management(Scale VNF, Update VNF
+      and Rollback VNF)
+    - ETSI NFV-SOL005 v2.6.1: Fetch VNF Package Artifacts
+
+    Kubernetes VIM is extended to use ETSI NFV-SOL based operations.
+    The major version of resources such as Deployment, DaemonSet, StatefulSet,
+    and ReplicaSet can be deployed as VNF with Instantiate VNF operation.
+
+features:
+  - |
+    Adds Container based VNF support with ESTI NFV-SOL003 v2.6.1 VNF Lifecycle
+    Management. Users can create, instantiate, terminate, and delete VNF on
+    Kubernetes VIM. The Kubernetes resource files are available as VNFD and
+    uploaded as a part of VNF Package.

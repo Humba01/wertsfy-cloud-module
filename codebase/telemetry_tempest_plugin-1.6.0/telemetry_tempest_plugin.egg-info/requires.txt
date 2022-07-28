@@ -1,0 +1,6 @@
+gabbi>=1.30.0
+oslo.config>=6.0.0
+oslo.utils>=3.37.0
+pbr>=2.0
+six>=1.10.0
+tempest>=17.1.0

@@ -1,0 +1,4 @@
+oslo.config>=8.6.0
+oslo.i18n>=5.1.0
+oslo.log>=4.6.1
+pbr>=5.8.0

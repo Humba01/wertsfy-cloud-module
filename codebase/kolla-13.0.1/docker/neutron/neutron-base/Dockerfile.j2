@@ -1,0 +1,132 @@
+FROM {{ namespace }}/{{ image_prefix }}openstack-base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block neutron_base_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{{ macros.enable_extra_repos(['openvswitch']) }}
+{{ macros.configure_user(name='neutron') }}
+
+{% if install_type == 'binary' %}
+    {% if base_package_type == 'rpm' %}
+
+        {% set neutron_base_packages = [
+            'iputils',
+            'keepalived',
+            'net-tools',
+            'radvd',
+            'openstack-neutron',
+            'openstack-neutron-ml2',
+            'openvswitch',
+            'python3-networking-baremetal',
+            'python3-networking-sfc',
+            'python3-openvswitch',
+            'python3-oslo-vmware'
+        ] %}
+
+    {% elif base_package_type == 'deb' %}
+
+        {% set neutron_base_packages = [
+            'iproute2',
+            'iputils-ping',
+            'keepalived',
+            'net-tools',
+            'radvd',
+            'neutron-plugin-ml2',
+            'neutron-server',
+            'openvswitch-switch',
+            'python3-networking-sfc',
+            'python3-openvswitch',
+            'python3-oslo.vmware'
+        ] %}
+    {% endif %}
+
+{{ macros.install_packages(neutron_base_packages | customizable("packages")) }}
+
+{% elif install_type == 'source' %}
+    {% if base_package_type == 'rpm' %}
+
+        {% set neutron_base_packages = [
+            'conntrack-tools',
+            'dnsmasq',
+            'dnsmasq-utils',
+            'haproxy',
+            'ipset',
+            'iptables',
+            'iputils',
+            'keepalived',
+            'net-tools',
+            'openvswitch',
+            'python3-openvswitch',
+            'radvd',
+            'uuid'
+        ] %}
+
+    {% elif base_package_type == 'deb' %}
+
+        {% set neutron_base_packages = [
+            'conntrack',
+            'dnsmasq',
+            'dnsmasq-utils',
+            'haproxy',
+            'iproute2',
+            'ipset',
+            'iptables',
+            'iputils-arping',
+            'iputils-ping',
+            'keepalived',
+            'net-tools',
+            'openvswitch-switch',
+            'python3-openvswitch',
+            'radvd',
+            'uuid-runtime'
+        ] %}
+
+    {% endif %}
+
+{{ macros.install_packages(neutron_base_packages | customizable("packages")) }}
+
+ADD neutron-base-archive /neutron-base-source
+ADD plugins-archive /
+
+{% set neutron_base_pip_packages = [
+    '/neutron',
+    'oslo-vmware'
+] %}
+
+{% set neutron_base_plugins_pip_packages = [
+    '/plugins/*'
+] %}
+
+RUN ln -s neutron-base-source/* neutron \
+    && sed -i /^neutron=/d /requirements/upper-constraints.txt \
+    && {{ macros.install_pip(neutron_base_pip_packages | customizable("pip_packages")) }} \
+    && mkdir -p /etc/neutron \
+    && cp -r /neutron/etc/* /etc/neutron/ \
+    && cp -r /neutron/etc/neutron/* /etc/neutron/ \
+    && mv /etc/neutron/neutron/ /etc/neutron/plugins/ \
+    && chown -R neutron: /etc/neutron \
+    && sed -i 's|^exec_dirs.*|exec_dirs=/var/lib/kolla/venv/bin,/sbin,/usr/sbin,/bin,/usr/bin,/usr/local/bin,/usr/local/sbin|g' /etc/neutron/rootwrap.conf \
+    && if [ "$(ls /plugins)" ]; then \
+        {{ macros.install_pip(neutron_base_plugins_pip_packages) }} \
+        && for neutron_plugins in $(ls /plugins); do \
+            if [ -d "/plugins/$neutron_plugins/etc/neutron/rootwrap.d" ]; then \
+                cp /plugins/$neutron_plugins/etc/neutron/rootwrap.d/* /etc/neutron/rootwrap.d; \
+            fi; \
+        done; \
+    fi
+
+{% endif %}
+
+COPY neutron_sudoers /etc/sudoers.d/kolla_neutron_sudoers
+COPY extend_start.sh /usr/local/bin/kolla_extend_start
+
+RUN chmod 750 /etc/sudoers.d \
+    && chmod 440 /etc/sudoers.d/kolla_neutron_sudoers \
+    && touch /usr/local/bin/kolla_neutron_extend_start \
+    && chmod 755 /usr/local/bin/kolla_extend_start /usr/local/bin/kolla_neutron_extend_start
+
+{% block neutron_base_footer %}{% endblock %}

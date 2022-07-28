@@ -1,0 +1,32 @@
+Metadata-Version: 1.1
+Name: mistral-extra
+Version: 11.2.0
+Summary: Mistral OpenStack-specific bindings
+Home-page: https://docs.openstack.org/mistral/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: Apache License, Version 2.0
+Description: ==============
+        Mistral Extras
+        ==============
+        
+        .. image:: https://governance.openstack.org/tc/badges/mistral-extra.svg
+            :target: https://governance.openstack.org/tc/reference/tags/index.html
+        
+        .. Change things from this point on
+        
+        Mistral Extra is a library which allows contributors to add optional
+        functionality to the mistral project, it also contains examples for which
+        to base new capabilities.
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7

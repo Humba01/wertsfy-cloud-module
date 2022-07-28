@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+cinder_tests = cinder_tempest_plugin.plugin:CinderTempestPlugin
+

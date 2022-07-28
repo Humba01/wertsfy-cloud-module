@@ -1,0 +1,37 @@
+- project:
+    templates:
+      - tripleo-undercloud-jobs-pipeline
+      - tripleo-multinode-container-minimal-pipeline
+      - check-requirements
+      - release-notes-jobs-python3
+      - tripleo-standalone-scenarios-pipeline
+      - openstack-python3-wallaby-jobs
+      - tripleo-standalone-multinode-ipa-pipeline
+      - tripleo-upgrades-wallaby-pipeline
+      - tripleo-periodic-upgrades-wallaby-pipeline
+    check:
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-tht
+        - tripleo-ci-centos-8-content-provider:
+            dependencies:
+              - openstack-tox-pep8
+              - openstack-tox-tht
+
+    gate:
+      queue: tripleo
+      jobs:
+        - openstack-tox-pep8
+        - openstack-tox-tht
+
+- job:
+    name: openstack-tox-tht
+    parent: openstack-tox
+    description: Runs syntax tht tests. Uses tox with the ``tht`` environment.
+    success-url: "reports.html"
+    failure-url: "reports.html"
+    voting: true
+    vars:
+      tox_envlist: tht
+      bindep_profile: test tht
+      test_setup_skip: true

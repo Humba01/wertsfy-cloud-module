@@ -1,0 +1,17 @@
+---
+- import_tasks: config.yml
+
+- name: Ensure Docker registry container is running
+  docker_container:
+    env: "{{ item.value.env }}"
+    image: "{{ item.value.image }}"
+    name: "{{ item.value.container_name }}"
+    network_mode: "{{ item.value.network_mode }}"
+    ports: "{{ item.value.ports | default(omit) }}"
+    privileged: "{{ item.value.privileged | default(omit) }}"
+    read_only: "{{ item.value.read_only | default(omit) }}"
+    restart_policy: "{{ docker_registry_restart_policy }}"
+    restart_retries: "{{ docker_registry_restart_retries | default(omit) }}"
+    state: "{{ item.value.enabled | ternary('started', 'absent') }}"
+    volumes: "{{ item.value.volumes | select | list }}"
+  with_dict: "{{ docker_registry_services }}"

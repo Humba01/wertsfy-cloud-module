@@ -1,0 +1,12 @@
+Babel!=2.4.0,>=2.3.4
+Flask!=0.11,>=0.10
+jsonschema>=3.2.0
+kuryr-lib>=0.7.0
+neutron-lib>=1.13.0
+os-client-config>=1.28.0
+oslo.concurrency>=3.25.0
+oslo.config>=5.2.0
+oslo.log>=3.36.0
+oslo.utils>=3.33.0
+pbr!=2.1.0,>=2.0.0
+python-neutronclient>=6.7.0

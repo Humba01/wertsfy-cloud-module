@@ -1,0 +1,7 @@
+---
+- name: Ensure defined container images are deployed on seed node
+  hosts: seed
+  tags:
+    - seed-deploy-containers
+  roles:
+    - role: deploy-containers

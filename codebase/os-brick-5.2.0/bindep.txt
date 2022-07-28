@@ -1,0 +1,52 @@
+# This is a cross-platform list tracking distribution packages needed for
+# install and tests
+# see https://docs.openstack.org/infra/bindep/ for additional information.
+
+# WARNING: please make sure any additional os-brick-specific dependency
+# not already covered by other packages is also installed through devstack.
+# os-brick installed through pip does not include this file, so
+# the dependencies must be installed explicitly by changing
+# the list of packages under files/*/os-brick in the devstack repository.
+
+curl
+device-mapper-multipath [platform:rpm]
+multipath-tools [platform:dpkg]
+sg3-utils [platform:dpkg]
+sg3_utils [platform:rpm]
+libxml2-devel [platform:rpm]
+libxml2-dev [platform:dpkg]
+libxslt-devel [platform:rpm]
+libxslt1-dev [platform:dpkg]
+libssl-dev [platform:dpkg]
+openssl-devel [platform:rpm !platform:suse]
+libopenssl-devel [platform:suse !platform:rpm]
+
+iscsi-initiator-utils [platform:rpm !platform:suse]
+open-iscsi [platform:suse platform:dpkg]
+lsscsi
+
+# Binary dependencies for PDF doc generation
+fonts-liberation [doc platform:dpkg]
+texlive-latex-base [doc platform:dpkg]
+texlive-latex-extra [doc platform:dpkg]
+texlive-xetex [doc platform:dpkg]
+texlive-fonts-recommended [doc platform:dpkg]
+xindy [doc platform:dpkg]
+latexmk [doc platform:dpkg]
+texlive [doc platform:rpm]
+texlive-fncychap [doc platform:rpm]
+texlive-titlesec [doc platform:rpm]
+texlive-tabulary [doc platform:rpm]
+texlive-framed [doc platform:rpm]
+texlive-wrapfig [doc platform:rpm]
+texlive-upquote [doc platform:rpm]
+texlive-capt-of [doc platform:rpm]
+texlive-needspace [doc platform:rpm]
+texlive-polyglossia [doc platform:rpm]
+texlive-xetex [doc platform:rpm]
+texlive-xindy [doc platform:rpm]
+texlive-courier [doc platform:rpm]
+latexmk [doc platform:rpm]
+python3-sphinxcontrib-svg2pdfconverter-common [doc platform:rpm]
+librsvg2-tools [doc platform:rpm]
+librsvg2-bin [doc platform:dpkg]

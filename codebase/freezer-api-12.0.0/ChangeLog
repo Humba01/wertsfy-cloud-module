@@ -1,0 +1,590 @@
+CHANGES
+=======
+
+12.0.0
+------
+
+* Delete the func of build\_app\_v0()
+* Add python3.9 CI
+* Update gate CI
+* Remove unuseful func
+* Install paste file with PIP package
+
+11.0.0
+------
+
+* Fix the error for the module of falcon
+* [ussuri][goal] Update contributor documentation
+* setup.cfg: Replace dashes with underscores
+
+10.0.0
+------
+
+* [goal] Deprecate the JSON formatted policy file
+* Fix a bug when unit test use the local conf O    AttributeError: 'Connection' object has no attribute 'iterdump'
+* Fix pylint error
+* remove unicode from code
+* Fix devstack install error
+* Update package metadata
+* Remove unuseful yaml files for zuul V2 CI jobs
+* Add Python3 wallaby unit tests
+* Fix a bug for api
+* Update master for stable/victoria
+* [goal] Migrate testing to ubuntu focal
+
+9.0.0
+-----
+
+* zuul: use the freezer-tempest-plugins jobs and cleanup
+* Fix a few mock imports still not from unittests
+* Add Devstack installation guide in README.rst
+* Overriding configured project name (freezer-api)
+* Fix docs output error
+* Add py38 in tox
+* Use setstr to  execute unittest test
+* Add publish-openstack-docs-pti job in check/gate CI
+*  add docs check in tox.ini
+* Stop to use the \_\_future\_\_ module
+* Cap jsonschema 3.2.0 as the minimal version
+* Fix pygments style
+* Fix hacking min version to 3.0.1
+* tox: Keeping going with docs
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+8.0.0
+-----
+
+* Update hacking for Python3
+* Cleanup py27 support
+* Use unittest.mock instead of third party mock
+* Fix freezer-api's src\_file to path\_to\_backup
+* Update freezer-api gate&check ci job
+* Remove six usage from freezer\_api package
+* [ussuri][goal] Drop python 2.7 support and testing
+* Update README.rst Doc
+* Update devstack doc
+* Update tox.ini
+* Upgrade pylint to a new version that works with python3.7
+* Switch to Ussuri jobs
+* modify comments
+* Update master for stable/train
+* Update the constraints url
+
+7.2.0
+-----
+
+* Switch openSUSE jobs to 15
+* Sync Sphinx requirement
+* Update api-ref location
+* Update master for stable/stein
+* Add Python 3 Train unit tests
+* Add python3.7 unit test job in tox.ini
+* Restore tempest ci for gate test
+* Add a param req\_succeeded for falcon:  process\_response
+* Update handling for falcon 2.0.0 behavior changes
+* Fix ci fail due to falcon for sessions
+* Fix ci fail of tempest for V2 backup table
+* Fix ci fail due to falcon for jobs and backups in v1
+* Fix ci fail of tempest for V2 action and job table
+* Fix ci fail of tempest for V2 clients
+* Fix ci fail due to falcon for clients and actions in v1
+* Change tempest job to non-voting
+* Remove  code that supports  older version falcon
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Switch to openstackdocstheme
+
+7.1.0
+-----
+
+* Modify mode field in action table for sqlite
+* Replace openstack.org git:// URLs with https://
+* Make freezer-api-ubuntu as voting job again
+* Fix elasticsearch issue with jdk on bionic
+* Rename the xenial gate jobs and migrate them to bionic
+* Update json module to jsonutils
+* add python 3.7 unit test job
+* Fix session\_tag type in job table
+* Remove redundant code and improve test coverage
+* Drop astroid requirement
+* Delete invalid codes and Add a unit test for elastic 1.In \_validate\_opts: The following code is True forever, We will delete it. 2. Add unit test for ca\_certs in \_validate\_opts
+* Fix bug for Download, and install elasticsearch server
+* Add raise unit test for search tuple in sqlalchemy
+* Add unit test for action\_manager and session\_manager
+* Add raise unit test for update and replace tuple in sqlalchemy
+* Add unit test for TypeManager and TypeManagerV2
+* Add raise unit test for get and add tuple in sqlalchemy
+* Add unit test for client\_manager and job\_manager
+* Add unit test for ElasticSearchEngineV2 and backup\_manager
+* Add api unit test for model\_query in sqlalchemy
+* Add raise unit test for action and backup in sqlalchemy
+* Add raise unit test for job and backup in sqlalchemy
+* Add raise unit test for session in sqlalchemy
+* Refactor unit test about sqlalchemy  for supporting v1
+* Use template for lower-constraints
+* Fix replace\_action, replace\_job, replace\_tuple for sqlalchemy
+* Add unit test for JobTypeManagerV2, ActionTypeManagerV2, etc
+* Download, and install elasticsearch server for freezer-api
+* Add unit test for BackupManagerV2 and ClientTypeManagerV2
+* Add unit test for elasticv2.py
+* Add unit test for freezer-manage
+* Add migrations unit test for sqlalchemy
+* Add session unit test with search option, limit and offset in sql
+* Add job unit test with search option, limit and offset in sql
+
+7.0.0
+-----
+
+* Support search otion and limit, offset for sqlalchemy
+* Change openstack-dev to openstack-discuss
+* Add search option for list query
+* Add search\_client unit test for search option from client cmd
+* Add search\_client unit test for search option from client api
+* Add client search for sql
+* Add search\_session unit test for search option from client cmd
+* Add search\_action unit test for search option from client cmd
+* Add search\_session unit test for search option
+* Add search\_action unit test for search option from client api
+* Add backup search for sql
+* Add search\_job unit test for search option from freezer client cmd
+* Add search\_job unit test for search option from freezer agent
+* Support search in search\_action for sqlalchemy
+* Support search in search\_session for sqlalchemy
+* Freezer scheduler search jobs error for sqlalchemy
+* Add client search unit test for sql
+* Add client delete unit test for sql
+* Add backup search unit test for sql
+* Add session search unit test for sqlalchemy
+* Add job search unit test for sqlalchemy
+* Add job replace unit test for sqlalchemy
+* Add session replace unit test for sqlalchemy
+* Add backup delete unit test for sql
+* Add action search unit test
+* Add session update unit test for sqlalchemy
+* Add job update unit test for sqlalchemy
+* Add action replace unit test for sql
+* Add action update unit test for sql
+* Add session delete unit test for sqlalchemy
+* Add backup unit test for sql
+* Add job delete unit test for sqlalchemy
+* Add unit test for session table in sqlalchemy
+* Add client add and get unit test for sql
+* Correct session\_tag field type error
+* Add action delete unit test for sql
+* Add unit test for job table in sqlalchemy
+* Add Action unit test for sql
+* Update freezer-tempest-basic-salqlchemy job as a voting job
+* Add freezer-tempest-basic-sqlalchemy job in freezer-api
+* Fix tempest failure in sqlalchemy driver
+* Add unit test framework for sqlalchemy driver
+* Add python 3.6 unit test job
+* Refactor sql driver api
+* Add the project source code repository in README
+* Update jobs(v2) api-def
+* Don't quote {posargs} in tox.ini
+* Update min tox version to 2.0
+* modify document for api version v1 support for sql driver
+* Correct errors about freezer-api supporting for V1 and V2 api
+* add api version v1 support for sql driver
+* Upgrade Checkers : spelling correction
+* Update tox.ini
+* Add devstack sqlalchemy support for freezer
+* Update clients(v2) api-ref
+* set enable\_v1\_api=false in config sample
+* Update backups(v2) api-ref
+* Modify driver for bp add-mysql-support-for-freezer
+* Add freezer-manager-status upgrade check command framework
+* Fix a typo in delete job api
+* Update  actions-v2 api-ref
+* Update  Backup Service api-ref
+* Add jobs api for bp add-mysql-support-for-freezer
+* Add backup api for bp add-mysql-support-for-freezer
+* Add backup table for bp add-mysql-support-for-freezer
+* Add jobs table for bp add-mysql-support-for-freezer
+* Add session api for bp add-mysql-support-for-freezer
+* Add session table for bp add-mysql-support-for-freezer
+* Release the notes about Sqlalchemy driver for freezer-api
+* Add action api for bp add-mysql-support-for-freezer
+* Add action table for bp add-mysql-support-for-freezer
+* Add clients api for bp add-mysql-support-for-freezer
+* Change config\_id to client\_id in clients table
+* Add clients table for bp add-mysql-support-for-freezer
+* Add sqlalchemy migration in v2 for bp add-mysql-support-for-freezer
+* There are errors in executing session-add-job in v2 interface
+* Add freezer\_api.api.v2.homedoc unit test cases
+* Add gate/check test job
+* Fix freezer\_api.api.v2.sessions bug: doc.items() is not a iter object
+* Add freezer\_api.api.v2.jobs unit test cases
+* Add freezer\_api.api.v2.clients unit test cases
+* Add unit test cases of v2 interfaces: backup
+* when installing from pip python plugin is embedded in the binary
+* Add unit test cases of v2 interfaces: action
+* Adjust unit test directory
+* Modifying code comments errors.  "v1" modified to "v2",and add new parameter {project\_id}
+* Remove ababdoned code
+* python3.6 expects 'encoding' as keyword argument
+* add python 3.6 unit test job
+* switch release job to python 3
+* import zuul job settings from project-config
+* fix bug link in readme
+* fix request mock object due to change in oslo.policy
+* fix tox python3 overrides
+* update pylint to 1.9.2
+* Add py36 testenv
+* fix pep8 error under python 3
+* Rework AseertEqual params order in freezer-api from (got, expected) to (expected, got)
+* Delete request for non-existent ID will be 404
+
+7.0.0.0b1
+---------
+
+* Update the elk to DB backend
+* add lower-constraints job
+* Updated from global requirements
+* Remove unwanted ansible tasks
+* Updated from global requirements
+* Drop all qpid related explanations
+* Updated from global requirements
+* Update links in README
+* correct spelling error with word 'databse'
+* Remove empty files
+* Remove the unnecessary blank line for yaml file
+* Pump freezer-api to v2
+* Update freezer-api README.rst
+* Fix order of arguments passed to elasticsearch
+* Part 1: Implement Sqlalchemy driver for freezer-api
+* Configure gate jobs to collect the correct logs
+* Use API V2 driver as default db driver
+* Update reno for stable/queens
+
+6.0.0
+-----
+
+* Refactor gate jobs
+* Zuul: Remove project name
+* Change freezer-api-ubuntu-xenial gate job to voting
+
+6.0.0.0b3
+---------
+
+* Updated from global requirements
+* Remove use of unsupported TEMPEST\_SERVICES variable
+* Update homepage url for freezer
+* Updated from global requirements
+* Remove the deprecated "giturl" option
+* Remove bundled intree freezer\_api tempest plugin
+* Updated from global requirements
+
+6.0.0.0b2
+---------
+
+* Move freezer-api legacy jobs to project
+* Updated from global requirements
+* Remove setting of version/release from releasenotes
+* Updated from global requirements
+* Implement policy in code - client (end)
+* Implement policy in code - backup (5)
+* Implement policy in code - session (4)
+* Implement policy in code - action (3)
+* Implement policy in code - job (2)
+* Implement policy in code (1)
+* cleanup test-requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Fix raw\_input for py3
+* Improve README
+* Add fixtures to test-requirements
+* Updated from global requirements
+* Replace six.iteritems() with .items()
+* Update reno for stable/pike
+* TrivialFix: Remove the unused import code
+
+5.0.0
+-----
+
+* Updated from global requirements
+
+5.0.0.0b3
+---------
+
+* Prevent freezer from enabling devstack plugins more than once
+* Update URLs in documentation
+* [api-ref]Fix api-ref wrong style
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Change author in setup.cfg
+* Replace assertEqual([], items) with assertEmpty(items)
+* Fix DeprecationWarning
+* Updated from global requirements
+* Fix html\_last\_updated\_fmt for Python3
+
+5.0.0.0b2
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+* Fix pylint checks
+* Configure dsvm gate job to use uwsgi instead of apache2
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Update freezer-api for pike goal python 3.5
+* Replace test.attr with decorators.attr
+* Fix start failed job not working
+* Updated from global requirements
+* Improve keystone\_authtoken configuration
+* Updated from global requirements
+* Replace http with https in openstack.org
+* Remove install-guide from freezer-api
+* Updated freezer-api api-ref documentation
+* Replace six.iteritems() with .items()
+* Add Enable/Disable options for freezer-api
+* Update freezer-api devstack plugin
+* Change API v2 status from development to experimental
+* Add 'freezer\_action' to action schema
+* Update freezer-api dsvm gate job
+* Allow bootstrapping against clusters and unify host options
+
+5.0.0.0b1
+---------
+
+* Introducing models for oslo.db
+* Implement API v2 with fully support Mutli-tenancy
+* Remove py34 from tox
+* Add 'schedule' to session schema
+* Use bindep to define binary deps
+* Use HostAddressOpt for opts that accept IP and hostnames
+* Updated from global requirements
+* Remove log translations
+* Allow using different database backends
+* Update the install-guide for freezer
+* Updated from global requirements
+* Remove custom healthcheck app and use oslo middleware instead
+* Allow freezer-api to display existing versions
+* install: Remove json highlighting
+* Docs: Various fixes
+* one word 'weeks' is duplicate
+* Updated from global requirements
+* Update test requirement
+* Fix for preventing the client to register itself again and again
+* Updated tox.ini
+* Depends on tempest (tempest-lib is deprecated)
+* Fix sessions: session\_tag
+* Updated from global requirements
+* Use https instead of http for git.openstack.org
+* Update reno for stable/ocata
+
+4.0.0
+-----
+
+* Enable release notes translation
+* Remove link to modindex
+* Updated from global requirements
+* Fix failed tempest tests with KeystoneV2
+* Remove default=None for config options
+* No schema validation for client doc in Freezer API
+
+4.0.0.0b3
+---------
+
+* Add session scheduling information validation
+* Elasticsearch module is logging too much
+
+4.0.0.0b2
+---------
+
+* Fix description for 'Freezer sessions management' and 'Session-Job association' in README.rst
+* Fix No handlers could be found for logger "elasticsearch.trace"
+* Updated from global requirements
+* Add full pep8 check
+* Correct reraising of exception
+* Fix get backup object
+* Define apache version for ErrorLogFormat
+* Use UUID as backup\_id parameter
+* Show team and repo badges on README
+* Fix inconsistent freezer-api log output
+* Fix warn 'Unable to retrieve request id from context'
+* Fix a bug of doing devstack installation on CentOS
+* Using assertIsNone() instead of assertEqual(None, ...)
+* Added py35 environment configuration to tox.ini
+* API routes section error in freezer-api README.rst
+* Updated from global requirements
+* Update freezer-api README.rst
+* Refactoring dsvm gate job
+* Added releasenotes for freezer-api
+* Use http\_proxy\_to\_wsgi middleware
+* Added OpenJDK 7 ppa for xenial
+* Updated from global requirements
+* Delete python bytecode file
+* Support upper-constraints in tox.ini
+* Updated from global requirements
+* Using assertEqual instead of assertEquals
+* Change default value of elasticsearch replicas
+* Fix the step of editing configure file in freezer-api/README.rst
+
+3.0.0.0rc1
+----------
+
+* Updated from global requirements
+* Implemented: Installation documentation and API Ref
+
+3.0.0.0b3
+---------
+
+* Updated from global requirements
+* Update mappings to store current process id for each job
+* Get auth opts from appropriate getter
+* Fixed elasticsearch scroll problem in scan search
+* Fix wrong option group name
+* Implemented oslo.policy
+* Fixed Error reporting while load freezer-api app
+* Project/tenant ID now optional in client\_id for freezer\_api
+* Fix inconsistent syntax in mappings
+* Fix bug in README.rst
+* Remove discover from test-requirements
+* Fix Rst grammar avoid to change every time when change order
+* freezer API document error in README.rst
+* Return an error for negative limits and offsets
+* client\_id regex now permits valid fqdn for hostname
+* Listen on 127.0.0.1 in devstack
+* Add display-name to freezer-api Apache config
+
+3.0.0.0b2
+---------
+
+* Fixes 'ElastichSearch' typo -> 'ElasticSearch' in freezer-api
+* remove repeat test assert
+* Remove white space between print and ()
+* Fix falcon version detection for falcon==0.1.6
+* Updated from global requirements
+* Fix Middleware loading for falcon >= 0.1.6
+* freezer-api README.rst needs to be updated
+* fix job-stop request not accepted
+* Fixed mapper\_parser\_error in elasticsearch when inserting documents with \_version
+* Make user\_id not\_analyzed
+* Moving to freezer-manage to create/update/delete mappings
+* [WIP] Fix tempest credentials issue
+* Remove \_version from the document passed to elk
+* Fix RST syntax in tempest tests README
+* Add oslo.middleware to requirement.txt
+* Remove version from setup.cfg
+
+3.0.0.0b1
+---------
+
+* Move to Paste and Paste-deploy
+* fix typo in jobs.py
+* Remove version string from elk documents
+* Don't check for content-type in requests
+* Fix RST error in README
+* Fix RST syntax in README
+* Moving to falcon middleware
+* Remove version when creating records in elasticsearch
+* Add missing api tests for the backups endpoints
+* Devstack take up screen of freezer
+* Updating freezer-api mappings adding no\_incremental and overwite
+* Add consistency\_checksum parameter on backup metadata
+* Using oslo.context
+* Fix documentation: There is no update endpoint for backups
+* Fix documentation: offset instead of marker
+* Fix oslo.config to load elk opts from the config file
+* Fix refresh problem when a document gets created in elasticsearch
+* fix session-remove-job
+* Remove apache config file after cleanup freezer api
+* Bumping version to 2.1.0 for Newton
+* Add Freezer API Tempest Tests
+* Adding storage, keystone\_authtoken sections to sample config
+* Switch Freezer-api to oslo.config and oslo.log
+
+2.0.0
+-----
+
+* This is incorrect url in example doc and conf
+* Add Freezer API Version Test
+
+2.0.0.0rc1
+----------
+
+* Updating freezer-api elk mappings
+* Use six.moves.input rather than six.moves.builtin.input
+* Fix url from stackforge to openstack
+
+2.0.0.0b3
+---------
+
+* Introduce tempest tests
+* Switch to testr from pytest
+* Add Sphinx doc build
+
+2.0.0b2
+-------
+
+* Align requirements and version to Mitaka
+
+1.2.0
+-----
+
+* Add astroid to test-req and fixed perms to gate\_hook.sh
+* change default value for number of replicas
+* fix db\_init number of replicas
+* Align requirements to liberty global-requirements
+* Add support for properties that span across all action of a job
+* remove elasticsearch method delete\_by\_query
+* Fix versions for Liberty
+
+1.1.3
+-----
+
+* Bumping version for release kilo and pypi release
+* create actions when creating jobs
+* Backup UUID
+* fix freezer-db-init modifies replicas in test mode
+* Fix freezer-db-init when no config file is found
+* Updated LICENSE file and headers
+* Adding scripts for dvsm gate job integration
+* Add support for elasticsearch number of replicas
+* Change the repository from stackforge to openstack
+* Update .gitreview for new namespace
+* devstack plugin interface
+* update type deletion policy in db-init
+* config options for elasticsearch connection
+* job event endpoint
+* Updating HP Copyright label
+* requirement falcon-0.1.10
+* Aligning requierements to global-requirements
+* Aligning requirements.txt with global-requirements
+* Fix for configuration deployment
+* Fix logging configuration
+* Fix internationalization under oslo.i18n 1.5
+* Added .gitignore .pylintrc, enabled pylint, fixed pylint error
+* Fixed package name to consistent with repo name
+* Fixed pep8 failure
+* add api endpoint /v1/health to support HAProxy
+* freezer-scheduler without api service
+* fix i18n related to the api
+* Backup ID now is not splited by dashes
+* Refactoring logging and translations on freezer\_api
+* add session properties to json\_schemas of job
+* Refactor api imports to OpenStack Hacking compliant
+* update oslo namespace to oslo\_config
+* Add Elasticsearch index creation
+* Job creation for multiple clients
+* elasticsearch init script
+* freezer scheduler
+* freezer service API v1 specification reformatted
+* Add api support for jobs
+* Fix default auth credentials in freezer-api.conf
+* This version contains the following pages:  - Overview displays charts/reports (Currently only placeholders)  - Configurations allows to define new backup configurations and link them to    instances  - Backups shows a list of all succesful backups and allows to restore them  - Restores shows a history of all restored backups
+* Changed client data description to include "hostname""
+* Fix stale import in freezer\_api/storage/driver.py
+* freezer api support for action
+* freezer api support for client registration
+* client retrieval of freezer api endpoint
+* Freezer API

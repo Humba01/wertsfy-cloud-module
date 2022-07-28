@@ -1,0 +1,15 @@
+{% load i18n %}
+
+<p>{% trans "Create VPN service for current project." %}</p>
+<p>{% blocktrans trimmed %}
+The VPN service is attached to a router and references to endpoint group
+or a single subnet to push to a remote site.
+{% endblocktrans %}</p>
+<p>{% trans "Specify a name, description, router, and subnet (optional) for the VPN service." %}</p>
+<p>{% trans "Admin State is enabled by default." %}</p>
+<p>{% trans "The router and admin state fields require to be enabled. All others are optional." %} </p>
+<p>{% blocktrans trimmed %}
+Note: The recommended way to specify local subnets is to use endpoint groups
+in IPsec site connection. It is deprecated to specify subnet in VPN service.
+For a new VPN service or IPsec site connection, using endpoint group is recommended.
+{% endblocktrans %}</p>

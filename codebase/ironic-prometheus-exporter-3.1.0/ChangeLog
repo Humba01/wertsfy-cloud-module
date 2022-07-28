@@ -1,0 +1,122 @@
+CHANGES
+=======
+
+3.1.0
+-----
+
+* Remove unicode from code
+* Use only Yoga tests
+* Test python 3.6 for distributions compatibility
+* Updating yoga tested python versions in classifier
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+3.0.0
+-----
+
+* Explicity set IPE job to ML2/OVS
+* Add lower-constraints job to current development branch
+* setup.cfg: Replace dashes with underscores
+* Remove lower-constraints job
+* Changed minversion in tox to 3.18.0
+* Replace deprecated UPPER\_CONSTRAINTS\_FILE variable
+* Increase RAM for ironic vm
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+2.2.0
+-----
+
+* Add bifrost job and update docs
+* Reconfigure tox.ini
+* Remove lower-constraints job
+* Set safe version of hacking
+* Add Python3 wallaby unit tests
+* Migrate IPE job to focal
+* Update master for stable/victoria
+
+2.1.1
+-----
+
+* Fallback to \`node\_uuid\` if\`node\_name\` is not present
+* Update ram to avoid Kernel Panic
+
+2.1.0
+-----
+
+* Prometheus-exporter to use DevStack's neutron"-legacy" module
+* Set min version of tox to 3.2.1
+* drop mock from lower-constraints
+* Revert "Remove six"
+* Remove six
+* Switch to newer openstackdocstheme version
+* Add releasenotes link to README
+* Add coverage configuration for tox
+* Stop calling LOG.info on every function calls
+* Add py38 package metadata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+2.0.0
+-----
+
+* Stop configuring install\_command in tox
+* Use hacking for pep8 tests
+* Add lower constraints jobs
+* Cleanup py27 support
+* Add documentation
+* Fix None for instance\_uuid label
+* DevStack support and Redfish job
+* Fix timeseries in redfish parser
+* Enforce running tox with correct python version based on env
+* Drop python 2.7 support and testing
+* Switch to Ussuri job
+* Add versions to release notes series
+* Update master for stable/train
+
+1.1.0
+-----
+
+* Add metrics descriptions
+* Add Redfish metrics support
+* Move timestamp registry to a sharable 'header' module
+* Support for metrics description
+* Add copyright statements to files
+* Rearrange unit test samples
+* Release note for oslo.messaging.notify drivers
+* Release note for timestamp metric
+* Release note for ipmi Voltage metrics
+* Release note for Flask Application
+* Release note for initial ipmi support
+* Move metric creation logic from messaging module
+* build universal wheels
+* Release Notes support
+* Voltage Metrics
+* Payload Timestamp Metric
+* New labels support and simple fixes
+
+0.1.0
+-----
+
+* Update setup.cfg to install package correctly
+* Migrate to opendev infra
+* Update setup name
+* Update Flask version in requirements
+* Fixes for installation
+* Move to client\_python from Prometheus
+* rename metalkube to metal3-io
+* IPMI changes
+* Review Updates
+* Flask Application to Prometheus
+* Update requirements and documentation
+* Updates for Driver, Parsers and Tests
+* Refactoring code
+* Updates for Prometheus Exporter
+* Installation guide
+* Change file format to JSON
+* Update documentation format
+* Updates for PrometheusFileDriver
+* Register configuration options before load driver
+* Initial version for Prometheus File Driver
+* Basic repository structure
+* Initial commit

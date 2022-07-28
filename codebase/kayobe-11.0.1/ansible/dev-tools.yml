@@ -1,0 +1,7 @@
+---
+- name: Ensure development tools are installed
+  hosts: seed-hypervisor:seed:overcloud:infra-vms
+  tags:
+    - dev-tools
+  roles:
+    - role: dev-tools

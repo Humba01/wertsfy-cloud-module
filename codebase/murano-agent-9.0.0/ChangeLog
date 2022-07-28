@@ -1,0 +1,779 @@
+CHANGES
+=======
+
+9.0.0
+-----
+
+* Fix murano-agent DIB
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+8.0.0
+-----
+
+* [community goal] Update contributor documentation
+* Fix lower-constraints job
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+7.0.0
+-----
+
+* Fix another base64 python3 issue
+* Fix base64 usage for Python 3
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+6.0.0
+-----
+
+* [goal] Migrate testing to ubuntu focal
+* Use unittest.mock instead of mock
+* Switch to newer openstackdocstheme and reno versions
+* Fix hacking min version to 3.0.1
+* Monkey patch original current\_thread \_active
+* Bump default tox env from py37 to py38
+* Add py38 package metadata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+5.0.0.0rc1
+----------
+
+* Use unittest.mock instead of third party mock
+* Remove six usage
+* Cleanup py27 support
+* Update to hacking 3.0
+* Update hacking for Python3
+* [ussuri][goal] Drop python 2.7 support and testing
+* Update master for stable/train
+
+4.0.0
+-----
+
+* Add Python 3 Train unit tests
+* Update contraints url
+* Fix sphinx requirements
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Update master for stable/stein
+* Replace openstack.org git:// URLs with https://
+
+3.6.0
+-----
+
+* add python 3.7 unit test job
+* Add py36 to classifier and update tox version
+* Use template for lower-constraints
+* Change openstack-dev to openstack-discuss
+* Fix unit tests for python3.6
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Remove the unused tools scripts
+* murano-aget PTI docs build
+* Fix murano agent docs generate error
+* Update reno for stable/rocky
+
+3.5.1
+-----
+
+* Switch to stestr
+
+3.5.0
+-----
+
+* fix tox python3 overrides
+* uncap eventlet
+* Update links in README
+* add lower-constraints job
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Update reno for stable/queens
+
+3.4.0
+-----
+
+* Updated from global requirements
+* Fix: config generation
+* Updated from global requirements
+* Updated from global requirements
+* Message signing implementation for legacy Windows agent
+* Murano-agent side implementation of message signing
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Tighten access to runtime agent folders
+* Remove setting of version/release from releasenotes
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Fix to use . to source script files
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Update reno for stable/pike
+
+3.3.0
+-----
+
+* Updated from global requirements
+* Mask sensitive information before logging execution plan
+* Update the documentation link for doc migration
+* switch to openstackdocstheme
+* Remove usage of parameter enforce\_type
+* Updated from global requirements
+* Updated from global requirements
+* Change author in setup.cfg
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Fix doc generation for Python3
+* Updated from global requirements
+* Optimize the link address
+* Updated from global requirements
+* Replace uuid.uuid4() with uuidutils.generate\_uuid()
+* Use HostAddressOpt for opts that accept IP and hostnames
+* Adds TLS/SSL Version Support to Murano Agent
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Update test requirement
+* Use openstack cmd instead in readme.rst
+* Remove support for py34
+* Update reno for stable/ocata
+
+3.2.0
+-----
+
+* Updated from global requirements
+
+3.1.0
+-----
+
+* Marking rabbitmq password config property as secret
+* Add debug to tox enviroment
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Show team and repo badges on README
+* Fixed issues on Python 3
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Enable release notes translation
+* Updated from global requirements
+* Fix coverage option and execution
+* Updated from global requirements
+* Updated from global requirements
+* Fix Null Reference exception in Windows agent PS scripts
+* Fix LOG.warn to LOG.warning
+* update homepage with developer documentation page
+* Updated from global requirements
+* fix the home-page URL to be valid
+* Update reno for stable/newton
+
+3.0.0.0rc1
+----------
+
+* Mention DIB\_CLOUD\_INIT\_DATASOURCES in README
+* TrivialFix: Remove cfg import unused
+* TrivialFix: Remove logging import unused
+
+3.0.0.0b3
+---------
+
+* [docs] Update Readme with correct Doc URL
+* Update tox.ini for upper constraints
+* Trivial: Add python identifiers in setup.cfg
+* Chef executor unit tests now compare dicts instead of strings
+* Add Python 3.5 classifier and venv
+* Updated from global requirements
+* Drop \*openstack/common\* in flake8 exclude list
+* Remove discover from test-requirements
+
+3.0.0.0b2
+---------
+
+* Updated from global requirements
+* Use upper-constraints in tox test environments
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Python 3: add py34 test environment to tox.ini
+* Python 3: replace usage of the types module
+* Python 3: only decode subprocess stdout on py2
+* Python 3: replace exec with six.exec\_()
+* Python 3: Fix absolute import
+* Python 3: Fix basic py3 issues
+* [Trivial] Fix too many arguments for format string
+* Reorder releasenotes and increase toctree depth
+* Updated from global requirements
+
+3.0.0.0b1
+---------
+
+* Updated from global requirements
+* RabbitMQ heartbeats for consumer threads
+* Change chef installation method
+* Install murano-agent to pip default location
+* Updated from global requirements
+* Allow insecure SSL communications with RabbitMQ
+* Updated from global requirements
+* Restores SIGPIPE on script processes
+* Update reno for stable/mitaka
+
+2.0.0.0rc1
+----------
+
+* Adds RMQ reconnection on first timeout after EP run
+
+2.0.0.0b3
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+* Enable pep8 to check files in directory tools
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Deleted unused modules from requirements.txt
+* Updated from global requirements
+* Remove openstack-common.conf
+* Updated from global requirements
+* Fix Mutable defalut argument
+
+2.0.0.0b2
+---------
+
+* Updated from global requirements
+* Clean flake8 ignore
+* Updated from global requirements
+* Replace deprecated library function os.popen() with subprocess
+* Updated from global requirements
+* Updated from global requirements
+* Replace unicode with six.text\_type
+* py26 is no longer supported by Infra's CI
+* Drop MANIFEST.in - it's not needed with PBR
+* Updated from global requirements
+* Pass environment variables of proxy to tox
+* Ensure murano-agent starts on boot on debian-based images
+* Remove version from setup.cfg
+* Replace stackforge with openstack
+
+2.0.0.0b1
+---------
+
+* Drop bunch dependency
+* Add reno for RElease NOtes
+* Add Berkshelf support
+* Remove hardcoded destinations for puppet/chef processing engine
+* Remove unnecessary rmtree call
+* Add dynamic result message routing
+* Open Mitaka development
+
+1.0.0
+-----
+
+* Update the gitignore file to ignore .swp
+* Update the murano agent README
+* NuGet.exe was removed from the repo
+* Adding svn for file download
+
+1.0.0.0rc1
+----------
+
+* Activate pep8 check that \_ is imported
+
+1.0.0.0b3
+---------
+
+* Remove openstack.common package
+* Use timeutils from oslo\_utils
+* Switch to the oslo.log library
+
+1.0.0.0b2
+---------
+
+* Puppet default execution involves the definition of none modules. The Puppet executor has been modified to consider if the recipe is empty
+* Update Ubuntu-based image build documentation
+* Switch to oslo.service
+* Chef and Puppet elements integration into Murano-agent
+
+1.0.0.0b1
+---------
+
+* Update version for Liberty
+* ignore testr output directory
+* Update requirements
+
+1.0.0a0
+-------
+
+* Add Murano Agent for Windows
+* Add murano-agent DIB element for Debian
+* Drop use of 'oslo' namespace package
+* Update README file
+* Folder Not Found with Git Downloadable File
+* Open Liberty development
+
+2015.1.0rc1
+-----------
+
+* Update from global requirements
+* Increment max FormatVersion
+* [DIB] Fix repository names in murano-agent elements
+* Update .gitreview file to reflect repo rename
+* Fixes file placement
+* Support for Configuration Language: Puppet
+* Fixes image building, CI tests and requirements
+* Support for Configuration Language: Chef
+* Support non-application scripts in the execution plan
+* Support for Configuration Language. File Downloading
+
+2015.1.0b3
+----------
+
+* Fix typo in files\_manager.py
+
+2015.1.0b2
+----------
+
+* Remove existing config
+* Self-sufficient DIB elements
+* Fix 'is' statement to 'in' in Murano Agent
+
+2015.1.0b1
+----------
+
+* Workflow documentation is now in infra-manual
+* Unicode characters handling
+* Fix use of the oslo-config-generator
+* Remove muranoagent.conf.sample
+* Remove generate\_samlple.sh tool from the project
+* Use oslo.config generator
+* Open Kilo development
+
+2014.2
+------
+
+* Updated from global requirements
+* Windows agent was moved to another repo
+* Fix requirement for semver
+* Fix murano agent component name
+* Add dib element to build an image with murano-agent
+* Make sure the name in setup.cfg is murano-agent not muranoagent
+
+2014.2.b3
+---------
+
+* Handle version information
+* Enable H301, H302, H304, H306, H231, H233
+* Run tests with testrepository
+* Make improvements in logging
+* Add sample config and it's checker
+* Update openstack-common
+* Add virtual environment installation scripts
+* Remove hardcoded version
+
+2014.2.b2
+---------
+
+* Updated from global requirements
+* Setup doc build and test infrastructure
+
+2014.2.b1
+---------
+
+* Extract main python client to the top
+* Send message\_id as property
+
+0.5.0
+-----
+
+* Correct murano-agent reference to message headers
+* Removed dependency from kombu.five
+* Merged in murano-common
+* Update README with actual info
+* Bug: 1263727 (agent\_template requires parameter)
+
+0.4
+---
+
+* Cherry-picked changes from release-0.3
+* Update requirements to match havana's ones
+* Add C demo agent
+* Python Agent initial release
+* Cherry-pick following commit from release-0.2
+* Project retargeted to .NET 4.0CP. Fixed incorrect warning message in logs
+* Cherry-pick following change-ids from release-0.2
+* Handling of arrays and dictionaries as input parameters, arrays as a result
+* Wrong AcceptablePolicyErrors default for SSL in agent
+* typo
+* Added support for RabbitMQ SSL-secured connections
+
+0.1
+---
+
+* KEERO-316 - Fix all occurrences of old names (keero, glazier)
+* Removed all projects except Glazier Agent
+* Small fixes for unit tests
+* Fixed issue with length of new name
+* Fixed small issue
+* Fixed issue with names
+* Fixed issue with names
+* Fixed issue with names
+* Fixed issue with names
+* Fixed issue with names
+* Fixed issue with names
+* Fixed issue with names
+* Fixed small issue with new names
+* Fixed issue with horizon component installation
+* Fixed issue with horizon component installation
+* Fixed issue with horizon component installation
+* Finished converting API Specification
+* Fixed small issue with setup.py
+* Fixed issue with renaming of the tabula component
+* Fixed issue with renaming of the tabula component
+* Added part of API Specification
+* Tabula renamed to dashboard
+* Tabula renamed to dashboard
+* Finished documentation for API
+* Finished documentation for API
+* Renamed Portas to API
+* Renamed Portas to API
+* Added tox for webUI tests
+* Added license to documentation of Portas Client
+* Small fix
+* Fixed api interface names to environments
+* Fixed api interface names to environments
+* Renamed and licensed python-glazierclient
+* Fixed api interface names to environments
+* Fixed api interface names to environments
+* Renamed documentation project
+* Fixed licenses for tabula and tests. Fixed name of tabula project
+* Fixed licenses for tabula and tests. Fixed name of tabula project
+* Fixed a few small issues
+* Pass all RabbitMQ settings from conductor to Agent
+* Initialization of tox for conductor and portas. Add new webUI automated tests
+* Licenses added
+* A lot of changes were made
+* Issue with figures
+* Main Documentation Project
+* Fixed ignore file for python-portasclient
+* Documentation for UI
+* Documentation for Python PortasClient
+* Forgot man pages
+* Documentation for Portas Project
+* Send token when deleting environment
+* Fixed https://mirantis.jira.com/browse/KEERO-227
+* Fixed issue with sessions
+* Fixed issue with sessions
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Add logging to WebUI
+* Add initial files for unit tests
+* Fixed issues with sessions Added logging
+* Added unit tests for client. Coverage 66%
+* Rename RabbitMQ username field Removed use\_ssl option from settings
+* Fix running install\_venv.py
+* Updated python-portasclient
+* PEP8 compliance
+* Fixed unit tests
+* Added ability to add services to environment
+* bug fix
+* bug fix
+* Fixed index bug
+* Finalize UI
+* Finalize UI
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Fix PEP8 errors
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Fix issue with statuses
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Fixed issue with sessions
+* Naming conventions: use name instead of id for instance names
+* Heat auto-discovery, keero-linux-keys -> keero-keys
+* Experiments with UI
+* typo
+* Scoped tokens
+* Experiments with UI
+* Experiments with UI
+* Experiments with UI
+* Experiments with UI
+* Experiments with UI
+* Experiments with UI
+* Experiments with UI
+* Fix issue for result of deleted environments
+* Fix merge issue
+* Merged
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fix name of the variable
+* Fixed small issue
+* Send token when deleting environment
+* Removed unneeded binding
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Added tabs for services
+* forgotten file
+* Fixed issue with activeDirectory deletion
+* Add support for reports filtering
+* Added tabs for services
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Added dropdown list with list of services
+* Added initial version of tabs for services
+* Added initial version of tabs for services
+* Added initial version of tabs for services
+* Fixed issues with templates
+* Fixed issue  with installation
+* Fixed issue  with installation
+* PEP-8
+* Fixed issue with incorrect import
+* logging and bug-fixes
+* fixed VM initialization script
+* Evironment/Units deletion, bug-fixes
+* Fixed UI issues
+* Remove service deletion button
+* Finished installable UI
+* Removed old code
+* Naming conventions changed
+* Updated OpenStack Common (Fixed issue with notifier package)
+* Use Heat REST API instead of command-line
+* Added support for setup.py Added localization and documentation skeletons PEP8 Fixes, optimized imports
+* #KEERO-222 Remove random part of unit name
+* Send Env to Conductor for deletion
+* Hot fix for WebUI tests
+* Fixed WebUI tests. Added new tests
+* #KEERO-220 Send X-Auth-Token to Conductor
+* Added initial unit tests for RestAPI service
+* Fixed all pep8
+* Fixed automated tests for web UI
+* Fixed automated tests for WebUI. Added class Page with simple objects
+* Code to start\stop keero components using devstack functions
+* Fixed: changed the run mode for install venv script
+* Added deployment script for automated tests
+* All Cloudbase-Init plugins disabled except UserDataPlugin
+* Userdata script updated to support computer renaming functionality
+* Entry point script renamed 2d27f4f5054f34982ed67da2bf4b35c8ac1558d3
+* Issues #195 and #199
+* README and guide for conductor
+* Fix and unit test for issue: https://mirantis.jira.com/browse/KEERO-219
+* Added unit tests for REST API client. Fixed pep8
+* New devstack scripts added
+* Old devstack scripts removed
+* Write-Host replaced by Write-Log
+* Fixed typo
+* Sync
+* Sync
+* Sync
+* Cloned horizon and added our dashboard
+* Removed obsolete code Removed projects: [windc, windcclient]
+* Added tests for REST API. Fixed issues with Web UI
+* Added tests for REST API. Fixed issues with Web UI
+* Merged iteration3 branch to master. Fixed pep8
+* Fixed small issues with UI
+* Added lst fixes for demo
+* Fix another issue with environments list
+* Fix another issue with services
+* Fix issue with getting list of environments
+* Added progress bars for services. Fixed few issues for demo
+* Fix issue with ack on results
+* Add part of service id to unit name
+* Add ability to get status for Environments and Sessions
+* Added password-secure checks for UI, fix usability issues for demo
+* ExecutionPlanGenerator DSL processor
+* Updated workflow elements to reflect new name changes and to fix typos
+* ExecutionPlanGenerator DSL processor
+* Updated workflow elements to reflect new name changes and to fix typos
+* Another Issue with sessions
+* Added progress bar to Web UI. Fixed pep8 errors
+* Change behaviour of viewing services
+* Issue with session
+* No ack is needed when auto\_ack set to True
+* Resolved issue with reports from orchestration engine
+* FIx issue with fields created & updated
+* Fixed issue with logging
+* Added deploy button for data centers in UI. Fixed templates for services
+* Queues should be durable
+* Add debug logging for controllers
+* Sync before tag
+* Fixed issue with empty services list
+* Added new API for Web UI
+* typos
+* Fixed length of names
+* Fixed instance namings
+* Added WebServer and AD
+* Workflows, ExecutionPlanGenerator, Reporting, UserData, conductor improvements
+* Removed obsolete file
+* Bug with Session
+* Added Session operations
+* Added Environments CRUD operations
+* Issue with deleting Environment
+* Removed obsolete files
+* Added initial version for python-portasclient
+* Issue with port for RabbitMQ
+* Function updated to return IPv4 addresses only
+* Typo
+* Explicit import of module DnsServer added
+* Function to install IIS added
+* Code to return DNS listening IPs from DC added
+* WebServer API Added WebServer API Small refactoring
+* Fix issues with queues
+* Added units name generation
+* Write results from orchestration engine
+* Active Directory API
+* Remove obsolete service table
+* Enable session deployment
+* Reports from orchestration engine Added ability to store and expose reports from orchestration engine
+* Cleaned up API
+* Added support for reading messages from RabbitMQ asynchronously
+* Typo
+* userdata.py fixed
+* Finished Task KEERO-111. Added base UI tests
+* Hot fix: Fixed pep8 for Dashboard
+* Finished Task: KEERO-117. Added new UI wizard for Create Services Action
+* Userdata plugin with minimal MIME support added
+* User data sample file added
+* Extra functions moved to NotCoreFunctions.ps1 file in order to remove them in the future
+* Functions to work with Base64 strings added
+* Functions to work with Zip files added
+* Modified files from cloudbase-init added
+* Fixed pep8. Fixed deployment script
+* Added support for session checking
+* Most part of Session API
+* Removed obsolete code
+* Added new Session model and migration Fixed issues with previous models
+* Initial conductor implementation
+* Added deployment script and automated tests
+* Small PEP8 fixes
+* Fixed small issues with parameters. It is required fix
+* Added remove method for environments Also slightly updated routes table
+* Finished environments api
+* Only environments from same tenant as users should be shown
+* Remove unnecessary blocks of code
+* When new DC is adding tenant\_id is added as param
+* Fix issues with context
+* Moved utils.py from WindDC
+* Small changes to .gitignore Removed global .gitignore Added .gitignore to WindowsAgent project
+* Update added files
+* Added support for keystone-auth
+* Updated initial version of portas-api
+* Initial version of portas-api
+* Simple function to update agent config added
+* Simple function for working with templates added
+* Function to retrieve meta data opject from config drive added
+* localrc updated
+* Files to automate devstack installation added
+* Fixed small issues with WebUI
+* asd
+* test.commit
+* test.commit
+* Log functions updated
+* Stop-Execution modified
+* Removed obsole line
+* Removed obsolete file Added .gitignore file
+* Added reference JSON for Active Directory
+* Fixed urls for dashboard
+* Fixed Web UI for demo
+* Files removed
+* Windows PowerShell module added
+* Unattended installation files added
+* Execution plan files added
+* windc iteration2
+* Added WebUI for correct configuration of new service AD
+* Resolved issue with datacenter id
+* Resolved issue with datacenter id
+* Fixed many small issues
+* Fixed typo
+* Fixed KEERO-89
+* Fixed issue with data centers
+* Added services functions to client. Need to be tested
+* [KEERO-83] Windows Agent: Ability to reboot machine after execution plan is executed
+* [KEERO-83] Windows Agent: Typo fixes + sample values in config
+* [KEERO-83] Windows Agent initial implementation
+* Added operations for chef. They might be remove if we decide to not use chef
+* Fixed small issues
+* Fixed KEERO-85
+* Fixed issue with virtual environment SQLAlchemy library
+* Added library libsqlite3-dev to virtual environment for windc client
+* Added new functional to dashboard, fixed small issues
+* Added windc API client, sync repo with dev box
+* Added new files
+* Updated design. Removed extra code
+* 1. Added support of CloudFormation templates. Made a simple interface to build template. Stan can work here to redesign template.py 2. Added calls of drivers. Now heat is called from cmd instead of client. Should be rewritten. 3. ActiveDirectory makes a static template. Need to rewrite this with working with actual parameters
+* Added additional fields for Domain Controller
+* Added simple form for configuration Domen Controllers and IIS Servers
+* Fixed small problems with links and titles on pages
+* Fixed small problems with links and titles on pages
+* Added initial project for horizon dashboard
+* 1. Added builders support. Each builder is a class dynamically loaded from ./windc/core/builders folder. The class name should be the same as module file name. 2. Updated core/api.py to support datacenter and service creation with extra parameters which are not defined by model explicitly. 3. Added event based approach for the windows environment change. Now when user submits a request to API the core updates database and initiates a new event which defined scope (datacenter, service, VM) and action (add, modify, delete). This event and data will be iterated over all registered builders. Each builder can use this event and data to plan some modification
+* 1. Fixed issue with main file start ./bin/windc-api 2. Added router to Route /datacenters/ and /services/ URLs 3. Added stubs for windc/core/api. 4. Fixed start-up process for service ------------------------------------------------- Now it is working service which will reply for curl http://localhost:8181/tenant\_id/datacenters/ curl http://localhost:8181/tenant\_id/datacenters/dc\_id/services curl http://localhost:8181/tenant\_id/datacenters/dc\_id/services/service\_id
+* Initial version of the Windows DataCenter project. It is openstak-skeleton based
+* Unattended files added
+* Initial empty repository

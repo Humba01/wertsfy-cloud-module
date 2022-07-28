@@ -1,0 +1,2224 @@
+CHANGES
+=======
+
+10.0.0
+------
+
+* Add Python3 yoga unit tests
+* Fix Amphora RSyslog configuration for TCP failover
+* Add the PROMETHEUS protocol to listeners
+* Fix unplugging member ports
+* Fix amphora-agent elements for RHEL9
+* Add missing release note for commit 0a9f3a8
+* Fix detection of member operating status DRAIN
+* Fix wrong SQL statements in documentation
+* Fix ipv6 interface configuration
+* Use centos amphora image in the FIPS jobs
+* Remove redundant override of project\_id in RequestContext
+* Fix callback method interface to remove warning by tenacity
+* Fix devstack on centos-9-stream
+* Add support for Centos 9 Stream
+* Add fips jobs
+* Remove ureadahead package
+* Optimize DB object to provider dict conversions
+* Restart rsyslog from cloud-init
+* Update scripts to use fips allowed algorithms
+* Fix typo in config option name
+* Add keepalive for redis-based taskflow boards
+* Updating python testing classifier as per Yoga testing runtime
+* Fix new pylint issues
+* Fix nft command line with negative priority values
+* Fix amphora image size display in diskimage-create.sh script
+* Mock log\_opt\_values in API tests & fix auth\_url in devstack
+* Switch centos8 jobs to centos-8-stream
+* More logging during load balancer creation
+* Fix LB set in ERROR too early in the revert flow
+* Fix failover of az-specific loadbalancers
+* Workaround to fix amphora-agent on centos
+* Preserve haproxy server states during reloads
+* Fix docs jobs and pep8 errors with pylint 2.6.2
+* Increase TCP buffer maximum and MTU discovery
+* Fix management network selection when calculating deltas
+* Update master for stable/xena
+* Fix some new pylint errors
+
+9.0.0
+-----
+
+* Fix MAX\_TIMEOUT value for listener
+* Fix duplicate SG creation for listener peer port
+* Fix PlugVIPAmphora revert function in amphorav2
+* Add generic network interface management in the amphora
+* Set active-standby job as non-voting
+* Fix pylint checks
+* Alias change amphorav2 -> amphora
+* Update nr\_open limit value in the amphora
+* Add caps for pip-extra-reqs/pip-missing-reqs
+* fix amphora-agent-install script, typo, heath -> health
+* Fix oslo policy DeprecatedRule warnings
+* Replace md5 for fips
+* Fix new pylint issues
+* Changed minversion in tox to 3.18.0
+* Fix using host\_routes in VIP subnet with amphorav2
+* Enable lo interface in the amphora-haproxy netns
+* Fix new errors with SQLAlchemy 1.4
+* Update contributor documentation
+* Disable conntrack for TCP flows in the amphora
+* Imported Translations from Zanata
+* Drop Bionic support
+* Edits for "Basic Load Balancing Cookbook"
+* Fix race conditions between API and worker DB calls
+* Optimize CountPoolChildrenForQuota task in amphorav2
+* Spare pool removal
+* setup.cfg: Replace dashes with underscores
+* Fix task\_flow.max\_workers with persistence in amphorav2
+* Fix pylint errors
+* Use TOX\_CONSTRAINTS\_FILE
+* Add nightly test image build job for focal
+* Fix jobboard\_enabled setting in devstack
+* Disable spare pool jobs
+* Fix amphora failover flow in amphorav2 driver
+* Gate-Fix: Replace Octavia hacking O349 with H216
+* Edits for "Operator Maintenance Guide"
+* Fix comment for the ca\_certificates\_file opt
+* Fix devstack cleanup when using amphorav2
+* Fix pool ALPN compatibility with older amphora
+* Fix rsyslog configuration when disabling logs
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+8.0.0.0rc1
+----------
+
+* Fix empty Batch Member Update to unlock objects
+* Fix using subnets with host\_routes in amphorav2 driver
+* Fix LB failover for amphorav2: set security group
+* Validate user access to vip\_subnet\_id when creating a LB
+* Make /healthcheck cache results
+* Make focal the Ubuntu default for diskimage-create
+* Fix provider driver quota handling
+* [goal] Deprecate the JSON formatted policy file
+* Add aarch64/amd64 support to amphora and devstack
+* Remove some miscellaneous sanity check code
+* Add support for scoped tokens and default roles
+* Add HTTP/2 to default lists of ALPN protocols
+* Fix grenade resource waiters
+* Fix LB failover when IP addresses exhausted
+* Fix weighted round-robin about UDP and SCTP listener
+* Add retry for getting amphora VM
+* Fix overriding default listener timeout values in config file
+* Add HTTP/2 example to the load balancing cookbook
+* Fix pep8 errors
+* Add test coverage for SCTP health checker script
+* Fix health manager messages about failed failovers
+* Fix pools going into ERROR when updating the pool
+* Configure rsyslog on Octavia service nodes in devstack
+* Bump oslo.policy version to 2.1.0
+* Bump oslo.log version to 4.3.0
+* Disable auto configuration of new interfaces in NetworkManager
+* Fix incorrect ERROR status with IPv6 UDP members
+* Small fix in loadbalancer POST api-ref
+* Bump the minimum coverage to 92%
+* Add SCTP support in Amphora
+* Install HAProxy 2.x in CentOS amphora images
+* Add default value for enabled column in l7rule table
+* Add ALPN support for TLS-enabled pools
+* Add validation for VIP network parameters in amphora driver
+* Validate listener protocol in amphora driver
+* Fix the unit test tree structure
+* Correct spell error
+* Use 'bash' in the keepalived check script
+* Fix periodic image builder jobs
+* Fix gate failure
+* Add amphora\_id in store params for failover\_amphora
+* Fix operating status for empty UDP pools
+* Remove useless proto parameter from sample functions
+* Fix missing cronie package in RHEL-based image builds
+* Remove re-import of octavia-lib constants
+* Map cloud-guest-utils to cloud-utils-growpart for Red Hat distros
+* Fix setting None in tls\_versions and tls\_ciphers in pools
+* Support deletion of all tags
+* Fix pep8 failures in gate
+* Handle listener not found during loadbalancer status update
+* Fix load balancers with failed amphora failover
+* Add experimental amphorav2 jobs
+* Replace assertItemsEqual with assertCountEqual
+* Use run\_flow for failover functions in v2 control worker
+* Imported Translations from Zanata
+* Fix pool delete race on load balancer cascade delete
+* Stop install unnecessary packages when run tox -ereleasenotes
+* Fix amphorav2 bytes error
+* Fix PROXYV2 pools
+* Fix load balancers with failed amphora failover
+* Remove Neutron SDN-specific code
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+7.0.0
+-----
+
+* Ensure install of diskimage-create.sh requirements
+* Ignore DELETED amphorae when performing certificate rotation
+* Fix building Ubuntu 20.04 focal amphorae
+* Followup Remove haproxy\_check\_script for UDP-only
+* Fixes API list handling of unscoped tokens
+* Add a requirements.txt check job
+* Fix requirements.txt for Victoria
+* Fix backend certificate file paths
+* Fix AttributeError on TLS-enabled pool provisioning
+* Remove unnecessary joinedload
+* Update protocol combination api-ref for PROXYV2
+* Fix image build when installing agent from package
+* Switch grenade to run the octavia smoke tests
+* Remove haproxy\_check\_script for UDP-only LBs
+* Drop diskimage-builder from root requirements.txt
+* Revert pyroute2 workaround
+* Fix amphora failover when VRRP port is missing
+* Bump taskflow version
+* Add amphora delete support to amphorav2 driver
+* Fix nf\_conntrack\_buckets sysctl in Amphora
+* Add SCTP support in API
+* Update grenade job to run one smoke test
+* Fix the lower-constraints job for focal
+* Add a release note about HAProxy 2.0
+* Refactoring amphora stats driver interface
+* Fix the tls\_cipher\_prohibit\_list release note
+* Deprecate the Spares Pool feature for removal in X
+* Add proxy v2 protocol support
+* Add an upgrade check for YAML oslo policy file
+* Preupgrade check for amphorav2 provider
+* Add amphora delete API
+* Add support for nftables
+* Add amphora image tag capability to Octavia flavors
+* Introduce an image driver interface
+* Add HTTP/2 over TLS support to amphora provider
+* Add requirements for jobboard drivers
+* Update amphora v2 for the failover refactor
+* Add missing log line for finishing amp operations
+* Fix user permission for WSGI configuration Task: 35692 Story: 2006172
+* Fix API sort key for complex columns
+* Switch to live from noop drivers
+* Change tls\_ciphers init in Pool API classes
+* Add ALPN support for TLS-terminated HTTPS LBs
+* Correct a typo in the document
+* Fix invalid DOWN status when updating a UDP pool
+* Add DIB element octavia-lib
+* Set CentOS amphora image size back to default value
+* Fix new pylint errors
+* Correct a typo in the document
+* [Amphorav2] Healthmonitor operation minor fixes
+* Increase the devstack secuirty group rules quota
+* Ensure xtrace is enabled in devstack plugin
+* Add a message for the amphora image size
+* Switch back to using git for the agent ref
+* Clarify the current status of Octavia in README
+* Allow amphorav2 to run without jobboard
+* Set Grub timeout to 0 for fast boot times
+* Add octavia-amphora-image-build-live jobs
+* Set amphora-agent build-only packages
+* Add line terminator to certificate list file
+* Update devstack plugin
+* Correct a typo in the document
+* Fix listener tls\_versions and tls\_ciphers clearing
+* [AmphoraV2] Fix l7policy/l7rule quota decrement
+* Fix operational status for disabled UDP listeners
+* Install ppc64-diag in ppc64le amphora images
+* Fix accepting 'insert\_headers' when unsupported
+* Fix amphora image build jobs
+* Change amphora statistics to use deltas
+* Workaround broken pyroute2 0.5.13
+* [Trivial]Add missing space between words
+* Fix haproxy user flow log format substitution
+* Add some details on enable\_anti\_affinity option
+* Fix memory consumption issues with default connection\_limit
+* Fix missing dependency in amphora create flow
+* Use octavia nodeset in octavia-grenade
+* Add non-voting octavia-v2-dsvm-scenario-centos-8
+* Remove blacklist terminology in the Octavia tree
+* Add a router to the lb-mgmt-net for slaac
+* Switch from unittest2 compat methods to Python 3.x methods
+* Remove deprecated status\_update\_threads option
+* Fix neutron subnet lookup ignoring endpoint\_type
+* Fix missing params in amphora base and noop driver
+* Remove amp\_ssH\_access\_allowed option
+* Remove amp\_image\_id option
+* Add missing reload method in amphora noop driver
+* fix(elements): fix nf\_conntrack sysctl param names
+* Prioritize policy validation
+* diskimage-create compatible with ShellCheck
+* Refactor the failover flows
+* Update the API audit map
+* Fix API audit CADF audit map for failover action
+* Fix listener API's test\_create\* assertions
+* add the verify for the session
+* Use uwsgi binary from path
+* Fix error on devstack cleanup
+* Cap jsonschema 3.2.0 as the minimal version
+* Clarify health monitor behavior
+* Improve terminology in an old spec file
+* Fix some typos in the explanatory notes
+* Use unittest.mock instead of mock
+* Remove all deprecated driver code that moved to octavia-lib
+* Switch oslo.policy over to yaml
+* Fix UDP pool transform in LVS driver
+* Fix listener update with SNI certificates
+* Add quota support to octavia's l7policy and l7rule
+* Fixed typo in upgrade section
+* Update the feature matrix for new features
+* Fix batch member create for v1 amphora driver
+* Add minimum TLS version option in octavia.conf
+* Add a periodic fast forward upgrade job
+* Add TLS version configuration for pools
+* Add TLS version configuration for listeners
+* Change default tox envs from python37 to python3
+* Stop to use the \_\_future\_\_ module
+* trivial fix
+* Fix test\_barbican\_legacy for Python 3.8
+* Fixed a bug: replace 'startwith' with 'startswith'
+* Workaround peer name starting with hyphen
+* Fix the grenade plugin to also upgrade octavia-lib
+* Add warning when running simple\_server
+* Switch to newer openstackdocstheme and reno versions
+* Fix getting user neutron client
+* Make sure devstack aborts if DIB fails
+* Fix netcat option in udp\_check.sh for CentOS/RHEL
+* Remove translation sections from setup.cfg
+* Fix E741 pep8 errors
+* Migrate grenade job to native Zuul v3
+* Add TLS cipher blacklist to octavia.conf
+* Remove deprecated exception classes
+* Add py38 package metadata
+* Add Python3 master unit tests
+* Update master for stable/ussuri
+
+6.0.0
+-----
+
+* Fix healthmanager not update amphora health when LB disable
+* Small fix of wording in Ubuntu install doc
+* Validate resource access when creating loadbalancer or member
+* Fix Octavia unit tests for python 3.8
+* Remove Babel requirement
+* Healthmanager opts aren't CLI-related
+* Disable two tests due to sqlalchemy/sqlite bug
+* Support HTTP and TCP checks in UDP healthmonitor
+* Run taskflow jobboard conductor conditionally
+* Don't inherit enforcing bash errexit in devstack plugin
+* Fix py3 amphora-agent cert-rotation type bug
+* Imported Translations from Zanata
+* Correct delay between UDP healthchecks
+* Add availability-zone to loadbalancer object docs
+* Jobboard based controller
+* Add ability to specify TLS cipher list for pools
+* Don't register cli opts on import
+* Add ability to set TLS cipher list for listeners
+* Add F5 Networks provider driver by SAP SE
+* Update hacking for Python3
+* Ussuri contributor docs community goal
+* Fix amphora image build jobs
+* Exclude acpid on Red Hat family DIB builds
+* Fix padding logic for UDP health daemon
+* Add oslo middleware healthcheck to Octavia API
+* Remove all usage of six library
+* Update cirros image to cirros-0.5.1-x86\_64
+* Remove the barbican "Grant access" from cookbook
+* Stop "dnf makecache" in the amphora images
+* [Amphorav2] Fix noop driver case
+* Use sqlalchemy isnot(None)
+* Support hacking 2.0.0
+* Pick stale amphora randomly
+* Update the available provider drivers list
+* Fix load balancer update with provider filtered params
+* Allow AZ to override valid\_vip\_networks config
+* Network Delta calculations should respect AZs
+* Select the right lb\_network\_ip interface using AZ
+* Fix uncaught DB exception when trying to get a spare amphora
+* Fix TESTING.rst example
+* Remove the dependency on the "mock" package
+* Add docs warning for PING health monitors
+* Add UDP LBs to the basic cookbook
+* Add a periodic image build job
+* Add diskimage-create arg for Octavia Git branch
+* Update the lb\_id on an amp earlier if we know it
+* Support haproxy development snapshot version parsing
+* Add listener allowed\_cidrs to the feature matrix
+* Transition l7rule flows to dicts
+* Transition l7policy flows to dicts
+* Convert health\_monitor flows to use provider models
+* Fix jobs not running and add new ones to the gate
+* Use LUKS1 for certfs-ramfs for all distributions
+* Convert Lb flows to use provider dicts
+* Transition amphora flows to dicts
+* Complete dropping py27 support goal
+* Add logging filter for AmpConnectionRetry exception
+* Fix the interface filenames for Red Hat amphora images
+* Add listener and pool protocol validation
+* Allow the Octavia wsgi to accept argv parameters
+* Stop supporting CentOS 7 controllers and images
+* Remove test calls to reset\_mock()
+* Make octavia reproducible
+* Fix diskimage-create.sh for Debian
+* Add install guide for Ubuntu
+* Support creating an LB in a specified AZ
+* Fix tests to correctly call reset\_mock()
+* Fix house keeping graceful shutdown
+* Update policy docs to reflect json format
+* Update ListenersUpdate for lb/listener dicts
+* Fix multi-listener LB client auth/re-encryption
+* Fix multi-listener LB with missing certificate
+* Fix unit test when run on CentOS 7
+* Stop supporting xenial amphora images
+* Gate on octavia-v2-dsvm-tls-barbican
+* Add support for CentOS 8 amphora images
+* Accept oslopolicy-policy-generator path arguments
+* Adjust for new octavia-lib LB signature
+* Transition member flows to use dicts
+* Convert pool flows to use dicts
+* Convert listener flows to use provider models
+* Stop testing python 2
+* Use retry for AmphoraComputeConnectivityWait
+* Fix update API when barbican secret is missing
+* Use 2048-bits keys for devstack certificates
+* Make octavia-grenade job non-voting
+* Availability Zone admin API
+* Remove unnecessary interface configurations
+* Fix filtering with API tags
+* Stop allowing the deletion of an in-use flavor
+* Fix name of VRRP configuration option
+* Fix filtering for provider capabilities list API
+* Update flavor guide to be cut/paste friendly
+* Fix a potential race condition with certs-ramfs
+* ipvsadm '--exact' arg to ensure outputs are ints
+* Fix listeners with SNI certificates
+* Fix controller worker graceful shutdown
+* Fix typo in doc agent.py->agent
+* [Trivial]Add missing ws between words
+* Fix batch member update error on empty change list
+* Fix some plug.py unit tests that broke on OSX
+* Allow IPv6 health network in devstack
+* Fix issues with unavailable secrets
+* Revert "Clean up requirements.txt from tox.ini"
+* Add backend re-encryption to the LB cookbook
+* Add client authentication to the LB cookbook
+* Switch to openstack-python3-ussuri-jobs
+* Clean up requirements.txt from tox.ini
+* Use bandit block in tox.ini
+* Add bash script style checker to pep8 check
+* Fix log offload file permissions in CentOS devstack
+* Do not set log format when 'no log' is set
+* Remove duplicate keys in sample config files
+* Add the Amphora image building guide to the docs
+* Fix urgent amphora two-way auth security bug
+* Add Gentoo platform detection in diskimage-create/diskimage-create.sh
+* Fix certificate directory creation
+* Update master for stable/train
+
+5.0.0.0rc1
+----------
+
+* Validate supported LB algorithm in Amphora provider drivers
+* Fix new pep8/pylint errors
+* Delete the periodic Fedora 28 amphora image job
+* Improve the error message for bad pkcs12 bundles
+* loadbalancer vip-network-id IP availability check
+* Generate PDF documentation
+* Fix the diskimage-create tox "build" environment
+* Validate server\_certs\_key\_passphrase is 32 chars
+* Fix 'additive\_only' parameter api-ref
+* Fix healthmonitor message v2 for UDP listeners
+* Fix the amphora no-op driver
+* Fix openstack port show content handling
+* Set neutron client logging to INFO
+* Fix the tips job for octavia-lib
+* Add new algorithm SOURCE\_IP\_PORT
+* Add VIP access control list
+* Fix a few nits from the main volume-based patch
+* Add long-running provider agent support
+* Fix cleanup of expired load balancer entries
+* Fix building configs for multiple listeners
+* Add \`additive\_only\` parameter to Batch Member call
+* Support create amphora instance from volume based
+* Bump diskimage-builder minimum to 2.24.0
+* Move to using octavia-lib constants
+* Add get method support to the driver-agent
+* Fix base (VRRP) port abandoned on revert
+* Update the load balancing cookbook
+* Use dual intermediate CAs for devstack
+* Fix template that generates vrrp check script
+* worker: Re-add FailoverPreparationForAmphora
+* Standardizes terminology in Listener documentation
+* Switch TaskFlow engine to parallel
+* Set Libvirt hw\_rng for devstack
+* Work around strptime threading issue
+* Fix provider driver utils
+* Fix L7 repository create methods
+* Lookup interfaces by MAC directly
+* Allow listeners for different protocols on the same port
+* Use the infra pypi mirror for DIB
+* Remove amphora-agent build deps
+* Change amphora logging to dedicated socket
+* Fixed typos and bad markup style in maintenance guide
+* Add unit test for failover of spare amphorae
+* Re-enable the py36 tox environment
+* Clarify that an example is not an actual list
+* Add missing lib dependencies to requirements.txt
+* Fix wrong package names or versions for centos-minimal images
+* Install missing packages in nodepool instance
+* Fix listener deletion in ACTIVE/STANDBY topology
+* Add Octavia tox "tips" jobs
+* Add the DIB\_REPO\* variables to the README.rst
+* Fix a unit test for new octavia-lib
+* Add support for oslo\_middleware http\_proxy\_to\_wsgi
+* Force DIB Python version for py2 in diskimage-create
+* Fixed down server issue after reloading keepalived
+* Fixed pool and members status with UDP loadbalancers
+* Add support for monitor\_{address,port} in UDP members
+* Fix flavor profile API handling of None updates
+* Fix l7rule API handling of None updates
+* Correcting typo in healthmonitors-list-response.json - http\_vesion to http\_version
+* Add failover logging to show the amphora details
+* Build amphora image using centos-minimal element
+* Remove octavia-v2-dsvm-scenario-ubuntu-bionic job
+* Make Ubuntu bionic the default for amphora images
+* Fix multi-listener load balancers
+* Add missing test requirement "fixtures"
+* Add project\_id to all of the provider objects
+* Update api-ref location
+* Bump the openstackdocstheme extension to 1.20
+* Fix cryptsetup --pbkdf-memory failures
+* Add cloud-init-datasources DIB element
+* Blacklist sphinx 2.1.0 (autodoc bug)
+* elements: add arch property for \`\`open-vm-tools\`\`
+* Add active-standby scenario jobs to check queue
+* Add warning log if auth\_strategy is not keystone
+* Fix dhclient enter hook path on RHEL-based amps
+* Switch the default Ubuntu kernel to -virtual
+* Prevent UDP LBs to use different IP protocol versions in amphora driver
+* Add Python 3 Train unit tests
+* Update tox.ini for new upper constraints strategy
+* only rollback DB when we have a connection to the DB
+* Specify the linux-image-kvm kernel for ubuntu
+* Add bindep.txt for Octavia
+* Switch python3 versions of test jobs to match Train PTI
+* Workaround pyroute2 platform-dependent imports
+* Add a note about nova hardware architectures
+* Fix a python3 issue in the amphora-agent
+* Fix TCP listener logging bug
+* Fix allocate\_and\_associate DB deadlock
+* Amphora logging
+* Align logging in the amphora
+* Add RHEL 8 amphora support
+* Limit cryptsetup key RAM usage
+* Create Amphora V2 provider driver
+* Remove references to OpenStack Anchor
+* Clarify that the certificate guide should be used
+* Fix health monitor API handling of None updates
+* Fix member API handling of None/null updates
+* Rename review.openstack.org to review.opendev.org
+* Fix catching driver exceptions
+* Document health monitor UDP-CONNECT type
+* Fix tox for functional py36 and py37
+* Correct OVN driver feature matrix
+* Delete unused files in tests/contrib
+* Enable fail-fast on the gate queue
+* db: add missing primary key in spares\_pool table
+* Remove tempest.test\_plugins from setup.cfg
+* Add provider feature support matrix
+* Remove tests/tempest path from devstack and tox
+* Fix pool API handling of None/null updates
+* Update hacking version to latest
+* Force amp-agent communication to TLSv1.2
+* Add Python 3.7 support
+* Cap to sphinx 2.0.0 on Python 2.7
+* Replace git.openstack.org URLs with opendev.org URLs
+* Remove v1 API and associated code
+* Performance improvement for non-udp health checks
+* Bandit test exclusions syntax change
+* Ignore .vscode directory
+* Make sure amphora logging works the same on py2 and py3
+* Fix missing INCLUDEPKGS var in haproxy element
+* Make amphora cert validity time configurable
+* Update some octavia documentation
+* Removing an erroneous comment
+* Update operator maintenance doc
+* Fix listener API handling of None/null updates
+* Remove python3.5 jobs for Train
+* OpenDev Migration Patch
+* Adding changes to support ppc64le amphora builds with CentOS
+* Fix spare amphora failover
+* Update documentation about rotating amphorae
+* Fix missing REDIRECT\_PREFIX in the api-ref
+* Constraint networkx to <2.3 for Python 2
+* Fix the amphora base port coming up
+* Fix IPv6 in Active/Standby topology on CentOS
+* Fix spare amphora check and creation
+* Fix invalid query selector with list\_ports
+* Fix setting of VIP QoS policy
+* Fix VIP plugging on CentOS-based amphorae
+* Add support to the Python Visual Studio Debugger
+* Fix ifup failures on member interfaces with IPv6
+* Adds server\_certs\_key\_passphrase to octavia.conf
+* Replace openstack.org git:// URLs with https://
+* Make sure the expected codes list is sorted
+* Update master for stable/stein
+
+4.0.0.0rc1
+----------
+
+* Fix a lifecycle bug with child objects
+* Fix initialization of Barbican client
+* Refactors LB delete flow and removes listener delete
+* Add a bionic test image periodic job
+* Add error-handling for permission of /etc/octavia
+* Limit spares pool to the spare\_amphora\_pool\_size
+* Fix typo and remove useless lines in user guide
+* Remove unnecessary \n from create\_certificates.sh
+* Add a prelude to the Stein release notes
+* Updates Octavia to support octavia-lib
+* Fix diskimage-create tox, add \`\`build\`\` and \`\`test\`\` targets
+* Remove outdated/incorrect certificate advice
+* Fix updates to the provider driver guide
+* Support Host header inject for healthmonitor HTTP 1.1 health check
+* Trivial: Remove unused OCTAVIA\_AMP\_SUBNET\_ID
+* Fix health monitor exception
+* Support L7policy redirect http code
+* Fix an amphora driver bug for TLS client auth
+* Amp driver support sni option to send the hostname to backend
+* Add boolean tls\_enabled option into Pool
+* Add 2 new fields into Pool API for support re-encryption
+* Pool support sni cert for backend re-encryption
+* Fix parallel plug vip
+* Set octavia available in tempest config
+* L7rule support client certificate cases
+* Add new ssl header into Listener for client certificate
+* Add crl-file option for certification
+* Fix the loss of access to barbican secrets
+* Encrypt certs and keys
+* Add an option to the Octavia V2 listener API for client cert
+* Add client\_ca\_tls\_container\_ref to listener API
+* Enable debug for Octavia services in grenade job
+* Fix LB failover when in ERROR
+* Update json module to jsonutils
+* Update requirements for ubuntu
+* Fix performance of housekeeping DB clean up
+* Fix oslo messaging connection leakage
+* Speed up pylint by using multiple cores
+* Set the default retries down to 120
+* Add amphora agent configuration update admin API
+* Refactor the pluggin of the VIP
+* Install DIB binary dependencies from bindep.txt
+* Resolve amphora agent read timeout issue
+* Fix functional tests under Python >= 3.6
+* Fix check redirect pool for creating a fully populated load balancer
+* Cleaning up logging
+* Fix flavors support when using spares pool
+* Fix the amphora noop driver
+* Add missing import octavia/opts.py
+* Fix VIP address DB storage size to support IPv6
+* Fix a topology bug in flavors support
+* Add compute flavor support to the amphora driver
+* Update the amphora driver for flavor support
+* Add flavor docs and releae notes
+* Add provider driver capabilities API
+* Adds flavor support to the amphora driver
+* Add flavors/flavor\_profile api-ref
+* Add flavor, flavor\_profile table and their APIs
+* Update api-ref for tag filtering
+* Support to filter resources by tags
+* Add octavia-v2-dsvm-tls-barbican check job
+* Clarify the amp\_ssh\_key\_name configuration setting
+* Fix typo in doc
+* Improve local hacking checks test coverage
+* Fix missing print format error
+* Adds a simple golang udp server
+* Fix prefix for vip\_ipv6
+* Fix a typo in the certificates admin guide
+* Fix grenade job to clone Octavia from base branch
+* Workaround for a dnf bug
+* diskimage-create: Support testing other image types
+* fix the spelling mistake word
+* Exit with error if DIB output dir doesn't exist
+* Add amphora statistics to the admin API
+* Fixing data model to\_dict() recursive function
+* Set same debug log level as per DevStack local.conf
+* Add compute\_flavor field for amphora api
+* Change openstack-dev to openstack-discuss
+* Adds a certificates configuration guide
+* Fix v1 scenario tests gates
+* Tags support for lb resources
+* fix typo mistakes
+* Support remote debugging with PyDev
+* Stop Logging Amphora Cert
+* demystify the calculate\_network\_delta unit test
+* Enable non-voting two node gates
+* Transition to python 3.x primary gates
+* Prepare for new multi-node jobs
+* Bring up secondary IPs on member networks
+* Add auditing support to the Octavia API
+* Make the CentOS 7 scenario gate non-voting
+* Allow release id to be specified with fedora
+* Modify the doc word error
+* Fix IPv6 in Active/Standby topology
+* Fix the grenade gate
+* Correct the base class for v2 l7rules type tests
+* Fix devstack plugin for /var/log/dib-build exists
+* Add missing ws separator between words
+* Fix a release note to call out a fix instead
+* Treat null admin\_state\_up as False
+* Delete duplicate word in component-design.rst
+* Update the HTTP links to HTTPS
+* Add framework for octavia-status upgrade check
+* Fix VIP plug failure if netns directory exists
+* Log the compute ID when nova fails
+* Fix possible state machine hole in failover
+* Update min tox version to 2.0
+* Update README by adding Mailing List and Wiki URL
+* Redirect disk-image-builder logs, make verbose
+* Fix diskimage-create README.rst
+* Don't quote {posargs} in tox.ini
+* Remove unused methods
+* Add posibilities to set default timeouts
+* Update docs conf.py for openstackdocstheme change
+* Remove deprecated API settings
+* Ensure pool object contains the listener\_id if passed
+* Refactor the AAP driver to not depend on nova
+* Increment versioning with pbr instruction
+* Fix logging error in get\_current\_loadbalancer\_from\_db
+* Delete zombie amphorae when detected
+* Add certificate configs to config reference
+* Remove deprecated parameters
+* Add API versioning to the api-ref
+* Add a periodic job to build + publish diskimage for fedora
+* HTTPS HMs need the same validation path as HTTP++
+* Fix for utils LB DM transformation function
+* Fix auto setup Barbican's ACL in the legacy driver
+* Make disk image buildable for fedora
+* Fix an upgrade issue for CentOS 7 amphora
+* Support REDIRECT\_PREFIX action for L7Policy
+* Pass through DIB\_LOCAL\_ELEMENTS from localrc
+* HTTPS HMs need the same validation path as HTTP
+* Remove duplicate check gate jobs
+* Fix the API list performance regression
+* Updates the operator docs with the new lb failover command
+* Simplify keepalived lvsquery parsing for UDP
+* Updates README-Vagrant.md to use OSC commands
+* Gate on octavia-dsvm-base based jobs and housekeeping
+* Make health checks resilient to DB outages
+* Validate member address for batch update members
+* Fix batch update members
+* Support DNF package manager in diskimage-create
+* Disable KVM at limestone (again)
+* Fix health manager performance regression
+* Raise minimum coverage to 90%
+* Use openstack-tox-cover template
+* Update zuul/projects.yaml
+* Validate member address for lb graph creation
+* devstack: Define packages for (open)SUSE
+* Update amphora-agent to report UDP listener health
+* Set some amphora driver optimizations
+* Re-enable flow diagrams
+* Fix passphrase None errors
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* Fix the amphora noop driver
+* import zuul job settings from project-config
+* Separate the thread pool for health and stats update
+* Temporarily remove octavia-v2-dsvm-scenario-ubuntu.bionic
+* Disable KVM at OVH
+* Fix compat with Python >= 3.6
+* Allow blocking IPs from member addresses
+* "Resolve" bandit issue with sha1 hashes
+* Fix neutron "tenat\_id" compatibility
+* Fix Octavia for host host routes
+* Imported Translations from Zanata
+* Update reno for stable/rocky
+
+3.0.0.0rc1
+----------
+
+* Remove user\_group option
+* Fix UDP release note for CentOS
+* [UDP] Fix failed member always in DRAIN status
+* Followup patch for UDP support
+* UDP for [3][5][6]
+* UDP for [2]
+* Clarify that the driver support library is interim
+* UDP jinja template
+* Delete amphora regardless of status
+* Fix the bionic gate to actually run Ubuntu bionic
+
+3.0.0.0b3
+---------
+
+* Updates the amphora driver for new commit model
+* Automatically set Barbican ACLs
+* Add listener\_id to the pool provider object
+* Correct naming for quota resources
+* Add baseline object in the drivers update callbacks
+* Init provider drivers at app setup
+* Fix DIB\_REPOREF\_amphora\_agent not set on Git !=1.8.5
+* Fixing Octavia generating json named file containing yaml
+* Fix failover when multiple amphora have failed
+* Temporarily disable flow diagraming
+* Add the missing markup for the hyperlink title
+* Correct the usage on listing neutron ports
+* Update pypi url to new url
+* Fixes unlimited listener connection limit
+* Use object instead of object id in the drivers delete callbacks
+* Cleanup Octavia create VIP ports on LB delete
+* Add lb\_id comment to amp haproxy listener config
+* Translate expected package names to installed ones
+* Fix package version querying on non-dpkg distros
+* Add release note for HMAC python3 fix
+* Add a config to surpress amphora logging
+* Add the missing markup for the hyperlink title
+* Use openstack client command to replace nova client
+* Allow setting load balancer topology in Devstack
+* Implement provider drivers - Driver Library
+* [doc] Add the missing markup for the hyperlink title
+* Follow the new PTI for document build
+* Fix version discovery for the Octavia API
+* [doc]Use openstack client commands to replace nova client
+* Add the missing markup for the hyperlink title
+* Improve resource quota response message
+* Introduce ipvsadm to the amphora image
+* Ignore a port not found when deleting an LB
+* [amphora-agent] add local net to routing table 1
+* Fix fields translation on filtering
+* Enable oslo\_config mutable configurations
+* Move from platform.linux\_distribution to distro.id
+* Re-enable KVM
+* fix tox python3 overrides
+* Add exception handling for housekeeping service
+* Add upgrade guide
+* Clarify IPv6 support for the lb-mgmt-net
+* Exclude amphora instances already DELETED when failover loadbalancer
+* Fix configured haproxy restarts
+* Providers: propose changes to create pool API
+* Change tox.ini coverage to always generate html
+* Make octavia-grenade job voting
+* Add error logging for amphora agent exceptions
+* Fix health manager to be spare amphora aware
+* Adding support for the octavia listener X-Forwarded-Proto header insertion
+* Add health monitor API validation
+* Exclude limestone from running with kvm
+* Stop logging API not found as ERROR
+* Align logging on oslo\_log
+* Add grenade support
+* Allow using spaces for primary common name in SSL certificates
+* Improve the error logging for zombie amphora
+* When SG delete fails on vip deallocate, try harder
+* Amend the spelling error of a word
+* Remove a duplicated key in unit test dict
+
+3.0.0.0b2
+---------
+
+* Fix amp failover where failover already failed
+* Providers: propose changes to API
+* Implement provider drivers - Cleanup
+* Implement provider drivers - L7 Rules
+* Fix listener update race with default pool removal
+* Implement provider drivers - L7 Policy
+* Implement provider drivers - Health Monitor
+* Allow DB retries on controller\_worker creates
+* Use HMAC.hexdigest to avoid non-ascii characters for package data
+* Fix requirements gate + add local tox profile
+* Octavia devstack plugin API mode
+* Implement provider drivers - Members
+* Add coverage.xml output for PTI compliance
+* Implement provider drivers - Pool
+* Implement provider drivers - Listener
+* Implement provider drivers - Load Balancer
+* Add release notes link to README
+* Fix amphora failover API to work with spares
+* Mark LBs in failover PENDING\_UPDATE
+* Add config for disabling creation of PING type HMs
+* Fix releasenotes build in tox
+* Fix typo
+* Add tenant\_id back to objects for backwards compat
+* Replace port 35357 with 5000 for "auth\_url"
+* Increase devstack neutron secgroups quota to 100
+* Trivial: Update pypi url to new url
+* Let healthmanager process shutdown cleanly (again)
+* Fix sphinx-docs job for sphinx >1.7
+* Create disabled members in haproxy
+* Add raw format support to image creator script
+* Use openstack client commands to replace neutron client
+* Devstack plugin: Check for IPv6 support
+* Healthmanager shouldn't update NO\_MONITOR members
+* Slightly reorder member flows
+* Fix periodic job
+* Updates the docs with new admin tips
+* Allow fields filter on single object GETs
+* Update HAProxy version for Centos
+* Correct field filtering for member/l7rule/amphora
+* Improve Health Manager error handling
+* Create noop provider driver and data model
+* Creates provider driver base class and exceptions
+* Remove PluggedVIPNotFound references
+* Fix keepalived vrrp check script to be in PATH
+* Fix lower-constraints to actually match our reqs
+* Health Monitor url\_path requires leading slash
+* Pool PUT should validate name/description length
+* Correct flavor to flavor\_id in LB API
+* Fix calls to "DELETED" items
+* Add sos element to Red Hat family images
+
+3.0.0.0b1
+---------
+
+* Adding Gophercloud to the SDKs list
+* Trivial: fix syntax error in command examples
+* Add Octavia v2 tempest plugin jobs to Octavia
+* Switch to ubuntu-minimal for default amphora image
+* Fix statistics update typo
+* Install client from pip if not in LIBS\_FROM\_GIT
+* Add pool session persistence validation
+* Update auth\_uri option to www\_authenticate\_uri
+* Improve some log messages in health\_monitor.py
+* Add API alias for '/statuses'
+* Move o-hm0 dhcp config under /etc/dhcp
+* Update introduction documention page
+* Add debug timing logging to amphora health update
+* Make keepalived initialization more predictable
+* Minor refactor of health\_sender.py
+* Defend against neutron error response missing keys
+* Expose timeout options
+* Fix revert method for batch member update
+* Correctly validate member subnet\_id in batches
+* Allow members to be set as "backup"
+* Update API-REF for x-forwarded-port is string
+* Fix a no-op network driver bug on plug\_port
+* Set lower-constraint to run unit and functional
+* Add deadlock retry wrapper for inital quota create
+* Fix logging level for keystone auth bypass
+* Fixes the directory we copy the image to
+* Don't failover amphora with LB in PENDING\_\*
+* The MarkL7PolicyActiveInDB is not necessary when l7policy deleted
+* add lower-constraints job
+* Fix health manager edge case with zombie amphora
+* Switch multinode tests to non-voting
+* Change used keystone token provider in devstack
+* Rename python-openstacksdk to openstacksdk
+* Updated from global requirements
+* fix a typo in documentation
+* Updated from global requirements
+* Add a devstack variable for legacy RBAC
+* Periodic job to build + publish diskimage
+* Updated from global requirements
+* Log health manager exceptions
+* Log output of subprocess check\_output() errors
+* Reduce runtime for l7rule too\_many\_rules test
+* Updated from global requirements
+* Properly test access to tls\_refs in the API layer
+* Devstack plugin image build option quoting fix
+* Fix functional jobs
+* Change import order
+* Reduce stestr concurrency to 1 for tempest jobs
+* Add license for empty \_\_init\_\_.py
+* Rename q- to neutron- services
+* Move scenario-lxd over to experimental
+* Split up extra init steps and start processes
+* Updated from global requirements
+* Fix kvm-centos.7 gate
+* Migrate to stestr
+* Updated from global requirements
+* Imported Translations from Zanata
+* Add image\_id to amphora table
+* Add timestamps to amphora table
+* Update configuration samples (QoS)
+* Fix network no-op driver get\_network\_configs
+* Overhaul HealthManager update threading
+* Updated from global requirements
+* Fix filtering by admin\_state\_up
+* Fix load balancers using IPv6 for the VIP subnet
+* Updates API for deleting "DELETED" objects
+* Fix missing test-requirement and cleanup docs
+* Update reno for stable/queens
+
+2.0.0.0rc1
+----------
+
+* Imported Translations from Zanata
+* Fix release notes job
+* Enable hacking-extensions H204, H205
+* Deallocate the VIP prior to deleting the amphorae
+* Re-enable "Page Contents" and update user docs
+* Repalce Chinese quotes to English quotes
+* Update api-ref for uuid type and fix tox
+* Do not install pip in amphora when using distribution packages
+* Zuul: Remove project name
+* Update docs config for storyboard bugs
+* Handle missing security groups on listener delete
+* Fix session persistence update
+* Updated from global requirements
+* Add SDK list to octavia user docs
+
+2.0.0.0b3
+---------
+
+* Updated from global requirements
+* Allow setting full mandatory access control in amphora
+* Updates the Octavia cookbook to use OSC commands
+* Switch to using PKCS12 for TLS Term certs
+* Rework amphora agent installation element
+* Fix processing pool statuses for LBs with multiple listeners
+* Updated the function name with "get\_remove\_vip\_subflow" to fix the typo
+* Don't run fucntional jobs for docs changes
+* Fix a typo of "octavia" in comment
+* Provider driver spec
+* Healthmanager health\_check timer config fix
+* Add unit tests for neutron utils, add model/util for floating\_ip
+* Add api-ref for amphora failover
+* Fix a typo in the test HTTP server
+* ignore api-ref/build directory
+* Check if it is used when creating a load balancer using vip\_port\_id
+* Updated from global requirements
+* TrivialFix: fix a typo in comment
+* Minimize the effect overloaded Health Manager processes
+* Fix exception when querying for non-existing items
+* Add VIP qos into our cookbook
+* Remove the redundant mock patches in tests
+* TrivialFix: remove redundant import alias
+* Amphora API Failover call
+* Producer/endpoint code to allow for amphora failovers
+* Change how path munging works for sphinx docs
+* Support UDP load balancing
+* Improve user error messages for duplicate objects
+* Remove reliance on NeutronException message field
+* Extend api to accept qos\_policy\_id
+* Updated from global requirements
+* Use common functional tox jobs
+* Update gitignore
+* Fix PING health monitor for old amphora
+* Improve Neutron driver \_get\_resource()
+* Move loading the network driver into the flows
+* Force SELinux context for amphora keepalived process
+* Reorder ComputeCreate arguments
+* Have doc8 ignore autodoc content
+* Update compute noop driver/tests (many were disabled/useless)
+* Updated from global requirements
+
+2.0.0.0b2
+---------
+
+* Fix filtering in list API calls
+* Updated from global requirements
+* Clean up test\_update\_db.py a little bit
+* Optimize update\_health process
+* Fix the failover API to not fail with immutable LB
+* Fix health monitor type "PING" to use icmp ping
+* Adds the user's project id to the VIP port creation
+* Updated from global requirements
+* Fix functional tests for MacOS
+* Split amphora haproxy systemd unit
+* Rename 'remove' to 'reset' in Quota API
+* Update devstack plugin and examples
+* Enable some off-by-default checks
+* ACTIVE-ACTIVE: Initial distributor driver
+* Handle race condition deleting security group rule
+* Refine api-ref regarding loadbalancer creation
+* Make the allowed\_address\_pairs driver better
+* Remove setting of version/release from releasenotes
+* Fix keepalived check script
+* Updated from global requirements
+* Fix extracting nova fault string on build error
+* Updated from global requirements
+* Fix gate breakage: unit tests
+* Updated from global requirements
+* Fix TaskFlow loader to honor engine configuration
+* Fix member operating status when add/remove HM
+* Fix possible DB deadlock scenario
+* Updated from global requirements
+* Fix health\_manager to exit without waiting
+* Updated from global requirements
+* Fix body error of update loadbalancer
+* Add cached\_zone to the amphora record
+* Zuul: add file extension to playbook path
+* Disable kvm on OVH infra instances
+* Update Octavia zuulv3 for newton EOL
+* Make the event streamer transport URL configurable
+* Stop child objects changing status when LB locked
+* Fix non-cascade LB delete with children
+* Update tests to do not use deprecated test.services()
+* Move Octavia zuulv3 configuration in repo
+
+2.0.0.0b1
+---------
+
+* Support pylint
+* Updated from global requirements
+* Trivial change to adapt pylint rules
+* Valuable change reported by pylint
+* import \_ from octavia.i18n
+* Update cookbooks for transition to OSC
+* L7 policy API-REF update for result codes
+* Updated from global requirements
+* Adds automatic ERD generation for the Octavia DB
+* Add dependent packages to config reference
+* Remove SCREEN\_LOGDIR from devstack
+* Fix KeyError in failover error log
+* Correctly unlock amphora health on failover revert
+* Force PCI bus rescan if interface is not found
+* Updated from global requirements
+* Shrink Tempest scenario manager copy
+* Add admin endpoint for amphora info
+* Update the documentation link for doc migration
+* blueprint: l3-active-active
+* Allow PUT to /pools/<id>/members to batch update members
+* Update links in CONTRIBUTING.rst
+* Ensure DIB\_REPOREF\_amphora\_agent is set
+* Use flake8-import-order plugin
+* add page\_reverse to GET API
+* Updated from global requirements
+* Fix inappropriate provisioning\_status of l7 policy
+* fix “\_send\_member\_to\_handler” debug log Story: 2001194 task: 5696
+* Updated from global requirements
+* Gatefix: Migrate from testr to stestr
+* Make housekeeping build spares with an executor
+* Stop masking VIP allocate neutron errors
+* Allow members to use the VIP address
+* Add 'futures' to requirements, as we use it multiple places
+* Updated from global requirements
+* Updated from global requirements
+* [Trivialfix]Fix typos in octavia
+* Update release notes theme to openstackdocs
+* Adds the ability to failover a load balancer
+* Add ability to build amp image on SUSE
+* Updated from global requirements
+* devstack: Allow 3rd party neutron backends deployment
+* Add a CLI section to the Octavia docs
+* Whitespace fixes and simplification of keepalived template
+* Updated from global requirements
+* Correct diskimage-create sshd removal bug
+* Move doc-requirements to test-requirements
+* Change 14.04 to 16.04 in devstack setup guide
+* Add flag to disable SSHD on the amphora image
+* Fix health monitor DB locking
+* Fix a bad revert method and add hacking check
+* Fix octavia logging to be more friendly
+* Update reno for stable/pike
+
+1.0.0.0rc1
+----------
+
+* Fix LB creation with VIP port
+* Fix some typos
+* Update devstack readme.md
+* Fix sg\_rule didn't set protocol field
+* Properly store VIP data on LB Create
+* Updated from global requirements
+* Update links in README
+* Remove usage of credentials\_factory.AdminManager
+* Fix DB update reverts for provisioning status
+* Add allocate vip port when create loadbalancer in server side
+* LB Admin down should show operating\_status OFFLINE
+* Updated from global requirements
+* Remove WebTest from test requirements
+* Ignore 404 amphora error when deleting resources
+* Correct status for disabled members (honest abe edition)
+* Stop using deprecated CORS.set\_latent()
+* Properly handle more states from HAProxy health messages
+* Barbicanclient is refactoring, this fixes one of our bad tests
+* Updated from global requirements
+
+1.0.0.0b3
+---------
+
+* Updated from global requirements
+* Fix haproxy\_check\_script for delete listener
+* Updated from global requirements
+* Spec detailing Octavia service flavors support
+* Update release notes for work done in Pike
+* Fix url\_path valid check
+* Fixing typo in controller/worker/tasks/database\_tasks.py
+* Allow special paths to not require keystone auth
+* diskimage-builder: Acceptable RHEL based Amphora disk size =< 3GB
+* Updated from global requirements
+* Remove key\_path from devstack plugin
+* Fix invalid escape sequence in certs-ramfs.service
+* Option to enable provisioning status sync with neutron db
+* Updated from global requirements
+* DIB: drop custom mirror elements
+* Force get\_all to only make one DB call
+* Updated from global requirements
+* Remove unused client directory
+* Enable H904 check
+* Update some links to the new docs locations
+* Install amphora agent from distribution package on RHEL
+* Add placement service to new-octavia-devstack.sh
+* Add statistics to V2 API
+* Add status tree to V2 API
+* Update Octavia docs for documentation migration
+* Fix error 500 when using SOURCE\_IP and APP\_COOKIE
+* Failover should cause LB to be Immutable
+* Don't reload the policy for every API request
+* Update api-ref for openstackdocstheme 1.11
+* Update our docs to point to the new api-ref
+* Correct RBAC Not Authorized status code
+* Enable uwsgi support for octavia devstack
+* Event Streamer for StatsDb should respect config value
+* Make developer debugging easier
+* Add v2 Quota API section
+* Fix nova secgroup-add-rule which is unavailable
+* Change default vagrant box to xenial64(16.04)
+* Add v2 L7 Rule API section
+* Allow operators to disallow creation of TLS Termination listeners
+* DELETE operations don't actually return data (204)
+* Allow operators to disable v1 or v2.0 api endpoints
+* Add v2 L7 Policy API section
+* Replace the usage of 'admin\_manager' with 'os\_admin'
+* No need to do a shutdown(wait=True) when in a context-manager
+* Add filtering and field selection to API
+* Stop provider and flavor API stubs failing calls
+* Provide better ComputeBuildExcpetion messages
+* SSL Health Monitors didn't actually ... check very much
+* Refactor the RBAC auth enforcement a bit
+* Use 'get\_rpc\_transport' for RPC clients and servers
+* Add RBAC enforcement to quotas v2 API
+* Add RBAC enforcement to l7rules v2 API
+* Add RBAC enforcement to L7 policies v2 API
+* Add RBAC enforcement to health monitors v2 API
+* Add RBAC enforcement to members v2 API
+* HM Update for url\_path uses incorrect validation
+* Add RBAC enforcement to pools v2 API
+* Add RBAC enforcement to Octavia v2 API
+* Updated from global requirements
+* Agent: swap flask responses to webob, handle 404 retries better
+* Allow operators to tune VIP creation parameters
+* Enable DIB trace logging
+* Small refactor for load\_balancer v2 vip validation
+* Updated from global requirements
+* Also remove amphora\_health entry during house\_keeping amps
+* Remove deprecated signing\_dir config setting
+* Updated from global requirements
+* Fix an issue with failover on VIP net without DHCP
+
+1.0.0.0b2
+---------
+
+* Handle log message interpolation by the logger
+* Add check O346 to disallow backslash line continuation
+* Remove deprecated oslo\_messaging.get\_transport
+* Minor code cleanup in l7policy controller
+* Updated from global requirements
+* Add v2 health monitor API section
+* Add v2 member API section
+* Replace deprecated oslo.messaging.get\_transport with get\_notification\_transport
+* Remove hardcoded amphorae namespace name
+* Updated from global requirements
+* Fix HM flows to set Pool back to active
+* Check keepalived health in the amphora
+* Fix keepalived systemd race with haproxy namespace
+* VRRP amphora\_driver functions weren't handled by noop driver
+* Add v2 pool API section
+* Updated from global requirements
+* Pool name/desc needs to be "" when empty, not null
+* Devstack plugin should mark the HM ovs port for cleanup skip
+* Optional L7Policies param was marked as required
+* Fix pool response to fill healthmonitor\_id properly
+* Remove lb\_network\_name from config (it was bogus)
+* Don't leave LBs in PENDING\_DELETE after refusing to cascade
+* Updated from global requirements
+* Remove \_LI, \_LW, \_LE, \_LC from i18n
+* Remove nova cert from devstack examples
+* Fix broken database migration
+* Replace assertRaisesRegexp with assertRaisesRegex
+* Update example config to have more correct keystone\_authtoken example
+* Remove invalid url link
+* CalculateAmphoraDelta networks based on vrrp\_port
+* Allow specifying empty amp\_boot\_network\_list
+* Additional logging in udp\_heartbeat and post\_plug\_vip
+* Reintroducing local certificate manager, as it is useful for testing
+* Two quick fixes (one log message, one cert create script thing)
+* Trivial fix typos in documents
+* Add cascade delete for APIv2
+* Add monitor address and port to pool member
+* Implement sorting and pagination for octavia
+* Add support for single-create for APIv2
+* Don't show deleted objects in v2 API
+* Noop network driver should provide a more hydrated network
+* Purge more tenant\_id references that I missed
+* Add some hacking checks borrowed from neutron
+* Remove log translations from octavia
+* project\_id should remain in the response for v2 objects
+* Updated from global requirements
+* Fix devstack plugin to stop octavia processes
+* Fix an failure if the vip network has no gateway
+* Shutdown a endpoint workers executor on termination
+* Fix a bug where ports may not be deleted
+* Change auth\_strategy default to keystone
+* Run Octavia API in a WSGI server
+* Set up octaviaclient as part of devstack
+* Add new PROXY protocol to lbaas pool
+* Fix set cookie\_name to None if not in PUT content
+* Initial version of the operator guide
+* Add v2 listener API section
+* Fixes mysterious gdbm error
+* Fixes Octavia not working with Barbican
+* Fixes unicode problems in p35
+* Install DIB from source so depends-on will work
+* Fix the coverage HTML report
+* Auto-detect haproxy user\_group
+* Correct some v2 Listener response entries
+* Fix import in v2 pool types
+* Add quotas to Octavia v2 API
+* Removing dependency on eventlet and oslo.service
+* Introduce Octavia v2 API for Health Monitor
+* Remove singleton pattern from API controllers
+* Fix doc generation for Python3
+* Adjust tox cover to check for 80% coverage
+* Update keystone URL to be consistent
+* Fix some configuration type issues
+* Scenario base uses the wrong exception lib
+* Fix dumb error message typo
+
+1.0.0.0b1
+---------
+
+* Updated from global requirements
+* Fix house\_keeping daemon to use Event.wait()
+* Remove duplicate oslo\_messaging config line
+* Fix imports in v2 listener types
+* Loadbalancer v2 needs to accept tenant\_id on POST
+* Fixed Octavia tempest plugin
+* Add Apache License Content in index.rst
+* Introduce TESTING.rst for quick developer reference
+* Explicitly list neutron api extensions for tests
+* Updated from global requirements
+* Optimize the link address
+* blueprint LBaaS Alternative Monitoring IP/Port
+* Support QoS policy apply on vip port
+* Updated from global requirements
+* Adds v2 load balancer API section
+* Align Octavia API to n-lbaasv2 for L7Rules
+* Align Octavia API to n-lbaasv2 for L7Policy
+* Fix pool validation exception typo
+* Introduce Octavia v2 API for Members
+* Updated from global requirements
+* Adds a new config for soft-anti-affinity
+* Failover logic doesn't handle anti-affinity
+* Tests helper function \_send\_requests should catch socket.error
+* Introduce Octavia v2 API for pools
+* Updated from global requirements
+* Changing the service-type to load-balancer
+* Fix some reST field lists in docstrings
+* change genconfig output-file path
+* Fix get\_all method for v2 LB controller
+* Octavia v2 API for listeners
+* DIB: drop some dependencies
+* Remove unused logging import
+* Assorted trivial fixes for v2 loadbalancer tests
+* Fix v2 LB API return for null description and name
+* Change v2 API LB create return status code
+* Move API v1, v2 hooks to API Common
+* Use HostAddressOpt for opts that accept IP and hostnames
+* Remove local DIB elements dir
+* DB migration to add ID column to HM
+* Adds a new feature to limit the amphora build rate
+* Look for all qemu-img/kvm package names in rhel-based distros
+* Update Octavia v2 API for vip\_network\_id
+* Fix load balancer project\_id handling on POST
+* Add v2 load balancer type and controllers
+* fix py3x test bug so functional tests will pass
+* devstack: install qemu-kvm on RHEL-based distros
+* Updated from global requirements
+* Devstack plugin: API only mode
+* Fix typo
+* Updated from global requirements
+* Replace six.iteritems() with .items()
+* Fix quota lock on single\_create with auth enabled
+* Update for new pep8 rules E402 and W503
+* Updated from global requirements
+* Fix cascade delete flow (pool quota requirements missing)
+* Allow to create vip in lb-mgmt-net
+* Look for diskimage-builder not dib-utils when building amps
+* Switch to use stable data\_utils
+* Switch to use exec\_command instead of mount/umount
+* Adds v2 general API information section
+* Add network\_id to VIP to match neutron-lbaas
+* Recurse dictionary generation in model to\_dict()
+* Updated from global requirements
+* Adds devstack plugin support for all amp base OS
+* Updated from global requirements
+* tempest: Switch to local copy of tempset/scenario/manager.py
+* Updated from global requirements
+* Don't use Tempest internal methods
+* Work around devstack selecting incorrect image
+* gate\_hook: Stop writing local.conf directly
+* Set project\_id on sub-objects during single-create
+* Remove unused logging import
+* Fix the service type for octavia
+* Updated from global requirements
+* create\_certificates.sh needs to be executable
+* Add common api handlers for v1 and v2
+* Use cryptsetup/LUKS for encrypted ramfs
+* Remove v1 base type
+* Create api-ref base for Octavia
+* Update test-requirements hacking
+* Add option to choose an availability\_zone for amps
+* Remove mention of deprecated verbose option
+* Updated from global requirements
+* Remove config option "amp\_network"
+* Fix Octavia v1 API project\_id for POST
+* Updated from global requirements
+* Switch to use test\_utils.call\_until\_true
+* Allow a configuration option for random Amphora name
+* Fix the amphora failover flow docs diagram
+* Fix py3x gates and functional
+* Remove white space between print ()
+* Update reno for stable/ocata
+* Fix the PKG-INFO to 5 - Production/Stable
+* Fix "P2" note references in act/act specs
+
+0.10.0
+------
+
+* Fix unit tests for OSX
+* Improve the failover handling for spares-pool amps
+* Fixes misspelled amp\_ssh\_access\_allowed config
+* Fix failover for unallocated amps (spares-pool)
+* Remove outdated kernel tuning for haproxy
+* Add placement services to devstack example files
+* Fix a typo in the release notes
+* Fix the amphora image support for RH Linux flavors
+* Add common base type for v1 and v2
+* Remove python3.4 from tox
+* Fix active/standby under python3
+* Updated from global requirements
+* Updated from global requirements
+* Fix the docs page title
+* Fix connection timeout spam in subunit logs
+* Cleanup noop network driver to fix py3x
+* Clarify that octavia-db-manage should be used
+* Archive the testrepository file before processing
+* Remove dumplicated config option 'cert\_generator'
+* Archive the raw testrepository log
+* Remove an erroneous MarkHealthMonitorActiveInDB task
+* Updated from global requirements
+* Fix octavia multinode setup for flavor and image
+* Add quota support to Octavia
+* Updated from global requirements
+* Correct the paramters of l7 policy creation
+* Introduce Handlers for V2 API
+* Updated from global requirements
+* Introduce Types Directory
+* Update Python classifiers
+* Add check when plug vrrp port in LB creation
+* Adds user\_group option under haproxy\_amphora
+* Add support for policy.json
+* Updated from global requirements
+* Fix file mode
+* Fix tenant\_id reference
+* Updated from global requirements
+* Correcting error message for CA Key validation failure
+* Fix multi-typo error in Octavia
+* Set access\_policy for messaging's dispatcher
+* Adds diskimage-create scripts to pypi package
+* Fix a typo
+* Remove MANIFEST.in from repo
+* Fix typo in doc/source/api/octaviaapi.rst
+* Add context to unit tests
+* Remove OSC deprecation warnings
+* Do not use log hints for exceptions
+* Save neutron calls if plugin does not support dns-integration
+* Updated from global requirements
+* Fix missing NovaServerGroupDelete
+* Introduct Test Base classes for V2 API
+* Remove an erroneous MarkMemberActiveInDB task
+* add CONTRIBUTING.rst
+* Fix typo
+* Updated from global requirements
+* oslo\_messaging\_rabbit settings are deprecated
+* Adding name to health monitor and member
+* Add build-essential package dependency to amphora-agent element
+* Amphora-agent should log to a distinct location
+* Change bind\_host IP address
+* Fix some python3 string issues in amphora agent
+* Updated from global requirements
+* Fix the agent install to use pip -U
+* The amphora agent plug\_vip has an indention issue
+* Stop depending on tripleo-image-elements
+* Setup translation for octavia
+* Add support for diskimage-builder tracing
+* Introduce API Decorators
+* Use pip install rather than setup.py
+* Create Octavia api V2 directory
+* Fix a unit test that was attempting real requests
+* Updated from global requirements
+* Updated from global requirements
+* Spec detailing capability gaps with n-lbaas API
+* Properly format IPv6 bind address strings
+* Only set default DIB\_RELEASE for ubuntu
+* Remove unused method - get\_random\_string
+* Fix devstack plugin for KEYSTONE\_CATALOG\_BACKEND
+* Show team and repo badges on README
+* Enable IPv6 load balancer networks
+* Add keystone authentication of token
+* Remove CONF.import\_group
+* Simplify cert-ramfs-ecrypt package dependencies
+* Adds distribution ID option to diskimage-create.sh
+* Backend Keystone authentication
+* Updated from global requirements
+* Adds support for systemd amphora images
+* Enable EPEL repository for CentOS amphorae
+* diskimage-create check for qemu-kvm-ev/qemu-img-ev for CentOS
+* Updated from global requirements
+* Modify variable's using method in Log Messages
+* Updated from global requirements
+* Remove last vestiges of oslo-incubator
+* Basic listener scenario test
+* Use test assertEqual instead of assert()
+* Updated from global requirements
+* Run amphora agent with gunicorn
+* UDPStatusGetter socket bind fix for ipv6
+* Fix health\_sender test to use a list instead of tuple
+* Updated from global requirements
+* C10k load testing environment script
+* Scenario: test with concurrent clients
+* Increase the verbosity of haproxy.rest\_api\_driver failures
+* Update .coveragerc after the removal of openstack directory
+* Enable support for multinode in the gate hook
+* Add a new API to list loadbalancer statistics
+* Add class 'StatsMixin'
+* Updated from global requirements
+* Update haproxy logging configuration
+* Load system sysctl in amphora network namespace
+* Fixes pregenerated certificates validity to 50y
+* Updated from global requirements
+* Drop MANIFEST.in - it's not needed by pbr
+* Updated from global requirements
+* Add linuxbridge support to devstack plugin
+* Scenario tests: improve test http server
+* Update devstack plugin to use openstack client
+* Fix to run functional tests
+* Fix functional tests after HM change
+* Fixes unit test config override
+* Add MTU configuraion when plugging vip or network
+* Update listener stats
+* Fix revert on 404 from amphora agent startup
+* Enable release notes translation
+* Updated from global requirements
+* Add support for PKCS7 bundles and encrypted keys
+* Add defaults for health monitor object
+* Fix nova image-list which is unavailable
+* Switch HAProxy health check timeout to seconds
+* Use get-pip.py from cache if it exists
+* Use a cached get-pip.py if it is availble
+* Fix typo in active-active-distributor.rst
+* Remove pypi download shield from Readme
+* Updated from global requirements
+* Update reno for stable/newton
+
+0.9.0
+-----
+
+* Fix a typo in README.rst
+* Add a cookbook for basic load balancing
+* Adding introduction and developer quick start docs
+* Updated from global requirements
+* Terminated HTTPS certs and keys in encrypted ramfs
+* Fix orphan port/security group on revert
+* Octavia: Basic LoadBalancer Scenario Test
+* Fix typos in amphora\_flows.py & octavia.conf
+* Drop the log level for "neutron extension found"
+* Adds tasks so that reverts set objects to ERROR
+* Updated from global requirements
+* Fixes a test order issue with image tag owner
+* Amphora agent refactor to classes
+* Setup gate test scripts for Octavia
+* Fixes the revert methods with unhandled exceptions
+* Option to restrict amp glance image owner
+* Fixes a revert failure in AllocateVIP task
+* Add L7 user guides
+* \_extract\_amp\_image\_id\_by\_tag should return last created image
+* Adding a unit test for graph create failure case
+* Set fullconn parameter in haproxy backends
+* Set haproxy global connection limit
+* Fix admin\_state\_up for loadbalancer and listener
+* Add tox 'specs' test to pep8 environment
+* Updated from global requirements
+* Stop using bandit-baseline
+* Update tox 'docs' environment to test specs
+* Fix active-active specs tox test
+* Fix No sql\_connection parameter is established
+* Remove deprecated (and unused) 'sqlite\_db' config option
+* Add \_\_ne\_\_ built-in function
+* Move bandit to pep8
+* Subnet host routes support for plug\_network
+* Updated from global requirements
+* Update readme file
+* Rewrite create\_load\_balancer flow
+* Corrected test\_dir path in TempestPlugin
+* Update config reference to use auto generate
+* Updated from global requirements
+* Octavia:  Implement Tempest Plugin
+* Deperecate apt-mirror element
+* Add spec for active-active
+* Add spec for adding statistics gathering API for loadbalancer
+* Updated from global requirements
+* Fixes amphora error of multiple IP addresses
+* Use upper constraints for all jobs in tox.ini
+* Make pyroute2 a requirement of octavia
+* Fix failover
+* Updated from global requirements
+* Fixes failover flow with namespace driver
+* Remove oslo.rootwrap from requirements.txt
+* Updated from global requirements
+* Updating network base utils for more functionality
+* DIB: relax check on pip executable
+* Condense amphora-agent-ubuntu in to amphora-agent
+* Remove unnecessary if and exception
+* Updated from global requirements
+* Allow IPv6 VIPs
+* DIB output filename and requirements fixes
+* Adds a process to generate key flow documentation
+* Updated from global requirements
+* Remove datetime\_to\_str
+* Fix some typos in the haproxy-amphora-api.rst
+* Enable DeprecationWarning in test environments
+* Updated from global requirements
+* Mock time.sleep in tests to reduce test time
+* Fixed UnmappedInstanceError thrown when  LB delete
+* Revise pagination\_max\_limit description
+* Skip removing sec\_group if none
+* Updated from global requirements
+* Fixes Octavia handling of subnets without DHCP
+* fix a misspelling
+* Updated from global requirements
+* Allow deletion of ERRORed load balancers
+* Replace 'c = a if a else b' with 'c = a or b'
+* Use the from\_environ features of oslo\_context
+* We should set status to be 1 if get nothing from socket
+* Fix a small bug when list opts
+* Remove unnecessary check to get all listener ids
+* Update the home-page info with the developer documentation
+* Add debug information when skipped some errors
+* Instead name, use uuid to get security group instance
+* Instead of info, use exception for logging an exception
+* No need to use getattr func to get a value
+* Py3: Don't use dict.values()[0]
+* DIB image tests speedups
+* Fix a typo and replace unused variable with '\_'
+* Use seperate security group for o-hm0 port in devstack
+* Updated from global requirements
+* Disbale DNS update for port o-hm0 in devstack
+* Adding improved logging to amphora rest driver
+* Correct reraising of exception
+* Fix typo in the files
+* Cache neutron extension lookup state
+* Removing FK relationships from ListenerStatistics
+* Revert "Condense amphora-agent-ubuntu in to amphora-agent"
+* Fixing bug in single-create jinja config generation
+* Allow to run DIB when installed system-wide
+* Add Python 3.5 classifier and venv
+* Support RHEL base image in DIB
+* Fixed running tox while stacked
+* Add \_get\_resource func to get any type resource in neutron
+* Updated from global requirements
+* Insert haproxy in front of all the o-api endpoints
+* Allow deploying secondary worker and API nodes
+* Fix small typo in log message
+* Fix Octavia release notes header
+* Fix docstrings for database tasks
+* Decrease default resource expiry age in DevStack setup
+* Cleanup deleted load balancers in housekeeper's db\_cleanup
+* Fixes failover issue with neutron dns integration
+* Use correct code version for amphora agent image
+* Updated from global requirements
+* Add revert method in database\_tasks MapLoadbalancerToAmphora
+* Condense amphora-agent-ubuntu in to amphora-agent
+* Use git.o.o rather than review.o.o for cloning
+* Modernize amphora-agent element
+* Remove the conditional check for topology
+* Remove untrue comment message
+* Updated from global requirements
+* Updates test with overridden timeout values
+* Updated from global requirements
+* Updated from global requirements
+* Fixed unit test for amphorae backend utils
+* Repaired spacing mistake in info message
+* Fix alembic migration on MySQL 5.7
+* Set device owner for health manager port
+* Use transport\_url instead of oslo\_messaging\_rabbit
+* Killed existing downgrade rules in migration scripts
+* Updated from global requirements
+* Drop support for SQL Schema Downgrades
+* Use RABBIT\_USERID instead of 'guest'
+* Disable dhclient requests the default route info
+* Fix docstrings for AmphoraLoadBalancerDriver and ControllerWorker
+* Adds methods in version.py for proper oslo\_reports setup
+* Tox: Remove exclude directories that no longer exist
+* Updated from global requirements
+* health-manager listen port security group
+* Fix unreachable TimeOutException bug in amphora driver
+* Fix Mac OS X socket.AF\_INET6 code
+* Fixes small typos in comments in source files of api
+* Fix vrrp\_success\_count help string
+* [docs] Fixes to octavia-api docs
+* Using utils function to get the network driver
+* Update nova api version to 2.1
+* validate the subnet id for create loadbalancer and member
+* Use devstack RABBIT\_HOST to point to rabbit, instead of localhost
+* Allow deployment with pre-generated ssh keys and certificates
+* Use upper-constraints.txt file for all tox targets
+* Updated from global requirements
+* Make registering error handlers compliant with Flask 0.11
+* Use glance image-list command in devstack/plugin.sh
+* Add timestamp to octavia resources
+* Updated from global requirements
+* Allowing for a host amphora configuration
+* Network driver should generate network configs
+* Small cleanup of plugin.sh
+* Remove oslo.serialization module requirement
+* Add env variables for memory and vcpu in the Vagrantfile
+* Add libvirt provider support
+* Updated from global requirements
+* Make sure ~/.ssh/known\_hosts exists before calling ssh-keygen -R
+* Use the local /vagrant dir for copying the config and support scripts
+* Implement custom header support for Octavia
+* [Trivial] Remove unnecessary executable privilege
+* Wait for loadbalancer to be ready instead of sleeping
+* Fix keystone auth url in devstack plugin
+* Add WSGI support for octavia api
+* Updated from global requirements
+* Updated from global requirements
+* Added amphora\_id to listener\_statistics table to stop data loss
+* Whitespace bug in sysvinit jinja template
+* Taskflow update exposed inconsistencies in tasks
+* Support db-manage command for db migration
+* Updated from global requirements
+* Updated from global requirements
+* Fixed duplicate constants declarations
+* Attach port to amphora when adding member to shared pool
+* Updated from global requirements
+* Amphora fails to build
+* Updated from global requirements
+* Run amphora haproxy in a network namespace
+* Update amp\_network to allow multiple networks
+* Updated from global requirements
+* Defer updating role and vrrp\_priority for failover
+* Add missing unit test for cascade lb delete
+* TLS/SNI Listener creation fails when using intermiate certificates
+* Updated from global requirements
+* Updated from global requirements
+* Replace mock open with namespace builtins with OpenFixture
+* Replace the os.open method with safer way
+* Remove the default anchor usrename and password value
+* Removes port\_detach code that was mistakenly added
+* Fixes the SNI issues in master(mitaka) for octavia
+* Add neutron-lbaas-dashboard to local.conf sample
+* Fixes failover when using a spares pool
+* Devstack: Use OVS\_BRIDGE when value is set
+* Make GIT\_REPO can be configured
+* Fix local.sh script for Keystone authentication
+* Exit local.sh immediately when error occurs
+* Adds documentation for the Octavia configuration
+* Fix devstack plugin clean of o-hm0
+* Update release notes for Mitaka release
+
+0.8.0
+-----
+
+* Fix admin-state-up
+* Add VHD support in DIB
+* Updating unit testing
+* Add hacking check to ensure not use xrange()
+* Single-Create Documentation
+* Change render\_unsets default to False
+* Add unit tests for L7 data model additions
+* Fix L7Policy update regression
+* Fix session\_persistence deletion bug
+* Use consistent type checking of project\_id in API
+* Use rfc3986 module for URL validations
+* Add CA Cert file config option to validate against SSL endpoints
+* Remove an unused configuration option
+* Replace deprecated LOG.warn with LOG.warning
+* Add missing unit tests for L7 repo classes
+* Add unit tests for L7Policy API
+* Add missing unit tests for L7Rule API
+* Fix default\_pool\_id type in l7policy API
+* Add maximum number of l7rules per l7policy
+* Adds release notes for Active/Standby
+* Updated from global requirements
+* Update doc to make it consistent with the actual api
+* Add pre\_test\_hook to run gate jobs
+* Make SSH bind to management net only
+* Better L7Policy API validations
+* Remove swift related content in the sample local.conf
+* Use "--pub-key" instead of "--pub\_key"
+* Updated from global requirements
+* Add bandit baseline to tox
+* Adds the Cascade Deelete REST API doc
+* Updated from global requirements
+* glance: support relying on tags to extract image id
+* Add release notes for L7 and shared pools
+* Get Me A Load Balancer Controller
+* Get me a Load Balancer API
+* Cascading LB delete
+* Barbican Cert Manager fails to correctly parse intermediates
+* Block deletion of pool in use by L7Policies
+* Updated from global requirements
+* Improved LoadBalancer Delete
+* Use unique SNI identifier when building data model
+* Fix LB/Listener status updates for HM/Member
+* Implements: blueprint anti-affinity server group
+* Remove old SSH specific config options from sample config
+* Updated from global requirements
+* Fix health monitor URL in API documentation
+* Add a request timeout to the REST API driver
+* Change HMAC compare to use constant\_time\_compare
+* Add listener stats API
+* Add L7 documentation
+* Add L7 jinja template updates
+* Add L7 controller worker flows and tasks
+* Add L7 api - rules
+* Add L7 api - policies
+* Update repos for L7 rules / validations
+* Update repos for L7 policy / methods
+* Add L7 database structures
+* Assign peer\_port on listener creation
+* Fix model update flows
+* Trivial: cleanup unused conf and log variables
+* Reduce devstack build time by properly using pip caches
+* Remove unused \`paramiko\`
+* Update flake8 exclude
+* Fix improper egress security rule deletion
+* Fixed make sure to get IPv4 value by awk in sample local.sh file
+* project\_id should not be UUIDType in API validation
+* Stop using non-existent method of Mock
+* Update data model conversion to be more complete
+* Fix LB status updates
+* Improve test case test\_upload\_certificate\_md5
+* Fix amphora failover after health monitor start
+* Fix deleted amphora expiration check
+* Delete SSH amphora driver
+* Fix hacking rule of assert\_equal\_or\_not\_none
+* Stop logging amphora cert generation in debug
+* Fixes an intermittent load balancer delete failure
+* Octavia: API docs Entity Status Fix
+* Allow user-data on amphora creation
+* Reverts a workaround that is impacting amp updates
+* Adding "region and endpoint\_type" parameters to barbican\_acl.py
+* Do not use \_\_builtin\_\_ in python3
+* Adds a parameter to specify endpoint type
+* Fix / and /v1 API uris
+* Use netifaces constants correctly in testing
+* Remove dead code around certificate handling
+* Revert "Fix for ssl context wrapper spam", add warning filter
+* Fixes Octavia flows that are not reverting
+* Remove out-dated README file
+* Default api\_handler to queue\_producer
+* Shared pools support
+* Updates the failover flow for active/standby
+* Fix for ssl context wrapper spam
+* Fix event\_queue entry in setup.cfg from EventStreamer break
+* Add SubjectAltName and KeyUsage for localcertgen
+* Fix misspellings
+* Use uppercase 'S' in word "OpenStack"
+* Replace depcrecated Nova networks with Nova interfaces
+* Add endpoint override conf option for neutron and nova
+* Fixes Octavia Amphora RHEL based images
+* Amphora Create now fails when amphora goes into ERROR status
+* Fix minor typo in warning message
+* Optimizations for tempest tests
+* Fixes intermittend udp heartbeat test failure
+* Add service name conf option for neutron and nova
+* Let drivers decide to use region or not
+* Use signing digest defined in config to sign CSR
+* Updated from global requirements
+* Make sample web server close connections
+* Updated from global requirements
+* Add APP\_COOKIE session persistence type
+* Change the length of name in the algorithm
+* Fix typo in migration README.rst
+* Implementing EventStreamer
+* Updated from global requirements
+* Fix a typo in the comment
+* Updated from global requirements
+* Disable amphora health monitoring on amp delete
+* Remove unused logging import
+* Fix database\_tasks log formating
+* Make Barbican the default certificate manager
+* Make pool.lb\_algorithm field larger
+* Case-sensitive string checking for Enum fields
+* Fix updating session persistence of a pool in DB
+* Disable default haproxy process in amphora image
+* Fix a problem of memebrs not deleted from pool
+* Add debug testenv in tox
+* Fixed revert of update LB
+* Remove OpenSSL from cert\_parser
+* Replace deprecated library function os.popen() with subprocess
+* Fix some inconsistency in docstrings
+* Setup health manager networking for devstack
+* Updated from global requirements
+* Fix minor inconsistency in models code
+* Move docstrings to the first line of the function definition
+* Assign load\_balancer in \_port\_to\_vip()
+* Test: make enforce\_type=True in CONF.set\_override
+* Updated from global requirements
+* Make Consumer an oslo\_service
+* Fixes gate failure 'update\_stats' called 0 times
+* Fix sysctl settings for amphora image
+* Use keystoneauth to prevent logging sensitive data
+* Updated from global requirements
+* Database repository delete to use one()
+* Updated from global requirements
+* Make Octavia devstack pass env settings to sudo pip install
+* Updated from global requirements
+* Expose project\_id in octavia api
+* Rename tenant\_id in the network models to project\_id
+* Updated from global requirements
+* Optimize Taskflow storage (remove some requires parameter)
+* Refactor BarbicanAuth to allow for configurable auth method
+* Allow choice of upstart or sysvinit
+* Rename tenant\_id to project\_id
+* Fix db error when running python34 Unit tests
+* Add missing unit tests for cw/tasks/network\_tasks
+* Add nopreempt support for active/standby
+* Add reno for release notes management
+* Add backport  keepalived
+* Un-pin the amphora-agent version
+* Amphora Flows and Drivers for Active Standby
+* Anchor support to Octavia
+* Updated from global requirements
+* Add cert tracking and rotating in Housekeeping
+* Fix api\_server agent test that broke due to a dep change
+* Updated from global requirements
+* Unify constants usage in flows tests
+* Fix a test order issue with oslo\_config fixture
+* Stop nova driver delete failure on already deleted
+* Fixes interface\_file jinja misconfiguration
+* Add unit tests for cmd/house\_keeping
+* REST Amp Agent: Handle interfaces file too
+* Updated from global requirements
+* Add Guru Meditation Report feature
+* Get rid of unused dependencies in requirements.txt
+* Get rid of unused dependencies in test-requirements.txt
+* pyasn1 and pyasn1-modules modules no more needed
+* Updated from global requirements
+* Make amphora ssh access configurable
+* Fix a problem building spare amphora
+* New local certificate generator uses local time
+* Use assertIs(Not)None instead of assert(Not)Equal
+* Updated from global requirements
+* Removes the use of mutables as default args
+* Update HACKING.rst to reflect real syntax checks
+* Fix log message formatting that cause log errors
+* Consumer start log appears at appropriate time
+* Update Octavia’s Operator API Docs
+* chmod +x on local.sh to allow it to be executed by stack.sh
+* Launch consumer without calling oslo messaging wait
+* Swap out pyOpenSSL for cryptography in LocalCertGenerator
+* Use oslo\_config PortOpt type for port options
+* Set Hacking rules to check some tests assert
+* Stop checking if listener exists when uploading cert
+* Updated from global requirements
+* Change assertTrue(isinstance()) by optimal assert
+* Use oslo\_config IPOpt support
+* Revert "Add Pillow to docs-requirements.txt"
+* Updated from global requirements
+* Revert "Bypass listener check on cert deploy during create"
+* Bypass listener check on cert deploy during create
+* REST Amp Agent: Compare lower case MAC Addresses
+* Fixes TLS processing in the rest driver
+* Updated from global requirements
+* Adds cert\_manager option to octavia.conf
+* Fix argument order for assertEqual
+* Use assertTrue instead of assertEqual(True, \*\*\*)
+* Use assertIn and assertNotIn
+* Mock module import standardisation
+* Updated from global requirements
+* Add environment varible to skip amp image build
+* Updated from global requirements
+* Fixing help string for octavia.conf option
+* Fixes missing testresource dependency
+* Updated from global requirements
+* Minor restructuring of documentation tree
+* Add .eggs/ to .gitignore
+* Adding init.d script
+* Change amphora\_id to compute\_id in compute drivers
+* Unify constants usage in taskflow flows
+* Improve logging in octavia.controller
+* Improve logging in octavia.common
+* Improve logging in octavia.amphorae
+* Improve logging in octavia.api
+* Improve logging in octavia.network
+* Improve logging in octavia.cmd
+* Improve logging in octavia.certificates
+* Replace wrong Nova references to Compute ones
+* Add Pillow to docs-requirements.txt
+* Update some release related texts
+* Remove oslo-incubator files
+* Unify constants usage final instalment
+* Allow drivers to be overridden for devstack
+
+0.5.2
+-----
+
+* Unify constants usage in taskflow flows
+* Add a missing tox environment "venv"
+* Get noop drivers to function within flows
+* Fix a typo in the .coveragerc file
+* Remove quotes from subshell call in bash script
+
+0.5.1
+-----
+
+* Increase the number of network call retries
+* Update controller logging
+* Don't build amphora image if one is available
+* Make keystone verify configurable
+* Updated from global requirements
+* Remove SQL GET request from UpdateAmphoraComputeId
+* Move roadmap to wiki
+* Fix issues uncovered by neutron lbaas tempest tests
+* Add health\_manager config options
+* Correct status\_update\_threads configuration help
+* Remove bad INFO log "Starting Octavia API server"
+* Default controller\_ip\_port\_list option to empty
+* Update the cirros version in devstack samples
+* Adds the NO\_MONITOR operational status for members
+* Updated from global requirements
+* Increase connection\_max\_retries to be 300
+* Fix the shebang line and permission of webserver.sh
+* Implement UDP heartbeat sender and receiver
+* health manager service
+* Adding amphora failover flows
+* Plug vip and networks by port mac address
+* Updated from global requirements
+* Switch to OSC for devstack (keystone client deprecated)
+* Rest API plug network interface handling
+* Update Active/Standby blueprint
+* Fix allowed address pairs driver to use region
+* Adding sni\_containers to Octavia API
+* Updated from global requirements
+* Set the Amphora REST driver as devstack default
+* Removes unused posix-ipc requirement
+* Fix doctrings typo in delete\_member
+* Updated from global requirements
+* Do not remove egress sec group rules on plug vip
+* Updated from global requirements
+* Increase the amp active retries to be 500 times
+* Added support of multi-region environment
+* Adding the line to delete amphora
+* Removing unused dependency: discover
+* Clean NovaAuth.\_nova\_client during test cleanup
+* Enable automatic sample config generation
+* Updated from global requirements
+* Fixes for WSME updates
+* Updated from global requirements
+* Correct rabbit messaging config set in devstack
+* Ensure mocks are stopped during test cleanup
+* Updated from global requirements
+* Updated from global requirements
+* test\_plug\_vip not testing properly in py34
+* Fixes missed refactoring of barbican client
+* Check for port ownership on vip deallocation
+* Setup base neutron network driver
+* Updated from global requirements
+* Add Housekeeping to manage spare amphora and DB cleanup
+* Correct shebang in create\_certificates.sh
+* Updating cert\_parser for cert loading
+* Updated from global requirements
+* Updating ssh driver with root user check
+* Updated from global requirements
+* Correct usage and configuration of CertManager/Generator with Stevedore
+* Fix a typo in the devstack plugin.sh which caused a truncated error
+* Fixes REST driver json encoding
+* Updated from global requirements
+* Updated from global requirements
+* Adds the reload on cert change
+* Adds policy based routing for the amphora
+* Better parsing for HAProxy stats\_socket data
+* Updated from global requirements
+* Updated from global requirements
+* Fix member creation when retrieving network
+* Exclude virtual interfaces for collecting stats
+* Fixing a couple minor terminology errors
+* Hooking TLS together
+* Updated from global requirements
+* Decouple amp driver from network using new models
+* Adds method to update server.pem to Amphora REST spec
+* Pluggable controller worker
+* Adding model changes to support active/standby
+* Adding methods to network driver to get more info
+* Blueprint: Active/Standby Amphora Setup using VRRP
+* Updated from global requirements
+* Adding vrrp\_port\_id and ha\_port\_id to amphora
+* Temporarily disable send\_hmac test as it fails intermittently in py34
+* Use 2 years for validity period for generated amphora certs
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Keepalived supporting amphorae image
+* Update unit tests for mock changes
+* Updated from global requirements
+* Update VIP to subnet id to match neutron-lbaas API
+* Fix the delete health monitor flow
+* Install etc/octavia/\* files
+* Drop use of 'oslo' namespace package
+* Various py34 fixes
+* Updated from global requirements
+* Updated from global requirements
+* haproxy reference amphora REST API client
+* Add content for octavia in plugin.sh and settings
+* Add webserver in octavia/devstack/samples
+* Adding Python 3.4 Compatibility and Tox Check
+* Updated from global requirements
+* Updated from global requirements
+* Fixes missing admin/user for devstack plugin
+* Fix the delete member flow
+* Update version for Liberty
+* Drop use of 'oslo' namespace package
+* Update PUT methods to send update through queue
+* Fix the delete listener flow
+* Fix the devstack octavia plugin for non ubuntu distributions
+* Fix the delete pool flow
+* Do not delete vip port if octavia didn't create it
+* AAP Driver deletes sec grp rule on listener delete
+* Updates for repo rename stackforge->openstack
+* Update .gitreview file for project rename
+* Fix the delete loadbalancer flow
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Implements the haproxy amphora agent api server
+* Updated from global requirements
+* Fix the devstack settings admin account handling
+* Fixed failing unit tests due to wsme change
+* Adding sudo permissions to SSH Driver commands
+* Fixes health monitor create issues
+* Setup stubs for health manager and housekeeping
+* Fixes issue with non-unicode ip addresses in wsme
+* Fixed post\_network\_plug issues
+* Updating member flow
+* Updates for calculate delta task
+* Updates devstack plugin to add service endpoint
+* Added update\_vip method to network driver
+* Fixes issue where loadbalancer is None in flow
+* Fixed a parameter issue for config drive files
+* Updated from global requirements
+* Fix a bug in the amphora create revert
+* Edit the plugin to add alembic information
+* Fixed various issues with create lb and amphora flow
+* Fix queue producer handler to send ids
+* Add devstack plugin for octavia
+* Updated from global requirements
+* Fixing inconsistencies and applying sane defaults
+* Update vip and network plug methods
+* Fixes load balancer create flow issue
+* Implemented Queue Consumer
+* Update nova\_driver to use amp\_network
+* Remove extra requirements
+* Implements Octavia Controller Worker
+* Amphora SSH Driver
+* Fixes a config load bug for keystone v3 domains
+* Removes include\_members from jinja\_cfg
+* Fix Octavia complexity issues
+* Fix ups so pbr and setup works
+* Fix "Revises" comment to be consistent with reality
+* Use stevedore to load API handler
+* Adds plug VIP and plug Port to spec
+* Fix the common/keystone.py for identity v3
+* Allow id to be added in POSTs for all entities
+* Updates service and config for Octavia API
+* Switched from sha265 to sha256 in octavia.conf
+* Corrected some \_\_init\_\_() parameters
+* Add compute noop driver and test case
+* Add network noop driver
+* Fix arg order for Update functions in Controller-Worker
+* Added post\_vip\_plug method to the amphora driver
+* Fixed sessionpersistence and healthmonitor refs
+* Updating the disk image builder code
+* Added neutron allowed address pairs network driver
+* Added vrrp\_ip and ha\_ip to amphora models
+* Removing a log parameter from the noop driver
+* Add health check  amphora-driver-interface
+* Implementation for bp/api-to-oslo-messing-handler
+* Adding post\_network\_plug to the noop amphora driver
+* Updated from global requirements
+* Adds rise threshold to configuration generation
+* Updates Jinja templater with additional optional params
+* Updated from global requirements
+* Fix stale pyc issue for unit tests
+* DRY'ed keystone session creation and retrieval
+* Sync with oslo-incubator, tweak as needed
+* Add tox -ecover environment
+* Create database models for healthmanager
+* Fixes some inconsistencies
+* Add the config file for nova compute drive
+* Modified amphora driver spec to include a new, optional method
+* Jinja Haproxy templates
+* Updated from global requirements
+* change specs for amphora manager interface
+* Updated from global requirements
+* Remove the 2.6 classifier
+* Moving to novaclient v2
+* Updated from global requirements
+* Updated from global requirements
+* removing unused import on novaclient
+* Fixes import error in novaclient test
+* Fix over-zealous oslo incubator namespace fixing
+* Updated from global requirements
+* Specification of reference haproxy amphora API
+* Tweak requirements to be compatible with global-requirements
+* Octavia Controller Worker specification
+* Interface specification for housekeeping manager
+* Queue Consumer Specification
+* Patches nova client to work with HP Cloud
+* Update certificate generator implementations
+* Nova driver implementation
+* Fixed my alembic version fail
+* Updates the controller spec to clarify API Manager
+* Common TLS utilies
+* Removes flows from the amphora-driver-interface
+* Adding network driver interface
+* Change back the amhora driver interface
+* Spec defining the networking driver interface
+* Renaming amphora.host\_id to amphora.compute\_id
+* Creation of Octavia API Documentation
+* Add nsCertType and ExtendedKey usage extensions to CertGenerator
+* Removing byte order marker that caused issues
+* Update TLS Specification
+* updates the amphora driver interface spec
+* Octavia Controller specification
+* Initial amphora status daemon
+* Add Cert+PK generation to Certificate Interface
+* Added pymysql as default DBAPI
+* Implementing simple operator API
+*  Add Amphora base image creation scripts for Octavia
+* Added versioning and migration mandates
+* Oslo incubator updates
+* Remove python 2.6 from tox env list
+* Nova virtual machine driver spec
+* Defining interface for compute drivers
+* Barbican implementation for Certificates
+* Defining interface for amphora base driver
+* Local development implementation for Certificates
+* Remove VM management calls
+* Support for Certificate data handling
+* KeystoneAuth global configuration data
+* TLS Data Security Overview
+* Initial draft of compute driver spec
+* Allow .diag file extensions in spec reviews
+* PEP8 fixes, spelling fixes
+* Updated the Octavia 0.5 spec
+* Initial creation of repository classes and tests
+* Spec for the amphora driver interface
+* Stop using intersphinx
+* Adding initial glossary of terms
+* Initial creation of db models, modules, and tests
+* Added Operator API spec for Octavia v0.5
+* Adding Octavia Amphora base image specification for Octavia v0.5
+* Initial migration for database structure
+* Initial directory skeleton
+* Octavia v0.5 component design
+* Hacking fixes in CONSTITUTION, ROADMAP, & HACKING
+* Documenting project direction and design
+* Adding a couple files to .gitignore
+* Fix dependency on googlechart for graphviz
+* Populate repository with common initial files
+* Added .gitreview

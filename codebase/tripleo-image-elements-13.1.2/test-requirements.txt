@@ -1,0 +1,5 @@
+hacking>=2.0.0
+
+oslotest
+testrepository>=0.0.18
+pyflakes>=2.2.0

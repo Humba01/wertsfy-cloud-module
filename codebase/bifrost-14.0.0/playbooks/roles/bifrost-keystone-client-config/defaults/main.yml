@@ -1,0 +1,37 @@
+---
+
+network_interface: "virbr0"
+ans_network_interface: "{{ network_interface | replace('-', '_') }}"
+internal_ip: "{{ hostvars[inventory_hostname]['ansible_' + ans_network_interface]['ipv4']['address'] }}"
+
+enable_tls: false
+enable_inspector: true
+
+skip_start: False
+skip_validation: "{{ skip_start }}"
+
+# Service URLs used for communication with them.
+api_protocol: "{{ 'https' if enable_tls | bool else 'http' }}"
+ironic_api_url: "{{ api_protocol }}://{{ internal_ip }}:6385"
+ironic_inspector_api_url: "{{ api_protocol }}://{{ internal_ip }}:5050"
+
+# Ensure that Ansible is using python interpreter and dependencies inside the bifrost virtual environment
+bifrost_venv_dir: "{{ lookup('env', 'VENV') or '/opt/stack/bifrost' }}"
+bifrost_venv_env:
+  VIRTUAL_ENV: "{{ bifrost_venv_dir }}"
+  PATH: "{{ bifrost_venv_dir }}/bin:{{ ansible_env.PATH }}" # include regular path via lookup env
+  pydoc: "python -m pydoc"
+ansible_python_interpreter: "{{ bifrost_venv_dir + '/bin/python3' }}"
+
+enable_keystone: false
+noauth_mode: false
+
+# Directory (on the controller) to keep the passwords
+password_dir: "{{ lookup('env', 'HOME') }}/.config/bifrost"
+
+# Various credentials
+default_username: bifrost_user
+default_password: "{{ lookup('password', password_dir + '/default_password') }}"
+
+admin_username: admin
+admin_password: "{{ lookup('password', password_dir + '/admin_password') }}"

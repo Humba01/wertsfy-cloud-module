@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+manila_tests = manila_tempest_tests.plugin:ManilaTempestPlugin
+

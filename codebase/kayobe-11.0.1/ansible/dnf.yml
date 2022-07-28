@@ -1,0 +1,17 @@
+---
+- name: Ensure DNF repos are configured
+  hosts: seed-hypervisor:seed:overcloud:infra-vms
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tags:
+    - dnf
+  tasks:
+    - block:
+        - import_role:
+            name: dnf
+        - import_role:
+            name: dnf-automatic
+          tags:
+            - dnf-automatic
+      when:
+        - ansible_facts.os_family == 'RedHat'

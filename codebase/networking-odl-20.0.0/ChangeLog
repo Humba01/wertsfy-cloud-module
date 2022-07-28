@@ -1,0 +1,1803 @@
+CHANGES
+=======
+
+20.0.0
+------
+
+* Update pylint version
+* CI: Make tempest and rally jobs non-OVN based
+* Drop install\_venv
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+* Use payload style callback
+
+19.0.0
+------
+
+* Changed minversion in tox to 3.18.0
+* Use assertCountEqual instead of assertItemsEqual
+* Use Payloads for FLOATING\_IP
+* Use payloads for PORT SUBNET and SECURITY\_GROUPS events
+* Enable tls-proxy support for test job
+* Retrieve the agent using "get\_agent\_objects"
+* Explicitly set jobs to ML2/OVS
+* setup.cfg: Replace dashes with underscores
+* use payloads for TRUNK and SUBPORTS callbacks
+* Change the remaining non python3 compatible code
+* Update master for stable/wallaby
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+18.0.0
+------
+
+* Fix master of networking-odl
+* Update TOX\_CONSTRAINTS\_FILE
+* CI: change sodium from snapshot to latest
+* Migrate legacy grenade job to be native Zuul v3
+* Add py38 package metadata
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+17.0.0
+------
+
+* Use the 'all' tox env instead of 'all-plugin'
+* Rally: remove extra update\_args from scenarios
+* Switch networking-odl jobs to focal
+* Use importlib to take place of imp module
+* Use the networking-l2gw project new location
+* Workaround mock.\_is\_started
+* zuul: remove devstack-gate dep from native jobs
+* Switch to hacking 3.0
+* Remove neutron-fwaas from the required projects
+* Fix pep8 job  and small fixes for functional jobs
+* Stop to use the \_\_future\_\_ module
+* Switch to newer openstackdocstheme and reno versions
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+* Add subnet deleted handler
+* Use unittest.mock instead of third party mock
+
+16.0.0
+------
+
+* Make tempest jobs use the latest ODL and zuulv3
+* Fix enums in db model
+* Fix gate failure
+
+16.0.0.0b1
+----------
+
+* Remove references for unittest2
+* Additional python2 removal cleanups
+* Remove networking-odl python2 jobs
+* Try deinit odl\_features in TestOdlFeaturesNoFixture setUpClass
+* Change function.func\_doc to function.\_\_doc\_\_
+* Switch to Ussuri jobs
+* Remove the remaining neutron-lbaas related constants
+* Update master for stable/train
+
+15.0.0
+------
+
+* Bump pylint version to one that supports python3.7
+
+15.0.0.0b1
+----------
+
+* Remove unneeded Zuul branch matcher
+* variable type of port-id in ceilometer driver is changed from integer to string
+* use callback payloads for ROUTER\_CONTROLLER events
+* PDF documentation build
+* Fix double-digit ODL version number handling for devstack
+* Make functional jobs use the latest ODL versions
+* Make rally jobs use the latest ODL versions
+* Update api-ref location
+* Add Python 3 Train unit tests
+* py37: fix regex unknown escapes
+* Replace git.openstack.org URLs with opendev.org URLs
+* Make functional jobs using py3
+* Convert filter\_metadata\_diff result to list
+* set\_ovs\_hostconfigs on py3 fails with TypeError
+* Update master for stable/stein
+* Blacklist bandit, bump neutron-lib and retire neutron-lbaas
+* stop using common db mixin
+* OpenDev Migration Patch
+* use trunk constants from neutron-lib
+* Fix HOST\_IP fetching method in local.conf.example
+* Replace openstack.org git:// URLs with https://
+
+14.0.0
+------
+
+* Fix the misspelling of "available"
+* Use latest networking-sfc release
+* Add bgpvpn-vni as a supported extension for ODL BGPVPN driver
+* Use latest Oxygen release instead of snapshot
+
+14.0.0.0b1
+----------
+
+* Change openstack-dev to openstack-discuss
+* Remove unused ryu from lower constraints
+* fix typo mistakes
+* Add the project source code repository in README
+* [Trivial fix] Correct spelling error
+* [Trivial fix] Correct spelling error
+* Dont disable services that are not enabled
+* devstack: enable flow based tunnels for sfc
+* use context manager from neutron-lib
+* Deprecate the ceilometer driver
+* Use extras for ceilometer dependency
+* Remove test-requirements from functional tox env
+* Reorder Zuul jobs for better organization
+* Remove the duplicated doc8 executa
+* Remove openstack-tox-py35-with-neutron-lib-master
+* Increment versioning with pbr instruction
+* use include\_tasks instead of include
+* Remove extra publish-openstack-python-branch-tarball job
+* fix tox python3 overrides
+* Use constraints in tox venv
+* add local tox targets for pep8, py27 and py3
+* opt in for neutron-lib consumption patches
+* Implement Baked Query
+* use is\_retriable from neutron-lib
+* Get ceilometer from pypi
+* Update Zuul config
+* Revert "pseudo port binding: teach agent aliveness"
+* Fix PEP8 tox environment
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Removing unused client methods
+* Update reno for stable/rocky
+* Removing the fullstack tests
+
+13.0.0
+------
+
+* Remove dns-integration from NETWORK\_API\_EXTENSIONS
+* Ceilometer meters for ODL should use project id of admin
+* Narrow down tempest tests to relevant tests
+* Assure that PeriodicTask passes context as args
+* Consume DB retry decorator from neutron-lib
+
+13.0.0.0b3
+----------
+
+* update requirements for neutron-lib 1.18.0
+* ODL l3 service provider
+* Enabled feature negotation for qos rules
+* Add docs requirements to venv
+* Remove outdated disclaimer from setup.cfg
+* Remove fullstack from the gate
+* Add Fluorine functional to the gate
+* Skip tempest test test\_snat\_external\_ip
+* Fixate pylint version, fullstack non-voting
+* use retry\_db\_errors from neutron-lib
+* Remove the v1 drivers
+* Add release notes link in README
+* Remove vpnservice conditional from pre test hook
+* Adopt the new enginefacade in networking-odl
+* Fixes for the CI
+* ODL feature fetch: parse configs
+* Remove untested ODL releases
+* Remove mock for odl\_features.init()
+* use CORE constant from neutron-lib plugins
+* Update README reference to latest OpenDaylight version
+* Remove old OpenDaylight build references
+* Remove nitrogen references as it is EOL
+* Clean over verbose import
+* Removing unused variable
+* Retry journal recording in L3
+* Cleanup l3\_odl\_v2 code
+* Remove attribute db\_session from ODLBaseDbTestCase
+* Remove unnecesary cleanup
+* Simplify retry testing functions to only accept context
+* Remove session parameter from \_test\_reset\_processing\_rows
+* Update DB functions to handle contexts
+* Abstract how retriable methods are tested
+
+13.0.0.0b2
+----------
+
+* Add flourine jobs for the CI
+* Trivial: Update pypi url to new url
+* Make oxygen-functional/fullstack voting
+* Retire carbon jobs for rocky
+* Remove vagrant scripts from the repo
+* Make carbon jobs non-voting
+* use neutron-lib plugin utils
+* Add more information to the ovs flows dump
+* Add zuul role show-odl-info to fullstack
+* Change default loopingcall interval for tests
+* Update references of neutron services
+* Clean old output before new doc builds
+
+13.0.0.0b1
+----------
+
+* Enabling ML2 for new full sync and recovery mechanism
+* Follow the new PTI for document build
+* Revert temporary patch that disables linter errors locally
+* use rpc Connection rather than create\_connection
+* Add lower-constraints job
+* Add 'flat' network type to host config docs
+* Fix pep8 errors
+* Remove tox\_install.sh helper
+* Use ALIAS instead of LABEL for BGPVPN API
+* Remove usage of the reserved keyword id
+* Updated from global requirements
+* Better defaults for the debug context
+* fix a typo
+* Allow Tempest CI to add txt extensions to ini files
+* Fix CI issues that block the gate
+* use callback payloads for PRECOMMIT\_UPDATE events
+* Fix tox installation of neutron
+* Updated from global requirements
+* use plugin common utils from neutron-lib
+* devstack: update carbon definition for carbon SR-3
+* Updated from global requirements
+* Imported Translations from Zanata
+* Remove incorrect DB retry decorators
+* ODL DHCP Port to be created only for IPv4 subnets
+* use common agent topics from neutron-lib
+* Fix log format for oxygen logging
+* Update mailmap
+* Switch to a blacklist file for test excludes
+* Log exceptions on security group callbacks
+* devstack: add nitrogen SR2 definition
+* Make fullstack and functional native Zuul v3 jobs
+* reno: Remove remote names from branch specifiers
+* Enable hacking-extensions H204, H205
+* Imported Translations from Zanata
+* Update reno for stable/queens
+
+12.0.0
+------
+
+* Add version specific debug tox environments
+* Move zuul\_copy\_output to be a job variable
+* Move extensions\_to\_txt to the job defintion
+* Zuul: Remove project name
+* Replace Chinese quotes to English quotes
+* Fix OpenDaylight setup with oxygen
+* Use Zuul v3 fetch-subunit-output
+* Remove branches filter from jobs
+* Wait for worker start before testing in JournalPeriodicProcessorTest
+* devstack: update local.conf.example to use lib/neutron
+* Remove unit tests for ML2 Mechanism driver
+* Fix unit tests for ML2 Mechanism driver
+* Add devstack base jobs specific to the project
+* Add neutron's tempest plugin to the CI
+* Updated from global requirements
+* Fix missing parentid on rule delete journal record
+* zuulv3: add jobs for ODL oxygen master branch
+* Fixes SSL websocket disconnects with client
+
+12.0.0.0b3
+----------
+
+* Updated from global requirements
+* Fixes websocket to use TLS when ODL NB is TLS
+* Make tempest native Zuul v3 jobs
+* Improve IPC and forking reliability in tests
+* Fix missing variables in devstack/override-defaults
+* use multiprovidernet api definition from neutron-lib
+* Remove redundant exception
+* Base mechanism for recovery
+* Correct link address
+* modify spelling error of variable
+* Updated from global requirements
+* Pass binding:profile attribute as a string
+* Updated from global requirements
+* keystone spelling errors
+* Fix broken if in devstack/functions
+* Add show-odl-info role
+* Don't set use\_stderr = False for tests
+* devstack: remove nitrogen snapshot 0.7.1
+* Fix dependency calculation when two fixed IPs under same subnet
+* Switch to get\_writer\_session
+* Remove "-y" option for package install command
+* Base mechanism for full sync
+* Don't truncate subnetpools from subnet filters
+* use callback payloads for \_SPAWN events
+* Add OS\_DEBUG to passenv of tox
+* Add default timeout for tests triggered by tox
+* Capture logging while running tests
+* Modify JournalPeriodicProcessor settings on tests at setUp
+* Add helper function for JournalPeriodicProcessor
+* Force maintenance task when it is started
+* Add pidfile to the JournalPeriodicProcessor worker
+* Force maintenance task on HUP on the worker
+* Add forced processing to the PeriodicTask
+* Move maintenance task to a worker
+* Add SIGHUP handling to journal periodic processing
+* Stoppable sync thread on OpenDaylightJournalThread
+* Use nitrogen snapshot for grenade job
+* Updated from global requirements
+* Disable cinder for grenade Job
+* Imported Translations from Zanata
+* Raise an exception for unsupported vif
+* Follow raising-format-tuple check
+* Fix 3rd party import order
+* Fix Inconsistent return statements
+* Fix unit tests py27, py35
+* Add hacking to enforce the config fixture over direct overrides
+* Add a NOOP function
+* Removing JournalCleanup class
+
+12.0.0.0b2
+----------
+
+* Design for full sync and recovery of resources
+* Correct missleading example of l2gw in readme
+* Fix tests that were changing settings but not reverting
+* Make test\_periodic\_task.test\_back\_to\_back\_job more consistent
+* Add command line tool to analyze logs
+* Reduce timer for periodic task tests
+* devstack: add nitrogen-0.7.2 snapshot definition
+* devstack: add nitrogen-SR1 release definition
+* Switch to lib/neutron
+* Add pre\_test\_grenade\_hook
+* Add hacking to enforce the config fixture
+* Override settings with a config fixture
+* Added raw flag to regexp strings missing it
+* Enable networking-odl only once
+* Use requests.codes.XX constants instead of hardcoded constants
+* Update sample config to use v2 for l3
+* Remove setting of version/release from releasenotes
+* Fix on PeriodicTask locking mechanism
+* Updated from global requirements
+* use l3 ext gw mode api def from neutron-lib
+* use l3 api def from neutron-lib
+* Remove JVM memory limitations by default
+* Cleanup of OpenDaylight on ./clean.sh
+* Initializing logging for set ovs hostconfig command
+* devstack: add error check to \_wget and \_xpath
+* use qos api def from neutron-lib
+* Do not use “-y” for package install
+* Rename Zuul jobs according to naming conventions
+* Remove boron job
+* Ignore rally nitrogen job for ocata branch
+* Revert skip of test l3 test case
+* tox/pep8: add bandit check
+* use command line arguments in the main method
+* Updated from global requirements
+* Log additional info about entries
+* Fix exception handling in journal
+* Zuul: add file extension to playbook path
+* Delete completed rows immediately when retention=0
+* Have create\_pending\_row return the entry
+* Reusing context defined in base class
+* UT for testing urls for all the objects
+* Fixes error handling of DB calls
+* use ml2 driver api from neutron-lib
+* Ignore I202 in pep8 (flake8), skip Testodll3
+* Fix to use . to source script files
+* Deprecated the V1 drivers
+
+12.0.0.0b1
+----------
+
+* use external net api def from lib
+* Imported Translations from Zanata
+* use addr pairs api def from lib
+* Fixes URL path for SFC v2 Driver
+* Correction in dependency calculation for port pair group
+* Correction in dependency calculation for port pair chains
+* Adding Zuul v3 migrated legacy jobs
+* Remove SCREEN\_LOGDIR from devstack
+* unblock fullstack/functional tests
+* Fixed vhost user prefix in test code & doc
+* devstack: add oxygen name
+* devstack: add carbon SR2 definition
+* devstack: update nitrogen snapshot 0.7.0 -> 0.7.1
+* devstack: add nitrogen release definition
+* Added ODL installation flag
+* Updated from global requirements
+* consume common constants from lib
+* Trivial Fix: correct typo artifcat to artifact
+* devstack: teach how to handle latest ODL release
+* devstack: add oxygen-snapshot release definition
+* use new payload objects for \*\_INIT callbacks
+* Updated from global requirements
+* Updated from global requirements
+* Don't sleep on exception
+* Delete FWaaS
+* tests: fix ml2 plugin config path
+* change testrepository to stestr
+* devstack: set ODL\_GATE\_SERVICE\_PROVIDER to fullstack/functional tests
+* devstack: save ODL configuration file for debug
+* devstack: symlink odl logfile to $BASET/logs
+* odl-releases/README.rst: add nitrogen RC3 example
+* devstack: rename local NEXUSPATH to \_NEXUSPATH
+* fullstack: remove fullstack+carbon workaround
+* full/functest: remove screen usage
+* Cleanup registered plugins
+* fullstack: wait for network-topology/netvirt
+* devstack: setting ovsdb manager last
+* Removed unnecessary code
+* Updated from global requirements
+* Fix to use . to source script files
+* Update stable networking-odl release to pike
+* use synchronized decorator from neutron-lib
+* fullstack: load nicira extension early for carbon
+* devstack: show install ODL features
+* Full Sync: Moved resource fetching into drivers
+* devstack: add xpath into required packages
+* Carbon tempest CI fix: let ODL create br-int
+* bashate devstack shell scripts
+* Remove WebsocketBadStatusException
+* Fix: retry journal.record on dependency deleted
+* fullstack: skip test\_VM\_connectivity temporally
+* Update rows one by one in journal cleanup
+* Delete completed rows one by one in during cleanup
+* fullstack: don't install mysql/postgres
+* devstack: dump more odl restconf info for debug
+* Fixes db.delete\_row deletion by row\_id
+* devstack: dump group for debug
+* fullstack: test arping in addition to ping
+* pseudo port binding: teach agent aliveness
+* devstack: fix URL for karaf distribution
+* Update the documentation link for doc migration
+* Add reference deployment guide
+* Fix gate issue: br-int not getting controller
+* hardware offload support for openvswitch
+* Full Sync: Correction in bgpvpn assoc variable
+* Fix: tests were no longer avoiding journal calls
+* Updated from global requirements
+* Fixes SFCv2 full sync errors
+* devstack: try metadata in parent dir
+* devstack: examples of odl release definitions
+* hacking: check string for Opendaylight and noqa support
+* devstack: stop odl server after test
+* Fix in documentation on how to enable BGPVPN
+* db migration: create\_at in opendaylightjournal removed
+* Use maintenance interval for maintenance task
+* Fixes to PEP8 checks when running test with tox
+* fullstack: use v2driver
+* fullstack/functional test: setup neutron log
+* Update reno for stable/pike
+* update sample ml2\_conf\_odl.ini
+* devstack: remove boron snapshot release definition
+* Add configuration reference
+* tox.ini: ignore \*~
+* devstack: remove useless cat
+* devstack: revise ODL log level
+* devstack: use karaf for Nitrogen snapshot
+* [Gate] Reduce SSH timeout for gate jobs
+* Remove WebTest from test requirements
+
+11.0.0.0rc1
+-----------
+
+* pseudo agent: pre-populate agentdb if missing
+* add function disassociate\_floatingips to refresh floatingip information when delete port
+* [Gate] Reduce test load on tempest jobs
+* use neutron-lib for callbacks
+* Functional Test for OpenDaylight DHCP Service
+* Update subport status for trunk ports
+* Add Flag to support OpenDaylight DHCP Service in Devstack
+* Addition of driver class for lbaas driver
+* use common.utils.get\_odl\_url
+* unit: commit session after precommit
+* Enabling support for DHCP Service on OpenDaylight Controller
+* unit: use self.db\_context
+* test\_l3\_odl\_v2.py: use correct context/session
+* test\_mechanism\_odl\_v2: use given session
+* set-ovs-hostconfig: enable 'flat' by default
+* Updated from global requirements
+
+11.0.0.0b3
+----------
+
+* Move journal periodic processing to a worker
+* unit: fix up merge botch
+* Use neutron\_lib for qos driver\_base
+* Enabling support for DHCP Service on OpenDaylight Controller
+* full\_sync: use given session
+* recovery: use given session
+* pseudo agent port binding: use neutron worker
+* journal: use context instead of session for dhcp port service
+* Enable Placement-api for grenade job
+* Allowing lock to be applied per task basis
+* Rearranging the documentaion layout
+* pseudo agent port binding: log owner and device\_id
+* Add test\_connectivity test case in fakemachines
+* unit test: mock.patch before super.setUp
+* Updated from global requirements
+* Update URLs in documents according to document migration
+* Enable members of lbaas to use custom url builder
+* journal: partially implement sg/sgrule dependency
+* Use v2 driver for mechanism and l3
+* Load port status update worker in V1 driver
+* Change dependency validation to calculation
+* Create journal dependencies table
+* unit: consolidate mocking start\_odl\_sync\_thread
+* devstack: add carbon SR1 release definition
+* Support for recovery of all resources
+* enable warning-is-error for sphinx build
+* Bug 1704057: port status upate: missing add of provisioning component
+* OpenDaylight Ceilometer Driver
+* journal: sleep when error
+* Use new Netvirt for dsvm-fullstack
+* [Gate] Remove releases older than Boron
+* Revert "Update Full stack config"
+* Update full stack test
+* Change journal entry selection to optimistic locking
+* Enable full-sync for the bgpvpn, lbaas, qos, sfc, trunk driver
+* Update Full stack config
+* functional tests: don't run journal timer
+* Allow user to specify own method to make url
+* Select new entry when validation fails
+* Fetching of session using get\_session is deprecated
+* Substantially improve SFC support documentation
+* tox\_install\_project.sh: Use git clone --depth 1
+* pep8: use import-order-style
+* hacking: enable H106, H203 and H904
+* new testenv to check Opendaylight
+* hacking: enforce OpenDaylight instead of Opendaylight
+* Switch from oslosphinx to openstackdocstheme
+* Capitalize D in OpenDaylight
+* fix up of I4a526ee84784ca6ff8061692437a8c874bb33d6a
+* unit test: precommit is called without commit
+* devstackgaterc: Enable n-api-meta
+* Initialize odl\_features in mech\_driver\_v1
+* make odl\_features default to empty feature set
+* tox: enable pylint
+* Run OdlPortStatusUpdate only in one worker
+* Retrieve and process port status updates from ODL
+* Revert "devstack: bug workaround 1698129"
+* tox: add bash to externals for pep8 and bashate
+* Updated from global requirements
+* eliminate portbinding by ODL networking topology
+* Utilty for determining ODL neutron features
+* Correction in Resource URL Mapping
+* test\_l3\_odl: use odl l3 plugin, not neutron's
+* remove unused code
+* Use UUID for SG test
+* Use port bindings
+* use service type constants from neutron\_lib plugins
+* Send port[fixed\_ips] update to ODL Controller
+* devstack: add Boron SR4 release definition
+* mech\_driver\_v2: remove update\_security\_group work around
+* enable test\_security\_group\_update
+* Fix vhost string comparison
+* Fix config for grenade
+* V2.0 Driver for LBaaS V2.0
+* Moving \_make\_odl\_url method to common utils
+* try tempest tests with floatingip and others
+* unbreak gate
+* Spec for blueprint neutron-port-dhcp
+* Using assertFalse(A) instead of assertEqual(False, A)
+* Revert "Allowing lock to be applied per operation basis"
+* tox: enable bashate
+* tox: generate config with pep8
+
+11.0.0.0b2
+----------
+
+* Updated from global requirements
+* Rename argument object\_id to object\_ids for \_no\_older\_operations
+* Add precommit calls to qos
+* devstack: use neutron hostconfig-ovs from 0.6.0 carbon
+* Added decorator for bgpvpn, ml2 and l2gateway for postcommit
+* The local.conf.example file in the master branch of networking-odl repo does not install the DLUX UI Karaf features needed for the ODL GUI
+* devstack: add release definition of 0.6.0 carbon
+* Updated from global requirements
+* Allowing lock to be applied per operation basis
+* Added decorator to assign postcommit method
+* Set Initial Status for FIP down
+* Add date and organization to copyright of script.py.mako
+* Updated from global requirements
+* Replaced neutron command with OpenStack commands
+* Updated from global requirements
+* Adding Websocket client for ODL
+* use MechanismDriver from neutron-lib
+* Updated from global requirements
+* Log exception when journal entry processing fails
+* Don't call journal's run\_sync\_thread in unit tests
+* don't use run\_process for odl
+* logging method call in ml2 driver
+* Logging method call for sfc driver
+* Add direction to known bandwidth\_limit\_rules parameters
+* Logging method call for trunk driver
+* Send MAC updates to ODL for SRIOV PFs
+* use requests.session to avoid http open/close
+* Stop translating log messages
+* consume neutron-lib callbacks
+* Removed extra call to \_fake\_trunk\_payload
+* Correct SUPPORTED\_RULES of QoS driver
+* BGPVPN V2 Driver - Moves journal call to precommit
+* Migrate neutron.plugins.common to neutron-lib
+* Remove notification\_driver from docs
+* Add functional tests for QoS
+* Remove QoS V1 driver
+* Adapt new driver base for QoS
+* Disable new N537 hacking check from next neutron-lib
+* enable new netvirt
+* release note on version bump to 11
+* devstack: add release definitions for nitrogen
+* bgpvpn: update v2 driver to use precommit
+* devstack: odl\_snapshot\_full\_version misargument
+* Updated from global requirements
+* Updated from global requirements
+
+11.0.0.0b1
+----------
+
+* Added quickstart guide for networking-odl
+* Update sample conf
+* devstack: add boron SR3 release definition
+* Add Initialize Parent when OpenDaylightL3RouterPlugin is initialized
+* Fixing a typo in function and variable name
+* Updated from global requirements
+* remove workarounds in devstackgaterc
+* Fix unit tests
+* Remove subunit-trace fork
+* Revert "test-requirement: avoid sqlalchemy 1.1.5+"
+* Add unit test for sqltestcase
+* Simplify the query by using filter\_by
+* Send only data to dependency generators
+* test-requirement: avoid sqlalchemy 1.1.5+
+* tox.ini: pass OS\_TEST\_DBAPI\_ADMIN\_CONNECTION
+* Restructure of qos driver
+* full\_sync: sync router before port
+* full sync: correct sync order of resource
+* secgroup: convert icmpv6 variant name into icmpv6
+* Propose spec for dependency validations move
+* Correcting links in documentation
+* OVS connects to ODL using IP instead of hostname
+* Missing 's' in error message string
+* Removed old or un necessary configurations
+* Fix to correct Opendaylight trunk driver registration
+* Fix typos in set\_ovs\_hostconfigs.py
+* Updated from global requirements
+* Fix call to xpath which causes ODL download to fail on CentOS
+* Remove unused logging import
+* port binding: trim port\_prefix + PORT\_ID to 14 length
+* Functional tests for L2Gateway V2 Driver
+* Refactor journal main loop
+* Remove references of V1 driver
+* Use journal.record everywhere
+* bug work around: disable several test cases
+* spec: move completed spec to completed directory
+* Fix N536 hacking check from neutron-lib
+* Make ml2\_context optional in journal.record
+* tox: remove sitepackage=True
+* Functional tests for BGPVPN V2 Driver
+* Adapt new api from db\_api
+* Add deprecating warning for qos v1 driver
+* Fix ODL URL creation logic
+* Switch to neutron\_lib for context
+* Revert "odl bug: skip test\_port\_security\_macspoofing\_port"
+* TrivialFix: Move portbindings to neutron-lib
+* Updated from global requirements
+* odl bug: skip test\_port\_security\_macspoofing\_port
+* devstack: route for floatingip/ipv6 public range
+* Updated from global requirements
+* devstack: use localrc\_set and use local.conf
+* Fix neutron-odl-ovs-hostconfig failure on compute
+* devstack: enable placement-client for subnode
+* Enable placement-api for compute node to fix multinode tempest failure
+* tox.ini: allows to pass TRACE\_FAILONLY to ostestr
+* Drop MANIFEST.in - pbr doesn't need it
+* pylint: update .pylint
+* Revert "Add a method to query operations"
+* Update reno for stable/ocata
+* Adding a threshold for coverage
+
+4.0.0
+-----
+
+* QoS V2 driver for ODL
+* OpenDaylight BGPVPN Version 2 Driver
+* put back TrunkDependencyValidationsTestCase
+* refactor test\_dependency\_validations
+* OpenStack Networking-SFC Ver.2 driver for ODL
+* Fix typos (sunbet -> subnet)
+* test\_dependency: sort retrieved journal rows
+* l2gw/dependency validator: missing comma
+* Add a method to query operations
+* Add/Update hostconfig examples for OVS-DPDK and VPP
+* devstack: show ODL neutron northbound data
+* delete sg rule on sg deletion on ODL neutron northbound
+* Updated from global requirements
+* L2Gateway version 2 driver for OpenDaylight
+* Fix typo in doc/source/installation.rst
+* devstack: configure external net for new netvirt
+* Remove support for py34
+* tox: pass OS\_POST\_MORTEM\_DEBUGGER env
+* pseudo agent: don't set start\_flag
+* avoid ovsdb port conflict
+* Typo fix: choses to chooses
+* ODL Drivers for Vlan Aware VMs
+* Update link reference in README.rst
+* Fix typo in doc/source/specs/journal-recovery.rst
+* devstack: skip several test cases with v2driver and old netvirt
+* Typo fix: binded => bound
+* Fix typo in maintenance.rst
+* Update hacking version
+* Enable smoke tests on grenade job
+* Revert "devstack: disable metadata for rally"
+* Simplify dependency validations
+* Remove the register\_validator method
+* devstack: enable placement-api
+* Remove SG validations
+* devstack: remove trailing - in ODL\_GATE\_SERVICE\_PROVIDER
+* Remove link to modindex
+* Disable some tempest tests temporarily
+* devstack: show info even after tempest fails
+* Replace six.iteritems/itervalues with dict.items()/values()
+* Use neutron-lib portbindings api-def
+* Use neutron-lib provider net api-def
+* Use V2 driver by default in devstack
+* Updated from global requirements
+* devstack: make new netvirt default for ODL boron+
+* devstack: check latest revision of ODL snapshot
+* Split tempest tests for V2 driver
+* run functional/fullstack tests with v2driver
+* devstack: run rally with v2driver
+* devstack: run rally with new netvirt
+* Revert "use osc-lib git master branch"
+* Fix failing stack on compute node
+* use osc-lib git master branch
+* devstack: make pseudo agent port binding as default
+* using sys.exit(main()) instead of main()
+* Update lbaas-driver-v2 releasenotes
+* fix some issues in legacy netvirt with mulitnode in carbon
+* java: update oracle java 8 jdk version
+* devstack: update NETWORK\_API\_EXTENSIONS
+* create Openstack with ODL by vagrant
+* remove unused self.url from qos driver
+* neutron-lib: use L3 constant from neutron-lib
+* fullstack - use configure\_for\_func\_testing.sh to setup env
+* functional test: documentation and relnotes
+* gitignore: ignore vagrant generated dir
+* Removes unnecessary utf-8 encoding
+* odl-release: update boron definition
+* Upgrade script for networking-odl
+* H803 hacking have been deprecated
+* fullstack: increase check\_flow\_existance retry times and intervals
+* Refactor config code for v2 tests
+* Show team and repository tags
+* devstack: disable metadata for rally
+* Remove q-dhcp from compute node   q-dhcp service in compute node causes metadata proxy failure as:   checking http://169.254.169.254/2009-04-04/instance-id   failed 1/20: up 11.03. request failed   failed 2/20: up 23.35. request failed
+* doc: unbreak build\_sphinx
+* functional: vagrantfile for functional test
+* configure\_for\_func\_testing: don't install rabbitmq
+* configure\_for\_func\_testing: don't use realpath
+* devstack: refactor install\_opendaylight
+* Enable networking-odl compute mode in subnode
+* Consolidate qos v1 driver classes
+* devstack multinode: disable some test cases
+* odl client: remove unnecessary except and log
+* increase odl http timeout(experiment)
+* Add seqnum to dependency checks
+* Fix typo in devstack/settings.odl
+* Fix devstack for fedora 25
+* functional test: configure opendaylight
+* devstack: improve odl-release definition
+* Fix typo
+* devstack: tempest CI fails
+* mech driver v2: build dict for sg on update
+* Configure L3 for grenade job
+* Fix the update of qos-policy
+* Show team and repo badges on README
+* devstack: reorder mech driver for debug
+* Use system subunit command if python-subunit is installed globally
+* db: use neutron\_lib.db.model\_base
+* functional test: install acl package
+* Disable live migration tests
+* devstack: enable scenario test\_security\_groups\_basic\_ops
+* Fix fullstack CI
+* devstack: make tempest timeout longer
+* Update reno for stable/newton
+* Forgot to reference arch in docs index
+
+3.1.0
+-----
+
+* Added basic L3 functional tests
+* Run ovs appctl execution of flows more times
+* devstack: show related info for debug
+* Fixed None reference in SG code in V2
+* Add security groups basic functional tests
+* Add utils.neutronify
+* devstack: enable scenario test\_network\_basic
+* devstack: enable scenario test\_minium\_basic
+* devstack: exclude scenario tests known to fail
+* devstack: option for conntrack for old netvirt
+* prevent initial networks create on subnode
+* devstack: Stop setting route pointing back to tenant router
+* devstack: enable odl-neutron-logger by default
+* Switch to using plugins directory in lieu of neutron manager
+* devstack: disable configuring neutron on compute nodes
+* Added ML2 basic functional tests
+* Added FLAT type network
+* Complement the implementation of odl lbaas driver\_v2
+* devstack: add odl-neutron-logger to ODL karaf feature
+* devstack: update beryllium release definition
+* Scripts to enable fullstack testing in gate
+* devstack: enable stably passing scenario tests
+* devstack: remove source devstackgaterc
+* fullstack test for networking-odl
+* devstack: enable c-api,c-bak,c-sch,c-vol,cinder
+* Fixed link to drivers architecture
+* Add installation guide for networking-odl
+* devstack: run tests with tempest run command
+* add dsvm-functional tests tox and gate\_hook
+* Allow forwarding of OS\_FAIL\_ON\_MISSING\_DEPS to test envs
+* Added initial reference architecture
+* Updated from global requirements
+
+3.0.0
+-----
+
+* update Boron release definitions since SR1 release
+* devstack: create public network connectivity
+* mech v2: bug/1546910 work around
+* Excluding Tempest from Rally job to avoid failure
+* Updated from global requirements
+* Fix the implementation of ODLMemberManager in lbaas driver\_v2
+* devstack: enable force config drive
+* Fix set\_ovs\_hostconfigs exit issue
+* Fix few typographical errors
+* Add a reference to Neutron Devref and Apiref
+* Remove last vestiges of oslo-incubator
+* Add grenade plugin
+* secgroup: pushdown default secgroup rules to ODL
+* Fix up some documentation quirks
+* sort values for OVERRIDE\_ENABLED\_SERVICES
+* Updated from global requirements
+* follow up for https://review.openstack.org/#/c/268820/
+* Journal recovery for syncing with ODL
+* Add developer docs for ODL drivers
+* Added maintenance devref
+* tools: catch up neutron-lbaas change
+* releasenotes: deprecate lbaasv1 driver
+* releasenotes: vlan-transparency
+* Adding a line space for proper rendering of doc
+* Remove call to configure\_neutron\_odl in case of odl-compute and non-pseudo-agent port binding
+* Change import statement to not rename the module
+* alembic: db migration fails
+* OpenStack Networking-SFC driver for OpenDaylight
+* Updated from global requirements
+* Journal recovery release notes added
+* Full sync release notes added
+* Maintenace thread release notes added
+* Modify the "create" and "update" method in lbaas driver\_v2
+* Release notes for psuedo agent port binding
+* Add instructions to enable qos
+* Release notes for Host Config
+* Imported Translations from Zanata
+* add test\_migrations test
+* tox: use ostestr
+* stop doing any magic cloning of neutron during CI
+* devstack: exclude tests that uses ssh
+* bug/1614766 work around
+* Wrapper method for client#sendjson
+* Bug 1608659 - pseudo\_agentdb\_binding AttributeError
+* transparent\_vlan support
+* trivial fix
+* devstack: call odl-ovs-hostconfig conditionally
+* Remove dependency from neutron and move main() to the end
+* Improve README
+* journal: filter.py: AttributeError: 'NoneType'
+* Fix typo in DB migration script
+* journal: created\_at of second is too coarse
+* Enable release notes translation
+* Updated from global requirements
+* devstack: setup hostconfig on compute node
+* Cloud admin script auto-config hostconfig defaults
+* Fix a typo in documentation
+* Add E123,E125 check and Solve several problems
+* Add Apache 2.0 license to source file
+* Fix a typo in override-defaults
+* Updated from global requirements
+* remove add/remove router interface to ODL
+* Updated from global requirements
+* Include alembic migrations in module
+* security group rule: convert unknown protocol name
+* Update homepage with developer documentation page
+* simplify odl release definition
+* use v2 driver for v2 test
+* rest client: move parameter check to rest client
+* update odl release definitions for Boron 0.5.0
+* Journal recovery for basic scenarios
+* unbreak test\_l3\_odl failure
+* sqlite: datetime should be second precision
+* test: journal/maintenance db clean up properly
+* test\_maintenance: cleanup looping call
+* populate json with both 'project\_id', 'tenant\_id'
+* models: use neutron\_lib.db.model\_base
+* more bug work around of Moxy bug of 475475
+* Sync Security Groups and SG Rules before other resources
+* journal.record should use callers plugin context
+* Revert "Temporary fix for gate"
+* tests/unit: consolidate journal db setup logic
+* Add qos extension to devstack override defaults
+* Temporary fix for gate
+* Treat ODL's 404 hostconfigs, as an empty list On pseudo agent db, when odl response with 404 not\_found for hostconfigs, treat it as an empty list rather then an error. Issue a debug log in this flow
+* ml2 v1 driver: work around full\_sync
+* Updated from global requirements
+* nuke lbaasv1 driver
+* devstack: make NEXUSPATH configurable
+* ODL QoS driver of v1 Type
+* Pass OptGroup variable for RequiredOptError
+* Remove reference to neutron.i18n
+* Fix the members name in OpenDaylightLbaasDriverV2
+* Change the OpenDaylightManager url\_path
+* wrap\_db\_retry: retry\_on\_request was deprecated
+* add the synchronization between neutron and ODL in driver\_v1
+* use carbon snapshot as default odl-release
+* devstack: add carbon snapshot to odl-releases
+* Enable DeprecationWarning in test environments
+* test\_pseudo\_agentdb\_binding.py: adopt neutron\_lib
+* journal: port::securitygroup needs only ids
+* db: add Mitaka tag for alembic migration revisions
+* devstack: refactor ODL\_L3 logic depending on used feature
+* Revert "devstack: setup hostconfig in ovsdb"
+* Updated from global requirements
+* pseudo agent, devstack: hostconf\_uri is set to ''
+* Run set\_ovs\_hostconfigs as root with neutron-utils
+* devstack:ovsdbd doesn't understand localhost
+* Add Python 3.5 classifier and venv
+* pseudo agent fails to load with unit test
+* devstack: remove the definition of lithium snapshot
+* devstack: setup hostconfig in ovsdb
+* legacy\_port\_binding: teach VNIC type
+* pep8, unittest: unbreak gate failure
+* tox: add doc8 check
+* devstack: the definition of beryllium snapshot 0.4.4
+* devstack: add definition of beryllium SR3
+* devstack: add more gate jobs
+* settings.odl: eliminate 0.4.2-snapshot which was deleted
+* Add releasenotes support with reno
+* various update for tox.ini
+* devstack: configurable ODL repositories paths
+* devstack: add specific ODL snapshot functionality
+* devstack: allow to enable v2 driver
+* devstack: remove beryllium snapshot 0.4.2
+* devstack: load neutron-northbound-service first
+* refactor odl-release definition
+* Replace assertEqual(None, \*) with assertIsNone in tests
+* Remove discover from test-requirements
+* Fix bug in call to get\_network - missing network\_id param
+* devstack: remove optional bridge configuration
+* Fix the order of arguments in assertEqual
+* Support for ovs-dpdk, vpp in port binding
+* Updated from global requirements
+* fix \_enrich\_port() to return the modified "data"
+* Add name property to ENUM type
+* Fix devstack README indentation
+* Corrects pep8 failure in set\_ovs\_hostconfigs.py
+* Add \_\_ne\_\_ built-in function
+* Fix tox unit test issue
+* Switch-agnostic ODL port binding controller
+* Add Spec for QoS driver
+* Adding Host Config doc
+* devstack: support bridge configuration, for vpnservice-openstack
+* make dependency validator dynamically registerable
+* create dir, doc/specs, for spec
+* Updated from global requirements
+* Fix db error when running python34 Unit tests
+* adopt neutron\_lib for constants and exceptions
+* Remove unused Params
+* Fixed test\_mechanism\_odl.py due to functions map deprecation in ML2
+* Full Sync for L3 resources
+* Add a hook for test debug
+* more bug work around of Java MOXy bug of 475475
+* Use already defined constants
+* Revert "Workaround to fix gate py27 and py34 issue."
+* Spec for journal recovery
+* Updated from global requirements
+* drop unnecessary exec permission
+* Refactor SG callbacks
+* beryllium SR2 definition
+* Simplify filtering logic
+* ODL v2: Full sync resources
+* Complete port details by journal instead of mech driver
+* [Trivial Fix] Correct log.debug() format
+* Add cleanup operation to maintenance thread
+* Journal entries can get stuck forever causing busy wait
+* Add journal maintenance thread
+* Updated from global requirements
+
+2.0.0
+-----
+
+* Provide driver in ODL for L2Gateway
+* Workaround to fix gate py27 and py34 issue
+* Switch to using hacking checks from neutron-lib
+* Fix race between event write and thread processing
+* ODL v2: Fix delay in sync pending rows
+* move beryllium snapshot to 4.2 from 4.1
+* Clean up odl releases definition
+* Remove useless argument
+* Reduce update db row code duplication
+* Service Function Chaining Driver for OpenDaylight
+* correct config help message format
+* Updated from global requirements
+* Make port binding implementation configurable
+* Fix journal row locking
+* ODL v2: Fix multiple updates race
+* Reduce dependency validations code duplication
+* Replace operation magic strings by constants
+* Move validations to seperate module
+* Moved to package networking\_odl.journal
+* tox.ini: show-source and ignore in hacking are unnessary
+* Fix N231 error about '\_' using with \_i18n lib
+* devstack: allow to override ML2\_L3\_PLUGIN
+* Preserve existing environment when adding JAVA ppa
+* Reduce test code duplication
+* devstack: add odl beryllium 0.4.1 SR1 definition
+* devstack: remove stale snapstho definition
+* devstack: refactor release definition
+* Remove unused method
+* devstack: switch default odl version to beryllium snapshot
+* ODL v2: Improve L3 validation
+* Install OpenJDK using yum\_install
+* No need to convert mac address to upper case anymore
+* Install networking-odl in develop mode
+* Cleanup unused oslo-incubator code
+* devstack:  release definition for lithium 0.3.4-SR4 and 0.3.5 snapshot
+* Migrate to oslo.context from Oslo incubator
+* Select current java by setting PATH variable
+* Setup using the last Oracle JDK 8
+* Prevent unit tests from accidentally connecting to OpenDaylight
+* Introduce security group callback PRECOMMIT functionality
+* Improve validation in the V2 mechanism driver
+* ODL v2: Security Group support
+* Revert "bug work around of bug #1545218"
+* devstack: add odl release definition for lithium 0.3.4 snapshot
+* Pass all tests with Python 3.4 and Tox
+* ODL v2: Assign row back to pending after validation failure
+* devstack: add definition of lithium SR[123]
+* Fix the coverage issue
+* devstack/settings.odl: document definitions of new release/snapshot
+* Fix link address typo error in beryllium-0.4.0
+* Lightweight testing to test neutron/networking-odl without ODL
+* Q\_ML2\_PLUGIN\_MECHANISM\_DRIVERS should not always be overrode
+* devstack: add odl release definition for Beryllium 0.4.1 snapshot
+* Nit: Occurances of Openstack
+* bug work around of Java MOXy bug of 475475
+* bug work around of bug #1545218
+* devstack: add odl release definition for Beryllium release
+* devstack: add odl release definition for boron snapshot
+* Opendaylight L3 service plugin refactor to handle out of sync issues
+* Timestamps out of sync in the V2 driver
+* Move the IP address from physical interface to the OVS physical bridge
+* Enable vhost-user ports on supported platforms
+* Show text of response message when failed
+* Improve Testing.rst
+* add snapshots to the list of directories that need to be removed
+* Updated from global requirements
+* floatingip's status doesn't change on disassociation
+* drop unnecessary executable permission
+* mock shouldn't return global value
+* Add rally-jobs directory
+* Add fixed\_ips fields to update port operation
+* mech\_driver: don't send post request to create none resource
+* Instance creation fails with the new V2 driver
+* drop unnecessary executable permission
+* devstack: use odl lithium snapshot 0.3.3 instead of 0.3.1
+* devstack: make odl logging friendly for gate job
+* Allow skipping installation of Open vSwitch
+* Fix the typo in message correctly
+* Fix the format of README.rst for devstack
+* Reinstate PUBLIC\_BRIDGE as a way of adding interface to PUBLIC\_BRIDGE
+* Correct typo in comment
+* ODL internal error with allowed\_address\_pairs
+* Update Oracle's JDK url to 1.8.0\_66
+* Pass environment variable of proxy to tox
+* Fix the odl-router entry point
+* Don't use install\_package when handling failures
+* Use existing java env
+* Add ODL\_OVS\_MANAGERS to support clustering
+* Use ODL Provider Mappings to instruct ODL to add port to bridges
+* Detect and setup required java version in devstack
+* Use ODL stable/lithium (aka SR3) by default
+* Updated from global requirements
+* OpenDaylightTestCase replaces sendjson permenently instead of mock
+* Fix up issues after decomposition
+* Opendaylight driver refactor to handle out of sync issues
+* Correct the developers guide link
+* Decompose mechanism driver out of neutron completely
+* Add ODL\_BOOT\_WAIT\_URL to odl-releases/beryllium-snapshot-0.4.0
+* Update import oslo\_serialization/utils for config-ref generation
+* remove unnecessary use\_stderr=True in \_\_init\_\_.py
+* Update import of oslo.config
+* db: prepare scripts for subproject db tables
+* make tempest.api.network.test\_extensions.ExtensionsTestJSON pass
+* tox.ini: Fix cover by giving the source directory explicitly
+* .coveragerc: Fix paths
+* Stale OF entries retained in br-int
+* client: consolidate odl client creation
+* Change ignore-errors to ignore\_errors
+
+1.0.1
+-----
+
+* requirements: Move neutron requirement into tox.ini
+
+1.0.0
+-----
+
+* Updated from global requirements
+* update the args when init SubnetContext obj
+* odl client: gracefully ignore 404 when deleting
+* mark out-of-sync when failure in sync\_from\_callback
+* Updated from global requirements
+* l3\_odl: put request for remove\_interface, not delete
+* Support delegation of bind\_port to networking-odl backend driver
+* Tweak CI configuration a bit
+* Make ODL\_NETVIRT\_DEBUG\_LOGS disabled by default, enabled in pre\_test\_hook.sh
+* Updated from global requirements
+* Switch to using Opendaylight L3 in the gate
+* Major overhaul of plugin.sh and ODL settings
+* Fix unit tests
+* Remove quantum untracked files from .gitignore
+* Corrected URL information
+* py34: Add support for python34 jobs
+* Updated from global requirements
+* Updated from global requirements
+* Misc fixes for networking ODL in devstack
+* Wipe out the journal directory, in addition to data directory
+* Use url to check if ODL is fully initialized
+* mech\_driver: full\_sync uses unrelated context for resources
+* Updated from global requirements
+* IS\_GATE should be disabled by default, set to True in devstack/pre\_test\_hook.sh
+* workaround: l3 plugin misses dvr\_deletens\_if\_no\_port method
+* lbaas: Fix incorrect url path
+* l3\_odl: delete\_router results in exception
+* requirements: Move neutron-[fwaas,lbaas] requirement into tox.ini
+* define ODL\_NAME unconditionally
+* Add Beryllium and Lithium Stable support
+* Adding unittest for l3 to create,remove,update a router, a floatingip and an interface
+* devstack: Add devstackgaterc file
+* Overhaul pre\_test\_hook
+* Updated from global requirements
+* Updated from global requirements
+* Refactoring post infra changes
+* Bug 1466917: Explicitly set link up PUBLIC\_INTERFACE after br-ex add
+* Update version for Liberty
+
+1.0.0a0
+-------
+
+* We should whitelist bash rather than sh
+* Add pre\_test\_hook.sh script
+* Replace stackforge with openstack
+* Be kind, and tell us where it went wrong if you please
+* Add capability to save more than 10 logfiles per CI run
+* Updated from global requirements
+* mech\_driver: don't pass empty string as tenant\_id to ODL
+* Update .gitreview file for project rename
+* Send mtu and vlan\_transparent for network operations
+* Give the JVM more juice
+* Add logic to pass sg and sg-rules to ODL
+* Use latest Lithium daily build, move ODL\_NETVIRT\_KARAF\_FEATURE
+* Get upstream CI job working
+* devstack: unzip -u may wait for user input
+* devstack/settings.odl: syntax error
+* import error by l3\_odl
+* devstack: OFFLINE=True is ignored
+* install\_opendaylight: eliminate unused local variable, \_pwd
+* Make karaf file available as log artifact
+* Use latest Helium from daily build instead of unstable Lithium
+* De-clutter plugin.sh from release specific logic
+* Add create br-ex in odl\_compute nodes
+* Use ODL\_RELEASE instead of version number to determine release
+* Fix setting up of ODL package variables
+* Update version to 2015.1.2 to make pbr happy
+* Add logic to use the latest Lithium release
+* Revert "Add logic to pass sg and sg-rules to ODL"
+* Fix incorrect add/remove router\_interface calls
+* Add logic to pass sg and sg-rules to ODL
+* Add an example local.conf
+* Expose Karaf feature used by Opendaylight's net-virt
+* Send router\_interface add/remove calls to ODL
+* Switch from neutron.common.log.log to oslo\_log.helpers.log\_method\_call
+* Fix broken unit tests for networking-odl
+
+2015.1.1
+--------
+
+* Add instructions for configuring LBaaS V2 with ODL
+* First cut at LBaaS V2 driver for ODL
+* Remove session\_timeout parameter
+* Add new LBaaS V2 API shim
+* Bump version to 2015.1.1
+* Update to distribution-karaf-0.2.3-Helium-SR3
+* Add unit tests for L3, LBaaS, and FWaaS
+* Update L3, LBaaS, and FWaaS code
+* Remove vlan\_transparent and mtu for network APIs
+* Correct test\_update\_port\_mac test
+* Sync the latest oslo incubated libraries and use oslo.log
+* Revert "Limit the tempest tests we run"
+* Update ODL port logic to work with Lithium (cont.)
+* Limit the tempest tests we run
+* Update ODL port logic to work with Lithium
+* Wipe out the data directory
+* Allow the java memory parameters to be configurable
+* Fix karaf logging
+* Fix the check/merge jobs for ODL
+* Update oslotest version in test-requirements.txt
+* Fix documentation files
+* Few corrections in devstack/settings in networking-odl
+* Use git.openstack.org URL in devstack README
+* Fix plugin.sh to handle OFFLINE=True mode
+* Add odl-router entrypoint
+* ODL\_MODE for plugin settings
+* Use HTTP BASIC AUTH exclusively (no longer use JSESSIONID)
+* Add pluggable devstack for networking-odl
+* Fix oslo imports
+* Use in-module ODL driver
+* Fix the syntax of the cache module
+* This adds existing L3, LBaas and FWaaS drivers
+* Re-enable check for @author tag
+* Bump hacking and allow author tags
+* Fix unit tests for networking-odl
+* Thin networking-odl driver
+* Establish a successful baseline for CI jobs
+* Fixups post split commit
+* Rename module
+* Updated from global requirements
+* Move classes out of l3\_agent.py
+* Prettify tox output for functional tests
+* Services split, pass 2
+* Remove TODO for H404
+* Updated from global requirements
+* Use comments rather than no-op string statements
+* Workflow documentation is now in infra-manual
+* tox.ini: Prevent casual addition of bash dependency
+* Updated from global requirements
+* Get rid of py26 references: OrderedDict, httplib, xml testing
+* Updated the README.rst
+* pretty\_tox.sh: Portablity improvement
+* test\_dhcp\_agent: Fix no-op tests
+* Enable undefined-loop-variable pylint check
+* Fix incorrect exception order in \_execute\_request
+* Migrate to oslo.i18n
+* Migrate to oslo.middleware
+* Migrate to oslo.utils
+* Remove Python 2.6 classifier
+* Remove ryu plugin
+* Updated from global requirements
+* Show progress output while running unit tests
+* enable H401 hacking check
+* enable H237 check
+* Updated from global requirements
+* Updated from global requirements
+* Update i18n translation for neutron.agents log msg's
+* enable F812 check for flake8
+* enable F811 check for flake8
+* Support pudb as a different post mortem debugger
+* switch to oslo.serialization
+* Add rootwrap filters for ofagent
+* Remove openvswitch core plugin entry point
+* Updated from global requirements
+* Use correct base class for unit tests for ML2 drivers
+* Updated from global requirements
+* enable F402 check for flake8
+* enable E713 in pep8 tests
+* Hyper-V: Remove useless use of "else" clause on for loop
+* Enable no-name-in-module pylint check
+* Updated from global requirements
+* Remove duplicate import of constants module
+* Switch run-time import to using importutils.import\_module
+* Enable assignment-from-no-return pylint check
+* tox.ini: Avoid using bash where unnecessary
+* Empty files should not contain copyright or license
+* Remove single occurrence of lost-exception warning
+* Updated fileutils and its dependencies
+* remove E251 exemption from pep8 check
+* mock.assert\_called\_once() is not a valid method
+* Add pylint tox environment and disable all existing warnings
+* Updated from global requirements
+* Ignore top-level hidden dirs/files by default
+* Remove some duplicate unit tests
+* Drop sslutils and versionutils modules
+* Removed kombu from requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove sslutils from openstack.common
+* remove linuxbridge plugin
+* Open Kilo development
+* Implement ModelsMigrationsSync test from oslo.db
+* Fix entrypoint of OneConvergencePlugin plugin
+* Set dsvm-functional job to use system packages
+* Separate Configuration from Freescale SDN ML2 mechanism Driver
+* Remove @author(s) from copyright statements
+* Stop ignoring 400 errors returned by ODL
+* Updated from global requirements
+* Adds ipset support for Security Groups
+* Add requests\_mock to test-requirements.txt
+* Removed kombu from requirements
+* Supply missing cisco\_cfg\_agent.ini file
+* Updated from global requirements
+* Work toward Python 3.4 support and testing
+* Revert "Cisco DFA ML2 Mechanism Driver"
+* Big Switch: Separate L3 functions into L3 service
+* Remove reference to cisco\_cfg\_agent.ini from setup.cfg again
+* Adds router service plugin for CSR1kv
+* Support for extensions in ML2
+* Cisco DFA ML2 Mechanism Driver
+* Adding mechanism driver in ML2 plugin for Nuage Networks
+* Fix state\_path in tests
+* Remove ovs dependency in embrane plugin
+* Use lockutils module for tox functional env
+* Updated from global requirements
+* Add unit tests covering single operations to ODL
+* Add specific docs build option to tox
+* Fix bigswitch setup.cfg lines
+* Remove auto-generation of db schema from models at startup
+* Updated from global requirements
+* Use jsonutils instead of stdlib json
+* Opencontrail plug-in implementation for core resources
+* Add delete operations for the ODL MechanismDriver
+* Add a tox test environment for random hashseed testing
+* Updated from global requirements
+* Remove reference to cisco\_cfg\_agent.ini from setup.cfg
+* Removed configobj from test requirements
+* Updated from global requirements
+* Functional tests work fine with random PYTHONHASHSEED
+* Set python hash seed to 0 in tox.ini
+* Configuration agent for Cisco devices
+* Updated from global requirements
+* ML2 mechanism driver for SR-IOV capable NIC based switching, Part 2
+* This patch changes the name of directory from mech\_arista to arista
+* ML2 mechanism driver for SR-IOV capable NIC based switching, Part 1
+* Allow to import \_LC, \_LE, \_LI and \_LW functions directly
+* Make readme reference git.openstack.org not github
+* Bump hacking to version 0.9.2
+* Use auth\_token from keystonemiddleware
+* Remove reference to setuptools\_git
+* Add a gate-specific tox env for functional tests
+* Add CONTRIBUTING.rst
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Fix example for running individual tests
+* Switch to using of oslo.db
+* remove unsupported middleware
+* Add config for performance gate job
+* Synced log module and its dependencies from olso-incubator
+* don't ignore rules that are already enforced
+* Updated from global requirements
+* Updated from global requirements
+* ofagent: move main module from ryu repository
+* Remove the useless vim modelines
+* Removed 'rpc' and 'notifier' incubator modules
+* Use openstack.common.lockutils module for locks in tox functional tests
+* Port to oslo.messaging
+* Updated from global requirements
+* Ignore emacs checkpoint files
+* Added missing core\_plugins symbolic names
+* remove pep8 E122 exemption and correct style
+* remove E112 hacking exemption and fix errors
+* Updated from global requirements
+* Freescale SDN Mechanism Driver for ML2 Plugin
+* Remove run-time version checking for openvswitch features
+* Added missing plugin .ini files to setup.cfg
+* Updated from global requirements
+* Synced jsonutils from oslo-incubator
+* Cisco APIC ML2 mechanism driver, part 2
+* NSX: get rid of the last Nicira/NVP bits
+* Allow vlan type usage for OpenDaylight ml2
+* Add missing translation support
+* Add mailmap entry
+* Ensure core plugin deallocation after every test
+* Updated from global requirements
+* Remove explicit dependency on amqplib
+* Remove duplicate module-rgx line in .pylintrc
+* Fix H302 violations
+* Updated from global requirements
+* Improve ODL ML2 Exception Handling
+* Updated from global requirements
+* Exclude .ropeproject from flake8 checks
+* Enable flake8 E711 and E712 checking
+* Enforce required config params for ODL driver
+* Updated from global requirements
+* Sync service and systemd modules from oslo-incubator
+* Move bash whitelisting to pep8 testenv
+* ML2: ODL driver sets port status
+* Fix Jenkins translation jobs
+* ignore build directory for pep8
+* Enable hacking H301 check
+* Updated from global requirements
+* Remove last parts of Quantum compatibility shim
+* Open Juno development
+* Start using oslosphinx theme for docs
+* Updated from global requirements
+* ML2: Remove validate\_port\_binding() and unbind\_port()
+* add HEAD sentinel file that contains migration revision
+* Bugfix and refactoring for ovs\_lib flow methods
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* One Convergence Neutron Plugin l3 ext support
+* One Convergence Neutron Plugin Implementation
+* BigSwitch: Add SSL Certificate Validation
+* Updated from global requirements
+* Add OpenDaylight ML2 MechanismDriver
+* Implementaion of Mechanism driver for Brocade VDX cluster of switches
+* Implement Mellanox ML2 MechanismDriver
+* Implement OpenFlow Agent mechanism driver
+* Finish off rebranding of the Nicira NVP plugin
+* BigSwitch: Add agent to support neutron sec groups
+* Adds the new IBM SDN-VE plugin
+* Updated from global requirements
+* Developer documentation
+* Rename Neutron core/service plugins for VMware NSX
+* Updated from global requirements
+* Sync minimum requirements
+* Copy cache package from oslo-incubator
+* Remove dependent module py3kcompat
+* Add migration support from agent to NSX dhcp/metadata services
+* Remove psutil dependency
+* LBaaS: move agent based driver files into a separate dir
+* mailmap: update .mailmap
+* Return request-id in API response
+* Prepare for multiple cisco ML2 mech drivers
+* Support building wheels (PEP-427)
+* Use oslo.rootwrap library instead of local copy
+* Enables BigSwitch/Restproxy ML2 VLAN driver
+* Add an explicit tox job for functional tests
+* Base ML2 bulk support on the loaded drivers
+* Enable hacking H233 rule
+* Update RPC code from oslo
+* Configure plugins by name
+* Update lockutils and fixture in openstack.common
+* Rename nicira configuration elements to match new naming structure
+* Remove unused imports
+* Rename check\_nvp\_config utility tool
+* Corrects broken format strings in check\_i18n.py
+* Updates tox.ini to use new features
+* Updated from global requirements
+* Sync global requirements to pin sphinx to sphinx>=1.1.2,<1.2
+* Add fwaas\_driver.ini to setup.cfg
+* Add vpnaas and debug filters to setup.cfg
+* Updates .gitignore
+* Update Zhenguo Niu's mailmap
+* Replace stubout with fixtures
+* Ensure get\_pid\_to\_kill works with rootwrap script
+* Updated from global requirements
+* Cleanup HACKING.rst
+* Fix import log\_handler error with publish\_errors set
+* Updated from global requirements
+* Updated from global requirements
+* Cleanup and make HACKING.rst DRYer
+* Add support for managing async processes
+* Remove obsolete redhat-eventlet.patch
+* Open Icehouse development
+* Updated from global requirements
+* Require oslo.config 1.2.0 final
+* Use built-in print() instead of print statement
+* Add l2 population base classes
+* Fix message i18n error
+* Install metering\_agent.ini and vpn\_agent.ini
+* fix conversion type missing
+* Enclose command args in with\_venv.sh
+* ML2 Mechanism Driver for Cisco Nexus
+* Reference driver implementation (IPsec) for VPNaaS
+* Implement ML2 port binding
+*  Arista ML2 Mechanism driver
+* ML2 Mechanism Driver for Tail-f Network Control System (NCS)
+* Default to not capturing log output in tests
+* Add Neutron l3 metering agent
+* Update mailmap
+* Fix wrong example in HACKING.rst
+* Bumps hacking to 0.7.0
+* remove binaries under bin
+* Fixes Windows setup dependency bug
+* Restore Babel to requirements.txt
+* Remove DHCP lease logic
+* Remove last vestiges of nose
+* Updated from global requirements
+* Ignore pbr\*.egg directory
+* Fix H102, H103 Apache 2.0 license hacking check error
+* Remove openstack.common.exception usage
+* Adds Babel dependency missing from 555d27c
+* Fix the alphabetical order in requirement files
+* Remove comments from requirements.txt (workaround pbr bug)
+* remove netifaces dependency of ryu-agent
+* Add gre tunneling support for the ML2 plugin
+* Add VXLAN tunneling support for the ML2 plugin
+* xenapi - rename quantum to neutron
+* Fix issue with pip installing oslo.config-1.2.0
+* Initial Modular L2 Mechanism Driver implementation
+* Add cover/ to .gitignore
+* fix some missing change from quantum to neutron
+* git remove old non-working packaging files
+* Rename Quantum to Neutron
+* Rename quantum to neutron in .gitreview
+* Sync install\_venv\_common from oslo
+* Update to use OSLO db
+* Require greenlet 0.3.2 (or later)
+* Remove single-version-externally-managed in setup.cfg
+* Fix single-version-externally-mananged typo in setup.cfg
+* Allow use of lowercase section names in conf files
+* Require pbr 0.5.16 or newer
+* Update to the latest stevedore
+* Rename agent\_loadbalancer directory to loadbalancer
+* Remove unit tests that are no longer run
+* Update with latest OSLO code
+* Remove explicit distribute depend
+* Fix and enable H90x tests
+* Remove generic Exception when using assertRaises
+* Add \*.swo/swp to .gitignore
+* python3: Introduce py33 to tox.ini
+* Rename README to README.rst
+* Rename requires files to standard names
+* Initial Modular L2 plugin implementation
+* Revert dependency on oslo.config 1.2.0
+* Perform a sync with oslo-incubator
+* Require oslo.config 1.2.0a2
+* update mailmap
+* Revert "Fix ./run\_tests.sh --pep8"
+* Move to pbr
+* Docstrings formatted according to pep257
+* relax amqplib and kombu version requirements
+* Fix ./run\_tests.sh --pep8
+* blueprint mellanox-quantum-plugin
+* Update flake8 pinned versions
+* Let the cover venv run individual tests
+*  Copy the RHEL6 eventlet workaround from Oslo
+* Remove locals() from strings substitutions
+* Enable automatic validation of many HACKING rules
+* Shorten the path of the nicira nvp plugin
+* Allow pdb debugging in manually-invoked tests
+* Reformat openstack-common.conf
+* Switch to flake8 from pep8
+* Parallelize quantum unit testing:
+* blueprint cisco-single-config
+* Add lbaas\_agent files to setup.py
+* Add VIRTUAL\_ENV key to enviroment passed to patch\_tox\_env
+* Pin SQLAlchemy to 0.7.x
+* Sync latest Oslo components for updated copyright
+* drop rfc.sh
+* Replace "OpenStack LLC" with "OpenStack Foundation"
+* First havana commit
+* remove references to netstack in setup.py
+* Switch to final 1.1.0 oslo.config release
+* Update to Quantum Client 2.2.0
+* Update tox.ini to support RHEL 6.x
+* Switch to oslo.config
+* Add common test base class to hold common things
+* Pin pep8 to 1.3.3
+* Add initial testr support
+* LBaaS Agent Reference Implementation
+* Bump python-quantumclient version to 2.1.2
+* Add scheduling feature basing on agent management extension
+* Remove compat cfg wrapper
+* Unpin PasteDeploy dependency version
+* Use testtools instead of unittest or unittest2
+* Add midonet to setup.py
+* Sync latest install\_venv\_common.py with olso
+* Add check-nvp-config utility
+* Add unit test for ryu-agent
+* Use oslo-config-2013.1b3
+* Adds Brocade Plugin implementation
+* Synchronize code from oslo
+* PLUMgrid quantum plugin
+* Update .coveragerc
+* Allow tools/install\_venv\_common.py to be run from within the source directory
+* Updated to latest oslo-version code
+* Use install\_venv\_common.py from oslo
+* Cisco plugin cleanup
+* Use babel to generate translation file
+* Update WebOb version to >=1.2
+* Update latest OSLO
+* Adding multi switch support to the Cisco Nexus plugin
+* Adds support for deploying Quantum on Windows
+* Latest OSLO updates
+* Port to argparse based cfg
+* Add migration support to Quantum
+* Undo change to require WebOb 1.2.3, instead, require only >=1.0.8
+* .gitignore cleanup
+* Upgrade WebOb to 1.2.3
+* Logging module cleanup
+* Add OVS cleanup utility
+* Add tox artifacts to .gitignore
+* Add restproxy.ini to config\_path in setup.py
+* Add script for checking i18n message
+* l3 agent rpc
+* Add metadata\_agent.ini to config\_path in setup.py
+* Remove \_\_init\_\_.py from bin/ and tools/
+* add metadata proxy support for Quantum Networks
+* Use auth\_token middleware in keystoneclient
+* Add QUANTUM\_ prefix for env used by quantum-debug
+* Make tox.ini run pep8 checks on bin
+* Explicitly include versioninfo in tarball
+* Import lockutils and fileutils from openstack-common
+* Updated openstack-common setup and version code
+* Ensure that the anyjson version is correct
+* Add eventlet\_backdoor and threadgroup from openstack-common
+* Add loopingcall from openstack-common
+* Added service from openstack-common
+* Drop lxml dependency
+* Add uuidutils module
+* Import order clean-up
+* pin sqlalchemy to 0.7
+* Correct Intended Audience
+* Add OpenStack trove classifier for PyPI
+* Improve unit test times
+* l3\_nat\_agent was renamed to l3\_agent and this was missed
+* Support for several HA RabbitMQ servers
+* add missing files from setup.py
+* Create .mailmap file
+* Lower webob dep from v1.2.0 to v1.0.8
+* Implements agent for Quantum Networking testing
+* Create utility to clean-up netns
+* Update rootwrap; track changes in nova/cinder
+* Execute unit tests for Cisco plugin with Quantum tests
+* Add lease expiration script support for dnsmasq
+* Add nosehtmloutput as a test dependency
+* quantum l3 + floating IP support
+* Updates pip requirements
+* NEC OpenFlow plugin support
+* remove old gflags config code
+* RPC support for OVS Plugin and Agent
+* Initial implemention of MetaPlugin
+* RPC support for Linux Bridge Plugin and Agent
+* Exempt openstack-common from pep8 check
+* fix bug lp:1025526,update iniparser.py to accept  empty value
+* Introduce files from openstack common
+* fix bug lp:1019230,update rpc from openstack-common
+* implement dhcp agent for quantum
+* Use setuptools git plugin for file inclusion
+* Remove paste configuration details to a seperate file. blueprint use-common-cfg
+* Implements the blueprint use-common-cfg for the quantum service. More specifically uses global CONF for the quantum.conf file
+* Add authZ through incorporation of policy checks
+* Bug #1013967 - Quantum is breaking on tests with pep 1.3
+* Use openstack.common.exception
+* API v2: mprove validation of post/put, rename few attributes
+* Add API v2 support
+* Fix up test running to match jenkins expectation
+* Add build\_sphinx options
+* Quantum should use openstack.common.jsonutils
+* Remove hardcoded version for pep8 from tools/test-requires
+* Quantum should use openstack.common.importutils
+* PEP8 fixes
+* Bug #1002605
+* Parse linuxbridge plugins using openstack.common.cfg
+* Add HACKING.rst to tarball generation bug 1001220
+* Include AUTHORS in release package
+* Change Resource.\_\_call\_\_() to not leak internal errors
+* Removed simplejson from pip-requires
+* Remove dependency on python-quantumclient
+* Add sphinx to the test build deps
+* Add HACKING.rst coding style doc
+* bug 963152: add a few missing files to sdist tarball
+* Fix path to python-quantumclient
+* Split out pip requires and aligned tox file
+* Fix missing files in sdist package [bug 954906]
+* Downgraded required version of WebOb to 1.0.8
+* more files missing in sdist tarball
+* make sure pip-requires is included in setup.py sdist
+* remove pep8 and strict lxml version from setup.py
+* plugin: introduce ryu plugin
+* bug 934459: pip no longer supports -E
+* blueprint quantum-ovs-tunnel-agent
+* Initial commit: nvp plugin
+* Cleanup the source distribution
+* blueprint quantum-linux-bridge-plugin
+* Remove quantum CLI console script
+* Bug 925372: remove deprecated webob attributes (and also specify stable webob version in pip-requires)
+* Make tox config work
+* Pin versions to standard versions
+* Split out quantum.client and quantum.common
+* Quantum was missing depend on lxml
+* moving batch config out of quantum-server repo
+* Getting ready for the client split
+* Removed erroneous print from setup.py
+* Base version.py on glance
+* Fix lp bug 897882
+* Install a good version of pip in the venv
+* Rename .quantum-venv to .venv
+* Remove plugin pip-requires
+* Bug #890028
+* Fix for bug 900316
+* Second round of packaging changes
+* Changes to make pip-based tests work with jenkins
+* Fix for bug 888811
+* Fix for Bug #888820 - pip-requires file support for plugins
+* blueprint quantum-packaging
+* Add .gitreview config file for gerrit
+* Add code-coverage support to run\_tests.sh (lp860160)
+
+2011.3
+------
+
+* Add rfc.sh to help with gerrit workflow
+* merge tyler's unit tests for cisco plugin changes lp845140
+* merge salv's no-cheetah CLI branch lp 842190
+* merge sumit's branch for lp837752
+* Merging latest from lp:quantum
+* Merging lo:~salvatore-orlando/quantum/quantum-api-auth
+* Updating CLI for not using Cheetah anymore. Now using a mechanism based on Python built-in templates
+* Merging Sumit's changes including fixes for multinic support, and CLI module for working with extensions
+* Merging from Cisco branch
+* Merging from lp:quantum
+* merge cisco consolidated plugin changes
+* Merging lp:~salvatore-orlando/quantum/bug834449
+* merge trunk
+* Merging from lp:quantum
+* merge salvatore's new cli code
+* Addressing comments from Dan
+* Merging from quantum
+* merge cisco extensions branch
+* Merging from Sumit's branch, changes to VIF-driver and Scheduler; extension action names have been changed in response to Salvatore's review comments in the extensions branch review
+* Syncing with Cisco extensions branch
+* Merging from Sumit's branch, import ordering related changes
+* Merging the Cisco branch
+* Finishing cli work Fixing bug with XML deserialization
+* Merging lp:~salvatore-orlando/quantum/quantum-api-alignment
+* merge latest quantum branch and resolve conflicts
+* Merging lp:~asomya/quantum/lp833163 Fix for Bug #833163: Pep8 violations in recent packaging changes that were merged into trunk (Critical)
+* PEP8 fixes for setup.py
+* Merging lp:~cisco-openstack/quantum/802dot1qbh-vifdriver-scheduler
+* Merging lp:~cisco-openstack/quantum/l2network-plugin-persistence
+* Merging lp:quantum
+* merging with lp:quantum
+* Making Keystone version configurable
+* Merging branch: lp:~danwent/quantum/test-refactor
+* Syncing with lp:quantum
+* Merging fixes and changes batch-config script. Thanks lp:danwent !
+* Merging lp:~asomya/quantum/lp824145 Fix for Bug#824145 : Adding a setup script for quantum
+* merge trunk pep8 fixes adapting CLI to API v1.0 Fixing wsgi to avoid failure with extensions
+* merge trunk
+* Pulling in changes from lp:quantum
+* Merging Cisco's contribution to Quantum. Thanks to various folks at Cisco Systems, Quantum will have plugins to integrate with Cisco UCS blade servers using 802.1Qbh, Cisco Nexus family of switches and the ability for Quantum plugin to have multiple switches/devices within a single Quantum plugin
+* Merging from Sumit's branch pylint fixes and incorporating review comments
+* Mergin from cisco brach
+* Merging from lp:quantum
+* Introducting cheetah Updating list\_nets in CLI Writing unit tests for list\_nets Stubbing out with FakeConnection now
+* Merging quantum extenions framework into trunk. Thanks rajaram vinkesh, deepak & santhosh for the great work!
+* lp Bug#824145 : Adding a setup script for quantum
+* skeleton for cli unit tests
+* merge trunk
+* Merged quantum trunk
+* - Adding setup script
+* force batch\_config.py to use json, as XML has issues (see bug: 798262)
+* update batch\_config.py to use new client lib, hooray for deleting code
+* Merging changes addressing Bug # 802772. Thanks lp:danwent !
+* Merging bugfix for Bug 822890 - Added License file for Quantum code distribution
+* L2 Network Plugin Framework merge
+* Adding Apache Version 2.0 license file. This is the official license agreement under which Quantum code is available to the Open Source community
+* merge
+* merge heckj's pip-requires fixes
+* updates to pip-requires for CI
+* Merged quantum trunk
+* Merging changes from lp:quantum
+* Completing API spec alignment Unit tests aligned with changes in the API spec
+* Merging the brand new Quantum-client-library feature
+* Merging lp:quantum updates
+* persistence of l2network & ucs plugins using mysql - db\_conn.ini - configuration details of making a connection to the database - db\_test\_plugin.py - contains abstraction methods for storing database values in a dict and unit test cases for DB testing - l2network\_db.py - db methods for l2network models - l2network\_models.py - class definitions for the l2 network tables - ucs\_db.py - db methods for ucs models - ucs\_models.py - class definition for the ucs tables dynamic loading of the 2nd layer plugin db's based on passed arguments Create, Delete, Get, Getall, Update database methods at - Quantum, L2Network and Ucs Unit test cases for create, delete, getall and update operations for L2Network and Ucs plugins pep8 checks done branch based off revision 34 plugin-framework
+* Merged from trunk
+* merged the latest changes from plugin-framework branch - revision 39 conforming to the new cisco plugin directory structure and moving all db related modules into cisco/db folder updated db\_test\_plugin.py  - added import of cisco constants module  - added LOG.getLogger for logging component name  - updated import module paths for l2network\_models/db and ucs\_models/db to use the new directory structure  - updated (rearranged) imports section to obey openstack alphabetical placement convention updated db\_conn.ini  - updated database name from cisco\_naas to quantum\_l2network unit test cases ran successfully and pep8 checks done again
+* merge branch for to fix bug817826
+* Merging the latest changes from lp:quantum
+* fix bug 817826 and similar error in batch\_config.py
+* merge Salvatore's api branch with fixes for tests.  Tweaking branch to remove unwanted bin/quantum.py as part of merge
+* Santhosh/Rajaram|latest merge from quantum and made extensions use options to load plugin
+* Apply fix for bug #797419 merging lp:~salvatore-orlando/quantum/bug797419
+* Merging branch lp:~netstack/quantum/quantum-unit-tests
+* Merged from quantum trunk
+* Adapated plugin infrastructure to allow API to pass options to plugins Now using in-memory sqlite db for tests on FakePlugin teardown() now 'resets' the in-memory db Adding unit tests for APIs
+* Adding Routes>=1.12.3 to tools/pip-requires
+* Merging dan wendlandt's bugfixes for Bug #800466 and improvements that enable Quantum to seamlessly run on KVM!
+* more pep8 goodness
+* refactor batch\_config, allow multiple attaches with the empty string
+* merge and pep8 cleanup
+* Merging latest changes from parent repo - lp:network-service , Parent repo had approved merge proposal for merging lp:~santhom/network-service/quantum\_testing\_framework , which has now been merged into lp:network-service
+*  Merging pep8 and functional test related changes lp:~santhom/network-service/quantum\_testing\_framework branch
+* add example to usage string for batch\_config.py
+* Bug fixes and clean-up, including supporting libvirt
+* Santhosh/Vinkesh | Added the testing framework. Moved the smoketest to tests/functional
+* Pushing initial started code based on Glance project and infrstructure work done by the melange team
+* Merging in latest changes from lp:quantum

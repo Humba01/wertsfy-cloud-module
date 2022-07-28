@@ -1,0 +1,35 @@
+[neutron.agent.l2.extensions]
+taas = neutron_taas.services.taas.agents.extensions.taas:TaasAgentExtension
+
+[neutron.db.alembic_migrations]
+tap-as-a-service = neutron_taas.db.migration:alembic_migration
+
+[neutron.policies]
+tap-as-a-service = neutron_taas.policies:list_rules
+
+[neutron.service_plugins]
+taas = neutron_taas.services.taas.taas_plugin:TaasPlugin
+
+[neutron_taas.taas.agent_drivers]
+ovs = neutron_taas.services.taas.drivers.linux.ovs_taas:OvsTaasDriver
+sriov = neutron_taas.services.taas.drivers.linux.sriov_nic_taas:SriovNicTaasDriver
+
+[neutronclient.extension]
+tap_flow = neutron_taas.taas_client.tapflow
+tap_service = neutron_taas.taas_client.tapservice
+
+[openstack.neutronclient.v2]
+tap_flow_create = neutron_taas.taas_client.osc.tap_flow:CreateTapFlow
+tap_flow_delete = neutron_taas.taas_client.osc.tap_flow:DeleteTapFlow
+tap_flow_list = neutron_taas.taas_client.osc.tap_flow:ListTapFlow
+tap_flow_show = neutron_taas.taas_client.osc.tap_flow:ShowTapFlow
+tap_flow_update = neutron_taas.taas_client.osc.tap_flow:UpdateTapFlow
+tap_service_create = neutron_taas.taas_client.osc.tap_service:CreateTapService
+tap_service_delete = neutron_taas.taas_client.osc.tap_service:DeleteTapService
+tap_service_list = neutron_taas.taas_client.osc.tap_service:ListTapService
+tap_service_show = neutron_taas.taas_client.osc.tap_service:ShowTapService
+tap_service_update = neutron_taas.taas_client.osc.tap_service:UpdateTapService
+
+[oslo.policy.policies]
+tap-as-a-service = neutron_taas.policies:list_rules
+

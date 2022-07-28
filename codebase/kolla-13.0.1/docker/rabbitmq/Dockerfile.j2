@@ -1,0 +1,70 @@
+FROM {{ namespace }}/{{ infra_image_prefix }}base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block rabbitmq_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{{ macros.configure_user(name='rabbitmq') }}
+
+{{ macros.enable_extra_repos(['rabbitmq', 'erlang', 'powertools']) }}
+
+{% block rabbitmq_install %}
+{% if base_package_type == 'rpm' %}
+
+    {% set rabbitmq_packages = [
+        'hostname',
+    ] %}
+
+    {% if base_arch == 'aarch64' %}
+        {% set rabbitmq_packages = rabbitmq_packages + [
+            'erlang-22.*',
+            'rabbitmq-server-3.8.14'
+        ] %}
+    {% else %}
+        {% set rabbitmq_packages = rabbitmq_packages + [
+            'erlang-23.*',
+            'rabbitmq-server-3.8.*'
+        ] %}
+    {% endif %}
+
+{% elif base_package_type == 'deb' %}
+    {% set rabbitmq_packages = [
+        'logrotate',
+        'rabbitmq-server',
+    ] %}
+
+{% endif %}
+
+{{ macros.install_packages(rabbitmq_packages | customizable("packages")) }}
+
+{% endblock %}
+
+{% block rabbitmq_install_plugins %}
+
+RUN rm -rf /var/lib/rabbitmq/* \
+    && mkdir -p /usr/lib/rabbitmq/plugins \
+    && /usr/lib/rabbitmq/bin/rabbitmq-plugins enable --offline \
+       rabbitmq_management \
+       rabbitmq_prometheus
+
+{% endblock %}
+
+{% if docker_healthchecks %}
+{% block healthcheck_installation %}
+
+COPY healthcheck_rabbitmq /usr/local/bin/healthcheck_rabbitmq
+RUN chmod 755 /usr/local/bin/healthcheck_rabbitmq
+
+{% endblock %}
+{% endif %}
+
+COPY extend_start.sh /usr/local/bin/kolla_extend_start
+RUN chmod 755 /usr/local/bin/kolla_extend_start
+
+{% block rabbitmq_footer %}{% endblock %}
+{% block footer %}{% endblock %}
+
+USER rabbitmq

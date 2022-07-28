@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: ironic
+Version: 20.1.0
+Summary: OpenStack Bare Metal Provisioning
+Home-page: https://docs.openstack.org/ironic/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ======
+        Ironic
+        ======
+        
+        Team and repository tags
+        ------------------------
+        
+        .. image:: https://governance.openstack.org/tc/badges/ironic.svg
+            :target: https://governance.openstack.org/tc/reference/tags/index.html
+        
+        Overview
+        --------
+        
+        Ironic consists of an API and plug-ins for managing and provisioning
+        physical machines in a security-aware and fault-tolerant manner. It can be
+        used with nova as a hypervisor driver, or standalone service using bifrost.
+        By default, it will use PXE and IPMI to interact with bare metal machines.
+        Ironic also supports vendor-specific plug-ins which may implement additional
+        functionality.
+        
+        Ironic is distributed under the terms of the Apache License, Version 2.0. The
+        full terms and conditions of this license are detailed in the LICENSE file.
+        
+        Project resources
+        ~~~~~~~~~~~~~~~~~
+        
+        * Documentation: https://docs.openstack.org/ironic/latest
+        * Source: https://opendev.org/openstack/ironic
+        * Bugs: https://storyboard.openstack.org/#!/project/943
+        * Wiki: https://wiki.openstack.org/wiki/Ironic
+        * APIs: https://docs.openstack.org/api-ref/baremetal/index.html
+        * Release Notes: https://docs.openstack.org/releasenotes/ironic/
+        * Design Specifications: https://specs.openstack.org/openstack/ironic-specs/
+        
+        Project status, bugs, and requests for feature enhancements (RFEs) are tracked
+        in StoryBoard:
+        https://storyboard.openstack.org/#!/project/943
+        
+        For information on how to contribute to ironic, see
+        https://docs.openstack.org/ironic/latest/contributor
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Provides-Extra: devstack
+Provides-Extra: guru_meditation_reports
+Provides-Extra: i18n
+Provides-Extra: test

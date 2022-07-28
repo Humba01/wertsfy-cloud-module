@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+kuryr_tempest_tests = kuryr_tempest_plugin.plugin:KuryrTempestPlugin
+

@@ -1,0 +1,48 @@
+Metadata-Version: 1.2
+Name: openstack-cyborg
+Version: 8.0.0
+Summary: Distributed Acceleration Management as a Service
+Home-page: https://docs.openstack.org/cyborg/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ======
+        Cyborg
+        ======
+        
+        OpenStack Acceleration as a Service
+        
+        Cyborg provides a general management framework for accelerators such as
+        FPGA, GPU, SoCs, NVMe SSDs, CCIX caches, DPDK/SPDK, pmem  and so forth.
+        
+        * Free software: Apache license
+        * Wiki: https://wiki.openstack.org/wiki/Cyborg
+        * Source: https://opendev.org/openstack/cyborg
+        * Blueprints: https://blueprints.launchpad.net/openstack-cyborg
+        * Bugs: https://bugs.launchpad.net/openstack-cyborg
+        * Documentation: https://docs.openstack.org/cyborg/latest/
+        * Release notes: https://docs.openstack.org/releasenotes/cyborg/
+        * Design specifications: https://specs.openstack.org/openstack/cyborg-specs/
+        
+        Features
+        --------
+        
+        * REST API for basic accelerator life cycle management
+        * Generic driver for common accelerator support
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6

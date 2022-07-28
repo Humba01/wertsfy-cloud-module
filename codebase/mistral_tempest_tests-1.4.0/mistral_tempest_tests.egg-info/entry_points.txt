@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+mistral_test = mistral_tempest_tests.plugin:MistralTempestPlugin
+

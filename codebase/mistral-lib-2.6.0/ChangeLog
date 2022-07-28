@@ -1,0 +1,197 @@
+CHANGES
+=======
+
+2.6.0
+-----
+
+* [community goal] Update contributor documentation
+* setup.cfg: Replace dashes with underscores
+* Use py3 as the default runtime for tox
+* Dropping lower constraints testing
+* Update master for stable/wallaby
+
+2.4.0
+-----
+
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+2.3.0
+-----
+
+* Add more specific description to param\_spec
+* Release notes for action providers
+* Add main entities related to action providers
+
+2.2.0
+-----
+
+* drop mock from lower-constraints
+* Remove misplaced constants describing worklow task types
+* Switch to newer openstackdocstheme and reno versions
+* Remove six
+* add release-note link to README
+* Fix hacking min version to 3.0.1
+* Bump default tox env from py37 to py38
+* Add py38 package metadata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+2.1.0
+-----
+
+* Add a utility for JSON serialization
+
+2.0.0
+-----
+
+* Support getting a file list from a module that isn't mistral
+* [ussuri][goal] Cleanup python 2.7 removal
+* Remove python2 support
+* Drop py2 support and add zuul jobs
+
+1.4.0
+-----
+
+* Move inspect utils to mistral-lib
+* Fix requirements, doc
+* Update hacking and fix warning
+* Use py3 only
+* Ensure we mask sensitive data from Mistral Action logs
+* Wrong call to super
+* tox: Keeping going with docs
+* Switch to Ussuri jobs
+
+1.3.0
+-----
+
+* Update master for stable/train
+
+1.2.0
+-----
+
+* moved generic util functions from mistral to mistral-lib
+* Add Python 3 Train unit tests
+* Sync Sphinx requirement
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Update master for stable/stein
+
+1.1.0
+-----
+
+* add python 3.7 unit test job
+* Update home-page
+* Update hacking version to latest
+* Use template for lower-constraints
+* Change openstack-dev to openstack-discuss
+* Add Python 3.6 classifier to setup.cfg
+* Add python 3.6 unit test job
+* Update the hacking to latest
+* Don't quote {posargs} in tox.ini
+* Removed older version of python added 3.5
+* add python 3.6 unit test job
+* import zuul job settings from project-config
+* Make the ActionContext serializable
+* Update reno for stable/rocky
+
+1.0.0
+-----
+
+* Fixed the documentation of 'run' params
+* Add the restructuredtext check to the flake8 job
+* fix tox python3 overrides
+* Switch to using stestr
+
+0.5.0
+-----
+
+* add lower-constraints job
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Update reno for stable/queens
+
+0.4.0
+-----
+
+* Updated from global requirements
+* Updated from global requirements
+* fix the method description, wrong grammar
+* Updated from global requirements
+* Updated from global requirements
+* Fix the method description
+* Avoid tox\_install.sh for constraints support
+* Provide redirection for all security context attributes
+* Rename task\_id to task\_execution\_id
+* Add deprecated context parameters to the new security context
+* Add an empty \_\_init\_\_ method to the base Action class
+* Revert "Migrate mistral-lib to zuul v3"
+* Add a representation of the ActionContext in mistral-lib
+* Migrate mistral-lib to zuul v3
+* Cleanup test-requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Update reno for stable/pike
+* Updated from global requirements
+* Removes unnecessary utf-8 encoding
+* Drop MANIFEST.in - it's not needed by pbr
+* Switch from oslosphinx to openstackdocstheme
+* Apply Pike document structure
+* Enable warning-is-error
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+
+0.2.0
+-----
+
+* Updated from global requirements
+* Updated from global requirements
+* Update serialization from 'mistral' repo with latest changes
+* Fix documentation for custom actions
+* Remove the unused ApplicationContextNotFoundException
+* Remove unused requirements
+* Make the Result class more convienient to use
+* Sync tools/tox\_install.sh with Mistral
+* Updated from global requirements
+* Updated from global requirements
+
+0.1.0
+-----
+
+* Pass "mistral\_lib" to the coverage test
+* Fix the package name in the setup.cfg
+* Adds minimum common shared code for custom actions API
+* Fix the package name in the coveragerc
+* Fix the package name in the docs
+* Fix oslo\_debug\_helper not running
+* Updated from global requirements
+* Update test requirement
+* Updated from global requirements
+* Remove support for py34
+* Updated from global requirements
+* Show team and repo badges on README
+* Added reno for stable/mitaka, stable/liberty and stable/newton
+* Added the Options for Internationalization output in conf.py
+* Updated from global requirements
+* Updated from global requirements
+* Update .coveragerc after the removal of openstack directory
+* Updated from global requirements
+* Enable release notes translation
+* Updated from global requirements
+* Updated from global requirements
+* Small changes like deletion of extra underline in the docs
+* Changed the invalid link in CONTRIBUTING.rst
+* Replaced the invalid link to documentation with a valid one
+* Update info in the configuration file
+* Cleanup tox.ini, enable constraints
+* Updated from global requirements
+* Add Babel to the requirements as it is referenced in the setup.cfg
+* Remove Python 3.3 and add 3.5 to match the main Mistral repo
+* Remove .mailmap file
+* Fixes namespace issue
+* Initial project layout
+* Added .gitreview

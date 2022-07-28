@@ -1,0 +1,236 @@
+- block:
+  - name: Copy tools/test-setup-default-vim.sh
+    copy:
+       remote_src=True
+       src={{ devstack_base_dir }}/tacker/tools/test-setup-default-vim.sh
+       dest={{ zuul_work_dir }}/tools/test-setup-default-vim.sh
+       mode=0755
+
+  - name: Copy test vim file
+    copy:
+       remote_src=True
+       src={{ devstack_base_dir }}/tacker/tacker/tests/etc/samples/local-vim.yaml
+       dest={{ zuul_work_dir }}/tacker/tests/etc/samples/local-vim.yaml
+
+  - name: Check if project's tools/test-setup-default-vim.sh exists
+    stat:
+      path: "{{ zuul_work_dir }}/tools/test-setup-default-vim.sh"
+    register: p
+  - fail:
+      msg: >
+            {{ zuul_work_dir }}/tools/test-setup-default-vim.sh doesn't exists
+            or it doesn't have execute permission.
+    when:  p.stat.exists != True or p.stat.executable != True
+
+  - name: Get stackenv from devstack environment
+    slurp:
+      src: "{{ devstack_base_dir }}/devstack/.stackenv"
+    register: stackenv
+
+  - name: Set a keystone authentication uri
+    set_fact:
+      auth_uri: "{{
+                stackenv.content
+                | b64decode
+                | regex_replace('\n', ' ')
+                | regex_replace('^.*KEYSTONE_SERVICE_URI=([^ ]+).*$', '\\1')
+                }}"
+    when:
+      - p.stat.exists
+
+  - name: Replace auth uri in test-setup-default-vim.sh and local-vim.yaml
+    replace:
+       path: "{{ item }}"
+       regexp: "http://127.0.0.1/identity"
+       replace: "{{ auth_uri }}"
+    with_items:
+       - "{{ zuul_work_dir }}/tools/test-setup-default-vim.sh"
+       - "{{ zuul_work_dir }}/tacker/tests/etc/samples/local-vim.yaml"
+    when:
+      - p.stat.exists
+
+  - name: Replace the config file path in the test-setup-default-vim.sh
+    replace:
+       path: "{{ zuul_work_dir }}/tools/test-setup-default-vim.sh"
+       regexp: '(?<=config-file )([^ ]+)(?= )'
+       replace: "{{ ansible_env.HOME }}/{{ zuul_work_dir }}/tacker/tests/etc/samples/local-vim.yaml"
+
+  - name: Run tools/test-setup-default-vim.sh
+    command: tools/test-setup-default-vim.sh
+    args:
+      chdir: "{{ zuul_work_dir }}"
+    when:
+      - p.stat.exists
+      - p.stat.executable
+
+  when:
+    - inventory_hostname == 'controller-tacker'
+
+- block:
+  - name: Copy create_admin_token.yaml
+    copy:
+      src: "create_admin_token.yaml"
+      dest: "/tmp/create_admin_token.yaml"
+      mode: 0644
+      owner: stack
+      group: stack
+    become: yes
+
+  - name: Create admin ServiceAccount
+    command: kubectl create -f /tmp/create_admin_token.yaml
+    become: yes
+    become_user: stack
+
+  - name: Get admin secret name
+    shell: >
+      kubectl get secrets -n kube-system -o name
+      | grep admin-token
+    register: admin_secret_name
+    become: yes
+    become_user: stack
+
+  - name: Get admin token from described secret
+    shell: >
+      kubectl get {{ admin_secret_name.stdout }} -n kube-system -o jsonpath="{.data.token}"
+      | base64 -d
+    register: admin_token
+    become: yes
+    become_user: stack
+
+  when:
+    - inventory_hostname == 'controller-k8s'
+    - kuryr_k8s_api_url is defined
+
+- block:
+  - name: Copy tools/test-setup-k8s-vim.sh
+    copy:
+       remote_src=True
+       src={{ devstack_base_dir }}/tacker/tools/test-setup-k8s-vim.sh
+       dest={{ zuul_work_dir }}/tools/test-setup-k8s-vim.sh
+       mode=0755
+
+  - name: Copy test k8s vim file
+    copy:
+       remote_src=True
+       src={{ devstack_base_dir }}/tacker/tacker/tests/etc/samples/local-k8s-vim.yaml
+       dest={{ zuul_work_dir }}/tacker/tests/etc/samples/local-k8s-vim.yaml
+
+  - name: Check if project's tools/test-setup-k8s-vim.sh exists
+    stat:
+      path: "{{ zuul_work_dir }}/tools/test-setup-k8s-vim.sh"
+    register: p
+  - fail:
+      msg: >
+            {{ zuul_work_dir }}/tools/test-setup-k8s-vim.sh doesn't exists
+            or it doesn't have execute permission.
+    when:  p.stat.exists != True or p.stat.executable != True
+
+  - name: Get stackenv from devstack environment
+    slurp:
+      src: "{{ devstack_base_dir }}/devstack/.stackenv"
+    register: stackenv
+
+  - name: Set a keystone authentication uri
+    set_fact:
+      auth_uri: "{{
+                stackenv.content
+                | b64decode
+                | regex_replace('\n', ' ')
+                | regex_replace('^.*KEYSTONE_SERVICE_URI=([^ ]+).*$', '\\1')
+                }}"
+    when:
+      - p.stat.exists
+
+  - name: Replace keystone auth uri in test-setup-k8s-vim.sh
+    replace:
+       path: "{{ item }}"
+       regexp: "http://127.0.0.1/identity"
+       replace: "{{ auth_uri }}"
+    with_items:
+       - "{{ zuul_work_dir }}/tools/test-setup-k8s-vim.sh"
+    when:
+      - p.stat.exists
+
+  - name: Replace k8s auth uri in local-k8s-vim.yaml
+    replace:
+       path: "{{ item }}"
+       regexp: "https://127.0.0.1:6443"
+       replace: "{{ kuryr_k8s_api_url }}"
+    with_items:
+       - "{{ zuul_work_dir }}/tacker/tests/etc/samples/local-k8s-vim.yaml"
+    when:
+      - p.stat.exists
+
+  - name: Replace k8s auth token in local-k8s-vim.yaml
+    replace:
+       path: "{{ item }}"
+       regexp: "secret_token"
+       replace: "{{ hostvars['controller-k8s'].admin_token.stdout }}"
+    with_items:
+       - "{{ zuul_work_dir }}/tacker/tests/etc/samples/local-k8s-vim.yaml"
+    when:
+      - p.stat.exists
+
+  - name: Replace the config file path in the test-setup-k8s-vim.sh
+    replace:
+       path: "{{ zuul_work_dir }}/tools/test-setup-k8s-vim.sh"
+       regexp: '(?<=config-file )([^ ]+)(?= )'
+       replace: "{{ ansible_env.HOME }}/{{ zuul_work_dir }}/tacker/tests/etc/samples/local-k8s-vim.yaml"
+
+  - name: Run tools/test-setup-k8s-vim.sh
+    command: tools/test-setup-k8s-vim.sh
+    args:
+      chdir: "{{ zuul_work_dir }}"
+    when:
+      - p.stat.exists
+      - p.stat.executable
+
+  when:
+    - inventory_hostname == 'controller-tacker'
+    - kuryr_k8s_api_url is defined
+
+- block:
+  - name: Copy tools/test-setup-mgmt.sh
+    copy:
+       remote_src=True
+       src={{ devstack_base_dir }}/tacker/tools/test-setup-mgmt.sh
+       dest={{ zuul_work_dir }}/tools/test-setup-mgmt.sh
+       mode=0755
+
+  - name: Check if project's tools/test-setup-mgmt.sh exists
+    stat:
+      path: "{{ zuul_work_dir }}/tools/test-setup-mgmt.sh"
+    register: p
+  - fail:
+      msg: >
+            {{ zuul_work_dir }}/tools/test-setup-mgmt.sh doesn't exists
+            or it doesn't have execute permission.
+    when:  p.stat.exists != True or p.stat.executable != True
+
+  - name: Get stackenv from devstack environment
+    slurp:
+      src: "{{ devstack_base_dir }}/devstack/.stackenv"
+    register: stackenv
+
+  - name: Set a keystone authentication uri
+    set_fact:
+      auth_uri: "{{
+                stackenv.content
+                | b64decode
+                | regex_replace('\n', ' ')
+                | regex_replace('^.*KEYSTONE_SERVICE_URI=([^ ]+).*$', '\\1')
+                }}"
+    when:
+      - p.stat.exists
+
+  - name: Run tools/test-setup-mgmt.sh
+    command: tools/test-setup-mgmt.sh
+    args:
+      chdir: "{{ zuul_work_dir }}"
+    when:
+      - p.stat.exists
+      - p.stat.executable
+
+  when:
+    - inventory_hostname == 'controller-tacker'
+    - kuryr_k8s_api_url is defined

@@ -1,0 +1,2126 @@
+CHANGES
+=======
+
+16.4.0
+------
+
+* Allow for cron programming of backups
+* Remove cyclic import between export and utils
+* Add --reproduce-command option for tripleo deploy
+* Passes playbook to the validation action as a list
+
+16.3.0
+------
+
+* Wire up the tripleo-upgrades-wallaby-pipeline
+* Add '--templates' arg to node and net provision
+* Unprovision composable networks command
+* Honor role and networks file constants
+* Default Heat images to container image prepare defaults
+* Use ephemeral Heat by default
+* Handle KeyboardInterrupt with overcloud deploy
+* Add --db-only option in undercloud\_backup
+* Option to disable Node, Net and VIP provisioning
+* overcloud deploy - net ports with baremetal deploy
+* Make 'ansible\_playbooks' pre-network config only
+* overcloud deploy - provision virtual ips
+* Use {{role.name}}Services parameters
+* overcloud deploy - provision networks
+* Use upper constraints with  install command
+* Don't download configs twice for --setup-only
+* Don't allow --config-download-only with --baremetal-deployment
+* Check for the service queue with ephemeral heat
+* Remove iscsi from IronicEnabledDeployInterfaces
+* Use podman interactive mode when restoring db
+* Add dosfstools to bindep
+* Use explicit order for ironic enabled interfaces
+* Fix backup/restore file name for ephemeral heat
+* Remove references to tripleo-validations legacy directory
+* Fix undercloud validate password file
+
+16.2.1
+------
+
+* BnR Typo missing some spaces between words on the command help
+* Use Validations libs Client for main validation entry point
+* Ephemeral Heat: Add a --refresh option to external update run
+* Ephemeral Heat unit tests
+* Don't run containers in interactive mode
+* BnR added error msg in case there is no inventory
+* Auto OVN bridge mac mappings for standalone
+* Wait for Heat message queues
+
+16.2.0
+------
+
+* Fix error message for vip provision
+* Allow user environments override generated ones
+* Fix validations listing when filtering by group(s)
+* Increased strictness of the doc build
+* Upper constraints now track stable/wallaby branch
+* Bump reqirements to tripleo-common>=15.2.0
+* Use environment files when building image params
+* Check if both swift and rgw are enabled during Upgrade Prepare
+* Extra space was causing indentation errors
+* Simplify undercloud upgrade
+* Fix network environment validation
+* Make Python Interpreter option for Ansible Validation Run
+* Quote -e arg in ansible-playbook-command.sh
+* Use consistent working dir for ansible-runner
+* Handle nodes with no ctlplane IP's during deny list handling
+* Handle exceptions in finally clause
+* Automatically run overcloud export when using ephemeral heat
+* Add enable\_neutron and enable\_heat
+* Add heat launcher db backup/restore
+* Support using ephemeral Heat
+* Don't allow Redis/OvnDBs VIP in resource\_registry
+* Add commands to extract|provision net vips
+* overcloud node extract add network info
+* Base for improvement of validator test coverage
+* Removing todo from undercloud\_preflight since 753845 is merged
+* Pass ansible ssh\_user variable to the run action
+* Use a consistent working directory for tripleo deploy
+* Use ceph\_mon\_network to find Ceph monitor IPs for export
+* Remove deploy\_args for podman.yaml as its default
+* Remove leftover for undercloud keepalived service
+* Update TOX\_CONSTRAINTS\_FILE for stable/wallaby
+
+16.1.0
+------
+
+* Update .gitreview for stable/wallaby
+
+16.0.0
+------
+
+* Set config\_download\_dir for each stack when exporting Ceph
+* Declare is\_failed\_validation variable before if statement
+* Update overcloud export for new working directory
+* Move static-inventory option into parser group
+* [Validator Run] Add return code management
+* [UX] Align to left the table for the validations run results
+* Use MultiKeyActionValue action for extra-[env-]vars arguments
+* Standalone set %service%VirtualFixedIPs
+* Wire up --disable-container-prepare
+* Restore old config-download symlink to new location
+* Revert the move of tripleo\_validator in tripleo-validation
+* BM Provisioning - Apply node network config
+* Refactor BM deployment to use '--work-dir' - [2/2]
+* Bump up the version for osc-lib as ooo-validations need it
+* Absolutize path for CIP output env
+* Don't initialize deploy\_message again
+* Fix make\_config\_download\_dir()
+* Fix overcloud status command
+* Refactor BM deployment to use '--work-dir' [1/2]
+* Update tripleo launch heat for HeatPodLauncher
+* Drop deprecation warning for OpenDaylight support
+* Add parameter to specify ca\_cert
+* Remove unnecessary zuul layout overrides use templates instead
+* Do not use ironic/nova for generate\_fencing
+* Add HeatPodLauncher
+* Remove unnecessary mocks in tests
+* Remove enable\_tempest flag from tripleoclient
+* UX improvement when no nodes are found
+* Revert "Revert "Add environment variables for better var handling""
+* Revert "Add environment variables for better var handling"
+* Fix AttributeError
+* Copy the inventory for standalone deploy in output\_dir
+* Add environment variables for better var handling
+* Don't use mistral actions for baremetal workflow
+* Predictable dir for heat launcher
+* Add faultwrap filter to paste pipeline for heat-all
+* Use a consistent working dir for deployment
+* Add label argument for the container image build
+* Remove default plan-environment.yaml references
+* Update default container registry to quay.io
+* parameter was covering covering \`type\` built in
+* Fix node delete to not use overcloud plan
+* Remove overcloud set parameter command
+* Allow writing byte strings with safe\_write
+* Modifying Openstack client for undercloud and overcloud backup
+* Track leftover files in config-download
+* Remove keep\_env\_on\_update logic
+* Bring back check\_deprecated\_parameters
+* Allow enabling swift on undercloud
+* Fix image parameter update
+* Use extra\_vars\_file for json stack\_data
+* node provision, Set vars for generating inventory
+* Add user-environment files to archive
+* Fix get\_deployment\_status()
+* Use full path of networks\_file for minion
+* Disable swift on undercloud
+* Don't use swift plan when exporting passwords
+* Remove plan/plan-role management commands
+* Locally keep deployment\_status
+* Archive overcloud deploy artifacts
+* Add auth\_token\_lifetime to undercloud.conf
+* Add new option for \`setup-only\`
+* Write ansible-playbook-command.sh to workdir not playbook\_dir
+* Quote $@ in ansible-playbook-command.sh
+* Ignore stack-vstate-dropin.yaml for minion and uc
+* Refactor jinja rendering of templates
+* Don't create/update plan for overcloud deploy
+* Use heat server side env merging
+* Drop --update-plan-only
+* Create overcloudrc using stack environment
+
+15.0.0
+------
+
+* Deprecate minion commands
+* Correct a noisy DeprecationWarning
+* We don't have to disable validations anymore for pre-deployed OC
+* Update client to create archive and use tripleo-common
+* Get gid and uid methods are now members of HeatBaseLauncher
+* Add lint dependencies for content provider
+* Dedup host entries in the exported data for stacks
+* Add enable\_frr option
+* Add routes and MTU to ctlplane attrs for standalone
+* Enable pylint
+* Run flake8 using pre-commit
+* Drop settings for python2
+* Remove tripleo\_validator from tripleoclient
+* Use same code path for UpdatePrepare
+* [Validator Run] Add return code management
+* Overcloud image has missing kernel\_id and ramdisk\_id properties
+* Wire up new tripleo upgrades jobs template
+* Set DeployIndentifier early in tripleoclient-parameters.yaml
+* Removing deprecated arguments for node delete
+* [UX] Align to left the table for the validations run results
+* Remove orchestration section from tempest-deployer-input.conf
+* Make workflow monitoring more resilient
+* The lower constraint file has been removed
+* Add '--network-ports' option to node (un)provision
+* Get deployment status to check if plan and stack exists on the env
+* Drop experimental for tripleo deploy
+* Dumping task key instead of tasks from validation\_output
+* Honor --debug for buildah builder
+* [Container build] raise Exception post logging error
+* Provision composable networks command
+* Run validation without authentication in particular context
+* Map build host repos to distro.repos.d instead of yum.repos.d
+* Remove count/flavor options from overcloud deploy
+* Removed ubi-8 based jobs
+* Add config-download-dir flag to cell export command
+* Extract provisioned networks from stack
+* Replace deprecated UPPER\_CONSTRAINTS\_FILE variable
+* Logging refactor
+* Use TOX\_CONSTRAINTS\_FILE
+* Fix preflight validation
+* Remove detection of package manager for undercloud upgrade
+* Add --disable-container-prepare flag
+* Do not require authentication for the validator CLI
+* Use user's home dir for fact cache
+* Handle root as a deployment user better
+* Ensure build packages installed at runtime
+* Remove undercloud\_update\_packages
+* Allow playbooks to come from a venv version
+* Switch deployed-server if nova unavailable
+* Update master for stable/victoria
+* Remove upgrade\_cleanup
+* Remove docker\_bip option
+
+14.0.0
+------
+
+* [Validator Show Run] Display simplified results by default
+* Improve the error message about image tags
+* Fix heat container mounts
+* Handle container launch
+* Update heat container location
+* Raise if no validation has been executed
+* [Validator Show] Properly throwing an exception for unknown validation
+* [Validator Run] Don't rely on parameter file extension
+* Add check for nic config with ansible migration
+* [Validator Run] Ensure the plan really exists
+* Use default environment with --deployed-server
+* Remove --quiet argument from the validator run CLI command
+* Check CephClusterFSID against proposed env files
+* Add catch for OSError and KeyError (PEP	3151)
+* Switch to content provider jobs/templates
+* Generate routes for undercloud ctlplane network attrs
+* Fix tcib build
+* Deprecate novajoin
+* ctlplane network attributes in overcloud environment
+* Add new toggle to disable Swift
+
+13.7.0
+------
+
+* undercloud: disable Mistral and Zaqar by default
+* Make tripleoclient compatible with cliff-3.4.0
+* Use validation framework for running undercloud checkdisk
+* Fix if conditions in constants.py
+* Expose --ansible-forks
+* Add openstack overcloud export ceph
+* Standardize import of ConfigParser
+* Build timeout as CLI arg for container image build
+* Make config\_dir absolute path for ansible
+* Ensure the ansible log file always has a correct UID
+* Inject both paths for validations roles location
+* Remove install unnecessary packages
+* Ensure root isn't used to run updates/upgrades
+* Fix pathing for container image prepare
+
+13.6.0
+------
+
+* Add --temp-dir to overcloud image build
+* Convert to 'raw' images when uploading
+* Remove TripleO UI toggles
+* Bump ansible-runner to 1.4.5
+* Update tripleo-validations path to /usr/share/ansible
+* Allow to pass a static inventory to the validator CLI
+* Disable nova by default on undercloud
+* Update dependency logic to correctly index parents
+* Add a raise when an image is found without config
+* Allow the container build tools to run config-less
+* Use cli-container-image-prepare.yaml playbook
+* (UX) Improve logging if the ephemeral heat stack wasn't created
+* TCIB: add --rhel-modules argument
+* Allow usage of duplicated IPs for undercloud config
+* Limit ip\_version when resolving public\_host and admin\_host
+* overcloud\_cell: fix location of config-download
+* overcloud\_deploy: move horizon url/rc files before config-download
+* Remove playbook param from tripleo\_validator.py
+* Use user set password values in overcloud export
+* Fix ignored parameters in create\_deployment\_plan
+* Don't build image upload tasks when dry\_run is True
+* Simplify error handling in tripleo\_deploy
+* Revert "[ussuri] TCIB: change default namespace to triploeu"
+* Deprecated overcloud container image build (kolla) command
+* Lower ansible poll interval time
+* Close session objects in container\_image.py
+* [ussuri] TCIB: change default namespace to triploeu
+
+13.5.0
+------
+
+* Eliminate the usage of kwargs in update\_deployment\_plan
+* Ensure --limit option takes precedence over skiplist
+* Throw warning if --limit used with a skip list in Heat
+* Don't run config-download for --stack-only
+* Add "yes" prompt for update/upgrades commands
+* Fix package manager used during undercloud packages update
+* Replace assertItemsEqual with assertCountEqual
+* Cleanup UndercloudHostsEntries
+* Correct a typo in a string
+* Log error when fail\_on\_rc disabled
+* Add tripleo\_states to default callback whitelist
+* Remove ffwd-upgrade commands from tripleoclient
+* Rename UpgradeConvergeOvercloud into UpgradeConverge
+* Fall back to local upload when there is no glance endpoint
+* Fix extra\_env\_files option and type in format string
+* Add CLI options for introspection command
+* Set portmap cidr fields to extracted CIDR
+* overcloud\_deploy: raise at the end if Ansible Runner had exception
+* Don't use stack name in default config\_download\_dir
+* Identify not allowed parameters in upgrades
+* Stop to use the \_\_future\_\_ module
+* Further cleanup unit tests
+* zuul: run standalone job with locally built images
+* Remove actions.config and AnsibleGenerateInventoryAction references
+* Run tripleo-build-containers-ubi-8 under specific conditions
+* Refactor upgrade prepare and converge
+* Remove translation sections from setup.cfg
+* Implement validations-libs framework for ALL validator commands
+* Add backup functionality to Openstack client for undercloud and overcloud
+* Don't run get\_config() in update/upgrade prepare
+* Use playbook for config-download export
+* Detect TLS for pre-provisioned nodes
+* Add tripleo container image hotfix command
+* Remove undercloud\_enable\_paunch option
+* Add openstack tripleo container image build
+* Use tripleo custom stdout plugins in utils
+* Add --transport argument to tripleo deploy
+* Deprecate --standalone argument
+* Initially set rc to 0, not 1
+* Bump tripleo-common
+* Remove the unused \_validate\_skip\_tags function
+* Switch to newer openstackdocstheme and reno versions
+* Use cli-config-download.yaml playbook
+* Update master for stable/ussuri
+* Stop patching tripleo\_common.actions.deployment.OvercloudRcAction
+
+13.3.0
+------
+
+* Don't set DeployIdentifier in tripleoclient
+* Remove shenanigans for stack event verbosity
+* Bump hacking min version to 3.0.1
+* Ensure the ansible.cfg file presists
+* Ensure playbook execution respects CLI ENV vars
+* Remove left over print
+* ignore basepython conflict in tox
+* Fix some pep8 errors
+* Remove unused write\_overcloudrc() function
+* Fix upgrade prompt
+* Configure ansible forks based on cores
+* New command "overcloud node extract provisioned"
+* Use ansible playbook for creating overcloudrc
+* Fix stack create verbosity
+* Add call to cleanup\_ipa.yml playbook when doing a stack delete
+* Add stack\_name support to ANSIBLE\_INVENTORY
+* Don't override default verbose\_level
+* Remove workflow\_engine from client setup
+* Inspector set baremetal port physical\_network
+* Don't use mistral directory as WORK\_DIR for config-download
+* Add release note for undercloud.conf parsing
+* Use undercloud upgrade to update all required pkgs
+* Expose --limit, --skip-tags, and --tags on the CLI
+* Remove openstack overcloud failures command
+* Add login flag to container image prepare defaults
+* Remove redundant loading of file to read extra\_vars
+* Simplify setting deployment status
+* Set correct deployment\_status in deployment stages
+* Add the ability to load vars from files
+* Add releasenote for removal of overcloud remote execute command
+* Fix ResourceWarning: unclosed file
+
+13.2.0
+------
+
+* Fix misused deployment vs connection timeouts
+* Update necessary packages before undercloud upgarde
+* Invoke ansible from writeable workdirs
+* Cleanup py27 support
+* Update verbosity so it is consistently set
+* Remove update parameters workflows
+* Remove mistral from the plan\_undeploy workflows
+* Remove unused baremetal provision workflow code
+* Remove overcloud remote execute command
+* Remove OrchestrationDeployAction call in ffwd upgrade prepare
+* Bump python-openstackclient
+* Stop testing python 2 in tox
+* clean up tripleoclient zuul layout, remove centos-7
+* tripleo\_deploy: finish the loop of operations early if wrong rc
+* Improve container\_images\_file comments
+* Fix GlanceClientAdapter to use new osc release
+* Get event marker before doing update
+* scale: add missing stack name in scale.ScaleDownAction
+* Set scp\_if\_ssh to True in ansible client configuration
+* Remove usage of GenerateFencingParametersAction action class
+* Remove usage of GetFlattenedParametersAction action class
+* overcloud node delete, use ansible for unprovision
+* overcloud deploy, use ansible for bm provision
+* Switch to ansible for overcloud node (un)provision
+* Remove CreateContinerAction usage
+* Create \*-messages container when setting deployment status
+* Remove usage of swifthelper.SwiftTempUrlAction
+* Use tripleo\_common library directly for package\_update
+* Switch default images to py3
+* Clean unit tests from OS::TripleO::Hosts::SoftwareConfig
+* Ensure the undercloud output dir constant is consistent
+* Normalize the 'undercloud-passwords.conf' return data
+* Normalize how we pull the users home folders
+* Add mistral workflow module path to ansible-runner
+* Add new interface to run arbitrary playbooks from a plan
+* Use ansible playbook for plan deploy
+* Use ansible playbooks for plan creation/update
+* Don't encode to utf8 data read from logfile
+* Fix order of parameters to isinstance()
+* Pass container\_config to get\_config()
+* Update help output
+* Correct YAML load warning
+* Remove mistral when running the provide workflows
+* Remove the mistral from the clean\_.\*\_nodes workflow
+* Remove mistral from the introspection workflows
+* Remove mistral from the configure workflows
+* Client code to do node import with ansible instead of mistral
+* Remove mistral from the bios\_configuration workflows
+* Remove the mistral from the create\_raid\_configuration workflow
+* Remove mistral from the undeploy\_roles workflow
+* Remove mistral when running the register\_or\_update workflow
+* baremetal provision expose concurrency and timeout
+* Fix command docs generation
+* Add option to control ironic network interfaces
+* Make \_get\_undercloud\_host\_entry(self) python3 friendly
+* Remove mistral when running the validate\_nodes
+* Partial Revert "Replace ansible shell with python runner"
+* Fix delete plan
+* Fix KeyError exception on check\_deprecated\_parameters
+* update containers-multinode, minion to centos-8
+* Skip network check with stack env when validations disabled
+* overcloud: set DeployIdentifier to '' if --skip-deploy-identifier is used
+* Avoid TZ issues in test\_image test
+* Update undercloud.conf with correct SSL information
+* migrate from centos7 -> centos-8 for standalone jobs
+* Relax ~/.config permissions
+* Remove Mistral from the plan export
+* Remove mistral when creating the overcloudrc file
+* Remove the mistral from the check\_deprecated\_parameters workflow
+* Get validation groups info from groups.yaml file
+* Fix create\_container regression
+* TripleO Validations Logging CLI Introduction
+* Fix unit test\_get\_image timezone issue
+* Move ansible hosts file as a constant
+* Pass verbose boolean value to wait\_for\_stack\_ready()
+* Increase ssh port timeout
+* Add source auth to image push
+* Remove mistral from the generate\_fencing\_parameters deploy workflow
+* Add --work-dir option to container image build command
+* Convert the support deployment and workflow to ansible
+* Migrate the openstack overcloud delete command to use Ansible
+* Start moving the import CLI command to the Ansible implementation
+* Cleanup playbook execution
+* Add handler for exception raising
+* Only show sudo hints when relevant
+* Improve the way of handling inventory for ansible\_runner
+* Use correct default key file and normalize the usage
+* Revert "Default to zero verbosity when using Ansible."
+* Remove three unused exceptions
+* Remove the unused backup method
+* Remove capabilities-map.yaml related functionality
+* Local file based image uploader
+* Remove mistral from the expand\_roles deploy workflow
+* Remove mistral from the get\_deployment\_failures deploy workflow
+* Remove mistral from the create\_container deploy workflow
+* Remove mistral from the list\_available\_roles deploy workflow
+* Fix default image registry address lookup
+* Migrate the CLI introspection from Mistral to Ansible
+* Remove mistral from the deploy\_on\_servers workflow
+* Remove mistral from the package\_update\_\* workflows
+* Remove left over mistral layers of abstration
+* Remove extra whitespaces from getent
+* Remove mistral from the config\_download deploy workflow
+* update ironclient requirements
+* Don't use the delete\_deployment\_plan workflow, call the action directly
+* Raise a new ValueError with the contents of the JSON is parsing fails
+
+13.1.0
+------
+
+* Allow import to specify image location ipxe=false
+* Add wait function to the node delete workflow
+* Remove mistral from the config\_download\_export workflow
+* Remove mistral from the delete\_node workflow
+* Remove mistral from the set\_deployment\_status\* workflows
+* Remove mistral from the get\_deployment\_status workflow
+* Remove mistral from the discover\_and\_enroll workflow
+* Convert get\_config to a direct call instead of using mistral
+* Convert horizon url workflow to ansible
+* Convert deployment to use new ssh-admin playbook
+* Extend the mistral context class
+* Remove Mistral from plan list and call the Mistral action directly
+* Enable stack status output for tripleo deploy
+* Cleanup the job templates
+* remove py27 tox
+* return py27 to voting
+* Revert "Revert "Overload stdout callback plugin""
+* Fix all py27 tests
+* Remove mistral workflow to return the ssh private key
+* Add kwarg to set an ansible.cfg file
+* Add raised exception when playbook fails
+* Disable Paunch by default on the Undercloud
+* Fix ansible-runner when verbosity is > 0
+* Move undercloud backup from mistral to ansible
+* Prepare tripleoclient for v2 implementations of the commands
+* Refactor redundant exception type checking
+* trivial: add spaces after punctuation in config help text
+* Default to zero verbosity when using Ansible
+* Refactor image upload command
+* Handle ansible\_runner return code properly
+* Inject ansible-runner logs in the install-undercloud.log file
+* Enforce 0600 permissions on private SSH key file
+* Add tripleo launch heat command
+* Remove unused parameter poll\_period from wait\_for\_stack\_ready
+* Add additional ssh timeout options
+* Revert "Overload stdout callback plugin"
+* Allow ctlplane subnets in undercloud chrony acl rules
+* Whitelist the profile\_tasks callback by default
+* Overload stdout callback plugin
+* Revert "Added for support for generating overcloud clouds.yaml"
+* Implement utils.copy\_clouds\_yaml
+* Catch exceptions when processing subnets
+* Replace ansible shell with python runner
+* TripleO Validator CLI Refactor
+* Retry the connection to heat-api when 500 code
+* Handle config-download in progress in tripleoclient
+* Honor --heat-user argument in heat launcher
+* Write minimal paste configuration for heat-all
+* Configurable heat launcher directory
+* tripleo\_deploy: set RootStackName
+* Add locks to container image commands
+* Use configured passwords
+* Include memcached\_node\_ips in the output for the undercloud
+* Pass container name to update\_nodes workflow
+* openstack overcloud node delete --baremetal-deployment
+
+13.0.0
+------
+
+* Switch to use process executor
+* Fix inspector ip range for dhcpv6-stateless
+* Remove check for IN\_PROGRESS stack
+* Fix overcloud cell export after refactoring
+* Add openstack overcloud export
+* Drop Mistral support for the Validations CLI
+* Get rid of Mistral for running Validations by Groups
+* Get rid of Mistral for listing validations
+* undercloud: introduce undercloud\_enable\_paunch option
+* Support undercloud fake-hardware ironic driver
+* Complete overcloud deploy --baremetal-deployment
+* Improvements to unprovision command
+* Bump tripleo-common requirements.txt to fix tox docs job
+* Refactoring the join part
+* Use name for container registry
+* Add mocks to fix unit tests
+* Update master for stable/train
+* Add test for the function check\_deprecated\_parameters
+* Undercloud hosts entries in overcloud parameters
+
+12.3.0
+------
+
+* Add option to control IPv6 address mode
+* Ensure that --output-env-file handles path expansion
+* Handle a deployment that was manually cancelled
+* Don't set transport=local in ansible.cfg
+* Removed references to bm-deploy images
+* Fix message of unused\_params and invalid\_role\_specific\_params
+* Close some file descriptors that were left open
+* container\_image: avoid extra space in logs
+* (actually) disable the inflight validations by default
+* IronicIpVersion: '6' if local\_ip is IPv6
+* Disable voting on openstack-tox-py27
+* Set option:mtu in inspector dnsmasq
+* Don't use --registry-url for image show auth
+* Add ovn\_dbs\_vip to export\_data
+* Introduce --inflight-validations for standalone / undercloud
+* Disable inflight validations by default
+* Deprecate overcloud image prepare
+* Remove old releasenote script
+* Remove panko
+* Rename 'undercloud-' to '<stack\_name>-'
+
+12.2.0
+------
+
+* PDF documentation build
+* Ensure no duplicate IPs are used in undercloud.conf
+* Set policycoreutils package name for RHEL/CentOS 8
+* Fix race in execution finishing
+* Add exclusions to the unused param warning
+* Clarify the purpose of --http-boot
+* Log a warning when reset fails
+* Use undercloud-connection to local for running validations with the CLI
+* overcloud status: return a message if no deployment is found
+* Some release notes were in the wrong place, moved them
+* Remove run\_shell, a unused function
+* Always specify interface for vips
+* Add support for local image push
+* New command "openstack overcloud node unprovision"
+* Pass undercloud's private key to inventory used in package\_update
+* Implement tripleo container image push command
+* Remove \_get\_default\_role\_counts, a unused function
+* Remove all\_unique, a unused utility function
+* Remove get\_overcloud\_passwords, a unused function
+* Remove converge\_nodes functions, unused package\_update code
+* Use python docstring
+* Use reset to fix cmdline
+* Move enable\_nova after enable\_ironic
+* Adds new "--no-inflight-validations" option to deploy CLI
+* Suppress output for ssh-keygen
+* Exit listing validations with a proper return code
+* Remove download\_ansible\_playbooks, a unused util function
+* Remove wait\_for\_provision\_state, a unused utility function
+* Removed set\_nodes\_state, a unused utility function
+* Run Validations with ThreadPoolExecutor
+* Allows to disable in-flight validations
+* Add minion job
+* Disable telemetry if it's not enabled
+* Use logger module instead print
+* Additional resource cleanup
+* Replace warn with warning method
+* Close resources correctly
+* Pass deployment\_options to config download
+* Bump the openstackdocstheme extension to 1.20
+* Fail correctly if can't create output files
+* Remove rhsm cli options
+* Mock deployment action in upgrade tests
+* Add gathering\_policy parameter to run\_ansible\_playbook function
+* Use static inventory YAML file for saving execution time
+* Don't use local connection by default for the validations
+* Add plan parameter to run\_ansible\_playbook function
+* Write minion preflight checks
+* Output oslo messaging info for the minion
+* Remove support for Cisco hardware types
+* Add --concurrency argument to introspect commands
+* Add Python 3 Train unit tests
+* Add overcloud cell export command
+* Fix minion\_local\_interface
+* Add --parameters and --create-vars-file arguments to the list subcommand
+* Allow running validations with custom extra variables
+* Add extra\_vars parameter to run\_ansible\_playbook function
+
+12.1.0
+------
+
+* Implement tripleo container image show command
+* Make mistral optional for Ansible Update and Upgrade
+* Renaming 'Metadata' column by 'Parameters' when listing validations
+* Added for support for generating overcloud clouds.yaml
+* Ensure files are closed, ensure no ResourceWarning on console
+* Add --baremetal-deployment to overcloud deploy cmd
+* Allow running validations by group using Ansible by default
+* Allow running validations by name using Ansible by default
+* Add log\_path\_dir parameter
+* Implement tripleo container image delete command
+* Validate all or no subnets use dns\_nameservers
+* Improve validations run outputs through the CLI
+* Ensure files exist before building/uploading plan
+* Send terminal erase sequence on tripleo deploy
+* Don't pass the DNSServers param in undercloud env
+* mock kernel\_arch() in tests
+* Fix minion config test
+* Allow per-subnet DNSNameServers for ctlplane network
+* Remove undercloud deploy
+* Allow deeper levels of nesting for pdf builds
+* Improve handling of empty resource\_registry
+* Add minion installation
+* Set IPv6 params True if undercloud local\_ip is IPv6
+* Bump keystone middleware version to 4.18
+* Fixup sphinx requirements
+* Use wait for stack ready from utils for tripleo deploy
+* Retry heat stack polling on gateway problems
+* Drop config-download-environment.yaml from deployed\_server\_env
+* nova-less-deploy: stop using glance for ironic-python-agent images
+* Allow run\_update\_ansible\_action run with Mistral or Ansible
+* Remove scenario008 jobs
+* Improve yaml output of "openstack overcloud node provision"
+* Wire in convert\_docker\_params
+* doc/requirements: fix sphinx requirement lines
+* Don't look for execution in payload
+* update constraints url
+* Add undercloud.conf enable\_nova option
+* Skip ssh admin workflow with --config-download-only
+
+12.0.0
+------
+
+* Change source for upper constraints
+* Update sphinx requirements for python 3.x
+* Implement tripleo container image list command
+* Remove tripleo-ui items from the undercloud install
+* Drop the port from DockerInsecureRegistryAddress
+* Add a user confirmation to node delete
+* Modify the constraints url in tox
+* Fix sample\_default for host\_routes option
+* Don't force verbosity of 1 for config-download
+* Fix exception message
+* Remove pull source option
+* Add ODL deprecation warning in CLI
+* Refactor stack output fetching
+* workflows/scale: re-use the deployment workbook to run Ansible
+* undercloud: resolve undercloud\_\*\_host
+* Increase max\_nested\_stack\_depth for heat
+* Get validations playbooks from playbooks directory
+* Fix overcloud node instrospect exception output
+* Update --\*-flavor --\*-count description
+* Replace git.openstack.org URLs with opendev.org URLs
+* scale-down: run ansible\_scale\_down workflow before node\_delete
+* OpenDev Migration Patch
+* Remove service environment file and images file
+* Remove nodes and roles options
+* undercloud: wire ContainerHealthcheckDisabled
+* Update undercloud\_nameserver help text
+* Make usage of --\*-flavor and --\*-count an error
+* Do not log tracebacks for expected exceptions
+* Update master for stable/stein
+* Make overcloud\_config working with Python 3
+
+11.4.0
+------
+
+* Use "push" flag for buildah
+* Add checking mechanism driver during upgrade
+* Generate inventory for mistral ssh
+* Allow running the no-op group validation
+* Fix confirmation prompt for overcloud delete
+* Add a progress bar for image upload
+* nova-less-deploy: command for deploying nodes with ironic
+* undercloud: python3 support for custom envs
+* Undercloud - ironic inspector - host routes
+* Refactor reading kolla config in image builder
+* Force list when returning map(replaced\_list\_value, template\_part)
+* Fix timezone lookup
+* Fix tests for container image prepare
+* First check ipv4 then ipv6 connectivity
+* Make \_upload\_file to work with Python 3
+* Undercloud - support ctlplane subnet host routes
+* Create commands for configuring BIOS on given nodes
+* Do not silence exceptions in overcloud\_node unit tests
+* Use OS\_CACERT for zaqar's websocket connection
+
+11.3.0
+------
+
+* Add 2 missing guards for sudo
+* Mark enable\_ui as deprecated
+* plan: export the plan with data in bytes (not string) (python3)
+* Delay check CI jobs until the pep8/unit passes.
+* Add unit tests for running and listing validations from the CLI
+* Remove overcloudrc.v3 generation
+* Add new CLI option openstack tripleo validate run
+* Add new CLI option openstack tripleo validate list
+* Add support of extra variables
+* Container image config file for builds optional
+* Fix ansible-playbook-3 symlink
+* Check that the networks are defined on update
+* Ensure created symlink is in $PATH
+* container image build: introduce --use-buildah
+* Don't validate stack when creating/updating plan
+* Remove redundancy in \_launch\_ansible\* methods
+* Check proxy env vars
+* Deprecate docker config options
+* Allow 'container image prepare' to support drivers
+* Check if the user is root
+* undercloud: configure ContainerImagePrepareDebug based on undercloud\_debug
+* Run hostname check for standalone
+* Support '--tags' for 'overcloud upgrade run'
+* Add overcloud admin ssh authorize command
+* get\_parser() should return a parser
+* [Core] Add limit option to manage nodes
+* Use cliff autodoc generation
+* Add standalone scenario jobs
+* Use with keyword for opening target file
+* Drop unused utils.py roles functions
+* Fail if too many nameservers are provided
+* tripleo\_deploy: symlink ansible-playbook
+* Change openstack-dev to openstack-discuss in setup.cfg
+* Address python3 string issues with subprocess
+* undercloud: wire PythonInterpreter to sys.executable
+* Remove execution from workflow message send
+* Get the failed status for update prepare
+* Add verbosity level to the ansible update/upgrade run
+* Pass the python interpreter to the play command directly
+* undercloud: load podman environment when enabled
+* Undercloud: support inspect interface for redfish, idrac, ilo, irmc
+* Use existing stack parameter for DeployIdentifier
+* Use a single queue for update/upgrade
+* utils: pass python interpreter to run\_ansible\_playbook
+* Undercloud: reno followup for ironic bios interface configuration
+* Use --preserve-env to keep proxy settings
+* Add support for networks data in Standalone
+
+11.2.0
+------
+
+* Undercloud: support bios interface for ilo, irmc, redfish
+* Remove DhcpStart and DhcpEnd - Replaced by AllocationPools
+* [Tests] Fix warning duplicate key
+* Remove unused class vars from overcloud\_deploy.py
+* Expose timezone configuration
+* Switch to stestr
+* undercloud: enable the ipxe boot interface by default
+* Improve error message around hieradata override file
+* Add excludes to container image build
+* Update hacking version
+* Use template for lower-constraints
+* Force lower-case for hostname lookup
+* Fix stack.name to stack.stack\_name
+* Lift the limit on ntp servers
+* Remove unused services in tripleo deploy
+* Drop baremetal job template
+* Switch standalone & undercloud to Podman by default
+* Undercloud Validations - Deprecated (replaced/removed) opts
+* Calculate undercloud ctlplane DHCP allocation pools
+* Add unit test for undercloud ctlplane network config
+* Add '--provide' option to node clean command
+* Specify multiple NtpServers by default
+* undercloud: enable undercloud\_config parameter for validations
+* increasing the workflow timeout from 300 to 600 required in case of relatively large scale on physical servers https://bugs.launchpad.net/tripleo/+bug/1805725 resubmit
+* Change the overcloud delete command to use undeploy\_plan
+* Stop undercloud upgrade procedure if deployment tasks fail
+* Fix typo in logging
+* Add Python 3.6 classifier to setup.cfg
+* Don't print message in payload if None
+* Catch websocket connection close errors in cleanup
+* Remove timeout in config-download
+* Catch socket.timeout waiting port api
+* Add missing py37 toxenv and corrected default envlist
+* Don't exit on RUNNING status on delete
+* Improve bulk symlink error handling
+* Add version to python execution
+* Run online data migrations during undercloud/standalone upgrades
+* Stop setting boot\_option=local on ironic nodes
+* Change openstack-dev to openstack-discuss
+* Add docker bridge ip option to the undercloud.conf
+* Mock configuration load in unit tests
+* Allow ansible python interpreter be configurable
+* Avoid printing b'' across logged output
+* Use corrent ansible-playbook cmd for py3
+* Only return plans if available from the message
+* Remove developer tools from tripleo .gitignore
+* Add container build job
+* Don't print None on plan delete
+* standalone/undercloud: run post\_upgrade\_tasks when upgrading
+* Always run upgrades/updates as tripleo-admin
+* Change 'wa' mode to 'w'
+* Undercloud: Disable persisting VIPs in /etc/hosts
+* Extend DeployedServerPortMap to include network props
+* Use full cidr for DeployedServerPortMap
+* Add AdditionalArchitectures when configured
+
+11.1.0
+------
+
+* Fix type of --config-download-timeout
+* spelling fixes doc string and help strings
+* Stop using deprecated docker.yaml
+* Fix defaults to templates, roles-file and plan-environment
+* Add fixture to replace multiple mocks
+* Use transport\_url instead of rpc\_backend
+* fix tox python3 overrides
+* Honor blacklist during temp key injection
+* Increase the deploy\_plan timeout in tripleoclient
+* check for existence of output env file for container image prepare
+* Log exceptions that are uncaught
+* Fix documentation string for update roles and nodes option
+* Switch Heat Launcher to use Podman instead of Docker when containerized
+* Allow to actually disable heat-native
+* Validate routed networks enabled if multiple subnets in conf
+* Create DeployIdentifier for standalone
+* Don't use deprecated environment for no-tls setup
+
+11.0.0
+------
+
+* Fix overcloudrc creation in upgrade commands
+* Update deployment status when deploying or failed
+* Pass stack name to enable\_ssh\_admin workflow
+* Ensure that the --template-file option is passed to the kolla builder
+* Zaqar on the containerized undercloud should not use Redis
+* Fix misspelling in deployment complete message
+* Add 2h timeout when waiting for websocket messages on package\_update
+* Filter messages not from waiting execution
+* Use sync action get\_deployment\_failures
+* Raise proper exception at webscocket close
+* Start websocket client before workflows
+* Remove instack-undercloud and --use-heat
+* Update default value for ntp servers
+* Add a guard to break if no connection
+* Honor timeout with config-download
+* Fix typo in upgrade playbook's name
+* Only validate admin and public host in local\_subnet cidr
+* Disable SSH password authentication during tripleo-admin enablement
+* Handle non-existant plan when getting deployment status
+* Introduce container\_cli parameter for undercloud.conf
+* Improve standalone success messaging
+* Handle tls endpoint for zaqar websocket client
+* Passwords mismatches when using custom plan env
+* Properly mock unlink
+* Add fixtures instead mocks
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Add --override-ansible-cfg
+* Use tripleo-admin user for minor updates
+* Bump the timeout for plan creation workflow to 20 minutes
+* Updating python-tripleoclient requires to upgrade the containers images repo
+* Add fixtures instead mock
+* Use binary io for object saving
+* Update reno for stable/rocky
+* Allow custom UC/standalone passwords
+* Address python3 string issues with subprocess
+
+10.5.0
+------
+
+* Make openstack undercloud upgrade --dry-run actually dry
+* fix tox python3 overrides
+* undercloud: support noop management interface for snmp and ipmi
+* Re-use old fernet and credential keys in containerized undercloud
+* Issue a message to update nodes after updating images
+* Fix the way how we do argument negation
+* Update reno for stable/rocky
+* Insert break lines when showing FFWD upgrade operator warning
+* Remove --container-registry-file parameter from \* upgrade clis
+* Handle workflow error for enable\_ssh\_admin
+* Use user specified ssh key when removing tmp key
+* Added missing test coverage for run\_command\_and\_log function
+* Add some logging for the preflight checks
+* Handle negative/wrong answer in question when upgrading undercloud
+* New preflight check for the undercloud: disk space
+* undercloud: Disable CA path if user-provided cert is used
+* Remove usage of resource registry for undercloud TLS
+* Revert "Allow operators to override docker\_insecure\_registries"
+* Drop incorrect reference to heat\_launch
+* Fixup hard-coded hw\_architecture in unittest
+* New function: run\_ansible\_playbook
+* Make undercloud user-provided cert take precedence
+* Mock deployment action in upgrade tests
+* Remove parameter for ceph-ansible playbook from update/upgrade prepare
+* Drop obsolete \`overcloud ceph-upgrade run\`
+* Update/upgrade commands for services with external installers
+* Use workflow config\_download\_export
+* Add release note link in README
+* Align roles file to become a normalized path
+* Prepare defaults, defer detecting undercloud registry
+
+10.4.0
+------
+
+* Log tracebacks
+* Don't assume ansible\_dir in finally clause
+* Add --force-stack-create
+* Allow operators to override docker\_insecure\_registries
+* Default --deployment-user to $SUDO\_USER
+* Move ironic http boot reno to the correct section
+* Revert "Fix populate templates dir for mixed UC/OC cases"
+* Allow to specify the image type to upload
+* Revert "Revert "Alter default http boot path for containerized Ironic""
+* Select default openstack plan for tripleo deploy
+* Switch the undercloud to be containerized by default
+* Respect THT\_HOME for vstate dropin file
+* Fix populate templates dir for mixed UC/OC cases
+* Report ansible errors in json file for standalone
+* Generate ansible.cfg for UC/standalone deployments
+* Quick'n'dirty way to at least protect and correct rights on files
+
+10.3.0
+------
+
+* Update output messaging for standalone/undercloud
+* Always set a hardware architecture on uploaded images
+* Handle mapping multiple heat parameters from one config option
+* Add support for configuring additional architectures for heat-based installs
+* Switch --use-heat to take a boolean and deprecate it
+* Mark tripleo deploy experimental
+* Use prefix length for CIDR in DeployedServerPortMap
+* Switch to using assert\_has\_calls() instead of assertEqual()
+* Actually use the arch and platform to select appropriate images
+* Add --platform support when uploading images
+* Add --architecture support when uploading images
+* Always define properties for image even if empty
+* Introduce trivial helpers to manage image\_files and names
+* Add (back) --keep-running
+* Default --local-domain to localdomain
+* Add --cleanup argument for image uploads
+* Fix net\_config\_override
+* Add --roles to update run CLI command
+* Update config docs
+* Changes Creation Of overcloudrc File to Call Workflow
+* Replace 'raise StopIteration' with 'return'
+* Drop example in config file comments
+* Reduce number of mock in tests
+* Add undercloud\_enable\_selinux
+* Track fake stack updates for standalone/UC deploy
+* Move custom env file to last
+* Remove required releasenote reference
+* Rename default stack name for standalone
+* Leverage log\_file option to capture more UC logs
+* Fix undercloud password idempotency
+* Add users container images file into tarball
+* Remove validation workflow calls
+* Log the UC deploy/upgrade commands
+* undercloud: deploy tripleo-validations when needed
+* Add undercloud admin VIP to insec registries
+* Debug log the raw Zaqar message
+* tripleo deploy add test coverage for non default plan
+* Fix overcloud delete command
+* tripleo deploy accept plan environment
+* Remove deploy playbook from \`update run\`
+* Don't use deprecated exception.message in tripleo\_deploy
+* undercloud: save Rabbit credentials when upgrading
+
+10.2.0
+------
+
+* Copy user provided files into working tht root
+* openstack overcloud failures
+* Add --config-download-only
+* Add --overcloud-ssh-network
+* Fix local path for templates outside of the plan
+* Mark upgrade\_cleanup option as experimental
+* Deployed Server - portmap should match neutron API
+* Do prepare with dry\_run=True where appropriate
+* Add --include argument to old prepare command
+* Remove unused option enable\_container\_images\_build
+* tripleo\_deploy/upgrade: fail of upgrade\_tasks don't return 0
+* Stop supporting the removed pxe\_ssh driver in \`generate fencing parameters\`
+* Store UC hosts/portmaps heat params in output\_dir
+* DeployIdentifier should be provided for any parameter actions
+* Move undercloud.conf to the undercloud config namespace
+* Start standalone.conf
+* Make standalone role name configurable
+* Replace logging with oslo\_log for upgrade classes
+* Fallback the default roles file for UC config
+* Add -y option to "openstack undercloud upgrade"
+* Update HostnameMap generation
+* Persist generated undercloud parameters t-h-t
+* Add "upgrade\_cleanup" option to undercloud.conf
+* Use i18n for undercloud installer and utils messages
+* Implement TripleoImagePrepare command
+* Add .deployment.v1.deploy\_on\_servers to ffwd-upgrade prepare
+* Correct the tripleo\_upgrade command entrypoint
+* Prompt before running undercloud/all-in-one upgrades
+* overcloud plan deployment status
+* Actually print the error during deployment fail
+* Log errors with raised exceptions
+* Fix hiera data override file writing
+
+10.1.0
+------
+
+* undercloud upgrade: include UndercloudUpgrade service
+* (cleanup) remove usage of vars when calling ansible
+* Drop default inclusion of undercloud.yaml
+* deploy/upgrade: include tripleo\_role\_name
+* Convert enable-ssh-admin.sh to python
+* Use predictable name for generated hiera overrides
+* Consume deployed t-h-t from the working output dir
+* Refactor, fix ansible inventory method parameters for ffwd-upgrade run
+* Prepare call, add --modify-role and --modify-vars
+* Cleanup dead code, build\_service\_filter mocking
+* Error if deployment fails
+* Include docker and undercloud environments first
+* Add ssh-user to get\_tripleo\_ansible\_inventory
+* Deprecate non containerized undercloud
+* Enable cleanup by default for undercloud install
+* Stop trying to converge during Ceph upgrade command
+* Configure NeutronPublicInterface with local\_interface
+* Switch undercloud to consume upgrade\_tasks from THT
+* Implement 'openstack tripleo upgrade'
+* Reorganize the config options for deployment
+* UC: validate paths for tht templates and env files
+* Wire-in net\_config\_override
+* Show Heat events by default
+* Add --stack to update, upgrade and ffwd-upgrade 'run' CLI
+* Update Heat stack on update/upgrade/ffwd converge
+* Add exclude-path to undercloud backups
+* Add --stack-only cli arg
+* Add warning + required confirm for ffwd-upgrade cli --yes to skip
+* Regenerate overcloudrc on upgrade and ffwd-upgrade (prepare)
+* undercloud: don't include config-download env
+* Wire-in roles\_file for undercloud heat installer
+* Fix net\_config\_override validations
+* Implement LocalContainerRegistry parameter
+* Fix test for netenv validate
+* Move run command to utils
+* Move tests to tripleo deploy
+* Generate undercloud\_parameters in output\_dir
+* Update undercloud install to use tripleo deploy
+* Create generic deployment action
+* Stop supporting the deprecated classic drivers
+* Save temporary working data
+* Add 'overcloud node clean' command to run metadata cleaning on nodes
+* Containerized undercloud completion messages
+* Capture external process output
+* Add installation log for containerized undercloud
+* Remove commented cidr nat rules code
+* Wire-in hieradata\_override for UC heat-install
+* Revert "Alter default http boot path for containerized Ironic"
+* Don't exit on a RUNNING message for deploy workflow
+* Q upgrade - fixup completion messages and --help doctext
+* Introduce Ceph upgrade command
+* Move test\_container\_image.py
+* Fix ansible config download dir
+* Add XClarity in the list of supported hw types
+* Make ipmi lanplus the default in auto fencing
+* add lower-constraints job
+* Added fake tempest docker service to undercloud config
+* Remove adding config-download-environment.yaml
+* Alter default http boot path for containerized Ironic
+* Use only update/upgrade ansible queue instead
+* Add arg to remove config-dir for config-download
+* Avoid using deprecated TLS endpoint files in undercloud config
+* Relax undercloud pre-flight public VIP CIDR check
+* Always log error before raise a msg
+* heat-launcher: enable convergence
+* Move heat\_launcher data to /var/log/heat-launcher
+* Add \`update converge\` CLI to remove no-ops
+* Correct stack in update unit tests
+* Switch to config-download by default
+
+10.0.0
+------
+
+* Add ffwd-upgrade cli - overcloud ffwd-upgrade [prepare|run|converge]
+* Enable Swift encryption for the containerized undercloud
+* Include Barbican's KEK in undercloud passwords
+* Only set verbosity if level above 1
+* Correct stack and add ceph\_ansible\_playbook in upgrade unittests
+* Follow the new PTI for document build [Updated]
+* Stop saying that containerized undercloud is experimental
+* Manage upgrades to a containerized undercloud
+* Improve heat launcher user retrieval
+* Do container image prepare during undercloud deploy
+* Use the build\_service\_filter from kolla\_builder
+* containerized/undercloud: disable verbosity by default
+* Update prepare using an environment file
+* Add upgrade-[prepare|converge].yaml into upgrade cli
+* Stop persisting previous configuration on update/upgrade prepare
+* Use six to import things from urllib
+* Use no TLS environment explicitly
+* Fix switching services-docker to services
+* Default environment/services/\* to docker
+* Add missing unit tests for undercloud\_deploy
+* Allow providing --ssh-user for update/upgrade run commands
+* Use container\_images\_file for all image prepare
+* Add tripleo-ui docker service to undercloud config
+* Make download\_config backwards compatible
+* undercloud: load masquerade-networks service
+* Remove the disable\_upgrade\_deployment flag validation
+* Contanerized Undercloud - Routed Spine-Leaf
+* Enable TLS by default in the containerized undercloud
+* Remove repeated code from TLS related bits in undercloud\_config
+* Updated from global requirements
+* Generate inventory with tripleo-admin user
+* Change generate fencing parameters to call workflow
+* Fix Issue: Netmask on br-ctlplane is always /24
+* Change default output-dir to be $HOME
+* Don't delete the tripleo Zaqar queue
+* Fix pre-flight validation undercloud-passwords.conf
+* Updated from global requirements
+* Undercloud: inspection\_runbench, inspection\_extras
+* Fix Genconfig - no HOME in environment
+* Wire up a --skip-tags parameter for overcloud upgrade run cli
+* Use openstackdocstheme for python-tripleoclient
+* Undercloud: wire in 'clean\_nodes'
+* Updated from global requirements
+* Prepare t-h-t for undercloud in a work dir
+* Fix the error message in \_validate\_no\_ip\_change
+* Deprecate the action parameter for fencing generation
+* Containerized undercloud: Enable novajoin if configured
+* Containerized undercloud: Set --local-domain from undercloud.conf
+* Pass plan/stack name into config\_download workflow
+* Remove nargs="+" from --nodes and --roles expect "comma, string"
+* Refactor some common code between overcloud\_upgrade and update
+* Updated from global requirements
+* undercloud: create EnableValidations
+* undercloud-deploy: Use process-templates.py from t-h-t root
+* Updated from global requirements
+* Populate ContainerImagePrepare variable
+* Add --roles and --nodes params to overcloud upgrade run cli
+* Update new documentation PTI jobs
+* Generate NeutronDnsDomain on containerized undercloud
+* Change default config download directory
+* Make container\_images\_file required
+* Configure heat DnsServers for undercloud install
+* Wire in undercloud\_mtu
+* Improve unit tests for overcloud deploy cleanup
+* uc/deploy: try to keep passwords from undercloud-passwords.conf
+* Drop the inspection\_enable\_uefi option
+* undercloud\_deploy: Default --output-only to False
+* Updated from global requirements
+* Use poll\_for\_events in undercloud install
+* Adds Overcloud Upgrade class and entry points for major upgrade
+* undercloud\_deploy: add --output-only option
+* undercloud\_deploy: Drop the keep\_running option
+* Change List Plans to call workflow
+* Don't print the start of a workflow, log it
+* Clarify minor update CLI and split minor and major classes
+* Make debug option working for UC heat installer
+* Fix haproxy and keepalived env paths
+* Drop masquerade\_network from undercloud\_config
+* Persist user-files/\* for 'overcloud update' command
+* Preserve roles\_data and network\_data
+* Use the generic preservation method for plan-environment.yaml
+* Keep original behavior of \`overcloud deploy\`
+* Add generic method for preserving plan files, use for user-environment.yaml
+* Add generic methods to upload files to plan
+* Changes Delete Plan to Call Workflow
+* Fix temp files teardown for undercloud deploy
+* Added a warning message for the invalid role-specific parameters
+* Updated from global requirements
+* Add --dry-run option to undercloud install
+* undercloud: introduce deployment\_user parameter
+* undercloud\_config: setup VIPs, haproxy, etc
+* Inherit UpdateCommand class from overcloud DeployCommand class
+* Pass the queue\_name to messaging\_websocket function for update
+* undercloud\_deploy: add opts to setup virtual-ips
+* Fix lint errors
+* Add Openstack Undercloud backup
+* image\_upload: allow ctrl-c
+* Get message from websocket instead from zaqarclient directly
+* Zuul: Remove project name
+* Add major update implementation
+* Default verbosity to 1 if no verbosity\_level available
+* Update reno for stable/queens
+* Revert "Remove the overcloudrc.v3 file"
+* Updated from global requirements
+* Document template enabled --tag-from-label
+* Allow passing an agent-name as a command line argument
+* Add --validate-only to openstack overcloud node import
+
+9.1.0
+-----
+
+* Add --tag-from-label to prepare command
+* Move more prepare logic into kolla\_builder
+* Use YAML inventory for minor update
+* Remove RH1 OVB jobs from configuration
+* Configure ansible's verbosity according to command's verbosity
+* Update the doc links to the right ones
+* Updated from global requirements
+* Add -r/--roles-file option to undercloud deploy
+* Composable role and service fails workflow
+* Generate undercloud-passwords.conf and fix output dir
+* Add workflows-based role listing commands
+* Revert "Revert "Convert undercloud deploy to use TripleoInventory class""
+* Revert "Convert undercloud deploy to use TripleoInventory class"
+* Update ole home page info python-tripleoclient
+* Handle user-provided TLS certificate/key for the undercloud
+* Convert undercloud deploy to use TripleoInventory class
+
+9.0.0
+-----
+
+* Configure undercloud docker registry/mirror
+* Updated from global requirements
+* Updated from global requirements
+* Remove Old baremetal commands provided by python-tripleoclient
+* Push the config container outside of heat stack update
+* Remove the overcloudrc.v3 file
+* Switch to tripleomaster registry
+* Undercloud: wire in scheduler\_max\_attempts
+* Drop docker\_name\_space option
+* Remove dead code & variables
+* Remove default for --overcloud-ssh-key
+* Support more hardware types and deprecate enabled\_drivers
+
+8.1.0
+-----
+
+* Updated from global requirements
+* Avoid tox\_install.sh for constraints support
+* Run enable\_ssh\_admin also for Nova+Ironic deployments
+* Print out the deploy command we are using
+* Catch zaqar exception when no message to claim
+* Display Horizon URL at the end of a deployment
+* Use qemu-img in bindep
+* Mount a tmpfs filesystem for heat tmpfiles
+* Fix for timeouts on scale down
+* Add each command to the history file
+* Deploy with --config-download even when some role has count 0
+* Move back to docker-site.yaml for ceph ansible update
+* Allow to override t-h-t 'Cloud\*' params undercloud
+* Pre-run validations and verifications for the undercloud
+* Set undercloud public host
+* Add mock to avoid writing missing files to disk
+* Consume a zaqar queue for update to poll ansible result
+* Output the location of the overcloud rc file
+* Add entry per enabled service in the inventory
+* Set also up-to-date overcloud flavor parameters
+* Mock creation of ~/.tripleo directory
+* Fix truncated error message
+* Add support to generate a sample undercloud.conf
+* Updated from global requirements
+* Migrate python-tripleoclient to zuul v3 jobs
+* Use common defaults for image prepare CLI
+* Add option for ceph ansible playbook
+* Fix static-inventory option for minor update
+* Add --output-dir
+* Add --config-download
+* undercloud\_deploy: enable heat-native by default
+* Ignore missing rendered heat envs in prepare
+* Do not failed update if no container registry is set
+* Support to drive undercloud deploy via undercloud.conf
+* Tripleoclient unified queue name
+* Refactor undercloud deploy to use Ansible
+* Allow the user to run ansible update on all nodes
+* Add missing puppet configuration to undercloud deploy
+* Don't rewrite resource\_registry values that aren't paths
+* Autodetect insecure registry in container image prepare
+* Do not return the config download path but only print it
+* Add --environment-directory to the prepare command
+* Rename options to the prepare command for clarity
+* Allow containerized undercloud deploy with SELinux
+
+8.0.0
+-----
+
+* Don't doube kill heat\_all
+* Do not rely on openstack-puppet-modules
+* Implement minor update workflow with config download
+* Make heat container remove silent
+* Add undercloud hostname
+* Fix error handling for actions
+* Add tests for networks-data option
+* Remove the duplicated success message
+* Updated from global requirements
+* Report node availability from "overcloud profiles list"
+* Handle when lists not only string in config download
+* Fix usage of method isotime
+* Updated from global requirements
+* Add default kolla conf file for TripleO to build container images
+* Add neutron\_driver value to prepare command
+* Fix py27 tests - expand the regex when adding 'when' to playbook
+* Fix some reST field lists in docstrings
+* Command to discover the versioned tag from latest
+* Filter out disabled services from prepare command
+* Consume new RoleConfig data in config download
+* Convert step to integer in when statement for upgrade tasks
+* Remove printing the introspection status
+* Use Python to compute release notes version
+* Mock out the creation of the tempest config
+* Deprecate --pull-source for container prepare command
+* Add a warning message for the list of unused parameters
+* Updated from global requirements
+* Remove the unused function "create\_default\_plan"
+* Filter container images by deployed services
+* Write breakpoint cleanup env to swift
+* Write rhel registration parameters env to swift
+* Write user parameters environment to swift
+* Add -n/--networks-data option
+* Adds when in upgrade\_tasks playbook written by config download
+* Add --set argument to prepare command
+* Increase timeout in get\_deprecated\_parameters workflow
+* Update reno for stable/pike
+* Change tag link in README to the newest address
+* Minor fixes for container image prepare command
+* Install policycoreutils-python
+* Skip empty resource\_registry sections
+
+7.2.0
+-----
+
+* Check for stack failure earlier in undercloud deploy
+* Fail early in case of error in env directory path
+* Replaces yaml.load() with yaml.safe\_load()
+* Restrict file permissions of config download data
+* Use simplejson to load json file
+* Removing the default role to swiftoperator
+* Allow overcloud deploy on UC w/o nova/ironic
+* Updated from global requirements
+* Add check for disable\_upgrade\_deployment flag in roles\_data
+* Create subdirectories per role for config dowload
+* Don't filter config keys by default
+* Rename download config to config download
+* Clean up duplicate workflow messages for plan actions
+* Added a warning log to list the deprecated parameters in the plan
+* Remove the unused function reset\_parameters
+* Remove the unused action wrapper for processing templates
+* Call undercloud pre-upgrade hook
+* Dump all deployment role\_data files to a config dir
+* Add list options to overcloud container image build
+* New command "overcloud container image prepare"
+* Move roles functions to tripleo-common
+* Modified --os-image option in overcloud image upload
+* Invokes specified workflows in plan env file
+* Revert "Call undercloud install function directly"
+* Avoid empty print during validation workflow execution
+* Remove some unused attributes and methods from the deploy command
+* Remove the unused, but well tested, function "check\_nodes\_count"
+* Remove unused function "check\_hypervisor\_stats"
+* Remove unused function "unbracket\_ipv6"
+* Write out credentials for undercloud install
+* Improve undercloud deploy logging
+* create history for the overcloud deploy command
+* Updated from global requirements
+* Undercloud install, find the right server resource
+* Optional override of the plan environment file
+* Make config options required
+* Call undercloud install function directly
+* Updated from global requirements
+* Replace assertRaisesRegexp with assertRaisesRegex
+* Install heat\_native deps dynamically
+* Drop --install-kolla option
+* Clean up last mentions of Mistral environments
+* Install prerequisites for undercloud deploy
+* Add 'overcloud node discover' command
+* Remove support for py34
+* Remove old image building code
+
+7.1.0
+-----
+
+* Provide commands for example roles
+* Use Swift to store Plan environment
+* Fix 'introspection bulk status' when some nodes were never introspected
+* Updated from global requirements
+* Raise the max\_json\_body\_size for heat
+* Add overcloud support report collect command
+* Handle failed actions
+* Updated from global requirements
+* Defer setup of all clients until take\_action()
+* Defer calls to tripleoclient.object\_store
+* Update plan creation command
+* Save DefaultPasswords values for undercloud deploy
+* Use Sphinx 1.5 warning-is-error
+* Explicitly set 'builders' option
+* Don't create tempest-deployer-input.conf in tests
+* Add --skip-deploy-identifier
+* Remove multiple plan support from plan export command
+* Add plan export command
+* Updated from global requirements
+* Remove update abort
+* New command "overcloud container image build"
+* Do not require auth to upload container images
+* Avoid race condition when setting up websocket
+
+7.0.0
+-----
+
+* Updated from global requirements
+* Remove the single-message interface to websockets
+* Add a new command to get the overcloudrc files
+* Support multiple messages from deploy\_plan
+* Support multiple messages from package\_update
+* Support multiple messages from delete\_stack
+* Support multiple messages from create\_raid\_configuration
+* Support multiple messages from configure\_manageable\_nodes
+* Support multiple messages from configure workflow
+* Support multiple messages from provide\_manageable\_nodes
+* Support multiple messages from introspect manageable
+* Validate NtpServers during plan processing
+* Add breakpoint cleanup env during plan processing
+* Support multiple messages from introspect workflow
+* Support multiple messages from provide workflow
+* Support multiple messages from delete\_node
+* Call pre-deployment checks in workflows
+* Support multiple messages from create/update\_deployment\_plan
+* Support multiple messages from get\_passwords
+* Stop using os-cloud-config
+* Ignore os-cloud-config deprecation warning
+* Revert "Use a Zaqar queue to get stack events"
+* Move clients into class constructor
+* Don't track added\_files in deploy environment processing
+* Remove log translations
+* Make fencing action parameter optional
+* Support multiple messages from create\_default\_plan
+* Fix return code when failing before launching the stack
+* Support multiple messages from register\_or\_update
+* Handle multiple messages from workflow executions
+* New command "overcloud container image upload"
+* Don't rely on umask to set appropriate permissions on overcloudrc\*
+* Use a Zaqar queue to get stack events
+* Mark 'undercloud deploy' as experimental
+* Use tmp env path when rewriting absolute resource paths
+* Updated from global requirements
+* undercloud deploy, delete heat containers
+* Update to a newer hacking library
+* Updated from global requirements
+* Remove calculation for NeutronDhcpAgentsPerNetwork
+* Don't create swift container if plan creation fails
+* Show stack failures on error
+* Pass empty stack\_fields to update manager
+* Deploy the undercloud with Heat
+* Fix fencing action parameter name
+* Mock os.path.isfile correctly
+* Updated from global requirements
+* Fix stack delete client
+* Add fake\_keystone class
+* Add heat\_launcher module to help launch heat-all
+* Fixed overcloud stack update workflow name error
+* Mock time.sleep in unit tests
+* Make overcloud image upload honor --image-path
+* Allow setting pm\_port when importing nodes from a .csv file
+* Remove link to modindex
+* Fix release name in release note prelude
+* Add Ocata release notes from branch
+
+6.0.0
+-----
+
+* Add support for calling validations from introspection
+* Release note for disabling password generation
+* Add overcloud\_parameters.GenerateFencingParameters
+* Migrate overcloud delete to full workflow
+* Add support for calling validations from deployment
+* Add release notes for my changes in Ocata
+* Migrate overcloud update to a mistral workflow
+* Updated from global requirements
+* Remove vendor plugins from image build
+* Create command for building RAID on given nodes
+* Provide an option to disable password generation on deployment
+* Remove redundant 'the'
+* Replace yaml.load() with yaml.safe\_load()
+* Release note for deprecated baremetal commands
+* Remove documentation for removed neutron command line options
+* Release notes for 5.8.0 (final Ocata)
+* Updated from global requirements
+* Switch undercloud upgrade to use upgrade script
+* Deprecate legacy 'baremetal' commands
+* Add --disable-validations
+* Add new hiera agent hook to legacy image build
+* Updated from global requirements
+* Simplify Fetching the passwords from Mistral
+* Add Constraints support
+* Remove the unused delete image function
+* Remove two unused Exception subclasses
+* Remove the unused constant RESOURCE\_REGISTRY\_NAME
+* Remove the unused get\_config\_value function
+* Remove dead mocks and dead code
+* Remove the keystone\_pki cert generation from tripleoclient
+* Use the overcloudrc generated in a Mistral action
+* Return proper exit code on plan deletion failure
+* Fix plan delete
+* Default image build to use yaml files
+
+5.7.0
+-----
+
+* Pin docutils version
+* Remove RHEL registration envrionment file from list
+* Delete deprecated Hacking in tox.ini
+
+5.6.0
+-----
+
+* Use absolute path when handling missing files
+* Remove python-networking-cisco from image build
+* Use the absolute path for temp templates
+* Add a timeout when waiting for messages from the deploy workflow
+* Clean up image exceptions
+* Updated from global requirements
+* Implement overcloud delete command
+* Only show deprecated args for overcloud deploy
+* Only start the deploy if the Heat stack isn't already in progress
+* Add an optional timeout when waiting for websocket messages
+* Add heat ansible agent to overcloud-full image
+* Show team and repo badges on README
+* Exit before post-deploy code if we are updating the plan only
+* Client does not need to generate the CephClusterFSID anymore
+* Add Panko password to deployment
+* Remove separate call to provide workflow
+* Use stack name or id for backwards compatibility
+* Give better output on scale failures
+* Error when users provide jinja2 templates as environment files
+* Remove network-gateway element from image build
+
+5.5.0
+-----
+
+* Format the nodes list in openstack overcloud delete node
+* Support whole disk images in TripleO
+* Enable creating images with Glance v2
+* Updated from global requirements
+* Remove code deprecated since Liberty
+* Add unit tests for bracket\_ipv6
+* Refactor creation of no\_proxy list for postconfig
+* Default the stack name to 'overcloud' in overcloud node delete
+* Reset the parameter\_defaults between deployments via the CLI
+* Change wording of help for --update-plan-only
+* Mock yaml.safe\_load safely
+* Switch overcloud build images to use ImageBuildManager
+* Change the qemu-img bindep to be qemu-img-ev
+* Don't assume CountDefault set in roles\_data.yaml
+* Use correct region value
+* Use environment fixture in tests
+* Fix handling of missing environment files
+* Pass clients to get the get\_password function
+* Updated from global requirements
+* Do not try to "provide" updated nodes not in "manageable" state
+* Fix nodes count check on stack-update with custom roles
+* Enable releasenotes translation
+* Add a flag to allow the plan to be updated without deploying
+* Updated from global requirements
+* Remove osc boilerplate from the readme
+* Fix the author and author-email in setup.cfg file
+* Use workflow for overcloud node delete
+* Use Password Generation provided by the Mistral workflows
+* Update .coveragerc after the removal of respective directory
+* Allow overriding CLI parameter defaults with env files
+* Remove white space between print () in plan\_management.py
+* Remove "baremetal show capabilities" command
+* Save the result of direct action calls in Mistral
+* Downloads templates from swift before processing update
+* Remove heat\_stack\_user from the deployer input
+* Fix get\_file in out-of-tree templates
+* Add the workflow name to the starting workflow message
+* Add ReNo support
+* Allow referencing rendered yaml files in resource\_registry
+* Download templates from swift before processing with heatclient
+* Updated from global requirements
+* Remove auth\_required=False from upload image command
+* Open python-tripleoclient for Ocata
+* Add optional overcloud deploy roles\_data.yaml override
+* Remove another openstackclient import
+* Fix typo: remove redundant 'the'
+* Add an overcloud rc.v3 file
+* Clear the old environment in rc file
+* Deprecate a number of CLI args that map directly to Heat params
+* Using assertIsNone() instead of assertEqual(None)
+* Add ssl development headers to bindep
+* Keystone credentials needs to be set with the overcloud password
+* Stop plan creation when container exists
+* Remove the get\_hiera\_key function
+* Change the level of mocking for the wait\_for\_stack\_ready test
+* Stop logging swiftclient errors
+* Do not use selinux-permissive for the CentOS image
+* Updated from global requirements
+* Use the passed in workflow when creating or updating a plan
+* Remove the reference to overcloud-without-mergepy file
+* Update the Mistral action names
+* Always use absolute path for tht\_root
+* Use a released version of tripleo-common
+* Revert "Upgrades: Add 'stack upgrade' command"
+* Revert "Upgrades: Add finish stage to 'overcloud upgrade'"
+* Revert "Upgrades: Add initialization stage to 'overcloud upgrade'"
+* Provide more information when 'node provide' fails
+* Remove openstackclient imports in the new parameters command
+* Remove the environments from Mistral when removing from Swift
+* Print the execution ID when starting Mistral workflows
+* Pass the timeout to the deploy workflow
+* Updated from global requirements
+* Remove one last reference to openstackclient.tests
+* Add \`openstack overcloud plan deploy\`
+* Use the hexdigest of the path to make the filename unique in swift
+* Migrate to using osc-lib
+* Add missing unit tests for the 'configure' workflows
+* Remove the rest of a removed path
+* Do not include epel element when building overcloud images
+* Display error message when socket is closed
+* Tripleoclient leaks temporary files
+* Re-enable keystone init deprecation message
+* Get template contents from plan, not local path
+* Update plan files when re-deploying
+* Ignore the .eggs directory
+* Generate Keystone credentials for overcloud
+* Add libffi-dev to bindep.txt
+* Replace agent elements with package python-heat-agent-puppet
+* Remove excessive output when configuring nodes
+* Use heatclient poll\_for\_events in wait\_for\_stack\_ready
+* Add \`overcloud parameters set\` to set Heat params in a plan
+* Update the 'overcloud deploy --templates' command to use Mistral
+* Add 'openstack overcloud plan create' command
+
+5.0.0
+-----
+
+* Use Mistral for baremetal boot configuration
+* Add 'openstack overcloud node configure' command
+* Use Ironic's generic service name in help messages
+* Add 'openstack overcloud node import' command
+* Fix unbracket\_ipv6()
+* Fix doc page for overcloud deploy
+* Add 'openstack overcloud plan delete' command
+* Add 'openstack overcloud plan list' command
+* Don't alarm users with "skipping postconfig" messages
+* NTP arg should be optional when specified in an environment
+* Throw an error/exception when interactive overcloud update fails
+* Use non-bracketed version of addresses for keystone.initialize
+* Initial support for bindep
+* Skip post-config based on t-h-t flag
+* Add Barbican password to deployment
+* Fix 'no nodes found' message in introspect manageable nodes workflow
+* Updated from global requirements
+* Use the messaging-websocket endpoint
+* Generate CephX keys via generate\_overcloud\_passwords
+* Make validation errors fatal by default
+* Remove another private OSC attribute usage
+* Removes setting NeutronL3HA and NeutronAllowL3AgentFailover
+* Long options should go first in help for all the options
+* Remove discover from test-requirements
+* Handle empty list of introspected nodes
+* Support node capabilities as dictionaries
+* Generate CephX keys and FSID regardless of CephStorageCount
+* Updated from global requirements
+* Adds ManilaPassword to the tripleoclient
+* Remove empty test file
+* Add 'openstack overcloud node introspect' command
+* Add 'openstack overcloud node provide' command
+* Deprecate fedora-user image type
+* Use Mistral for baremetal introspection
+* Use Mistral for baremetal registration
+* Add missing i18n marker on some help strings
+
+5.0.0.0b2
+---------
+
+* Remove NeutronEnableTunnelling from python-tripleoclient
+* Unset UpdateIdentifier on deploy
+* Don't cache and re-use the websocket
+* Remove sysctl element from overcloud image
+* Updated from global requirements
+* Don't pass None via UpdateIdentifier
+* Add support for CephRgwKey generation
+* Add a method to wait for messages on the websocket
+* Fix ssl port removal logic in postconfig
+* Don't put --builder in image\_group
+* Remove unused exceptions and redundant pass statements
+* Print success/failure message after image build
+* Add Zaqar password to deployment
+* Updated from global requirements
+* Implement 'openstack overcloud execute'
+* Run post deploy config on force
+* Add Mistral password to deployment
+* Add support for Zaqar websocket messaging
+* Fixed incorrect information in baremetal configure boot help
+
+5.0.0.0b1
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+* Show correct missing files when an error occurs
+* Make node count a validation
+* Add Ironic password generation during deployment
+* Document --initial-state param on baremetal import
+* fix the output message about 'driver\_info/deploy\_kernel'
+* Add Heat CloudFormation service for endpoint creation
+* Remove commented out os-cloud-config
+* Generate a password for the Mysql 'clustercheck' user
+* Allow import command to set deploy image and local boot
+* Remove the orchestration property from tripleoclient class
+* Updated from global requirements
+* Use a released version of os-cloud-config
+* [Trivial] Remove executable privilege of doc/source/conf.py
+* Trove integration
+* Make hypervisor stats check a validation
+* Use enable-packages-install
+* Optionally skip Keystone post-deployment initialization
+* Use values from endpoint map for service endpoints
+* Use wait\_for\_finish from python-ironic-inspector-client
+* Unset UpdateIdentifier on deploy/scale, pass in StackAction
+* Generate ceph client key
+* Use Ironic API v1.11 to support ENROLL state
+* Raise instead of returning False when take\_action fails
+* Don't configure Nova v3 service
+* Remove centos-cloud-repo element from image building
+* Update baremetal ready state command
+* Deprecate "baremetal show capabilities" command
+
+2.0.0
+-----
+
+* Allow 'openstack baremetal configure boot' to guess the root device
+* Fix path to rhel registration environment
+* Switch to using node utilities from tripleo-common
+* Add gnocchi password as a deployment param
+* Clarify error when a template is missing
+* Pass parameter names from parameter\_defaults to clear\_parameters
+* Fix no\_proxy list generation for overcloudrc
+* Throw exception if undercloud password file is missing
+* Aodh integration to tripleoclient
+* Upgrades: Add initialization stage to 'overcloud upgrade'
+* Upgrades: Add finish stage to 'overcloud upgrade'
+* Upgrades: Add 'stack upgrade' command
+* Add a restart of openstack-nova-api after upgrading undercloud
+* Add password for HAProxy stats
+* Remove the demo flavour creation
+* Pass RabbitMQ's password from the client
+* Generate a password for Redis and pass it as deployment parameter
+* Allow node import via yaml not only csv/json
+* Forcibly clear parameters now passed as parameter\_defaults
+* Remove hardcoded delay between introspections
+* Remove keystone init deprecation message
+* Add 'undercloud upgrade' command
+* Completely removed the old discovery image support
+* Fix ironic-inspector client usage
+* Refresh node power state at start of loop
+* Check Keystone init before running it
+* Replace python-hardware with smaller python-hardware-detect
+* Remove the extra space in the event\_log\_formatter
+* Don't warn about missing profiles when they're not used
+* Fix collect\_flavors to account for the same flavor for several roles
+* Don't regenerate the overcloud passwords if the Heat stack exists
+* Remove tripleoclient.baremetal wrapper
+* Simplify checking for stack complete
+* Wrap around list of events
+* Install bigswitch networking agent by default
+* More tests for overcloud deploy
+
+1.0.0
+-----
+
+* Remove ntp element from overcloud images
+* Sahara integration
+* Apply --min-tmpfs 5 to agent ramdisk build too
+* Add support for an answers file
+* Revert "Pass environment variables of proxy to tox"
+* Ignore ssl warnings from requests
+* Fix db error when running python34 unit tests
+* Install python-hardware package on the agent image by default
+* Use the grub2 element instead of grub2-deprecated
+* Updated from global requirements
+* Allow assigning profiles based on XXX\_profile capabilities
+* Don't build images with rdo-release by default
+* Support new ironic "enroll" state
+* Add --dry-run argument to overcloud deploy command
+* Improve test\_environment\_dirs verifylist check
+* Adding a test to exercise the command
+* Control envs via TRIPLEO\_ENVIRONMENT\_DIRECTORY
+* Add overcloud deploy --environment-directory
+* Use renamed overcloud.yaml template
+* Add dynamic-login element to the image creation
+* Drop py33 support
+* We do not need to pass a NeutronControlPlaneID
+* Make the undercloud install test discoverable
+* Removes MANIFEST.in as it is not needed explicitely by PBR
+* Pass environment variables of proxy to tox
+* Enable TLS endpoints through os-cloud-config
+* Set NeutronMetadataProxySharedSecret
+* image build: add --builder-extra-args
+* Fail the introspection command if introspection has failed
+* Increase test coverage for utils and plugin
+* Passes to os-cloud-config Keystone{Admin,Internal}Vip
+* Deprecate bash ramdisks
+* Log all resource events during overcloud deploy
+* Generate a unique DeployIdentifier on updates
+* Do not try to introspect nodes in maintenance mode and associated ones
+* Don't raise bare Exceptions
+* Require tunnel ranges if network type is VLAN
+* Do not throw an error on validation when tunneling is disabled
+* Remove parameter defaults
+* Turn the baremetal client reference into a property
+* Install bigswitch networking plugin by default
+* Include registry on update when other envs are specified
+* Disable command run under root user
+* Don't log exceptions redundantly
+* Fix chicken and eggs problem with tripleo-heat-templates
+* Allow adding new overcloud passwords
+* Don't parse redhat-release for distro info
+* Move more functions to utils.py
+* Consolidate module constants
+* Install device-mapper-multipath on overcloud-full
+* Don't download fedora-user as part of --all build
+* Set --min-tmpfs for overcloud-full build
+* Explicitly unset package update hooks when re-deploying
+* Turn the orchestration client reference into a property
+* Also disallow tunnel types without network type
+* Improve Coverage for tripleoclient/utils.py
+* Change RHEL subscription template path
+* Move common functions out into utils.py
+* Handle images not being found
+* Update requirements
+* fix cisco networking rpm name
+* Skip validation on nodes in maintenance mode
+* Exit with an error if an image fails to build
+* Make ssh user configurable
+* Remove unused cli arguments from overcloud deploy
+* Add debug environment to tox
+* Fix file checksum function in for python 3.4
+* Replace generate password for alternative in passlib
+* Make cover environment in tox display test coverage
+* Remove Tuskar support
+* Remove rhos-release support
+* Don't use delorean-rdo-management element
+* Build IPA in place of discoverd ramdisk
+* image build: add ImageBuilder.build\_ramdisk\_agent
+* image build: prepare for different generation methods
+* Use parameter\_defaults everywhere
+* Fix heat\_stack\_owner variable
+* Actually call \_validate\_args to check for network types mismatch
+* Don't send default environment file on stack update
+* Add support for building ironic-python-agent ramdisk
+* Change ignore-errors to ignore\_errors
+* Refactor for discoverd rename to inspector
+* Set the number for DhcpAgentsPerNetwork to controllers num or 3
+* Fix checking of available nodes
+* Add image name option to bm boot config
+* Use parameter\_defaults instead of parameters
+* Remove Debug parameter from overcloud deploy
+* Stop false positive validation warning
+* Cleanup some strangling references to rdomanager-oscplugin
+* Don't log from \_get\_stack
+* Fix unit tests on non-Red Hat distros
+* image build: separate the envvars for dib
+* DIB includes the "in-tree" elements by default
+* Rename rdomanager\_oscplugin to tripleoclient
+* Update .gitreview to point to review.openstack.org
+
+0.0.10
+------
+
+* Install cisco networking packages
+* Check available nodes count before deployment
+* Fix pre-deployment hypervisor check
+* Validate flavors and deploy images during \`overcloud deploy\`
+* Assert that network type is in tunnel types
+* Change libvirt default to kvm
+* Passing in the path to known\_hosts explicity
+* Generate partial tempest configuration during post-deploy
+* Add a show capabilities command to view the capabilities of nodes
+* Add passenv to the venv to allow passing of environment variables from stackrc
+* Use KeystoneAdminVip to obtain the keystone\_ip
+
+0.0.9
+-----
+
+* rhbz#1243015 - Do not hard-code overcloud name
+* Print output for overcloud image upload
+* Overcloud image upload update images
+* Add command option descriptions
+* When a stack Create/Update fails, output the status\_reason
+* Require --ntp-server for HA deployments
+* Remove nodes.json update from overcloud deploy
+* Require plan or templates arg on update stack
+* rhbz#1247722 - Report that discovery completed with errors
+* Remove Python 2.6 from the tox config
+* Add a command to validate network-environment.yaml
+* Add a command to validate instackenv.json
+* Introspect only the nodes that are in manageable state
+* Revert "Separate private and public endpoints for keystone"
+* Expose the --neutron-tunnel-id-ranges --neutron-vni-ranges options
+* Revert "Enable Manila Service"
+* Settings change needed for ci tests
+* Fix the deploy tests
+* Don't assume storage backend choices even when using Ceph
+* Don't set storage params when not deploying Ceph
+* rhbz#1241199 - Make configure boot safe to run multiple times
+* Adding some tests for the parameter saving
+* Fix tempest tenant\_network\_cidr and stack\_owner\_role
+* Add network-id option to overcloud validate
+* rhbz#1244913 - Ensure scaling params are reset
+* Fix RHEL registration regression
+* Do not configure and EC2 endpoint by default
+* Separate private and public endpoints for keystone
+* rhbz#1244810 - Skip parameters that do not make sense for scaling
+* Enable Manila Service
+* Add ntp element to overcloud-full images
+* Add --timeout to provide an optional timeout to Heat
+* rhbz#1236136 - Pass the public\_host option when setting up endpoints
+* rhbz#1236136 - Ensure horizon endpoint data is complete
+* Check both THT and Tuskar parmaters for the number of controllers
+* Fix swift operator value name
+* rhbz#1243274 - Enable Ceph as a Glance Backend when using THT
+* Allow passing extra env files to "overcloud node delete" command
+* Allow running "overcloud node delete" with heat templates directly
+* Allow passing extra env files to package update command
+* Allow running package update with heat templates directly
+* Wires up NeutronDhcpAgentsPerNetwork parameter to deploy
+* Remove the redundtant --plan-uuid
+* Remove the redundant --use-tripleo-heat-templates
+* Add missing re import
+* Align -e option with heatclient
+* BZ #1241583: Remove network configuration from post config
+* Consolodate --use-t-h-t and --template-root into --templates
+* Use a released version of ironic\_discoverd
+* Configure service endpoints individually
+* Add --template-root option to allow loading t-h-t from custom locations
+* Restrict the Mock version for Python 2.6 compatability
+* Add deployer-input option to overcloud validate
+* BZ #1241271 Honor a no\_proxy setting for overcloud postdeploy
+* Set nodes to AVAILABLE after discovery finishes
+* Updating overcloud should reuse heat parameters
+* Fixes post-deployment init
+* Add sos to overcloud-full image
+* Add a CLI arg to expose NeutronMechanismDrivers in the deploy command
+* BZ #1235314: --floating-id-cidr should be --floating-ip-cidr
+* Increase the sleep time while trying to get neutron l3 agents
+* Add skipfile options to openstack validate cli refacto format string
+* Add --external-net-segementation-id to deploy
+* Revert "Use the python implementation of instack-install-undercloud"
+* Pass HeatStackDomainAdminPassword through to heat
+* Add plotnetcfg to Overcloud image builds
+* Check at least 2 l3 agents before trying to initialize neutron
+* Revert "Add sosreport element to overcloud images."
+* Ensure that all parameters are strings when passed to Tuskar
+* Adds sleep before calling post deploy config of Neutron
+* Add RHEL registration to the CLI
+* Skip nodes under maintenance on baremetal boot config
+* Support os\_cacert
+* Save parameters that are generated on deployment
+* Default VLAN range only gives 1 tenant network
+* Use selinux=enforcing for Overlcoud image builds
+* NeutronNetworkVLANRanges must be a range
+* Don't unconditionally disable RHOS
+* Better error message if you forget the plan parameter
+* Introduce sleep between sending nodes to introspection (bz #1234343)
+* Fix pep8
+* Add tools/run-tests.sh instead of run\_tempest.sh
+* Fixing the deployments of named plans
+* Add sosreport element to overcloud images
+* BZ #1235314: --floating-id-cidr should be --floating-ip-cidr
+* Pass extra heat templates like heatclient
+*  Add heat parameters for CLI args when deploying t-h-t
+* BZ #1233956: Add support for cinder v2 api
+* Fix the UUID attribute name
+* Don't allow users to specify both a plan and T-H-T
+* Make scale parameters optional
+* Moving stack parameter defaults to undercloud create
+* Move postconfig to deploy command
+* Support getting the Tuskar plan by name or UUID when deploying
+* Remove the \`openstack overcloud scale stack\` command
+* Add baremetal configure ready state command
+* Increase the default timeout for a deploy to 60 mins
+
+0.0.8
+-----
+
+* Wire in control over neutron ovs tunnels
+* Use the python implementation of instack-install-undercloud
+
+0.0.7
+-----
+
+* Remove autospec=True
+* Configure boot fails when image names are not unique
+* Deprecate local grub2 element
+* Print the overcloud endpoint at the end if deploying
+* Add overcloud validate command
+* Fix default value of Cinder ISCSI backend
+* Add overcloud deploy post config and add network initialization
+* Fix assert\_called\_once\_with assertions
+* Pass NeutronAllowL3AgentFailover when use\_tht
+* Add ability to assign roles to flavors
+* Write the passwords to tripleo-overcloud-passwords
+* Use uuid4 instead of uuid1 as a base for passwords
+* Only show the error if it isn't None
+* Add proper Heat parameters when doing a tuskar-based install
+* Assume the v2 Keystone client
+* Update to let corosync use hostnames on image build
+* Rename command overcloud image create to upload
+* Use the correct envvar name for RHOS release
+* Add the Node UUID's that are being introspected
+* Add an option to pull in extra configuration via heat
+* Utilize environment variables properly
+* Minor update of scale command
+* Update image create to be in sync with latest from instack-undercloud
+* Update image build to be in sync with latest from instack-undercloud
+* Integrate Tuskar into openstack overcloud deploy
+* Add overcloud update command
+* Fix argument error in overcloud\_deploy.\_heat\_deploy
+* Rename the "all" commands to "bulk"
+* Remove some extra debug code
+* Add overcloud node delete command
+* Implement setup\_endpoints needed by overcloud deploy
+* Overcloud Deploy Command
+* Define Tripleo Heat Template parameters
+* Rename overcloud deploy command
+* Add a utility to remove SSH keys from the known\_hosts file
+* The baremetal client will return None if the node isn't found
+* Add a utility function for reading Hiera keys
+* Refactor setting node state into utils
+* Add a ulility to create an environment file
+* Add a docstring for wait\_for\_provision\_state
+* Better command description
+
+0.0.6
+-----
+
+* Update metadata for upload to pypi
+* Implementation of overcloud image build
+* Wait for discoverd
+* Add missing requirement
+* Remove cliff-tablib as a dependency
+* Use check\_call
+* Changing the way jenkins is being called
+* Scale out overcloud
+* Add man-type documentation pages for rdo-manager commands
+* Don't try to update a node in power transition
+* Revert "Scale out overcloud"
+* Scale out overcloud
+* Add overcloud image create method
+* Implement wait\_for\_stack\_ready
+* Conform to new API\_VERSIONS requirement from OSC
+* Always set the provision state to Manage before discovery
+* Add check\_hypervisor\_stats
+* Configure boot for all Ironic nodes
+* Fix pep8 line length failure
+* Add utility method for generating passwords for the undercloud
+* Look for a "nodes" key in the nodes JSON and use that if it exists
+* Fix heat client connection
+* Fix a typo - instace vs instance
+* Add initial Overcloud Deploy command
+* Add configuration for running unittests in jenkins with khaleesi
+* Fix doc problems so build of docs succeeds
+* Add initialisation of the Orchestration client
+* Add the openstack baremetal introspection all status command
+* Implementation of the Baremental introspection all start command
+* Implementation of the Baremental import command
+* Correct a typo - rdomanger -> rdomanager
+* Fix pbr info
+* Stub out the overcloud image commands
+* Redo layout of undercloud module namespace
+* Remove instack dependencies
+* Modify main package metadata
+* Enable undercloud plugin command test
+* Add the Python 3.4 classifier
+* Fix PEP8 Errors
+* Fix PEP8 Errors
+* Implement undercloud install
+* Initial commit

@@ -1,0 +1,35 @@
+- project:
+    templates:
+      - check-requirements
+      - horizon-non-primary-django-jobs
+      - openstack-lower-constraints-jobs
+      - openstack-python3-yoga-jobs
+
+    check:
+      jobs:
+        - freezer-web-ui
+        - openstack-tox-pylint
+    gate:
+      jobs:
+        - openstack-tox-pylint
+
+- job:
+    name: freezer-web-ui
+    parent: devstack
+    description: |
+      Base devstack job to ensure freezer-web-ui can be installed
+    required-projects:
+      - opendev.org/openstack/freezer
+      - opendev.org/openstack/freezer-api
+      - opendev.org/openstack/freezer-web-ui
+      - opendev.org/openstack/horizon
+      - opendev.org/openstack/python-freezerclient
+    vars:
+      devstack_plugins:
+        freezer-api: https://opendev.org/openstack/freezer-api
+        freezer: https://opendev.org/openstack/freezer
+        freezer-web-ui: https://opendev.org/openstack/freezer-web-ui
+      devstack_services:
+        horizon: true
+      devstack_localrc:
+        FREEZER_BACKEND: 'sqlalchemy'

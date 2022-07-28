@@ -1,0 +1,7 @@
+PyYAML>=3.12
+oslo.config>=5.2.0
+oslo.log>=3.36.0
+passlib>=1.7.2
+pbr!=2.1.0,>=2.0.0
+pyOpenSSL>=18.0.0
+setuptools!=48.0.0,!=49.0.0,>=39.0.1

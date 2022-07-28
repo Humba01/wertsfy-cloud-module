@@ -1,0 +1,245 @@
+CHANGES
+=======
+
+9.0.0
+-----
+
+* Use ovs TUNNEL\_ constants from new location
+* Execute neutron-db-manage only if q-svc is enabled
+* CLI: remove leftover logs from tap-flow create
+* Update leftover x namespace to openstack
+
+8.0.0
+-----
+
+* Tests: remove tempest plugin from taas repository
+* Use payload for PORT PRECOMMIT\_DELETE event
+* Use ovs constants from neutron-lib
+* CFG: Remove unnused cfg options
+* taas OSC commands
+* Add condition for the create\_tap\_service method in ovs\_taas.py
+* Make master working again
+
+7.0.0
+-----
+
+* Change tempest job to run on Ubuntu Focal
+* Switch to hacking 3.0.1 and to testing on focal
+* Enhancements to TaaS agent driver failure handling
+* Enable doc building job
+* Complete removal of dependency on the "mock" package
+* Update master for stable/train
+* Remove python2 jobs for tap-as-a-service
+* Adds policy in code to Tap-as-a-Service
+* Update deliverables for 6.0.0/train
+
+6.0.0
+-----
+
+* Add local bindep.txt
+* Switch to stestr
+* Update URLs after opendev.org migration
+* OpenDev Migration Patch
+* DB migration milestone for Stein
+* Update master for stable/stein
+* Update deliverables for 5.0.0/stein
+
+5.0.0
+-----
+
+* Add SRIOV mirroring support to Tap as a Service
+* Add a job from tap-as-a-service-tempest-plugin
+* Update psycopg2 to fix lower constraint issue
+* Replace openstack.org git:// URLs with https://
+* stop using common db mixin
+* Clear associated tap resources on port delete
+* use rpc from neutron-lib
+* Change openstack-dev to openstack-discuss
+* Use template for lower-constraints
+* Changes to tap service and flow update tests in taas Client
+* use neutron-lib for \_model\_query
+* use common rpc and exceptions from neutron-lib
+* DB migration milestone for Rocky
+* Update deliverables for 4.0.0/rocky
+
+4.0.0
+-----
+
+* Fix non-absolute imports
+* add local tox targets for pep8 and py3
+* Opt-in for neutron-lib consumption patches
+* Require neutron-lib explicitly
+* Update to use setup\_extension
+* add lower-constraints job
+* modify grammer mistake
+* fix a code annotation
+* Avoid tox-install.sh
+* remove unused plugin.get\_plugin\_name()
+* Updated from global requirements
+* DB migration milestone for Queens
+* Update reno for stable/queens
+* Add deliverables info
+* Zuul: Remove project name
+
+3.0.0
+-----
+
+* Add release notes
+* Update for os-testr 1.0.0 / stestr
+* Switch to tempest.common.utils.requires\_ext
+* Updated from global requirements
+* Move legacy jobs to project
+* Migration of Agent Extension to Neutron-Lib
+* Shrink Tempest scenario manager copy
+* DB migration milestone for Pike
+
+2.0.0
+-----
+
+* Add coverage threshold
+* tox.ini: Fix cover target
+* Update the documentation link for doc migration
+* Update neutron cli unit tests
+* L2 agent extension support for Tap-as-a-Service
+* Replace the usage of 'admin\_manager' with 'os\_admin'
+* Remove MANIFEST.in
+* devstackgaterc: Enable n-api-meta
+* Updated from global requirements
+* Fixes enable taas id reuse
+* Enable to stop taas\_openvswitch\_agent on unstack
+* Updated from global requirements
+* devstack: Update after systemd change
+* Remove get\_namespace from API extensions
+* Drop py34 target in tox.ini and setup.cfg
+* Undefined name '\_'
+* Remove log translations
+* Fix breakage due to neutron-lib update
+* Use data\_utils from tempest.lib
+* Use get\_random\_mac from neutron-lib
+* Updated from global requirements
+* [Fix gate]Update test requirement
+* Use neutron-lib's context module
+* tempest: Switch to local copy of tempset/scenario/manager.py
+* devstack: Adapt to lib/neutron
+* Remove unused logging import
+* Updated from global requirements
+
+1.0.0
+-----
+
+* Prepare for using standard python tests
+* devstack: Stop using Q\_PLUGIN\_EXTRA\_CONF\_FILES
+* Added link for modindex
+* Add DB migration milestone for Ocata
+* Enable placement on gate
+* Switch to decorators.idempotent\_id
+* Add tap-as-a-service spec
+* Remove unnecessary executable mode of some source files
+* Updated from global requirements
+* Updated from global requirements
+* Use ExtensionDescriptor from neutron-lib
+* Use tox\_install convention
+* Remove PLURALS
+* Use the new neutron manager
+* Import model\_base from neutron-lib rather than neutron
+* Include alembic migrations in module
+* Updated from global requirements
+* Updated from global requirements
+* Add status field in the TaaS API
+* Use neutron-lib modules for neutron\_taas
+* Disable VLAN id checks in create\_tap\_flow and delete\_tap\_flow
+* Fix i18n translation imports
+* Tag the alembic migration revisions for Newton
+* Fix Bug 1623457
+* Switch to internal \_i18n pattern, as per oslo\_i18n guidelines
+* Updated from global requirements
+* Rename DB columns: tenant -> project
+* Enable DeprecationWarning in test environments
+* Bring models in sync with migrations, add test
+* Fix a few db vs migration mismatch
+* UT: Fix "RuntimeError: stop called on unstarted patcher"
+* presentations.rst: Add another TaaS related Austin presentation
+* Fix can't delete tap service on agent site
+* Add Python 3.5 classifier and venv
+* Add more unit tests to test DB mixin class for TaaS
+* Add testresources to test-requirements
+* Make get\_plugin\_type classmethod
+* Provide support for tap-\*-update
+* Updated from global requirements
+* Fix validation of direction on TapFlow
+* Add unit tests to test DB mixin class for TaaS
+* Fix typo in class name
+* Updated from global requirements
+* Support service framework to separate plugin logic
+* Remove network-id from tap-service
+* Use call\_and\_ignore\_notfound\_exc directly
+* doc: reference OpenStack Austin presentation
+* CLI: Turn comments into docstring
+* Fix tap-flow CLI to take service parameter
+* Fix help text for tap flow command
+* Remove new= argument from create\_connection
+* Initialize alembic branches for TaaS repo
+* devstackgaterc: Remove stale reference to n-obj
+* Dont pass tenant-id in request unless given
+* Improve exception messages
+* Fix API end point for tapservice/tapflow
+* Updated from global requirements
+* devstackgaterc: Disable unrelated services
+* Update tempest plugin after tempest-lib deprecation
+* Fix Gate tests
+* Avoid using \_get\_tenant\_id\_for\_create
+* Add report to coverage
+* Deprecated tox -downloadcache option removed
+* Change stackforge to openstack
+* Fix in install and api guide
+* Remove old TaaS CLI repo, update API reference
+* Re-implement TaaS CLI as a NeutronClient extension
+* Fix db error when running python34 unit tests
+* Fix TempestPlugin function signature
+* Delete python bytecode before every test run
+* Create specs directory
+* devstackgaterc: Specify tests to run on gate
+* Add a few dumb api tests
+* Add TaaS services client for tempest
+* Add a skeleton tempest plugin
+* Remove old install instructions and script
+* Add a minimum documentation for devstack plugin
+* Add devstack plugin
+* unit tests: Use the correct base class
+* Add alembic migration
+* Add an entry point for the service plugin
+* Add entry points for cli commands
+* Fix taas\_init\_ops
+* INSTALL.rst: Tweak the description of ML2 extension driver
+* Updated from global requirements
+* Remove repos.py replacement
+* Move constants.TAAS to our local module for now
+* Update .gitreview for new namespace
+* Add tests for the rest of plugin methods
+* Add some more tests
+* tox.ini: Fix cover by giving the source directory explicitly
+* tox.ini: Fix a typo in cover env
+* Add a few more tests
+* setup.cfg: Drop python 2.6 and 3.3
+* Start writing tests
+* Move topics definitions to our own module for now
+* Python3 support improvement
+* test-requirements: Remove discover
+* Remove some commented out code
+* Misc documentation improvements
+* Change ignore-errors to ignore\_errors
+* Improved install script and updated the install readme file
+* Removing the reference shell script as now its part of the taas linux ovs driver
+* Deleting neutron configuration file as its no longer needed in the dependencies folder
+* Edited the READEM.rst file to refer API Reference document
+* Adding the API Reference guide for TaaS
+* Bug fix in the \_\_init\_\_.py file
+* Fixed misssing path prefix in taas\_plugin.py
+* Changing all oslo.config to oslo\_config
+* This is the initial commit of TaaS sources code
+* Changed tox.ini file to reflect only py27 and pep8
+* Adding an install script to install TaaS
+* Changing the README.rst file for tap-as-a-service
+* Changed the Readme file and Added INSTALL.rst file
+* Initial Cookiecutter Commit
+* Added .gitreview

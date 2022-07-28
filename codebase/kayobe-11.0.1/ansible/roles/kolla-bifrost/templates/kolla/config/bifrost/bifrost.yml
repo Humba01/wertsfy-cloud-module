@@ -1,0 +1,88 @@
+---
+# List of enabled Ironic hardware types.
+enabled_hardware_types: "{{ kolla_bifrost_enabled_hardware_types | join(',') }}"
+
+{% if kolla_bifrost_extra_kernel_options %}
+# List of extra kernel parameters for Bifrost's Ironic PXE configuration.
+# Default is empty.
+extra_kernel_options: "{{ kolla_bifrost_extra_kernel_options if kolla_bifrost_extra_kernel_options is string else kolla_bifrost_extra_kernel_options | join(' ') }}"
+{% endif %}
+
+# IP address range for DHCP.
+dhcp_pool_start: "{{ kolla_bifrost_dhcp_pool_start }}"
+dhcp_pool_end: "{{ kolla_bifrost_dhcp_pool_end }}"
+
+{% if kolla_bifrost_dnsmasq_router %}
+# Default route provided to nodes via DHCP.
+dnsmasq_router: "{{ kolla_bifrost_dnsmasq_router }}"
+{% endif %}
+
+{% if kolla_bifrost_dnsmasq_dns_servers %}
+# DNS servers provided to nodes via DHCP.
+dnsmasq_dns_servers: "{{ kolla_bifrost_dnsmasq_dns_servers | join(',') }}"
+{% endif %}
+
+{% if kolla_bifrost_domain %}
+# DNS domain provided to nodes via DHCP.
+domain: "{{ kolla_bifrost_domain }}"
+{% endif %}
+
+{% if kolla_bifrost_inspector_processing_hooks %}
+# Comma-separated list of inspector processing plugins.
+inspector_processing_hooks: "{{ kolla_bifrost_inspector_processing_hooks | join(',') }}"
+{% endif %}
+
+{% if kolla_bifrost_inspector_port_addition %}
+# Which MAC addresses to add as ports during introspection. One of 'all',
+# 'active' or 'pxe'.
+inspector_port_addition: "{{ kolla_bifrost_inspector_port_addition }}"
+{% endif %}
+
+{% if kolla_bifrost_inspector_extra_kernel_options %}
+# Extra kernel parameters for the inspector default PXE configuration.
+inspector_extra_kernel_options: "{{ kolla_bifrost_inspector_extra_kernel_options if kolla_bifrost_inspector_extra_kernel_options is string else kolla_bifrost_inspector_extra_kernel_options | join(' ') }}"
+{% endif %}
+
+# Whether to download Ironic Python Agent (IPA) images.
+download_ipa: "{{ kolla_bifrost_download_ipa }}"
+
+# URL of Ironic Python Agent (IPA) kernel image.
+ipa_kernel_upstream_url: "{{ kolla_bifrost_ipa_kernel_upstream_url }}"
+
+# URL of checksum of Ironic Python Agent (IPA) kernel image.
+ipa_kernel_upstream_checksum_url: "{{ kolla_bifrost_ipa_kernel_checksum_url }}"
+
+# Algorithm of checksum of Ironic Python Agent (IPA) kernel image.
+ipa_kernel_upstream_checksum_algo: "{{ kolla_bifrost_ipa_kernel_checksum_algorithm }}"
+
+# URL of Ironic Python Agent (IPA) ramdisk image.
+ipa_ramdisk_upstream_url: "{{ kolla_bifrost_ipa_ramdisk_upstream_url }}"
+
+# URL of checksum of Ironic Python Agent (IPA) ramdisk image.
+ipa_ramdisk_upstream_checksum_url: "{{ kolla_bifrost_ipa_ramdisk_checksum_url }}"
+
+# Algorithm of checksum of Ironic Python Agent (IPA) ramdisk image.
+ipa_ramdisk_upstream_checksum_algo: "{{ kolla_bifrost_ipa_ramdisk_checksum_algorithm }}"
+
+# Whether Bifrost uses firewalld.
+use_firewalld: "{{ kolla_bifrost_use_firewalld }}"
+
+# Firewalld zone used by Bifrost.
+firewalld_internal_zone: "{{ kolla_bifrost_firewalld_internal_zone }}"
+
+# Disable authentication for the Ironic and Inspector APIs.
+noauth_mode: true
+
+# Enable discovery of nodes in Ironic Inspector.
+enable_inspector_discovery: true
+
+# Disable cleaning for backwards compatibility. It is enabled by default in
+# Bifrost since the Victoria release.
+cleaning: false
+
+{% if kolla_bifrost_extra_globals %}
+###############################################################################
+# Extra configuration
+
+{{ kolla_bifrost_extra_globals|to_nice_yaml }}
+{% endif %}

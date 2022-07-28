@@ -1,0 +1,365 @@
+CHANGES
+=======
+
+9.0.0
+-----
+
+* Updating python testing classifier as per Yoga testing runtime
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+8.0.0
+-----
+
+* Drop horizon-nodejs10-jobs template
+* Add horizon-nodejs14-job template
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+7.0.0
+-----
+
+* Imported Translations from Zanata
+* Use TOX\_CONSTRAINTS\_FILE
+* Imported Translations from Zanata
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+6.0.0
+-----
+
+* Fix l-c testing for Ubuntu Focal (py38)
+* [goal] Migrate testing to ubuntu focal
+* [goal] Migrate testing to ubuntu focal
+* Fix npm jobs
+* Use unittest.mock instead of mock
+* Stop to use the \_\_future\_\_ module
+* Imported Translations from Zanata
+* Switch to newer openstackdocstheme and reno versions
+* tox: Keeping going with docs
+* Fix hacking min version to 3.0.1
+* Remove the unused coding style modules
+* Update hacking for Python3
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Bump default tox env from py37 to py38
+* Add py38 package metadata
+* Imported Translations from Zanata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+5.0.0
+-----
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix pyScss version in lower-constraints.txt
+* Drop Django 1.11 support
+* translation: drop babel extractor definitions
+* Imported Translations from Zanata
+* PDF documentation build
+* Fix python3 issue in devstack plugin
+* Update installation docs
+* Imported Translations from Zanata
+* Drop python 2.7 support and testing
+* Disable auto-generate API docs
+* Switch to Ussuri jobs
+* Use labels to identify the cloud-shell container
+* Use Horizon project template for django jobs
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update master for stable/train
+
+4.0.0
+-----
+
+* Bump python-zunclient to 3.5.0
+* Imported Translations from Zanata
+* Add python37 job
+* Switch to the new canonical constraints URL on master
+* Allow force delete a 'DELETING' container
+* Sync Sphinx requirement
+* Fix the path of the panel navigator
+* Imported Translations from Zanata
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Make python36 job voting
+* Add collectstatic and compress commands to the install guide
+* Update master for stable/stein
+* Imported Translations from Zanata
+* Add nodejs10 jobs on bionic
+* Switch to horizon-nodejs4-jobs template
+
+3.0.0
+-----
+
+* Add relesenotes for Stein
+* Imported Translations from Zanata
+* Improve Installation documentation
+* Imported Translations from Zanata
+* Update hacking version
+* Bump horizon for Stein
+* Imported Translations from Zanata
+* Change openstack-dev to openstack-discuss
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add containers panel for admin
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add "host" column into images table view for admin
+* Remove 'host' parameter from deleting image
+* Replace @memoized\_with\_request to @memoized
+* Imported Translations from Zanata
+* Add details view for hosts panel
+* Fix an issue of default api version
+* Add hosts panel
+* Add REST API and Angular service for hosts panel
+* Remove unused 'detail' parameter
+* Split command into list
+* Imported Translations from Zanata
+* Install horizon with upper-constraints.txt in post-install
+* Imported Translations from Zanata
+* Cleanup .zuul.yaml
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Imported Translations from Zanata
+* Remove mox3 from doc/requirements.txt
+* Imported Translations from Zanata
+* Update reno for stable/rocky
+* Drop nose dependencies
+* Imported Translations from Zanata
+
+2.0.0
+-----
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add release notes for Rocky
+* Prepare to support python3.6
+* Fix tox python3 overrides
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Clear selections for table view
+* Retrieve hosts under initAction
+* Add delete action for capsule
+* Add create action for capsule
+* Add details view for capsule
+* Add capsule panel
+* Imported Translations from Zanata
+* Add delete action for images
+* Add "host" parameter for image pull
+* Add python3 django 1.11 job instead of django 2.0 job
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add rebuild action for container
+* Add new states for container
+* Add new options for container creation
+* Imported Translations from Zanata
+* Use "update" for container name instead "rename"
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix postinstall for npm job
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add py35dj20 job
+* Imported Translations from Zanata
+* Drop mox3 from test-requirements.txt
+* Fix tox jobs and remove tox\_helper.sh
+* Follow the new PTI for document build
+* Imported Translations from Zanata
+* Update lower-constraints and requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Suppress resize error on resizing browser
+* Add Manage Security Groups action for container
+* Suppress conflicts between retry options and auto\_remove option
+* Imported Translations from Zanata
+* Clean-up tox
+* Describe more about security group on create
+* Imported Translations from Zanata
+* Present container deletion better
+* Fix the error on 'stop and delete container'
+* Add networks tab for container update
+* Reproduce navigations
+* Add releasenotes links to README
+* Install Horizon from git repository in tox test
+* Updated from global requirements
+* add lower-constraints job
+* Updated from global requirements
+* add documentation link to README
+* Updated from global requirements
+* Install horizon directly from pypi
+* Updated from global requirements
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Change runtimes to accept string
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Increase the memory step size to 128M
+* Imported Translations from Zanata
+* Update reno for stable/queens
+* Imported Translations from Zanata
+* Add gettext for Volumes tab
+
+1.0.0
+-----
+
+* Add release notes for Queens
+* Updated from global requirements
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Change the wiki address to docs links
+* Fix issue the deleted item is selected again with batch delete
+* Add Volumes tab for container creation
+* Add project\_id for image
+* Imported Translations from Zanata
+* Stop container before deletion
+* Add parameters for container creation
+* Update packages for JavaScript tests
+* Remove setting of version/release from releasenotes
+* Updated from global requirements
+* Imported Translations from Zanata
+* Fix URL of help html template for kill signal action
+* Cleanup tox and requirements
+* Add Cloud Shell feature
+* Imported Translations from Zanata
+* Updated from global requirements
+* Fix to use . to source script files
+* Update and refactor zunclient
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update reno for stable/pike
+* Show actions according to container status
+
+0.2.0
+-----
+
+* Imported Translations from Zanata
+* Fix container deletion error
+* Revert "Enable to refresh details view"
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix invalid UTF-8
+* Fix help string for network setting
+* Updated from global requirements
+* Add release notes for Pike
+* Add Networks and Ports step for creation dialog
+* Updated from global requirements
+* Add Scheduler Hints step into creation dialog
+* Add Security Groups steps into creation dialog
+* Updated from global requirements
+* Enable to refresh details view
+* Add configuration guide into docs
+* Use pbr autodoc feature rather than custom logic
+* Imported Translations from Zanata
+* rearrange existing documentation to fit the new standard layout
+* Imported Translations from Zanata
+* Updated from global requirements
+* Fix openstackdocstheme settings
+* Switch from oslosphinx to openstackdocstheme
+* Updated from global requirements
+* Improve docs build
+* Clean up doc/ and releasenotes/
+* Fix image pull action
+* Imported Translations from Zanata
+* Fix translate tag
+* Updated from global requirements
+* Add reno for releasenotes management
+* hacking: Specify white list rules in noqa explicity
+* ignore nose test results
+* Exclude node\_modules directory from flake8 target
+* Use commonized serial console
+* Fix execute action
+* Enable to rename container in update action
+* Add update action for container
+* Use Angular-Schema-Form for container creation
+* Add parameters for cluster creation
+* Updated from global requirements
+* Add images panel into admin dashboard
+* Make console work with zun-wsproxy
+* Updated from global requirements
+* Updated from global requirements
+
+0.1.0
+-----
+
+* Bump 0.0.0 to 0.1.0
+* Combine tty and stdin\_open
+* Optimize the link address in README.rst
+* Optimize the link address
+* Updated from global requirements
+* Refresh test environment
+* Rename 'reboot' to 'restart'
+* Handle 400/500 error on execute dialog
+* Increase the height of output area
+* Updated from global requirements
+* Display output of command for execute action
+* Add dialogs for stop/reboot actions
+* Updated from global requirements
+* Don't get container's logs if it is creating
+* Refresh views after actions
+* Fixed the error on stop reboot and kill
+* Add console tab into details view
+* Add 'interaction' attribute into creation dialog
+* Add 'run' attribute to create action
+* Use detailRoute constant for path of details view
+* Fix eslint errors
+* Add Delete Container Force action
+* Revert APIs for images
+* Refresh js test environment
+* Refactor zun.service.js
+* Refresh table view and detail view
+* Hotfix creation dialog
+* Fix get logs
+* Update higgins with zun
+* Remove Xstatic packages from requirements
+* Updated from global requirements
+* Update to a newer hacking library
+* changed the python version from 3.4 to 3.5 for better openstack support
+* Set reasonable name to browser title bar
+* Add exec/kill action
+* Use horizon's common "views" for Angular
+* Add mechanism to execute JavaScript test
+* Use initAction() instead initScope()
+* Cleanup .gitignore
+* Don't include openstack/common in flake8 exclude list
+* Drop MANIFEST.in - it's not needed by pbr
+* Enable DeprecationWarning in test environments
+* Added releasenotes for Zun-UI
+* Add container operations 'reboot', 'pause' and 'unpause'
+* Fix a duplicate request called when a user open a container panel
+* Add parameters for container
+* Add container operations
+* Use zunclient instead of stub
+* Changed the home-page of zun-ui
+* Fix the path to an enabled folder in plugin.sh
+* Fix pep8 errors
+* update test settings, cleanup REST api files
+* first commit

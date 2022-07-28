@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+python setup.py testr --coverage  --testr-args="test.unit"
+RET=$?
+coverage report -m
+rm -f .coverage
+exit $RET

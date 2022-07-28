@@ -1,0 +1,66 @@
+- job:
+    name: swiftclient-swift-functional
+    parent: swift-dsvm-functional
+    description: |
+      Run swift's functional tests with python-swiftclient
+      installed from source instead as package from PyPI.
+    # Ensure that we install python-swiftclient from git and
+    # do not install from pypi. This is needed since the parent
+    # job sets zuul_work_dir to the swift directory and uses tox
+    # for installation.
+    required-projects:
+      - opendev.org/openstack/python-swiftclient
+
+- job:
+    name: swiftclient-functional
+    parent: swift-dsvm-functional
+    description: |
+      Run functional tests of python-swiftclient with
+      python-swiftclient installed from source instead as package from
+      PyPI.
+    required-projects:
+      - opendev.org/openstack/python-swiftclient
+    vars:
+      # Override value from parent job to use swiftclient tests
+      zuul_work_dir: "{{ zuul.projects['opendev.org/openstack/python-swiftclient'].src_dir }}"
+      # swift can use different tox env names
+      tox_envlist: func
+
+- job:
+    name: swiftclient-functional-py2
+    parent: swiftclient-functional
+    nodeset: openstack-single-node-bionic
+    description: |
+      Run functional tests of python-swiftclient under Python 2
+    vars:
+      devstack_localrc:
+        # devstack dropped support for bionic, but we want it for easier py2 support.
+        # Set this so we install anyway.
+        FORCE: "yes"
+      tox_envlist: py2func
+
+- project:
+    templates:
+      - check-requirements
+      - lib-forward-testing-python3
+      - openstack-python-jobs
+      - openstack-python3-yoga-jobs
+      - publish-openstack-docs-pti
+      - release-notes-jobs-python3
+    check:
+      jobs:
+        - swiftclient-swift-functional
+        - swiftclient-functional
+        - swiftclient-functional-py2
+        - openstack-tox-py39:
+            voting: true
+    gate:
+      jobs:
+        - swiftclient-swift-functional
+        - swiftclient-functional
+        - swiftclient-functional-py2
+        - openstack-tox-py39:
+            voting: true
+    post:
+      jobs:
+        - openstack-tox-cover

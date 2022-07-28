@@ -1,0 +1,82 @@
+[console_scripts]
+tacker-conductor = tacker.cmd.eventlet.conductor:main
+tacker-db-manage = tacker.db.migration.cli:main
+tacker-rootwrap = oslo_rootwrap.cmd:main
+tacker-server = tacker.cmd.eventlet.tacker_server:main
+tacker-status = tacker.cmd.status:main
+
+[mistral.actions]
+tacker.vim_ping_action = tacker.nfvo.workflows.vim_monitor.vim_ping_action:PingVimAction
+
+[oslo.config.opts]
+tacker.alarm_receiver = tacker.alarm_receiver:config_opts
+tacker.auth = tacker.auth:config_opts
+tacker.common.config = tacker.common.config:config_opts
+tacker.conductor.conductor_server = tacker.conductor.conductor_server:config_opts
+tacker.conf = tacker.conf.opts:list_opts
+tacker.keymgr = tacker.keymgr:config_opts
+tacker.nfvo.drivers.vim.kubernetes_driver = tacker.nfvo.drivers.vim.kubernetes_driver:config_opts
+tacker.nfvo.drivers.vim.openstack_driver = tacker.nfvo.drivers.vim.openstack_driver:config_opts
+tacker.nfvo.nfvo_plugin = tacker.nfvo.nfvo_plugin:config_opts
+tacker.plugins.fenix = tacker.plugins.fenix:config_opts
+tacker.service = tacker.service:config_opts
+tacker.sol_refactored.common.config = tacker.sol_refactored.common.config:config_opts
+tacker.vnflcm.vnflcm_driver = tacker.vnflcm.vnflcm_driver:config_opts
+tacker.vnfm.infra_drivers.kubernetes.kubernetes_driver = tacker.vnfm.infra_drivers.kubernetes.kubernetes_driver:config_opts
+tacker.vnfm.infra_drivers.openstack.openstack = tacker.vnfm.infra_drivers.openstack.openstack:config_opts
+tacker.vnfm.infra_drivers.openstack.translate_template = tacker.vnfm.infra_drivers.openstack.translate_template:config_opts
+tacker.vnfm.mgmt_drivers.openwrt.openwrt = tacker.vnfm.mgmt_drivers.openwrt.openwrt:config_opts
+tacker.vnfm.monitor = tacker.vnfm.monitor:config_opts
+tacker.vnfm.monitor_drivers.ceilometer.ceilometer = tacker.vnfm.monitor_drivers.ceilometer.ceilometer:config_opts
+tacker.vnfm.monitor_drivers.http_ping.http_ping = tacker.vnfm.monitor_drivers.http_ping.http_ping:config_opts
+tacker.vnfm.monitor_drivers.ping.ping = tacker.vnfm.monitor_drivers.ping.ping:config_opts
+tacker.vnfm.nfvo_client = tacker.vnfm.nfvo_client:config_opts
+tacker.vnfm.plugin = tacker.vnfm.plugin:config_opts
+tacker.wsgi = tacker.wsgi:config_opts
+
+[oslo.policy.enforcer]
+tacker = tacker.policy:get_enforcer
+
+[oslo.policy.policies]
+tacker = tacker.policies:list_rules
+
+[tacker.nfvo.vim.drivers]
+kubernetes = tacker.nfvo.drivers.vim.kubernetes_driver:Kubernetes_Driver
+openstack = tacker.nfvo.drivers.vim.openstack_driver:OpenStack_Driver
+
+[tacker.openstack.common.cache.backends]
+memory = tacker.openstack.common.cache._backends.memory:MemoryBackend
+
+[tacker.service_plugins]
+commonservices = tacker.plugins.common_services.common_services_plugin:CommonServicesPlugin
+dummy = tacker.tests.unit.dummy_plugin:DummyServicePlugin
+nfvo = tacker.nfvo.nfvo_plugin:NfvoPlugin
+vnfm = tacker.vnfm.plugin:VNFMPlugin
+
+[tacker.tacker.alarm_monitor.drivers]
+ceilometer = tacker.vnfm.monitor_drivers.ceilometer.ceilometer:VNFMonitorCeilometer
+
+[tacker.tacker.app_monitor.drivers]
+zabbix = tacker.vnfm.monitor_drivers.zabbix.zabbix:VNFMonitorZabbix
+
+[tacker.tacker.mgmt.drivers]
+noop = tacker.vnfm.mgmt_drivers.noop:VnfMgmtNoop
+openwrt = tacker.vnfm.mgmt_drivers.openwrt.openwrt:VnfMgmtOpenWRT
+vnflcm_noop = tacker.vnfm.mgmt_drivers.vnflcm_noop:VnflcmMgmtNoop
+
+[tacker.tacker.monitor.drivers]
+http_ping = tacker.vnfm.monitor_drivers.http_ping.http_ping:VNFMonitorHTTPPing
+ping = tacker.vnfm.monitor_drivers.ping.ping:VNFMonitorPing
+
+[tacker.tacker.policy.actions]
+autoscaling = tacker.vnfm.policy_actions.autoscaling.autoscaling:VNFActionAutoscaling
+log = tacker.vnfm.policy_actions.log.log:VNFActionLog
+log_and_kill = tacker.vnfm.policy_actions.log.log:VNFActionLogAndKill
+respawn = tacker.vnfm.policy_actions.respawn.respawn:VNFActionRespawn
+vdu_autoheal = tacker.vnfm.policy_actions.vdu_autoheal.vdu_autoheal:VNFActionVduAutoheal
+
+[tacker.tacker.vnfm.drivers]
+kubernetes = tacker.vnfm.infra_drivers.kubernetes.kubernetes_driver:Kubernetes
+noop = tacker.vnfm.infra_drivers.noop:VnfNoop
+openstack = tacker.vnfm.infra_drivers.openstack.openstack:OpenStack
+

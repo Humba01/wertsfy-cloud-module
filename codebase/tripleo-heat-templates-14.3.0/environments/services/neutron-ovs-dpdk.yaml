@@ -1,0 +1,13 @@
+# A Heat environment that can be used to deploy DPDK with OVS
+# Deploying DPDK requires enabling hugepages for the overcloud nodes
+resource_registry:
+  OS::TripleO::Services::ComputeNeutronOvsDpdk: ../../deployment/neutron/neutron-ovs-dpdk-agent-container-puppet.yaml
+
+parameter_defaults:
+  NeutronDatapathType: "netdev"
+  NeutronVhostuserSocketDir: "/var/lib/vhost_sockets"
+  NovaSchedulerEnabledFilters: "ComputeFilter,AvailabilityZoneFilter,ComputeCapabilitiesFilter,ImagePropertiesFilter,NUMATopologyFilter"
+  OvsDpdkDriverType: "vfio-pci"
+  NeutronPluginExtensions: "qos,port_security"
+  # Disable postcopy for dpdk for now, further details see  https://bugzilla.redhat.com/show_bug.cgi?id=1986567
+  NovaLiveMigrationPermitPostCopy: False

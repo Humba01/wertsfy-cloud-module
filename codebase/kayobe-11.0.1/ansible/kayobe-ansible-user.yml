@@ -1,0 +1,106 @@
+---
+# NOTE(mgoddard): The bootstrap user may be used to create the kayobe user
+# account and configure passwordless sudo. We can't assume that the bootstrap
+# user account will exist after the initial bootstrapping, or that the
+# current operator's key is authorised for the bootstrap user. We therefore
+# attempt to access the kayobe user account via SSH, and only perform the
+# bootstrap process if the account is inaccessible.
+
+- name: Determine whether user bootstrapping is required
+  hosts: seed-hypervisor:seed:overcloud:infra-vms
+  gather_facts: false
+  tags:
+    - kayobe-ansible-user
+  tasks:
+    - name: Check whether the host is accessible via SSH
+      local_action:
+        module: command ssh -o BatchMode=yes -p {{ ssh_port }} {{ ssh_user }}@{{ ssh_host }} hostname
+      failed_when: false
+      changed_when: false
+      check_mode: no
+      register: ssh_result
+      vars:
+        ssh_user: "{{ ansible_user }}"
+        ssh_host: "{{ ansible_host | default(inventory_hostname) }}"
+        ssh_port: "{{ ansible_ssh_port | default('22') }}"
+
+    - name: Group hosts requiring kayobe user bootstrapping
+      group_by:
+        key: kayobe_user_bootstrap_required_{{ ssh_result.rc != 0 }}
+      changed_when: false
+
+    - name: Display a message when bootstrapping is required
+      debug:
+        msg: >
+          Cannot access host via SSH using Kayobe Ansible user account -
+          attempting bootstrap
+      when: ssh_result.rc != 0
+
+- name: Ensure python is installed
+  hosts: kayobe_user_bootstrap_required_True
+  gather_facts: no
+  vars:
+    ansible_user: "{{ bootstrap_user }}"
+    dnf_options:
+      - "-y"
+      - "{% if 'proxy' in dnf_config %}--setopt=proxy={{ dnf_config['proxy'] }}{% endif %}"
+  tags:
+    - ensure-python
+  tasks:
+    - name: Check if python is installed
+      raw: test -e /usr/bin/python3
+      changed_when: false
+      failed_when: false
+      register: check_python
+
+    # TODO(priteau): Support apt proxy
+    - name: Ensure python is installed
+      raw: "test -e /usr/bin/apt && (sudo apt -y update && sudo apt install -y python3-minimal) || (sudo dnf {{ dnf_options | select | join(' ') }} install python3)"
+      when: check_python.rc != 0
+
+- name: Ensure the Kayobe Ansible user account exists
+  hosts: kayobe_user_bootstrap_required_True
+  gather_facts: false
+  tags:
+    - kayobe-ansible-user
+  vars:
+    ansible_user: "{{ bootstrap_user }}"
+    # We can't assume that a virtualenv exists at this point, so use the system
+    # python interpreter.
+    ansible_python_interpreter: /usr/bin/python3
+  roles:
+    - role: singleplatform-eng.users
+      users:
+        - username: "{{ kayobe_ansible_user }}"
+          name: Kayobe deployment user
+          append: True
+          ssh_key:
+            - "{{ lookup('file', ssh_public_key_path) }}"
+      become: True
+
+  post_tasks:
+    - name: Ensure the Kayobe Ansible user has passwordless sudo
+      copy:
+        content: "{{ kayobe_ansible_user }} ALL=(ALL) NOPASSWD: ALL"
+        dest: "/etc/sudoers.d/kayobe-ansible-user"
+        mode: 0440
+      become: True
+
+- name: Verify that the Kayobe Ansible user account is accessible
+  hosts: seed-hypervisor:seed:overcloud:infra-vms
+  gather_facts: false
+  tags:
+    - kayobe-ansible-user
+  vars:
+    # We can't assume that a virtualenv exists at this point, so use the system
+    # python interpreter.
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: Verify that a command can be executed
+      command: hostname
+      changed_when: false
+
+    - name: Verify that a command can be executed with become
+      command: hostname
+      changed_when: false
+      become: true

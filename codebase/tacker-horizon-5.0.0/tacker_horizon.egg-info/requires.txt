@@ -1,0 +1,6 @@
+Django>=2.2
+horizon>=17.1.0
+oslo.log>=3.36.0
+oslo.serialization!=2.19.1,>=2.18.0
+pbr>=5.5.0
+python-tackerclient>=0.8.0

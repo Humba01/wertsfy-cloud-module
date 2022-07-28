@@ -1,0 +1,4 @@
+oslo.config>=5.2.0
+oslo.log>=3.36.0
+pbr!=2.1.0,>=2.0.0
+tempest>=17.1.0

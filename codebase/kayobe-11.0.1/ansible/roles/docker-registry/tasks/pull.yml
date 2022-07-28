@@ -1,0 +1,11 @@
+---
+- name: Pulling Docker registry container image
+  docker_image:
+    name: "{{ item.value.image }}"
+    repository: "{{ item.value.image }}"
+    source: pull
+    state: present
+  with_dict: "{{ docker_registry_services }}"
+  when:
+    - item.value.enabled
+    - docker_registry_action != 'destroy'

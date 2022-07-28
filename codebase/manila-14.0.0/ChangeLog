@@ -1,0 +1,3419 @@
+CHANGES
+=======
+
+14.0.0
+------
+
+* Add missing deprecated messages to policy
+* Fix sporadic test failure in manila
+* [doc] Annotate max api micro version in Yoga
+* Metadata for Share Resource
+* Container: Multiple subnets per AZ
+* NetApp ONTAP: Add support to multiple subnets per AZ
+* Add multiple subnets per AZ support
+* Migrate LVM driver to privsep
+* Update micversion to API2.69, Manila share support Recycle Bin
+* change to valid error status in test\_generic
+* Implement privsep boilerplate in Manila
+* Mock tenacity in gluster driver unit tests
+* Add support of scheduler\_hints in share replica create
+* Fix quota-set no required parameters on update
+* remove usage of six library
+* Add Python 3 only classifier
+* [DOC] Incorrect response code for share network creation
+* Remove usage of six lib for third party/vendors drivers
+* Cinder: Remove unused API
+* Add admin only keys to share metadata
+* Force disk wipe when running lvcreate
+* Fix note in the share manager
+* api-ref: Add share instances by share endpoint
+* OnlyHostFilter allows user to specify host during share create
+* ratelimit should not be enabled in nolimit pipeline
+* Add enforce\_scope setting support for Manila
+* Set tempest api version config in devstack plugin
+* remove usage of six library in api layer
+* Force share server selection on nondisruptive migration
+* Support group specs search for share group type API
+* NetApp OnTap: Fix compatibility check for share migrate
+* Move release notes to correct folders
+* Move db release note to correct folder
+* Add api-ref for security service update
+* Handle successful deletion of snapshot if quota commit fails
+* early return for \_share\_replica\_update() if there is no active replica
+* [devstack] Use OSC to set up share types
+* [api-ref] Fix datatype of cast\_rules\_to\_readonly
+* replace deprecated pyparsing method
+* Source admin credentials for manila setup
+* Modify docker instalation for fedora systems
+* Drop non-ASCII character from manila config
+* [NetApp] Fix default thin\_provisioned volumes on AFF
+* [doc] update doc about query user message
+* [doc] update cli doc about extend share
+* [doc] Update PTL documentation
+* Fix glusterfs test bug
+* [TrivialFix] Fix up a bugfix release note
+* [api-ref] Add request examples for share replica APIs
+* Deletes the six library and all its usages from manila/utils.py
+* [doc] Fix config and install guide for the generic driver
+* service\_instance: allow overriding the instance name
+* Adapt CephFS driver to do not try to escape export ip
+* Fix ignored [neutron] options
+* Pure Storage FlashBlade Manila - Version increment for Yoga
+* retry deadlock for share\_type\_destroy
+* Replace Jenkins with Zuul
+* Changed 'Jenkins' to 'Zuul'
+* NetApp: properly use netapp\_server\_port config
+* Add release notes command to tox
+* XENA release note regarding scheduler filters
+* doc: admin: generic\_driver: extend documentation
+* doc: admin: generic\_driver: fix indentation
+* PowerMax Manila -  Version increment for Xena
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+13.0.0
+------
+
+* [doc] Add Xena max api version annotation
+* Optimize the query logic for share network list
+* Follow up for share server migration enhancements
+* [NetApp] Add FlexGroup volume support
+* Share server migration enhancements
+* [NetApp] Share server migration through SVM migrate
+* Add Share Affinity/Anti-Affinity Scheduler Filters
+* [NetApp] Add readable replication type support
+* Replace retrying with tenacity
+* Fix api-ref for access rules
+* [Optimise] Use ThredGroup to manage periodic tasks
+* [NetApp] Fix list of mandatory services for CIFS share creation
+* [doc] add since and before parameter to message-list cli
+* [NetApp] Fixed scoped account replica delete
+* Add config option reserved\_share\_from\_snapshot\_percentage
+* Extend share will go through scheduler
+* Add missing [oslo\_reports] options
+* Add missing oslo.service options
+* Change cifs value from string to list for Dell manila drivers
+* Use oslo-config-generator conf to load options from libraries
+* handle replica state on migration complete
+* [Pure Storage] Honour the share\_name\_template parameter
+* Early validate for CIFS without security service
+* Migrate all quota parameters to [quota] section
+* Use tox 3.1.1 fixes
+* Add generic fuzzy matching logic to the database layer
+* tests: Remove use of 'oslo\_db.sqlalchemy.test\_base'
+* Update api-ref documentation
+* Replace deprecated scheduler filter module name
+* Use List for allowed\_origin
+* Add Pure Storage FlashBlade to Manila Admin docs
+* Deprecate create snapshot from share group in CephFS
+* Replace deprecated import of ABCs from collections
+* Add missing share-type user message
+* Replace assertDictMatch with assertDictEqual method in tests
+* Pass sync\_backref=False to relationship call
+* Replace oslo\_utils.fnmatch with fnmatch
+* Fix ipaddress issues in the infinidat driver
+* Adds a clear error message to operator-set limits
+* TrivialFix: Fix the filter name in config helper
+* Add Pure Storage FlashBlade driver
+* Add Ceph version check
+* Handle service client authorization errors
+* Remove duplicate line in release note
+* Filter shares by share type "extra\_specs"
+* fixes  availability zone filter when creating a share from snapshot
+* init\_host should be called before RPC consumer is created
+* Fix PDF build
+* Changed minversion in tox to 3.18.0
+* Remove references to sys.version\_info
+* Update IRC references
+* Add documentation for per share gigabytes quotas
+* [devstack] Drop manila-tempest-plugin installation
+* Fix with\_entities usage in db queries
+* Fix API reference of share snapshot creation
+* Replace deprecated SQLAlchemy "with\_lockmode"
+* Fix api error message for snapshot creation failure
+* Drop support for SQLite < 3.7
+* optimize share size check
+* Updates CephFS drivers docs
+* [Glusterfs] Fix create share from snapshot failed
+* setup.cfg: Replace dashes with underscores
+* Remove deprecated config and auth
+* Don't run periodic\_share\_replica\_update() on active replicas
+* Reuse \_set\_instances\_share\_data for replicas
+* Direct mgr commands to the mgr daemon
+* Add documentation for share server limits
+* Update admin, user and contributor guide
+* PowerMax Manila - version change for Wallaby
+* Document policy rule using the description parameter
+* [doc] Annotate max api microversion in Wallaby
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+12.0.0
+------
+
+* Add release note for secure rbac work
+* Set "context\_is\_admin" to system scope admin roles
+* Bump RPC version for the scheduler rpc call
+* [NetApp] Follow up fixes for update security service
+* Support host assisted share migration for Zadara manila driver
+* Add exception for insufficient privileges when using security services
+* Fix wrong totalcount returned by share listing query
+* Add create share from snapshot in CephFS
+* Update cephfs drivers to use ceph-mgr client
+* Move params from DocumentedRule to DeprecatedRule
+* Remove unused model properties and increase unit test coverage
+* Put ensure\_share into thread pool to speed up the startup of share service
+* fix unmange share with manage\_error status will lead to quota error
+* Disable some policy warnings
+* Fix generic share resize with 0.0.0.0/24 access
+* Filter storage protocol in the scheduler
+* [NetApp] Implement cached status pool
+* Fix share server lookup
+* Fix inconsistent ordering caused by low datetime precision
+* scheduler should ignore earlier time service capabilities
+* [NetApp] Implement security service update
+* Add security service update support to the container driver
+* Add security service update for in-use share networks
+* [ci] Part 2: Temporarily set docs job to non-voting
+* [ci] Temporarily set docs job to non-voting
+* [NetApp] Add support for FPolicy native mode
+* Implement secure RBAC for shares
+* Implement secure RBAC for share replicas
+* Change RBAC for share group snapshots
+* Implement secure RBAC for share snapshots
+* [NetApp] Fix security service configuration for LDAP servers
+* Implement secure RBAC for share type extra spec
+* Implement secure RBAC for share snapshot instances
+* Add config option to set per\_share\_size\_limit
+* Implement secure RBAC for share group type specs
+* Implement secure RBAC for share network subnets
+* Implement secure RBAC for share networks
+* Add share server limits
+* Implement secure RBAC for share group types
+* Implement secure RBAC for share groups
+* Implement secure RBAC for share instances
+* Implement secure RBAC for group snapshots
+* Implement secure RBAC for share types
+* Implement secure RBAC for share servers
+* Implement secure RBAC for share snapshot instance export locations
+* Implement secure RBAC for share snapshot locations
+* Implement secure RBAC for share replica locations
+* Implement secure RBAC for share instance export location
+* Fixed some syntax errors
+* Adding Zadara Manila driver
+* Adds support min/max share size limited by share\_type
+* Implement secure RBAC for share locations
+* Implement secure RBAC for access rule metadata
+* Implement secure RBAC for share access rules
+* Implement secure RBAC for services
+* Implement secure RBAC for security services
+* Fix traceback in scheduler-stats API
+* RBAC tightening for share access rule
+* Clean up some policy code
+* Drop "system\_scope" from context constructor
+* Doc: Add profiler support documentation
+* Integrate OSprofiler and Manila
+* [NetApp] Fix deepcopy of sqlalchemy objects inside the driver
+* Remove deprecated public share policies
+* Fix unit tests to use requests
+* Catch up to changes in RequestContext
+* [api-ref] Fix incorrect parameters
+* tox miniversion update to 3.1.1
+* [doc] remove project\_id from api endpoints
+* [devstack] Setup a "shared-file-system" service
+* [devstack] create endpoint without project\_id
+* Advertise v2 API routes without project\_id
+* Enable healthcheck middleware
+* [Native CephFS] Add messages for async ACL ops
+* remove usage of six library from unit tests
+* remove usage of six library
+* Remove backend deprecated variables
+* add additional driver data to migration get progress view
+* Adds missing caps for mgr in cephfs configuration
+* [NetApp] Fix kerberos security service issues
+* Update doc for manila-service-image download
+* Update manila and Ceph matrix support doc
+* Fix missing group and group\_snapshots in absolute limits
+* Implement secure RBAC for storage pool statistics
+* Implement secure RBAC for quotas
+* Implement secure RBAC for quota classes
+* Implement secure RBAC for messages
+* Implement secure RBAC for storage availability zones
+* Always use new\_size when extend
+* Uses local variable with ipv4 gateway config
+* [Doc] Add admin doc for share group
+* Add api reference for share server migration
+* Add developer reference to share server migration
+* Delete unavailable py2 package
+* [goal] Deprecate the JSON formatted policy file
+* Stop manila when unstacking
+* Update requirements
+* Updates to support in Ceph local.conf sample
+* Switch from base64 encodestring to encodebytes
+* [glusterfs] don't reinit volume list on deletion
+* Introduce base personas for secure RBAC
+* Bump oslo.log version to 4.3.0
+* Docs: NFS-Ganesha and dbus
+* [NetApp] Support NFS shares on windows
+* [NetApp] Fix hard-coded CA cert path for SSL
+* Retry unmount operation on the LVM driver
+* Replace deprecated UPPER\_CONSTRAINTS\_FILE variable
+* Retry unmount operation on the ZFSOnLinux driver
+* Update share replicas export location API ref
+* fix reno file location and indention
+* Remove the unused coding style modules
+* Move shares filtering to database layer
+* Fix logic that determines a share exists before manage
+* disable M325
+* Set Victoria max version in the api doc
+* Fix 'update\_share\_replica' doesn't provide share server model to drivers
+* Add share server migration admin documentation
+* [NetApp] Fix access rules for CIFS promoted replica
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+11.0.0
+------
+
+* [DOC] Add admin and user documentation for share revert to snapshot
+* [NetApp] Improve Adaptive QoS functionality
+* Documentation for Share Migration Ocata Improvements
+* Remove unused "\_migrate" API method
+* requirements: Drop os-testr
+* [NetApp] Fix issues with share server migration
+* Follow up change for share server migration
+* [NetApp] Fix python-manila package version
+* [NetApp] Fix CIFS promote back issue
+* Update share replicas api-ref
+* Update api-ref for share groups graduation
+* Fix manage share server for container in Focal
+* Fix manila OverQuota issue while managing shares
+* Fix capacity calculations in the CephFS driver
+* Improve migration\_get\_progress error handling
+* Remove install unnecessary packages
+* [NetApp] Adding support for Adaptive QoS in NetApp driver with dhss false
+* [NetApp] Add support for share server migration
+* Modify share groups w/ manila-manage's update-host
+* [Container driver] Adds share and share server migration
+* [NetApp] Enables configuring NFS transfer limits
+* [Glusterfs] Fix delete share, Couldn't find the 'gluster\_used\_vols'
+* Add share server migration for Dummy driver
+* Improve IPv6 documentation for access rules
+* Add share server migration
+* Update user doc index
+* [goal] Migrate tox based testing to ubuntu focal
+* Update share replica show docstrings
+* Update "Create and manage shares" doc
+* Handle oslo.messaging ping endpoint
+* [Glusterfs] Fix delete share, mount point not disconnected
+* Fix WsgiLimiterProxy check
+* Graduate share replication feature
+* PowerMax Manila -  Version increment for Victoria
+* [doc] clean up compute client options
+* Fix documentation for types and extra specs
+* DOC: Update admin generic driver network-options immutable
+* Add the share-type for the server setup metadata
+* Update docs for create share from snapshot in another back end
+* Update access rules documentation for user guide
+* Updates the API reference for some share operations
+* Add mod\_wsgi configuration samples
+* Add uWSGI configuration samples
+* Fix wrong capacity in pool\_stat for DellEMC manila drivers
+* Update Share types api-ref
+* Add api-ref for share network subnets
+* Move hacking checks to tests dir
+* [ci] Replace experimental tripleo job
+* [victoria][goal] Native Zuulv3 CI jobs
+* Harden LVM driver deletion paths
+* Zuulv3 native grenade job
+* [ci] Remove explicit compression of log files
+* Fix fallback share group snapshot implementation
+* Add verify-noapi testcase to grenade
+* Update LVM volume extend
+* Update NFS helper restart
+* Use assertEqual instead of assertItemsEqual
+* [ci] Re-enable scenario tests for lvm job
+* [NetApp] update set\_preferred\_dc for ontapi 1.150
+* Add plugin name to devstack/settings
+* add share server update to manila-manage share update\_host
+* [ci] Temporarily disable scenario tests
+* Add upgrade documentation
+* Enforce policy checks getting share-type by name
+* Enable cephfs snapshots
+* TrivialFix: Correct cephfs support release note
+* Add Ceph support statement
+* [api-ref] fix typo
+* Fix NFS/CIFS share creation failure issue
+* Make test-setup.sh compatible with mysql8
+* [NetApp] Fix HTTPS connection for python 3.7
+* [api-ref] Fix HTTP method on the manage API
+* add manila-manage service cleanup
+* [NetApp] Updating the release note for bugfix 1688620
+* Fix uwsgi path location
+* [NetApp] Fix svm scoped account
+* Use unittest.mock instead of mock
+* Update admin guide for share network subnets change
+* Add user guide for share network subnets
+* Add documentation for share replica quotas
+*  Make volume mount path configurable for ContainerShareDriver
+* Add user message when share shrinking fails at the driver
+* CIFS extension failing because of volume in use
+* [devstack] Allow cephfs daemon port access
+* [NetApp] Fix default ipspace deletion issue
+* [Unity] Update release note for filter function
+* Remove unused ManilaNode sqlalchemy model
+* [Unity]: Failed to enabled ACE for share
+* Get ports filtered by subnet id on share-server cleanup
+* Switch to newer openstackdocstheme and reno versions
+* Fix hacking min version to 3.0.1
+* Fix pep8 issues
+* [NetApp] add max\_over\_subscription\_ratio to pool stats
+* TrivialFix: Remove unnecessary future imports
+* [devstack][ci] Set public network ID in tempest.conf
+* [ci][devstack] Install bridge-utils for Container driver
+* Monkey patch original current\_thread \_active
+* [NetApp] Fix falsely report migration cancelation success
+* [devstack][ci] Move bgp setup to plugin
+* [devstack][ci] Fix floatingip allocation
+* [Unity] Implements default filter function
+* [Unity] Fix unit test issue
+* [devstack][ci] Modify firewall in ds-plugin
+* [CI] Remove unused jobs
+* [devstack][ci] Stop requiring g-reg service
+* [doc] Fix tempest doc
+* Remove translation sections from setup.cfg
+* Remove Babel requirement
+* [grenade] Switch base version
+* [CI] Fix grenade share networks test
+* Trivial fix: Add spec website link to contributor doc
+* Add py38 package metadata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+10.0.0.0rc1
+-----------
+
+* Drop install\_command usage in tox
+* [NetApp] Fix vserver peer accept on intra cluster replication
+* [NetApp] Fix share shrink error status
+* Update share-manager behavior for shrink share operation
+* fix bug in quota checking
+* [doc] Annotate max api microversion in Ussuri
+* fix bug in consume from share
+* [cycle-goals] Add PTL and contributor quickstart
+* Use unittest.mock instead of third party lib
+* fix bug in tox py test
+* Fix invalid assert statement
+* VNX/PowerMax: Fix export locations
+* [NetApp] Fix vserver peer creation with same vserver
+* Fix docs duplicated autoclass definition
+* [CI] Stop gating with manila-tempest-minimal-dsvm-lvm
+* [NetApp] Improve create share from snapshot functionality
+* [ZFSonLinux] Create share from snapshot in different backends
+* Remove experimental flag from share groups feature
+* Create share from snapshot in another pool or backend
+* [Unity] Manage/unmanage share server/share/snap
+* Remove provisioned calculation on non thin provision backends
+* Delete type access list when deleting types
+* Add new quota for share replicas
+* Prevent share type deletion if linked to group types
+* Increase MANILA\_SERVICE\_VM\_FLAVOR\_DISK
+* Support query user message by timestamp
+* Revert "Remove provisioned calculation on non thin provision backends"
+* Hacking: Fix W605
+* Hacking: Fix E731
+* Hacking: Fix E741
+* Hacking: Fix E305
+* Hacking: Fix E117
+* Hacking: Fix E226
+* Hacking: Fix E241
+* Hacking: Fix F601
+* Hacking: Fix F841
+* Hacking: Fix F632
+* Update hacking for Python3
+* Remove provisioned calculation on non thin provision backends
+* Cleanup Python 2.7 support
+* If only .pyc exist, the extension API will be disabled
+* [ci] Stop requiring neutron-tempest-plugin
+* Enforce policy checks for share export locations
+* Fix URLs in code and documentation
+* [NetApp] cDOT to set valid QoS during migration
+* Enable the use scheduler creating share from snapshot flag
+* [NetApp] Fix driver to honor standard extra specs
+* share\_networks: enable project\_only API only
+* Cleanup docs building
+* Update devstack repository URL
+* Fix database loading for some resources
+* Fix release note for LP 1853940's bugfix
+* Add opt doc and reno for noop interface driver
+* Add asynchronous error info into messages when share extend error
+* Use psycopg2-binary for test-requirements
+* Introduce noop interface driver
+* Refactor route clearing to linux interface
+* clear\_outdated\_routes: reduce neutron calls
+* generic: Refactor network functions to l3\_init
+* Use StrOpt for instance type
+* Improve share list speed using lazy='subquery'
+* Store ganesha logs and configs
+* [Unity]: Failed to delete cifs share if wrong access set
+* Fix over-quota exception of snapshot creation
+* Don't send heartbeats if driver not initializing correctly
+* Fix missing parameter in the log message
+* Fix a wrong comma in log message
+* Add manila-specs link to readme.rst
+* fix a typo
+* Fix error that failed to get image for booting server
+* Make extra\_specs value as case-insensitive
+* VNX/Powermax: Make it work under python3
+* [ussuri][goal] Drop python2.7 support
+* PowerMax and VNX Manila - Read only policy is not working correctly
+* [NetApp] Fix share replica failing for 'transfer in progress' error
+* Document max Train-release API version
+* [Unity] Add release note and tests for IPv6 fix
+* Fix invalid assert statement
+* Fix share network update erroneously returns success
+* [Unity] Sync Unity related Docs
+* Enable glusterfs-native ci
+* [NetApp] Allow extension/shrinking of NetApp replicated share
+* add document,source,bugs,blueprints links to readme
+* update readme links
+* Imported Translations from Zanata
+* Update master for stable/train
+
+9.0.0
+-----
+
+* Fix pagination does not speed up queries bug
+* Fix timeout when compute server was soft-deleted
+* Fix [Unity] verification and convert mgmt ipv6
+* Retrieve compatible share servers using subnet id
+* Fix error print format
+* Skip NFS/Samba install for CephFS
+* [train][goal] Define new manila-tempest-minimal-lvm-ipv6-only job
+* Add share network with multiple subnets
+* Add manila-status to man-pages list
+* [NetApp] Adds support for replication with DHSS=True
+* Pylint: use -j 0 arg
+* update share group test in db
+* Add update share-type API to Share Types
+* Remove backend spec from share type while creating replica
+* Remove support for \`\`data\_node\_access\_ip\`\`
+* [Unity] Driver supports the mode that does not create and destory share servers (DHSS=False)
+* Fix \_list\_view function for count
+* Change PDF file name
+* [Nexenta] Refactored NexentaStor5 NFS driver
+* Add PDF documentation build
+* [Infortrend] Add Infortrend Manila Doc
+* Fix subsections for container driver
+* Enable replication tests (DHSS=True) on Dummy driver
+* Add extend/shrink feature for glusterfs directory layout
+* Validate API sample JSON files
+* Correct json format in api-ref
+* [CI] Enable glusterfs-nfs ci
+* Fix incorrect 'cephfnfs1' to 'cephfsnfs1'
+* Add missing space
+* Add Infortrend Manila Driver
+* Add manila-ui config instructions
+* Remove support for "lvm\_share\_export\_ip"
+* [CI] Convert rally jobs to zuulv3 native
+* Fix usage of deprecated devstack function
+* Make manila-tempest-plugin installation optional
+* [api-ref] Correct share metadata API ref
+* Conditionally restore default route in setup\_ipv6
+* Run tempest jobs under python3
+* add IPv6 support for CephFS/NFS back end
+* [api-ref] Use relative links and fix grammar
+* Update api-ref location
+* Manila PowerMax - rebrand from VMAX to PowerMax
+* Add Python 3 Train unit tests
+* Remove the redunant table from windows' editor
+* Unmount NetApp active share after replica promote
+* Bump the openstackdocstheme extension to 1.20
+* Check NetApp SnapRestore license for pools
+* Fix an invalid assert state
+* Manila share driver for Inspur InStorage series
+* [CI] Add bindep.txt
+* Adding documentation for User Messages in Manila Documentation
+* Fix typo in Manila docs in manila.rst file
+* [CI] Run scenario tests in the cephfs-nfs job
+* Add admin ref for manage/unmanage servers DHSS=True
+* Blacklist python-cinderclient 4.0.0
+* Manila VMAX docs -  notification of removal of tags
+* Update sphinx dependency
+* [NetApp] Fix race condition issues on vserver deletion
+* [CI] Bump timeout for the migrations test case
+* NeutronBindNetworkPlugin: fix multi segment mtu
+* [api-ref] Update JSON samples for scheduler-stats API
+* Fix error print format
+* [Unity] Update doc for revert to snap support
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* The parameters of 'list shares' are optional
+* [api-ref] Delete unused parameters
+* [api-ref] De-duplicate name and description parameters
+* [api-ref] De-duplicate date and time parameters
+* [api-ref] Replace "tenant" terminology with "project"
+* Fix misuse of assertFalse
+* [grenade] Switch base version
+* [tests] Fix PYTHON3\_VERSION
+* Manila VMAX docs -  clarify backend configurations
+* [doc][api-ref] Fix annotation and missing parameters
+* Add api-ref for manage/unmanage with DHSS=True
+* [doc][api-ref] Clarify manage/unmanage APIs
+* Replace openstack.org git:// URLs with https://
+* [doc][api-ref] snapshot user\_id and project\_id fields
+* Update master for stable/stein
+
+8.0.0
+-----
+
+* Fix server delete attempt along with share net deletion
+* INFINIDAT: suppress 'no-member' pylint errors
+* Dummy driver: Don't fail unmanage on malformed share servers
+* Document Windows SMB driver
+* Only allow IP access type for CephFS NFS
+* Drop run\_tests.sh and tools/colorizer.py
+* Check all\_tenants value in share\_networks api
+* NetApp cDOT assume disabled compression on empty result
+* Check all\_tenants value in security\_service api
+* Fix parameters passed to exception
+* Destroy type quotas when a share type is deleted
+* Replacing the HTTP protocol with HTTPS
+* Fix driver filter to not check share\_backend\_name
+* Fix logging in wsgi module
+* Use legacy base to run CI/CD on Bionic
+* Manila VMAX docs -  differences between quotas
+* Deploy manila with uwsgi on devstack
+* Fix API version inferred w/ un-versioned URLs
+* Add missing ws seperator between words
+* Manila VMAX docs -  improve pre-configurations on VMAX section
+* Bump timeout on sqlalchemy migration test
+* Bump pylint job timeout
+* Manila VMAX docs -  clarify snapshot support
+* Fix hyperlink reference to security section
+* Manila VMAX docs -  clarify driver\_handles\_share\_servers
+* Fix version selector when for proxy-style URLs
+* VMAX manila doc - SSL Support
+* TrivialFix: Remove trailing whitespace in tox.ini
+* [pylint] Fix Manage-Unmanage with DHSS=True pylint issues
+* [Pylint] Bump pylint version to latest
+* [pylint] Use filenames in coding-checks
+* [pylint] Run pylint separately for code and tests
+* [NetApp] Add manage/unmanage of share servers
+* Add manage/unmanage of shares in DHSS=True
+* Fix missing size value in snapshot instance
+* Add manage/unmanage implementation to Container Driver
+* Refactor Container Driver
+* Move grenade job to bionic and run with python 3
+* Update docs landing page to follow guideline
+* [pylint] Fix/ignore pylint errors in test modules
+* Fix error message when updating quota values
+* [pylint] Fix/ignore pylint errors in non-test modules
+* Extend remove\_version\_from\_href support
+* [NetApp] Fix race condition issue in NetApp driver
+* Fix tls-proxy issues with the devstack plugin
+* [pylint] Remove lint tox environment
+* Include .inc files in doc8 linting
+* Suppress pylint warnings from dell\_emc drivers
+* Fix sshpool.remove
+* Fix typo in test name
+* Add policy to create/update public shares
+* [ZFSOnLinux] Log ZFS options as they are retrieved
+* Return request-id to APIs that don't respond with a body
+* Fix service image boot issues
+* Add api ref for access rule metadata feature
+* [Unity] Shrink share in Unity driver
+* Allow configuring availability\_zones in share types
+* Bump timeout on dsvm jobs
+* Add tripleo scenario004 job  to experimental queu
+* Match job names in playbooks to their names
+* Address E0102 pylint errors
+* [CI] Drop redundant if condition in the LVM job playbook
+* NetApp ONTAP: allow multiple DNS IPs
+* Run cephfs jobs under py3
+* Fix pylint errors for ganesha manager
+* Set mode for CephFS volumes and snapshots
+* Deprecated config option [DEFAUL]memcached\_servers
+* Deprecate [DEFAULT]/share\_usage\_size\_audit\_period
+* Fix spurious pylint import errors for ddt and mock
+* Configure per backend availability zones in devstack
+* Allow configuration of a back end specific availability zone
+* [Trivial fix] add missing ws seperator between words
+* Drop [DEFAULT]root\_helper config option
+* [Unity] Revert to snapshot support
+* Convert dummy job to py3
+* Separate APIs for share & replica export locations
+* Set paramiko logging to DEBUG level
+* Change ssh\_utils parameter to correctly send keepalive packets
+* devstack: Do a vgscan before checking if the VG is there
+* QNAP: Fix inconsistent cases while create/manage from snapshot
+* Fix the misspelling of "except"
+* Publish sample config file in the genconfig job
+* Improve service instance module debug logging
+* Move/Drop useless SQL related config options
+* Drop param2id() from cmd/manage.py
+* Drop trycmd() from manila/utils.py
+* QNAP: driver should not manage snapshot which does not exist
+* Add Ubuntu Bionic CephFS jobs
+* Drop is\_eventlet\_bug105() from manila/utils.py
+* QNAP: Support QES FW on TDS series NAS
+* Adjust ssh timeouts
+* Add devstack instructions and local.conf samples
+* [doc] Fix api sections in the contributor doc
+* Set ram for manila service image to 256
+* [Manila Unity/VNX] add 'snapshot support' related Doc for Unity/VNX driver
+* NetApp cDOT store port IDs and addresses at share server backend details
+* Deprecate old keystone session config opts
+* speed up GET scheduler-stats/pools/detail
+* Fix image\_name retrieval in custom-image jobs
+* Only run the needed services for CephFS jobs
+* Use the canonical URL for Manila repositories
+* fix http link to https link
+* NetApp ONTAP: cifs add AD security service server as preferred DC
+* Change openstack-dev to openstack-discuss
+* Fix ganesha for 0.0.0.0/0 access
+* Add missing ws separator between words
+* VMAX manila doc - support for IPv6
+* [api-ref] Added share servers show and corrected path to details
+* [CI][LVM] Run the LVM job on Bionic Beaver
+* [LVM][IPv6] Quagga changes to support Bionic Beaver
+* Use OS CLI instead of the neutronclient
+* Remove i18n.enable\_lazy() translation
+* Delete the duplicate words in  cephfs\_driver.rst
+* The URL of SSL is missing
+* [DevRef] Add code review guideline
+* [Trivial Fix] Correct spelling error of "throughput"
+* [CI] Switch Xenial tempest jobs to Bionic Beaver
+* VMAX manila - deprecate old tags correctly
+* inspur: transfer 'rw' to 'rwx' when Shared File Systems protocol is cifs
+* NeutronBindNetworkPlugin: fix multi segment neutron data save
+* NetApp ONTAP: Fix use of multiple subnets with DHSS=True
+* VMAX manila doc - use of correct VMAX tags
+* Add manila-status upgrade check command framework
+* [LVM] Run filesystem check before assigning UUID
+* Change python3.5 job to python3.7 job on Stein+
+* Increment versioning with pbr instruction
+* Make coverage non-voting and fix use of rpc\_backend
+* Simplify running pylint
+* Don't quote {posargs} in tox.ini
+* remove glusterfs-nfs job from check queue
+* change tox envlist from 3.5 to 3
+* Remove run\_tests.sh
+* [grenade] Switch base version
+* [Container driver] Fix volume group data collection
+* [ZFSOnLinux] Allow devstack bootstrap in Ubuntu > 16.04
+* 3PAR: Update Storage Driver docs
+* Remove install-guide-jobs
+* Use templates for cover and lower-constraints
+* Spelling Errors
+* Add version maximum annotation to API versions doc
+* Add command to update share instance hosts
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* NetApp ONTAP fix test allocate container with share\_instance
+* Remove logging overrides from plugin.sh
+* adjust response code in 'service.inc'
+* Adds export path option to Quobyte driver
+* Fix manila-ui link in the contributor doc
+* Fix ShareGroup sqlalchemy model ShareGroupTypes relation
+* [ZFSOnLinux] Retry unmounting old datasets during manage
+* Update reno for stable/rocky
+* NetApp ONTAP: change cifs server valid dns hostname
+* NetApp cDOT driver switch volume efficiency
+
+7.0.0
+-----
+
+* replace 'data=' with 'message='
+* NetApp cDOT driver qos policy same name
+* Test share type per test suite changes
+* INFINIDAT: unit tests - remove fake exception body
+* Fix grenade job
+* Fix mutable config in manila-scheduler
+* Fix ZFSOnLinux doc about manage ops
+* INFINIDAT: add host.created\_by metadata key
+* check all\_tenants value in share api
+* NetApp cDOT: use security service ou
+
+7.0.0.0b3
+---------
+
+* Api-ref: Add min\_version in the API parameters
+* Retrieve is\_default value to fix empty display in CLI
+* [Docs] Don't include unittest documentation
+* Support metadata for access rule resource
+* QNAP: Add support for QES 2.1.0
+* [CI] Don't set test config for API microversions if master
+* Api-ref: Add missing parameter in the version api
+* Allow setting test API microversions in gate tests
+* Api-ref: change fix \`\`extra-spec-key\`\` key in path
+* Docs: glance image-create returns an error issue
+* [NetApp driver] Control snapshot folder visibility
+* Fix results capturing for the dummy driver
+* Fix ensure\_shares bugs
+* [NetApp driver] NVE License not present fix
+* Change depreciated to deprecated
+* Fix bare exceptions in ganesha manager
+* INFINIDAT: change create\_child to create\_snapshot
+* Manila share driver for Inspur AS13000 series
+* Add share instance index on share\_id
+* [Manila Unity/VNX] admin doc failed to render
+* DB Migration: fix downgrade in 579c267fbb4d
+* Cannot remove user rule for NFS share
+* Fix mutable default argument in Quobyte jsonrpc
+* API: Add \`\`all\_tenants\`\` parameter
+* Fix doc warnings
+* [API] Doc snapshot and share net deletion preconditions
+* Address trivial TODOs
+* NetApp cDOT driver skip vserver route with no gateway
+* Remove confusing DB deprecation messages
+* add release notes to README.rst
+* rectify 'a export ID' to 'an export ID'
+* rectify 'a extra specs' to 'an extra specs'
+* rectify 'a exact match' to 'an exact match'
+* Document the preconditions for deleting a share
+* Use volume\_uuid in \_resize\_share of Quobyte Driver
+* Limit formatting routes when adding resources
+* Allow api\_version\_request.matches to accept a string or None
+* Update link address
+* Generic driver - Limiting SSH access from tenant network
+* [Trivialfix] Remove the useless parameter 'ext\_mgr'
+* Delete unused test check
+* [Doc] Add 'gateway' and 'mtu' in share network api-ref
+* QNAP: driver changes share size when manage share
+* Trivial: Update pypi url to new url
+* Config for cephfs volume path prefix
+* Switch to oslo\_messaging.ConfFixture.transport\_url
+* Use class name in invocation of super
+* Fix use of pbr version release
+
+7.0.0.0b2
+---------
+
+* Default pylint to run using python3
+* fix tox python3 overrides
+* [Grenade] Switch base to stable/queens
+* Set initial quota in Quobyte and correct resizing
+* Trivial:Update pypi url to new url
+* Fix share-service VM restart problem
+* Fix test plugin issues in dsvm-lvm-centos job
+* Fix manila-tempest-\*-centos-7 jobs
+* VMAX driver - Implement IPv6 support for Dell EMC VMAX driver
+* Fix post-execution for tempest tests
+* Fix access control for single host addresses
+* Switch from ostestr to stestr
+* Update "auth\_url" in install docs
+* NetApp ONTAP: Fix delete-share for vsadmin users
+* Fix title overline too short when generate docs
+* Fix bug for share type filter search
+* Update auth\_url value in install docs
+* Fix doc build warnings
+* Add ou to security service
+* [Manila Unity] Set unity\_server\_meta\_pool option as required
+* Use 'Default' as the value of domain name in install guide
+* Remove deprecated DEFAULT options
+* uncap eventlet
+* Update auth\_uri option to www\_authenticate\_uri
+* Fix allow the use of blank in user group name to access the share
+
+7.0.0.0b1
+---------
+
+* move securiy service error explanation from comment
+* Run pep8/fast8 with python3
+* Circumvent bug #1747721 to prevent CI failures
+* Remove option standalone\_network\_plugin\_ip\_version
+* Updated from global requirements
+* Support filter search for share type API
+* Fix typos in help text of Generic driver and ZFSSA config opts
+* Remove the deprecated "giturl" option
+* Disable tempest in rally jobs
+* Modify grammatical errors
+* Use rest\_status\_code for api-ref response codes
+* Updated from global requirements
+* add lower-constraints job
+* Update the new PTI for document build
+* Add manila-tempest-plugin as a requirement in rally job definitions
+* use http code constant instead of int
+* Adding driver to mysql connection URL
+* Log config options with oslo.config
+* Fix tap device disappear after node restart
+* Updated from global requirements
+* Update doc name and path for dell emc vnx and unity driver
+* Fetch and install manila-tempest-plugin system-wide
+* INFINIDAT: fix release notes
+* Updated from global requirements
+* Change a parameter key for CIFS mounting command
+* Updated NetApp driver features support mapping
+* INFINIDAT: set REST API client parameters
+* Add docs for quota\_class\_set API
+* Fix the incorrect reference links
+* Rename Zuul jobs
+* Remove the nonexistent install-guide directory
+* Remove use of unsupported TEMPEST\_SERVICES variable
+* Fix manila logging rabbitmq password in debug mode
+* Updated from global requirements
+* Replace Chinese quotes to English quotes
+* Fix db migration for mariadb >= 10.2.8
+* Move openstackdocstheme to extensions in api-ref
+* Update documentation links
+* Fix typos
+* Update reno for stable/queens
+* Update docs since manila\_tempest\_tests are installed system-wide
+
+6.0.0.0rc1
+----------
+
+* Revert Id905d47600bda9923cebae617749c8286552ec94
+* Fix LVM driver not handling IPv6 in recovery mode
+* Fix UnicodeDecodeError when decode API input
+* Fix Host-assisted Share Migration with IPv4+IPv6
+* Add manila.data.helper options to config sample
+* INFINIDAT: load-balance shares inside network space
+* INFINIDAT: support deleting datasets with snapshots
+* Replace chinese double quotes to English double quotes
+* Remove the unused variable
+* Fix boolean types in db migration tests
+* drivers/cephfs: log an error if RO access is used and it's unavailable
+* Fix a trivial bug of Dell EMC Manila IPv6 implementation
+* Handle TZ change in iso8601 >=0.1.12
+
+6.0.0.0b3
+---------
+
+* Use native Zuul v3 tox job
+* fix misspelling of 'password'
+* Enable IPv6 scenario tests in Upstream CI
+* Update manila plugin to support IPv6
+* NetApp cDOT: Add NVE support in Manila
+* Update unreachable link
+* Replace curly quotes with straight quotes
+* Updated from global requirements
+* Update contributor/tempest\_tests.rst
+* Implement IPv6 support for Manila Dell EMC Unity driver
+* Disable security group rule when create port
+* Modify outdated links
+* Updated from global requirements
+* Add ipv6 for share network admin doc
+* Follow the new PTI for document build
+* Updated from global requirements
+* DocImpact: Add MapR-FS native driver
+* Use stestr for coverage
+* Fix NFS/CIFS share creation failure issue
+* Implement IPv6 support for Dell EMC VNX driver
+* Fix version details API does not return 200 OK
+* QNAP: Add support for QES 2.0.0
+* Remove ordering attempts of 'unorderable types'
+* Fix volume attach error in generic driver
+* Always disable root-squash
+* Add support for enhanced features to the QNAP Manila driver
+* Fix error message in the manage API
+* DocImpact: Add quotas per share type
+* Fix running docs job failure
+* Raise error when image status is not active
+* ganesha: read and store non-ASCII data in exports
+* Api-ref: add show details for share type
+* Replace invalid link in manila doc
+* Fix incorrect api ref parameters
+* [Doc] Correct a known restriction in cephfs\_driver
+* QNAP Manila driver: Access rule setting is override by the later rule setting
+* Fix install docs reference error
+* Fix default and detailed share type result not correct
+* Remove in-tree tempest plugin
+* Updated from global requirements
+* Add policy documentation and sample file [10/10]
+* [policy in code] Add support for AZ, scheduler and message resource [9/10]
+* [policy in code] Add support for share and type extra resource [8/10]
+* [policy in code] Add support for replicas, networks and security services [7/10]
+* [policy in code] Add support for group resource [6/10]
+* Huawei driver supports snapshot revert
+* Updated from global requirements
+* Fix getting share networks and security services error
+* Updated from global requirements
+* Change ensure share to make startup faster
+* [policy in code] Add support for service and quota resource [5/10]
+* Remove unused configuration options
+* [policy in code] Add support for snapshot resource [4/10]
+* Add count info in /shares and /shares/detail response
+* Extend .gitignore for linux swap files range
+* [policy in code] Add support for share resource [3/10]
+* [policy in code] Add support for share type resource [2/10]
+* Add count info in /shares and /shares/detail API doc
+* Updated from global requirements
+* Remove usage of deprecated config 'resources\_prefix'
+* ganesha: store exports and export counter in RADOS
+* INFINIDAT add Manila driver
+
+6.0.0.0b2
+---------
+
+* Updated from global requirements
+* Simplify the way drivers report support for ipv6
+* QNAP: Add support for QES 1.1.4
+* Update docs to fix broken links
+* Add utils methods to write files
+* Fix drivers\_private\_data update on deleted entries
+* Use v3 cinder client for share volume
+* Updated from global requirements
+* Added Handling Newer Quobyte API Error Codes
+* Remove 'branches:' lines from .zuul.yaml
+* Install centos-release-openstack-pike
+* Add 'description' in share type API Doc
+* Add 'description' in share type APIs
+* [Api-ref] update parameters for share types api
+* fix keystone auth failed since project\_domain\_id and user\_domain\_id
+* [Doc]Update cephfs\_auth\_id for cephfsnfs Configuration
+* Fix quota usages update deleting same share from several API endpoints
+* [Doc] Use share group instead of consistency group in driver\_requirements
+* Fix shared-file-systems-share-types URL
+* Utilize requests lib for Huawei storage connection
+* Remove setting of version/release from releasenotes
+* Add ssl support for manila API access
+* Remove unused functions from api/extensions.py
+* Api ref contains incorrect parameters
+* Updated from global requirements
+* [policy in code] Add support for share instance export location resource
+* Remove hdfs job from check queue
+* Updated from global requirements
+* Advertise IPv6 support in the NetApp driver
+* Allow IPv6 gateways for the default route
+* Allow ZAPI over IPv6
+* Remove glusterfs-native job from check queue
+* Updated from global requirements
+
+6.0.0.0b1
+---------
+
+* Add API document for share group [3/3]
+* Add API document for share group [2/3]
+* The default cephfs\_enable\_snapshots set to False
+* Add admin documentation for following keys of quotas: 	-'share\_groups' 	-'share\_group\_snapshots'
+* Add API document for share group [1/3]
+* Purge doc of references to nova net
+* Remove deprecated ganesha\_nfs\_export\_options
+* Fix missing neutron net plugin options
+* Zuul: add file extension to playbook path
+* Fix duplicate standalone\_network\_plugin\_ip\_version
+* Fix issue with different decimal separators
+* Use sslutils from oslo\_service
+* Impove coverage job accuracy
+* NetApp ONTAP: Fix share size when creating from snapshot
+* [Doc] Fix parameters in share network api-ref
+* [Doc] Fix wrong links in docs
+* [doc] Fix install guide doc
+* Don't attempt to escalate manila-manage privileges
+* CentOS share node install docs
+* Migrating legacy jobs
+* doc: move stuff from contributor to admin
+* Delete limited\_by\_marker from api/common.py
+* Rename to index.rst
+* Restore .testr.conf
+* Fix 'project\_share\_type\_quotas' DB table unique constraint
+* Updated from global requirements
+* Use generic user for both zuul v2 and v3
+* [Doc] Add share group in doc
+* Updated from global requirements
+* Fixed creation neutron api mapping for security groups
+* cleanup test-requirements
+* Add default configuration files to data\_files
+* NetApp ONTAP: Add support for filtering API tracing
+* Updated from global requirements
+* Switch base to latest in link address
+* Enable mutable config in Manila
+* ganesha: cleanup of tmp config files
+* [Doc] Delete consistency group in doc
+* tempest: remove call to set\_network\_resources()
+* Removes use of timeutils.set\_time\_override
+* Updated from global requirements
+* Implementation of Manila driver for Veritas Access
+* tests: replace .testr.conf with .stestr.conf
+* [install-guide] remove install-guide doc
+* [doc] Add API document for snapshot instances
+* Remove auto generated files and unnecessary .gitignore file
+* Allows the use of dollar sign in usernames
+* [Api-ref] Delete the duplicate tenant arguments in parameters.yaml
+* Fix html\_last\_updated\_fmt in conf.py
+* Fix test\_rpc\_consumer\_isolation for oslo.messaging 5.31.0
+* Fix wrong links in manila
+* Delete the 'share\_extension:types\_extra\_specs' policy
+* Add API document for share replica
+* [Grenade] Switch base to stable/pike
+* NetApp: Fix usage of iso8601\_from\_timestamp
+* Use newer location for iso8601 UTC
+* Remove name and description from the search\_options list
+* Fix a typo in share\_migration.rst
+* Fix a typo: replace microverison with microversion
+* Remove "os\_region\_name" config option
+* [doc] Move Experimental APIs description to a common place
+* [Api-ref] Remove unused parameter extra\_specs\_2 in parameters.yaml
+* Updated from global requirements
+* Remove vestigate HUDSON\_PUBLISH\_DOCS reference
+* Add API document for share type quota
+* doc migration: update the doc link address
+* Update the documentation link for doc migration
+* Fix incorrect literal\_block error when build docs
+* Updated from global requirements
+* doc migration: configuration reference
+* Fix man page build
+* Remove unused variables and broken links
+* doc migration: cli reference
+* doc migration: user-guide
+* doc migration: install guide
+* doc migration: admin guide
+* doc migration: new directory layout
+* doc migration: openstackdocstheme completion
+* NetApp ONTAP: Fix revert-to-snapshot
+* Updated from global requirements
+* [Doc] Fix access rule description in api-ref
+* Update reno for stable/pike
+* [Doc] Add more description to user messages api-ref
+* [Api-ref] remove "is\_public" in snapshot updated description
+* TrivialFix: Add code block and format JSON data
+* Fix the duplicate hacking check M312 and H203
+
+5.0.0
+-----
+
+* Re-enable broken CG code in NetApp driver
+* Fix wrong links
+* [Api-ref] Add supported protocol "MAPRFS" in doc
+* Add API document for share group quotas
+* [Doc] Remove unused 'provider\_location' parameter
+* [Doc] Fix API document for Consistency group
+* Change the way to create image service
+* [Tempest] Fix tests for pre-existing share network
+* NetApp cDOT: Fix security style for CIFS shares
+* Remove duplicate variables
+* Remove tempest pin
+* Imported Translations from Zanata
+* Update links in README
+* Fix NFSHelper 0-length netmask bug
+* Enable some off-by-default checks
+* Imported Translations from Zanata
+* Fix multiple issues with revert to snapshot in LVM
+* Add exception for no default share type configured
+* Fix cannot deny ipv6 access rules
+* Removed unnecessary setUp() calls in tests
+* [Trivialfix]Fix typos
+* Imported Translations from Zanata
+* Use tempest-plugin service client registration
+* Imported Translations from Zanata
+* Add ipaddress in manila requirements
+* Updated from global requirements
+* Enable IPv6 in manila(documentation)
+* Updated from global requirements
+
+5.0.0.0b3
+---------
+
+* Enable IPv6 in manila(network plugins and drivers)
+* Add share groups and share group snapshots quotas
+* Add share usage size tracking in doc
+* Add share usage size tracking
+* Update location of dynamic creds in tempest tests
+* Provide filter name in user messages
+* Fix the exact filter can be filter by inexact value
+* NetApp cDOT: Add support for QoS/throughput ceilings
+* Updated from global requirements
+* NetApp: Define 'preferred' to False instead of none
+* Updated from global requirements
+* Add quotas per share type
+* Fix deprecated options version
+* Replace test.attr with decorators.attr
+* Allow 2 or more export IPs for LVM driver
+* Updated from global requirements
+* Disable notifications
+* Add user messages periodic cleanup task
+* Added like filter in api-ref
+* Enable IPv6 in manila(allow access)
+* NetApp cDOT: Fix share specs on migration
+* Updated from global requirements
+* Updated from global requirements
+* Update the documentation link for doc migration
+* Fix grammatical mistake, Changed character from "a" to "an"
+* Update URL home-page in documents according to document migration
+* Extend usage of user messages
+* User Messages
+* Add prefix 'test' to test name in test\_shares
+* Fix inappropriate parameters
+* VMAX VNX Manila - Refactor VMAX and VNX to use common code
+* Allow docs build without git
+* VNX: bump the version for Pike
+* Add like filter
+* TrivialFix: replace set(sorted(x)) with sorted(set(x))
+* Remove --omit argument in run\_tests.sh
+* Unity: unexpected data in share from snapshot
+* VNX: share server cannot be deleted
+* Add export-location filter in share and share instance list API
+* NetApp cDOT: Add gateway information to create static routes
+* Add create/delete/extend/shrink share notifications
+* Updated from global requirements
+* NetApp cDOT: Fix share server deletion
+* Updated from global requirements
+* Replace the usage of 'admin\_manager' with 'os\_admin'
+* Add support for Guru Meditation Reports for manila
+* Replace the usage of 'manager' with 'os\_primary'
+* Use parenthesis instead of backslashes in tempest folder
+* Retry backend initialization
+* Allow endless retry loops in the utility function
+* Updated from global requirements
+* cephfs/driver: add nfs protocol support
+* Use parenthesis instead of backslashes in tests folder
+* Use parenthesis instead of backslashes in scheduler folder
+* Updated from global requirements
+* Wrong substitution of replica ID in log message
+* Fix ShareSnapshotInstance DB table
+* Use parenthesis instead of backslashes in db folder
+* Use parenthesis instead of backslashes in share folder
+* Use parenthesis instead of backslashes in API folder
+* Replace assertEqual([], items) with assertEmpty(items)
+* Change example value in docs for CephFS snapshots
+* [Docs] Correct glusterfs references
+* Updated from global requirements
+* Updated from global requirements
+
+5.0.0.0b2
+---------
+
+* Imported Translations from Zanata
+* GPFS: Changing default value of NFS server type
+* Use get\_rpc\_transport instead of get\_transport
+* CI: Update tempest commit
+* [Share Groups] Squash SGS member and SS instances DB tables
+* Updated from global requirements
+* [Share Groups] Add two new fields to SG API object
+* [Share Groups] Add availability zone support
+* [Share Groups] Fix creation of share group types with wrong specs values
+* [Generic driver] Fix incompatibility with novaclient
+* ganesha: dynamically update access of share
+* [Share groups] Add scheduler filter ConsistentSnapshotFilter
+* Remove pbr warnerrors in favor of sphinx check
+* Clean releasenotes and install-guide build dir
+* Fix pep8 M325 error with python 3.5
+* Use get\_notification\_transport for notifications
+* Updated from global requirements
+* Implement update\_access in Isilon Driver
+* Replace oslo\_utils.timeutils.isotime
+* Use ShareInstance model to access share properties
+* CI: Update tempest commit
+* Fix share instance list API display error
+* Remove unused function in test\_share\_snapshot\_instances file
+* Updated from global requirements
+* Refactor share instances tempest test
+* GPFS Path: Fix bugs related to initialization of GPFS Driver
+* Updated from global requirements
+* Add a releasenote for tooz heartbeat
+* coordination: use tooz builtin heartbeat feature
+* Updated from global requirements
+* Remove unused self.context
+* Correct re-raising of exception in VNX driver
+* Updated from global requirements
+* Fix typos in document
+* Fix unit test failures in gate
+* Replaced exc.message with str(exc)
+* Change to share access list API
+* Fix update share instance pool fail
+* Change share to share snapshot in snapshot list API annotation
+* devstack: clone Manila client only if marked to
+* api-ref:Update ref link
+* Set access\_policy for messaging's dispatcher
+* Fix api-ref doc generation for Python3
+* Optimize the link address
+* Add periodic task to clean up expired reservation
+* Refactor and rename CephFSNativeDriver
+* Remove usage of parameter enforce\_type
+* Capitalize the first letter in comment
+
+5.0.0.0b1
+---------
+
+* Add comment explaining ignore D001 for doc8
+* Updated from global requirements
+* Add possibility to run 'manila-api' with wsgi web servers
+* Hacking: do not translate log messages
+* Updated from global requirements
+* Remove log translations in others 5/5
+* Replace six.iteritems() with .items()
+* Add sem-ver flag so pbr generates correct version
+* Fix important:: directive display in install guide
+* [CI] Add support for CI jobs with custom images
+* Updated from global requirements
+* Remove service\_instance\_network\_helper\_type option
+* Update to current tempest tag
+* Add read-only tests for cephx access rules
+* Remove log translations in share and share\_group 4/5
+* Remove log translations in scheduler 3/5
+* [Rally] fix jobs
+* Remove unnecessary setUp function in testcase
+* Remove log translations in cmd,common,data,db and network 2/5
+* Updated from global requirements
+* Remove log translations in api 1/5
+* Updated from global requirements
+* Remove deprecated manila-all command
+* setup \_IntegratedTestBase without verbose flag
+* Handle SSL from VNX driver
+* [Dell EMC Unity] Create with user capacity
+* Move create\_manila\_accounts to post-config
+* Imported Translations from Zanata
+* change user access name limit from 32 to 255 characters
+* Fix some reST field lists in docstrings
+* Fix docs failures caused by latest eventlet
+* Use HostAddressOpt for opts that accept IP and hostnames
+* set basepython for pylint tox env
+* Updated from global requirements
+* Remove old oslo.messaging transport aliases
+* Revert "Handle ssl for VNX manila driver"
+* remove hacking rule that enforces log translation
+* docs: fix build failure on html\_last\_updated\_fmt
+* devstack: skip nfs kernel install if nfs-ganesha
+* Updated from global requirements
+* Handle ssl for VNX manila driver
+* Update share replicas after promotion in proper order
+* Enable share groups back
+* Updated from global requirements
+* Switch to use stable data\_utils
+* Deprecate 'ganesha\_nfs\_export\_options'
+* Local copy of scenario test base class
+* Rename wrapped methods in share manager
+* CephFS driver: change CG variables to SG variables
+* [api-ref]: Add missing share statuses
+* Fix python3 pep8 errors
+* Update share server provisioning for share groups
+* Send resize parameters in rpc as list in the Quobyte driver
+* [Tempest] Fix concurrency in test with listing share servers
+* The python version is added Python 3 and 3.5 version was missing
+* Start NFS and SMB services on fedora platforms
+* Remove unused "share\_id" parameter
+* Remove unused assignments in share manager
+* Updated from global requirements
+* Unblock gate failure on docs build
+* Fix 3 CI breakages
+* [Grenade] Fix devstack configuration in CI hook
+* Change tempest tag to 15.0.0
+* Fix gate breakage caused by localrc usage
+* Fix host-assisted migration stale source share
+* Fix syntax in devstack plugin
+* Align policy.json with code
+* Add Apache License Content in index.rst
+* Use https instead of http for git.openstack.org
+* Remove unused pylintrc
+* Address family neutrality for container driver
+* container driver: log network id as network id
+* Remove redundant revert-to-snapshot test option
+* Fix some typos
+* Update tempest pin to 15.0.0
+* Only return share host for admins using shares API
+* Fix migration\_success before completing
+* Update HNAS driver version history
+* doc: verify all rst files
+* Fix to use correct config options for network\_for\_ssh
+* Adds manila-manage 'db purge' command to man page
+* Enable devstack deploy of container driver on Fedora
+* Add Share Migration devref docs
+* Improve HNAS driver coverage
+* Updated from global requirements
+* [Tempest] Refactor api/tests/admin/test\_share\_servers module
+* 3PAR: Replace ConsistencyGroup
+* Updated from global requirements
+* Updated from global requirements
+* Update tempest pin to latest commit ref
+* [Tempest] Split up share migration tests to separate classes
+* Mock time.sleep in tests that sleep
+* HNAS: Fix concurrency creating/deleting snapshots
+* [Grenade] Add test with creation of share snapshot
+* Fix Windows SMB helper
+* [Grenade] Switch base to stable/ocata
+* Use more specific asserts in tests
+* Optimize opposite driver modes migration test
+* HNAS: ensure snapshot before trying to revert
+* Update reno for stable/ocata
+
+4.0.0.0rc1
+----------
+
+* Add 'consistent\_snapshot\_support' attr to 'share\_groups' DB model
+* Pass access rules to driver on snapshot revert
+* Fix default approach for share group snapshot creation
+* Remove a py34 environment from tox
+* Disable share groups APIs by default
+* Fix devstack manila nfs install for fedora
+* Improve test coverage for share migration
+* Replaces yaml.load() with yaml.safe\_load()
+* Prepare for using standard python tests
+* Fix nonsense variable name
+* Fix wrong access-rule negative test
+* Fix migration of mountable snapshots
+* Fix HNAS driver inconsistent exceptions
+* Fix HNAS driver always handling mountable snapshots
+* HNAS: Fix syntax to make shares read-only in snapshot create
+* Blocked migration of shares within share groups
+* HNAS: Fix managed snapshots not being mounted
+* Fix multiple export locations during migration
+* Fix snapshot export locations incorrectly handled
+* HNAS: avoid mismatch access level for managed shares
+* Fix error'ed access rules being sent to driver
+* Fix setup of DHSS=False mode for generic driver
+* HNAS: Fix concurrency error when managing snapshots
+* Enable host-assisted migration in ZFSOnLinux CI
+* Decrease share migration periodic task interval
+* Add access-rules tests to improve the coverage
+* Remove unit test that is not relevant anymore
+* Fix creation of share group types using share type names
+* Mark 'v1' API deprecated in the versions response
+* Fix Generic driver DHSS=False setup
+* Fix string formatting in access-deny API error message
+* Make LVM export IP configurable
+* Updated from global requirements
+
+4.0.0.0b3
+---------
+
+* Updated from global requirements
+* Revert "[Devstack] Workaround osclient breakage"
+* Add mountable snapshots support to HNAS driver
+* Improve share migration scenario test validation
+* Mountable snapshots scenario tests
+* Fix MapRFS test\_\_execute to not impact others
+* Add mountable snapshots support
+* Fix devstack plugin to not depend on private network
+* VMAX manila plugin - Support for VMAX in Manila
+* NetApp: Support share revert to snapshot
+* [Tempest] Add functional tests for share groups feature
+* Manila Share Groups
+* Rename consistency group modules to share groups
+* [api-ref] Fix missing parameters in api-ref
+* Removes unnecessary utf-8 coding
+* NetApp cDOT: Add Intra-Vserver migration support
+* Updated from global requirements
+* Add QNAP Manila Driver
+* Add cast\_rules\_to\_readonly to share instances
+* Don't call update\_access if there are no rules
+* Implement Revert-to-snapshot in HNAS Driver
+* Share Migration Ocata Improvements
+* Refactor Access Rules APIs
+* Tooz integration
+* Trivial fixes to snapshot revert patch
+* [api-ref] Refactor share network documentation
+* Fix \`\`exportfs -u\`\` usage in generic driver
+* Add manila-manage db purge command
+* [Unity driver] VLAN enhancement
+* Implement share revert to snapshot
+* Fix metadata's soft-delete error when deleting shares
+* Fix license and E265 errors in doc/source/conf.py
+* Updated from global requirements
+* tests: remove useless variables in db\_utils methods
+* Some share api test cleanup
+* Update .gitignore
+* Fix column name error in migration script
+* Fix error message in Share Networks API
+* Remove NovaNetworkPlugin
+* [TrivialFix] Add negative test in quota detail
+* Add MapR-FS native driver
+* Allow skipping manila tempest tests
+* Properly deprecate service\_instance\_network\_helper\_type
+* remove devref jenkins doc
+* Support python 3.5 in tox
+* Unity/VNX Driver: Rename driver options
+* Migration Data Check fixes
+* Remove trailing backtick
+* Updated from global requirements
+* Remove nova net support from service\_instance
+* [api-ref] Refactor share instance export locations API documentation
+* GPFS: Add update\_access()
+* Report create\_share\_from\_snapshot\_support
+* Allow share status reset to migration status
+* Add support for manage/unmanage in GPFS driver
+* [api-ref] Refactor share actions API documentation
+* [api-ref] Refactor share export location API documentation
+* Add the ability to check the tenant quota in detail
+* Fix test variable injection in CI
+* [TrivialFix] optimize get filesystem id in huawei driver
+* [Devstack] Workaround osclient breakage
+* Updated from global requirements
+* GPFS KNFS: Fix deny access to succeed when possible
+* GPFS KNFS: Do not reuse ssh prefix in loop
+* Add create\_share\_from\_snapshot\_support extra spec
+* Trivial fix LOG.exception issues
+* [Grenade] Do not run tempest tests
+* Fix typo in rootwrap.conf
+* use six.StringIO for compatibility with io.StringIO in python3
+* Trivial fix translate issues
+* NetApp: set proper broadcast domain for IPspace
+* Add Apache 2.0 license to source file
+* [Dell EMC Unity] Support create share smaller than 3 GB
+* Updated from global requirements
+* [TrivialFix] Move share type filter tempest to test\_scheduler\_stats.py
+* [devref] copy samples/local.conf correctly
+* GPFS CES: Fix bugs related to access rules not found
+* Add DriverFilter and GoodnessWeigher documentation
+* Setting up a development env with devstack instructions
+* Enable scenario tests for LVM and ZFSonLinux drivers
+* [Tempest] Add scenario test creating share from snapshot
+
+4.0.0.0b2
+---------
+
+* Decouple Manila UI from Manila Devstack plugin
+* [Generic driver] Fix generation of admin export location
+* Fix undefined attribute in scenario test class
+* Fix Manila service image config for 3rd party CIs
+* Change network allocation of Unity driver to 1
+* [LVM,Generic drivers] Fix relationships between parent and child shares
+* Replace six.iteritems() with .items()
+* Add "update\_access" interface support for VNX
+* Add share\_type filter support to pool\_list
+* [TrivialFix] Fix doc typo error
+* Updated from global requirements
+* [Tempest] Fix concurrency issue in scenario test
+* Add support for manage/unmanage snapshots in HNAS driver
+* [ZFSonLinux] Stop inheriting options creating share from snapshot
+* Updated from global requirements
+* [Devstack] Use openstack CLI instead of other clients
+* [Devstack] Fix DHSS=False setup for Generic driver
+* [Devstack] Run tempest update in proper time
+* Fix wrong data type in database migration
+* LOG marker mismatch in the code
+* [hacking] Ensure not to use LOG.warn
+* Fix devstack smb configuration outside ubuntu
+* Fix share writable in host-assisted migration
+* Remove unused function in db api
+* [api-ref] Refactor Manila scheduler stats API
+* TrivialFix: Remove Duplicate Keys
+* Show team and repo badges on README
+* Fix wrong instructions in the install guide
+* [Dummy driver] Add possibility to set delays for driver methods
+* [Devstack] Fix devstack plugin compatibility
+* Add Admin network support to HNAS driver
+* Fix extend operation of shrinked share in generic driver
+
+4.0.0.0b1
+---------
+
+* [Tempest] Make share size configurable in scenario tests
+* [Tempest] Port remote\_client into Manila
+* hacking: Use uuidutils to generate UUID
+* devref/driver\_requirements: add cephfs protocol
+* Add Rally CI jobs with Manila scenarios
+* Fix spelling mistakes in cover.sh
+* Updated from global requirements
+* Check ceph backend connection on driver setup
+* Move EMC drivers to dell\_emc folder
+* NetApp cDOT controller utilization metrics
+* Replaces uuid.uuid4 with uuidutils.generate\_uuid()
+* Remove unused link
+* [install] Make the rabbitmq configuration simpler
+* Add testscenario to test-requirements
+* Fix share manage tempest test cleanup
+* Updated from global requirements
+* [Devstack] Create additional custom share types by default
+* Remove fake CG support from Generic share driver
+* Correct the order of parameters in assertEqual()
+* Use cors.set\_defaults instead of cfg.set\_defaults
+* Fix missing 'migration\_completing' task state
+* Replace 'assertEqual(None, ...)' with 'assertIsNone(...)'
+* Compare the encoded tag more accurately for huawei driver
+* Updated from global requirements
+* Add support of endpoint\_type and region\_name to clients manila uses
+* Updated from global requirements
+* [Tempest] Fix visibility of test\_quotas.py module
+* Fix a typo
+* Remove broken modindex link from devref
+* Clarify language in release notes
+* Updated from global requirements
+* Remove warnings for dropped context arguments
+* NetApp cDOT driver enhanced support logging
+* Add utility of boolean value parser
+* Fix concurrency issues in container driver
+* Updated from global requirements
+* Remove unused functions in utils
+* Update .coveragerc after the removal of openstack directory
+* [Grenade] Update devstack and pre\_test\_hook
+* Fix a typo in parameters.yaml
+* updated positional argument and output
+* Fix a typo in api\_version\_request.py
+* Updated from global requirements
+* NetApp cDOT driver should not report untenable pools
+* [api-ref] Refactor Manila snapshot API
+* [Container] Fix deletion of veths
+* Updated from global requirements
+* Enable release notes translation
+* Updated from global requirements
+* Avoid Forcing the Translation of Translatable Variables
+* Fix devstack for ubuntu-xenial
+* Stop adding ServiceAvailable group option
+* cephfs\_native: doc fixes
+* Remove tempest.test usage from manila tests
+* Fix typo in test\_gpfs.py
+* Use assert(Not)In/Greater(Equal)/LessEqual/IsNotNone
+* Updated from global requirements
+* Use method is\_ipv6\_enabled from oslo.utils
+* Files with no code must be left completely empty
+* TrivialFix: Remove default=None when set defaul value in Config
+* [TrivialFix] Correct file mode settings
+* [api-ref] Refactor Manila security service API
+* Remove redundant 'the'
+* Adjust doc about threading
+* Updated Hitachi NAS Platform Driver documentation
+* Updated from global requirements
+* Remove unused methods
+* Fix huawei driver username/password encoding bug
+* Use fnmatch from oslo.utils
+* Updated from global requirements
+* Fix check for nfsd presence
+* [api-ref] Refactor Manila availability-zones API
+* Fix huawei driver cannot delete qos while status is idle
+* Bring remote and local executors into accord
+* Add tempest tests for mtu and gateway fields
+* Make port\_binding\_extension mandatory if host\_id is specified
+* [api-ref] Refactor Manila quota set API
+* [api-ref] Remove temporary block in conf.py
+* Make nfs-kernel-server run on a clean host
+* Modify use of assertTrue(A in B)
+* Updated from global requirements
+* 3PAR driver fails to validate conf share server IPs
+* Manila install guide: Fix wrong instructions
+* delete python bytecode including pyo before every test run
+* Update installation tutorial and api-ref instructions
+* Update reno for stable/newton
+* [api-ref] Refactor limits and services API
+* [api-ref] Refactor manila extension API
+* [api-ref] Refactor consistency group API
+
+3.0.0
+-----
+
+* Add cleanup to create from snap in Manila HNAS driver
+* [ZFSonLinux] Fix share migration using remote host
+* Put all imports from manila.i18n in one line
+* Fix access rules for managed shares in HSP driver
+* Improve Share Migration tempest tests
+* Fix allow/deny error message and race in migration
+* Fix for LV mounting issue in docker containers
+* Fix flaky Neutron port binding unit tests
+* Fix useless statements in unit tests
+* [docs] Update dev docs for ZFSonLinux share driver
+* [ZFSonLinux] Add test coverage for share migration
+* NetApp cDOT driver autosupport broken
+* Fix dedup/compression description in doc
+* huawei driver default create thin type share
+* HPE 3PAR: file share support of AD in devref
+* Updated from global requirements
+* glusterfs: handle new cli XML format
+* Add provisioned\_capacity\_gb estimation
+* Fix typo in response status code
+* standardize release note page ordering
+* Fix race condition updating routes
+* share-size not set to 1 with 'manage\_error' state
+* Config logABug feature for Manila api-ref
+* NetApp cDOT: Avoid cleaning up 'invalid' mirrors
+* [ZFSonLinux] Fix share migration support
+* Update to tempest 12.2.0
+
+3.0.0.0b3
+---------
+
+* Add multi-segment support
+* Add binding\_profile option for backends
+* Nexenta: adding share drivers for NexentaStor
+* Updated from global requirements
+* Windows SMB: implement 'update\_access' method
+* Windows SMB: remove redundant operations
+* [Dummy driver] Add share migration support
+* [ZFSonLinux] Add share migration support
+* Add share type change to Share Migration
+* HPE 3PAR driver pool support
+* Share migration Newton improvements
+* Unity: Use job for NFS share creation
+* Correct reraising of exception
+* Windows SMB: avoid default read share access
+* Change assertTrue(isinstance()) by optimal assert
+* Fix Share Migration improper behavior for drivers
+* Fix Manila HNAS driver managing a share twice
+* Fix test bugs for replication CI
+* Implement replication support in huawei driver
+* Fix connectivity problem in Scenario job
+* Updated from global requirements
+* [CI FIX] Fix 'ip route' matching multiple subnets
+* Clean imports in code
+* Clarify grenade failure message
+* Updated from global requirements
+* Add documentation for EMC Unity Driver for Manila
+* Remove enable\_v1\_api and enable\_v2\_api config opts
+* 3PAR: Add update\_access support
+* add access\_key to share\_access\_map
+* Add missing filter function in HSP driver
+* Get ready for os-api-ref sphinx theme change
+* Fix fallback share migration with empty files
+* Rename and move HNAS driver
+* Updated from global requirements
+* Add neutron driver for binding
+* Fix sample config generation for cinder, nova and neutron opts
+* Add Hitachi HSP driver
+* manila\_tempest\_tests: fix exception messages
+* Container driver
+* Tox Upper Constraints - strip out reinstalls for remaining jobs
+* NetApp cDOT: Apply network MTU to VLAN ports
+* Fix typo in glusterfs driver comment
+* [dev-docs] Changed small case letters to capital
+* Add MTU information in DB and API
+* In-tree Install Guide
+* Updated from global requirements
+* cephfs\_native: enhance update\_access()
+* TrivialFix: Change LOG.warn to LOG.warning
+* Fix the broken UT of huawei driver for py34/35
+* Add dedupe report in HNAS driver
+* cephfs\_native: add read-only share support
+* Updated from global requirements
+* Refactor GPFS driver for NFS ganesha support
+* NetApp cDOT driver configurable clone split
+* NetApp cDOT multi-SVM driver configurable NFS versions
+* Add support for CIFS shares in HNAS driver
+* Fix KeyError on err in unit test
+* Fix concurrent usage of update\_access method for share instances
+* NetApp cDOT vserver deletion fails if no lifs present
+* Fix ZFSonLinux driver prerequisites setup
+* Updated from global requirements
+* HPE3PAR make share from snapshot writable
+* Check for usage of same Cephx ID as manila service
+* Fix share migration test with snapshot support
+* [Tempest] Fix concurrency in "test\_show\_share\_server" test
+* [ZFSonLinux] Fix replicated snapshot deletion error
+* Fix race condition in tempest test
+* Replaces httplib with requests lib in Quobyte RPC layer
+* Add EMC Unity Driver for Manila
+* Add snapshot instances admin APIs
+* TrivialFix: Fix a wrong order bug in resource\_cleanup()
+* [ZFSonLinux] Add 'manage snapshot' feature support
+* Minor optimization and formatting corrections in Quobyte driver
+* Add retry in VNX driver when DB lock error happened
+* Remove "host" from driver private data
+* NetApp: Report hybrid aggregates in share stats
+* share/access: allow maintenance mode to be triggered
+* Migrate API reference into tree
+* Fix devref README and remove Makefile
+* Add dummy driver
+* Correct Quobyte driver capacity reporting
+* Updated from global requirements
+* Huawei: Support reporting disk type of pool
+* Documentation changes for thin/thick provisioning
+* Check 'thin\_provisioning' in extra specs
+* HPE3PAR: Fix filestore quota decrement
+* HPE3PAR: Handle exceptions on deleted shares
+* Fix pep8 job
+* Add reno notes about http\_proxy\_to\_wsgi middleware
+* Add DriverFilter and GoodnessWeigher to manila
+* Use http\_proxy\_to\_wsgi instead of ssl middleware
+* Use constraints for coverage job
+* Do not put real hostname and IP address to manila config sample
+* Add tox job for db revision creation
+* Add interface port configuration in EMC VNX driver
+
+3.0.0.0b2
+---------
+
+* Huawei: Add share sectorsize config in Huawei driver
+* Huawei driver support access of all IPs
+* update min tox version to 2.0
+* Updated from global requirements
+* [Tempest] Handle errored shares correctly using recreation logic
+* [Tempest] Create heavy scenario resources in parallel
+* Update tempest to newer commit version
+* Add share manage/unmanage of Oracle ZFSSA driver
+* Delete duplicated broken tempest test
+* Add lvm driver options to sample config
+* Updated from global requirements
+* [ZFSonLinux] Add 'manage share' feature support
+* Fix snapshot manage Tempest test
+* Manage / unmanage snapshot in NetApp cDOT drivers
+* Add gateway in network\_info and share network API
+* Fixed a spelling mistake of "seperate" to "separate"
+* Add share\_size config option
+* Config: no need to set default=None
+* Use upper-constraints in tox installs
+* Updated from global requirements
+* Update quota usages correctly in manage share operation
+* Change user\_id and project\_id to 255 length
+* Add user\_id and project\_id to snapshot APIs
+* [Tempest] Fix negative replication test
+* [Tempest] Remove noqa filters
+* Updated from global requirements
+* Cleanup unused DB APIs
+* glusterfs: Implement update\_access() method
+* ganesha: implement update\_access
+* Huawei: Add manage share snapshot in Huawei driver
+* Delete VLAN on delete\_vserver in Netapp cmode
+* Use is\_valid\_ipv4 and is\_valid\_ipv6 from oslo.utils
+* Updated from global requirements
+* Do not supply logging arguments as tuple
+* cephfs\_native: Fix client eviction
+* Pass context down to ViewBuilder method
+* Add more dir exceptions to pep8 tox job
+* [Tempest] Bump tempest version
+* [Tempest] Stop using deprecated Tempest opts
+* [Tempest] Add valuable tags to tests
+* [Tempest] HotFix for broken CI jobs
+* Updated from global requirements
+
+3.0.0.0b1
+---------
+
+* Fix issue with testtool testrunner
+* HPE3PAR driver doesn't decrease fstore capacity
+* Updated from global requirements
+* Fix badly formatted release note
+* Use oslo IntOpt function instead of explicit check
+* Document instructions for documentation
+* Adding info to use venv of tox for reno
+* Polish hook decorator
+* Updated from global requirements
+* Updated from global requirements
+* Fix HDS HNAS errors caused by incorrect IDs
+* Huawei: Fix exception in update\_access not found
+* Hacking check for str in exception breaks in py34
+* Add hacking rule for assertEqual(None, \*)
+* Squash E042 and E043 bashate warnings
+* Removed the invalid link from Manila Dev Guide
+* Use assertTrue rather than assertEqual(True, ...)
+* Replace assertEqual(None, \*) with assertIsNone in tests
+* Updated from global requirements
+* Remove retry logic from manage API
+* Fix tox errors and warnings in the devref
+* [Doc] Update quick start guide to Mitaka release
+* Updated from global requirements
+* HDS\_HNAS: Fix improper error message
+* HDS\_HNAS: Remove unused parameter
+* Fix context warning spam of scheduler and share logs
+* Updated from global requirements
+* Fix docs for REST API history and Scheduler
+* Fix Manila RequestContext.to\_dict() AttributeError
+* Add wraps function to decorator
+* Fix context decorator usage in DB API
+* Add hint how to configure fake\_driver in manila-share
+* Test: make enforce\_type=True in CONF.set\_override
+* Remove NetAppCmodeClient.delete\_network\_interface
+* Updated from global requirements
+* Add user\_id echo in manila show/create/manage API
+* Bump Tempest version
+* Remove deprecated manila RequestBodySizeLimiter
+* Fixed references for scheduler drivers in doc
+* Fix share server info in CGs created from CGs
+* Skip over quota tests if quota tests disabled
+* Delete Snapshot: status wrongly set when busy
+* Updated from global requirements
+* Fix HNAS error with unconfined filesystems
+* Developer Reference: Adopt the openstackdocstheme
+* Fix IPv6 standalone network plugin test
+* cephfs\_native: doc fixes
+* Added docs for commit message tags
+* Fix docstring for policy.enforce method
+* Updated from global requirements
+* Fix tempest.conf generation
+* [Trivial] replace logging with oslo.log
+* Add Grenade support to Manila
+* NetApp: DR look up config via host name
+* [Devstack] Set proper driver mode for ZFSonLinux driver
+* use thread safe fnmatch
+* Updated from global requirements
+* Make devstack functions support grenade
+* Fix microversion usage in share manage functional tests
+* Handle manage/unmanage for replicated shares
+* Fix HNAS driver exception messages
+* Updated from global requirements
+* Add doc for Share Replication
+* Fix Share status when driver migrates
+* Fix doc build if git is absent
+* Remove unused tenant\_id variable
+* [Fix CI] Bump Tempest version
+* Detect addition of executable files
+* Updated from global requirements
+* Add release notes usage and documentation
+* Deprecate manila-all command
+* update hacking checks for manila
+* Fix creation of Neutron network in Devstack
+* Fix manage tempest test validation
+* Update HPE 3PAR devref docs
+* NetApp cDOT driver should honor reserved percentage
+* Remove Devstack workaround for Neutron
+* Remove unused logging import and LOG global
+* cephfs\_native: Change backend snapshot dir's name
+* Remove openstack-common.conf
+* update dev env doc for Fedora releases
+* Fix force-delete on snapshot resource
+* Increase Cinder oversubscription ratio in CI
+* Use install\_package when preparing LVM driver installation
+* Fix Manage API synchronous call
+* Generic driver: ignore VolumeNotFound in deleting
+* Removing some redundant words
+* Add common capabilities matrix to devref
+* Add caution to test-requirements
+* Increase logging for driver initialization
+* Capitalize global var for clients
+* Fix typos
+* Update ZFSonLinux share driver docs
+* Update reno for stable/mitaka
+
+2.0.0
+-----
+
+* Fix call of clients in post\_test\_hook.sh
+* Add tests to ensure snapshots across replicas
+* NetApp cDOT: Handle replicated snapshots
+* Data Replication: Ensure Snapshots across replicas
+* Fix update\_access concurrency issue
+* Fix manage API ignoring type extra specs
+* Make ZFSonLinux driver handle snapshots of replicated shares properly
+* Fix keystone v3 issues for all clients
+* Fix for incorrect LVMMixin exception message
+* NetApp cDOT: Fix status updates for replicas
+* NetApp cDOT: Raise ShareResourceNotFound in update\_access
+* Add hacking check to ensure not to use xrange()
+* Fix generic and LVM driver access rules for CIDRs
+* Fix report of ZFSonLinux driver capabilities
+* Fix the scheduler choose a disable share service
+* Fix typos
+* Fix error logged for wrong HPE 3par client
+* 3PAR remove file tree on delete when using nested shares
+* HDS-HNAS: Fix exception in update\_access not found
+* Revert "LXC/LXD driver"
+* Fix Hitachi HNAS driver version
+* service instance: also recognize instance name
+* Fix update of access rules in ZFSonLinux driver
+* Check share-network in 'share create' API
+* glusterfs volume layout: take care of deletion of DOA shares
+* Fix delete when share not found in update\_access
+* Remove default values for update\_access()
+* NetApp cDOT driver should not split clones
+* Fix handling of share server details after error
+* HDS-HNAS: fixed exception when export not found
+* Fix lock decorator usage for LVM and Generic drivers
+* Fix HNAS snapshot creation on deleted shares
+* Move iso8601 from requirements to test-requirements
+* Fix typos
+* glusterfs.common: GlusterManager.gluster\_call error report fix
+* glusterfs.GlusterNFSVolHelper: remove \_\_init\_\_
+* Add tempest tests for Share Replication
+* register the config generator default hook with the right name
+* Windows driver: fix share access actions
+* Collapse common os\_region\_name option
+* Disallow scheduling multiple replicas on a given pool
+* update quota of origin user on share extend/shrink
+* Update quota of proper user on resource delete
+* Fix Share Migration access rule mapping
+* Fix unstable DB migration tests
+* Fix Share Migration KeyError on dict.pop
+* NetApp cDOT APIs may get too little data
+* HNAS: Enable no\_root\_squash option when allowing access to a share
+* Fix HNAS driver crash with unmounted filesystems
+* Fix compatibility with Tempest
+* Set proper image name for tempest
+* Remove nsenter dependency
+* Fix ZFSonLinux driver share replica SSHing
+* Fix ZFSonLinux access rules for CIDRs
+* Fix HNAS driver thin\_provisioning support
+* Fix pylxd hard dependencies
+* Squash consequent DB calls in create\_share\_instance
+* Fix slow unit test
+* Run ZfsOnLinux gate tests with SSH enabled
+* Fix status update for replicas
+* Set TCP keepalive options
+* Fix manila devstack plugin for keystone v3 usage
+* Add /usr/local/{sbin,bin} to rootwrap exec\_dirs
+* Updated from global requirements
+* Use official location for service image
+* Allow devstack plugin to work without Cinder
+* Download service image only when needed
+* glusterManager instantiation regexp validation
+
+2.0.0.0b3
+---------
+
+* Moved CORS middleware configuration into oslo-config-generator
+* Move Share Migration code to Data Service
+* Remove unintended exposure of private attribute
+* Add share driver for Tegile IntelliFlash Arrays
+* Update tempest commit and switch to tempest.lib
+* LXC/LXD driver
+* Update export location retrieval APIs
+* Huawei driver improve support of StandaloneNetworkPlugin
+* Add Ceph Native driver
+* Introduced Data Service
+* Implement admin network in generic driver
+* NetApp: Add Replication support in cDOT
+* Fix NFS helper root squashing in RW access level
+* Add ZFSonLinux share driver
+* glusterfs.common: move the numreduct function to toplevel
+* glusterfs\_native: relocate module under glusterfs
+* Huawei driver code review
+* Add QoS description in Huawei
+* glusterfs/ganesha: add symbolic access-id to export location
+* Add share resize support to Oracle ZFSSA driver
+* Implement update\_access() method in huawei driver
+* Update Huawei driver doc for Mitaka
+* Remove unused pngmath Sphinx extension
+* Implement update\_access() in generic driver + LVM
+* Add doc for export location metadata
+* gluster\*: clean up volume option querying
+* Admin networks in NetApp cDOT multi-SVM driver
+* Support export location metadata in NetApp cDOT drivers
+* Change sudo to run\_as\_root in LVM driver
+* Huawei driver: change CIFS rw to full control
+* Updated from global requirements
+* Fix NetApp cDOT driver update\_access negative test
+* Define context.roles with base class
+* Subclass context from oslo\_context base class
+* Add Replication admin APIs and driver i/f changes
+* glusterfs/common: don't suppress vol set errors
+* Improve exception msg when attaching/detaching volumes
+* Use assertIsNone instead of assertEqual(None, \*\*\*)
+* Scheduler enhancements for Share Replication
+* Fix typo in comment message
+* Remove aggressive assert from share server test
+* Fix scenario tests
+* EMC Isilon Driver Support For CIFS Read-Only Share
+* Add update\_access() interface to Quobyte driver
+* Check for device node availability before mkfs
+* Replace TENANT => PROJECT for manila plugin
+* Validate qos during share creation
+* Fix doc string in driver interface
+* Fix neutron port concurrency in generic driver
+* Add additional documentation on extra spec operations
+* Implement update\_access() method in Hitachi HNAS driver
+* Fix share migration tests in gate
+* Update help text for some service instance config opts
+* Three ways to set Thin/Thick Type in Huawei driver
+* Squash E006 bashate warnings
+* Implement update\_access() in NetApp cDOT drivers
+* Add tox fast8 option
+* Use ostestr to run unit test
+* Make consistency group timeout exception message more robust
+* Manage and unmanage snapshot
+* Stop proxying share\_server\_id through share in share.manager
+* Remove deprecated share attribute usage from manila.share.api
+* Get host from share['instance'] in share RPC API
+* Cleanup deprecation warnings from using share proxy properties in API
+* Add possibility to skip quota tests in Tempest
+* Remove default=None from config options
+* Add space to message in manila\_tempest\_tests/tests/api/test\_shares.py
+* Fix rpcapi identifiers for better readability
+* Add admin network for DHSS=True share drivers
+* Allow DHSS=False tests to override Tempest concurrency
+* Remove \`None\` as a redundant argument to dict.get()
+* gluster\*: add proper getter/setters for volume options
+* Unify usage of project name in doc to 'manila'
+* Removed ignored checks from tox.ini and fixed pep8 issues
+* Updated from global requirements
+* Fix tempest test for export locations API
+* Support devstack install without nova
+* EMC Isilon Driver Support For NFS Read-Only Share
+* replace string format arguments with function parameters
+* Converted MultiStrOpt to ListOpt
+* Fix Hitachi HNAS Driver default helper
+* Use existing "insecure" options when creating nova/cinder clients
+* Fix Share Replica details in the API
+* Share Replication API and Scheduler Support
+* Fixed Hitachi HNAS slow test
+* Replace 'stack' with $STACK\_USER in devstack plugin
+* Replace deprecated oslo\_messaging \_impl\_messaging
+* Avoid KeyError on instance\_id in ensure\_service\_instance
+* Hitachi HNAS driver share shrink
+* LVM driver: Pass '--units g' to vgs invocation
+* Updated from global requirements
+* Fix scheduling with instance properties
+* Add update\_access() method to driver interface
+* Update the home page
+* Fix issue in hacking with underscore imports
+* Added Keystone and RequestID headers to CORS middleware
+* Ext. exception handling for httplib and socket errors in Quobyte driver
+* Huawei: Create share from snapshot support in Huawei driver
+* Don't convert share object to dict on create
+* Fix Cinder's NoValidHostFound errors
+* Remove outdated pot files
+* Fix Devstack and Manila-ui interaction
+* Fix devstack function call recreate db
+* tempest: wait for deletion of cert rule
+* Bump tempest version
+* Fix params order in assertEqual
+* Removed unnecessary string conversions on Hitachi HNAS Driver
+* Add feature support information of Oracle ZFSSA Manila driver
+* extra-specs should work with string True/False
+* Fix db shim layer mismatches with implementation
+* TrivialFix: Remove deprecated option 'DEFAULT/verbose'
+* isoformat instead of deprecated timeutils.isotime
+
+2.0.0.0b2
+---------
+
+* Return appropriate data on share create
+* Hitachi HNAS driver refactoring
+* Trivial Fix: fix missing import
+* Remove unused server\_get() method
+* QoS support for Huawei Driver
+* Add LVM driver
+* Fix release of resources created by Tempest
+* Fix access rules tempest v2 client
+* Huawei: Ensure that share is exported
+* Using dict.items() is better than six.iteritems(dict)
+* Updated from global requirements
+* gluster\*: refactor gluster\_call
+* Fix pep8 failure
+* Fix Mutable default argument
+* Fix devstack in non-neutron environments
+* Fix usage of standlone\_network\_plugin
+* Implement export location metadata feature
+* Doc: Remove prerequisite: Ubuntu
+* Hide snapshots with no instances from listing
+* QoS support for shares
+* Huawei: Add share server support
+* Isilon Driver: Update Share Backends Feature Doc
+* Clean up removed hacking rule from [flake8] ignore lists
+* Fix Manila tempest tests
+* Adds extend\_share for Quobyte shares
+* Update NetApp driver support matrix line
+* Fix response code for various NotFound exceptions
+* Huawei driver report pool capabilities [True, False]
+* Fix 'extend' API for 2.7+ microversions
+* Replace assertEqual(None, \*) with assertIsNone in tests
+* Delete Share Instance of unmanaged share
+* Add debug testenv in tox
+* A tempest test in services API using unsafe assert
+* Cannot return a value from \_\_init\_\_
+* Make Manila UI be installed after Horizon
+* Use new approach for setting up CI jobs
+* Add doc for share driver hooks
+* Add more documentation to share/driver
+* Fix grammatical mistake, Changed character from "an" to "a"
+* Huawei: Add manage share with share type in Huawei driver
+* Refactor share metadata tests to use DB
+* Replace deprecated [logger/LOG].warn with warning
+* Add snap reserve config option to NetApp cDOT driver
+* Updated from global requirements
+* Fix tempest case "test\_delete\_ss\_from\_sn\_used\_by\_share\_server"
+* Fix CI Tempest jobs
+* glusterfs/vol layout: remove manila-created vols upon delete\_share
+* Use constants instead of literals in Huawei Driver
+* Fix unit test of ShareSnapshotNotFound
+* Fix handling of Novaclient exceptions
+* Drop MANIFEST.in - it's not needed with PBR
+* Replace deprecated library function os.popen() with subprocess
+* Change assertTrue(isinstance()) by optimal assert
+* EMC Isilon Driver Doc Update for Extend Share
+* [docs] Fix table elements view on page with list of supported features
+* Trivial: Remove unused logging import
+* Set timeout for parmiko ssh connection
+* Fix wrong flake8 exception and pep8 violations
+* Remove unused oslo-incubator \_i18n.py from Manila
+* Deprecated tox -downloadcache option removed
+* Keep py3.X compatibility for urllib
+* EMC VNX: Fix the interface garbage in VNX backend
+* EMC Isilon Driver Support For Extend Share
+* HPE3PAR finds CIFS share with either prefix
+* Improve tempest tests for shares listing APIs
+* Updated from global requirements
+* Support standard Manila capability flags in NetApp cDOT driver
+* Mock out service availability check in unit test
+* Capability lists in Manila scheduler
+* HPE3PAR support for share extend and shrink
+* Pop off user/tenant kwargs in RequestContext init
+* Move the config environment variables into devstack/settings file
+* glusterfs: document Gluster NFS misbehavior
+* Change instance service default path for private key to None
+* Use isoformat() instead of timeutils.strtime()
+* EMC VNX: Add multi-pools support
+* Add space to message in manila/consistency\_group/api.py
+* Remove duplicate keys from dictionary
+* Fix Tempest microversion comparison approach
+* Prevent removal of share server used by CG
+* HPE3PAR support for access-level (ro,rw)
+* Performance: leverage dict comprehension in PEP-0274
+* Updated from global requirements
+* Document correction in quick\_start.rst
+* glusterfs\_native: fix parsing of the dynamic-auth option
+* Fix wrong check message
+* NetApp cDOT driver should support read-only CIFS shares
+* Do not allow to modify access for public share type
+* EMC VNX: Add share extend support
+* Allow to set share visibility using "manage" API
+* Remove version per M-1 release instructions
+* Updated from global requirements
+* [CI] Speed up Tempest jobs
+* Avoid service\_instance neutron port clash in HA
+
+2.0.0.0b1
+---------
+
+* EMC: Fix bugs when domain controller is not available
+* Put py34 first in the env order of tox
+* Move API module 'share\_instances' under v2 dir
+* Change manila\_tempest\_tests to use credentials\_factory
+* timeutils.total\_seconds() is deprecated
+* Reorganize scheduler and merge code from Oslo incubator
+* glusterfs: add missing i18n import
+* Fix Share status precedence based on instances
+* doc: document the non-standard export semantics of Ganesha
+* Liberty doc updates for GlusterFS drivers
+* Add new URLs for APIs ported from extensions
+* Updated from global requirements
+* NetApp cDOT multi-SVM driver can't handle duplicate addresses
+* Remove mention of isilon\_share\_root\_dir
+* Add share-networks validation
+* Simplify ping usage for service VM check in CI
+* Improve Tempest tests for consistency groups
+* Add sleep to CI hooks to avoid races
+* add Red Hat GlusterFS drivers feature support info
+* Add reno for release notes management
+* Delete python bytecode before every test run
+* Updated from global requirements
+* Add support of 'network\_type' to standalone network plugin
+* Fix import of devstack functions for common CI script
+* Last sync to Manila from oslo-incubator
+* glusterfs/volume layout: indicate volume usage on volumes themselves
+* glusterfs/volume layout: fix incorrect usage of export\_location
+* Refactor authorize() method in wsgi.py
+* Implements ensure\_share() in Quobyte driver
+* Prevent Share operations during share migration
+* Fix typo on quota limit error message
+* Refactor HP 3PAR share driver to now be HPE
+* OpenStack typo
+* Added driver minimum requirements and features doc
+* Remove httplib2 useless requirement
+* Added CONTRIBUTING file in .rst format
+* HPE3PAR create share from snapshot fails
+* Updated from global requirements
+* EMC VNX Manila Driver Refactoring
+* Updated from global requirements
+* Port share type extensions to core API
+* Port admin actions extension to core API
+* Use oslo\_config new type PortOpt for port options
+* Added CORS support to Manila
+* Split common logic of CI hooks to separate file
+* Port share actions to core API
+* Port quotas to core API
+* Port services to core API
+* remove default=None for config options
+* Add mount automation example based on Zaqar
+* Make setup.py install Manila Tempest plugin
+* Sync Manila Tempest plugin with latest Tempest
+* Port manage/unmanage extensions to core API
+* Updated from global requirements
+* Rephrase comments for Share create API
+* Use assertTrue/False instead of assertEqual(T/F)
+* Fix no-share-servers CI job
+* Use default Keystone API version in Devstack
+* Updated from global requirements
+* Port availability zones to core API
+* Generic driver: wait for common server during setup
+* Port used limits to core API
+* Updated from global requirements
+* Add IBM GPFS Manila driver
+* Fix list-availability-zones API for PostgreSQL
+* Fix share type model scalability for get request
+
+1.0.0
+-----
+
+* Fix usage of dependencies
+* Fix usage of dependencies
+* Use 'False' as default value for "compression" common capability
+* Stop using deprecated tempest options
+* Make share service understand driver init failure
+* Fix broken unit tests
+* Enable extend\_share in HDFS driver
+* Verify common server in Generic driver on startup
+* Updated from global requirements
+* Improve Manila HDS HNAS Driver Manual
+* Fix order of arguments in assertEqual
+* Fix order of arguments in assertEqual
+* Fix order of arguments in assertEqual
+* Update feature support matrix for Windows SMB
+
+1.0.0.0rc2
+----------
+
+* Share manager: catch exception raised by driver's setup()
+* Fix display of availability-zone for manila-manage command
+* glusterfs\_native: use dynamic-auth option if available
+* Fix setting of "snapshot\_support" extra spec for tempest
+* Fix deletion of error state access rules
+* Fix response data for API access-allow
+* Fix display of availability-zone for manila-manage command
+* glusterfs: check nfs.export-volumes with Gluster NFS + vol layout
+* glusterfs: manage nfs.rpc-auth-allow not being set
+* glusterfs vol layout: start volume cloned from snapshot
+* glusterfs\_native: use dynamic-auth option if available
+* NetApp cDOT driver isn't reentrant
+* Can't create shares on drivers that don't support snapshots
+* Revert netapp\_lib dependency in NetApp cDOT Manila drivers
+* Set defaultbranch to stable/liberty in .gitreview
+* Feature support matrix update for HP 3PAR
+* Fix \`test\_trans\_add\` for Python 3.4.3
+* Remove misleading snapshot methods from Quobyte driver
+* Fix response data for API access-allow
+* Improve logging of calls in ShareManager
+* Use random IPs in security service tests
+* EMC Isilon Manila Driver Feature Support
+* Fix deletion of error state access rules
+* Fix order of arguments in assertEqual
+* glusterfs vol layout: start volume cloned from snapshot
+* Fix order of arguments in assertEqual
+* NetApp cDOT driver isn't reentrant
+* Fix mentioned DEFAULT\_API\_VERSION in doc
+* Revert netapp\_lib dependency in NetApp cDOT Manila drivers
+* Fix \`test\_trans\_add\` for Python 3.4.3
+* Adds Quobyte share backend feature support mapping data
+* Remove language about future features from driver doc
+* Remove LegacyFormatter from logging\_sample.conf
+* Fix setting of "snapshot\_support" extra spec for tempest
+* Fix some spelling typo in manual and error message
+* glusterfs: check nfs.export-volumes with Gluster NFS + vol layout
+* glusterfs: manage nfs.rpc-auth-allow not being set
+* Can't create shares on drivers that don't support snapshots
+* Add Huawei driver details in doc
+* Add Hitachi HNAS driver documentation
+* Open Mitaka development
+
+1.0.0.0rc1
+----------
+
+* glusterfs\*: fix ssh credential options
+* Make Quobyte shares actually read-only when requested
+* Fixes a Quobyte backend call issue with a wrong field name
+* Fix error response when denying snapshot creation
+* Fix 'cover' tox job
+* glusterfs: fix gluster-nfs export for volume mapped layout
+* Updated from global requirements
+* Fix experimental=True for view in microversion 2.5
+* glusterfs\_native: Hardwire Manila Host CN pattern
+* Fix HDS HNAS manage incorrect share size
+* glusterfs\*: amend export location
+* Fix HDS HNAS Create from snapshot ignoring Size
+* Fix pool\_list filter tests to match pools exactly
+* Non-admin user can perform 'extra-specs-list'
+* Fix improper handling of extending error
+* Update feature support mapping doc for NetApp cDOT
+* Remove IBM GPFS driver due to lack of CI
+* Add 'snapshot\_support' attr to share details
+* Fix get\_stats to return real used space in HNAS
+* Add new features description in Huawei doc
+* Fix API version history in Huawei driver
+* Fix task\_state field shown on API < 2.5
+* glusterfs: Fix use of ShareSnapshotInstance object
+* NetApp cDOT driver should prefer aggregate-local LIFs
+* Fix HDS HNAS snapshot creation tracking
+* Return share\_type UUID instead of name in Share API
+* doc: turn ascii art tables into proper reST grid tables
+* Make scenario tests able to run with DHSS=False
+* Fix missing value types for log message
+* glusterfs\_native: Fix typo for protocol compatibility
+* Fix typo in test\_hook
+* Fix Share Migration tempest tests
+* Remove support for 'latest' microversion
+* Adds retry function to HNAS driver
+* Corrects capabilities returned by Quobyte Manila driver
+* Fix create snapshot API in Huawei driver
+* Check the snapshot directory before copy it
+* Remove HDS SOP driver due to lack of CI
+* Missing check in ShareManager::manage\_existing()
+* Add v2 Manila API path as base for microversions
+* Huawei driver: fix reports reduplicate pools
+* Enhance base driver checking if a method was implemented
+* Updated from global requirements
+* Allow service image download to be skipped
+* Use 'False' as default value for "dedupe" common capability
+* Capacity filter should check free space if total space is unknown
+* Fix usage of novaclient
+* NetApp cDOT driver with vserver creds can't create shares
+* Fix unstable unit test 'test\_get\_all\_host\_states\_share'
+* Fix concurrency issue in tempest test
+* Fix description in Huawei driver
+* Replaces xrange() with range() for py 2/3 compatibility
+* Updated from global requirements
+* Consistency groups in NetApp cDOT drivers
+* Fix keypair creation
+* Add functional tests for Manila consistency groups
+* Place tempest microversions test module in proper place
+* Consistency Group Support for the Generic Driver
+* Add Share Migration tempest functional tests
+* Share Migration support in generic driver
+* Add Share Migration feature
+* glusterfs: directory mapped share layout
+* glusterfs: volume mapped share layout
+* glusterfs/layout: add layout base classes
+* Add Consistency Groups API
+* Scheduler changes for consistency groups
+* Add DB changes for consistency-groups
+* Use Tempest plugin interface
+* Make devstack plugin independent from default Identity API version
+* glusterfs-native: cut back on redundancy
+* glusterfs/common: refactor GlusterManager
+* glusterfs\*: factor out common parts
+* Add share hooks
+* Add possibility to setup password for generic driver
+* Use devstack functions for registering Manila
+* devstack plug-in to reflect new manila-ui plug-in
+* HP 3PAR extra-spec prefix needs to be hp3par
+* Fix the typo "version"
+* Updated from global requirements
+
+1.0.0.0b3
+---------
+
+* Add attributes 'name' and 'share\_name' to ShareSnapshotInstance
+* Fix data copying issue in DB migration 1f0bd302c1a6
+* HP 3PAR driver handles shares servers
+* Updated from global requirements
+* Fix failing Quobyte unit test
+* Remove instances of "infinite" capacity from Manila
+* Replace thin/thick capabilities with thin\_provisioning
+* Add Share instances Admin API
+* Add Windows SMB share driver
+* Remove ununsed dependency: discover
+* Implement snapshot tracking in HDS HNAS driver
+* Use Share Instance ID in 'name' property
+* Ignore git backup merge files
+* Tempest: wrong assertion on the number of shares created
+* Ignore unavailable volumes when deleting a share
+* Updated from global requirements
+* New Manila HDS HNAS Driver
+* Tempest: wait for access rule to be deleted
+* Fix Tempest tests targeting user based access rules
+* glusterfs\_native: Add create share from snapshot
+* Generic driver:Create Cinder volume in correct AZ
+* Reduce dependency to tempest: exceptions
+* Add possibility to filter back ends by snapshot support
+* Add tempest tests for "cert" based access type
+* Clean up admin\_actions API extension unit tests
+* Use service availability\_zone for Share Server VM
+* Add availability zones support
+* Add methods for share instances in Share API
+* Add compression in common capabilities doc
+* HP 3PAR add more info to the share comment
+* Add tempest tests for REST API microversions
+* Huawei driver support smartcache and smartpartition
+* Manila experimental REST APIs
+* Fix compatibility with sqlalchemy 0.9.7
+* Updated from global requirements
+* Fix incorrect use of snapshot instances
+* HP 3PAR reports capabilities
+* Lazy Load Services
+* Replace assertEqual(None, \*) with assertIsNone in tests
+* Updated from global requirements
+* Fix incorrect variable name in some exception class
+* Update NetApp cDOT Manila drivers to use netapp\_lib
+* Add manage/unmanage support to NetApp cDOT driver
+* Service Instance: Add instance reboot method
+* Add WinRM helper
+* Common capabilities documentation
+* Fix Neutron config setting in pre\_test\_hook
+* Add share instances and snapshot instances
+* Fix extend share API in Huawei driver
+* Huawei driver support dedup, compression, thin and thick
+* Fix the log level in scheduler manage
+* Enable Tempest tests for glusterfs/hdfs protocols
+* Support shrink\_share in NetApp cDOT drivers
+* Fix sample config file generation
+* Change huawei driver send REST command serially
+* Support extend\_share in NetApp cDOT drivers
+* Fix for Isilon driver failing to connect
+* Updated from global requirements
+* Fix bug to locate hdfs command in HDFS native driver
+* Fix AttributeError without share type provided
+* Implement Manila REST API microversions
+* Add retry logic when delete a NFS share in VNX
+* Cleanup shares created by Tempest
+* Add py34 to test environment to tox.ini
+* Allow Tempest to skip snapshot tests
+* Add retries for deadlock-vulnerable DB methods
+* Adding extend share support in IBM GPFS Driver
+* Make QuobyteHttpsConnectionWithCaVerification py3 compatible
+* Add SSL middleware to fix incorrect version host\_url
+* Updated from global requirements
+* Fix HTTP headers case for API unit tests
+* Fix bug to run command as root in HDFS driver
+* Fix typos in neutron\_network\_plugin.py
+* Remove incorrect URLs from jenkins.rst
+* Remove ordering attempts of 'unorderable types'
+* Fix 'hacking' unit tests for py3 compatibility
+* Skip unit tests for SSL + py3
+* Fix string/binary conversions for py34 compatibility
+* Make 'utils.monkey\_patch' py3 compatible
+* Decouple some of the Service Instance logic
+* Wrap iterators and 'dict\_items' for py34 compatibitity
+* Update Documents to use HDFS Driver
+* Fix two typos on documentation and one typo on CLI help
+* Stop using deprecated contextlib.nested
+* Fix imports for py34 compatibility
+* Fix exceptions handling for py34 compatibility
+* Rename from il8n.rst to i18n.rst
+* Remove copyright from empty file
+* Fix HP3PAR extra-specs scoping prefix bug
+* Updated from global requirements
+* Support manage\_existing in Huawei driver
+* Fix HP3PAR SMB extra-specs for ABE and CA
+* Generic: add service instance mgr set up method
+* Fix Generic driver share extend
+* Replace py2 xrange with six.moves.range
+* Fix integer/float conversions for py34 compatibility
+* Fix dictionary initialization for Python 3 compatibility
+* Replace (int, long) with six.integer\_types
+* Fix list creation
+* Replace dict.iteritems() with six.iteritems()
+* Add doc share features mapping
+* Replace 'types.StringTypes' with 'six.string\_types'
+* Replace '\_\_metaclass\_\_' with '@six.add\_metaclass'
+* Fix ZFSSA driver for py34 compatibility
+* Listen on :: instead of 0.0.0.0 by default
+
+1.0.0.0b2
+---------
+
+* Fix slow unit tests
+* Remove Cinder leftover unit tests
+* Eventlet green threads not released back to pool
+* Add client\_socket\_timeout option to manila.wsgi.Server
+* Catch error\_deleting state for more resources than just shares
+* Updated from global requirements
+* Make coverage tox job fail when test coverage was reduced
+* Add test coverage for periodic tasks
+* Change \_LE to \_LW (at manila/share/manager.py)
+* Fix 'extend\_share' in generic driver
+* Fix unit tests for quobyte
+* Support shrink\_share in Huawei driver
+* GlusterFS: fix retrieval of management address of GlusterFS volumes
+* Explicit backend connect call in Quobyte RPCs
+* Enable multi-process for API service
+* Updated from global requirements
+* Make config opt 'enabled\_share\_protocols' verification case insensitive
+* glusterfs\_native: prefix GlusterFS snap names with "manila-"
+* glusterfs\_native: delete\_snapshot(): find out real GlusterFS snap name
+* glusterfs\_native: fix delete share
+* Reuse 'periodic\_task' from oslo\_service
+* Implement shrink\_share() method in Generic driver
+* doc: fix typo s/virutalenv/virtualenv/
+* Cleanup DB API unit tests
+* Add negative tests for admin-only API
+* Updated from global requirements
+* HP 3PAR uses scoped extra-specs to influence share creation options
+* Retry \_unmount\_device in generic driver
+* Add 'retry' wrapper to manila/utils.py
+* Huawei driver support storage pools
+* Updated from global requirements
+* Modify confusing name in Huawei driver
+* Use all types of migrations in devstack installation
+* Close DB migration sessions explicitly for compatibility with PyMySQL
+* Delete redundant period in ManilaException messages
+* Use soft\_delete() methods in DB api
+* Use uuidutils to generate id's in DB api
+* Add license header to migrations template
+* Remove models usage from migrations
+* Huawei manila driver support multi RestURLs
+* EMC VNX: Fix the total capacity for dynamic Pool
+* Updated from global requirements
+* Updated from global requirements
+* Add access-level support in VNX Manila driver
+* Enable Manila multi-SVM driver on NetApp cDOT 8.3
+* Support for oversubscription in thin provisioning
+* Fix for SchedulerStatsAdminTest fails on timestamp
+* Print devstack command traces before executing command
+* Fix unit tests for compatibility with new mock==1.1.0
+* Change "volume" to "share" in filter and weigher
+* Updated from global requirements
+* Remove unneeded OS\_TEST\_DBAPI\_ADMIN\_CONNECTION
+* Remove duplicated options in manila/opts.py
+* More Manila cDOT qualified specs
+* Add PoolWeigher for Manila scheduler
+* Remove unused manila/openstack/common/eventlet\_backdoor.py
+* Updated from global requirements
+
+1.0.0.0b1
+---------
+
+* Use loopingcall from oslo.service
+* Updated from global requirements
+* Use new manila-service-image with public-key auth
+* Allow drivers to ask for additional share\_servers
+* HP 3PAR driver config has unused username/password
+* Huawei manila driver support Read-Only share
+* Override opportunistic database tests to PyMySQL
+* Support share-server-to-pool mapping in NetApp cDOT driver
+* Remove unused files from oslo-incubator
+* Update version for Liberty
+
+1.0.0a0
+-------
+
+* Support extend\_share in Huawei driver
+* Fix incompatiblity issue in VNX manila driver
+* Updated from global requirements
+* Updated from global requirements
+* Reduce amount of tempest threads for no-share-servers jobs
+* Add retry on volume attach error in Generic driver
+* HP 3PAR Add version checking and logging
+* Bump supported tempest version
+* Share\_server-pool mapping
+* Replace it.next() with next(it) for py3 compat
+* Fix tempest ShareUserRules\* tests
+* Updated from global requirements
+* Stop using deprecated 'oslo' namespace
+* Use oslo.utils to get host IP address
+* Remove deprecated WritableLogger
+* Make required function arguments explicit
+* Remove unused contrib/ci files
+* Fix docstrings in tempest plugin
+* Updated from global requirements
+* Add share shrink API
+* Implement tempest tests for share extend API
+* Implement extend\_share() method in Generic driver
+* Huawei manila driver code refactoring
+* Transform share and share servers statuses to lowercase
+* Updated from global requirements
+* Fix policy check for API 'security service update'
+* Remove unused attr status from models
+* Drop incubating theme from docs
+* Make devstack install manila-ui if horizon is enabled
+* glusterfs: Edit doc and comments
+* Simplify generic driver with private data storage API
+* Provide private data storage API for drivers
+* Remove usage of utils.test\_utils
+* Remove ServiceClient from share\_client
+* Switch from MySQL-python to PyMySQL
+* Add share extend API
+* Export custom Share model properties with \_extra\_keys
+* Release Neutron ports after share server deletion using generic driver
+* Make generic driver use only ipv4 addresses from service instances
+* Fix share-server resources cleanup in generic driver
+* ganesha: Add doc
+* Update Quickstart guide
+* NetApp cDOT driver fails Tempest cleanup on clone workflows
+* Updated from global requirements
+* Add doc for network plugins
+* Fix 'AllocType' read failure in Huawei driver
+* Sync tempest plugin with latest tempest
+* Updated from global requirements
+* Improve ShareServer DB model
+* Updated from global requirements
+* Add multi vm scenario test
+* Imported Translations from Transifex
+* Drop use of 'oslo' namespace package
+* Updated from global requirements
+* EMC: Remove unnecessary parameter emc\_share\_driver
+* Add doc with basic deployment steps
+* Move to the oslo.middleware library
+* Clean up redundant code and nits from EMC VNX driver
+* Remove unused oslo-incubator modules
+* EMC VNX Manila Driver Feature Support
+* Allow overriding the manila test regex
+* Updated from global requirements
+
+2015.1.0
+--------
+
+* NetApp cDOT driver clones NFS export policy
+* Add config\_group\_name for NeutronNetworkHelper
+* Remove ping check from basic scenario test
+* Sync contrib/tempest to newer state
+* Fix for the deletion of an error share server
+* NetApp cDOT driver clones NFS export policy
+* Sync oslo-incubator code
+* EMC VNX Driver: Fix typo issues
+* Remove passing DB reference to drivers in Share Manager
+* Use oslo\_policy lib instead of oslo-incubator code
+* Use oslo\_log instead of oslo-incubator code
+* Use lib lxml for handling of XML request
+* Updated from global requirements
+* Remove direct DB calls from glusterfs\_native driver
+* Release Import of Translations from Transifex
+* Remove maniladir() and debug() function from utils
+* Use identity\_uri for keystone\_authtoken in devstack
+* Switch to new style policy for test policy
+* Add mount/umount in scenario tests
+* update .gitreview for stable/kilo
+* Update doc-strings for snapshot methods in Share Driver
+* Use openstackclient in devstack plugin
+* Remove direct DB usage from NetApp driver
+* Move response code verification to share client
+* Use entry\_points for manila scripts
+* Switch to new style policy language
+
+2015.1.0rc1
+-----------
+
+* Remove Limited XML API Support from Manila
+* Prevent hanging share server in 'creating' state
+* More flexible matching in SSL error test
+* Imported Translations from Transifex
+* Mock out base share driver \_\_init\_\_ in EMC driver
+* Add object caching in manila REST API requests
+* glusterfs\_native: Fix Gluster command call
+* glusterfs, glusterfs\_native: perform version checks
+* Open Liberty development
+* Add Glossary with basic Manila terms
+* Restrict access only to vm ip
+* NetApp cDOT driver is too strict in delete workflows
+* Adding configuration instructions in huawei\_nas\_driver.rst
+* Update openstack-common reference in openstack/common/README
+* Prevent share server creation with unsupported network types with cDOT
+* Fix log/error message formatting
+* Updated from global requirements
+* Add segmentation ID checks for different segmentation types
+* glusterfs\_native: make {allow,deny}\_access non-destructive
+* glusterfs\_native: negotiate volumes with glusterd
+* NetApp cDOT driver uses deprecated APIs for NFS exports
+* Automatic cleanup of share\_servers
+* Fix fields 'deleted' in various DB models for PostgreSQL compatibility
+* Add tempest coverage for share type access operations
+* Enable developers to see pylint output
+* Allow overwriting some Manila tempest settings in CI jobs
+* Set share-type on share created from snapshot
+* cDOT multi-SVM driver may choose unsuitable physical port for LIFs
+* cDOT driver should split clone from snapshot after creation
+* Replace SQL code for ORM analog in DB migration scripts
+* Delete skipped tempest tests that won't be enabled
+* NetApp cDOT drivers should not start without aggregates
+* IBM GPFS Manila Driver Docs - update
+* Switch to v2 version of novaclient
+* Backslashify CIFS share export paths for Generic
+* NetApp cDOT multi-SVM driver should work with non-VLAN networks
+* NetApp cDOT multi-SVM driver should not start with cDOT 8.3
+* Fix CIFS export format in EMC VNX driver
+* Forbid unmanage operation for shares with snapshots
+* Fix deletion of export locations
+* Add initial scenario test for Manila
+* Fix setting of share name and description with manage API
+* HP 3PAR driver documentation
+* Fix setting of extra specs for share types
+* Huawei NAS driver returns CIFS export locations in wrong format
+* IBM GPFS Manila Driver Docs
+* Fix common misspellings
+* Add share state verification for API 'unmanage'
+* Updated from global requirements
+* Sync tempest plugin with latest tempest
+* Make generic driver update export location after manage operation
+* Deal with PEP-0476 certificate chaining checking
+* Fix manage operation in generic driver
+* Imported Translations from Transifex
+
+2015.1.0b3
+----------
+
+* Implement manage/unmanage support in generic driver
+* cDOT driver should report all share export locations
+* Enable bashate during pep8 run
+* Allow updates to export locations
+* NFS based driver for Quobyte file storage system
+* glusterfs\_native: partially implement snapshot
+* Fix issues with get\_pool scheduler API
+* Use SoftDeleteMixin from oslo.db
+* Imported Translations from Transifex
+* Fix cleanup order for tempest test
+* Enable downgrade migrations in unit tests
+* Allow shares to have multiple export locations
+* Add basic manage/unmanage share functionality
+* Set proper attr  "deleted" for ShareTypes model
+* Imported Translations from Transifex
+* EMC Isilon Manila Driver Docs
+* HP3PAR driver log the SHA1 for driver and mediator correctly
+* Add public attr for shares
+* Imported Translations from Transifex
+* Add ro level of access support to generic driver
+* Remove CLI tests from tempest plugin
+* Manila Scheduler should read full driver capabilities
+* NetApp cDOT driver should not create useless export-policy rule
+* Manila cDOT driver should use loopingcall for ASUP report timing
+* EMC Isilon Manila driver
+* Implement private share\_types
+* Updated from global requirements
+* Always allow delete share-network when no shares exist
+* Imported Translations from Transifex
+* Add nova network plugin
+* Manila cDOT qualified specs
+* Make extra spec driver\_handles\_share\_servers required
+* Failed to load xml configure file
+* Updated from global requirements
+* Allow tempest to skip RO access level tests
+* Manila cDOT netapp:thin\_provisioned qualified extra spec
+* Replace TEMPEST\_CONCURRENCY with Manila-specific var
+* doc: Add glusterfs\_native driver developer doc
+* Fix example style in admin doc
+* Imported Translations from Transifex
+* Improve error handling in GPFS driver
+* Updated from global requirements
+* Add  doc for hdfs\_native driver
+* Remove copypasted export\_location field from snapshots
+* HP 3PAR use one filestore per tenant
+* Single-SVM Manila driver for NetApp Clustered Data ONTAP
+* Remove hacking exception for oslo.messaging import
+* Remove Python 2.6 classifier
+* Remove obsolete option: enabled\_backends
+* Manila access-allow API doesn't accept backslash
+* Add temporary workaround to scheduler
+* Add doc for Dynamic Storage Pools for Manila scheduler
+* Fix config opts description for class NeutronSingleNetworkPlugin
+* Add snapshot gigabytes quota
+* Use devstack plugin in CI hooks
+* HP 3PAR driver fix for delete snapshot
+* Add Nova-network support to service\_instance module
+* Updated from global requirements
+* Sync tempest plugin
+* Manila cDOT storage service catalog
+* Add devstack plugin
+* Generic Driver image supported protocols
+* Updated from global requirements
+* glusterfs: add NFS-Ganesha based service backend
+* ganesha utils: allow remote execution as root
+* Remove left-over modules from Cinder
+* Add share\_type\_default() method to API
+* Add support of default share type
+* Support Manila pools in NetApp Clustered Data ONTAP driver
+* Move definition of couple of config opts to proper module
+* Add support of nova network for share-networks API and DB
+* Make listing of networks compatible for neutron and nova in devstack
+* ganesha: fix execute call using invalid argument
+* Imported Translations from Transifex
+* Rename volume\_type to share\_type
+* Imported Translations from Transifex
+* Add possibility to enable/disable some share protocols
+* Add standalone network plugin
+* Add possibility to define driver mode within pre\_test\_hook for CI
+* Skip multisvm tempest tests for singlesvm setup
+* Correct the share server's db info after its deletion
+* Add support for HDFS native protocol driver
+* Fix cinderclient compatibility of list filtering by name
+* Fix spelling mistake
+* Fixed spelling mistake in tests
+* Manila NetApp cDOT driver refactoring
+* glusterfs: Add doc
+* Imported Translations from Transifex
+* fix case sensitivity
+* Fix generation of config sample
+* Use oslo\_log lib
+* unify some messages
+* HP 3PAR Driver for Manila
+* Do not instantiate network plugin when not used by driver
+
+2015.1.0b2
+----------
+
+* Pool-aware Scheduler Support
+* Implement additional test for db migrations
+* Updated from global requirements
+* Add share driver for HDS NAS Scale-out Platform
+* Replace legacy StubOutForTesting class
+* Add unit test for volume types
+* Add CI job support for second mode of Generic driver
+* Implement additional driver mode for Generic driver
+* ganesha: fix resetting of exports
+* Remove workaround for Nova VM boot bug
+* Add tracing facility to NetApp cDOT driver
+* Remove startswith for share\_proto check
+* Remove copy-pasted code for fake-share
+* driver: Fix ganesha config option registry
+* Workaround Nova VM boot bug
+* Add access levels for shares
+* Imported Translations from Transifex
+* Add factory for NetApp drivers
+* Updated from global requirements
+* Search snapshot by ID instead of name in Huawei driver
+* Fix documentation for some Ganesha config variables
+* Add Neutron single network plugin
+* Add unit test for quota remains functionality
+* Switch to using oslo\_\* instead of oslo.\*
+* utils: Allow discovery of private key in ~/.ssh
+* Updated from global requirements
+* Do not use router for service instance with direct connect
+* Port cinder EMS and ASUP support to manila
+* Adapt readme to usual structure
+* glusterfs: add infrastructure to accommodate NAS helpers
+* Fix tempest pep8 failures
+* Release resources in tempest test properly
+* Replace string driver modes with boolean value
+* Adding required rootwrap filters for GPFS driver
+* Add doc for Huawei driver
+* Fix pep8 error E265 in wsgi
+* fix typo in config.py
+* fix typo in nova.py helpline
+* fix typo in rpc.rst
+* Fix typo "authogenerate" in manila-manage
+* Updated from global requirements
+* Fix searching mechanism of share-networks within tempest
+* Fix small typo in 70-manila.sh
+* Change default migration in "manila-manage db downgrade" command
+* Add manila.conf.sample to .gitignore
+* Fix deletion of share-server within Generic driver
+* Fix devstack compatibility
+* Reuse network resources in share-server creation test
+* Updated from global requirements
+* Add share driver for Huawei V3 Storage
+* Make Tempest tests use networks only from same project
+* Refactor tempest test 'test\_create\_share\_with\_size\_bigger\_than\_quota'
+* Sync tempest plugin with latest Tempest
+* Update message for exception ShareNetworkNotFound
+* Update documentation for tempest integration
+* Add error suppressing to isolated creds cleanup in Tempest plugin
+* Updated from global requirements
+* Fix handling of share-networks with single\_svm drivers
+* Set pbr 'warnerrors' option for doc build
+* Fix nit in tempest naming
+* Fix documentation build
+* Imported Translations from Transifex
+* Fix TypeError in tempest retry functionality
+* Fix using anyjson in fake\_notifier
+* Fix typo in db migration test function name
+* Use Cinder v2 API within Generic driver
+* Add driver mode attr definition for all drivers
+* Fix concurrency problem in getting share network in Tempest
+* Make it possible to update tempest conf in all CI Tempest jobs
+* Use oslotest.base.BaseTestCase as test base class
+* Add possibility to create lots of shares in parallel for tempest
+* Add service id to information provided by API
+* Raise error immediately for undeletable share in tempest
+* py3: use function next() instead of next() method on iterator objects
+* Allow deleting share with invalid share server in generic driver
+* Rename share driver stats update method
+* Remove unsed python modules from requirements
+* Remove unused conf option 'fake\_tests'
+* Make tempest cleanup errors be suppressed in all CI jobs
+* Add retries for share creation within Tempest plugin
+* Remove unused sslutils module
+* Improve share driver mode setting
+* py3: use six.moves.range instead of xrange
+* py3: use six.moves.urllib.parse instead of urlparse
+* Use lockutils from "oslo concurrency" lib
+* Remove non-active host from host\_state\_map
+* Strip exec\_dirs prefix from rootwrap filters
+* Add possibility to suppress errors in Tempest plugin cleanup
+* Make Tempest repo stable for Manila
+* Use uuidutils from oslo.utils
+* Cleanup manila/utils.py
+* Remove configs sql\_connection and sql\_connection\_debug
+* Remove unused configs pybasedir and bindir
+* Remove unused connection\_type config
+* Fix tempest test with share server listing with no filters
+* Improve tempest share server filtering
+* Increase quotas and number of threads for tempest
+* Use oslo.context lib
+* Imported Translations from Transifex
+* Add missing imports for sample config generation
+* Fix tempest compatibility for network client
+* Fix driver mode opt definition
+* Adds Oracle ZFSSA driver for Manila
+
+2015.1.0b1
+----------
+
+* ganesha: NFS-Ganesha instrumentation
+* Add driver mode interface
+* Updated from global requirements
+* Updated from global requirements
+* Move networking from share manager to driver interface
+* Workflow documentation is now in infra-manual
+* Fix error message in share delete method
+* glusterfs: create share of specific size
+* Fix metadata validation in share api
+* Fix devstack plugin custom config opt setting
+* Enhance devstack plugin
+* Update EMC Manila driver framework using stevedore
+* Alternative way to import emc.plugins.registry
+* Fix wrong mock assertions in unit tests
+* Release network resources properly
+* Updated from global requirements
+* Imported Translations from Transifex
+* Add support for volume types with Generic driver
+* Fix H302 rule after release of oslo.concurrency 0.3.0
+* Fix for debugging m-shr in PyCharm
+* Updated from global requirements
+* Fix tempest compatibility for cli tests
+* Fix context.elevated
+* Updated from global requirements
+* Updated from global requirements
+* Remove obsolete methods from tempest service client
+* Switch to oslo.concurrency for processutils
+* Updated from global requirements
+* Use oslo.utils.netutils function to set tcp\_keepalive
+* Fix couple of nit picks
+* Use keystonemiddleware and manila.conf for config
+* Imported Translations from Transifex
+* Updated from global requirements
+* Fix share manager to save data after driver error
+* Adding GPFS Manila driver
+* Remove object in wsgi LOG.info
+* Fix share network id in tempest test
+* Convert files to use \_LE and friends
+* Imported Translations from Transifex
+* Fix concurrency issue in security-service tempest test
+* Sync Tempest plugin with latest Tempest changes
+* Improve share-network list API filtering
+* Updated from global requirements
+* Don't translate LOG messages in testsuite
+* Add admin doc for multiple backends configuration
+* Remove gettextutils
+* Use proper value for osap\_share\_extension
+* Refactor shares client init in Tempest plugin
+* Delete unused versionutils module
+* Sync with oslo-incubator
+* Updated from global requirements
+* Use oslo.utils - remove importutils usage
+* Switch to oslo.config
+* Use oslo.serialization
+* Use oslo.utils
+* Silence tox warning
+* Add manila specific hacking checks
+* Remove extra flake8 args
+* Sync with global requirements
+* Improve share snapshots list API filtering
+* Use oslo.i18n
+* Use six instead of str for exceptions
+* Add info to cDOT driver doc
+* Fix tempest compatibility
+* Add new search options for security service
+* Fix doc build
+* Add Admin doc for an Introduction to Manila
+* Add share server id field in shares detail info
+* Improve share list API filtering
+* Fix doc build warnings so docs build clean
+* Remove extraneous vim editor configuration comments
+* Add share network id field in share server info
+* Fix tempest compatibility
+* Use 'generate\_request\_id' func from common code
+* Remove vim headers
+* Add info to generic driver doc
+* Open Kilo development
+* Add doc for EMC VNX driver
+
+2014.2
+------
+
+* Fix creation of share from snapshot
+* Specify the correct Samba share path
+* Fixes several typos (Manila)
+* Fix KeyError while creating share from snapshot
+* Fix references in jenkins.rst
+* Update translation information
+* Mention Samba in intro.rst
+* Add doc for an Introduction to Manila
+
+2014.2.rc1
+----------
+
+* Add support for working with multiple glusterfs volumes
+* Minor Manila doc change
+* Make copyrights in docs as comments instead of page content
+* Update challenges in the developer docs
+* Update naming from clustered mode to cDOT
+* Fix doc build errors in db/sqlalchemy/models.py
+* Improve documentation build
+* Add doc for netapp cluster mode driver
+* Add doc for generic driver
+* Fix using key for ssh
+* Fix getting ssh key if ssh path is not set
+* Rename stackforge to openstack in docs
+* Move from stackforge to openstack
+* Fix two functional tests within tempest\_plugin
+* glusterfs: edit config option specifying volume
+* Change exception thrown by db method
+* Fix some LOG.debug invocations
+* Fix Invalid pathname for netapp cmode driver
+* Make block devices mounts permanent within service instances
+* Stop using intersphinx
+* Increase share-network default quota
+* Don't allow security service to be updated if used
+* Move db related unittests to proper places
+* Fix update of backend details in cmode driver
+* Update shares and snapshot create to show details
+* Use oslosphinx and remove local copy of doc theme
+* Move driver unittest modules to proper place
+* Move unittests related to manila/share/\*.py modules to proper place
+* Make NFS exports in generic driver permanent
+* Fix ssh connection recreation in generic driver
+* Drop a forgotten fragment
+* warn against sorting requirements
+* Fix version number to Juno
+
+2014.2.b3
+---------
+
+* Add support for glusterfs native protocol driver
+* Fix some LOG invocations and messages
+* EMC VNX Manila Plugin
+* Add support for cert based access type
+* Make m-shr more stable on start up
+* Fix scheduled share creation with generic driver
+* Add "." at end of exceptions
+* py3: Use six module for StringIO imports
+* Update share\_network obj after db update
+* Transform Exception args to strings when exceptions
+* Fix string concatenation
+* glusterfs: Fix docstring
+* Fix concurrent policy issue in unittest
+* Remove redundant glance config options
+* Improve help strings
+* Remove hash seed dependency for unittests
+* Updated usage of locks
+* Fix creation of cifs entry in cmode driver
+* Flake8: Fix and enable H405
+* Forbid to attach security services with same type to share network
+* Flake8: Fix H501
+* Flake8: Fix and enable H404
+* Flake8: Fix E128
+* Fix device mount/umount methods in generic driver
+* Change service VM connectivity
+* Use Alembic instead of Sqlalchemy-migrate in Manila
+* Flake8: Fix H302
+* Remove NetApp 7-mode driver as obsolete
+* Flake8: Fix F841
+* Remove bin/manila-rpc-zmq-receiver
+* Cmode, CIFS shares, fix allowed share access type
+* Fix obtaining of service VM ip
+* EMC Manila driver
+* Add specific docs build option to tox
+* Flake8: Fix some occurences of F841
+* Flake8: Fix E126 and E127
+* Flake8: Fix F401
+* pep8: Enable H303 and F403
+* Sync requirements with global requirements
+* Remove extra setenv from tox.ini
+* Enable E121,E122,E123,E124,E125,E129 flake8 tests
+* Refactor NetApp Cmode driver
+* Use opportunistic migrations
+* Add config option for share volume fs type
+* Fix failing of unittests in one thread
+* Fix H402 hacking rules
+* Fix pep8 issues in manila/tests
+* Clean up devstack plugin after LVM driver removal
+* Remove LVM driver
+* Fix pep8 failures in manila/{db,volume}
+* Handle missing config options for tests gracefully
+* Add oslo.utils and oslo.i18n libs to requirements
+* Issue one SQL statement per execute() call
+* Further pep8 fixes
+* Fix pep8 F811 and F812
+* Rename 'sid' to 'user' in access rules and sec services
+* Decrease amount of threads for Tempest tests
+* Flake8 in bin/\*
+* Remove manila-clear-rabbit-queues
+* Sync scripts with oslo-incubator
+* Replace utils.config\_find with CONF.find\_file
+* Use common code within manila.policy module
+* Fix bad indentation in manila
+* Refactor cifs helper for generic driver
+* Fix share status waiter within tempest
+* Fix update of share with share-server-id
+* Use common config generator
+* Add config module from oslo-incubator
+* Remove dangerous arguments default
+* Remove unused imports
+* Fix F402 pep8
+* Make flake8 ignore list more fine granular
+* Sync common modules from Oslo
+* Add share\_server\_id filter option to 'get\_all' share API method
+* Fix tempest compatibility
+* Fix pep8 F821
+* Update requirements file matching global requ
+* glusterfs: Edit comments and docstrings
+* glusterfs: Modify interface methods
+* Fix setting up security-services in Cmode
+* Update pep8 testing
+* Added calculating capacity info in Cmode
+* Added calculating capacity info to 7mode driver
+* Adds undocumented policies and defaults in policy.json
+* Add check on eventlet bug #105 (ipv6 support)
+* Remove reference to 'in-use' state in share manager
+* Enable check for H237
+* Use oslo.rootwrap library instead of local copy
+* py3.x: Use six.text\_type() instead of unicode()
+* py3: use six.string\_types instead of basestring
+* Use oslo.db in manila
+* Fix compatibility with tempest project
+* README merge
+* Refactor test framework
+* Add interprocess locks to net interfaces handlers
+* Fix obtaining of service instance ip
+* Setup for translation
+* Enabled hacking checks H305 and H307
+* Fix service subnet capacity within service\_instance module
+* Fix metaclasses assignment
+* Enable hacking check H236
+* Add share-server-delete API
+* Change get\_client\_with\_isolated\_creads() to \*\_creds()
+* Sync with global requirements
+* Fix E112 expected an indented block
+* Fix E713 test for membership should be 'not in'
+* Fix E131 continuation line unaligned for hanging indent
+* Address H104  File contains nothing but comments
+* Fix E251 unexpected spaces around keyword / parameter equals
+* Fix E265 block comment should start with '# '
+* Fix usage of ProcessExecutionError exception
+* Enabled hacking check H403
+* py33: use six.iteritems for item iterations (part2)
+* Cleanup manila.utils module (part1)
+* glusterfs: Implement methods to update share stats
+* glusterfs: Fix issues in backend instrumentation
+* Enabled hacking check H401
+* Use ssh\_execute function from common code
+* Use execute() and trycmd() functions from common code
+* Use looping calls for running services from common code
+* Fix typo in error message for share\_export\_ip
+* py33: use six.iteritems for item iterations (part1)
+* Change logging level AUDIT to INFO
+* Teardown/setup server enhancements
+* Removed custom synchronized in service\_instance
+* Migrate to oslo.messaging instead of commom/rpc
+* Removed redundant methods from singletenant drivers
+* Replace python print operator with print function (pep H233, py33)
+* share.manager: Modify allow\_access method call
+* Delete skipped quota tests as invalid
+* Add CLI tests for share-server-list API
+* Added retrieving vserver name from  backend details
+* Update ci scripts
+* service\_instance: Add lock to creation of security\_group
+* Enable skipped tests from test\_capacity\_weigher.py
+* Add using share-server backend details in Generic driver
+* Fixed passing share\_server to teardown\_network
+* Fix create\_share\_from\_snapshot method
+* Added tempest tests
+* Cleaned up exception module and added unittests
+* Check share net ids when creating share from snapshot
+* Update manila's docs
+* Replace usage of unittest module with manila.test
+* Fix tempest test's rare concurrent issue
+* Improved share\_servers db api
+* Fixed passing share\_server to ensure\_share
+* Rewrited mox tests to mock (part 2)
+* Fix lvm driver to be compatible with share manager
+* Rewrited mox tests to mock (part 1)
+* Replace json with jsonutils from common code
+* Removed redundant code for glance
+* Use testtools module instead unittest module
+* Cleanup resources with tempest more reliably
+* Added service\_instance\_locks directory to .gitignore
+* Added force-delete action to admin actions
+* Update contrib/ci  bash scripts
+* devstack: strip obsolete part of m-shr instumentation
+* Sync common modules from Oslo
+* Several fixies to tempest plugin
+* Moved exports needed for tempest into post\_test\_hook
+* Fix some cosmetic issues in README.rst
+* Fixed ci bash scripts
+* Remove explicit dependency on amqplib
+* Added share server api
+* Removed redundant dependency of hp3parclient
+* Add multibackend test suite for tempest plugin
+* Added bash scripts for ci jobs
+* Added multibackendency to devstack plugin
+* Switch to Hacking 0.8.x
+* Use Python 3.x compatible except construct
+* assertEquals is deprecated, use assertEqual
+* Share server details
+* Added locks into service\_instance module
+* Removed redundant option from devstack plugin
+* Separated locks for cifs and server operations
+* Share servers implementation
+* Made safe get of security\_groups with nova's response
+* Made service\_instance consider driver's config
+* Set locks for shared resources in generic driver's cifs helper
+* change assertEquals to assertEqual
+* change assert\_ to assertTrue
+* Added handling of secgroup for service\_instance module
+* set default auth\_strategy to keystone
+* Enabled ip rules tests for cifs in tempest
+* Increase default quota for share networks from 3 to 5
+* debug level logs should not be translated
+* tempest plugin update
+* Fixed tempest plugin compatibility
+* Fixed possibility to have more than 25 shares with generic driver
+* Retrieve share\_backend name from config on get\_share\_stats
+* Fixed retrieving export ip address in Cmode drv
+* Made template for service VM unique using generic driver
+* Fixed usage of config option in generic driver
+* Replaced manila.conf.sample with README.manila.conf
+* Added API to manage volume types
+* Fixed rise of Duplicate exception for DB
+* Added volume\_types to DB
+* Removed unused module from unittests
+* Raise max header size to accommodate large tokens
+* Added cli tests for service-list request
+* Allowed devstack not fail if couldn't stop smb service
+* Removed redundant keystone token usage
+* Refactored service-list filters
+* Fixed tempest plugin compatibility with master
+* Checking security service is not used while deleting
+* Added creation of secgroup for service vms in devstack plugin
+* Removed unique constraint for share networks
+* Added type field to security services index list
+* Update tempest plugin for latest changes of manila
+* Made max limit name for snapshots unique
+* Made limits usages names unique
+* Fixed ownership for service volumes
+* Fixed quotas for share-networks
+* Fixes bug with share network deactivation
+* Added extension that provides used resources in absolute limits
+* Fixed detail list for shares
+* Added quota for share-networks
+* Teardown share network in Netapp Cmode driver
+* Fixed detail list for security-services
+* Fix venv installation for run\_tests.sh
+* Updated generic\_driver and service\_instance with activation
+* Added Cmode driver
+* Fixed race condition in tempest plugin
+* Fixes bug with simultaneous network modification
+* Fixes bug with keypair creating
+* Update tempest plugin, make it more stable
+* Add exception to tempest plugin
+* Splits service\_instance module from generic driver
+* Make functions in manila uniquenamed
+* Fixed creation of cinder's volumes
+* Add share network activate and deactivate
+* Separate action and creation tests in tempest
+* Add handling of share-networks to tempest plugin
+* Fix sequence of called functions in devstack plugin
+* Update policy.json
+* Enforce function declaration format in bash8
+* Switched devstack plugin to use generic driver
+* DevStack plugin: make source dirs configurable
+* Fixes bug with getting hostname
+* Fix DevStack plugin's source collection issue
+* Let DevStack plugin get python executable path
+* Removed swiftclient from dependencies
+* Use uuid instead of uuidutils
+* Update plugin for tempest
+* Add detail filter for share-network-list
+* Add function cidr\_to\_netmask to utils
+* Fixes bug with path to ssh keys
+* Fixed detail list for security-services
+* Removed cinder artifacts in devstack plugin
+* Added to devstack plugin passwords for services
+* Generic driver
+* Fix devstack plugin's usage of RECLONE option
+* Removes use of timeutils.set\_time\_override
+* Adds modules for managing network interfaces for generic driver
+* Extends neutron api with methods needed for generic driver
+* Adds nova api needed for generic driver implementation
+* Adds cinder api needed for generic driver implementation
+* Squash all migrations into one
+* Add network id verification on share creation
+* Add policy checks in share networks API
+* Fix policy.py
+* Updated from global requirements
+* Fix bad calls to model\_query()
+* Change manila DB to have working unique constraint
+* Change 'deleted' to Boolean in project\_user\_quotas
+* Fixes handling of duplicate share access rule creation
+* Fixes empty network\_info for share
+* Use actual rootwrap option in manila.conf instead deprecated one
+* Fix xml response for create/update security service
+* Add 'password' field to the security service
+* Adds network creation to ShareManager
+* Checking if access rule exists in share api
+* Add share's networks API
+* Add share's networks DB model, API and neutron support
+* Fix manila's devstack plugin for using Fedora/CentOS/RHEL distro
+* Add manila's tempest-plugin
+* Security service API
+* Add security service DB model and API
+* Remove redundant options in devstack plugin
+* Fix bug with full access to reset-state
+* glusterfs: Add GlusterFS driver
+* Fix manila's devstack plugin
+* Adds an ability to reset snapshot state
+* Adds validation of access rules
+* Adds admin actions extension to provide reset-state command
+* Refactoring driver interfaces
+* Move NetAppApiClient to separate module
+* Moved netapp.py from drivers to drivers/netapp
+* Insert validation of losetup duplicates
+* Remove redundant options for manila
+* Place devstack files to proper dirs
+* Fixes inappropriate size of metadata value
+* Adds 'metadata' key to list of options for xml responses
+* Adds an ability to manage share metadata
+* Added Neutron API module
+* Add consume\_from\_share method to HostState class
+* Add devstack integration
+* Update requirements.txt for keystoneclient
+* Support building wheels (PEP-427)
+* Update openstack/common/lockutils
+* Remove unused manila.compute.aggregate\_states
+* Remove obsolete redhat-eventlet.patch
+* Added per user-tenant quota support
+* Change wording of short description
+* Removing deprecated using of flags module from project
+* Fixed share size validation while creating from snapshot
+* Fixed xml response for share snapshot
+* Added share size checking if creating from snapshot
+* Fixed values passed to share\_rpcapi.create\_share
+* Remove d2to1 dependency
+* Update functionality implementation for manila api
+* Fixed policy check for manila api
+* Added XML serialization for access actions
+* Check policy implementation for shares api
+* Update README with relevant Manila information
+* Fix xml response content for share list/show
+* Add .gitreview file
+* Unittests failure fix
+* Fixed snapshot\_id None for share
+* Quota releasing on snapshot deleting bug fixed
+* Fixed absolute limits
+* fixed pep8
+* Stubed driver do\_setup in start\_service
+* Quota tests fixed
+* removed egg-info
+* modified conf sample
+* modified docs
+* docs
+* snapshot view, size added
+* quotas for snapshot
+* fixed api error
+* snapshot size
+* fixed TYPO
+* Access create empty boy fix
+* User cannot delete snapshot fix
+* Can not delete share with error status fixed
+* response status for share with snapshot delete request - fixed
+* fixed null value validation for snapshot id
+* fixed share temaplate name
+* fixed share snapshots
+* pep8 fix
+* License flake8 error fixed
+* Fixed flake8 errors
+* Api share-snapshots to snapshots
+* Removed unused imports
+* Fixed api tests
+* Removed v2 api. Moved shares and snapshots from contrib to v1
+* quotas exception fix
+* Quotas fix
+* Deleted api v2
+* Quotas fixed. quotas unittests fixed
+* Removed ubused unittests
+* fixed fake flags
+* Removed volume specific tests
+* merge
+* Mass replace osapi\_volume to osapi\_share Removed locale
+* Update connfig.sample scripts
+* Update connfig.sample scripts
+* Removed unused opts from flags.py
+* removed some volume occurances
+* removed block specific exceptions
+* osapi\_volume to osapi\_share
+* removed volumes from bin scripts
+* Added help to smb\_config\_path conf
+* modified fake flags
+* deleted brick
+* fixed manila manage
+* api-paste.ini: osapi\_volume to osapi-share
+* Replaced cinder with manila
+* Renamed service api config opts. Set default port to 8786
+* removed volumes from scheduler
+* deleteted .idea, added .gitignore
+* volume api removed
+* fixed keystone context
+* api fix
+* Removed backups
+* DB cleaned
+* Removed SM models and migrations
+* Modified models
+* Modified migrations
+* Removed block-specific from  DB api
+* Deleted manila.volume
+* Renamed cinder to manila. Fixed setup.py, fixed bin scripts
+* Initialize from cinder
+* Initial commit

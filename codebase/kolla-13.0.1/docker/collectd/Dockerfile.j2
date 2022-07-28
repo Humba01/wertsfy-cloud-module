@@ -1,0 +1,92 @@
+FROM {{ namespace }}/{{ image_prefix }}openstack-base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block collectd_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{{ macros.configure_user(name='collectd') }}
+
+{{ macros.enable_extra_repos(['opstools']) }}
+
+{% set collectd_packages = [
+    'collectd'
+] %}
+
+{% if base_package_type == 'rpm' %}
+  {% set collectd_packages = collectd_packages + [
+      'collectd-amqp',
+      'collectd-amqp1',
+      'collectd-apache',
+      'collectd-bind',
+      'collectd-ceph',
+      'collectd-chrony',
+      'collectd-connectivity',
+      'collectd-curl',
+      'collectd-curl_json',
+      'collectd-curl_xml',
+      'collectd-dbi',
+      'collectd-disk',
+      'collectd-dns',
+      'collectd-dpdk_telemetry',
+      'collectd-generic-jmx',
+      'collectd-ipmi',
+      'collectd-libpod-stats',
+      'collectd-log_logstash',
+      'collectd-logparser',
+      'collectd-mcelog',
+      'collectd-memcachec',
+      'collectd-mysql',
+      'collectd-netlink',
+      'collectd-openldap',
+      'collectd-ovs-events',
+      'collectd-ovs-stats',
+      'collectd-ping',
+      'collectd-procevent',
+      'collectd-python',
+      'collectd-sensors',
+      'collectd-sensubility',
+      'collectd-smart',
+      'collectd-snmp',
+      'collectd-snmp-agent',
+      'collectd-sysevent',
+      'collectd-utils',
+      'collectd-virt',
+      'collectd-write_http',
+      'collectd-write_kafka',
+      'collectd-write_prometheus',
+      'python3-sqlalchemy-collectd'
+  ] %}
+
+  {% if base_arch =='x86_64' %}
+      {% set collectd_packages = collectd_packages + [
+        'collectd-hugepages',
+        'collectd-iptables',
+        'collectd-pmu',
+        'collectd-rdt',
+        'collectd-turbostat'
+      ] %}
+  {% endif %}
+
+  {% if base_arch != 's390x' %}
+      {% set collectd_packages = collectd_packages + [
+        'collectd-pcie-errors'
+      ] %}
+  {% endif %}
+
+{% endif %}
+
+{{ macros.install_packages(collectd_packages | customizable("packages")) }}
+
+COPY extend_start.sh /usr/local/bin/kolla_extend_start
+RUN chmod 755 /usr/local/bin/kolla_extend_start \
+    && chown -R collectd /var/lib/collectd \
+    && chown -R collectd /etc/collectd* \
+    && chown -R collectd /var/run/
+
+{% block collectd_footer %}{% endblock %}
+{% block footer %}{% endblock %}
+
+USER collectd

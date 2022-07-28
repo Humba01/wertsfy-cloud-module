@@ -1,0 +1,48 @@
+Metadata-Version: 1.2
+Name: python-tripleoclient
+Version: 16.4.0
+Summary: TripleO client
+Home-page: https://docs.openstack.org/python-tripleoclient/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: Apache License, Version 2.0
+Description: ===================
+        About tripleoclient
+        ===================
+        
+        General information
+        -------------------
+        
+        **tripleoclient** is an OpenStackClient (OSC) plugin implementation that
+        implements commands useful for TripleO and the install and management of
+        both an undercloud and an overcloud.
+        
+        See the
+        `TripleO Documentation <https://docs.openstack.org/tripleo-docs/latest/>`_
+        for details on using tripleoclient.
+        
+        See the
+        `Release Notes <https://docs.openstack.org/releasenotes/python-tripleoclient>`_
+        
+        Team and repository tags
+        ------------------------
+        
+        .. image:: https://governance.openstack.org/tc/badges/python-tripleoclient.svg
+            :target: https://governance.openstack.org/tc/reference/tags/index.html
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6

@@ -1,0 +1,38 @@
+FROM {{ namespace }}/{{ image_prefix }}masakari-base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block masakari_api_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{% if install_type == 'binary' %}
+
+    {% if base_package_type == 'rpm' %}
+
+        {# not available #}
+        {% set masakari_base_packages = [
+        ] %}
+
+    {% elif base_package_type == 'deb' %}
+
+        {% set masakari_base_packages = [
+            'masakari-api',
+        ] %}
+
+    {% endif %}
+
+{{ macros.install_packages(masakari_base_packages | customizable("packages")) }}
+
+    {% if base_package_type == 'deb' %}
+RUN rm -f /etc/apache2/sites-enabled/masakari-api.conf
+    {% endif %}
+
+{% endif %}
+
+COPY extend_start.sh /usr/local/bin/kolla_masakari_extend_start
+RUN chmod 755 /usr/local/bin/kolla_masakari_extend_start
+
+{% block masakari_api_footer %}{% endblock %}
+{% block footer %}{% endblock %}

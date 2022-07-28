@@ -1,0 +1,176 @@
+- job:
+    name: telemetry-tempest-base
+    description: |
+      This job is for stable branch prior to Ussuri for testing
+      on py2.
+    parent: devstack-tempest
+    irrelevant-files:
+      - ^(test-|)requirements.txt$
+      - ^setup.cfg$
+      - ^doc/.*$
+      - ^.*\.rst$
+      - ^releasenotes/.*$
+    timeout: 7800
+    required-projects:
+      - openstack/devstack-gate
+      - openstack/panko
+      - openstack/aodh
+      - openstack/ceilometer
+      - openstack/telemetry-tempest-plugin
+      - openstack/heat-tempest-plugin
+      - openstack/heat
+      - openstack/dib-utils
+      - openstack/diskimage-builder
+      - openstack/tempest
+    vars:
+      configure_swap_size: 8192
+      devstack_plugins:
+        heat: https://opendev.org/openstack/heat
+        ceilometer: https://opendev.org/openstack/ceilometer
+        aodh: https://opendev.org/openstack/aodh
+        panko: https://opendev.org/openstack/panko
+      devstack_services:
+        tempest: true
+      devstack_localrc:
+        TEMPEST_PLUGINS: '"/opt/stack/telemetry-tempest-plugin /opt/stack/heat-tempest-plugin"'
+        GNOCCHI_ARCHIVE_POLICY_TEMPEST: "ceilometer-high-rate"
+        CEILOMETER_BACKEND: "gnocchi"
+        CEILOMETER_PIPELINE_INTERVAL: 15
+        USE_PYTHON3: False
+      tempest_test_regex: telemetry_tempest_plugin
+      tox_envlist: all
+    branches:
+      - stable/ocata
+      - stable/pike
+      - stable/queens
+      - stable/rocky
+      - stable/stein
+      - stable/train
+
+- job:
+    name: telemetry-tempest-base
+    parent: devstack-tempest
+    description: |
+      This job is for testing on py3 which is Ussuri onwards.
+    irrelevant-files:
+      - ^(test-|)requirements.txt$
+      - ^setup.cfg$
+      - ^doc/.*$
+      - ^.*\.rst$
+      - ^releasenotes/.*$
+    timeout: 7800
+    required-projects: &base_required_projects
+      - openstack/devstack-gate
+      - openstack/panko
+      - openstack/aodh
+      - openstack/ceilometer
+      - openstack/telemetry-tempest-plugin
+      - openstack/heat-tempest-plugin
+      - openstack/heat
+      - openstack/dib-utils
+      - openstack/diskimage-builder
+      - openstack/tempest
+    vars: &base_vars
+      configure_swap_size: 8192
+      devstack_plugins:
+        heat: https://opendev.org/openstack/heat
+        ceilometer: https://opendev.org/openstack/ceilometer
+        aodh: https://opendev.org/openstack/aodh
+        panko: https://opendev.org/openstack/panko
+      devstack_services:
+        tempest: true
+      devstack_localrc:
+        USE_PYTHON3: True
+        TEMPEST_PLUGINS: '"/opt/stack/telemetry-tempest-plugin /opt/stack/heat-tempest-plugin"'
+        GNOCCHI_ARCHIVE_POLICY_TEMPEST: "ceilometer-high-rate"
+        CEILOMETER_BACKEND: "gnocchi"
+        CEILOMETER_PIPELINE_INTERVAL: 15
+      tempest_test_regex: telemetry_tempest_plugin
+      tox_envlist: all
+
+- job:
+    name: telemetry-dsvm-integration
+    parent: telemetry-tempest-base
+    branches: ^(?!stable/(ocata|pike|queens|rocky|stein|train)).*$
+
+- job:
+    name: telemetry-dsvm-integration
+    parent: telemetry-tempest-base
+    branches:
+      - stable/train
+      - stable/wallaby
+    vars:
+      devstack_localrc:
+        USE_PYTHON3: False
+
+- job:
+    name: telemetry-dsvm-integration
+    parent: telemetry-tempest-base
+    branches:
+      - stable/pike
+      - stable/queens
+      - stable/rocky
+    vars:
+      devstack_localrc:
+        USE_PYTHON3: False
+        GNOCCHI_ARCHIVE_POLICY_TEMPEST: "ceilometer-high"
+        GNOCCHI_ARCHIVE_POLICY: "high"
+        CEILOMETER_ALARM_AGGREGATION_METHOD: "mean"
+        CEILOMETER_ALARM_METRIC_NAME: "cpu_util"
+
+- job:
+    name: telemetry-dsvm-integration-ipv6-only
+    parent: devstack-tempest-ipv6
+    branches: ^(?!stable/(ocata|pike|queens|rocky|stein)).*$
+    description: |
+      Telemetry devstack tempest tests job for IPv6-only deployment
+    required-projects: *base_required_projects
+    vars: *base_vars
+
+- job:
+    name: telemetry-dsvm-integration-wallaby
+    parent: telemetry-dsvm-integration
+    nodeset: openstack-single-node-bionic
+    override-checkout: stable/wallaby
+    voting: false
+
+- job:
+    name: telemetry-dsvm-integration-train
+    parent: telemetry-dsvm-integration
+    nodeset: openstack-single-node-bionic
+    override-checkout: stable/train
+    vars:
+      devstack_localrc:
+        USE_PYTHON3: True
+
+- job:
+    name: telemetry-dsvm-integration-centos-8s
+    nodeset: devstack-single-node-centos-8-stream
+    parent: telemetry-dsvm-integration
+    description: |
+      Telemetry devstack tempest tests job for a Centos 8 stream system
+
+- job:
+    name: telemetry-dsvm-integration-centos-8s-fips
+    parent: telemetry-dsvm-integration-centos-8s
+    description: |
+      Telemetry devstack tempest tests job for a FIPS enabled Centos 8 stream system
+    pre-run: playbooks/enable-fips.yaml
+
+- project:
+    templates:
+      - check-requirements
+      - tempest-plugin-jobs
+    check:
+      jobs:
+        - telemetry-dsvm-integration
+        - telemetry-dsvm-integration-wallaby
+        - telemetry-dsvm-integration-train
+        - telemetry-dsvm-integration-ipv6-only
+        - telemetry-dsvm-integration-centos-8s
+        - telemetry-dsvm-integration-centos-8s-fips
+    gate:
+      queue: telemetry
+      jobs:
+        - telemetry-dsvm-integration
+        - telemetry-dsvm-integration-ipv6-only

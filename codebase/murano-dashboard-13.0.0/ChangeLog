@@ -1,0 +1,1978 @@
+CHANGES
+=======
+
+13.0.0
+------
+
+* Fix the install murano-dashboard
+* Add tools to irrelevant-files
+* Add py39 classifier
+* Django 3.2 support
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+12.0.0
+------
+
+* Fix horizon compilemessages with murano ui enabled
+* Drop horizon-nodejs10-jobs template
+* [community goal] Update contributor documentation
+* setup.cfg: Replace dashes with underscores
+* Add horizon-nodejs14-job template
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+11.0.0
+------
+
+* Imported Translations from Zanata
+* Add doc/requirements
+* Run npm nodejs job with Firefox browser
+* Imported Translations from Zanata
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+10.0.0
+------
+
+* [goal] Migrate testing to ubuntu focal
+* Cleanup for Refactor-error-messages
+* [goal] Migrate testing to ubuntu focal
+* Switch to py3 syntax for dictionary contains test
+* Imported Translations from Zanata
+* drop mock from lower-constraints
+* Stop to use the \_\_future\_\_ module
+* Switch to newer openstackdocstheme and reno versions
+* Fix hacking min version to 3.0.1
+* Cleanup py27 support
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Bump default tox env from py37 to py38
+* Add py38 package metadata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+* Install packages for murano-dashboard-sanity-check job
+* Remove six
+
+9.0.0
+-----
+
+* Use unittest.mock instead of third party mock
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Remove six from lower-constraints.txt
+* Add pytest to test requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Cleanup py27 support
+* Fix pyScss version in lower-constraints.txt
+* Update the tox.ini
+* Update hacking for Python3
+* Fix openstack-tox-lower-constraints job
+* Revert the original logic in code
+* Remove six usage
+* Drop Django 1.11 support
+* Drop django-babel from requirement.txt
+* Drop python 2.7 testing
+* translation: drop babel extractor definitions
+* Imported Translations from Zanata
+* [ussuri][goal] Drop python 2.7 support and testing
+* Fix nodejs-npm-run-test job failed
+* Change Ussuri python jobs template
+* Imported Translations from Zanata
+* Use Horizon project template for django jobs
+* Imported Translations from Zanata
+* Fix semantic\_version compared
+* Update master for stable/train
+
+8.0.0.0rc1
+----------
+
+* Make sensible default choices for fields
+* Remove 'add' button for keypairs on launch
+* Fix adding dependency package to environment with debreach
+* Imported Translations from Zanata
+* Fix py27 UT gate
+* Hide availability zones that are not available
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Bump the openstackdocstheme extension to 1.20
+* Blacklist sphinx 2.1.0 (autodoc bug)
+* Add Python 3 Train unit tests
+* Update contraints url
+* Import openstack\_dashboard defaults settings
+* Fix dictionary changed size during iteration error with Python 3
+* Fix sphinx requirements
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Replace openstack.org git:// URLs with https://
+* Update master for stable/stein
+
+7.0.0
+-----
+
+* Fix selenium test test\_abandon\_two\_environments\_at\_once
+* Change devstack default role Member to member
+* Change devstack default role Member to member
+* Using six to fix python2/3 compatible
+* Fix selenium test test\_filter\_component\_by\_tag
+* Fix selenium test test\_check\_env\_name\_validation
+* Change import module nova to \_nova
+* Fix selenium test test\_filter\_by\_tag
+* Remove the dependency of floppyforms
+* Add mock request to Datatable to fix murano-dashboard UT
+* Clean up usage of APIMockTestCase
+* Remove the unused experimental job
+* Add a mock request for Tab
+* Imported Translations from Zanata
+* add py36 to classifier and UT job
+* Fix lower constraints
+* Change openstack-dev to openstack-discuss
+* Change openstack-dev to openstack-discuss
+* Update min tox version to 2.0
+* Fix python3 compatible use six
+* Imported Translations from Zanata
+* Increment versioning with pbr instruction
+* Switch test runner to django default runner
+* murano-dashbord python3 fix and use standard cover tox env
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Import legacy-dashboard-dsvm-selenium-package
+* Use templates for cover and lower-constraints
+* Fix some pep8 errors
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Imported Translations from Zanata
+* Remove use\_mox directive
+* Update reno for stable/rocky
+
+6.0.0
+-----
+
+
+6.0.0.0b3
+---------
+
+* Fix README error caused release failed
+* Update py27-ocata to py27-queens
+* Add test 'node\_modules' in tox.ini for flake8 exclude
+* Fix lower-constraints tox env
+* Modify the 'tox.ini' file
+* fix tox python3 overrides
+* Add python3 django 1.11 job instead of django 2.0 job
+* Use mox dependency explicitly
+* Replace class, APITestCase, with APIMockTestCase
+* Django 2.0 support and fix lower-constraints tox env
+* EncryptData method use internal Barbican endpoint
+* Imported Translations from Zanata
+* APITestCase is replaced with APIMockTestCase
+* Replace assertRaisesRegexp with assertRaisesRegex
+
+6.0.0.0b1
+---------
+
+* Removed inline\_edit functionality for tables
+* Updated from global requirements
+* add lower-constraints job
+* Imported Translations from Zanata
+* Update the outdated links
+* Install horizon directly from pypi
+* Updated from global requirements
+* Fix the old links in CONTRIBUTING.rst and HACKING.rst
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add irrelevant-files for murano-dashboard-sanity-check job
+* Update reno for stable/queens
+
+5.0.0.0rc1
+----------
+
+* Imported Translations from Zanata
+* Zuul: Remove project name
+* Imported Translations from Zanata
+
+5.0.0.0b3
+---------
+
+* Imported Translations from Zanata
+* Updated from global requirements
+* Add murano dashboard selenium functional test
+* Updated from global requirements
+* Show resource usages for application
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Murano dashboard imports heat.py from Heat dashboard
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+
+5.0.0.0b2
+---------
+
+* Imported Translations from Zanata
+* Display volume snapshots only in volume field
+* Imported Translations from Zanata
+* Remove the unused install venv scriptes
+* Updated from global requirements
+* Make create env show the correct error message
+* Allow images to be filtered by project ID
+* Imported Translations from Zanata
+* Fix the format mess
+* Imported Translations from Zanata
+* Remove setting of version/release from releasenotes
+* Updated from global requirements
+* Updated from global requirements
+* Drop django\_openstack\_auth from requirements.txt
+* Fix ValueError in environment details page
+
+5.0.0.0b1
+---------
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix circular reference error for lists of Object Ids
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Remove vestigate HUDSON\_PUBLISH\_DOCS reference
+* Fix to use "." to source script files
+* Revert ThemableSelectWidget for themable selects
+* Updated from global requirements
+* Updated from global requirements
+* Modify the '.gitignore' file
+* Updated from global requirements
+* Make net\_config ChoiceField themable
+* Imported Translations from Zanata
+* Update reno for stable/pike
+
+4.0.0.0rc1
+----------
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix package import fails due to QueryDict immutable
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+
+4.0.0.0b3
+---------
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add encryptData yaql function
+* Imported Translations from Zanata
+* Updated from global requirements
+* Allow specification of only neutron net without subnet
+* Imported Translations from Zanata
+* Add fixed network mode for environments
+* Updated from global requirements
+* Update URL home-page in documents according to document migration
+* Fix create environment TypeError
+* Wrap API module calls with KeyError handling
+* Revert "Fix murano-dashboard gate"
+* Add table\_actions\_menu for Environments Table
+* Fix the BeautifulSoup warning
+* Fix ValueError in services details page
+* Fix KeyError in deployment history page
+* Fixes Deployment History page incorrectly formatting status
+* Using horizon utils get\_timezone get timezone
+* Make UI forms data accessible using $forms variable
+* Use https instead of http in doc links
+* Mark doc warnings as errors
+* Adjust stringified dates to the local timezone
+* switch to openstackdocstheme
+* Updated from global requirements
+* Fix line wrapping for long app names
+* Imported Translations from Zanata
+* Fix missing import package button in murano dashboard
+* Fix murano-dashboard gate
+* Updated from global requirements
+* Fix security group choice field population
+* Fix form of package modification
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add widget for volume selection
+* Updated from global requirements
+* Imported Translations from Zanata
+* Use POST instead of GET to look for wizard\_id
+* App fails to deploy with latest murano dashboard code
+* Remove support for py34
+
+4.0.0.0b2
+---------
+
+* Fix doc generation for Python3
+* Updated from global requirements
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add widget for choosing an existing security group
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Fixed issues on Python 3
+* Rename py27-mitaka to py27-ocata
+* Imported Translations from Zanata
+* Improve log browsing for deployments
+* Fix filter image snapshot type with glancev2
+* Update glanceclient from v1 to v2 to avoid deprecation errors
+* Fix themable image choicefield display text bug
+* Updated from global requirements
+* Imported Translations from Zanata
+
+4.0.0.0b1
+---------
+
+* Imported Translations from Zanata
+* Updated from global requirements
+* Filter out the snapshot image type
+* Imported Translations from Zanata
+* Tri-state checkbox widget
+* Updated from global requirements
+* Use ThemableSelectWidget for themable selects
+* Fix the import keypair url
+* Delete import\_exceptions from tox.ini
+* [Gate fix] Fixes import big zip file test
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Add js validation for dynamic UI
+* Makes test\_delete\_multiple\_images ui test more stable
+* Unskip test\_sharing\_app\_without\_permission
+* Using RBAC for create and modify packages public checkbox
+* Add UI Test for Correct # Apps by Category in Catalog View
+* Updated from global requirements
+* Fixes test\_toggle\_public\_package ui tests failing in tearDown
+* Updated from global requirements
+* Imported Translations from Zanata
+* Update reno for stable/ocata
+
+3.2.0
+-----
+
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fixes Deployment History tab incorrectly formatting status
+* Imported Translations from Zanata
+* Fix click issue with test\_env\_status\_new\_session\_remove\_from\_two
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Changes image creation/deletion in sanity\_check to be atomic.
+* Compress murano-dashboard JS scripts within a common context
+
+3.1.0
+-----
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Correct the pep8 exclude
+* Imported Translations from Zanata
+* Add UI Tests for Various Package Scenarios
+* Change Murano Dashboard Limit for Memory and Instances
+* Using rbac policy for images panel
+* Imported Translations from Zanata
+* Fixes new sanity\_check tests deleting too many resources
+* Let flavor fields show the default value
+* Fix Mark Image form can not open when have invalid metadata
+* Imported Translations from Zanata
+* Remove useless iso8601 requirements
+* Add UI tests for Deploy/Abandon Environment from Table View
+* Add assertions to functional test test\_download\_package
+* Remove the py26 support in tests/functional/base
+* Add UI Tests for Deleting Multiple Images
+* Add UI Tests for Filtering Packages by Name/Type/Keyword
+* Imported Translations from Zanata
+* Add UI Tests for Filtering Components by Name/Tag/Description
+* Imported Translations from Zanata
+* Add Try/Exception block to get\_image and get\_supplier\_image
+* Imported Translations from Zanata
+* Treat empty body as no body in parse\_api\_error
+* Add UI Tests for Latest Deployment Log
+* Fixes test\_filter\_by\_description failing on glare gate job
+* Fixes murano-dashboard-coverage failing unit test
+* Murano-Dashboard Wrong instance name on Component details tab
+* Imported Translations from Zanata
+* Fixes unit tests throwing errors, related to Horizon function
+* Increase unit test coverage for muranodashboard Common Utils
+* Fix passing session id to Update Metadata link in Env and Comps tables
+* Add UI Tests for Filtering Apps by Tag/Description
+* Imported Translations from Zanata
+* Use assertGreater(len(x), y) instead of assertTrue(len(x) > y)
+* Correct murano-dashboard reraising of exception
+* Add UI Test for Abandon Environment from Detail View
+* Fixes AttributError thrown by utils.CustomUnpickler
+* Imported Translations from Zanata
+* Add UI tests for Delete Environment from Details View
+* Increase unit test coverage for muranodashboard Yaql Functions
+* Fix typos
+* Updated from global requirements
+* Imported Translations from Zanata
+* Increase unit test coverage for muranodashboard Images Views
+* Increase unit test coverage for muranodashboard Categories Views
+* Changed author
+* Fix the wrong DJANGO\_SETTINGS\_MODULE in tox.ini
+* Topology viewer now properly parses composite type names
+* Fixed output of lists in topology viewer
+* Imported Translations from Zanata
+* Show team and repo badges on README
+* Imported Translations from Zanata
+* Horizon navbar structure was changed recently, adapt to it
+* Use assertGreater(len(x), 0) instead of assertTrue(len(x) > 0)
+* Remove extra space from message box in Catalog Index View
+* Increase unit test coverage for muranodashboard Dynamic UI Forms
+* Increase timeout in UI test
+* Replace 'assertEqual(None, ...)' with 'assertIsNone(...)'
+* Imported Translations from Zanata
+* Increase unit test coverage for muranodashboard Common Net
+* Increase unit test coverage for muranodashboard Environment API
+* Make murano-dashboard using horizon's DATABASE when horizon configured
+* Sort values in standard dropdowns
+* Increase unit test coverage for muranodashboard Packages Tables and Packages API
+* Increase unit test coverage for muranodashboard Catalog Views
+* Imported Translations from Zanata
+* Increase unit test coverage for muranodashboard Env Tabs
+* Fixes TypeError/other bugs in Environment OverviewTab find\_stack
+* Increase unit test coverage for muranodashboard Env Views
+* Fixes REST API tests for M requirements compatibility
+* Fixes UnboundLocalError thrown by get\_context\_data in Env Views
+* Fix murano-dashboard plugin files in README
+* Add docs action for tox.ini
+* Ability to reference single object several times
+* Static action for UI definition parameters
+* Add Parameters section to UI definition
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Bundle import test was fixed
+* Fix python3.4 compatibility issue in yaql\_expression.py
+* Increases unit test coverage for muranodashboard Env Rest Api
+* Increase unit test coverage for Packages Views API
+* Fixes TypeError thrown by raise statement in Packages Views
+* Updated from global requirements
+* Increase unit test coverage for muranodashboard Dynamic UI Fields
+* Imported Translations from Zanata
+* Fixes RuntimeError thrown by finalize\_properties in Dynamic UI Fields
+* Increase unit test coverage for muranodashboard Environment Tables
+* Increase unit test coverage for catalog and images
+* Increase unit test coverage for environments, helpers, and yaql expression
+* Imported Translations from Zanata
+* Fixes TypeError thrown by UpdateServiceRow.update\_cell
+* Fix tests for package/bundle import
+* Updated from global requirements
+* [Trivial] Fix a typo in murano-dashboard
+* Fixes DetailView.get\_data throws UnboundLocalError
+* Increase unit test coverage for muranodashboard Topology API
+* Updated from global requirements
+* Increase unit test coverage for muranodashboard Packages Forms API
+* Fix Syntax Error being thrown by handle in ModifyPackageForm
+* Imported Translations from Zanata
+* Increase unit test coverage for muranodashboard Services API
+* Increase unit test coverage for muranodashboard base API
+* Imported Translations from Zanata
+* Increase unit test coverage for muranodashboard Packages API
+* Imported Translations from Zanata
+* Remove xrange for run both Python 2 and Python 3
+* Fix murano dashboard to work with older Horizon versions
+* Apply new type format if used
+* Split muranodashboard config into multiple files
+* Ability to assign metadata to Murano Applications and Environments
+* Add JS unit tests runner and commands to dashboard
+* Enable release notes translation
+* Do not use category count in UI tests with GLARE backend
+* 'Forms:' section is now truly optional in ui definition
+* Util for Selenium that waits for page change
+* In Murano App configuration wizard move Back/Next w/o losing any data
+* Updated from global requirements
+* Updated from global requirements
+* Add Apache 2.0 license to source file
+* Increase unit test coverage for environment tables
+* Fix js validation of the password in dynamic UI
+* Updated from global requirements
+* Display package name as type of service in env
+* Fix test\_apps\_pagination test failed
+* Remove unnecessary muranodashboard/models.py file
+* Renamed the URL suffix of dashboard's ajax API
+* Remove unnecessary setUp
+* Murano-dashboard now shows warnings if glance v1 is unavailable
+* Replace the 'quantum' in test settings
+* Fixing typo error ceveral
+* Updated from global requirements
+* Replace 'MagicMock' with 'Mock'
+* Update murano-dashboard eslint devDependencies
+* Imported Translations from Zanata
+* Let murano dashboard using glance v1
+* Add test\_add\_pkg\_to\_category\_without\_count test
+* Update reno for stable/newton
+
+3.0.0.0rc1
+----------
+
+* Replace table row 'status\_unknown' class with 'warning' class
+* Add ability to mark image with custom type
+* Imported Translations from Zanata
+* Cleanup, clarify newton release-notes
+* Removing unused tools/rfc.sh file
+* Return an empty list instead of None when getting available networks
+* Add a LICENSE file
+* Wrap 500 code in dashboard errors
+* Add ability to delete arbitrary component in functional tests
+* Remove the test\_upload\_package\_detail TODO
+* Imported Translations from Zanata
+* Clean imports in code
+* Rename 'murano' dashboard to 'app-catalog'
+* Imported Translations from Zanata
+* Change selector if creating environment failed
+
+3.0.0.0b3
+---------
+
+* [tests] Do not check for Category count if glare is enabled
+* Unskip the test\_upload\_package when glare backend
+* Fix create/delete/abandon environment redirect\_url
+* Enable "Delete Environments" button on delete failure
+* Using WrappingColumn to prevent long names breaking table layouts
+* Create glare client in dashboard tests
+* Separate internal MURANO\_REPO\_URL and DISPLAY\_MURANO\_REPO\_URL
+* Move descriptions for hidden fields on top of dynamic\_ui forms
+* Adds multiline support for reports in dashboard
+* Update Readme with correct Doc URL
+* Using rbac policy for package panel
+* Using rbac policy for environments panel
+* Using rbac policy for categories panel
+* Fix ci test\_check\_image\_info failed
+* Imported Translations from Zanata
+* Fix manage.py wrong muranodashboard setting module
+* Update tox.ini for upper constraints
+* Create murano session client in tests
+* Update the murano settings
+* Updated from global requirements
+* Add cover dir to gitignore
+* Fix script for unit test coverage job
+* Honor title of Action in murano dashboard
+* Fix allowance of Deploy environment action
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Correct env status in the new session
+* Add and update the license header
+* Skip test\_deploy\_several\_mock\_apps\_in\_a\_row
+* Trivial: Modified python identifiers in setup.cfg
+* Make some i18n for trans text
+* Fix inaccuracies in dashboard environments api
+* Add script for unit test coverage job
+* Updated from global requirements
+* Add Python 3.5 classifier and venv
+* Remove the H104 pep8 ignore from tox.ini
+* Get ready for Horizon rework
+* Preserve new environment row from sorting with other rows
+* Modify assert statement when comparing with None
+* [TrivialFix]Remove the redundant navigation in app\_details page
+* RBAC settings for murano-dashboard
+* Updated from global requirements
+* [TrivialFix]Remove the redundant required=True
+* Make \_generate\_hostname() and int2base() work in python3
+* Make generateHostname honor pattern parameter
+* Remove the old settings files
+* Correct domain parameter value in tests
+
+3.0.0.0b2
+---------
+
+* Mark display statuses for translation
+* Refactor to a single request for latest apps
+* Disable action buttons according to the statuses of environments
+* Imported Translations from Zanata
+* Add py27-mitaka tox target
+* Updated from global requirements
+* Use upper-constraints in tox test environments
+* Make more-less js get dynamic-ui form description trim space
+* Convert dynamic UI form names to string type
+* Add exception for communicate with glare api
+* Switch tests to keystone v3 API
+* Imported Translations from Zanata
+* Add page\_title in breadcrumb for pages
+* Package table form 'Cancel' button consistent with others
+* Updated from global requirements
+* Inherit custom yaml Loader from yaml.SafeLoader
+* Updated from global requirements
+* Imported Translations from Zanata
+* Import horizon filters for murano-dashboard
+* Mark image form filter out the 'aki' and 'ari' format
+* Increase timeout in test\_deploy\_several\_mock\_apps\_in\_a\_row
+* Imported Translations from Zanata
+* Reorder releasenotes and increase toctree depth
+* Replace names in comment and description
+* Imported Translations from Zanata
+* Increase timeout in test\_deploy\_several\_mock\_apps\_in\_a\_row
+* Add timeout argument to some test methods
+* Treat hyphen as a special character during password validation
+* Correct test workflow
+* Correct password-checking js in dynamic UI forms
+* Refactor sort direction use
+* Imported Translations from Zanata
+* Fix message for environment deploy action
+* Fetch class descendants in the dynamic\_ui from glare
+* Updated from global requirements
+
+3.0.0.0b1
+---------
+
+* Updated from global requirements
+* Reorganize Murano-specific Horizon settings
+* Add page\_title in breadcrumb for Browse page
+* python 3.4 support for urlparse
+* Imported Translations from Zanata
+* Revert "Add 'password' to names of password fields in dynamic forms"
+* Updated from global requirements
+* Change "Deploy Environment" button
+* Use 'trimmed' for blocktrans in html page
+* Added a warning message if environment name is empty
+* Rename the 'Applications' to 'Browse' in html template
+* Fix Downloading Package blocks downloading next package
+* Use template filter to convert list of packages in the template
+* Updated from global requirements
+* Add ability to manage several environments at once in dashboard
+* Imported Translations from Zanata
+* Trival: Add icons for DeployEnvironment and DeployThisEnvironment
+* Add 'password' to names of password fields in dynamic forms
+* Fix typo in murano-dashboard tests
+* Reload env components page after deployment of empty environment
+* Updated from global requirements
+* Imported Translations from Zanata
+* Renamed murano dashboard panel
+* Add SESSION\_ENGINE to local\_settings.py.example
+* Made breadcrumb consistent with horizon
+* Enabled the Stickyness for Murano Tabs
+* Imported Translations from Zanata
+* Updated from global requirements
+* Fix and simplify 'ClusterIPField'
+* Hide category's description when modifying Library type packages
+* Updated from global requirements
+* Updated from global requirements
+* Fix test\_import\_big\_zip\_file the mismatch error message
+* Imported Translations from Zanata
+* Hide package\_counter in case of using glare
+* Make test\_add\_pkg\_to\_category\_non\_admin more robust
+* Fix Typo in Password Validator
+* Hide extra text in descriptions and allow expanding
+* Add i18n trans for form field label and help\_text
+* Update the gitignore for i18n compiled files
+* Correct description during the package importing
+* Add table action for environment details
+* Update reno for stable/mitaka
+* Imported Translations from Zanata
+
+2.0.0.0rc1
+----------
+
+* Imported Translations from Zanata
+* Make the Component Logs report urlize
+* Add verification for latest apps section
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Cleanup PasswordField.init and remove i18n-nonfriendly strings
+* Added test for add pkg to category as non admin
+* Added tests for bundle import
+* fix for test\_deploy\_several\_mock\_apps\_in\_a\_row
+* Imported Translations from Zanata
+* Add test for check admin able to share murano apps
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* i18n: Use new way to define action\_present/past
+* i18n: [catalog] allow translators to control word order
+* Imported Translations from Zanata
+* Restore multi\_valued=False to relevant tables
+* Improve murano modals js hooks
+* Imported Translations from Zanata
+* Rename logging text: Glance to Glare
+* Added test on import very big archive
+* Added test for categories pagination
+* Added test for applications pagination
+* Updated from global requirements
+* Imported Translations from Zanata
+* Rename glance to glare
+* Fix broken dashboard tables
+* Fix the wrong django template trans tag
+
+2.0.0.0b3
+---------
+
+* Reload environments page after all the environments have been deleted
+* Remove unused pngmath Sphinx extension
+* Cleanup translation markups
+* Updated from global requirements
+* Add test for sharing Murano App without permission
+* Fixes for docstrings in some tests
+* Fix AJAX for jQuery versions prior 1.9.0
+* Add test to check list of existing categories
+* Imported Translations from Zanata
+* Added negative tests for package import
+* Updated from global requirements
+* Added cleanup for project
+* Added test on delete category with package
+* Added test on add category with existing name
+* extended package toggle active and private tests
+* Add details page for packages
+* Updated from global requirements
+* Added test on filter apps from env components
+* Added test on filter apps by new category
+* fix for the test\_add\_delete\_category\_for\_package
+* Update URLs to Django 1.8 style
+* Added tests create delete apps in some cases
+* Added test on add delete category for package
+* Updated from global requirements
+* Imported Translations from Zanata
+* Added tests for bundle import
+* Fix validation of password fields form with confirmInput=false
+* Clarify murano image types:
+* Fix duplicate URL validation message in import package and bundle
+* Updated from global requirements
+* [DynamicUI] Apply user regex for the password field
+* Imported Translations from Zanata
+* Remove environment name restrictions
+* Use horizon breadcrumbs style instead of custom
+* Hide some table buttons at Package Definitions page
+* Updated from global requirements
+* Rename 'Package Definitions' tab to 'Packages'
+* Store cache files in a better way
+* Update eslint devDependencies in Murano dashboard
+
+2.0.0.0b2
+---------
+
+* Add package check for package name length
+* Fix the error message when failed to modify package
+* Updated from global requirements
+* Restore YAQL validators support
+* Replace deprecated library function os.popen() with subprocess
+* Control password field duplication
+* Updated from global requirements
+* Modify filter by 'Name' in Package Definition
+* Add license info for exceptions.py
+* Delete only murano data from image metadata
+* Updated from global requirements
+* Adds i18n machinery similar to the one used in horizon
+* Drop MANIFEST.in - it's not needed with PBR
+* Keep py3.X compatibility for urllib
+* Introduced python3 support
+* Change  LOG.warn to LOG.warning
+* Update application\_catalog to application-catalog
+* Add maximum disk, vcpu and memory requirement
+* Add i18n trans tag for strings in template file
+* Delete the special character in README.rst
+* Fix extend-flavor-requirements releasenote typo
+* Add i18n trans tag for strings in template file
+* Deprecated tox -downloadcache option removed
+* Pass environment variables of proxy to tox
+* Remove version from setup.cfg
+* Add data-toggle to the corresponding fields
+* Do not assign a value to the class variable 'widget'
+* Use fontawesome instead of glyphicon
+* Use logging.NullHandler and move Django to requirements
+
+2.0.0.0b1
+---------
+
+* Updated from global requirements
+* Update functional tests due to change in horizon
+* Add reno for RElease NOtes
+* Updated from global requirements
+* Add missing space after "Author:"
+* Update the dashboard Code Review URL
+* Updated from global requirements
+* Ensure closing of firefox window if setUp fails
+* Fix typo in 'muranodashboard/templates/services/\_data\_table.html'
+* Updated from global requirements
+* Improve message for publish package conflict
+* Import images publicly when package is public
+* Open Mitaka development
+* Enable pagination for Murano Images view
+
+1.0.0
+-----
+
+* Use non-absolute url, when composing repository urls
+* Fix images no attribute type and title error
+* Hide token id in logs
+* Use iso time filter for time occurrences
+* Make non-admin user package Tenant Name more clear
+* Updated from global requirements
+* Prevent key error on deployed app detail page
+* Fix 'RemovedInDjango19Warning' in tox.ini
+* Fix typo on sanity\_check comment
+* Fix package no attribute version error
+* Add the missing 'PACKAGES\_LIMIT' setting
+* Honor 'acquired\_by' sessions for environments
+* Fix links on env details package in case of packages absence
+* Add Created Time/Last Updated Time column for packages table
+* Add icons for Package Definitions BatchActions
+* Add truncate for Environments and Image table
+* Append information during automatic image uploading
+* Fix the run\_test unchecked pep8 W503 errors
+* Fix 'RemovedInDjango19Warning' related to murano-dashboard
+
+1.0.0.0rc1
+----------
+
+* Compress murano-dashboard css
+* Add the missing import in environments api
+* CSS tweaks to make details pages consistent with the rest of horizon
+* Updated from global requirements
+* Compress murano-dashboard related js in a single file
+* Update the Murano-dashboard docs
+* Updating MURANO\_REPO\_URL
+* Change env table meta name to environments
+* Add name validation for Environments inline name editing
+* Fix the test config.conf and doc wrong path in gitingore
+* Delete the unused EditEnvironment code
+* Prevent UnboudLocalError  when checking out tenants for packages
+* Updated from global requirements
+* Show 'Tenant name' column for non-admin users
+* Change package to category in DeleteCategory error message
+* Let NetworkChoiceField display network/subnet name or id
+* Only allow http/https schemas for Import Bundle/Package
+* Provide tenant name information
+* Improve error message for import bundle/package
+* fix fields empty error messages in import bundle
+* Fix the package table allowed wrong param
+* Delete the unused LOG configure code
+* Add filter by package name and type  to Package Definitions page
+
+1.0.0.0b3
+---------
+
+* Added the support of Glance Artifact Repository
+* Fix initial value for the 'name' field
+* Updated from global requirements
+* Remove owner filter from Package Definitions page
+* Updated from global requirements
+* Set correct attributes for category dropdown
+* Updated from global requirements
+* Add django-formtools to requirements
+* Delete the unsupport page\_size in Package Definitions
+* REST API for Murano Dashboard
+* Allow passing request variables to import forms
+* Add category list pagination support
+* Use is\_superuser instead of hardcode admin role
+* Updated from global requirements
+* Hide the public/project/other filter for non-admin user
+* Fix the redirect url have no reverse
+* Fix the Categories not sorted properly
+* Migrate to new YAQL 1.0.0
+* Add LOG for package update and Toggle Public/Active
+* django.contrib.formtools import error with django 1.8
+* Updated from global requirements
+* Delete the categories form.py unuse code
+* Update functional tests due to horizon update
+* Fix category control layout at the components page
+* Provide full message on toggle active or public package fail
+* Fix app category selection in draggable components
+* Catalog: show package\_count for categories
+* Switch to oslo\_log in murano-dashboard
+* Do not render topology for env with empty services
+* Hide external networks while selecting network for the env
+* Make Import Package/Bundle form import\_type switchable
+* Updated from global requirements
+* Choose an approppriate image upon stack failure
+* Update the gitignore file to ignore .tox
+* Do not allow selecting images, that are not active
+* Make add-select work on static pages
+* Fix import\_package js form
+* Return 404 to ajax environment update table call
+* Updated from global requirements
+* Fix eslint checks from openstack config
+
+1.0.0.0b2
+---------
+
+* Update the gitignore file to ignore \*.egg\*
+* Add filter opportunity to the packages table
+* Make category dropdown menu scrollable
+* eslint cleanup of draggable-components.js
+* Remove 'name' from explicit fields in object model
+* eslint cleanup of load-modals.js
+* eslint cleanup of passwordfield.js
+* Enable hacking/flake8 rules
+* eslint cleanup of environments-in-place.js
+* eslint cleanup of horizon.muranotopology.js
+* Fix "App category" dropdown button layout overflow
+* eslint cleanup of add-select.js
+* eslint cleanup of external-ad.js
+* eslint cleanup of support\_placeholder.js
+* Adopt openstack-config for eslint
+* eslint cleanup of import\_bundle\_form.js
+* Fix error message appearance in case there are no apps avaliable
+* Allow inline name editing
+* Improve error handling during category creating
+* Updated from global requirements
+* eslint cleanup of smaller js files
+* Truncate long names
+* Update message about apps absence
+* Update environment details view
+* Fix too loose url regex for murano/categories/add
+* Fix wrong url redirect for murano/environments/
+* Remove unnecessary 'index' in url of catalog panel
+* Allow to select default Environment Network
+* Add NetworkChoiceField to Dynamic UI
+* Stringify LATEST\_FORMAT\_VERSION in dynamic\_ui
+* Update mock and mox from global requirements
+* Improve the checks of Dynamic UI format versions
+* Add eslint javascript checker
+* Disable \`Edit Environment\` when it is deleting
+* Fix environment table actions
+* Add last deployment log tab
+* Remove all vim modelines
+* Remove unused and unsupported table field
+* Handle InternalServerError corectly
+* Fix filtering apps by category is broken
+* Create environment should redirect to current page
+
+1.0.0.0b1
+---------
+
+* Update from global-requirements
+* Fix inconsistency of message and validation when create env(dashboard)
+* Update version for Liberty
+
+1.0.0a0
+-------
+
+* Remove attempts to close success message in tests
+* Remove openstack.common modules
+* Add ability to abandon environment
+* Update from descriptions
+* Improve 'No apps' message on catalog index page
+* Apply urlize filter to Last operation of environment component table
+* Update from global requirements
+* Escape initial values, that come from muranopl
+* Escape app names, returned to horizon modal forms
+* Test importing package by fqn from murano repository
+* Remove safe filter in app details page
+* Improved layout of deployments/\_logs.html
+* Update templates regarding changes in horizon
+* Display 'Topology' tab for failed deployments
+* Remove unnecessary string conversions for status reports
+* Mark BooleanFields as non-required in dynamic\_ui
+* Test importing a package by URL
+* Improve error handling during environment editing
+* Call location.reload only once at successfull env deployment
+* Prevent key error occurred on deployment history tab
+* Fixed gramattical issues in README.rst
+* Point default MURANO\_REPO\_URL to http://storage.apps.openstack.org/
+* Use catalog=True for app\_by\_fqn helper function
+* Environments: reload page after all the environments have been updated
+* Add catalog parameter to packages list API call
+* Take advantage of better API filtering catalog filtering
+* Drop use of 'oslo' namespace package
+* Update information in README
+* Show ellipsis in case of app header overflows
+* Updated YAQL requirement to >= 0.2.6
+* Include note about prerequisite packages being installed in UI
+* Package definitions pagination update and improvement
+* Report already installed dependencies as warnings
+* Reload page after failed deployment to show app carousel
+* Set correct behavior to batch actions
+* Open Liberty development
+* Application icons: css/html tweaks
+
+2015.1.0rc1
+-----------
+
+* Improve title adding in 'Application Catalog' page
+* Improve bundle/package form handling
+* Hide unpublic and not owned packages
+* Update .gitreview file to reflect repo rename
+* Catalog: Set correct sort\_dir for next/prev page buttons
+* Mark public apps with 'shared' ribbon
+* Fix flavor requirements
+* Disable redundant functionality with env creation
+* Fix style of app tiles
+* Do not load overview statistic on test execution
+* Set line-height for search-icons
+* Parse api errors during package and bundle uploads
+* Make dynamic ui return 404 instead of 500 if requirement not found
+* Provide correct error message during environment creation
+* Closing Upload Package from reloads package list
+* Use correct form field names when importing from repository
+* Do not hide 'murano' dashboard in case there is no heat
+* Better js password handling in dynamic-ui
+* Move variable initialization to prevent fail
+* Add category management page
+* Renamed form title and id to Bundle from Package
+* Use ellipsis in case of package file name is long
+* Improve exception handling
+* Remove non-ascii characters in murano-dashboard/README.rst
+* Fix name editing during modify step of package upload
+* Remove obsolete scripts
+* Reload components page after deployment is finished
+* Update from global-requirements
+* Install required images for main package being installed
+* Fix test settings
+* Add application actions sorting
+* Django 1.7 support
+* Support actions with TableWidget
+* Bump python-muranoclient version in requirements
+* Improve bundle and image handling
+* Correct exception browsing during package upload
+
+2015.1.0b3
+----------
+
+* Cache getting package name
+* Update from openstack.common
+* Added warning to bundle import form
+* Apply is\_public/enabled flags to package dependencies at import
+* Support importing bundles of packages
+* Support package and image requirements during import
+* Support importing packages from murano repository
+* Make requirements/license tabs work with new get\_app\_forms
+* Remove oslo deprecation warning
+* Update local settings example
+* Separate js code from the template
+* Close Murano test package zip file
+* Add draggable components to the 'Components page'
+* Show current/all steps at the 'Add App' Wizard's header
+* Track currently focused field in Wizard's Description section
+* Revert "Close Murano test package zip file"
+* Do not redirect on env creation from catalog page
+* Do not allow image management for non-admins
+* Add new selenium ui tests
+* Do not show topology page for the new environment
+* Make selectors work with single click
+* Fixed grammar/spelling issues. Rewrote descriptions
+* Show 'Create New Env' dialog in-place, not in a modal form
+* Remove table titles duplication
+* Fix the topology page for deeply nested environments
+* Update haking
+* Close Murano test package zip file
+* Improvements to the 'Add App' wizard title
+* Streamline drop-downs UX
+* Mark required fields (generated by dynamic UI) with asterisk
+
+2015.1.0b2
+----------
+
+* Enable hidden field attribute to be set to false
+* Rename 'Components' button -> 'Manage Components'
+* Fix message for Environment creation success
+* Silenced redundant error message
+* Use id of image as identifier instead of title
+* Fixed test package generation for func tests
+* Use Form instead of one-step workflow
+* Make wide icons look nicer
+* Update status names
+* Make category field optional
+* Fix errors during application creation
+* Fixes wrong catalog pagination buttons placement
+* Fix detail application page view before deployment
+* Show reason of failure during package upload
+* Change application index default sort from 'created' to 'name'
+* Fix catalog view in case no application uploaded
+* Restrict application count in "Recent Activity"
+* Fix py27 test job
+
+2015.1.0b1
+----------
+
+* Make category selection a separate step
+* Removed anyjson from requirements
+* Updated from global requirements
+* Removed statistics panel
+* Fixed selenium tests
+* Remove unused openstack common modules
+* Add selenium package to test-requirements
+* Improve component details page
+* Add test on upload package
+* Clean up unused items
+* Remove py26 from tox targets
+* Workflow documentation is now in infra-manual
+* Fix integration tests due horizon update
+* Add horizon plugin configuration file
+* Improve environment creation forms
+* Enable environment redeployment
+* Use medium flavor as default if it's presented
+* Fix for nested apps add-select widget
+* Show detailed information about absent package
+* Keep all image metadata during image mark up
+* Remove font-awesome resources from muranodashboard/static
+* Open Kilo development
+
+2014.2.rc1
+----------
+
+* Fix wrong usage of the coverage command
+* Update settings.py to resolve UncompressableFileError
+* Cleanup leftover wizard data in session on adding App to Env
+* Restore missed log function
+* Add 'choice' field to dynamic\_ui list of fields
+* Add some translation strings
+* Replace waiting on button click in 'wait\_for\_alert\_message' method
+* Initial implementation of Actions UI
+* Remove setup.sh
+* Add color distinction for deployed and non-deployed VMs
+* Remove include of non-existing stylesheet
+
+2014.2.b3
+---------
+
+* Fix topology page issue with deps and images
+* Fix 'plus' button for creation nested apps
+* Update horizon settings
+* Work toward Python 3.4 support and testing
+* Revert "Enhance versionutils.deprecated to work with classes"
+* Get rid of ordered decorator in func tests
+* Update from oslo-incubator
+* Update TestSuiteFields in functional tests
+* Set permissions for Murano dashboard
+* check for valid env name on update action
+* fix package download file extension
+* Rename 'Configuring' state to 'Ready to deploy'
+* Use sample config for functional tests
+* Update environment statuses
+* Update horizon settings
+* Fix statistics page during deployment
+* Fix and improve application page
+* Fix failed tests
+* Fix functional tests
+* Set version to 2014.2
+* Support environments being deleted of with delete failure
+* Improve func test config file
+* Use wizard to make package uploading clear
+* Fix extra column in services table during deploy
+* Fixed issue with is\_public=False default value
+* Fix statuses for environment state
+* Update Image selection in functional test
+* Adds UI for 'is\_public' option
+* Make Murano stats panel visible to admin only
+* Bootstrap 3 upgrade fixes for catalog index
+* Add ability to override dashboard name
+* Update to Twitter Bootstrap 3
+* Fix functional tests due to Bootstrap Update
+* Fix url\_prefix in functional tests
+* Move functional tests under muranodashboard/tests
+* Provide horizon tag during settings update
+* Add keypair '+' button
+* Refactor functional tests
+* Adds some minor formatting to application wizard
+
+2014.2.b2
+---------
+
+* Implements the License and Requirements tabs
+* Fix the way of deleting metadata properties
+* Remove checkbox column from environments table
+* Enhance versionutils.deprecated to work with classes
+* Update horizon dependency to master
+* Expect \_prev from glance.image\_list\_detailed
+* Displays supplier info fields on Application Details page
+* Use testtools instead of unitest2
+* Updated from global requirements
+* YAQL version updated to 0.2.3
+* Add new tests for MockApp, fix skipped tests
+* Introduces script for updating horizon config
+* Add Test package, remove uploading of extra apps
+* Generate unique html ids for dynamic ui forms and fields
+* Fix selecting an existing App in another App
+* Adds test coverage for flavor filter
+* Refactor WebUI tests
+* Change the way multiple values for dynamic UI 'type' attr are parsed
+* Add versionutils from oslo to use @deprecated helper
+* Add 'Previous Page' button to the App Catalog page
+* Fix tests according to changes in layout of App Catalog page
+* Make individual flavor filters optional
+
+2014.2.b1
+---------
+
+* Do not show Library packages in Latest Apps section
+* Implement Horizon UI patterns
+* Fix environment's quick deploy
+* Change image title in dashboard test
+* Fix a typo which caused an error during exception branch
+* Return to the same AppCatalog page from the modal forms
+* Fix allow method of buttons at the Components page
+* Add the environment name to deploy modal header
+* Filter available flavors for each service
+* except ImportError when importing cPickle on Python3
+* Delay quick environment creation until it is really needed
+* Hide 'More Apps' button if there are no more Apps
+* Handle dynamic forms in a cleaner and a more performance way
+* Move deployment history into environment details
+* Separate form classes storage from cleaned data storage
+* Fix AppCatalog to use 'marker' attribute for pagination
+* Updated app tile styling based on feedback
+* Change success url after creating environment
+* Fix UI tests due to changes in app-incubator
+* Return None if no Application was referenced
+* Use default image for applications without logo
+* Refactor Packages and AppCatalog pagination
+* Remove commented lines from setup script
+* Fix wrapping regexp validation errors in dynamic ui
+* Move UI tests from murano-tests repo to murano-dashboard repo
+* Code update
+* Fix multiple add-select controls
+* Make tox pep8 checks ignore local files
+* Fixed Keystone endpoint query
+* Paginate the Package Definitions page
+* Simplify field-level validators evaluation
+* Refactor dynamic UI field parsing a bit
+* Resolve pep8 import issues
+* Enable passing several FQNs as one field's type
+* Resolve pep8 issues with localization
+* Resolve docstring pep8 issues
+* Resolve H201 and H202
+* Resolve F401 - module imported but unused
+* Resolve H101 - Use TODO(username)
+* Changes hardcoded static paths to use static()
+
+0.5.0
+-----
+
+* Fix setup script
+* Run hacking and flake checks for real
+* Return caching to AppCatalog
+* Minor refactor of dynamic\_ui modules
+* Cleaned up obsolete network-related stuff
+* Restrict environment name
+* Removed 'Networking' section
+* Fix Topology tab for some data sets
+* Add Billing Statistics page
+* Pkg definition page should show owned pkgs for non-admins
+* Add message if no apps are in the database
+* Add 'quick deploy' button to app details page
+* Fill 'Latest Apps' section with recently deployed/uploaded Apps
+* Refactoring: move WizardView from environments to catalog
+* Separate tags with commas on Application Details page
+* Fix adding linked applications to an Environment
+* Do not create muranodashboard-image-cache on entering AppCatalog
+* Fix showing Component status in an Environment
+* rename muranodashboard/tests to muranodashboard/test
+* Fixes incorrect processing of deleting metadata
+* Rename all 'Application in Environment' to 'Component'
+* Rename all visible mentions of "Service" to "Applications"
+* Remove some obsolete templates
+* Add last step to manage redirect on form submission
+* Change the way 'do\_redirect' flag is passed into WizardView
+* Move 'Statistics' panel to the 'Deployment' dashboard
+* Make Search query ignore current category
+* Fixed issue with error message
+* Catch muranoclient errors at Packages panel
+* Do not use non-existent 'app\_id' attr in Environment->Services
+* Bump python-muranoclient version to 0.5.0
+* Tailor Topology Tab view to the new object model
+* Update requirements.txt due to changes in global-requirements.txt
+* display package name instead of id
+* Fix link to image detail
+* Add generateHostname function
+* Fix 'Name' field in Environment -> Services table
+* Tailor Deployments Tab to the new object model
+* Fix floating number appearence on stats page
+* Enable actual API call for stats
+* Fix DynamicSelect choice field
+* Fix Quick Environment not deleting on errors
+* Drop bunch dependency
+* Align icons - now all logos has one size
+* Fix Style for App Catalog page and Stats
+* Change YAQL \`repeat\` function to have simpler set of arguments
+* Automatically parse YAQL-expressions during YAML parsing
+* Changed repos to icehouse, fixed collectstatic
+* Do not pass whole image dictionary to murano-api
+* Do not show library packages in AppCatalog
+* Update yaql version in requirements.txt
+* Rename \`log\` to \`LOG\` in all muranodashboard
+* Remove metadataclient from muranodashboard entirely
+* Add 'load url from future' for django compat
+* Add Stats page to UI
+* Connect UI search field to murano-api call
+* Support filtering Apps by Category
+* Implement logic of 'Quick Deploy' operation
+* Add new UI style for App Catalog page
+* Fix checkbox appearance in ModifyPackageForm
+* Finally get rid of AppCatalogModel mockup class
+* Implement the remaining 'Package Definitions' operations:
+* Connect 'Package Definitions' with actual murano-api endpoint
+* A lot of trivial renames and obsolete code clean-up
+* Rename \`service\_catalog\` dirs to \`packages\`
+* Horizontally align tiles with different App description length
+* Implement creating new App from other App Creation dialog
+* Removed explicit passing of version to the murano-api endpoint
+* Remove service selection step from Create Service (App) Wizard
+* Fix displaying Application Details page if no environment exists
+* Use YAQL to generate MuranoPL object model from plain data
+* Fix form layout for disabled FloatingIPField
+* Fix bug that prevented switching environments
+* Split AppCatalog index.html template to reduce its complexity
+* Fix resolving link to non-existing default environment
+* Support 'manual' network configuration option for form fields
+* Tie 'Add' buttons in AppCatalog to fake App Creation Form
+* Implement environment selector logic, make draft design for it
+* Horizontally align 'Add' button and 'More info' link in AppCatalog
+* Drop obsolete ordereddict requirement
+* Add version to default murano-api url
+* Add Search and Category side panels
+* Set network topology to 'manual' when providing router\_id
+* Add Topology Tab for Services
+* Implement basic functionality of tiled App Catalog
+* Fixed issue with requirements
+* Store router\_id during environment creation (along with CIDR)
+* Add PostgreSqlChoiceField
+* Update README with actual info
+* DomainChoiceField minor refactoring
+* Rename sertupV2.sh to setup.sh
+* Cherry-pick commits from release-0.4
+* Support per-tenant isolation for service metadata files
+* Add new setup script
+* Added empty line in KeyPair fields
+* Hide "Upload UI file" btn in manage service table
+* Update local\_settings.py.example to stable/havana
+* Rewrite dynamic\_ui to store Services data per-session
+* Minor refactoring of dynamic\_ui
+* Move most of code for dynamic UI form creation into metaclass
+* Remove extra methods of interaction with API:   get\_environment\_name   get\_environment\_data
+* Extend exception messages
+* Show more sensible error messages during Service Creation
+* Do not log exception, if it is Http302 (redirect)
+* Minor refactoring of dynamic\_ui package
+* Rename dynamic\_ui package and normalize it
+* Add link with stack details in service details
+* Update instance link formation due to changes in Havana
+* Add author field to the Compose Service form
+* Add ability to delete file from service
+* Return status code instead of detailes
+* Fix showing Services list based on available images
+* Fix message about images when there is no any
+* Made  improvements for rpmbuild
+* Fix issues with namings
+* Remove 'DatatableOptions' from 'Compose Service' form tabs
+* Fix Compose Service appearance
+* Update requirements to use http://tarballs.openstack.org
+* Use code from AdvNetworking for MS SQL Cluster IP validation
+* Update metadataclient version
+* Revert "Use code from AdvNetworking for MS SQL Cluster IP validation."
+* Fix django LOGOUT\_URL parameter for Ubuntu and CentOS
+* Fix bug with showing msg about image absent
+* Fix form metadata caching in Apache
+* Use code from AdvNetworking for MS SQL Cluster IP validation
+* Fix bug with the only project (tenant) available for admin
+* Fix error when all services are available
+* Add services filtering if no images avaliable
+* Change checkbox to radio when selecting form definition
+* Add version for metadata url
+* Rework 'Create Service' wizard to pass environment\_id value
+* Prepare dashboard for a new metadata package file structure
+* Remove service-info from returned json
+* Add Upload\_file for known data\_type in ManageService View
+* Fixed django user log file ownership
+* Rework 'Upload File' form for a specific data\_type
+* Add service overview to service page in "Service Catalog"
+* Add NotFound exception handling in service\_list
+* Add common log and configuration places
+* Cherry-pick changes from release-0.3
+* Fix forgotten imports after refactoring
+* Remove table\_field.js with hardcoded constants
+* Update requirements for metadataclient
+* Change default chache dir from /var/lib /to /tmp
+* Un-hardcode data\_type in DownloadFile and DeleteFile actions
+* Fix services modification in Metadata Repository Admin UI
+* Remove UploadFile from service multitable view
+* One more fix to Havana's production logging
+* Fix logging on production Havana's Horizon
+* Add code for actual service composing/modification
+* Added the Key Pair drop down list widget
+* Add modal\_id to froms templates
+* Enable 'validators' attribute for each field
+* Lead modal forms to to one style
+* Add size checking before uploading
+* Add ManageServiceFiles mulititable view
+* Resolved issue with details-page
+* Refactor boilerplate code with python decorator
+* Show all metadata files in one table, separate with FixedFilterAction
+* Add MetadataObjectTable
+* For each metadata object type add a tab to Compose Service form
+* Fix creating TableWidget instance
+* Fixed configuration to change tarballs name
+* Add redirect to prevent appearing success message
+* Move exception registration to a separate file
+* Extract archive to hash dir and remvoe it if outdated
+* Resolved typo
+* Fix issues on CentOS
+* Fix tarfile usage in python2.6
+* Fix bug in with\_request decorator
+* Fix bugs introduced by transition django 1.4.x -> 1.5.x
+* Return stack trace to development server's console
+* Integrate 'Metadata Objects' table into 'Compose Service' form
+* Further refactor DataField class and related machinery
+* Fix css for checkbox class
+* Add description to service upload form
+* Refactor dynamic UI base classes to be used with workflows.Action
+* Remove obsolete django imports
+* Add upload archive
+* Update murano-metadataclient dependency
+* Resolved issue with checkbox layouts
+* UI definitions in 'services' catalog are not needed anymore
+* Initial implementation of service\_catalog panel
+* Remove images link from environments panel
+* Bump PyYAML version in requirements.txt to havana's one
+* Fix murano-dashboard on production
+* Update requirements to match havana's ones
+* Handle exception during "Mark Image"
+* Add python-metadataclient to requirements.txt
+* Fix drop-down lists in IE9
+* Fix not working widgetMedia in boolean fields
+* Cherry-pick images-related commits from release-0.3
+* Move 'Images' handling table to a separate panel 'Images'
+* Remove dangling metadata.py from previous commit
+* Move Murano panel (named 'Environments') to a separate dashboard
+* Rewrite dynamicUI to use special metadata client for getting UI defs
+* Remove djblets from dashboard's settings file
+* No need to restart Web-server now to see changes in dynamic UI
+* Fix problems with customized HorizonMiddleware on development server
+* Fix typo in new code
+* Support Murano Images
+* Fix dashboard's error handling on production servers
+* Remove ident between header and content in SQL cluster table
+* Fix placeholder value saved on form submit in IE
+* Remove djblets package from murano-dashboard
+* Fix typo in logging statement
+* Cherry-pick from release-0.2: "Add demo service"
+* Add mininum logging to dynamicUI
+* Forbit closing on the backdrop. Part2
+* Forbid form closing on the backdrop click
+* Extend logging in murano-dashboard
+* Set Django version to support smart\_bytes
+* Fix Availability Group Name validation in MS SQL Cluster form
+* Fix wrong owner and group for murano-dashboard.log
+* Make field validation to be conditional
+* Revert "Register regexp testing function in yaql context for dynamic UI."
+* Register regexp testing function in yaql context for dynamic UI
+* Show all form-level validation errors, not only one
+* Cherry-pick changes from release-0.2
+* Updated requirements for python-muranoclient
+* Move muranodashboard logs to a separate file
+* Add logger
+* Replace direct type comparison with isinstance comparison
+* Cherry-pick the following change-ids from release-0.2
+* Add appropriate version prefix
+* Point dev version in egg\_info
+* Fix MRN-740
+* Add libffi prerequisites support, garbage purged
+* Fix MRN-805
+* Fix MRN-796
+* Fix python-muranoclient package name
+* Move installation to pbr
+* Fix MS SQL Cluster different IPs validation
+* Resolved MRN-788
+* Fix python2.6 compatibility issues (for CentOS)
+* Fix absent 'service type' information for created services
+* Add services yaml-markup files to manifest
+* Start refactoring dynamic UI
+* Fix typo
+* Add yaml parser package to pip requirements
+* Add copyrights to .py and .js files
+* Implement dynamic UI for all current service creation forms
+* Fix MRN-742
+* Enable self-sign sertificate
+* Disable fields on mixed-mode change the same way as external ad (hide them)
+* Move most javascript from html templates to separate static js
+* Add some fixes to SQL Cluster form
+* Fix MRN-729 and MRN-715
+* Restrict minimum number of MS SQL Cluster nodes to 2 in javascript
+* Add djblets support, CentOs script updated
+* Add info in description about Async mode
+* Add cosmetic fixes in SQL Cluster form
+* Rebuild openstack\_dashboard static files after install
+* Fix django installed apps in production
+* Implement some restrictions on sync and primary columns in nodes datagrid
+* Make image selection required
+* Fix MRN-721. '#' symbol is now requrired for instance count > 1
+* Final fix for MRN-622 Valid IP Range is shown to admin only and exceptions are not seen
+* Fix buttons 'Add' and 'Remove' in data-grid field
+* Fix installing djblets from zip-archive
+* Fix datagrid field width (quick and dirty way)
+* Validate MS SQL database names according to the MSDN
+* Update templates due to Ms SQl Cluster added
+* Add confirm AD password field. Fix bug in JS
+* Fix MRN-622 IP help range will display to admin only
+* Resolve MRN-675 + add JS to new form
+* Add quick dependency fix for djblets to setup.sh
+* Implement datagrid field using djblets datagrid and floppyforms
+* Add adminAccountName to AD service form
+* Resolved issue with Instance Name
+* New step of SQL Cluster Form
+* Deployment logs now display error and warning messages in appropriate colors (cherry picked from commit 8f6a203)
+* Add forgotten templates during templates refactor
+* Pass ClusterIP to conductor
+* Catch error during image processing
+* MRN-671 Rename and order templates in a human-readable way
+* Enable Deploy This Environment button for empty env
+* Added ability to remove deploed services
+* Fix MS SQL server templates
+* Add Server Cluster IP field
+* Better status message for deployments if errors/warnings present
+* Logging enhanced
+* Rename name to title due to image property changes
+* Resolved bug MRN-655
+* Resolve bug MRN-678
+* Process new image metadata property
+* Pass availabilityZone to params
+* MS SQL Failover CLuster slight changes
+* MRN-626: Adding new server to parameters
+* Fix MRN-674
+* Fix MRN-506. Disable environment deletion for 15m
+* Add alert when preconfigured adding to ad choosen
+* Add MS SQL Cluster form draft
+* Fix MRN-587. Forbid single-level domain
+* Filter selected image by murano\_enabled property
+* Minor UI changes
+* Extend password checking on the fly
+* Set medium flavor as default
+* Deployments, Reports and Last Status implemented
+* Fix Farm naming
+* Enable getting list of aval. zones by non admin
+* Make availability\_zone filed not required
+* Catch unauthorized exception
+* Add availability\_zone picking. Change flavor type return value
+* Fix typo
+* Split checkbox input and label in one line
+* Convert mixedModeAuth from str to bool
+* Disable input field sa\_password when mexedAuth is off
+* Set optinal sa\_password depends on checkbox
+* Add flavor to service creation parameter
+* Update templtate due to new form was added
+* Add CentOS setup shell script
+* Add MS SQL form
+* Fix Next/Create button label in Create Service forms
+* New name for services. service\_type -> type
+* Change last commit due to firefox behavior
+* Add unautorized exception handling
+* Add \* to templates in manifest
+* After all updates form values are saved without using self.storage
+* Add fix due to new deployment return value
+* Update UI due to new API
+* Fix joint behaviour of Back button and 3-steps Create Service Wizard
+* Fix MRN-569
+* Finally fix Back button in Create Services window
+* Add third step with flavor and image configuration
+* Refactor password checking fix +add addit.check
+* Add on-fly password checking
+* fixed python setup workflow steps
+* setup.sh add
+* Add manifest file
+* Fix MRN-579
+* Fix MRN-574
+* Fixes after env verion incrementation added
+* Fix MRN-511. Create new session for deployed env
+* Try to fix Back button in Create Services window
+* Add updated time to separate column
+*  Add instance info to service\_detail
+* MRN-407 Extend service detail output
+* Fixed service detail when deploying
+* Add missed wird in service description
+* Fix MRN-460. add time to event log
+* Fix DeployEnv button on servicies page +fix MRN569
+* Add back btn in service creation wizard
+* Service detail improvement (MRN-407)
+* Fix MRN-521
+* Improve breadcrumbs
+* Fix service\_type bug
+* Fix MRN-507: add deploy btn to service\_page
+* Fix MRN-508
+* Add environment link in title
+* Update service creation wizard
+* Cherry-pick all changes from release-0.1
+* Fixing domain requirements (exclude underline)
+* Adding verifications for fields
+* Hostname template format + PEP8 fixes
+* Handle exceptions with messages and redirecting. Status issues fixed
+* Adding muranoclient exceptions to special lists so they can be handaled by horizon without crashes
+* New Session Handling design
+* typo
+* UI for IIS/ASP.NET farms
+*  Sync with new env statuses
+* Deny buttons in deploying environment state
+* Fixed urls for Web UI
+* Fixed issue with sessions for different environments
+* Fixed typo
+* Fixed issue with sessions. Added deelte button for services
+* Adding url assignment
+* Adding possibility to set murano\_api url in settings by adding MURANO\_API\_URL parameter
+* Making api url unhardcode. Murano-api need to be register in Openstack services since now
+* Dashboard UI for ASP.NET apps
+* Update repository to stackforge
+* Cleaned-up pip-requires
+* Exclude Data Center naming
+* Adding Delete Environment button. Fixing namings
+* Initializing session\_id before comparison
+* Adding some packeges to pip requirements Updated .gitignore Added .gitreview, tox.ini Change-Id: Ief3ab14f47e1ace57cdaa5f60018b302fda56564
+* KEERO-318 - Fix all occurrences of old names (keero, glazier) in Dashboard
+* Update README.rst
+* Fixed typo
+* Fixed typo
+* Fixed issue with installation
+* Fixed typo
+* Removed all projects except Glazier Dashboard
+* Small fixes for unit tests
+* Fixed issue with length of new name
+* Fixed small issue
+* Fixed issue with names
+* Fixed issue with names
+* Fixed issue with names
+* Fixed issue with names
+* Fixed issue with names
+* Fixed issue with names
+* Fixed issue with names
+* Fixed small issue with new names
+* Fixed issue with horizon component installation
+* Fixed issue with horizon component installation
+* Fixed issue with horizon component installation
+* Finished converting API Specification
+* Fixed small issue with setup.py
+* Fixed issue with renaming of the tabula component
+* Fixed issue with renaming of the tabula component
+* Added part of API Specification
+* Tabula renamed to dashboard
+* Tabula renamed to dashboard
+* Finished documentation for API
+* Finished documentation for API
+* Renamed Portas to API
+* Renamed Portas to API
+* Added tox for webUI tests
+* Added license to documentation of Portas Client
+* Small fix
+* Fixed api interface names to environments
+* Fixed api interface names to environments
+* Renamed and licensed python-glazierclient
+* Fixed api interface names to environments
+* Fixed api interface names to environments
+* Renamed documentation project
+* Fixed licenses for tabula and tests. Fixed name of tabula project
+* Fixed licenses for tabula and tests. Fixed name of tabula project
+* Fixed a few small issues
+* Pass all RabbitMQ settings from conductor to Agent
+* Initialization of tox for conductor and portas. Add new webUI automated tests
+* Licenses added
+* A lot of changes were made
+* Issue with figures
+* Main Documentation Project
+* Fixed ignore file for python-portasclient
+* Documentation for UI
+* Documentation for Python PortasClient
+* Forgot man pages
+* Documentation for Portas Project
+* Send token when deleting environment
+* Fixed https://mirantis.jira.com/browse/KEERO-227
+* Fixed issue with sessions
+* Fixed issue with sessions
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Add logging to WebUI
+* Add initial files for unit tests
+* Fixed issues with sessions Added logging
+* Added unit tests for client. Coverage 66%
+* Rename RabbitMQ username field Removed use\_ssl option from settings
+* Fix running install\_venv.py
+* Updated python-portasclient
+* PEP8 compliance
+* Fixed unit tests
+* Added ability to add services to environment
+* bug fix
+* bug fix
+* Fixed index bug
+* Finalize UI
+* Finalize UI
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Fix PEP8 errors
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Fix issue with statuses
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Experiments
+* Fixed issue with sessions
+* Naming conventions: use name instead of id for instance names
+* Heat auto-discovery, keero-linux-keys -> keero-keys
+* Experiments with UI
+* typo
+* Scoped tokens
+* Experiments with UI
+* Experiments with UI
+* Experiments with UI
+* Experiments with UI
+* Experiments with UI
+* Experiments with UI
+* Experiments with UI
+* Fix issue for result of deleted environments
+* Fix merge issue
+* Merged
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fix name of the variable
+* Fixed small issue
+* Send token when deleting environment
+* Removed unneeded binding
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Added tabs for services
+* forgotten file
+* Fixed issue with activeDirectory deletion
+* Add support for reports filtering
+* Added tabs for services
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Fixed small issue
+* Added dropdown list with list of services
+* Added initial version of tabs for services
+* Added initial version of tabs for services
+* Added initial version of tabs for services
+* Fixed issues with templates
+* Fixed issue  with installation
+* Fixed issue  with installation
+* PEP-8
+* Fixed issue with incorrect import
+* logging and bug-fixes
+* fixed VM initialization script
+* Evironment/Units deletion, bug-fixes
+* Fixed UI issues
+* Remove service deletion button
+* Finished installable UI
+* Removed old code
+* Naming conventions changed
+* Updated OpenStack Common (Fixed issue with notifier package)
+* Use Heat REST API instead of command-line
+* Added support for setup.py Added localization and documentation skeletons PEP8 Fixes, optimized imports
+* #KEERO-222 Remove random part of unit name
+* Send Env to Conductor for deletion
+* Hot fix for WebUI tests
+* Fixed WebUI tests. Added new tests
+* #KEERO-220 Send X-Auth-Token to Conductor
+* Added initial unit tests for RestAPI service
+* Fixed all pep8
+* Fixed automated tests for web UI
+* Fixed automated tests for WebUI. Added class Page with simple objects
+* Code to start\stop keero components using devstack functions
+* Fixed: changed the run mode for install venv script
+* Added deployment script for automated tests
+* All Cloudbase-Init plugins disabled except UserDataPlugin
+* Userdata script updated to support computer renaming functionality
+* Entry point script renamed 2d27f4f5054f34982ed67da2bf4b35c8ac1558d3
+* Issues #195 and #199
+* README and guide for conductor
+* Fix and unit test for issue: https://mirantis.jira.com/browse/KEERO-219
+* Added unit tests for REST API client. Fixed pep8
+* New devstack scripts added
+* Old devstack scripts removed
+* Write-Host replaced by Write-Log
+* Fixed typo
+* Sync
+* Sync
+* Sync
+* Cloned horizon and added our dashboard
+* Removed obsolete code Removed projects: [windc, windcclient]
+* Added tests for REST API. Fixed issues with Web UI
+* Added tests for REST API. Fixed issues with Web UI
+* Merged iteration3 branch to master. Fixed pep8
+* Fixed small issues with UI
+* Added lst fixes for demo
+* Fix another issue with environments list
+* Fix another issue with services
+* Fix issue with getting list of environments
+* Added progress bars for services. Fixed few issues for demo
+* Fix issue with ack on results
+* Add part of service id to unit name
+* Add ability to get status for Environments and Sessions
+* Added password-secure checks for UI, fix usability issues for demo
+* ExecutionPlanGenerator DSL processor
+* Updated workflow elements to reflect new name changes and to fix typos
+* ExecutionPlanGenerator DSL processor
+* Updated workflow elements to reflect new name changes and to fix typos
+* Another Issue with sessions
+* Added progress bar to Web UI. Fixed pep8 errors
+* Change behaviour of viewing services
+* Issue with session
+* No ack is needed when auto\_ack set to True
+* Resolved issue with reports from orchestration engine
+* FIx issue with fields created & updated
+* Fixed issue with logging
+* Added deploy button for data centers in UI. Fixed templates for services
+* Queues should be durable
+* Add debug logging for controllers
+* Sync before tag
+* Fixed issue with empty services list
+* Added new API for Web UI
+* typos
+* Fixed length of names
+* Fixed instance namings
+* Added WebServer and AD
+* Workflows, ExecutionPlanGenerator, Reporting, UserData, conductor improvements
+* Removed obsolete file
+* Bug with Session
+* Added Session operations
+* Added Environments CRUD operations
+* Issue with deleting Environment
+* Removed obsolete files
+* Added initial version for python-portasclient
+* Issue with port for RabbitMQ
+* Function updated to return IPv4 addresses only
+* Typo
+* Explicit import of module DnsServer added
+* Function to install IIS added
+* Code to return DNS listening IPs from DC added
+* WebServer API Added WebServer API Small refactoring
+* Fix issues with queues
+* Added units name generation
+* Write results from orchestration engine
+* Active Directory API
+* Remove obsolete service table
+* Enable session deployment
+* Reports from orchestration engine Added ability to store and expose reports from orchestration engine
+* Cleaned up API
+* Added support for reading messages from RabbitMQ asynchronously
+* Typo
+* userdata.py fixed
+* Finished Task KEERO-111. Added base UI tests
+* Hot fix: Fixed pep8 for Dashboard
+* Finished Task: KEERO-117. Added new UI wizard for Create Services Action
+* Userdata plugin with minimal MIME support added
+* User data sample file added
+* Extra functions moved to NotCoreFunctions.ps1 file in order to remove them in the future
+* Functions to work with Base64 strings added
+* Functions to work with Zip files added
+* Modified files from cloudbase-init added
+* Fixed pep8. Fixed deployment script
+* Added support for session checking
+* Most part of Session API
+* Removed obsolete code
+* Added new Session model and migration Fixed issues with previous models
+* Initial conductor implementation
+* Added deployment script and automated tests
+* Small PEP8 fixes
+* Fixed small issues with parameters. It is required fix
+* Added remove method for environments Also slightly updated routes table
+* Finished environments api
+* Only environments from same tenant as users should be shown
+* Remove unnecessary blocks of code
+* When new DC is adding tenant\_id is added as param
+* Fix issues with context
+* Moved utils.py from WindDC
+* Small changes to .gitignore Removed global .gitignore Added .gitignore to WindowsAgent project
+* Update added files
+* Added support for keystone-auth
+* Updated initial version of portas-api
+* Initial version of portas-api
+* Simple function to update agent config added
+* Simple function for working with templates added
+* Function to retrieve meta data opject from config drive added
+* localrc updated
+* Files to automate devstack installation added
+* Fixed small issues with WebUI
+* asd
+* test.commit
+* test.commit
+* Log functions updated
+* Stop-Execution modified
+* Removed obsole line
+* Removed obsolete file Added .gitignore file
+* Added reference JSON for Active Directory
+* Fixed urls for dashboard
+* Fixed Web UI for demo
+* Files removed
+* Windows PowerShell module added
+* Unattended installation files added
+* Execution plan files added
+* windc iteration2
+* Added WebUI for correct configuration of new service AD
+* Resolved issue with datacenter id
+* Resolved issue with datacenter id
+* Fixed many small issues
+* Fixed typo
+* Fixed KEERO-89
+* Fixed issue with data centers
+* Added services functions to client. Need to be tested
+* [KEERO-83] Windows Agent: Ability to reboot machine after execution plan is executed
+* [KEERO-83] Windows Agent: Typo fixes + sample values in config
+* [KEERO-83] Windows Agent initial implementation
+* Added operations for chef. They might be remove if we decide to not use chef
+* Fixed small issues
+* Fixed KEERO-85
+* Fixed issue with virtual environment SQLAlchemy library
+* Added library libsqlite3-dev to virtual environment for windc client
+* Added new functional to dashboard, fixed small issues
+* Added windc API client, sync repo with dev box
+* Added new files
+* Updated design. Removed extra code
+* 1. Added support of CloudFormation templates. Made a simple interface to build template. Stan can work here to redesign template.py 2. Added calls of drivers. Now heat is called from cmd instead of client. Should be rewritten. 3. ActiveDirectory makes a static template. Need to rewrite this with working with actual parameters
+* Added additional fields for Domain Controller
+* Added simple form for configuration Domen Controllers and IIS Servers
+* Fixed small problems with links and titles on pages
+* Fixed small problems with links and titles on pages
+* Added initial project for horizon dashboard
+* 1. Added builders support. Each builder is a class dynamically loaded from ./windc/core/builders folder. The class name should be the same as module file name. 2. Updated core/api.py to support datacenter and service creation with extra parameters which are not defined by model explicitly. 3. Added event based approach for the windows environment change. Now when user submits a request to API the core updates database and initiates a new event which defined scope (datacenter, service, VM) and action (add, modify, delete). This event and data will be iterated over all registered builders. Each builder can use this event and data to plan some modification
+* 1. Fixed issue with main file start ./bin/windc-api 2. Added router to Route /datacenters/ and /services/ URLs 3. Added stubs for windc/core/api. 4. Fixed start-up process for service ------------------------------------------------- Now it is working service which will reply for curl http://localhost:8181/tenant\_id/datacenters/ curl http://localhost:8181/tenant\_id/datacenters/dc\_id/services curl http://localhost:8181/tenant\_id/datacenters/dc\_id/services/service\_id
+* Initial version of the Windows DataCenter project. It is openstak-skeleton based
+* Unattended files added
+* Initial empty repository

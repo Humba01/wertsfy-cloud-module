@@ -1,0 +1,81 @@
+<p translate>
+  Each port that listens for traffic on a particular load balancer is configured separately and
+  tied to the load balancer. Multiple listeners can be associated with the same load balancer but
+  each must use a unique port.
+</p>
+<p>
+  <strong translate>Protocol:</strong>
+  <translate>
+  The protocol for which the front end listens. The TERMINATED_HTTPS protocol is only available if
+  the key-manager service is enabled and you have authority to list certificate containers and
+  secrets.
+  </translate>
+</p>
+<p>
+  <strong translate>Port:</strong>
+  <translate>
+  The port on which the front end listens. Must be an integer from 1 to 65535.
+  </translate>
+</p>
+<p>
+  <strong translate>Connection Limit:</strong>
+  <translate>
+  The maximum number of connections permitted for this listener.
+  Default value is -1 which represents infinite connections.
+  </translate>
+</p>
+<p>
+  <strong translate>Default Pool ID:</strong>
+  <translate>
+  The ID of the pool used by the listener if no L7 policies match.
+  </translate>
+</p>
+<p>
+  <strong translate>Insert Headers:</strong>
+  <translate>
+  Additional headers insertion into HTTP header,
+  only "X-Forwarded-For", "X-Forwarded-Port" and "X-Forwarded-Proto" are supported.
+  </translate>
+</p>
+<p>
+  <strong translate>Client Data Timeout:</strong>
+  <translate>
+  Frontend client inactivity timeout in milliseconds. Default: 50000.
+  </translate>
+</p>
+<p>
+  <strong translate>TCP Inspect Timeout:</strong>
+  <translate>
+  Time, in milliseconds, to wait for additional TCP packets for content
+  inspection. Default: 0.
+  </translate>
+</p>
+<p>
+  <strong translate>Member Connect Timeout:</strong>
+  <translate>
+  Backend member connection timeout in milliseconds. Default: 5000.
+  </translate>
+</p>
+<p>
+  <strong translate>Member Data Timeout:</strong>
+  <translate>
+  Backend member inactivity timeout in milliseconds. Default: 50000.
+  </translate>
+</p>
+<p>
+  <strong translate>Allowed Cidrs:</strong>
+  <translate>
+  A newline separated list of cidrs to be allowed to connect to the listener.
+  An empty list means allow from any.
+  </translate>
+</p>
+<p>
+  <strong translate>TLS Cipher String:</strong>
+  <translate>
+  A string of the allowed ciphers using the OpenSSL syntax. The syntax
+  is a colon separated list of the chiphers, ex.
+  "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256"
+  Note, don't include quotation marks. An empty string sets the default TLS
+  Cipher String configured in Octavia.
+  </translate>
+</p>

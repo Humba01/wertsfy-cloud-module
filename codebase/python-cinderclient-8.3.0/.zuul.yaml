@@ -1,0 +1,57 @@
+- job:
+    name: python-cinderclient-functional-base
+    abstract: true
+    parent: devstack-tox-functional
+    timeout: 4500
+    required-projects:
+      - openstack/cinder
+      - openstack/python-cinderclient
+    vars:
+      openrc_enable_export: true
+      devstack_localrc:
+        USE_PYTHON3: true
+        VOLUME_BACKING_FILE_SIZE: 16G
+        CINDER_QUOTA_VOLUMES: 25
+        CINDER_QUOTA_BACKUPS: 25
+        CINDER_QUOTA_SNAPSHOTS: 25
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*$
+      - ^releasenotes/.*$
+      - ^cinderclient/tests/unit/.*$
+
+- job:
+    name: python-cinderclient-functional-py36
+    parent: python-cinderclient-functional-base
+    # need to specify a platform that has python 3.6 available
+    nodeset: devstack-single-node-centos-8-stream
+    vars:
+      python_version: 3.6
+      tox_envlist: functional-py36
+
+- job:
+    name: python-cinderclient-functional-py39
+    parent: python-cinderclient-functional-base
+    nodeset: devstack-single-node-centos-9-stream
+    vars:
+      python_version: 3.9
+      tox_envlist: functional-py39
+
+- project:
+    templates:
+      - check-requirements
+      - lib-forward-testing-python3
+      - openstack-cover-jobs
+      - openstack-python3-yoga-jobs
+      - publish-openstack-docs-pti
+      - release-notes-jobs-python3
+    check:
+      jobs:
+        - python-cinderclient-functional-py36
+        - python-cinderclient-functional-py39
+        - openstack-tox-pylint:
+            voting: false
+    gate:
+      jobs:
+        - python-cinderclient-functional-py36
+        - python-cinderclient-functional-py39

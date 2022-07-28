@@ -1,0 +1,6 @@
+[console_scripts]
+freezer-dr = freezer_dr.main:main
+
+[oslo.config.opts]
+freezer-dr = freezer_dr.common.config:list_opts
+

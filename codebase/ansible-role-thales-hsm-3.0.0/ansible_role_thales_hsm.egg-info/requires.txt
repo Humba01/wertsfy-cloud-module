@@ -1,0 +1,2 @@
+ansible
+pbr>=1.6

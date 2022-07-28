@@ -1,0 +1,160 @@
+# Copyright (c) 2015 Hewlett-Packard Development Company, L.P.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+- name: "Update Package Cache"
+  apt: update_cache=yes
+  when: ansible_os_family == 'Debian'
+
+- block:
+  - name: "Enable powertools repository for CentOS Stream 8"
+    command: dnf config-manager --set-enabled powertools
+  - name: "Enable EPEL repository for CentOS Stream 8"
+    command: dnf install -y epel-release
+    when:
+    - enable_epel | bool
+    - dib_os_element == "debian"
+  when:
+  - ansible_distribution == "CentOS"
+  - ansible_distribution_version|int == 8
+
+- name: "Enable EPEL repository for CentOS Stream 9"
+  command: dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+  when:
+  - enable_epel | bool
+  - dib_os_element == "debian"
+  - ansible_distribution == "CentOS"
+  - ansible_distribution_version|int >= 9
+
+- name: "Install packages"
+  package:
+    name: "{{ required_packages }}"
+    state: present
+
+- name: "Install Nginx"
+  import_role:
+    name: bifrost-nginx-install
+    tasks_from: install
+
+# NOTE(TheJulia) While we don't necessarilly require /opt/stack any longer
+# and it should already be created by the Ansible setup, we will leave this
+# here for the time being.
+- name: "Ensure /opt/stack is present"
+  file: name=/opt/stack state=directory owner=root group=root
+
+- name: "IPA-builder - Install"
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: ironic-python-agent-builder
+    sourcedir: "{{ ipa_builder_git_folder }}"
+    source_install: true
+  when: install_dib | bool
+
+# NOTE(mgoddard): IPA-builder has a dependency on diskimage-builder. Install
+# DIB last to ensure it is installed from source rather than PyPI.
+- name: "Diskimage-builder - Install"
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: diskimage-builder
+    sourcedir: "{{ dib_git_folder }}"
+    source_install: true
+  when: install_dib | bool
+
+- name: Ensure required packages are installed
+  package:
+    name: "{{ dib_host_required_packages | select | list }}"
+    state: present
+  when:
+   - install_dib | bool
+   - ansible_distribution != "CentOS"
+
+- name: Ensure required packages are installed
+  dnf:
+    name: "{{ dib_host_required_packages | select | list }}"
+    enablerepo: epel
+    state: present
+  when:
+   - install_dib | bool
+   - ansible_distribution == "CentOS"
+
+- name: "sushy - Install"
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: sushy
+    sourcedir: "{{ sushy_git_folder }}"
+    source_install: "{{ sushy_source_install }}"
+
+- name: "Install vendor dependencies"
+  import_tasks: vendor_deps.yml
+
+- name: "Ironic Client - Install"
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: python-ironicclient
+    sourcedir: "{{ ironicclient_git_folder }}"
+    source_install: "{{ ironicclient_source_install }}"
+
+# NOTE(dtantsur): no much value in installing metalsmith from source - it does
+# not change often, and nothing in bifrost depends on it.
+- name: "metalsmith - Install"
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: metalsmith
+    source_install: false
+
+- name: "Install pymysql"
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: pymysql
+
+- name: "Install extra packages for ironic"
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: "{{ item }}"
+  loop: "{{ ironic_extra_packages }}"
+
+- name: "Install Ironic using pip"
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: ironic
+    sourcedir: "{{ ironic_git_folder }}"
+    source_install: true
+
+- name: "Install ironic-inspector to permit use of inspection interface"
+  include_tasks: inspector_install.yml
+  when: enable_inspector | bool
+
+- name: "Install ironic-staging-drivers"
+  include_tasks: staging_install.yml
+  when: staging_drivers_include | bool
+
+- name: "Install openstacksdk"
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: openstacksdk
+    sourcedir: "{{ openstacksdk_git_folder }}"
+    source_install: "{{ openstacksdk_source_install }}"
+
+- name: "Install Ironic Prometheus Exporter"
+  include_tasks: prometheus_exporter_install.yml
+  when: enable_prometheus_exporter | bool

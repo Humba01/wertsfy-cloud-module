@@ -1,0 +1,12 @@
+---
+- name: Ensure Kolla is installed and configured
+  hosts: container-image-builders
+  tags:
+    - kolla-build
+  roles:
+    - role: kolla
+      kolla_install_epel: "{{ dnf_install_epel }}"
+    - role: kolla-build
+      kolla_build_config_paths_extra:
+        - "{{ kayobe_config_path }}"
+        - "{{ kayobe_env_config_path }}"

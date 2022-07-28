@@ -1,0 +1,6 @@
+[console_scripts]
+kuryr-server = kuryr_libnetwork.server:start
+
+[oslo.config.opts]
+kuryr_libnetwork = kuryr_libnetwork.opts:list_kuryr_libnetwork_opts
+

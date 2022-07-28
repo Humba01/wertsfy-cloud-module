@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+telemetry_tests = telemetry_tempest_plugin.plugin:TelemetryTempestPlugin
+

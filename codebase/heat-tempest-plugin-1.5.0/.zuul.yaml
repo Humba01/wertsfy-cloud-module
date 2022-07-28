@@ -1,0 +1,68 @@
+- job:
+    name: heat-functional-convg-stein
+    parent: heat-functional-convg-mysql-lbaasv2-py3
+    nodeset: openstack-single-node-bionic
+    override-checkout: stable/stein
+    vars:
+      branch_override: stable/stein
+
+- job:
+    name: heat-functional-orig-stein
+    parent: heat-functional-orig-mysql-lbaasv2
+    nodeset: openstack-single-node-bionic
+    override-checkout: stable/stein
+    vars:
+      branch_override: stable/stein
+      use_python3: 1
+
+- job:
+    name: heat-functional-convg-train
+    parent: heat-functional-convg-mysql-lbaasv2-py3
+    nodeset: openstack-single-node-bionic
+    override-checkout: stable/train
+    vars:
+      branch_override: stable/train
+
+- job:
+    name: heat-functional-orig-train
+    parent: heat-functional-orig-mysql-lbaasv2
+    nodeset: openstack-single-node-bionic
+    override-checkout: stable/train
+    vars:
+      branch_override: stable/train
+      use_python3: 1
+
+- job:
+    name: heat-functional-ussuri
+    parent: heat-functional
+    nodeset: openstack-single-node-bionic
+    override-checkout: stable/ussuri
+
+- job:
+    name: heat-functional-victoria
+    parent: heat-functional
+    override-checkout: stable/victoria
+
+- job:
+    name: heat-functional-wallaby
+    parent: heat-functional
+    override-checkout: stable/wallaby
+
+- project:
+    templates:
+      - check-requirements
+      - tempest-plugin-jobs
+    check:
+      jobs:
+        - heat-functional
+        - heat-functional-legacy
+        - heat-functional-convg-train
+        - heat-functional-orig-train
+        - heat-functional-ussuri
+        - heat-functional-victoria
+        - heat-functional-wallaby
+    gate:
+      queue: heat
+      jobs:
+        - heat-functional
+        - heat-functional-legacy

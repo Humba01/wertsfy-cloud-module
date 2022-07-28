@@ -1,0 +1,36 @@
+FROM {{ namespace }}/{{ image_prefix }}cloudkitty-base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block cloudkitty_api_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{% if install_type == 'binary' %}
+    {% if base_package_type == 'rpm' %}
+
+        {% set cloudkitty_api_packages = [
+                'openstack-cloudkitty-api'
+        ] %}
+{{ macros.install_packages(cloudkitty_api_packages | customizable("packages")) }}
+
+    {% elif base_package_type == 'deb' %}
+
+        {% set cloudkitty_api_packages = [
+                'cloudkitty-api'
+        ] %}
+
+    {% endif %}
+{% elif install_type == 'source' %}
+
+        {% set cloudkitty_api_packages = [
+        ] %}
+{{ macros.install_packages(cloudkitty_api_packages | customizable("packages")) }}
+{% endif %}
+
+COPY extend_start.sh /usr/local/bin/kolla_cloudkitty_extend_start
+RUN chmod 755 /usr/local/bin/kolla_cloudkitty_extend_start
+
+{% block cloudkitty_api_footer %}{% endblock %}
+{% block footer %}{% endblock %}

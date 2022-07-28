@@ -1,0 +1,196 @@
+resource_registry:
+  OS::TripleO::Services::AodhApi: ../../deployment/aodh/aodh-api-container-puppet.yaml
+  OS::TripleO::Services::AodhEvaluator: ../../deployment/aodh/aodh-evaluator-container-puppet.yaml
+  OS::TripleO::Services::AodhListener: ../../deployment/aodh/aodh-listener-container-puppet.yaml
+  OS::TripleO::Services::AodhNotifier: ../../deployment/aodh/aodh-notifier-container-puppet.yaml
+  OS::TripleO::Services::CeilometerAgentCentral: ../../deployment/ceilometer/ceilometer-agent-central-container-puppet.yaml
+  OS::TripleO::Services::CeilometerAgentNotification: ../../deployment/ceilometer/ceilometer-agent-notification-container-puppet.yaml
+  OS::TripleO::Services::ComputeCeilometerAgent: ../../deployment/ceilometer/ceilometer-agent-compute-container-puppet.yaml
+  OS::TripleO::Services::CephMgr: ../../deployment/cephadm/ceph-mgr.yaml
+  OS::TripleO::Services::CephMon: ../../deployment/cephadm/ceph-mon.yaml
+  OS::TripleO::Services::CephOSD: ../../deployment/cephadm/ceph-osd.yaml
+  OS::TripleO::Services::CephClient: ../../deployment/cephadm/ceph-client.yaml
+  OS::TripleO::Services::CephRgw: ../../deployment/cephadm/ceph-rgw.yaml
+  OS::TripleO::Services::Collectd: ../../deployment/metrics/collectd-container-puppet.yaml
+  OS::TripleO::Services::GnocchiApi: ../../deployment/gnocchi/gnocchi-api-container-puppet.yaml
+  OS::TripleO::Services::GnocchiMetricd: ../../deployment/gnocchi/gnocchi-metricd-container-puppet.yaml
+  OS::TripleO::Services::GnocchiStatsd: ../../deployment/gnocchi/gnocchi-statsd-container-puppet.yaml
+  OS::TripleO::Services::HeatApi: ../../deployment/heat/heat-api-container-puppet.yaml
+  OS::TripleO::Services::HeatApiCfn: ../../deployment/heat/heat-api-cfn-container-puppet.yaml
+  OS::TripleO::Services::HeatApiCloudwatch: ../../deployment/heat/heat-api-cloudwatch-disabled-puppet.yaml
+  OS::TripleO::Services::HeatEngine: ../../deployment/heat/heat-engine-container-puppet.yaml
+  OS::TripleO::Services::MetricsQdr: ../../deployment/metrics/qdr-container-puppet.yaml
+  OS::TripleO::Services::Multipathd: ../../deployment/multipathd/multipathd-container-ansible.yaml
+  OS::TripleO::Services::OsloMessagingRpc: ../../deployment/rabbitmq/rabbitmq-messaging-rpc-pacemaker-puppet.yaml
+  OS::TripleO::Services::OsloMessagingNotify: ../../deployment/rabbitmq/rabbitmq-messaging-notify-shared-puppet.yaml
+  OS::TripleO::Services::Rear: ../../deployment/backup-and-restore/rear-baremetal-ansible.yaml
+  OS::TripleO::Services::Redis: ../../deployment/database/redis-pacemaker-puppet.yaml
+  OS::TripleO::Services::CinderBackup: ../../deployment/cinder/cinder-backup-pacemaker-puppet.yaml
+  OS::TripleO::Services::CinderVolume: ../../deployment/cinder/cinder-volume-pacemaker-puppet.yaml
+  OS::TripleO::Services::SwiftProxy: OS::Heat::None
+  OS::TripleO::Services::SwiftStorage: OS::Heat::None
+  OS::TripleO::Services::SwiftRingBuilder: OS::Heat::None
+  OS::TripleO::Services::Horizon: OS::Heat::None
+
+parameter_defaults:
+  NodeDataLookup:
+    AB4114B1-9C9D-409A-BEFB-D88C151BF2C3: {"foo": "bar"}
+    8CF1A7EA-7B4B-4433-AC83-17675514B1B8: {"foo2": "bar2"}
+  StandaloneExtraConfig:
+    # NOTE(sileht): To decrease the time test_telemetry_integration takes We
+    # configure Ceilometer to poll more, We configure the 'high' Gnocchi
+    # archive policy to keep 1 point every 60s. The test will take 2 minutes
+    # instead of 10 minutes. Note that tempest telemetry.alarm_granularity must
+    # in sync with the archive policy, 60s too.
+    ceilometer::agent::polling::polling_interval: 15
+    tripleo::profile::base::metrics::qdr::interior_mesh_nodes: ''
+  NotificationDriver: 'messagingv2'
+  ManagePolling: true
+  HeatConfigureDelegatedRoles: true
+  CeilometerEnableGnocchi: true
+  PipelinePublishers:
+    - gnocchi://?archive_policy=ceilometer-high-rate
+  EventPipelinePublishers:
+    - gnocchi://?archive_policy=ceilometer-high-rate
+  CeilometerQdrPublishEvents: true
+  CeilometerQdrPublishMetrics: true
+  ManageEventPipeline: true
+  ManagePipeline: true
+  Debug: true
+  CephSpecFqdn: true
+  CephOsdSpec:
+    data_devices:
+      paths:
+        - /dev/ceph_vg/ceph_lv_data
+  CephPoolDefaultPgNum: 8
+  CephPoolDefaultSize: 1
+  CinderRbdExtraPools: altrbd,pool2,pool3
+  CephPools:
+    - name: altrbd
+      pg_num: 8
+      rule_name: replicated_rule
+  #NOTE: These ID's and keys should be regenerated for
+  # a production deployment. What is here is suitable for
+  # developer and CI testing only.
+  CephClusterFSID: '4b5c8c0a-ff60-454b-a1b4-9747aa737d19'
+  CephClientKey: 'AQC+vYNXgDAgAhAAc8UoYt+OTz5uhV7ItLdwUw=='
+  CephExtraKeys:
+    - name: "client.glance"
+      caps:
+        mgr: "allow *"
+        mon: "profile rbd"
+        osd: "profile rbd pool=images"
+      key: "AQBRgQ9eAAAAABAAv84zEilJYZPNuJ0Iwn9Ndg=="
+      mode: "0600"
+  CephExternalMultiConfig:
+    # create client conf and key file for two non-existent external ceph clusters
+    - cluster: 'ceph2'
+      fsid: 'af25554b-42f6-4d2b-9b9b-d08a1132d3e8'
+      external_cluster_mon_ips: '172.18.0.5,172.18.0.6,172.18.0.7'
+      keys:
+        - name: "client.openstack"
+          caps:
+            mgr: "allow *"
+            mon: "profile rbd"
+            osd: "osd: profile rbd pool=volumes, profile rbd pool=backups, profile rbd pool=vms, profile rbd pool=images"
+          key: "AQCwmeRcAAAAABAA6SQU/bGqFjlfLro5KxrB1Q=="
+          mode: "0600"
+      dashboard_enabled: false
+    - cluster: 'ceph3'
+      fsid: 'e2cba068-5f14-4b0f-b047-acf375c0004a'
+      external_cluster_mon_ips: '172.18.0.8,172.18.0.9,172.18.0.10'
+      keys:
+        - name: "client.openstack"
+          caps:
+            mgr: "allow *"
+            mon: "profile rbd"
+            osd: "osd: profile rbd pool=volumes, profile rbd pool=backups, profile rbd pool=vms, profile rbd pool=images"
+          key: "AQCwmeRcAAAAABAA6SQU/bGqFjlfLro5KxrB2Q=="
+          mode: "0600"
+      dashboard_enabled: false
+  NovaEnableRbdBackend: true
+  CinderEnableRbdBackend: true
+  CinderRbdBackendName: tripleo_ceph,tripleo_ceph2,tripleo_ceph3
+  CinderRbdMultiConfig:
+    tripleo_ceph2:
+      CephClusterName: ceph2
+      CephClusterFSID: af25554b-42f6-4d2b-9b9b-d08a1132d3e8
+      CinderRbdAvailabilityZone: ceph2-AZ
+    tripleo_ceph3:
+      CephClusterName: ceph3
+      CephClusterFSID: e2cba068-5f14-4b0f-b047-acf375c0004a
+      CinderRbdAvailabilityZone: ceph3-AZ
+  CinderBackupBackend: ceph
+  GlanceBackend: cinder
+  GlanceStoreDescription: 'Cinder glance store'
+  GlanceMultistoreConfig:
+    rbd_store:
+      GlanceBackend: rbd
+      GlanceStoreDescription: 'RBD glance store'
+      CephClientUserName: 'glance'
+  GnocchiBackend: rbd
+  CinderEnableIscsiBackend: false
+  GnocchiArchivePolicy: 'ceilometer-high-rate'
+  BannerText: |
+    ******************************************************************
+    * This system is for the use of authorized users only. Usage of  *
+    * this system may be monitored and recorded by system personnel. *
+    * Anyone using this system expressly consents to such monitoring *
+    * and is advised that if such monitoring reveals possible        *
+    * evidence of criminal activity, system personnel may provide    *
+    * the evidence from such monitoring to law enforcement officials.*
+    ******************************************************************
+  EnableSTF: true
+  MetricsQdrAddresses:
+    - prefix: collectd
+      distribution: multicast
+  MetricsQdrSSLProfiles:
+    - name: sslProfile
+  CollectdConnectionType: amqp1
+  CollectdAmqpInterval: 5
+  CollectdDefaultPollingInterval: 5
+  CollectdEnableSensubility: true
+  CollectdEnableLibpodstats: true
+  CollectdAmqpInstances:
+    notify:
+      notify: true
+      format: JSON
+      presettle: false
+    telemetry:
+      format: JSON
+      presettle: false
+  CollectdAmqpSendQueueLimit: 40
+  LoggingServers:
+    - host: 127.0.0.1
+      port: 24224
+  TtyValues:
+    - console
+    - tty1
+    - tty2
+    - tty3
+    - tty4
+    - tty5
+    - tty6
+  ContainerCli: podman
+  CephConfigOverrides:
+    anotherkey: anothervalue
+    global:
+      globalkey: globalvalue
+    osd:
+      osdkey: osdvalue
+    foo: bar
+    mon:
+      mon_warn_on_pool_no_redundancy: false
+      mon_warn_on_insecure_global_id_reclaim_allowed: false
+  NfsUrl: 127.0.0.1
+  CephMsgrSecureMode: true
+  CephAnsibleSkipClient: false
+  CephConfigPath: "/etc/ceph"
+  LVMFilterEnabled: true
+  LVMFilterAllowlist:
+    - /dev/loop2
+    - /dev/loop3
+    - /dev/loop4
+  MultipathdEnable: true
+  NovaLibvirtVolumeUseMultipath: true
+  BackupAndRestoreSkipNFSTest: true

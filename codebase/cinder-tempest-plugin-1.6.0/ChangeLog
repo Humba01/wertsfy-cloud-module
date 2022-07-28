@@ -1,0 +1,159 @@
+CHANGES
+=======
+
+1.6.0
+-----
+
+* Updating python testing as per Yoga testing runtime
+* Dropping explicit unicode literal
+* Cap cinder-tempest-plugin version for stable/train
+* Add stable/xena jobs on master gate
+* Import from tempest stable manager
+* Refactor test\_volume\_backup due to leftovers
+* volume: fix wrong snapshot\_id for revert\_to\_snapshot\_after\_extended\_negative
+
+1.5.0
+-----
+
+* Change minversion to 3.18.0 in tox
+* zuul: pin cinder-tempest-plugin/stein-last on stein
+* Improve snapshot data integrity test
+* [CI] Move to CentOS Stream
+* Add a job for S3 backup driver
+* Add stable/wallaby jobs on master gate
+* Implement basic protection testing jobs
+* Fix stein: use the old terminology for exclusion list
+* Ceph jobs: re-enable a few c-bak tests, add more jobs
+* Update example local.conf within README.rst
+* Set CINDER\_ISCSI\_HELPER explicitly for tgtadm job
+* Refactor the lvm barbican job(s): cinderlib-less variant
+
+1.4.0
+-----
+
+* Fix cinder-backup/swift: readd member to tempest roles
+* Use the embedded scenario manager instead of tempest one
+* Switch to new rolevar for run-tempest role
+* Add test idempotent IDs when missing
+* Switch to stestr
+* Add Snapshot data integrity test
+* Ignore H101 rule
+* zuul: Add nova-ceph-multistore as a non-voting job
+* test\_volume\_encrypted: Stop creating an image for each instance
+* Encryption Test Scenario for clone volume
+* Run the tests on stable/victoria as well, remove stein
+* Add doc/requirements
+* Add py38 package metadata
+* Wait for CG to be available before creating volume in the CG
+
+1.3.0
+-----
+
+* Enable barbican jobs  to run on ubuntu focal
+
+1.2.0
+-----
+
+* [goal] Migrate cinder-tempest-plugin jobs to focal
+
+1.1.0
+-----
+
+* Consistency groups: fix the exceptions handling
+* Add test for cinder\_img\_volume\_type image metadata
+* zuul: collect cinderlib logs from tempest node(s) only
+* Skip a few c-bak tests broken by the new ceph
+* Disable siblings for the cindelib functional tests
+* Add test cases for bugs 1869746 and 1873518
+* Fix hacking min version to 3.0.1
+* Add stable branch jobs on the plugins master gate
+* Cleanup py27 support
+* Add a basic CentOS 8 job (LVM/lio/barbican)
+* Enable revert tests when possible, bump timeout
+* Add LVM+tgt tempest job
+* Handle the case when tempest fails
+
+1.0.0
+-----
+
+* Extending testing scope of Incremental Backup
+* Create new Ceph job with c-bak service enabled
+* Ussuri contrib docs community goal
+* Update cinder-tempest-plugin-lvm-lio (revamp)
+* Use python3 devstack ceph plugin job
+* Drop python 2.7 support and testing
+
+0.3.1
+-----
+
+* Allow to run with API v3 (remove deprecated options)
+* Update README.md for running cinder tests in tempest
+
+0.3.0
+-----
+
+* Switch to the new canonical constraints URL on master
+* Sync Sphinx requirement
+* Fix package name in metadata
+* OpenDev Migration Patch
+* Replace openstack.org git:// URLs with https://
+
+0.2.0
+-----
+
+* Add metadata to snapshot for revert test
+* Fix volume revert to snapshot tests
+* Change openstack-dev to openstack-discuss
+* Add devstack-plugin-ceph-tempest job to check queue
+* GET backup before asserting 'volume\_id' and 'snapshot\_id'
+* fix tox python3 overrides
+* import zuul job settings from project-config
+* Make cinder-tempest-plugin-lvm-lio non-voting
+* Fix consistency groups test credentials
+
+0.1.0
+-----
+
+* Skip create from image if no glance deployed
+* Remove redundant cleanups in test\_volume\_backup
+* Test creating multiple volumes from image simultaneously
+* Added cinder tempest plugin zuulv3 jobs to execute tempest
+* Update the documentation link for doc migration
+* Modify revert tests to account for creating volumes != 1GB
+* Sync requirements for cinder-tempest-plugin
+* Updated from global requirements
+* Add test for volume create with non-ascii characters
+* Updated from global requirements
+* Correct plugin test location reporting
+* Updated from global requirements
+* Refactored cinder tempest tests to cinder\_tempest\_plugin
+* Cinder Tempest plugin tests: Switch to stable interface
+* Updated from global requirements
+* Clean up some initial repo creation boilerplate
+* Switch to use new base\_client.BaseClient
+* Add skip check for volume revert feature
+* Replace the usage of some aliases in tempest
+* Remove SCREEN\_LOGDIR from devstack install setting
+* Fix wrong links in Cinder
+* Fix tempest test revet\_client typo
+* Apply cookiecutter to newly split project
+* Apply cookiecutter to newly split project
+* Tempest for revert-to-snapshot
+* cleanup: remove DEVSTACK\_CINDER\_SECURE\_DELETE
+* Remove obsolete Liberty code
+* Don't use tempest special\_fields
+* Extracted HTTP response codes to constants
+* Switch to use stable data\_utils
+* Switch to decorators.idempotent\_id
+* Fix internal tempest tests
+* Switch to decorators.idempotent\_id
+* Add volume backup tempest tests
+* Reuse already existing groups in tempest plugin
+* Remove logging import unused
+* Remove placeholder tempest test
+* Provide volume size for tempest volume creation
+* Remove unused config.CONF
+* Add tempest tests for Consistency Groups
+* tempest: Add Unicode volume name test
+* Move and rename tempest\_tests to cinder/tests/tempest
+* Initial fork out of Nova

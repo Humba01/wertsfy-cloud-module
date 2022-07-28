@@ -1,0 +1,30 @@
+[console_scripts]
+cyborg-agent = cyborg.cmd.agent:main
+cyborg-api = cyborg.cmd.api:main
+cyborg-conductor = cyborg.cmd.conductor:main
+cyborg-dbsync = cyborg.cmd.dbsync:main
+cyborg-status = cyborg.cmd.status:main
+
+[cyborg.accelerator.driver]
+fake_driver = cyborg.accelerator.drivers.fake:FakeDriver
+huawei_ascend_driver = cyborg.accelerator.drivers.aichip.huawei.ascend:AscendDriver
+inspur_fpga_driver = cyborg.accelerator.drivers.fpga.inspur.driver:InspurFPGADriver
+inspur_nvme_ssd_driver = cyborg.accelerator.drivers.ssd.inspur.driver:InspurNVMeSSDDriver
+intel_fpga_driver = cyborg.accelerator.drivers.fpga.intel.driver:IntelFPGADriver
+intel_nic_driver = cyborg.accelerator.drivers.nic.intel.driver:IntelNICDriver
+intel_qat_driver = cyborg.accelerator.drivers.qat.intel.driver:IntelQATDriver
+nvidia_gpu_driver = cyborg.accelerator.drivers.gpu.nvidia.driver:NVIDIAGPUDriver
+nvmf_spdk_driver = cyborg.accelerator.drivers.spdk.nvmf.nvmf:NVMFDRIVER
+
+[cyborg.database.migration_backend]
+sqlalchemy = cyborg.db.sqlalchemy.migration
+
+[oslo.config.opts]
+cyborg = cyborg.conf.opts:list_opts
+
+[oslo.policy.policies]
+cyborg.api = cyborg.policies:list_policies
+
+[wsgi_scripts]
+cyborg-wsgi-api = cyborg.api.wsgi_app:init_application
+

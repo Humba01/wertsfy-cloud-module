@@ -1,0 +1,4 @@
+---
+upgrade:
+  - Removes kernel module loading from startup scripts packaged with the
+    images. Kernel modules must now be loaded on the host directly.

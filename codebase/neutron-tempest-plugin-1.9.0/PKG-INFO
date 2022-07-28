@@ -1,0 +1,36 @@
+Metadata-Version: 1.2
+Name: neutron-tempest-plugin
+Version: 1.9.0
+Summary: Tempest plugin for Neutron Project
+Home-page: https://opendev.org/openstack/neutron-tempest-plugin
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ======================
+        Neutron Tempest Plugin
+        ======================
+        
+        Tempest plugin for Neutron project.
+        
+        It contains the tempest plugin for the functional testing of Neutron Project.
+        
+        * Free software: Apache license
+        * Documentation: https://docs.openstack.org/neutron/latest/
+        * Source: https://opendev.org/openstack/neutron-tempest-plugin
+        * Bugs: https://bugs.launchpad.net/neutron
+        * Release notes: https://docs.openstack.org/releasenotes/neutron-tempest-plugin/
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6

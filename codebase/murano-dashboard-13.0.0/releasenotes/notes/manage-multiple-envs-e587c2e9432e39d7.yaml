@@ -1,0 +1,4 @@
+---
+features:
+  - Added the capability to execute actions (delete, abandon or deploy)
+    on multiple selected environments.

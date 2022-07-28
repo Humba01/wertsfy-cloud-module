@@ -1,0 +1,128 @@
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+
+from tempest.lib import decorators
+
+from heat_tempest_plugin.tests.functional import functional_base
+
+
+class OSWaitCondition(functional_base.FunctionalTestsBase):
+
+    template = '''
+heat_template_version: 2013-05-23
+parameters:
+  flavor:
+    type: string
+  image:
+    type: string
+  network:
+    type: string
+  timeout:
+    type: number
+    default: 60
+  wc_extra_args:
+    type: string
+    default: ""
+resources:
+  instance1:
+    type: OS::Nova::Server
+    properties:
+      flavor: {get_param: flavor}
+      image: {get_param: image}
+      networks:
+      - network: {get_param: network}
+      user_data_format: RAW
+      user_data:
+        str_replace:
+          template: '#!/bin/sh
+
+            while true; do wc_notify --data-binary ''{"status":
+            "SUCCESS"}''; if [ $? -eq 0 ]; then break; else sleep 10; fi; done
+
+            # signals with reason
+
+            while true; do wc_notify --data-binary ''{"status":
+            "SUCCESS", "reason":
+            "signal2"}''; if [ $? -eq 0 ]; then break; else sleep 10; fi; done
+
+            # signals with data
+
+            while true; do wc_notify --data-binary ''{"status":
+            "SUCCESS", "reason": "signal3", "data":
+            "data3"}''; if [ $? -eq 0 ]; then break; else sleep 10; fi; done
+
+            while true; do wc_notify --data-binary ''{"status":
+            "SUCCESS", "reason": "signal4", "data":
+            "data4"}''; if [ $? -eq 0 ]; then break; else sleep 10; fi; done
+
+            # check signals with the same ID
+
+            while true; do wc_notify --data-binary ''{"status":
+            "SUCCESS", "id":
+            "test5"}''; if [ $? -eq 0 ]; then break; else sleep 10; fi; done
+
+            while true; do wc_notify --data-binary ''{"status":
+            "SUCCESS", "id":
+            "test5"}''; if [ $? -eq 0 ]; then break; else sleep 10; fi; done
+
+            _signal(){ while true; do wc_notify --data-binary ''{"status":
+            "SUCCESS"}''; if [ $? -eq 0 ]; then break; fi; done }
+
+            # loop for 20 signals without reasons and data
+
+            for i in `seq 1 20`; do _signal & done
+
+            wait
+            '
+          params:
+            wc_notify:
+              list_join:
+                - " "
+                - [ get_attr: [ wait_handle, curl_cli],
+                    get_param: wc_extra_args ]
+
+  wait_condition:
+    type: OS::Heat::WaitCondition
+    depends_on: instance1
+    properties:
+      count: 25
+      handle: {get_resource: wait_handle}
+      timeout: {get_param: timeout}
+
+  wait_handle:
+    type: OS::Heat::WaitConditionHandle
+
+outputs:
+  curl_cli:
+    value:
+      get_attr: [wait_handle, curl_cli]
+  wc_data:
+    value:
+      get_attr: [wait_condition, data]
+'''
+
+    def setUp(self):
+        super(OSWaitCondition, self).setUp()
+        if not self.conf.minimal_image_ref:
+            raise self.skipException("No minimal image configured to test")
+        if not self.conf.minimal_instance_type:
+            raise self.skipException("No minimal flavor configured to test")
+
+    @decorators.idempotent_id('cc54ca6e-b91d-4ddd-80cc-24a886dfaaa0')
+    def test_create_stack_with_multi_signal_waitcondition(self):
+        params = {'flavor': self.conf.minimal_instance_type,
+                  'image': self.conf.minimal_image_ref,
+                  'network': self.conf.fixed_network_name,
+                  'timeout': 180}
+        if self.conf.vm_to_heat_api_insecure:
+            params['wc_extra_args'] = '--insecure'
+        self.stack_create(template=self.template, parameters=params)

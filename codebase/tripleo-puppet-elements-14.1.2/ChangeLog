@@ -1,0 +1,492 @@
+CHANGES
+=======
+
+14.1.2
+------
+
+* Remove leftover of pankoclient
+* Remove pankoclient
+
+14.1.1
+------
+
+* Update TOX\_CONSTRAINTS\_FILE for stable/wallaby
+* Update .gitreview for stable/wallaby
+
+14.1.0
+------
+
+* Check that etc/resolv.conf.ORIG exists before edit
+
+14.0.0
+------
+
+* Add doc/requirements
+* Include cephadm in the overcloud image
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+13.0.0
+------
+
+
+12.6.0
+------
+
+
+12.5.0
+------
+
+* Remove puppet-tacker
+* overcloud-compute:  add linuxptp package for timemaster service
+* Remove puppet-panko
+* Remove puppet-congress
+* Remove puppet-vitrage
+* Remove puppet-trove
+* Drop podman-docker from CentOS/RHEL8
+* Install fence-virt only on x86\_64
+* Add sysstat package to collect sar data by default
+
+12.4.0
+------
+
+* Revert "add buildah to overcloud-base"
+* add buildah to overcloud-base
+* Remove overcloud-opstools element
+* Switch to newer openstackdocstheme and reno versions
+* Remove centos7 RT repo from centos8 builds
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+* Fix hacking min version to 3.0.1
+
+12.3.0
+------
+
+* Cleanup py27 support
+* overcloud-compute: add ndctl package to manage NVDIMMs
+
+12.2.0
+------
+
+* Update hacking for Python3
+* Drop docker packages from overcloud-base
+* Disable yum-plugin-priorities elements for CentOS8
+
+12.1.0
+------
+
+* update tox tests for py3
+* RHEL8: Use podman-docker
+
+12.0.0
+------
+
+* Use chkconfig
+* tox: Keeping going with docs
+* Remove libvirt package
+* Switch to Ussuri jobs
+* Fix permissions on 51-enable-network-service
+* Update master for stable/train
+
+11.2.0
+------
+
+* Add proper permissions on script
+
+11.1.1
+------
+
+* Remove osops-tools-monitoring-oschecks for RHEL 8
+* Bump the openstackdocstheme extension to 1.20
+* Blacklist sphinx 2.1.0 (autodoc bug)
+
+11.1.0
+------
+
+* Add Python 3 Train unit tests
+* Stop and disable libvirtd service on controller
+* Remove multinode jobs
+* Fix typo pankiclient to pankoclient
+* Add RHEL8 support for overcloud-full image
+
+11.0.0
+------
+
+* Add element to install all openstack clients
+* update git.openstack.org to opendev
+* Add upper constraints
+* OpenDev Migration Patch
+* Update master for stable/stein
+* lvm2 is required for cinder
+
+10.3.0
+------
+
+* [Documentation] Migrate the format
+* deployed-server: start and enable network service
+* Add openssl-perl to overcloud image to provide /etc/pki/CA in TLS setup
+* Add numactl to overcloud image
+* Install tmpwatch in the overcloud base image
+
+10.2.0
+------
+
+* Release note for chrony/ntp switch
+* Replace ntp with chrony
+* Add gdisk to overcloud image
+* Use external centos7-rt if present
+* overcloud-agent: create ansible-playbook symlinks in post-install
+* Remove unused elements
+* Remove additional containered software
+* Change openstack-dev to openstack-discuss
+* [Configuration] Add missing py37 and corrected default envlist
+
+10.1.0
+------
+
+* Remove MongoDB
+* [Configuration] Remove useless py26 environment
+* Drop baremetal job template
+* Update min tox version to 2.0
+* fix tox python3 overrides
+
+10.0.0
+------
+
+* Add python3 heat agent for Fedora
+* Port items from instack-undercloud
+* Remove skydive package install
+* Update reno for stable/rocky
+* add python 3.6 unit test job
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* overcloud-base: add podman
+
+9.0.0.0rc1
+----------
+
+
+9.0.0.0b3
+---------
+
+* Disable os-collect-config by default
+* Update test-requirements.txt
+* Add release note link in README
+
+9.0.0.0b2
+---------
+
+* Add element for openssh and override UseDNS
+* Remove overcloud-cinder-volume element
+* Fix readme formatting issues
+* Remove sensu, fluentd, collectd from the images
+* Remove setup-puppet element
+* Additional OpenStack cleanup
+* Add keepalived back
+* Remove Openstack and Ceph packages attempt 2
+* Revert "Remove Openstack and Ceph packages"
+* Remove Openstack and Ceph packages
+* Remove heat-api-cloudwatch from package install
+
+9.0.0.0b1
+---------
+
+* zuul: add tripleo-buildimage-jobs
+* add puppet-vitrage and vitrage rpms into image
+* Update reno for stable/queens
+
+8.0.0.0rc1
+----------
+
+* Create element to purge resolv.conf
+* Zuul: Remove project name
+
+8.0.0.0b3
+---------
+
+* Remove RH1 OVB jobs from configuration
+* Do not filter packages from RT repo
+* yum-plugin-priorities should not be enabled on RHEL
+* Install collectd-gnocchi plugin
+* Add AIDE Package to overcloud images
+* add puppet-ptp into image
+* Update test-requirements to work with reno
+* Add networking-ovn metadata agent to overcloud image
+
+8.0.0.0b2
+---------
+
+* Remove unused tox\_install.sh
+* Add libreswan (IPSEC management) package to overcloud images
+* Migrate t-p-e to zuul v3 jobs
+* Include required packages for libvirt SASL auth
+* Remove unused puppet-tempest module
+* Do not rely on openstack-puppet-modules
+* Install yum-plugin-priorities in pre-install phase
+* Remove ceilometer Api package from overcloud image
+
+8.0.0.0b1
+---------
+
+* Added missing package for lbaas UI
+* Remove ceilometer-collector from overcloud image
+* Use Python to compute release notes version
+* Adding Bagpipe driver to controller and compute elements
+* Update reno for stable/pike
+* Add stunnel
+
+7.0.0.0rc1
+----------
+
+* Prepare reno for TripleO Pike RC1
+* Set remove-machine-id to executable
+* Adds puppet-odl module to overcloud image
+
+7.0.0.0b3
+---------
+
+* Release 7.0.0.0b3
+* Add puppet-veritas-hyperscale module
+* Switch from oslosphinx to openstackdocstheme
+* Add mistral event engine package to the controller image
+* Install python-docker-py in the baremetal image
+* Add ansible-pacemaker to the overcloud image
+* scsi-target-utils is not used in RHEL7+
+* Add networking-sfc packages to overcloud images
+
+7.0.0.0b2
+---------
+
+* Release 7.0.0.0b2
+* Install ironic-inspector on controllers
+* Remove Nova Cert package
+* Include openstack-nova-migration in the overcloud images
+* Add puppet-etcd module
+* Add sushy packages to the controller
+* Add neutron-linuxbridge package
+* Include etcd in the overcloud images
+
+7.0.0.0b1
+---------
+
+* Prepare 7.0.0.0b1 (pike-1)
+* Enabled "tuned-profiles-cpu-partitioning" package for overcloud image
+* Install socat package for Ironic serial console support
+* Add remove-machine-id element
+* Adding DIB elements for skydive on the compute
+* Remove nova.conf truncate/refresh workaround
+* Adding networking-l2gw packages to overcloud-controller element
+* Adds puppet-systemd
+* Add ceilometer ipmi agent packages
+* Add qpid-dispatch-router to overcloud-controller element
+* Update reno for stable/ocata
+
+6.0.0.0rc1
+----------
+
+* Adding congress package to overcloud
+* Adding tacker package to overcloud
+* Add release notes for Ocata-3
+* Revert "Add qpid-dispatch-router to overcloud-controller element"
+* Add reno support
+* Add explicit install of net-snmp
+* Change upstream URL for puppet-contrail
+* Remove carbonara package reference
+* Add reference to puppet-auditd
+* Octavia integration
+* Add reference to puppet-ipaclient
+* Add openstack-nova-placement-api support
+* Add openstack-ec2-api package to overcloud-controller element
+* Delete unnecessary utf-8 coding
+* Add rbd-mirror to the overcloud-controller element
+* Add ipa-admintools package to the overcloud
+* Install Curator from RPM in MidoNet element
+* opstools: ensure that collectd is available on overcloud images
+
+6.0.0.0b2
+---------
+
+* Add panko to base controller image
+* overcloud-base sets DIB\_DEFAULT\_INSTALLTYPE=package
+* Install docker in overcloud-base element
+* Install hiera orc files via install.d
+* Move nova.conf truncation into separate element
+* Adding networking-bgpvpn package to overcloud-controller element
+* Add ceph-mds to the overcloud-controller element
+* Show team and repo badges on README
+* Add qpid-dispatch-router to overcloud-controller element
+* Add puppet-qdr module
+
+6.0.0.0b1
+---------
+
+* Disable old hiera.yaml o-a-c script
+* Enable MidoNet element to install MEM
+* Separate Datastax repository from the Midonet one
+* Installs more packages with the Midonet element
+* update required packages for opstools support
+* Remove redundant 'the'
+* Pin puppetlabs-ntp when installing from source
+* Element overcloud-agent replaces os-collect-config
+* Update git commit sources for Midonet element
+* Add ipa-client package to overcloud-controller image
+* Open tripleo-puppet-elements for Ocata
+
+5.0.0
+-----
+
+* Midonet element now complies with version 5.2
+
+5.0.0.0rc1
+----------
+
+* Install python-dracclient and python-proliantutils on controllers
+* Add mod\_auth\_mellon to overcloud-controller element
+* Add mod\_ssl to overcloud-controller element
+* Install ipxe-bootimgs and tftp-server on controller
+* Add openstack-selinux to the overcloud-base image
+
+5.0.0.0b3
+---------
+
+* Ceph Jewel repos split packages into ceph-{mon,osd,radosgw}
+* Install OpenStack Manila UI
+* Install osops-tools-monitoring-oschecks package
+* Revert "bump puppet-ceph to stable/hammer"
+* Installing openstack-sahara-ui
+* Add packages required for dpdk in compute node
+* Install crudini in overcloud again
+* Add puppet-ec2api module
+* Change puppet-pacemaker repo from github.com to openstack.org
+
+5.0.0.0b2
+---------
+
+* Support for the OpenvSwitch OVN Controller
+* Fix typo in package name python-cradox
+* Add zaqar package to controller image
+* Add python-cardox package to controllers
+* Add mistral packages to controller image
+* Add new puppet-certmonger reference
+* Add openstack-neutron-sriov-nic-agent package in overcloud image
+* Remove puppet-certmonger
+* Modify the midonet repositories to Mitaka
+
+5.0.0.0b1
+---------
+
+* Add certmonger package to controllers
+* Fix puppet modules in mixed src/pkg environments
+* Use package-installs in puppet-modules element
+* Remove puppet-qpid from module list
+* Add Ironic packages to overcloud controller
+* Honor $DIB\_DEFAULT\_INSTALLTYPE in puppet-modules
+* bump puppet-ceph to stable/hammer
+* Install Ceph RGW package in the overcloud
+
+3.0.0
+-----
+
+* Truncate nova.conf (temporarily)
+* Gnocchi Integration
+* Remove tuskar from puppet-modules
+* Add rubygems-deep\_merge to package list
+* Add puppet-barbican to puppet-modules
+* Add puppet-oslo to modules elements
+* Add barbican-api-package to the overcloud
+
+2.0.0
+-----
+
+* Use package-installs for puppet installation
+* Add overcloud-base element
+* Deprecated tox -downloadcache option removed
+* Change upstream URL of puppet-pacemaker
+* Install puppet-zaqar
+* Add puppet-kmod into image
+* Trove Integration
+* Add logging components
+* Add monitoring dependencies
+* Update deric-zookeeper reference in midonet image
+* Use a stable version of MidoNet Neutron Plugin
+* overcloud-controller: install python-networking-odl
+* py26 is no longer supported by Infra's CI
+* Remove Cassandra repository for MidoNet element
+* Add Aodh component
+* controller: install python-redis
+* Install puppet-timezone via puppet-modules element
+* Install puppet-mistral via puppet-modules element
+
+1.0.0
+-----
+
+* Adding networking MidoNet element
+* Adds puppet-manila to install from source list
+* Fix a puppet module name typo
+* Add python-memcached to list of installed pkgs on controllers
+* Update puppet-ceph git location
+* Sahara integration
+* Support for the Opencontrail controller
+* Add puppet-healthcheck to the list of modules
+* Install nfs-utils on compute nodes
+* Include ntp on all images
+* Include Manila Dependencies in Images
+* puppet-vswitch has moved to /openstack
+* Migrate some Puppet OpenStack repos under OpenStack namespace
+* Preserve data types in Hiera where possible
+
+0.0.1
+-----
+
+* Include NetApp Cinder Dependencies in Images
+* Install fence agents on the controller image
+* Ensure the hieradata directory isn't world readable
+* Adds neutron-lbaas-package to overcloud-controller element packages
+* Rename $name variable to $module\_name
+* Add neutron-metering-agent to overcloud controller node element
+* Define $DIB\_INSTALLTYPE\_puppet\_modules
+* Use git.openstack.org for stackforge modules
+* Update pkg-map to reflect Ceph packages split on RHEL
+* Revert "Temporarily remove dashboard"
+* elements: drop puppet-openstack module
+* Add puppet-pacemaker module to puppet-modules
+* Add pacemaker, pacemaker\_remote and pcs packages to images
+* Add newline to end of source-repository-puppet-modules
+* Temporarily remove dashboard
+* Implement serverspec elements
+* Add puppet-tuskar to the list of puppet modules
+* Fix pkg-map syntax in overcloud-ceph-storage
+* overcloud-controller: Install Redis server
+* Enforce naming convention
+* overcloud-controller: add MongoDB server and client packages
+* elements: add Horizon
+* pkg-map: Install mariadb-galera-server
+* Use stackforge/puppet-tripleo
+* Add overcloud-cinder-volume element to build BlockStorage images
+* Install Ceph in the Compute image as well
+* Remove duplicate puppet-openstacklib source definition
+* Add puppet-ceph supprt
+* Elements: add support for Ceph
+* Fix correct puppet modules names
+* Symlink /etc/hiera.yaml -> /etc/puppet/hiera.yaml
+* Add new Puppet Modules
+* Add tgt package
+* Force recreate puppet module symlinks
+* Add puppet-ironic
+* All overcloud-controller element
+* Add overcloud-compute element
+* Add puppet-tripleo module
+* Add puppet-snmp module
+* Add puppetlabs-ntp module
+* Add a Hiera element
+* Support installing puppet modules via Git
+* Element to add plabs apt repo
+* Remove elements/\_\_init\_\_.py
+* Add a puppet-modules element
+* Add a puppet element
+* Update repository after OpenStack migration
+* Update README to move on Stackforge
+* Add .gitreview to be on Stackforge
+* Basic structure imported from tripleo-image-elements
+* Initial commit

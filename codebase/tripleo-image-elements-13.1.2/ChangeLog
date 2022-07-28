@@ -1,0 +1,2068 @@
+CHANGES
+=======
+
+13.1.2
+------
+
+* Clean up ifcfg-eth0
+
+13.1.1
+------
+
+* Update TOX\_CONSTRAINTS\_FILE for stable/wallaby
+* Update .gitreview for stable/wallaby
+
+13.1.0
+------
+
+* Drop pbr version ceiling and add py39 testing
+
+13.0.0
+------
+
+* ensure any ens3 interface is nuked during image build
+* Add doc/requirements
+
+12.2.0
+------
+
+* Replace deprecated UPPER\_CONSTRAINTS\_FILE variable
+* Bump pyflakes
+
+12.1.0
+------
+
+* Move partition handling to overcloud-partition / overcloud-partition-uefi
+* Switch to newer openstackdocstheme and reno versions
+* Stop to use the \_\_future\_\_ module
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+12.0.0
+------
+
+* [ussuri][goal] Updates for python 2.7 drop
+* Removing debug output of 51-hosts
+
+11.0.2
+------
+
+* remove py27 in tox.ini from tripleo-image-elements
+* Install python3-dev package
+* Cleanup stale interface if exists
+* Add mapping for python-dev for Ubuntu Focal
+* Disable yum-plugin-priorities elements for CentOS8
+
+11.0.1
+------
+
+* update python tox tests
+
+11.0.0
+------
+
+* tox: Keeping going with docs
+* Switch to Ussuri jobs
+* Update master for stable/train
+
+10.6.0
+------
+
+* Sync Sphinx requirement
+* Update the constraints url
+
+10.5.1
+------
+
+* Clear net.ifnames definition
+* Fix line comparisons
+* Add Python 3 Train unit tests
+
+10.5.0
+------
+
+* Replace multinode jobs with image builds
+* Replace git.openstack.org URLs with opendev.org URLs
+* Remove note in README regarding security hardened images
+* OpenDev Migration Patch
+* Update master for stable/stein
+* [Documentation] Migrate the format
+
+10.4.0
+------
+
+* Replace openstack.org git:// URLs with https://
+
+10.3.0
+------
+
+* Update hacking version
+
+10.2.0
+------
+
+* [Configuration] Add missing py37 and corrected default envlist
+* [Configuration] Update min tox version
+* Drop baremetal job template
+* Change openstack-dev to openstack-discuss
+* Install rsync before os-apply-config
+* Optimizing the safety of the http link site in HACKING.rst
+* Update min tox version to 2.0
+
+10.1.0
+------
+
+* Increase size for security hardened images
+* fix tox python3 overrides
+
+10.0.0
+------
+
+* add python 3.6 unit test job
+* add python 3.5 unit test job
+* Fix unit tests in python3
+* Update reno for stable/rocky
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+
+9.0.0
+-----
+
+
+9.0.0.0b3
+---------
+
+* Add release note link in README
+* Add overcloud-secure-uefi element
+* Update links in README
+
+9.0.0.0b2
+---------
+
+* Fix readme formating issues
+* Add python jobs to tripleo-image-elements
+* Add a 60 seconds timeout to ping\_metadata\_ip()
+* remove os-cloud-config element
+
+9.0.0.0b1
+---------
+
+* Add a dependency on block-device-mbr element
+* Increase the image size to 23G
+* Update reno for stable/queens
+
+8.0.0.0rc1
+----------
+
+* Zuul: Remove project name
+* Add another path for service files
+* Zuul: Remove project name
+
+8.0.0.0b3
+---------
+
+* Remove RH1 OVB jobs from configuration
+* Make sure, the realtime element removes the default kernel
+* Add realtime-kernel element
+* Adding mapping for SUSE package
+
+8.0.0.0b2
+---------
+
+* Remove unused tox\_install.sh
+* Migrate t-i-e to zuul v3 jobs
+* Exclude 'vnet' interfaces from being candidates for running a dhcp client
+* Use volumes for security hardened images
+
+8.0.0.0b1
+---------
+
+* Add missing target\_core\_mod to iscsi modules
+* Change After rule from cloud-final to cloud-config
+* Update ironic-agent-multipath element
+* Use Python to compute release notes version
+* Update reno for stable/pike
+
+7.0.0.0rc1
+----------
+
+* Prepare reno for TripleO Pike RC1
+* Create symlink for dib-run-parts
+
+7.0.0.0b3
+---------
+
+* Release 7.0.0.0b3
+* Switch from oslosphinx to openstackdocstheme
+
+7.0.0.0b2
+---------
+
+* Release 7.0.0.0b2
+* Use /etc/os-net-config/element\_config.json
+* Add overcloud-secure element
+* Dummy patch to build a new rpm in RDO
+* Restore elements still in use
+* Remove unused elements
+
+7.0.0.0b1
+---------
+
+* Prepare 7.0.0.0b1 (pike-1)
+* 51-hosts fails if given lots of changes
+* Update reno for stable/ocata
+
+6.0.0.0rc1
+----------
+
+* Follow HTTP/HTTPS redirects
+* Add release notes for Ocata-3
+* Add reno support
+* Add a script to zero /etc/sysconfig/ip6tables at build time
+* Set IRONIC\_AGENT\_MULTIPATH\_DRIVERS to '' when undefined
+* Add element to customize dracut on the agent
+* Purge chrony package in NTP element
+* Add a script to zero /etc/sysconfig/iptables at build time
+* Add element to rebuild dracut enabling modules
+* Copy map-services script to tripleo elements
+
+6.0.0.0b2
+---------
+
+* Show team and repo badges on README
+* Don't depend on os-collect-config element
+* Remove vim configuration in source file
+* Fix typos in README.md & rootwrap.conf
+
+6.0.0.0b1
+---------
+
+* Set correct content-type for o-r-c curl calls
+* Include lsb\_release in the hosts element since it's used there
+* Make 'module' directives match filenames
+* Fix tr syntax in 51-hosts
+* Open tripleo-image-elements for Ocata
+
+5.0.0
+-----
+
+* Add stable release to image elements
+* Remove galera package from being explicitly installed with mariadb
+
+5.0.0.0rc1
+----------
+
+* Restore rdo-release element
+* Add zaqar.use\_websockets option to o-c-c
+* Deprecate old RDO release
+
+5.0.0.0b2
+---------
+
+* Fix is\_local\_ip matching
+
+5.0.0.0b1
+---------
+
+* Remove tuskar element
+* Remove tuskar-ui element
+* Use the correct capitalization of OpenStack
+* Don't send duplicate signals via 99-refresh-completed
+* making ansible version configurable
+* adding libffi-dev to required packages
+* Add .yaml extension to package installs
+* Use package-installs for undercloud elements
+* Replace deprecated LOG.warn with LOG.warning
+* Remove mysql-dev dependency from os-svc-install
+
+0.9.9
+-----
+
+* Correct ping test when using Swift temp\_urls
+* Deprecated tox -downloadcache option removed
+* Work around leak in dhcp-all-interfaces udev rule
+
+0.9.8
+-----
+
+* Drop pip-and-virtualenv element
+* Don't set default install type for os-cloud-config to pip
+* py26 is no longer supported by Infra's CI
+
+0.9.7
+-----
+
+* Update squid element to reflect current usage
+* Enable delorean-deps
+* os-net-config: add configure\_safe\_defaults
+* os-net-config: add ping\_metadata\_ip function
+* Update tuskar to support renamed heat roles
+* [Labs] Update links to Cloud Admin Guide
+* Temporarily remove Heat migration 065
+* Support for configuring Liberty openvswitch\_agent.ini
+* Add contrail-repo element
+* Load the validation-scripts as role extra data for tuskar init
+* Default to latest rdo-release
+* Adds neutron\_dhcp\_agents\_per\_network config parameter to neutron.conf
+* Wires up neutron tunnel\_id\_ranges and vni\_ranges for config
+* Make /etc/os-collect-config.conf only root readable
+* Update pbr version to match global requirements
+* Explicitly set the default Ceph scale to 0
+* Moving stack parameter defaults to Tuskar install
+* Add support for full images
+* Return derived config id when signalling deployments
+* Set empty dhcp\_domain for Neutron dhcp
+* Bandersnatch README.md cleanup
+* Use nagios-common instead of nagios-plugins-all on RHEL
+
+0.9.6
+-----
+
+* Add os-collect-config template for zaqar support
+* Added keystone auth configuration to the tuskar element
+* Add roles to plan during Tuskar install
+* Have all os-refresh-config elements use su instead of sudo
+* Include yum update extra files
+
+0.9.5
+-----
+
+* Migrate os-\*-config to package-installs v2
+* Fix path to neutron dsn
+* Disable dhcp\_domain in Nova so we do not append .novalocal
+* Downcase /etc/hosts entries
+* Make delorean.repo overrideable
+* Don't install the keystone client cli
+* Drop usage of keystoneclient
+* Add ability to disable stunnel
+* Add openstack-keystone to pkg-map
+* Revert "An element to force install Qemu 2.1.3-3 on F21"
+* Enforce owner readonly permissions on stackrc
+* Make tuskar resource registry overrideable
+* An element to force install Qemu 2.1.3-3 on F21
+
+0.9.4
+-----
+
+* Prevent unclustered RabbitMQ with 0 nodes
+* Fix ubuntu grub-pc install failure
+* Change where we look for ROOT\_PATH
+* load puppet overcloud heat templates and resource registry
+* Add missing quotes to STATIC\_ROOT in horizon settings
+* Fix typo in elements/mariadb-rpm/os-refresh-config/configure.d/52-mariadb-rpm-init
+* Identify os-net-config conf file as autogenerated
+
+0.9.3
+-----
+
+* Compile horizon translation files
+* Fedora 21 tftp files fix (copy in syslinux modules)
+* Work around 20-neutron-selinux issues on F21
+* Create Fedora 21 softlink for /var/run/mariadb
+* Open port 11211 for memcache in swift-proxy clusters
+* Open Tuskar API port in iptables
+* Allow configurable healthcheck interval
+* Add pkg-map for os-\*-config
+* Remove install-static element
+* NTP service can fail or be slow to stop
+* Fix the AUTH URL v2 to v3 conversion
+
+0.9.2
+-----
+
+* Remove /opt/stack/{repo} files
+* Adjust Test env requirements
+* tox: fix the test suite
+* Ceilometer API fails: bad rabbit\_use\_ssl setting
+* Check USE\_CACHE for fedora and ubuntu images
+* SELinux keepalived read denials
+* Rabbitmq logrotate broken
+* Drop augtools from the tempest element
+* Fix multipath.conf devnode blacklist expression
+* os-collect-config.conf template request collector
+* Correct typo in the restore-ssh-host-keys element
+* Move horizon iptables script to run after os-apply-config init
+* Signal all o-a-c deployments in 99-refresh-completed
+* Update correct cloud-init hosts template file on RHEL
+
+0.9.1
+-----
+
+* Do not override tempest.conf from pass-through
+* Store collectl logs in /mnt/state/var/log/collectl
+* Support common venv for os-\*-config
+* Delorean: going back in time fails,package caching
+* Revert "Add support for pxe\_ilo driver"
+* Fix indentation errors in init-neutron-ovs
+* Adding iptable rules for swift-storage DIB element
+* Stop, disable, exit os-collect-config early
+* Add an element to restore ssh keys from /mnt/state
+* Log from upstart console
+* NTP fail to sync if time sync is not performed
+* Fix the STATIC\_ROOT after overwriting local\_settings.py
+* Ensure-bridge duplicates allow-$bridge stanza
+* Give ceilometer.conf rabbit\_port a default
+* Correct unbound variable in ssl-ca element
+* Enable git install of os-cloud-config
+* Create os-cloud-config element
+* Allow for usage of l3\_ha in neutron config
+* Remove setuptools <8.0 pinning
+* Adds session\_engine variable for memcached config
+* Log directly to syslog from os services
+* add ipv6 radvd package to neutron-router
+* add conntrack in neutron-router element
+* Update iptables to support variable Horizon port
+* Implements: log rotation for keepalived
+* Use DIB\_DEFAULT\_INSTALLTYPE=package
+* Support RedHatEnterpriseWorkstation in add-rule
+* Custom policy for openvswitch SELinux denials
+* Configurable tests2skip file in tempest element
+* Add a tempestrunrc for configuring run-tempest
+* Remove hack to reformat os-apply-config output
+* Add iptables rule for nova and mysql
+* Fix mustache context cascading in stunnel config
+* Open firewall for VNC to Nova compute instances
+* Disable set -x for passwords
+* os-net-config: log at log level info again..
+* Cleanup lockfile with trap
+* Run restorecon against actual rabbitmq directories
+* Move static settings from run-tempest into conf
+* Improve rabbitmq\_join\_cluster on failure
+* Split RabbitMQ actions out of startup script
+* Pin setuptools to <8.0
+* Set ca certificate file for keystone and nova
+
+0.9.0
+-----
+
+* Don't rebuild swift rings if already exist
+* System dnsmasq daemon should only listen on lo
+* Allow VxLAN udp port 4789 and multicast
+* Open port 16509 on compute nodes for Nova live migration
+* Add support for pxe\_ilo driver
+* Add pass-through support for tempest element
+* Grant privs to localhost and flush privs
+* Only configure Ceilo DB connection if it is set
+* Allow setting ca\_certificate option for metadata api
+* Swift proxy memcache authtoken additions
+* Use keepalived notify script if virtual\_interfaces are defined
+* reset-db to get all db parameters from the config
+* Fix the bandersnatch element on ubuntu
+* Lowercase rabbitmq nodes
+* Change the kill\_metadata executable strings in Neutron
+* Deprecate positional args for os-svc-daemon
+* Update Ansible version to 1.8.1
+* Enable Bulk requests middleware in swift proxy pipeline
+* Add a pypi mirror to the ci overcloud
+* Add bandersnatch element
+* Migrate horizon element to svc-map
+* Add new nscd element
+* RabbitMQ SELinux policy update
+* Only configure Neutron DB connection if it is set
+* Switch Nova to the Cinder v2 API
+* move maxconn from each backend to the overall configuration
+* Wait for tuskar-api to start up
+* Only install CA cert if file is likely to be a valid cert
+* Add a delorean-repo element
+* Migrate keepalived to svc-map
+* Set lock\_path in cinder.conf
+* Add neutron.ovs.local\_ip to static seed json
+* Create HACKING.rst for elements
+* Migrate keystone to svc-map
+* Secure MySQL clustering with SSL
+* Migrate ironic-conductor to svc-map
+* Remove selinux from os-svc-install element-deps
+* Fix stunnel SSL options
+* Fix syntax error in deploy-ci-overcloud
+* Disable save of iptables on package install
+* Set explicit route for VIPs
+* Increased protection to prevent vip
+* Change rabbitmq-server log file names to not use the '@' character
+* Modify sysctl-set-value script to support multi-value parameters
+* Fix element-deps file name
+* Add pycrypto install to swift-proxy element
+* Install os clients from git
+* Restart stunnel earlier in configure.d
+* Add Neutron DVR configuration variables
+* Install the correct mysql-dev package for RHEL6
+* Add package support to ceilometer-alarm-evaluator
+* Add package support to ceilometer-alarm-notifier
+* Only configure Nova DB connection if it is set
+* Fix some hardcoded places in deploy-ci-overcloud
+* os-net-config: use package-installs
+* Bump hacking to 0.9.x series
+* Enable os-collect-config on boot for packages
+* Revert "We need to tell upstart to expect the logger fork"
+* Check stunnel.connect\_host not stunnel.connect\_ip
+* Migrate ironic-api to svc-map
+* Migrate heat-engine element to svc-map
+* Add source and package install for Tuskar client
+* Install and configure MySQL \`clustercheck\`
+* Migrate heat-api element to svc-map
+* Migrate haproxy to svc-map
+* Properly format markdown code blocks
+* Fix incorrect service name on Debian in \`add-rule\`
+* Switch to the default os-refresh-config base dir
+* Switch to current options in nova.conf
+* Support custom privileges for managed MySQL users
+* Use oac to create .erlang.cookie
+* Allow ansible venv path to be customized
+* Fix horizon package install
+* Migrate to package-installs scripts
+* Combine policy installs into one operation
+* Mention dib-utils package in sample instructions
+* Fix RabbitMQ element clustering start and stop
+* Remove unused physical\_network parameter in tripleo-image-elements
+* Correct the README.md descriptions
+* Tuskar: support packaged heat templates
+* Nova consoleauth service fails in HA configuration
+* Move to keystone.token.persistence.backends.sql.Token
+* Add elements for Ceilometer alarm services
+* swift rsyncd config max connections is not standard/recommended
+* Add ssl options for ceilometer rabbitmq connection
+* Remove deprecated vconfig support
+* Ensure password is set correctly on existing users
+* Remove hack to start openvswitch
+* Short circuit init-neutron-ovs
+* Increase rabbitmq timeout
+* Copy static files for packaged installs
+* Make 101-tuskar-ui re-runnable
+* Install openstackclient
+* Add package install support for tuskar-ui
+* Add package install support for tuskar
+* We need to tell upstart to expect the logger fork
+* Simplify keepalived custom policy
+* adding local boot support for uboot arm arch
+* Neutron is not Ironic
+* Change how SELinux policies are compiled
+* Implement persistence of iptables on reboot
+* Make os-net-config depend on openvswitch
+* Remove pip install --pre
+* Fix the Fedora image download
+* Add package support to the Ansible element
+* Fix sed regex for deleting old configs
+* The Nova dhcp\_options\_enabled flag doesn't exist
+* Parametrize Swift mount\_check setting
+* Make rdo-release install safe
+* Migrates glance element from map-services to svc-map
+* Improve nfs-server to support multiple shares and options
+* Make deploy-ci-overcloud script configurable
+* Add missing packages to tempest element
+* Use keystone identity\_uri instead of auth\_\*
+* Remove vif\_plugging workaround
+* systemd: always use /lib/systemd
+* Migrate geard to svc-map
+* Migrates corosync element to svc-map
+* Migrate from map-services to svc-map
+* Migrates from map-services to svc-map
+* Add SSL PKI properties for keystone
+* Ensure neutron rootwrap.d symlink is not nested
+* Remove redundancies between neutron-router and neutron-network-node
+
+0.8.10
+------
+
+* Use Percona Packages for Ubuntu and Debian
+* sets novnc endpoint uri to https if tls is enabled
+* Disable SSLv3 in Stunnel
+* Create 'neutron-router' image element
+* SELinux: Fix /mnt/state/var/log/keepalived context
+* Migrate ceilometer elements to svc-map
+* Adds svc-map to apache element
+* Adds svc-map to cinder elements
+* Default to the "scale" deployment mode
+* Add svc-map to cinder-api
+* Add ability to enable debug logging on seed
+* Support Debian distro for iptables
+* Make haproxy timeout configurable
+* Support new virtual\_interfaces definition for VIPs
+* Update Horizon to use NEUTRON instead of QUANTUM
+* Add ironic to enable-packages-install
+* Fix os-svc-install
+
+0.8.9
+-----
+
+* SELinux: swift denied access to /var/lib/swift/.local
+* SELinux: Fix keepalived killall denials
+* Install static element files
+* Add Ironic Discoverd setting to Tuskar-UI
+* Remove all first-boot.d references
+* Passthrough-enable ceilometer.conf
+* Migrate hard-coded values from deploy-ci-overcloud
+* Add Nova Admin access to neutron.conf
+* Associate default images to storage roles
+* Load the storage roles in Tuskar if they exist
+* Configure logging for keepalived
+* Secure the MySQL bind-address on the seed
+* Configures novnc proxy to listen on local-ipv4
+* Use --resource-registry parameter
+* Change initial state and failback policy for VIP
+* Revert "Install static element files"
+* haproxy global maxconn is less than default maxconn
+* Fix heat purge deleted cron job
+* Add initial svc-map support
+* Ensure correct permissions for /var/lib/mysql when dir is recreated
+* Fix DISTRO\_NAME usage for centos7 element
+* Keystone LDAP domain configuration
+* Install static element files
+* SELinux: allow openssl access to /run/keystone
+
+0.8.8
+-----
+
+* ensure that port is added to bridge after a reboot
+* Custom SELinux policy for rhsmcertd
+* Correct slo middleware position swift proxy-server pipeline
+* RHEL SELinux custom policy for neutron-ns-meta
+* Add package install support
+* SELinux: Allow swift access to ephemeral ports
+* Add network-gateway element
+* Make sure that keystonemiddleware package is installed
+* Add DEPLOYMENT\_MODE to local\_settings.py
+* Ensure tempest writes a full manifest
+* Passthrough enable heat.conf
+* Add swift.proxy-memcache metadata to proxy-server.conf
+* Fix memcache listen port setting on debian-based OSes
+* Handle static files properly
+* Symlink to backup dir until ephemeral storage available
+* Handle double path registration
+* Update Tuskar element
+* Updated tuskar-ui install to setup roles and various parameters
+* Fix selinux permissions for rabbitmq\_beam\_t on /var/lib/rabbitmq
+* Fix selinux permissions for non-primary MariaDB/Galera nodes
+* Enable the neutron dhcp and l3 agents
+* Fix here-doc completion marker
+* Add pkg-map to swift-ring element dependency file
+* Fix swift object-server cffi version mismatch bug
+* Add /var/log/rsyncd.log stateful path
+* Decrease squids cache max freshness time
+* Remove cinder configs from the seed config.json
+* RabbitMQ element requires use-ephemeral
+* Replace ensure-bridge w/ os-net-config
+* Add an element to install os-net-config
+
+0.8.7
+-----
+
+* Enable haproxy service in os-refresh-config phase
+* Extract stunnel from openstack-ssl
+* Adds Tuskar-UI element
+* Install seabios-bin on rhel7
+* Hash instance-id instead of expecting specific format
+* Allow custom root labels
+* Run django-admin collectstatic for horizon
+* Install ipset for the ml2 agent
+* Install the psmisc package in the keepalived element
+* Package install support for nova-ironic
+* Package install support for ironic-conductor
+* Package install support for ironic-api
+* Package install support for ironic
+* Enable automatic failover of l3 routers
+* Ceilometer package install support
+
+0.8.6
+-----
+
+* Run post-configure.d/15-apache2 earlier
+* Add SELinux policy for Horizon
+* Don't start keepalived service until required configuration is available
+* Use pkg-map for keystone source-install
+* Create the h1.ci flavor on ci-overclouds
+* Reduce resource requirements set aside for testenvs
+* Move tripleo-bm-test network to 172.16.0.0/22
+* added clean\_users flag in metadata
+* Install the correct arping package for neutron
+* Work around keepalived split brain
+* Configure NTP on hp1 TE's
+* Remove pinning of requests for os-collect-config
+* Link to volumes\_dir
+* Use auth\_token from keystonemiddleware
+* Explicitly set swift bind\_port(s) in .conf files
+* Add swift-ring element
+* nova: support setting scheduler\_host\_manager
+* Add rhel7-rdo-icehouse element
+* Add check\_mk swift proxy diagnostic
+* Drop all direct usage of systemctl enable
+* For Glance add port 9191 to the iptables list
+* Allow swift "min\_part\_hours" to be configurable
+
+0.8.5
+-----
+
+* Change pacemaker default no-quorum-policy to 'stop'
+* Enable and start httpd
+* Keystone/LDAP integration
+* On ubuntu break app logs into their own files
+* Refresh the glance images for squid and te-broker
+* Add openvswitch-datapath mapping for SUSE
+* Fix ansible element to build standalone
+* Pin requests to version < 2.4.0 due to bug
+* Remove localboot provides
+* Leave a symlink when to at /var/lib/cinder
+* Fix up os-collect-config.conf on the seed
+* Query os-refresh-config for base dir
+* Prevent httpd binding to 0.0.0.0
+* Only fixup horizon if installed from source
+* Move the creation of 10-horizon-venv-dir.bash to source-install
+* Run cinder-volume in active/passive mode for NFS backend
+* Add helper script for defining pacemaker resources
+* Symlink /etc/my.cnf instead of deleting it
+* Correct configuration of o-c-c collectors
+* Allow operator to disable Swift ring building
+* Update fedora-rdo-icehouse element
+* Add new enable-packages-install element
+
+0.8.4
+-----
+
+* Leave symlinks for RabbitMQ state paths
+* Workaround broken Horizon
+* Addition of basic ansible install
+* Move Cinder NFS backend driver config in cinder-volume-nfs element
+* Make use of openvswitch elements
+* Add openvswitch-datapath mapping for redhat
+* Update Neutron plugin conf file reference
+* Install files properly
+* Remove hardcoded version
+* Revert "Add workaround for reloading haproxy on Fedora"
+* PEP8 on the doc and elements files
+* Fix prepare-ci-overcloud floating IP handling
+* Add security group rules to tripleo-ci/default
+* Fix diff return code in hosts element
+* Link to ml2\_conf.ini
+* Use neutron-rootwrap from /usr/bin
+* Run dbsync commands with service user
+* Revert "Pull in patched eventlet to fix Second Simultaneous errors"
+* Improve percona cluster initialization
+* fix: test\_os\_svc\_daemon.py
+* Fix issues with provider networks and public ips
+* Add hp2 region
+* Adding HTTP mode to HAProxy stats
+* Depend on use-ephemeral
+
+0.8.3
+-----
+
+* Remove hard-coded ports form ring builder script
+* Revert "Use pacemaker to run neutron l3 agent and metadata agent"
+* mariadb: call os-svc-enable
+* Add workaround for reloading haproxy on Fedora
+* Revert "Revert "Adding haproxy reload check""
+* We deploy CI clouds HA, use HA storage in swift
+* Modify symbolic link creation
+* ssl-ca: Allow CA certificate to be specified
+* Add pkg\_map support to openvswitch elements
+* Fix mysql element on centos7
+* Network init order fixes for VIP
+* Keepalived reload check addition
+* Revert "Fix argparse issue for RHEL 6.5."
+* Don't allow swift-recon cron job to send mail
+* Set cinder\_catalog\_info in nova.conf
+* Use pacemaker to run neutron l3 agent and metadata agent
+* Use pacemaker for running ceilometer central agent
+* Try to start neutron-server first
+* Fix pacemaker cluster configuration
+* Fix ml2\_conf.ini passthru comments
+* Support for haproxy server options
+* Using arithmetic transformers in pipeline
+* Fix /etc/nova permissions
+
+0.8.2
+-----
+
+* Revert "Adding haproxy reload check"
+* Fix l3.filters and dhcp.filters file for tripleo installations
+* Hosts element: Use 'markers' for updating hosts
+* Add rdo-icehouse element
+* Use ml2\_conf.ini in neutron-openvswitch-agent
+* Prefer rabbit.host over rabbit.nodes
+* Fix /var/run SELinux file contexts
+* Allow arbitrary listener options for haproxy
+* Add rdo-release element
+* Ensure Cinder uses the VIP when contacting Glance
+* Custom policy for nova-api tmpfs errors
+* Custom policy for ssh-keygen failure
+* Enable haproxy\_connect\_any port access
+* Allow keepalived to load kernel modules
+* Compile and install custom SELinux policies
+* Fix dib-lint failures
+* Add new multipath element
+* Pull in patched eventlet to fix Second Simultaneous errors
+* Adding haproxy reload check
+* Reserve the keystone high port out of ephemeral
+* Add passthrough to etc/swift.conf
+* Bump the size of the squid cache\_dir
+* Move te-broker default IP address to 1.254
+* Add script to prepare a ci-overcloud
+* Fix Fedora builds on Ubuntu
+* HP1 region deploy config fixups
+* Additional SELinux scripts
+* Set the MAC address for ensure-bridge bridges
+* Use keystone.host in stackrc
+* mysql: call os-svc-enable
+* Add detection of mysql restart failure
+* Permit non-loopback guest access to Rabbit
+* Support init.d-using services in os-svc-enable
+* Correct SELinux file contexts
+* Load SELinux policy during image builds
+* Fix /etc/hosts SELinux file context
+* Add a hp1 region configs
+* Permit specification of host in stunnel templates
+* Run migrations from only the bootstrap host
+* Move python-memcached install after venv install
+* openvswitch and openvswitch-datapath element
+* Add proxy-logging to proxy-server pipeline
+* Prevent multiple MySQL masters
+
+0.8.1
+-----
+
+* Move libvirt's qemu configuration dir to state fs
+* Create/configure cinder's image\_conversion\_dir
+* Revert "Move libvirt's qemu configuration dir to state fs"
+* Make use of ip route replace in ensure-bridge
+* Add new sosreport element
+* Fix argparse issue for RHEL 6.5
+* Revert "Adds passthrough config for cinder rootwra
+* Rename mariadb-rdo to mariadb-rpm
+* Move rabbitmq-server cluster port
+* Add local\_bind flag to my.cf
+* Add /usr/local/bin to cinders rootwrap.conf
+* Read glance protocol, port for glance\_api\_servers
+* Remove references to os-config-applier
+
+0.8.0
+-----
+
+* Use /simple instead of /openstack for pypi mirror
+* Add a sysctl-append-value script
+* Shift sysctl.d writing code to a new script
+* Update the cinder-lio element to use the venv dir
+* cinder-volume: install qemu-img for conversions
+* Make 74-cinder-tgt executable
+* Add psmisc package to ironic-conductor
+* Adds passthrough config for cinder rootwrap
+* Passthrough-enable for nova-<service>.conf
+* add support for Horizon's caches backend configuration (memcached)
+* Move libvirt's qemu configuration dir to state fs
+* Rename os-config-applier to os-apply-config
+* Use corosync.nodes when creating list of nodes in corosync cluster
+* ensure-bridge: bring up bridges first on Debian
+* Sync ml2 vlan ranges with ovs agent
+* Add getopt to ensure-bridge
+* Auto-collect local checks
+* Fix ceilomter-api bind host config settings
+* Force heat\_local collector on seed first boot
+* Log tripleo services to syslog
+* Allow single node mysql clusters to restart
+
+0.7.11
+------
+
+* Move python-netaddr install to network-utils
+* Sync mariadb cluster init with mysql element
+* Add nova url to neutron.conf
+* Specify nova configuration file with --config-dir
+* Add debug and verbose log support for Ironic
+* Unbreak Ironic default logging
+* Syntax fix the keepalived docs
+* Allow ha\_mode to be set
+* Update mysql element to work better with OpenSuSe
+* Add os-iptables-stateful script for managing iptables
+* Remove source-repositories from element-deps
+* Add stats service to haproxy
+
+0.7.10
+------
+
+* Add ulimit nofile config for rabbitmq
+* Use DISTRO\_NAME rather than unbound DISTRO
+* Add heat support to os-collect-config.conf
+* Templatize keystone ssl keys/certs
+* Correctly set swift proxy bind ip
+* RabbitMQ element: Move /var/run/rabbitmq
+* Refresh heat-cfntools element
+* Prepare os-\*-config for CI
+* Check if stunnel.connect\_ip is set
+* Switch from upstart to os-refresh-config for MySQL server-id's
+* use os-svc-enable to enable openvswitch
+* Add unit test to enforce unique file names
+
+0.7.9
+-----
+
+* Enable collectl on systemd OSes
+* Enable ip nonlocal binds
+* Adds local storage Boot support on PXE failures
+* Add CM signing directory for keystone client
+* 10-mysql was missing -u
+* Do not use cat in sysctl-set-value
+* Update openstack services to listen on stunnel connect port
+* Don't restart mysql during reset-db
+* Update to use flavor\_extra\_specs
+* MySQL: Enable passthrough configuration
+* Add config passthrough support for ironic
+
+0.7.8
+-----
+
+* Enable cinder.conf passthrough configuration
+* Add keepalive option to rabbitmq config
+* Add os-is-bootstrap-host element and script
+* Drop some unnecessary lsb\_release calls
+* Configure neutron-ovs-cleanup to run after openvswitch
+* Update mysql cluster.cnf to match heat templates
+* MySQL Element: Make userhandle an optional paramater
+* indent using 4 spaces (1/3)
+* Fall back to keystone-manage if pt-archiver isn't available
+* Fix sed regex from deleting old configs
+
+0.7.7
+-----
+
+* Enable rsync daemon on swift-storage
+* Explicitly specify mysql node address
+* Update bootstack to use sysctl-set-value
+* Name sysctl.d files with .conf
+* Store swift data, db & objects on /mnt filesystem
+* Name 03-mariadb files uniquely
+* Configure passthrough in swift config files
+* Name disable-requiretty files uniquely
+* Allow install mariadb from RDO repository
+* Enable additional neutron passthrough configuration
+* Make the image name configurable
+* Add missing +x
+* Start openvswitch-switch early in upstart
+* Fix the nova.conf mustache template
+* Prevent duplication of net\_binds per service
+
+0.7.6
+-----
+
+* Change horizon binding address to local-ipv4 in haproxy case
+* Use except x as y instead of except x, y
+* Use sysctl -p instead of --load
+* Workaround Heat not handling token expiry
+* Storing SNMPd credentials in Ceilometer
+* Properly enabling and restarting snmpd
+* Added dependencies to install ceilometer
+* rabbitmq-server depends on os-svc-install
+* Install lsof during Percona install
+
+0.7.5
+-----
+
+* Standardise manifest creation and retrieval
+* Explicitly add the parted package
+* Add swiftclient library to swift
+* Allow multiple binds per service in haproxy
+* indent using 4 spaces (3/3)
+* indent using 4 spaces (2/3)
+* Ironic: set my\_ip equal to local-ipv4 (if present)
+* Installing ssl-cert package as apache element requires it
+* Prevent tftp sysv init script from firing
+* Fix a pep8 error in tempest/tests2skip.py
+* Ceilometer Config element for custom pipeline
+* Enable neutron.conf passthrough configuration
+* Glance: Enable passthrough configuration
+* Issue in openstack-client that stops nova being in a common-venv
+* Fix missing reference to ceilometer sources.json file
+* add some missing “set -ue” declarations
+* Provide a way to set user permission for rabbitmq users
+* Update icinga install script to enable icmp checks
+* Fix ironic api port in nova element
+* Error out when complete waitcondition fails
+* Fix permissions on ironic virtual pm key
+* Passthrough-enable keystone.conf
+* HA-Proxy element-deps on sysctl
+* Install libffi-dev in heat element
+* Revert "Remove auth\_strategy from nova.conf"
+* Enable additional ml2\_conf.ini configuration
+* Use version dir, not LATEST for Percona d/l path
+
+0.7.4
+-----
+
+* Allow nova to use different configuration files
+* Ensure rabbitmq can be successfully restarted
+* Document config properties in haproxy element
+* Add a squid element
+* element for installing Trove-API service
+* base element for trove control plane elements
+* Adding collectl element
+* Allow users to use swift out of the box
+* Add pacemaker and corosync as tripleo elements
+* Explicitly set Ironic's enabled drivers list
+* Add IPv4 flag for Ironic's TFTP setup
+* Add support for whitelist to tests2skip
+* Revert "RabbitMQ - Increase restart timeouts"
+* Allow heat to set postfix relayhost value
+* Fix rabbitmq-server selinux labeling
+* MySQL: Support Debian in libssl-symlink
+* Create ~/.my.cnf with root user/password
+
+0.7.3
+-----
+
+* MySQL: Ensure libssl-symlink corrects exits on failure
+* Revert "Provide an override level for os-apply-config"
+* Fix galera stomping on boot-stack initialization
+* Fix networking on the control node after reboot
+* Fixing typo
+* Allow tempest tenant isolation
+* Fixup HP region testenv config
+* Deploy the ceilometer api\_paste.ini file
+* Adding -x to keystone orc scripts
+* MySQL: Support more than 2 cluster members
+* Refactor nagios3 element to refresh more often
+* Add rally element
+* Use the more common os\_ names for novaclient
+* RabbitMQ - Ensure node name comparisons are case insensitive
+* Remove auth\_strategy from nova.conf
+* Change URL to get-pip.py
+* Set more install types to package
+
+0.7.2
+-----
+
+* Provide an override level for os-apply-config
+* Fix /var/lib/mysql selinux labeling
+* MySQL element - correct os-svc-restart arguments
+* Create haproxy chroot directory if necessary
+* sort the element-deps to please dib-lint
+* haproxy make element balance type configurable
+* RabbitMQ - Increase restart timeouts
+* RabbitMQ - Consistent PID file location
+* Make bin/ensure-bridge executable
+* Haproxy should listen only on vip
+* mysql-common requires python MySQLdb
+* Add a new common-venv element
+* Horizon: dynamically set config time env vars
+* Openstack-clients: don't hard code venv
+* Wire in \_EXTRA\_INSTALL\_OPTS..
+* Make python2.6 tests a noop
+* Remove out of date CI docs
+* Create stub for build\_sphinx
+* Make nova-novncproxy usable in a public cloud
+* Get the test env overcloud password from the correct place
+* Glance: Fix typo in notifier-strategy
+* Passthrough-enable nova.conf
+* A sysctl element to manage settings via sysctl.d
+* Place swift-servers in appropriate zones
+* Drop gearman. (We use geard instead)
+
+0.7.1
+-----
+
+* Create and set correct permissions on directories
+* Ensure the (block) loop device is available
+* Add notty file for Ironic
+* Get use-pip-manifest to ignore '-e' dev versions
+* Prevent stand-alone tftpd on Debian
+* Db-sync the Ceilometer database
+* debian: use os-svc-enable to enable apache
+* Make cinder-tgt/lio depend on cinder-volume
+* Add cinder-lio element
+* Factor out tgt-specific parts of cinder element
+* Disable log\_queries\_not\_using\_indexes in my.cnf
+* Make innodb pool size configurable
+* Move files common for mysql and mariadb under mysql-common
+
+0.7.0
+-----
+
+* Document the required mysql config values
+* Update write-pip-manifests pip freeze to use -l
+* Remove unnessary logging conf files from Ironic elements
+* Failure in rabbitmq os-refresh-config on master
+* Update neutron's selinux policies
+* Fix libssl/crypto symlinks on Fedora
+* Move dnsmasq-neutron.conf into subdir
+* Activate venvs in os-\*-config elements source install
+* refresh-completed always failing
+* Openvswitch 2.1 removes openvswitch-controller
+* RabbitMQ - Support clusters with more than 2 nodes
+* RabbitMQ - Correct rabbit.users metadata sample
+* Add support for controlling concurrency
+* Fix ssl link for percona on i686
+* Update percona xtradb-cluster package
+* Rabbit startup on Debian is currently broken
+* Changed the default rolename from Member to \_member\_
+* Nova: disable scheduler debugging
+* Enable Galera clustering
+* Fixup testenv config for interface names
+* Update swift's selinux policies
+* Fix ironic api and conductor logging
+* Add swift-get-nodes, swift-recon and swift-recon-cron
+
+0.6.5
+-----
+
+* Create and use libvirtd group for package install
+* Make MySQL root password configurable
+* Remove mostly empty directories
+* Read default\_ephemeral\_format from nova.conf
+* Excplicitly install dhcp-agent
+* Fix permissions on files in /etc/mysql
+* Relabel /tftpboot if selinux is used
+* Install bridge-utils on compute nodes
+* Make tripleo-cd's te\_localrc to support controller
+* Performance tweaks for testenv deploy script
+* reset-db restarts mysql only when a change is made
+* Prevent network interface logging w/ ovs agent
+* Add support for "signals" to os-refresh-config
+* Adding baremetal guard to RamWeigher
+* The MySQL element requires the os-svc-install element
+* Add unit tests for os-svc-daemon
+* Enable unit testing
+* Fix tgt target in cinder element
+* Stop using all ports option w/ neutron-ovs-cleanup
+* Refactor ensure-bridge for persistance
+* Secure the mysql installation
+* Allow setting of compute configuration options
+* Ensure the swift ring is readable by swift
+* Update keystone's selinux policies
+* Update glance's selinux policies
+* Update nova's selinux policies
+* Remove swift container sync service
+
+0.6.4
+-----
+
+* Install the check\_mk Agent
+* Adds mariadb element
+* Adds mysql-dev and mariadb-dev elements
+* Adds mysql-common element
+* Drop dnsmasq\_range from the seeds config.json
+* Glance: Allow configuring default\_log\_levels
+* Enable os-collect-config for the package install
+* Add fedora-rdo-icehouse element
+* Add no-op cinder-tgt element
+* Add mysql-mariadb-compat element
+* Allow os-svc-daemon to specify dir name with -d option
+* Add support to deploy-testenv for multiple environments
+* Glance: Change seed json to use config hierarchy
+* Expose dnsmasq options
+* Create pip manifest files of installed packages
+* Fixup Ironic support
+* Permit overriding the nova compute manager
+* Ensure the nova element is installable
+* Explicitly install pbr via pip
+* Add a softlink for /var/log/mysql
+* Wire in OPENSTACK\_VENV\_DIR default if set
+* Update elements to use os-svc-install -i
+* Update elements to use os-svc-daemon -i
+* Add -i options to os-svc-install/os-svc-daemon..
+* Adding more .deb dependencies for pypi-mirror on 13.10
+* Add missing +x
+* Don't install percona-toolkit if distro is RHEL7
+* Configure uri\_v3 auth url
+
+0.6.3
+-----
+
+* Update selinux policies for mysqld
+* Make os-refresh-config install.d hook run later
+* qpidd user should own sasldb file
+* Inject admin username and tenant name in config
+* Always create o-a-c's $TEMPLATE\_ROOT
+* Setting negative RamWeigher
+* Custom service file is not needed for qpidd on systemd based hosts
+* Use xtradb-cluster in place of mysql
+* Install python-keystoneclient in the swiftclient venv
+* os-\*-config package install support
+* Treat failure to hear back from neutron as non fatal
+* Remove many references to github
+* Install Ironic and IronicClient in to nova's venv
+* Add link for Ironic rootwrap
+* Change nova scheduler driver location
+* Correct permissions on /tftpdboot/pxelinux.cfg directory
+* Heat/Horizon/Tempest: don't hard code venv dir
+* Ceilo/Ironic/Tuskar: don't hard code venv dir
+* Glance/Cinder/Keystone/Swift: don't hard code venv
+* rsync configurations to support multi-node swift
+* Install libffi-dev in the glance element
+* Adds NFS backend support for cinder-volume
+* Use os-svc-restart in boot-stack reset-db
+* Glance: Add configuration hierarchy
+* Neutron: don't hard code the venv dir
+* Drop the os-svc-install -n -c options
+* Nova: don't hard code the venv dir
+* Link db sync utilities to /usr/local/bin..
+* Stop using the os-svc-install -n -c options
+* List filesystem and swift as known glance stores
+* Use upstream/package keystone-paste.ini
+* Restrict deletion of packaged files to Fedora like packages
+* remove keystone-signing dir creation
+* Add +x to executable files
+* Fix flake8 failures
+* Make log\_file and notifier\_strategy configurable
+* Install latest version of pip and virtualenv
+* Fix compatibility link creation for mysql.sock on openSUSE
+* Adds nfs-server element
+* Enable iscsid on openSUSE
+* Additional services to support multiple swift storage nodes
+* Work around missing kombu requirement for keystone
+* Fix formatting of yaml in heat/README.md
+* Linking to debian apache site config more like debian
+* Add missing package dependencies for horizon
+* Add missing +x
+* Add create-dir service for neutron ovs agent
+* Remove unneeded chown of /var/run/nova
+* Use os-svc-restart for cinder-api
+* Common cinder install code
+
+0.6.2
+-----
+
+* Add set -eux
+* Install lvm2 package for cinder
+* Fix typo
+* Add fedora-rdo-icehouse element
+* Use local apt and pypi mirror for tripleo-cd
+* Revert "Workaround broken Neutron requirements."
+* Update openstack config files to support rabbitmq cluster
+* Fix rabbitmq env file name and log path
+* Add cluster support for rabbitmq element
+* Revert "Seed specific Fedora network configuration"
+* Configure horizon when using /etc/apache2
+
+0.6.1
+-----
+
+* Run neutron-db-manage on reset-db
+* Glanceclient now needs libffi-dev to install
+* Fixes links in README.md
+* Don't use /cgit/ urls for git
+* Fixing error in readme
+* Fix neutron package install
+* nova-kvm: configure /etc/sysconfig/libvirtd
+* Enable live block migration for libvirt
+* Stop using deprecated libvirt\_type setting
+* Restart libvirt-bin when reconfiguring
+* Update neutron config to use multiple dhcp agents
+* Add missing +x
+* Add create-dir service for nova
+* Add create-dir service for neutron
+* Ability to add \*-create-dir service separately
+* Glance: Add 'db' to README.md
+* Glance: make 'workers' configurable
+* Workaround broken Neutron requirements
+* Update keystone config to use external paste.ini
+* Fixup tripleo-cd fallout from the CI push
+* Locally override bad keystone default
+* Set default\_ephemeral\_format to ext4 for seed
+* Nova-baremetal support for openSUSE
+* Install syslinux also in nova-baremetal
+* Remove no longer needed generation of the virtual-power-key
+* Look for local.json in preference to config.json
+* Inject rather than read-out the virt power key
+* Rename Openstack to OpenStack
+* Remove file injection settings from nova.conf
+* Parameterize geard broker and test env public interface
+
+0.6.0
+-----
+
+* Parameterize ci-overcloud endpoint for deploy-testenv
+* Move init-neutron-ovs to bin dir in src tree
+* Seed specific Fedora network configuration
+* Remove rabbitmq-server from boot-stack's element-deps
+* Add a script to deploy the ci-overcloud
+* Libvirt configuration for migrations in nova
+* Use rfc compliant example data in hosts element
+* Neutron keystone-signing dir should be 0700..
+* Fix misspellings in tripleo-image-elements
+* keystone crontab PATH needs /usr/local/bin
+* Move cinder-volume creation to post-configure
+* Install systemd service files into /usr/lib/
+* Fix os-svc-restart to exit correctly without -n
+* os-svc-enable should error when no svcname given
+* Add needed swift storage dirs for packaged install
+* Install openstack-swift-object
+* Add package install support to cinder
+* Fix cinder-volume: service is called tgt
+* Add username to rabbit in local heat metadata
+* Account for amd64 architecture in snmpd element
+* Fix python-ceilometerclient package install
+* Use new cleaner setting for OVERCLOUD\_LIBVIRT\_TYPE
+* Permit setting ml2 flat networks in Neutron
+* os-config-applier->os-apply-config for Neutron
+* Permit injecting entries into /etc/hosts
+* Fix use of os-svc-restart in cinder
+* Package install support for python-ironicclient
+* keystone package install support (openSUSE)
+* Add a helper to deploy testenvironments
+* Document shortcomings of pypi-openstack element
+* Fix psutils failing to install for heat-cfntools
+* Fix mysql element on Fedora 19
+* Add dependency on source-repositories
+* Stop adding qpid to heat requirements
+* Install packages required to build clients
+* Fix editing of systemd files on openSUSE
+* Install openstack-neutron-ml2
+* Move heat-manage call to heat-engine
+* Force UTF-8 charset and collation for MySQL
+* Delete stale file injection option
+* Disable libvirt file injection
+* Source devtest\_variables in tripleo-cd
+* Add nova-ironic element to replace nova-baremetal
+* Fixes tgtd restart in cinder element
+* Fix mysql installation on openSUSE
+* Fixes heat-cfntools install
+* Fixes authentication for cinder
+* SSL support for openstack services
+* Add a debian-mirror element
+* Fix exit status of haproxy install script
+* Install glance-manage into /usr/local/bin
+* Add package install support to glance
+* Install heat-manage into /usr/local/bin
+* Add package install support to heat
+* Add package install support to horizon
+* Install keystone-manage into /usr/local/bin
+* Add package install support to keystone
+* Add package install support to neutron
+* Ensure correct tftp directory ownership for Ironic
+* Updates permissions on 97-mysql-iptables
+* Moving iptables rules to the relevant elements
+* Configure glance to use the internal swift endpoint
+* Remove deprecated option
+* Preserve keystone tokens on rebuilds
+* Move keystone os-config-applier to os-apply-config
+* Install nova-baremetal-manage into /usr/local/bin
+* Install nova-manage into /usr/local/bin
+* Add package install support to nova
+* Add package install support to novnc
+* Add package install support to openstack-clients
+* Do not drop databases without a good reason
+* Revert "Add package install support to openstack-clients"
+* Enable xinetd service
+* Add package install support to swift
+* Add package install support to openstack-clients
+
+0.5.1
+-----
+
+* Fix rabbitmq-server script on Ubuntu
+* Make nova and nova-kvm elements more compatible
+* Add os-svc-restart
+* Enable the nova v3 api
+* Make neutron-openvswitch-agent run cleanup
+* Fixes cinder element dependencies
+* Move cinder iptables rules into scoped elements
+* Add Ceilometer elements
+* Remove --system-site-packages from clients virtualenv
+* Updates gearman iptables rule
+* Updates boot-stack iptables file
+* Updates iptables rule for MySQL element
+* Updates cinder iptables rules
+* Replace /var/lib/mysql path in the upstart script
+* Adds iptables element
+* Fixes for use behind proxy
+* Add haproxy element
+* Preserve 'did we init openstack' state file
+* Disable uncompressed images for tripleo-cd
+* Install environment and templates for heat-engine
+* Sync with global requirements
+* Don't install scripts straight to /usr/local/bin
+* Remove extra shebang from boot-stack-logs file
+
+0.5.0
+-----
+
+* Fix broken iptables command in cinder
+* Updates nova notty file
+* Add iptables rule for Ironic in Fedora
+* Updates gearman iptables file
+* Updates cinder element
+* Update apache2 to use the os-apply-config dir
+* Add new neutron-ovs-cleanup element
+* Don't install git-core
+* Don't install python-pip
+* Install os-refresh-config from release into a venv
+* Install os-collect-config from release into a venv
+* Add lock\_path to neutron.conf
+* Enable horizon support on debian-based platforms
+* Enable mariadb service
+* Add keepalived element
+* Don't chown /var/lib/misc/
+* WIP: Make rabbitmq-server keep state in /mnt/state
+* Make neutron element preserve state
+* Modify glance element to preserve state
+* Restrict mode of os-collect-config.conf
+* Use bash in mysql element install script
+* Make nova preserve state in /mnt/state
+* Install openvswitch-switch
+* Remove unneeded /var/run/nova/keys from install
+* Use [client] instead of [mysql] in my.cnf
+* Install link to mysql unix socket
+* Only move mysql data files if they exist
+* Allow setting nova default\_ephemeral\_format
+* Pin virtualenv to 1.10.1 to work around pip bug
+* Enable mysqld service in mysql element
+* Restart mysql during o-r-c post-configure
+* Use mysql element in boot-stack
+* Initialize underlying database files
+* Remove any accidental extra /etc/my.cnf
+* Remove obsolete haveged and clean-apt from mysql
+* Remove mysql debian-sys-maint user
+* Make mysql.create-users section optional
+* Add ephemeral state preservation support to mysql
+* Don't compress disk images for tripleo-cd
+
+0.4.3
+-----
+
+* Set DIB\_COMMON\_ELEMENTS for devtest\_overcloud.sh
+* Fix arguments in call to os-apply-config
+* Work around broken cloud-init ephemeral disk code
+* Add tempest element
+* Fix building mysql element on non-upstart systems
+* Configure os-collect-config on seed properly
+* Fix the grub2 config location for non Ubuntu/Debian systems
+* Add quotes around $DISTRO
+* Do not install unneeded python-zmq package
+* Set the correct path to os-collect-config
+* Create network-utils element
+* Neutron: make logging configurable..
+* Cinder: make logging configurable..
+* Heat: make logging configurable..
+* Fix cinder migration script logic error
+* Nova: make logging configurable..
+* Keystone: make logging configurable..
+* Need tgt for cinder
+* Fix use-ephemeral rsync of directory
+* Make cinder buildable stand-alone
+* Make cinder loopback config idempotent
+* Filter out LVM block devices for cinder
+* Remove notifier\_strategy config from glance-api
+* Export OS\_SVC\_ENABLE\_CONTROl in upstart jobs
+* Fix os-svc-daemon missing env in upstart jobs
+* Fix cinder element to make volumes persistent
+* Fix closing cinder.keymgr tag
+
+0.4.2
+-----
+
+* Use upstream policy.json for heat
+* Use upstream policy.json for cinder
+* Use upstream policy.json for keystone
+* Glance: use upstream schema-image.json
+* Glance: make logging configurable..
+* Try to list heat overcloud stack events after run
+* Consolidate rootwrap settings for neutron element
+* Don't enable services in os-svc-install
+* Enable some services after installing daemon's..
+* Call os-svc-enable in post-configure.d
+* Enable services with os-svc-enable
+* Add extra swift features
+* Add a service enable/disable mechanism for upstart
+* Set auth\_uri for keystoneclient authtoken
+* Use upstream Glance paste configs
+* Adds cinder.keymgr.fixed\_key to cinder element
+* Remove bash -x mode in parts of tripleo-cd.sh
+
+0.4.1
+-----
+
+* Remove dup firewall\_driver when using bm driver
+* Switch quantum -> neutron in the README.md
+* Use openstack.common Nova rpc modules
+* Need libssl-dev to install glance standalone
+* Add an ntp element
+* Add diskimage-builder element
+
+0.4.0
+-----
+
+* Correct tox -e pep8 failed items
+* Updates .gitignore
+* Correct os-refresh-config README.md typo and format
+* Add some more details about os-collect-config
+* Fix typo with tripleo-cd systemd unit
+* Throttle tripleo-cd.sh
+* Use upstream nova policy.json
+* Add default to metadata in 99-refresh-completed
+* Make generic waitcondition for os-refresh-config
+* Add element for tripleo-heat-templates
+* Fix building of overcloud compute node image
+* Clarify that boot-stack isn't only for baremetal
+* Use policy.json from neutron git tree
+* Log pypi-mirror cron job output to syslog
+* In tripleo-cd log hardware to instance map
+* Update nova-kvm to destroy the default libvirt net
+* Adding a geard element
+
+0.3.0
+-----
+
+* Fix PATH in pypi-mirror cron job
+* Refactor reset-db so we don't sync by default
+* Use upstream glance policy.json
+* Add cinder to the list of installed clients
+* Open up gearman server port
+* Run DB sync in keystone element post configure
+* Run DB sync in tuskar-api element post configure
+* Run DB sync in ironic-api element post configure
+* Run DB sync in cinder element post configure
+* Run DB sync in heat-api element post configure
+* Run DB sync in glance element post confgure
+* Run DB sync in nova-baremetal element post conf
+* Fix neutron credentials in nova config file
+* Use os-apply-config everywhere
+* Remove the systemctl daemon-reload commands
+* Switch from quantum to neutron in nova.conf
+* Support building wheels (PEP-427)
+* Adding element to install the gearman job server
+* Use swift as a backend to glance
+* Update swift element to install from source
+* Switch novato the upstream api-paste.ini
+* Run DB sync in nova-api element post configure
+* Use DIB\_INIT\_SYSTEM for systemd checks
+* Use the heat upstream api-paste.ini config
+* Use the neutron upstream api-paste.ini config
+* Add element to install memcached
+* Use dib helper script to determine init system
+* Use openstack git repos when possible
+* Fix the stale URL of devtest doc in boot-stack
+* Use the cinder upstream api-paste.ini config
+* Fix config of ML2 plugin in neutron element
+
+0.2.0
+-----
+
+* Add swiftclient to list of installed clients
+* Remove native\_pxe option
+* Adding ml2 support to baremetal
+* Remove stale comments
+* Build 64-bit images for the tripleo-cd overcloud
+* Add Horizon element
+* add python-ironicclient to openstack-clients
+* Add Ironic elements
+
+0.1.0
+-----
+
+* Rename heat\_watch\_server\_url to watch\_server\_url
+* Switch seed vm to Neutron native pxe
+* Reload Apache config in one place
+* Add Fedora support for Apache 2
+* Add tftp support for Fedora
+* Fix processing of routes in init-neutron-ovs
+* Add use\_file\_injection key to nova config file
+
+0.0.4
+-----
+
+* Improve Keystone logging
+* Introduce support for persistent state in /mnt
+* Fix tuskar image element config file
+* Use nova.conf for auth\_token configs
+* Use cinder.conf for auth\_token configs
+* Make tuskar element supply tripleo-heat-templates
+
+0.0.3
+-----
+
+* Utilize pypi-mirror from tripleo-cd
+* Fix a typo in tuskar element config file
+* Use kvm for the cd-overcloud
+* Support working with neutron host-routes
+* Document tripleo-cd configuration
+* Remove obsolete docs about iptables
+* Switch to using refresh-env
+* Set nova's default\_floating\_pool setting
+* Remove readable permissions for "other"
+* Add purge\_deleted cron job to heat-engine
+* Make pypi-mirror use pypi-mirror repo
+* Fix quoting in tripleo-cd.sh
+* Setup overcloud user and administrative accounts
+* Correctly report errors
+* Pass in the CD overcloud floating net details
+* Setup CD overcloud public networking
+* Handle setting a new default route
+* Support configuring a VLAN on the public network
+* Notify IRC when tripleo-cd completes
+* Signal on configuration completion
+* Display commands when running reset-db
+* Make pypi-mirror more secure and robust
+* Make tripleo-cd use local stackrc
+* Add an element installing tuskar API service
+* Conditionally set my\_ip
+* Fix URL to tripleo-heat-templates repository
+* Update the test environment on each loop
+* Set my\_ip for nova
+* Element to build and maintain local pypi mirror
+* Pass intended TRIPLEO\_ROOT to setup-env
+* Make tripleo-cd install.d script executable
+* Add a tripleo-cd for CD deploying an overcloud
+* Allow the gre protocol on overcloud
+
+0.0.2
+-----
+
+* Align build files and requirements
+* Fix another remaining use of PIP\_INDEX\_URL
+* Fix region name in neutron metadata\_agent
+* Remove the first-boot.d script from jenkins
+* Set the seed nodes host name to 'seed'
+* Switch to using a dedicated TFTPd for baremetal
+* Allow enabling Neutron orchestrated PXE
+* Delete duplicate section in nova.conf
+* Update OpenStack services to support qpidd element
+* Disable debug in cinder.conf
+* Disable log debug in keystone.conf
+* Disable debug in glance-api.conf
+* Disable debug logging in neutron
+* Add missed file
+* Move dnsmasq install into appropriate elements
+* Fix missing nova database.connection
+* Note where nova-bm-dnsmasq is obsolete
+* Split out nova-bm-dnsmasq
+* Split neutron-dhcp-agent into it's own element
+* Remove debug and verbose config from nova.conf
+* Remove restart of iscsi services
+* Update nova.conf to use [database] connection=
+* Fix doc. pointing to correct binary
+* Specify LIBVIRT\_DEFAULT\_URI for nova-compute os-svc-install
+* Allow environment be specified for os-svc-install
+* Ignore junk os-config-applier templates
+* Use full namespace in variables in heat.conf
+* Allow packet forwarding for Fedora
+* Add a qpidd element
+* Move to new single heat.conf model
+* Remove obsolete global service password
+* Add per-nova service password
+* Add glance service password
+* Switch to a per-cinder service-password
+* Fix badly scoped Neutron parameters
+* Fix bad JSON in seed-stack-config/config.json
+* Configure a Neutron specific service password
+* Make boot-stack's stackrc be metadata driven
+* Don't use admin credentials in bootstack
+* Stop doing complex keystone intialisation
+* Drop creation of demo tenant/user
+* Stop hard-coding the OpenStack PyPI mirror
+* Add an OpenStack PyPI mirror element
+* Drop deps on heat-cfntools
+* Update Heat api-paste.ini from upstream
+
+0.0.1
+-----
+
+* Fix dir install location in o-r-c README
+* Add os-apply-config to os-collect-config deps
+* Remove inaccuracy from heat-cfntools README
+* Remove orc/oac from heat-cfntools dependency chain
+* Add Ironic database creation to boot-stack
+* Removing tabs
+* Upgrade setuptools to 1.10 or more in a newly created virtualenv
+* Remove static NS resolution from seed image
+* Stop registering endpoints in-instance
+* Use source-repository interface in neutron element
+* Remove neutron workaround
+* Use the correct url to openstack pypi mirror
+* Allow access to HEAT cfn and cloudwatch api's
+* Update stackforge references to openstack
+* Drop heat-localip
+* Don't double-restart nova-api
+* Don't double restart glance-\* services
+* Remove unneeded roles
+* Remove invis-to-admin initial tenant
+* Assume we always have /etc/keystone/keystone.conf
+* Drop EC2 credential generation from init-keystone
+* Capture our heuristics for configuration
+* Use o-r-c instead of first-boot.d for iptables
+* Remove nova-compute from boot-stack dependencies
+* Install kpartx for nova-kvm
+* Update network configuration for overclouds
+* Set a bridge id for external bridges
+* Move the metadata NAT rule to nova-baremetal
+* Setup ovs bridges before we start services
+* Remove in-instance network policy configuration
+* Remove deprecated and unused nova setting
+* Permit using different libvirt hypervisors
+* Increase PXE deploy timeout
+* Note that the included stackrc shouldn't be
+* Allow for alternative grub config file
+* Install libz to make os-collect-config buildable
+* Switch heat-cfntools element from git to pip install
+* Fix cleanup-keystone-tokens.sh to actually work
+* Update cfn-init-data path to match current Heat
+* Purge serial console after grub is installed
+* Package with pbr
+* Handle distribute -> setuptools migration
+* Install os-apply-config in a virtualenv
+* Bootstrap os-collect-config during image build
+* Rename and fix os-collect-config config template
+* Replace cfn-hup cron job with os-collect-config
+* Improve snmpd element
+* Refine regex that converts localip
+* Install wget in the heat-localip element
+* Use source-repository interface in openstack-db
+* Update postfix element per install instructions
+* Add an os-collect-config element
+* Add an element that enables the SNMP daemon
+* Use source-repository interface in clients element
+* Use source-repository interface in novnc element
+* Use source-repository interface in devstack element
+* Use source-repository interface in orc element
+* Use source-repository interface in nova element
+* Use source-repository interface in glance element
+* Use source-repository interface in keystone element
+* Use source-repository interface in cinder element
+* Use source-repository interface in heat element
+* Do not automatically start os-refresh-config
+* Remove os-refresh-config call from wipe-openstack
+* Configure polkit to allow nova to use libvirt
+* Fedora firewall changes
+* Fix nova-bm-dnsmasq.service
+* Add "install from directory" to os-svc-install
+* Reinstate architecture binding for nova-bm
+* Stop creating disk images during wipe-openstack
+* Improve openstack-clients element
+* Fix neutron-openvswitch-agent.service on fedora
+* Fix seed MASQUERADE rules
+* Update cached metadata with heat-localip
+* Ensure /var/log/heat/engine.log is owned by heat
+* Quantum -> Neutron rename
+* Remove boot-stack dependency on cinder
+* Update apache2 element-deps "os-config-applier" to "os-apply-config"
+* Restart keystone in wipe-openstack
+* Restart rabbitmq-server in case of failure
+* Update cinder root-wrap config
+* Remove usage of os-svc-install to install cinder
+* Fix os-svc-install outside of boot-stack
+* Stop running apt-get during os-refresh-config
+* Rename quantum->neutron for the client
+* Move boot-stack initialisation out of first-boot
+* Move virtual power key generation to ORC
+* Make virtual power ssh pubkey world readable
+* No longer need to install pbr from trunk
+* Use source-repository interface in heat-cfntools
+* Put some order on os-refresh-config systemd
+* Install nova networking from neutron repository
+* Fix filter-bootps for multiple baremetal nodes
+* Open heat-api service port on Fedora
+* Deal with quantumclient now installing neutron
+* Improve postfix element
+* Remove ifup from the nova-bm-dnsmasq.service
+* Pass exception into string formatting
+* Remove boot-stacks dependency on openstack-db
+* Change permission of 81-nova-bm-services
+* Don't error if no route
+* Migrate routes onto $EXTERNAL\_BRIDGE
+* Overhaul quantum networking for non-seed clouds
+* Move more baremetal items out of nova-compute
+* Install qemu-utils with nova-compute
+* Decouple boot-stack from non-Heat configuration
+* Add openstack-clients dependency
+* Add element to install Openstack python-\* clients
+* Add element-deps to apache2 element
+* Update nagios3 elements-dep
+* Use --no-site-package for services venv's (-nova)
+* Install clients in their own venv
+* Stop installing libvirt on baremetal nodes
+* rc-local and rabbitmq-server ordering
+* Filter bootps requests on the seed cloud host
+* Permit PXE deploy timeout configuration
+* Fix and Use rabbitmq-server element in boot-stack
+* Tweak seed element NAT rules
+* Another os-apply-config rename step
+* Set a fixed host for nova in boot-stack
+* Reflow too-wide lines
+* Do not install percona-toolkit on Fedora
+* Open keystone service port on Fedora
+* Enable pxe\_network\_config option
+* Add RedHat support for init-quantum
+* Use default libvirt\_vif\_driver driver
+* Remove more references to /var/log/nova
+* Adds Nagios and supporting elements
+* Configure iptables on Fedora
+* Set keystone token backend to sql
+* Restore metadata access in boot-stack
+* os-config-applier->os-apply-config for nova
+* Don't create /var/log/nova
+* Fix systemd services
+* Fix restarting services on redhat and debian
+* Fedora enable services
+* Allows nova user to sudo without a tty
+* Rename os-config-applier to os-apply-config
+* Fix link to notes.md to link to new devtest.md
+* Delete non-existent quantum.conf setting
+* Install arping for quantum-network-node
+* Automate network router setup
+* Install trunk quantumclient for quantum
+* Remove unused nova.conf values
+* Make 01-boot-stack support requirements.txt
+* Increase nova API ratelimit levels
+* Update Quantum config to use DBQuotaDriver
+* Pass keystone user/group into pki\_setup
+* Remove useless code
+* Install qemu-utils explicitly
+* Add quantum-network-node element for network-node
+* Set pipefail on init-quantum to detect failures
+* Fix case of OVS group in ovs\_quantum\_plugin.ini
+* Updating to recent keystone/etc/policy.json
+* Work around heat-cfntools/boto/keystone issue
+* Make boot-stack pass reachable IP to new machines
+* Use heat-manage to initialize Heat db
+* Make controller-address netaddress
+* Inject local-ipv4 into heat metadata
+* Remove quantum-specific dkms workaround
+* Fix networking and nova security group config
+* Manually build dkms modules
+* Document the requirement for heat-cfntools
+* Remove duplicate keys from nova.conf
+* Fix permission errors with nova-kvm
+* Make baremetal directory setup baremetal specific
+* Use sql instead of kvs for EC2 credential storage
+* Make openvswitch configurable for VMs
+* Skip baremetal config when there is no baremetal
+* Fix heat-cfntools to use requirements.txt
+* Make br-ctlplane bridge configuration persistent
+* Do not produce a broken /e/n/i file
+* Add virtual\_power\_type support to boot-stack element
+* Allow deploy ramdisk to be built with custom elements
+* Fix 'start nova-bm-dnsmasq' hanging
+* Make controller address configurable
+* Make public interface configurable
+* Split quantum into server/agent elements
+* Create instances storage directory
+* Add requirements.txt support to os-svc-install
+* Make quantum-server post-start sleep 10 seconds
+* Add post-start option to os-svc-daemon
+* Work around boto dependency in heat-cfntools
+* Remove nova-rpc-zmq-receiver
+* Allow mysql.create-users to specify password
+* Add respawn limit to prevent infinite respawn
+* Ensure cfn-\* scripts are installed to /usr/local/bin
+* Run nova-bm-dnsmasq in foreground
+* Conditionally manage baremetal components
+* Split o-r-c script for nova into api/compute
+* Remove novnc package from nova-compute
+* Add a rabbitmq-server element with Heat support
+* Fix missing pieces filled in by boot-stack
+* Make heat-api and heat-engine work in boot-stack
+* Update Heat element for Havana config changes
+* Avoid race condition with 1 second sleep
+* Change Heat instance\_user to heat-admin
+* Restart networking before IP addresses are moved to br-ctlplane
+* Split nova into nova-compute and nova-api
+* Workaround current pbr broken-ness
+* Use updated metadata location for nova.baremetal.arch
+* Install heat-cfntools from git
+* Make nova compute\_driver configurable
+* Correct network config for boot-stack quantum
+* Document nova logs a little better
+* Run cfn-hup via a cron job
+* Add python-mysqldb so glance can connect to DB
+* Use latest boto to address bugs in distro version
+* Add element to remove serial console
+* Target ec2-user workaround to Ubuntu 12.10
+* Add libz-dev to os-svc-install to fix raring
+* Fix \*-paste.ini to use keystoneclient
+* Make first-boot 98-boot-stack idempotent
+* Update nova logging.conf to reflect changes in nova trunk
+* Make boot-stack element more friendly to other distros
+* Update boot-stack element's README
+* Make \`wipe-openstack\` correctly reset all services
+* Improve Fedora support for boot-stack and openstack-db elements
+* Improve Fedora support for nova element
+* os-refresh-config is on stackforge now
+* Add systemd support for os-svc-daemon
+* Update image size limit for the new variable name
+* Use nova rootwrap config directly from source distribution
+* Replace rabbit's broken init.d script with an upstart
+* Change default passwords in boot-stack to 'unset'
+* wipe-openstack needs to restart glance
+* Adjust nova config for baremetal
+* Make boot-stack default baremetal-arch configurable
+* Add ubuntu == localhost to /etc/hosts in boot-stack
+* Install pip requirements from pypi.openstack.org
+* Remove cinder-config element
+* Explicitly install openvswitch-datapath-dkms in quantum element
+* Populate boot-stack's service catalog with VM's IP
+* Install OpenStack clients outside of venvs in boot-stack
+* Make keystone config consistent with other elements
+* Remove openstack-all element
+* Remove nova-api element
+* Add OpenStack Heat elements
+* A self-contained one-node baremetal openstack
+* Remove nova-vm element
+* Remove quantum-api element, for now
+* Simplify recommended use of ELEMENTS\_PATH
+* Remove diskimage-builder core contents
+* Fix .gitreview file
+* Fix mysql migration script to handle errors
+* Remove strict sql\_mode setting which breaks apps
+* Do not require arguments for os-svc-daemon
+* Store build-time settings
+* Disable tunneling in quantum-ovs
+* Migrate data into MySQL from bootstrap
+* Run os-config-applier using os-refresh-config
+* Bring os-svc-install element docs up-to-date
+* Enable use\_namespaces setting for quantum agents
+* Clearly mark unaudited config templates as such
+* Replace glance-api+glance-reg elements with glance:
+* Streamline upstart scripts in os-svc-daemon
+* Add a nova-baremetal element
+* Add a quantum element
+* Run all openstack services in virtualenvs:
+* Add element to run DHCP on all network interfaces
+* Create users in mysql server based on metadata
+* Set mysql server\_id based on instance-id
+* Refactor mysql element to do less in first-boot.d
+* Adding cfn-credentials file to heat-cfntools
+* remove unnecessary '/usr/local/bin' from install.d
+* Install os-config-applier from stackforge repo
+* Switch to using the incubator-bootstrap tree
+* Fix os-refresh-config failing without scripts
+* Remove duplicate file extensions
+* Correctly translate all branches/tags/shas:
+* Update keystone middleware in cinder api-paste:
+* Fix script that installs os-refresh-config scripts
+* local-config: Configure proxy for apt and/or yum
+* Fix issues causing Fedora images to fail
+* Seperate install of services and start scripts:
+* Update keystone element to use os-refresh-config
+* Make 99-install-config-templates executable:
+* Install os-refresh-config scripts automatically
+* local-config element adds authorized\_key for root:
+* Integrate os-refresh-config with heat-cfntools
+* Allow elements to include skeleton config
+* Add a cinder element
+* Namespace SHA256SUMS file to distro/release/arch
+* Fix heat-cfntools to work on Fedora
+* Verify Ubuntu Cloud Images using SHA256SUMS
+* Fix elements\_path default path
+* Use multiple locations for elements dir
+* Specify os-refresh-config path in README
+* Don't use sudo in base
+* Add an openstack all-openstack-db element:
+* Devstack element pulls from master
+* Fix ramdisk-image-create
+* Run alternatives pip -> pip-python
+* Install heat-cfntools from pypi
+* Support multiple outputs disk formats
+* Prevent silent failure of element-info:
+* Fix the sudo rules for unpacking fedora raw images
+* first-boot.d scripts log to a file:
+* Fedora needs to depend on dib-run-parts too
+* New element that uses a fedora cloud image as the base
+* Add dib-run-parts install command to sudoers.d
+* Use dib-run-parts for running scripts in target
+* Make populate\_libs() more generic
+* Work in progress run-parts replacement
+* Move the dpkg specific stuff to a dpkg element rather than being hardcoded
+* Change run-parts usage to be compatible with Fedora
+* Give stack user passwordless sudo:
+* Consolidate common OS installation into a script:
+* Bad code landed, causing ubuntu to be always landed
+* cloud-init-nocloud element for non-cloud image
+* Add cfn-hup configuration for os-refresh-config
+* Fix broken pep8 in setup.py
+* Add element to call os-refresh-config
+* Add default element selection
+* Correct misuse of return in ramdisk-image-create
+* Fix unnecessarily creating a temporary directory
+* ramdisk-image-create shows a failed binary dependency
+* The default ARCH was broken due to $ARCH not being exported
+* Add missing python-pip dependency in heat-jeos
+* Work around cfn API bug in HEAT w/ specific boto
+* Move initial root contents into a hook
+* Make it possible for openstack-CI to run tests
+* Export the ELEMENTS\_DIR so that dependencies work
+* Add os-config-applier element
+* Split stack user creation out of devstack element
+* Improve error message for missing element
+* Create install-packages as a binary
+* Add option to clear environment
+* Switch locale to C
+* Add sudoers rule to format and mount anykind of partitions in disks
+* Add openstack-all element
+* Add element to install config-applier
+* Enable 'ec2-user' in HEAT for quantal images
+* Add a simple implementation of element dependency
+* Disable Apt Recommends
+* add default gateway to deploy init script
+* Allow manual installation of packages
+* Include English locale in base
+* Install nova-api from github
+* Add Icinga elements
+* Add missing whitespace to local-config
+* Replace demo references with incubator
+* Add an element to install the HEAT JEOS tools
+* Install quantum-api from github
+* Clean up the MySQL element to make it suitable for generic use
+* Fix disk-image-create's getopt error handling:
+* Tidy up base element:
+* Add guidelines for composing elements
+* Copy both http and https proxy to local-config
+* Add a test framework for testing elements
+* Ignore .pyc files
+* Add a .testr.conf configuration and ignore .testrepository
+* Add the ability to break into a shell during builds
+* Add glance-api element
+* Move everything 'common' into base, making it avoidable for tests
+* Make it possible to not recompress the qcow2 image at the end
+* Added true to avoid exit on error
+* updating devstack element to reference incubator
+* Add keystone element
+* Add copyright to lib/ramdisk-\*
+* Generate apt.conf files with correct content, fixes bug 1088805
+* Further fleshing out of hwdiscovery element
+* Move grub installation to the vm element
+* Rename flavour to element
+* Configure git proxy settings and prefer http(s) protocol
+* Use system resolv.conf file when available
+* Remove udev stuff from the source tree
+* Add .gitreview file
+* Jenkins image fixed
+* Reinstate /mnt redirection of jenkins - HPCS cloud images have a very restricted /
+* Untrap EXIT before run-parts
+* Update hwdiscovery flavour to have lots more structure that we can build on
+* fix crappy header
+* Updated jenkins flavour
+* Make a primitive jenkins image
+* be smarter about mounting qcow images
+* Use base in all examples
+* added br\* filter for interfaces
+* adding BASIC hardware discovery
+* adding dhclient support
+* adding dhclient
+* move misplaced salt-master install script
+* mount\_qcow\_image should mount p1
+* removes AMQP install and adds hwinfo
+* added lsmod to default busybox links
+* add salt-master flavor
+* remove force-xtrace in disk-image-get-kernel
+* add some tooling that baremetal-devstack wants
+* move tgtd & tgtadm to bin-deps of deploy and remove from lib/ramdisk-functions
+* Adding python-AMQPLib install to HWdiscovery
+* Fix copyrights for HP work
+* Add a flavour for doing generic this-node-is-in-a-cloud stuff, like cloud-init tweaks
+* adding mysql flavor (untested)
+* Document more about the layers
+* Some cleanup on nova-vm flavour
+* Add support for flavours to ship udev rules.d files and port over the mellanox variant to use this
+* Fix mysql passwords
+* Default to 2G in size - 1G is just too small
+* Fix handling of parameters that are not set by any flavour for eval\_run\_d
+* Make it possible to set a size from within a flavour, and use that for devstack
+* Rename baremetal to deploy
+* Remove some whitespace
+* Update ramdisk building to support init hooks for flavours
+* Update docs for ramdisk building
+* Add readmes to the ramdisk flavours
+* Documented binary-deps feature
+* Port old baremetal-mkinitrd.sh to the new image creation standards
+* Land an extension of baremetal-mkinitrd.sh which can also build flavours, with a start at making hwdiscovery and hwburning flavours
+* Bring across disk image code
+* Ignore temporary files
+* Support KVM instances - allow /dev/vda to be detected as a disk
+* Turn off udev logging, it makes debugging too hard. Better would be to log to a file or something
+* change working directory name template
+* Rename to baremetal-mkinitrd.sh
+* initial commit

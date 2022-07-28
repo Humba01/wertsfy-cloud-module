@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    Add a ``clean_package_cache`` configuration option, set to True by default
+    for backward compatibility. This option controls the package cache cleaning
+    when building the images.

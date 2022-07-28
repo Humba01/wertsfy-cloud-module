@@ -1,0 +1,63 @@
+---
+- hosts: primary
+  vars:
+    ansible_cfg: |
+      [defaults]
+      # Ensure that facts are referenced via ansible_facts.<fact>.
+      inject_facts_as_vars = False
+
+      [ssh_connection]
+      pipelining = True
+      retries = 3
+  roles:
+    - role: kayobe-diagnostics
+      kayobe_diagnostics_phase: "pre"
+      kayobe_diagnostics_log_dir: "{{ logs_dir }}"
+
+    - role: kayobe-ci-prep
+  tasks:
+    # NOTE(mgoddard): Copying upper constraints to somewhere accessible by both
+    # the zuul and stack users.
+    - name: Ensure upper-constraints.txt exists
+      copy:
+        src: "{{ requirements_src_dir }}/upper-constraints.txt"
+        dest: "/tmp"
+        mode: 0644
+        remote_src: true
+
+    - name: Ensure kayobe is executed in verbose mode
+      lineinfile:
+        path: "{{ kayobe_src_dir }}/dev/config.sh"
+        line: "export KAYOBE_EXTRA_ARGS=-vvv"
+        regexp: "^#export KAYOBE_EXTRA_ARGS=$"
+
+    - name: Ensure ansible.cfg exists
+      copy:
+        content: "{{ ansible_cfg }}"
+        dest: "{{ kayobe_config_src_dir }}/etc/kayobe/ansible.cfg"
+
+    - block:
+        - name: Ensure previous kayobe directory exists
+          file:
+            path: "{{ previous_kayobe_src_dir }}"
+            state: directory
+
+        - name: Ensure previous kayobe repository is cloned
+          command: >-
+            git clone {{ kayobe_src_dir }} {{ previous_kayobe_src_dir }} -b stable/{{ previous_release | lower }}
+
+        - name: Ensure previous kayobe-config directory exists
+          file:
+            path: "{{ previous_kayobe_config_src_dir }}"
+            state: directory
+
+        - name: Ensure kayobe-config repository is cloned
+          command: >-
+            git clone {{ kayobe_config_src_dir }} {{ previous_kayobe_config_src_dir }} -b stable/{{ previous_release | lower }}
+
+        - name: Ensure previous kayobe is executed in verbose mode
+          lineinfile:
+            path: "{{ previous_kayobe_src_dir }}/dev/config.sh"
+            line: "export KAYOBE_EXTRA_ARGS=-vvv"
+            regexp: "^#export KAYOBE_EXTRA_ARGS=$"
+      when: is_upgrade

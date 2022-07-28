@@ -1,0 +1,20 @@
+{% extends "horizon/common/_modal.html" %}
+
+{% block modal-header %}
+    {{ io.name }}
+{% endblock %}
+
+{% block modal-body %}
+    <div class="detail">
+            {{ io.value }}
+    </div>
+{% endblock %}
+
+{% block modal-footer %}
+    <a href="{% block cancel_url %}{{ cancel_url }}{% endblock %}"
+       class="btn btn-default cancel">
+        {{ cancel_label }}
+    </a>
+{% endblock %}
+
+

@@ -1,0 +1,682 @@
+CHANGES
+=======
+
+16.0.0
+------
+
+* Fix URL of Maven Central Repository
+* Fix the buildimages jobs: call the ensure-tox role
+
+12.0.0
+------
+
+* Ussuri contributor docs community goal
+* Cleanup py27 support
+* Fix linting (both dib-lint and bashate)
+* [ussuri][goal] Drop python 2.7 support and testing
+* Update the constraints url
+
+11.0.0
+------
+
+* Allow qemu-utils to be used to build image
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+
+10.0.0
+------
+
+* archive-primary.cloudera.com -> archive.cloudera.com
+* Use template for lower-constraints
+* Plain Ubuntu image are still based on Xenial
+* firstboot: make rc-local start after cloud-init
+* Update devel info: mailing list
+* Update the min version of tox to 2.0
+* Increment versioning with pbr instruction
+* import zuul job settings from project-config
+
+9.0.0
+-----
+
+* Use the correct "or" operator to check the spark version
+
+9.0.0.0b3
+---------
+
+* Updating Storm version list
+* fix tox python3 overrides
+* Totally rewrite s3\_hadoop
+* Adding Spark 2.3
+* Add support to build 3.0.1 image
+
+9.0.0.0b2
+---------
+
+* Remove CentOS6/RHEL6 support
+* Fix (again) the detection of scala version (now https)
+* Add support to build 2.7.5 image
+
+9.0.0.0b1
+---------
+
+* Zuul roles: allow to build only a specific image
+* add lower-constraints job
+* Migration to Storyboard
+* Preload soci-mysql and soci on RHEL7 images
+* Add support to build 2.8.2 image
+* Update the links to artifacts (removing sahara-files too)
+* Disables CA checking for Ambari on Centos/RHEL
+
+8.0.0
+-----
+
+* Revise s3\_hadoop
+* Zuul: Remove project name
+* Adding fuse package to Ambari
+* Remove empty files
+
+8.0.0.0b3
+---------
+
+* Fix starting hive failure in Ubuntu xenial
+* Adding Spark 2.2.0
+* Adding generation of Storm 1.1.1
+* Image builder: better default path to the source code
+
+8.0.0.0b2
+---------
+
+* Zuul: add file extension to playbook path
+
+8.0.0.0b1
+---------
+
+* Add native Zuul v3 buildimages jobs
+* Updated from global requirements
+* Updated from global requirements
+* Update the documentation link for doc migration
+* Allow control of image output format
+* Update links in README
+
+7.0.0.0rc1
+----------
+
+* Add S3 jar to Hadoop classpath
+* Add support to create CDH 5.11 images
+* Change default link for Hadoop native libs
+* Build Xenial images for Vanilla and Storm
+* Configurable Spark version for Vanilla image
+* mapr: fix the discovery of the version of Scala
+* Deprecate and don't build CentOS 6 images by default
+* Adding Spark 2.1.0
+* Get files from tarballs.o.o if possible (extjs, policy)
+* Remove the usage of 'which' (following dib)
+
+7.0.0.0b2
+---------
+
+* Fixing spark and CDH refinements
+* Fix an outdated link
+* Fix: set the Fedora-specific ssh\_config file for augeas
+* MapR: do not match "all" if a specific version is available
+* Fix 'navigator-keytrustee' repo not found error
+* Remove some codes of older version builder
+* Adding ability to create Storm 1.1.0 image
+* Updated from global requirements
+
+7.0.0.0b1
+---------
+
+* mysql: fix the packages mapping on RHEL7 (mariadb)
+* MapR 5.1: remove non-existing version of hue
+* dib-lint: adapt the value of ELEMENTS\_DIR
+* Updated from global requirements
+* [Fix gate]Update test requirement
+* Fix: DIB\_RELEASE is not defined on CentOS
+* Fix documentation for default Ambari version value
+
+6.0.0
+-----
+
+* Remove support for MapR 5.0.0 images
+* Upgrade packages for MapR 5.2 according to latest versions pack MEP 2.0
+
+6.0.0.0b3
+---------
+
+* Set DIB\_CDH\_MINOR\_VERSION when required
+* Disable firewalld (also on centos7) when it is enabled
+* fix firstboot script
+* Fix pep8 issues (environment file should not be executable)
+* Add Constraints support
+* include netcat package for centos images
+* Remove the older versions from the builder
+* use latest ambari in images
+
+6.0.0.0b2
+---------
+
+* [DOC] Update support plugin version into doc
+* [CDH] Support CDH 5.9
+* fix error that can't open home url
+* Add four spaces before url
+* Force scala 2.11.6 for Ubuntu Trusty
+* Force trusty on Spark, Vanilla and Storm Ubuntu images
+* Show team and repo badges on README
+* Do not call \`set -x\` in an environment (element) file
+
+6.0.0.0b1
+---------
+
+* Updated from global requirements
+* Don't include openstack directory in exclude list for flake8
+* use latest build of hadoop openstack from tarballs
+* Adding rhel7 to elements checks
+
+5.0.0.0rc1
+----------
+
+* Re-adding mapr-eco-repository repo
+* [DOC] fix doc about hdp local mirror
+* update zookeeper download link
+* [HDP] Fix HDP image for deploy on ubuntu
+* Bump version of ambari
+* Fix incorrect ambari repo link
+* Add support for building  MapR 5.2 prebuilt images
+* add element for kerberos artifacts
+
+5.0.0.0b3
+---------
+
+* use trusty ubuntu for ambari images
+* Adding ability to create CentOS7 images with MapR
+* drop vanilla 2.6.0 support from elements
+* Add Kafka 2.0.2 to CDH 5.5 and 5.7
+* improve building images in gate for vanilla
+* Setup JAVA\_HOME for cloudera java distro
+* Install Pyleus to Storm image
+* [CDH] Support CDH 5.7
+
+5.0.0.0b2
+---------
+
+* [HDP2.4] Add ambari 2.2.1.0 element
+* Fixing diskimage-create.sh README.rst
+* Fix Mapr security repo
+* replace extjs location to sahara-files
+* Allow creation of Storm 1.0.1 images
+* remove hdp from elements
+* build all images for ambari in gate
+* Add support for building Centos 7 images for CDH 5.5
+* fix gate jobs for building centos images
+* ignore safe sudo check
+* Change url link to Zookeeper package
+* Add check Spark version
+
+5.0.0.0b1
+---------
+
+* Add hadoop openstack swift jar to plugins images
+
+4.0.0.0rc1
+----------
+
+* Add support of building images for MapR 5.1.0
+
+4.0.0.0b3
+---------
+
+* Run update before package installation in Ubuntu case
+* Remove support for building unsupported MapR versions
+* Changed default version of Ambari
+* Add suport for new services for MapR plugin
+* Added support of Spark 1.6.0
+* gate-sahara-buildimages-ambari (>= 2.1.2) job fix
+* gate-sahara-buildimages-ambari job fix
+* Add CDH 5.5 support
+* Pass all current env to tox venv
+* Updated from global requirements
+* Add a bare metal image generation option to sahara-image-create
+
+4.0.0.0b2
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Deprecated tox -downloadcache option removed
+* Remove version from setup.cfg
+
+4.0.0.0b1
+---------
+
+* Fix incorrect command in doc
+* Add help flag to diskimage-create.sh script
+* Install requirements for services on ambari image
+* Use direct links to HDP distribution
+* Updated from global requirements
+* Added support of Drill 1.2 to MapR images in sahara-image-elements
+* Include mysql and ambari-metrics-collector to Ambari images
+* update swift\_hadoop element
+* Open Mitaka development
+* Show command output directly in package\_utils.sh
+
+3.0.0
+-----
+
+* Remove duplicate .coverage in .gitignore file
+* diskimage-create.sh: add and use image\_create
+* Stop setting DIB\_EXTLINUX for vanilla/centos7
+* Updated from global requirements
+* diskimage-create.sh: remove check for vanilla+v1+centos7
+* oozie: do not install some extra packages
+* oozie: use the extjs element
+* hadoop: move scripts from post-install.d to install.d
+* mysql: remove extra +x permissions from pkg-map file
+* Drop hadoop/vanilla v1 images
+* gate: custom handling of cloudera images
+* diskimage-create.sh: remove quotes from os-release's ID
+* diskimage-create.sh: try harder with provides in rpm check
+* Add "2.7.1" to usage text
+* Move JRE\_PATH/bin export to separate file
+* Use JRE directory for JRE\_HOME for RHEL-based os
+
+3.0.0.0b3
+---------
+
+* [HDP2] Add ambari element
+* Added support of Hue 3.8.1 to MapR image elements
+* Updated from global requirements
+* Revert "Fix centos7 building image"
+* Add $JAVA\_HOME/bin to PATH
+* Update CentOS-6.6 image version
+* Fix centos7 building image
+* Added support of MapR 5.0.0 to sahara-image-elements
+* Remove libevent installation from MapR plugin
+* Install xfsprogs for ability to formatting volumes in XFS FS
+* Support building images for new vanilla plugin
+* Added ability to specify exact package versions for MapR
+* Updated from global requirements
+* Fix version of Centos in Mapr plugin
+* NFS share utility installation
+
+3.0.0.0b2
+---------
+
+* hadoop: add vanilla/2.6 based on CentOS 7
+* hadoop: restrict cloud-user home chmod for CentOS to v6 only
+* Add elements for sync time on VM
+* Deprecate Spark 0.x and 1.0.x images
+* Rename variable to have DIB\_ prefix
+* Updated from global requirements
+* Disable firewall on rhel-based distros only
+* hadoop: mark our rc.local replacement as executable
+* Add element for building mirror with HDP packages
+* Use Cloudera element for Spark HDFS
+* Add centos7 plain image
+* hadoop: consolidate /run creation
+* Rewrite/improve start-mysql.sh
+* Add dib-lint checks for elements
+* openjdk: install openjdk 8 for fedora >= 21
+* openjdk: add mappings for openjdk-8
+* openjdk: revert to a semi-manual installation
+* Remove RHEL quirks for CentOS images
+* pass environment variables of proxy to tox
+* fixing minor error in spark post-install script
+* Updated from global requirements
+
+3.0.0.0b1
+---------
+
+* Update version for Liberty
+
+3.0.0a0
+-------
+
+* hadoop: use a case for distro check
+* diskimage-create.sh: refactor $platform handling
+* Cleanup/fix elements for Cloudera 5.4.0
+* Remove unused redhat-lsb and updater elements
+* Add quotes to unsafe if conditions in mapr element
+* Add installing keytrustee-keyprovider package
+* Stop unconditionally installing redhat-lsb
+* Add missing hadoop version check for CDH 5.4
+* Save one fork
+* Add CDH5.4.0 support
+* Fix problem with set up java env variable
+* Do input check based on each plugin
+* Adapt hadoop-hdp element to dib-lint checks
+* storm: install supervisor using package-installs
+* hadoop-cdh: simplify package installation
+* Change augtool invocation
+* Fix ganglia problem in HDP element
+* Updated from global requirements
+* Use the 'base' element implicitly everywhere
+* Always enable TRACE in gate for building images
+* Replace element rhel on centos
+* Remove unneeded code from HDP element
+* Use tox env for building images
+* Improvements to README.rst of elements
+* Add a "plain" image type
+* Fix version CentOS in name of images with CentOS
+* Enable tracing option
+* Allocate at least 5GB for Cloudera images
+* Fix elements installation
+* missing swift lib in cdh plugin
+* Fix extjs.zip download URL
+* Start switching to declarative package-installs
+* Adapt not dib elements to dib-lint checks
+* Open Liberty development
+
+2015.1.0rc1
+-----------
+
+* Switch to the extjs element
+* Fix "unbound variable" for Spark plugin
+* Add tar and wget installation to setup-hadoop script
+* Change supervisor conf file path
+* Change Storm version to 0.9.2
+* New extjs element
+* Do not use sudo to cleanup the temporary directory
+* Make almost all the element scripts as e/u/pipefail
+* Fix more unbound variables
+* Do not use $TARGET\_ROOT in install.d scripts
+* Start caching large-sized resources
+* Sort projects in elements-deps
+* Add/fix headers in README.rst files
+* Rename the README.md files into README.rst
+* Add MapR 4.0.2 support
+* Handle most of unbound variables usages
+* Make 00-check-java executable
+* Simplify environment.d scripts
+* hdp: switch to use epel element
+* Stop using a local cache
+* Add main script for building sahara images
+* mysql: use install-packages and pkg-map elements
+* Use openjdk by default for java element
+* Migrate to openjdk - part 2
+* Fix check distro version for hadoop setup
+* Check distro name from DISTRO\_NAME
+* Don't use sudo for diskimage-create.sh script
+* Explicitly use bash in element scripts
+* cdh: get the distro name where needed
+* Add newline at the end of README.md
+* Adopt DIB\_DEBUG\_TRACE for tracing in elements
+* Install jdk instead jre in openjdk element
+* Add element dependencies to requirements.txt
+
+2015.1.0b3
+----------
+
+* Bump diskimage-builder version to 0.1.41
+* Disable registration on CentOS images
+* Use the dib-utils repository too
+* spark: small syntax hiccup in the vars check
+* Switch from qemu to qemu-img on Fedora
+* Fix datanode launch performance caused by entropy pool depletion
+* mapr: use disable-firewall only on centos
+* Add update script for yum based images
+* Install openjdk-jdk instead openjdk-jre for Ubuntu
+* Rename more 0-check scripts to avoid duplicate names
+* Rename a couple of scripts to avoid duplicated names
+* Fix building RHEL images for CDH plugin
+* Creating Zookeeper symlink folder name to not use version
+* Adding new update option to diskimage-create.sh
+* Fix executing hadoop command with hadoop user instead of root user
+* Add solr-doc and search packages
+* Turn off iptables via 'disable-firewall' element
+
+2015.1.0b2
+----------
+
+* Remove ability to building vanilla 2.3 and 2.4 images
+* Add Impala Shell package in CDH Plugin Image
+* Add different version builders support for Cloudera plugin
+* Add the swift\_hadoop element to Spark images
+* Fix building fedora images
+* Set SIM\_REPO\_PATH variable for gating tests
+* Migrate to openjdk - part 1
+* Move to hacking 0.10
+* Add packages to support more CDH services
+* Add Hive process to vanilla2 image
+
+2015.1.0b1
+----------
+
+* Adding ability to build images for Hadoop 2.6.0
+* Make bashate checks as part of pep8 checks
+* Workflow documentation is now in infra-manual
+* Use Fedora url to get EPEL
+* Simplification: wget+rpm -> rpm
+* Fix bashate errors
+* Image Elements for MapR
+* Adding lsb\_release to Fedora image creation
+* Adding Storm version to image name
+* Add CentOS-6.6 cloud image
+* Add openSUSE support for diskimage-create.sh
+* Add HBase package to support HBase for the CDH plugin
+* disable services in sahara-image-elements
+* Adding Storm as image option
+* Remove ZeroMQ installation
+* Fix 'Clock Offset' error in Cloudera Manager
+* Add Spark support to CDH elements
+* Install extjs library for Cloudera plugin
+* Fix variable name for detecting image OS
+* Add Hue support to Cloudera plugin
+* Add Hive support to Cloudera plugin
+* Fix bashate errors
+* Change location of hadoop pid files
+* Fix problem with cloud-init on nova-network
+* Refactoring IMAGE\_TYPE to BASE\_IMAGE\_OS
+* Add tools/gate/build-images script
+* Add bashate checks to elements
+* Open Kilo development
+
+2014.2.rc1
+----------
+
+* Update link for CentOS image
+* Add CONTRIBUTING.rst
+* Change help text for -p option
+* Bump CentOS to 6.5 version for HDP images
+* Install cloudera packages withouti their starting
+* Updating DIB repo branch to 0.1.29
+* Add warn re sorting requirements
+* Added check on parameters without leading dash
+* Fixed parameters parsing after -d
+* Fix parameter AuthorizedKeysFile in ssh element
+* Add ability to use CentOS local mirror
+* Disable Hive element for vanilla 2.x plugins
+* Adding Storm and Zookeeper elements
+* Mark some element scripts as executable
+* Fixes Ambari repo used by HDP 2 image generation script
+* Fix CentOS 6.5 cloud image for openstack resize
+* Fix a removed variable, properly check the Hadoop version
+
+2014.2.b2
+---------
+
+* Build only 12.04 Ubuntu for Cloudera
+* Bump Hadoop to 2.4.1 version
+* Building Cloudera hadoop images with Cloudera Manager
+* Continue download java if connection was broken
+* Add support building images for Hadoop 2.4.0
+* Updated from global requirements
+* Updated from global requirements
+
+2014.2.b1
+---------
+
+* Use Spark 1.0.0
+* Adding options to control DIB repo branch
+* Remove chown of /mnt directory
+* Use stable apache urls in spark elements
+* Unset CentOS image parameters that affect on another images
+* Updates hadoop-hdp to use common java element
+* Modify whole java element to support JAVA\_TARGET\_LOCATION
+* Updates SELinux configuration in HDP images
+* Modifies java element to support custom install location
+* Turns off ambari and hadoop2 services for initial VM boot in HDP images
+* Fixes image creation script to work on CentOS
+* Update Spark element
+* Updated from global requirements
+* Updates package installs for HDP images
+* Better setup for custom Java installation
+* correcting the elements sequence for centos+hdp+plain+debug
+* Adds SSH support to HDP plain VM image
+* Add -d option to vanilla images
+* Detect selinux passwd setting bug
+* Formally open Juno dev
+* Use archive.apache.org instead of www.apache.org
+* Refactor platform detection code
+* Idiomatic -d (debug) flag
+* Update hadoop-cdh element
+* Remove IDH support
+* Refactor logic around selinux bug 1204824
+* Reformat the usage message
+* Add RHEL as an expected platform
+* Add inject hadoop native libs to vanilla hadoop 2
+* Fix install Oozie for vanilla 2 plugin
+* Add ability to set DIB\_IMAGE\_SIZE parameter for CentOS images
+* [DIB] Added qemu-img dependency for CentOS host system
+* Updates hadoop-hdp to use new project name in URL
+* Updated from global requirements
+* Removes the service stop call for gmetad
+* Removes default usage of root-passwd element from HDP image generation
+
+2014.1.rc1
+----------
+
+* Actually abort on unrecognized platforms
+* Add hadoop v2 support for IDH plugin
+* Fix passing hadoop version
+* Disable hadoop swift element for vanilla 2 plugin
+* Removes unnecessary/incorectly-named packages from HDP install script
+* Use specific oozie for hadoop 2 plugin
+* Fix cookie for java download
+* Remove all iptables rules that are set in base image
+* Remove runtime commands from build time
+* Fix platform check in diskimage-create.sh
+* promote the firewall disabling feature
+* Add ability to use environment variables for image names
+* Renaming all Savanna references to Sahara
+* Update hadoop in vanilla plugin to 2.3 version
+* Update .gitreview to point on updated repo
+
+2014.1.b3
+---------
+
+* Fix DIB\_HADOOP\_VERSION checks of hadoop-cdh element
+* Using newest java 7u51 version as default
+* Add CentOS 6.5 support
+* Adds Intel Distribution Hadoop element to savanna-image-elements
+* Refactoring of diskimage-create script
+* Add hadoop v2 support to hadoop element
+* Remove duplications from hadoop elements
+* Adds Hortonworks Data Platform element to savanna-image-elements
+* Add ability to use environment variables
+* Add generic ssh element
+* Add generic java element
+* Add DIB work dir to gitignore
+* Add qcow2 image files to gitignore
+* Add options for Spark and Vanilla plugins
+* Sync with global requirements
+* Add a Spark element
+* Add an Hadoop CDH element
+* Add support for Fedora 20
+
+2014.1.b2
+---------
+
+* Remove image size fixing for Fedora cloud image
+* Add possibility to use local repositories
+* Removal of AUTHORS file from repo
+* Firstboot script modifications
+* Add CentOS support
+
+2014.1.b1
+---------
+
+* Bump version to 2014.1
+* Support building wheels (PEP-427)
+* Add HACKING.rst with link to the style guidelines
+* Enable hacking checks
+
+0.3
+---
+
+* Add simple tox.ini to make gate working
+
+0.3.rc3
+-------
+
+* Fix name in setup.cfg
+
+0.3.rc2
+-------
+
+* Adding my alt email to .mailmap
+* Adding Jeremy Stanley to AUTHORS
+* Fix links to other repos and use git.o.o
+* Update .gitreview file following repository move
+
+0.3.rc1
+-------
+
+* Simpler way to get repo SHA
+* Remove dead DIB sudoers code
+* Use ELEMENTS\_PATH instead of copying elements
+* Fix oozie element
+* Add support for distro RedHatEnterpriseServer
+* Remove version pbr pins from setup\_requires
+* Use local cache, leave user's alone
+* Simplify use of temp working directory
+* Add warning and workaround for selinux
+* Change MySQL to remote mode
+* Replacement of Hadoop 1.1.2 to 1.2.1 in dib script
+* Allow for install of distro native java
+* Change name of cloning repository
+* Provide helpful error message from savanna-version
+* Add diskimage-creating script, elements for mirrors
+* Update .gitreview
+* README fixed due to the elements extraction
+* Add .mailmap file
+* Package with pbr
+* Add Hive DIB element
+* Add DIB MySQL element
+* Hadoop-Swift integration jar moved to the CDN
+* Add missing #! to 81-add-jar
+* Add LICENSE file
+* Gitignore is added
+* Add check of swift downloading
+* Fix Oozie element
+* Using 'selinux-permissive' element instead of command 'setenforce 0'
+* Add element savanna-version that write commit id into the image
+* Add AUTHORS file
+* Added Oozie DIB element
+* Note about why hadoop install and setup is in post-install.d
+* Setup password for root using variable 'DIB\_PASSWORD'
+* Add Fedora 19 support
+* Replace elements/hadoop/ with Fedora&Ubuntu supporting elements/hadoop\_fedora
+* Allow installing augeas and openssh-client on both Fedora and Ubuntu
+* Make 40-setup-ssh always exit with success
+* Move hadoop\_fedora/post-install.d/\* to .../install.d
+* Use augeas instead of echo / sed to edit ssh/sshd configuration
+* Simplification of hadoop\_fedora/11-setup-java implementation
+* Minor doc change for JAVA\_FILE location in the hadoop\_fedora element
+* Setup /mnt/log/hadoop directory as hadoop log directory (for Ubuntu)
+* Add install-packages 'wget' to Swift element (for Fedora)
+* Add Hadoop element for creating Fedora cloud image for Savanna v0.2
+* Removed keypair generation for user hadoop
+* Update Hadoop element for Savanna v0.2
+* Change default download url for swift jar file
+* Make Swift for hadoop as element. It's possible to use your own Swift jar file
+* Move root password setting to a dedicated element
+* Hadoop-side patch for Hadoop-Swift integration was added to repository
+* Add a .gitignore
+* Use install-packages instead of apt-get directly
+* Use fewer quotes, double quotes allow for variable expansion
+* Use sed -i instead of cat X | sed > Y && cat Y > X
+* Fix typo, now->not
+* Added first elements and instructions for creation ubuntu cloud images
+* Added .gitreview

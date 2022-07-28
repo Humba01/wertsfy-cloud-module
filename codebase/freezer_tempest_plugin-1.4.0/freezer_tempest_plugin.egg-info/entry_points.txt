@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+freezer_tests = freezer_tempest_plugin.plugin:FreezerTempestPlugin
+

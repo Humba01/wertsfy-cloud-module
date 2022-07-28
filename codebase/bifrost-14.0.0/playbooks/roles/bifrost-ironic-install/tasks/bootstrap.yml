@@ -1,0 +1,530 @@
+# Copyright (c) 2015 Hewlett-Packard Development Company, L.P.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+- name: "Check that the provided interface is defined"
+  fail:
+    msg: >
+      Network interface {{ network_interface }} is not known to Ansible.
+      If you're testing Bifrost on virtual machines, do not forget to invoke
+      "bifrost-cli testenv" or use the "bifrost-create-vm-nodes" role first.
+      If you're using Bifrost on real bare metal, you have to provide the
+      network interface via the "network_interface" variable or the
+      --network-interface argument to "bifrost-cli install".
+  when: ('ansible_' + ans_network_interface) not in hostvars[inventory_hostname]
+
+- name: "Fail if authentication configuration conflicts."
+  fail:
+    msg: >
+      noauth_mode and enable_keystone are mutually exclusive options.
+      Please set one to "false".
+  when:
+    - noauth_mode | bool
+    - enable_keystone | bool
+
+- name: "Fail if TLS is inconsistently configured"
+  fail:
+    msg: Setting vmedia_enable_tls to true requires also enable_tls.
+  when:
+    - not enable_tls | bool
+    - vmedia_enable_tls | bool
+
+- name: "Setup firewalld"
+  include_tasks: setup_firewalld.yml
+  when: use_firewalld | bool
+
+# NOTE(sean-k-mooney) only the MySQL database is started during bootstrapping.
+# All other services are started in the Start phase.
+- name: "Start database service"
+  service: name={{ mysql_service_name }} state=started enabled=yes
+  when: ironic.database.host == 'localhost'
+
+- name: "Set mysql_username if environment variable mysql_user is set"
+  set_fact:
+    mysql_username: "{{ lookup('env', 'mysql_user') }}"
+  when: lookup('env', 'mysql_user') | length > 0
+  no_log: true
+
+- name: "Set mysql_password if environment variable mysql_pass is set"
+  set_fact:
+    mysql_password: "{{ lookup('env', 'mysql_pass') }}"
+  when: lookup('env', 'mysql_pass') | length > 0
+  no_log: true
+
+- name: "Set MySQL socket fact for Red Hat family"
+  set_fact:
+    mysql_socket_path: "/var/lib/mysql/mysql.sock"
+  when: ansible_os_family | lower == 'redhat'
+
+- name: "Set MySQL socket fact for Debian family"
+  set_fact:
+    mysql_socket_path: "/var/run/mysqld/mysqld.sock"
+  when: ansible_os_family | lower == 'debian'
+
+- name: "Set MySQL socket fact for other systems"
+  set_fact:
+    mysql_socket_path: "/var/run/mysql/mysql.sock"
+  when: (ansible_os_family | lower) not in ['redhat', 'debian']
+
+- name: "MySQL - Creating DB"
+  mysql_db:
+    login_unix_socket: "{{ mysql_socket_path | default(omit) }}"
+    name: "{{ ironic.database.name }}"
+    state: present
+    encoding: utf8
+    login_user: "{{ mysql_username | default(None) }}"
+    login_password: "{{ mysql_password | default(None) }}"
+  register: test_created_db
+  when: ironic.database.host == 'localhost'
+
+- name: "MySQL - Creating user for Ironic"
+  mysql_user:
+    login_unix_socket: "{{ mysql_socket_path | default(omit) }}"
+    name: "{{ ironic.database.username }}"
+    password: "{{ ironic.database.password }}"
+    priv: "{{ ironic.database.name }}.*:ALL"
+    state: present
+    login_user: "{{ mysql_username | default(None) }}"
+    login_password: "{{ mysql_password | default(None) }}"
+  when: ironic.database.host == 'localhost'
+
+- name: "Create an ironic service group"
+  group:
+    name: "ironic"
+
+- name: "Create an ironic service user"
+  user:
+    name: "ironic"
+    group: "ironic"
+
+- name: "Add nginx and dnsmasq to the ironic group"
+  user:
+    name: "{{ item }}"
+    groups: "ironic"
+    append: yes
+  loop:
+    - "{{ nginx_user }}"
+    - dnsmasq
+
+- name: "Ensure /etc/ironic exists"
+  file:
+    name: "/etc/ironic"
+    state: directory
+    owner: "ironic"
+    group: "ironic"
+    mode: 0755
+
+# Note(TheJulia): The rootwrap copies will need to be re-tooled
+# to possibly directly retreive current files if a source install
+# is not utilized.
+- name: "Copy rootwrap.conf from ironic source folder"
+  copy:
+    src: "{{ ironic_git_folder }}/etc/ironic/rootwrap.conf"
+    dest: "/etc/ironic/rootwrap.conf"
+    remote_src: yes
+    mode: 0644
+    owner: root
+    group: root
+  when: not skip_install | bool
+- name: "Copy rootwrap.d contents from ironic source folder"
+  copy:
+    src: "{{ ironic_git_folder }}/etc/ironic/rootwrap.d/"
+    dest: "/etc/ironic/rootwrap.d/"
+    remote_src: yes
+    owner: root
+    group: root
+  when: not skip_install | bool
+- name: "Copy rootwrap.d contents from ironic-lib installation"
+  copy:
+    src: "{{ bifrost_venv_dir }}/etc/ironic/rootwrap.d/ironic-lib.filters"
+    dest: "/etc/ironic/rootwrap.d/"
+    remote_src: yes
+    owner: root
+    group: root
+  when: not skip_install | bool
+
+- name: "Generate admin htpasswd for ironic"
+  htpasswd:
+    path: /etc/ironic/htpasswd
+    crypt_scheme: bcrypt
+    name: "{{ admin_username }}"
+    password: "{{ admin_password }}"
+    owner: ironic
+    group: ironic
+    mode: 0600
+  when:
+    - not enable_keystone | bool
+
+- name: "Generate user htpasswd for ironic"
+  htpasswd:
+    path: /etc/ironic/htpasswd
+    crypt_scheme: bcrypt
+    name: "{{ default_username }}"
+    password: "{{ default_password }}"
+    owner: ironic
+    group: ironic
+    mode: 0600
+  when:
+    - not noauth_mode | bool
+    - not enable_keystone | bool
+
+- name: "Generate TLS parameters"
+  include_role:
+    name: bifrost-tls
+  vars:
+    dest_private_key_path: "{{ ironic_private_key_path }}"
+    dest_private_key_owner: ironic
+    dest_private_key_group: ironic
+  when: enable_tls | bool
+
+- name: "Generate vmedia TLS parameters"
+  include_role:
+    name: bifrost-tls
+  vars:
+    dest_private_key_path: "{{ httpboot_private_key_path }}"
+    dest_private_key_owner: "{{ nginx_user }}"
+    dest_private_key_group: "{{ nginx_user }}"
+  when: vmedia_enable_tls | bool
+
+- name: "Populate keystone for Bifrost"
+  include: keystone_setup.yml
+  when: enable_keystone | bool
+
+- name: "Read SSH key if needed"
+  import_tasks: ssh_public_key_path.yaml
+  when: ipa_add_ssh_key | bool
+
+# NOTE(pas-ha) needed to e.g. pick up new interfaces after libvirt install
+- name: "Refresh facts"
+  setup:
+    gather_timeout: "{{ fact_gather_timeout }}"
+
+- name: "Generate ironic Configuration"
+  include: ironic_config.yml
+
+- name: "Create the log directories (if requested)"
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0700
+    owner: "ironic"
+    group: "ironic"
+  loop:
+    - "{{ ironic_log_dir | default('') }}"
+    - "{{ ironic_agent_deploy_logs_local_path | default('') }}"
+  when: item | length > 0
+
+- name: "Ensure /run/ironic exists"
+  file:
+    name: "/run/ironic"
+    state: directory
+    owner: "ironic"
+    group: "{{ nginx_user }}"
+    mode: 0750
+
+- name: "Create ironic DB Schema"
+  command: ironic-dbsync --config-file /etc/ironic/ironic.conf create_schema
+  environment: "{{ bifrost_venv_env }}"
+  when:
+    - ironic.database.host == 'localhost'
+    - test_created_db.changed
+
+- name: "Upgrade ironic DB Schema"
+  command: ironic-dbsync --config-file /etc/ironic/ironic.conf upgrade
+  environment: "{{ bifrost_venv_env }}"
+  when: ironic.database.host != 'localhost'
+        or not test_created_db.changed
+
+- name: "Create service folder"
+  file:
+    path: "{{ init_dest_dir }}"
+    state: directory
+    mode: 0755
+
+- name: "Install ironic-inspector to permit use of inspection interface"
+  include: inspector_bootstrap.yml
+  when: enable_inspector | bool
+
+- name: "Get ironic install location"
+  shell: echo $(dirname $(which ironic))
+  register: ironic_install_prefix
+  environment: "{{ bifrost_venv_env }}"
+
+- name: "Place ironic service"
+  template:
+    src: systemd_template.j2
+    dest: "{{ init_dest_dir }}ironic.service"
+    owner: "root"
+    group: "root"
+  vars:
+    service_path: "{{ ironic_install_prefix.stdout | default('') }}"
+    service_name: 'ironic'
+    config_file: '/etc/ironic/ironic.conf'
+
+- name: "Create and populate /tftpboot"
+  import_tasks: create_tftpboot.yml
+
+- name: "Create an ESP image"
+  import_tasks: create_esp.yml
+
+- name: "Setup additional DHCP hosts directory"
+  file:
+    path: "{{ dnsmasq_additional_hostsdir }}"
+    state: directory
+    owner: "dnsmasq"
+    group: "ironic"
+    mode: 0755
+  when: dnsmasq_additional_hostsdir is defined
+
+- name: "Setup inventory DHCP hosts directory"
+  file:
+    path: "{{ dnsmasq_dhcp_hostsdir }}"
+    state: directory
+    owner: "dnsmasq"
+    group: "ironic"
+    mode: 0755
+
+- name: "Retrieve interface IP informations"
+  set_fact:
+    itf_infos: "{{ internal_interface }}"
+    dhcp_netaddr: "{{ dhcp_pool_start }}/{{ dhcp_static_mask }}"
+  when: include_dhcp_server | bool
+- name: "Compute interface and DHCP network informations"
+  set_fact:
+    itf_netaddr1: "{{ itf_infos['address'] }}/{{ itf_infos['netmask'] }}"
+    itf_netaddr2: "{{ itf_infos['network'] }}/{{ itf_infos['netmask'] }}"
+    itf_broadcast: "{{ itf_infos['broadcast'] }}/{{ itf_infos['netmask'] }}"
+    dhcp_netaddr: "{{ dhcp_netaddr | ipaddr('network') }}/{{ dhcp_static_mask }}"
+  when: include_dhcp_server | bool
+- name: "Validate interface network addresses"
+  fail:
+    msg: >
+      Interface {{ ans_network_interface }} network incoherence
+      {{ itf_netaddr1 | ipaddr('network') }}/{{ itf_netaddr1 | ipaddr('prefix') }}
+      vs {{ itf_netaddr2 }}/{{ itf_netaddr2 | ipaddr('prefix') }}
+  when:
+    - include_dhcp_server | bool
+    - itf_netaddr1 | ipaddr('network') != itf_netaddr2 | ipaddr('network')
+- name: "Validate interface broadcast addresses"
+  fail:
+    msg: >
+      Interface {{ ans_network_interface }} broadcast incoherence
+      {{ itf_netaddr1 | ipaddr('broadcast') }}/{{ itf_netaddr1 | ipaddr('prefix') }}
+      vs {{ itf_broadcast | ipaddr('broadcast') }}/{{ itf_broadcast | ipaddr('prefix') }}
+  when:
+    - include_dhcp_server | bool
+    - itf_netaddr1 | ipaddr('broadcast') != itf_broadcast | ipaddr('broadcast')
+- name: "Validate DHCP and interface addresses"
+  debug:
+    msg: >
+      Interface {{ ans_network_interface }} and DHCP networks are incoherent
+      {{ itf_netaddr2 | ipaddr('network') }}/{{ itf_netaddr2 | ipaddr('prefix') }}
+      {{ dhcp_netaddr | ipaddr('network') }}/{{ dhcp_netaddr | ipaddr('prefix') }}
+      overriding DHCP with interface settings"
+  when:
+    - include_dhcp_server | bool
+    - itf_netaddr2 | ipaddr('network') != dhcp_netaddr | ipaddr('network')
+- name: "Computing new DHCP informations"
+  set_fact:
+    dhcp_start_ip: "{{ dhcp_pool_start.split('.')[-1] }}"
+    dhcp_end_ip: "{{ dhcp_pool_end.split('.')[-1] }}"
+    dhcp_netaddr: "{{ itf_netaddr1 | ipaddr('network') }}"
+  when:
+    - include_dhcp_server | bool
+    - itf_netaddr2 | ipaddr('network') != dhcp_netaddr | ipaddr('network')
+# Note(olivierbourdon38): we could do much more complex network
+# computation to derive exact (or way closer to exact) range for
+# the new network depending on netmasks and indexes.
+- name: "Computing new DHCP range"
+  set_fact:
+     dhcp_pool_start: "{{ '.'.join(dhcp_netaddr.split('.')[0:-1]) }}.{{ dhcp_start_ip }}"
+     dhcp_pool_end: "{{ '.'.join(dhcp_netaddr.split('.')[0:-1]) }}.{{ dhcp_end_ip }}"
+  when:
+    - include_dhcp_server | bool
+    - itf_netaddr2 | ipaddr('network') != dhcp_netaddr | ipaddr('network')
+- name: "Deploy dnsmasq configuration file"
+  template: src=dnsmasq.conf.j2 dest=/etc/dnsmasq.conf
+  when: include_dhcp_server | bool
+# NOTE(Shrews) When testing, we want to use our custom dnsmasq.conf file,
+# not the one supplied by libvirt.
+- name: "Look for libvirt dnsmasq config"
+  stat: path=/etc/dnsmasq.d/libvirt-bin
+  register: test_libvirt_dnsmasq
+  when: include_dhcp_server | bool
+- name: "Disable libvirt dnsmasq config"
+  command: mv /etc/dnsmasq.d/libvirt-bin /etc/dnsmasq.d/libvirt-bin~
+  when:
+    - include_dhcp_server | bool
+    - test_libvirt_dnsmasq.stat.exists
+    - testing | bool
+- name: "Download Ironic Python Agent kernel & image"
+  include: download_ipa_image.yml
+  when:
+    - not create_ipa_image | bool
+    - download_ipa | bool
+
+- block:
+    - name: "Download cirros to use for deployment if requested"
+      get_url:
+        url: "{{ cirros_deploy_image_upstream_url }}"
+        dest: "{{ deploy_image }}"
+        owner: ironic
+        group: ironic
+        mode: 0644
+    - name: "Create a checksum file for cirros"
+      shell: md5sum {{ deploy_image_filename }} > {{ deploy_image_filename }}.CHECKSUMS
+      args:
+        chdir: "{{ http_boot_folder }}"
+    - name: "Ensure the checksum file is readable"
+      file:
+        path: "{{ http_boot_folder }}/{{ deploy_image_filename }}.CHECKSUMS"
+        owner: ironic
+        group: ironic
+        mode: 0644
+  when: use_cirros | bool
+
+- name: "Bootstrap Nginx"
+  import_role:
+    name: bifrost-nginx-install
+    tasks_from: bootstrap
+
+- name: "Place nginx configuration for HTTP directory"
+  template:
+    src: nginx_conf.d_bifrost-httpboot.conf.j2
+    dest: /etc/nginx/conf.d/bifrost-httpboot.conf
+    owner: "{{ nginx_user }}"
+    group: "{{ nginx_user }}"
+    mode: 0755
+
+- name: "Place nginx configuration for TLS"
+  template:
+    src: nginx_conf.d_bifrost-ironic.conf.j2
+    dest: /etc/nginx/conf.d/bifrost-ironic.conf
+    owner: "{{ nginx_user }}"
+    group: "{{ nginx_user }}"
+    mode: 0755
+  when: enable_tls | bool
+
+- name: "Set permissions for /var/lib/ironic for the ironic user"
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0750
+    owner: "ironic"
+    group: "ironic"
+  loop:
+    - "/var/lib/ironic"
+    - "/var/lib/ironic/master_images"
+    - "/var/lib/ironic/images"
+
+- name: >
+    "Explicitly permit nginx port (TCP) for file downloads from nodes to be provisioned
+     and TCP/6385 for IPA callback"
+  iptables:
+    chain: INPUT
+    action: insert
+    protocol: tcp
+    destination_port: "{{ item }}"
+    in_interface: "{{ network_interface }}"
+    jump: ACCEPT
+  loop:
+    - "{{ file_url_port }}"
+    - "{{ file_url_port_tls }}"
+    - 6385
+  when: not use_firewalld | bool
+
+- name: "Explicitly permit DHCP and TFTP ports"
+  iptables:
+    chain: INPUT
+    action: insert
+    protocol: udp
+    destination_port: "{{ item }}"
+    in_interface: "{{ network_interface }}"
+    jump: ACCEPT
+  loop:
+    - 67
+    - 69
+  when: not use_firewalld | bool
+
+- name: "Enable services in firewalld"
+  firewalld:
+    service: "{{ item }}"
+    zone: "{{ 'libvirt' if testing | bool else firewalld_internal_zone }}"
+    state: enabled
+    permanent: yes
+    immediate: yes
+  loop:
+    - dhcp
+    - dhcpv6
+    - tftp
+  when: use_firewalld | bool
+
+- name: "Enable ports in firewalld"
+  firewalld:
+    port: "{{ item }}/tcp"
+    zone: "{{ 'libvirt' if testing | bool else firewalld_internal_zone }}"
+    state: enabled
+    permanent: yes
+    immediate: yes
+  loop:
+    - "{{ file_url_port }}"
+    - "{{ file_url_port_tls }}"
+    - 6385
+  when: use_firewalld | bool
+
+- block:
+    - name: "Allow nginx, ironic, inspector and IPA ports on SELinux"
+      seport:
+        ports: "{{ file_url_port }},{{ file_url_port_tls }},6385,5050,9999"
+        proto: tcp
+        setype: http_port_t
+        state: present
+
+    - name: "Allow nginx to connect to downstream servers"
+      seboolean:
+        name: httpd_can_network_connect
+        state: yes
+        persistent: yes
+
+    - name: "Add proper context on created data for tftpboot"
+      sefcontext:
+        target: "{{ item }}"
+        setype: tftpdir_t
+        state: present
+      loop:
+        - "{{ tftp_boot_folder }}"
+        - "{{ tftp_boot_folder }}/pxelinux.cfg"
+
+    - name: "Add proper context on created data for http_boot"
+      sefcontext:
+        target: "{{ http_boot_folder }}(/.*)?"
+        setype: httpd_sys_content_t
+        state: present
+
+    - name: Disable the old ironic policy if it was enabled
+      command: semodule -d ironic_policy
+      ignore_errors: true
+
+    - name: Apply the correct SELinux context to the directories
+      command: restorecon -iRv {{ item }}
+      loop:
+        - "{{ http_boot_folder }}"
+        - "{{ tftp_boot_folder }}"
+  when: (ansible_os_family == 'RedHat' or ansible_os_family == 'Suse') and
+         ansible_selinux.status == 'enabled' and ansible_selinux.mode == "enforcing"
+- name: "Configure remote logging"
+  template: src=10-rsyslog-remote.conf.j2 dest=/etc/rsyslog.d/10-rsyslog-remote.conf
+  when:
+    - remote_syslog_server is defined
+    - remote_syslog_server | length > 0

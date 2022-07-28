@@ -1,0 +1,101 @@
+CHANGES
+=======
+
+0.9.0
+-----
+
+* Replace Identity client endpoint type
+* Add victoria/wallaby stable branch jobs on master gate
+
+0.8.0
+-----
+
+* Increase protection testing for application credentials
+
+0.7.0
+-----
+
+* Add RBAC tests
+* Update federation jobs to use ubuntu focal
+
+0.6.0
+-----
+
+* [goal] Migrate keystone-tempest-plugin jobs to focal
+* Add tempest clients for limits
+* Replace assertItemsEqual with assertCountEqual
+* Update docs building, cleanup
+* Add addCleanup just after resource creation
+* Use ephemeral test user for k2k tests
+* Add stable branches testing on keystone-tempest-plugin master gate
+* Remove func not in use in test\_service\_providers
+* Don't test openstack\_groups on stable branches
+
+0.4.0
+-----
+
+* Test case for openstack\_groups
+* Make checking for singular SPs in list instead of list equality
+* Update hacking for Python3
+* Remove six library
+* Drop py3.5 from tempest plugins
+* Update Zuul job list
+* [ussuri][goal] Drop python 2.7 support and testing
+* Add option to disable testing against external idp
+* Use up-to-date federation job names
+* Keystone to Keystone tests
+* Follow the PTI for docs
+* Update the constraints url
+
+0.3.0
+-----
+
+* Fix sphinx requirement for python2
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Fix documentation link
+
+0.2.0
+-----
+
+* Update hacking version to latest
+* Clean up the auto generated domain
+* Change openstack-dev to openstack-discuss
+* Add python3 functional test job
+* [Trivial Fix] update home-page url
+* Import another job from project-config
+* Rename keystone zuul jobs
+* import zuul job settings from project-config
+
+0.1.0
+-----
+
+* fix tox python3 overrides
+* Updated from global requirements
+* fix error url
+* Updated from global requirements
+* Use openstackdocstheme for docs and release notes
+* Removed the older version of python and added 3.5
+* Removes unnecessary utf-8 encoding
+* Cleaned up \*-requirements.txt
+* Add functional test cases for v3-ext/OS-OAUTH1
+* Add lxml to requirements.txt
+* Cleanup cookiecutter defaults
+* Apply cookiecutter to newly split project
+* Replace test.attr with decorators.attr
+* Reuse already existing groups from upstream tempest config
+* Fix issues with keystone-dsvm-py35-functional-v3-only on py35
+* Fix the usage of tempest.client.Manager class
+* Fix import ordering in tempest plugins
+* Federated authentication via ECP functional tests
+* Validate mapping exists when creating/updating a protocol
+* Replace keystone.common.config with keystone.conf package
+* Integration tests cleanup
+* Add protocols integration tests
+* Add mapping rules integration tests
+* Add service providers integration tests
+* Fix credentials\_factory method call
+* Add identity providers integration tests
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Base for keystone tempest plugin

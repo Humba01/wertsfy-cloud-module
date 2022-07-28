@@ -1,0 +1,37 @@
+[networking_sfc.flowclassifier.drivers]
+dummy = networking_sfc.services.flowclassifier.drivers.dummy.dummy:DummyDriver
+ovs = networking_sfc.services.flowclassifier.drivers.ovs.driver:OVSFlowClassifierDriver
+
+[networking_sfc.sfc.agent_drivers]
+ovs = networking_sfc.services.sfc.agent.extensions.openvswitch.sfc_driver:SfcOVSAgentDriver
+
+[networking_sfc.sfc.drivers]
+dummy = networking_sfc.services.sfc.drivers.dummy.dummy:DummyDriver
+ovs = networking_sfc.services.sfc.drivers.ovs.driver:OVSSfcDriver
+
+[neutron.agent.l2.extensions]
+sfc = networking_sfc.services.sfc.agent.extensions.sfc:SfcAgentExtension
+
+[neutron.db.alembic_migrations]
+networking-sfc = networking_sfc.db.migration:alembic_migrations
+
+[neutron.policies]
+networking-sfc = networking_sfc.policies:list_rules
+
+[neutron.service_plugins]
+flow_classifier = networking_sfc.services.flowclassifier.plugin:FlowClassifierPlugin
+sfc = networking_sfc.services.sfc.plugin:SfcPlugin
+
+[neutronclient.extension]
+flow_classifier = networking_sfc.cli.flow_classifier
+port_chain = networking_sfc.cli.port_chain
+port_pair = networking_sfc.cli.port_pair
+port_pair_group = networking_sfc.cli.port_pair_group
+
+[oslo.config.opts]
+networking-sfc = networking_sfc.opts:list_sfc_opts
+networking-sfc.quotas = networking_sfc.opts:list_quota_opts
+
+[oslo.policy.policies]
+networking-sfc = networking_sfc.policies:list_rules
+

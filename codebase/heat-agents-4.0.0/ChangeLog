@@ -1,0 +1,272 @@
+CHANGES
+=======
+
+4.0.0
+-----
+
+* Fix lower-constraints
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+3.0.0
+-----
+
+* [ussuri][goal] Update contributor documentation
+* Migrate from testr to stestr
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+2.2.0
+-----
+
+* Reuse the docs deps to benefit from constraints
+* Remove six
+* Use TOX\_CONSTRAINTS\_FILE
+* replace imp module
+* Add py38 test
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+2.1.1
+-----
+
+
+2.1.0
+-----
+
+* [goal] Migrate testing to ubuntu focal
+* Switch to newer openstackdocstheme and reno versions
+* Revert "docker-cmd hook switch to the paunch library"
+* Fix hacking min version to 3.0.1
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+* Update hacking for Python3
+
+2.0.0
+-----
+
+* Revert "Add heat docker hub login secret"
+* Add heat docker hub login secret
+* [ussuri][goal] Drop python 2.7 support and testing
+* Switch to Ussuri jobs
+* Update master for stable/train
+
+1.10.0
+------
+
+* Drop use of git.openstack.org
+* Cap sphinx for py2 to match global requirements
+* replace git.openstack with releases.openstack
+* Rewrite test\_hook\_docker\_cmd to avoid paunch internals
+* Fixes problem with distutils installed packages on Centos and Suse
+
+1.9.0
+-----
+
+* Add Python 3 Train unit tests
+* Additional tests for region\_name
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Update master for stable/stein
+* [Ansible] Look for inventory in SoftwareConfig options
+
+1.8.0
+-----
+
+* Fix docker-cmd hook unit tests
+* Skip Hook docker cmd test until story 2004926 fixed
+* dict\_object.keys() is not required for \*in\* operator
+* Make heat-config logging more human friendly
+* Add Ubuntu version of heat-config-kubelet
+* Use upper-constraints in tox tests
+* add lower-constraints job
+* Change openstack-dev to openstack-discuss
+* Fix broken git.openstack.org URLs in the docs
+* Get rid of dependency on dpath
+* Added missing json 'encode' function
+* Replace basestring with six.string\_types
+* Change docker-cmd for recent paunch changes
+* fix tox python3 overrides
+* Use with statement to enforce file close
+* Update reno for stable/rocky
+* Migrate the link of bug report button to storyboard
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+
+1.7.0
+-----
+
+* Add region\_name for heat-config-notify
+* Expose error when a hook script raises an exception
+* Clean up heat-agents docs
+
+1.6.0
+-----
+
+* Use six StringIO
+* Chef: Fix encoding and Python 3 support
+* Remove unused requirements
+* Update reno for stable/queens
+* Create doc/requirements.txt
+
+1.5.3
+-----
+
+* Update requirements manually
+* Fix heat docker agent tests
+* Add reno for release notes management
+
+1.5.2
+-----
+
+* Add keystoneclient in heat-config
+* Make chef agent tests more reliable
+
+1.5.1
+-----
+
+* Retry logic for url request in heat-config-notify
+
+1.5.0
+-----
+
+* whitelist os-apply-config group in 55-heat-config
+
+1.4.0
+-----
+
+* Organize heat-agents docs
+* Update URL home-page in documents according to document migration
+
+1.3.0
+-----
+
+* Add basic stuff to build docs
+* Add py3.5 support
+
+1.2.0
+-----
+
+* docker-cmd hook switch to the paunch library
+* Don't fail on warnings in docker-cmd
+* Remove color from puppet output
+* Set the config ID as an ansible variable
+* Add splay option
+* Fix undefined basestring in py35
+* Include hiera.datafiles in output for legacy data check
+
+1.1.0
+-----
+
+* Add env\_file for docker hook
+* docker-cmd: simplify building config ids for delete
+* Add a generic option to configure Ansible callbacks in the agent
+* Replace yaml.load() with yaml.safe\_load()
+* Add zaqar.use\_websockets option to o-c-c
+* Add a check for legacy hiera element data
+* Update test requirement to match global requirements
+* Split string commands on whitespace
+* Refactor docker cmd arg building
+* Rename containers to their desired name
+* Ensure unique container names
+* Delete containers based on labels, not state files
+* Set labels on containers managed by docker-cmd
+* Refactor docker invocation into function
+* Implement start\_order for containers
+
+1.0.0
+-----
+
+* Add setup files for packaging
+* Add --skip-tags to ansible hook
+* Add exit\_codes option to docker-cmd hook
+* Fix: all containers are being set privileged
+* Add boot-config files for os-apply/collect-config
+* Reinstate LICENSE file
+* Prevent trailing whitespace in rendered JSON
+* Add 'exec' support to docker cmd
+* Switch no hook message to an error
+* Use heat-agents instead of heat-templates
+* Cleanup temp files in tests
+* Add a hook to help write json files
+* Move elements at the top level
+* Use 'openstack' commands instead in docs
+* Enable the use of a non-standard module-path for ansible
+* docker-cmd hook handle empty config file
+* Do docker operations in a defined order
+* Correct tags option position in ansible hook
+* Set content-type for SoftwareConfig's heat-config-notify
+* Add local logging output to puppet hook
+* docker-cmd hook
+* Add option to pass tags to the ansible hook
+* A hook which writes hiera datafiles
+* A hook which invokes os-apply-config
+* Clean imports in code
+* Make hooks dir discovery more flexible
+* Fix some typos
+* Correct perms of /var/run/heat-config/heat-config
+* Allow ansible inventory to be configurable
+* Truncate docker-compose.yaml to zero bytes
+* Chef-Zero software config hook
+* Trivial: Remove vim header from source files
+* Add script so that deployments won't get rerun
+* Move deployed dir from /var/run to /var/lib
+* Handle non-zero success codes from Salt
+* Add test code for software config hook for ansible
+* Improve handling of Puppet output
+* Add puppet hook option for --tags
+* Use deployment name rather than id for compose project
+* Fix example of image building for heat
+* Modified puppet hook to add option to specify modulepath
+* Add support for zaqar in heat-config-notify
+* Upgrade Hacking version
+* Add tests and example template for atomic hook
+* Ensure Puppet can run even on PoC net setups
+* Add missing SCRIPTDIR variable
+* Add env\_file support for docker-compose hook
+* heat-config-kubelet hook
+* Fix hiera deployment JSON generation
+* Fix AttributeError caused by hook-ansible
+* Remove experimental 'heat-config-docker' hook
+* heat-config-docker-compose hook
+* Use relative path for cfn-init
+* Start of docker hook unit tests
+* heat-config-notify support deploy\_signal\_verb
+* Correct unresolved reference 'true' and 'false'
+* Write docker operations log to deploy\_stdout/stderr
+* Fix broken heat-config-notify
+* Break out signalling heat-config-notify command
+* Write each deployed config json to file
+* heat-config-puppet: support hiera
+* Fix file exists asserts
+* Fix docker hook README formatting
+* Enable script hook to handle Json input
+* Docker hook handle DELETE action
+* Minor fixes to docker hook
+* Truncate last\_metadata file dumped by cfn-init hook
+* Add in-instance docker software config hook
+* Make hook elements depend on heat-config
+* Use packaged heatclient in the heat-config element
+* Use utf-8 encoding when writing config scripts
+* Update image building steps in software-config README
+* Unit test of script hook
+* Unit test of puppet hook
+* Trigger cfn-init via script rather than lib
+* flake8 fixes for software-config hooks
+* Unit test of 55-heat-config
+* Restore execute bit on 55-heat-config
+* Software-config hook for ansible
+* Enable support for software component
+* Pass signal\_data to heat client as dict rather than JSON
+* Do not install pip in heat config element
+* Rename os-config-applier to os-apply-config
+* Adds in-instance hook for saltstack
+* Convert input values to str
+* Include selinux-permissive element for fedora
+* READMEs for software-config templates and hooks
+* Software config hook to provision using cfn-init
+* Software config hook to provision using puppet
+* Software config hook to provision using shell scripts
+* os-refresh-config script to invoke config hooks
+* Added .gitreview

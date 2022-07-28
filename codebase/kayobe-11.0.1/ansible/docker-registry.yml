@@ -1,0 +1,16 @@
+---
+# Deploy/pull/reconfigure/stop/upgrade Docker registry.
+#
+# Follows kolla-ansible service deployment patterns.
+#
+# Variables:
+# action: One of deploy, destroy, pull, reconfigure, upgrade
+
+- name: Ensure a local Docker registry is deployed
+  hosts: docker-registry
+  tags:
+    - docker-registry
+  roles:
+    - role: docker-registry
+      docker_registry_action: "{{ kayobe_action }}"
+      docker_registry_config_path: "{{ config_path }}/docker-registry"

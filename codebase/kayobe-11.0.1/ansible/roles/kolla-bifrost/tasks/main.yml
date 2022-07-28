@@ -1,0 +1,16 @@
+---
+- name: Ensure the Kolla Bifrost configuration directories exist
+  file:
+    path: "{{ kolla_node_custom_config_path }}/bifrost"
+    state: directory
+    mode: 0750
+
+- name: Ensure the Kolla Bifrost configuration files exist
+  merge_yaml:
+    sources: "{{ kolla_bifrost_config_paths | product(['/kolla/config/bifrost/' ~ item]) | map('join') | list }}"
+    dest: "{{ kolla_node_custom_config_path }}/bifrost/{{ item }}"
+    mode: 0640
+  with_items:
+    - bifrost.yml
+    - dib.yml
+    - servers.yml

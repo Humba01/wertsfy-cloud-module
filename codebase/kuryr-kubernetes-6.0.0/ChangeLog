@@ -1,0 +1,1354 @@
+CHANGES
+=======
+
+6.0.0
+-----
+
+* [devstack] Support config image repository for kubeadm
+* [devstack] Replace healthz with readyz to check kubernetes
+* Fix prepoulation of ports pool definition
+* Updating python testing classifier as per Yoga testing runtime
+* Update KLB .spec.provider when required
+* Update Centos version for container images
+* Fix error message on VLAN ID conflict
+* Ignore Pod event if Pod is Pending with no Node set
+* Raise kubernetes tests version to 1.22.5 and fix legacy tests
+* Bump docutils version on lower constraints
+* Added missing raise statement for not ready resource
+* DevStack: Allow kuryr-cni SA to create Events
+* Switch Amphora jobs to use clouds with nested-virt
+* Re-add events for reconciliation
+* Add events for Network Policy related activities
+* Fix f-string for event message
+* Add source to Events
+* Remove surplus function for getting lb client
+* KuryrLoadBalancer Listener Reconciliation
+* Remove another log without sense
+* Follow up to Pods events patch
+* Limit the number of concurrent create\_ports requests
+* Add lock to pools poulation
+* Add events for Pod object
+* Set KURYR\_CONFIGMAP\_MODIFIABLE: false in pools job
+* Add events for Services
+* Remove log that has no sense
+* Enable reconciliation only if OVN Octavia is enabled
+* CNI: Improve logging of timeout errors
+* Add config option to enable Kubernetes Event creation
+* Add TRACE logging
+* Remove event added in KuryrNetwork's on\_finalize
+* Avoid controller restart when Port is not connected to Trunk
+* Fix VLAN ID management
+* Make gates to use CRI-O on devstack by default
+* Bump kubernetes version
+* Use CRI-O with kubeadm
+* Do not start kuryr-daemon when worker\_num <= 1
+* Remove Amphora job from gate queue
+* Decrease log level of leftover ports message
+* Improve retrieval of Trunks info
+* Increase tempest timeout
+* Ensure DOWN subports are cleaned up
+* Restrict handling of Namespace events
+* Ensure KLB is updated
+* Added events for namespace live cycle object
+* Add permission to create events
+* Clean up extra spaces
+* Make completed Pods Ports reusable
+* For containerized cni\_ds set mountPropagation=HostToContainer to let containers aware of the host's netns changes
+* Support for ports and primarySubnet fields in machine
+* Move jobs to use Ubuntu Focal
+* Don't change aliveness for certain exceptions
+* Added metrics for failures caused by OpenStack services
+* Expose critical lbs metrics
+* Disable Flask logs of metrics calls
+* Decrease CPU usage of Prometheus exporter
+* Revert "Bug 1890630: Ensure Ports in use per Subnet calculation is correct"
+* Increase kuryr controller prometheus bucket for pods creation
+* Log the exception-info when an error raises in hanlder
+* Fix l-c and requirements job
+* Export Prometheus metrics
+* Drop constrain of versions <0.8 for PrettyTable
+* Add kuryr-k8s-sanity command
+* Switch gates to OVN by default
+* Remove port from trunk on \_cleanup\_leftover\_ports
+* Added method for creating k8s events object
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+5.0.0
+-----
+
+* Enable reconciliation by default
+* Document cache parameters
+* Update the LoadBalancers Reconciliation Loop
+* Replace duplicate code to get klb crd path
+* Remove ep\_slices from klb on endpoint delete event
+* Add Octavia Tempest Plugin
+* Add the Service Creation Flow Diagram
+* Fix multinode gate
+* Loadbalancers reconciliation
+* Add x-openstack-request-id into Kuryr Logs
+* Change documentation for devstack deployment
+* gracefully exit daemonserver before registry exit
+* Use correct logger when setting pyroute2 log level
+* Fixes for latest changes on Neutron devstack
+* Add original exception to log about dead component
+* Minor formatting corrections
+* Update the Service Creation Process
+* Update the Handlers and the Resources
+* Increase keystoneauth's connection pool size
+* Add the regenerate option in building kuryr-controller image
+* Show error messages when resources are stuck
+* Workaround OVN bug causing subports to be DOWN
+* Work with pyroute2 0.6.4
+* Fix Listener timeouts update
+* Add golang dependency for devstack
+* Update DOCs to use OFTC instead of Freenode for IRC
+* Changed minversion in tox to 3.18.0
+* Switch testing to Xena testing runtime
+* Dropping draining node while removing k8s cluster
+* Enable multinode gate
+* Make containerized deployment as a default
+* Use kubeadm for installing Kubernetes on devstack
+* Ignore 422 Unprocessable Entity on KLB patching
+* Enable kuryrnetwork handler when using Network Policies
+* Update GO version
+* Clean up usage of ubuntu bionic on crio job
+* Fix readiness quota check
+* Fix NPs for OVN LBs with hairpin traffic
+* setup.cfg: Replace dashes with underscores
+* Fix typo in kuryport.py file
+* Remove redundant parentheses
+* Remove the import alias, which is same as package name
+* Remove unnecessary use of set around a generator
+* Remove pyroute2 deprication warning
+* Prepare gate for OVN as default in DevStack
+* Migrate kuryr-cni to go.mod
+* Log pyroute2 RuntimeError details
+* Include proper log when Kuryr cannot reach Octavia API
+* Fix constant update of Listeners timeout
+* Fixing bug, Kuryr-Controller crashes when it's missing the status
+* Include service subnet to be open for namespaceSelector set to all
+* Enable Listener data timeouts test in tempest.conf
+* Stop deleting KuryrPorts of host-networking pods
+* Update container images used on the docs
+* Allow Pods Network to have smaller MTU than Nodes
+* Update master for stable/wallaby
+* CNI: Fix NetlinkError prevention with nested VLAN
+* CNI: Allow building with go 1.16
+
+4.0.0
+-----
+
+* Fixing bug, cannot delete pools when members are empty
+* Add option to set listener timeouts for lb created by Kuryr
+* Adds SCTPConnectivity tests to e2e network policy tests
+* Include release notes for Service without selectors
+* Move ovn jobs to voting
+* DevStack: Support dual stack
+* Fix Subnet retrival when creating Service without Selector
+* Fixes the if-else-block bug
+* Skip pool pre population if no Status is present on CRD
+* Ensure Namespace readiness depends on correct CRD
+* Enable SCTP service test in tempest.conf
+* Do not default protocol to TCP for allow-all NPs
+* Removing the upgrade code from Kuryr-Kubernetes repo
+* OpenShift: Add configured subnets to the detected
+* Narrow connection to the cluster only on namespaceSelector
+* Speed pools population by relying on KuryrPort CR
+* Fix number of ports requested on pool pre-population
+* Make parse\_network\_policy\_rules private
+* Update documentation for svc and ep annotation to KuryrLoadBalancer
+* Get trunks more diligently
+* Ignore headless services in NP code
+* Run k8s e2e tests for network policy
+* Bump kubernetes verrion to 1.19.1
+* Add OpenShiftNodesSubnets driver and MachineHandler
+* Introduce NodesSubnetsDriver
+* Multiple nodes subnets support
+* [DOCS] Testing SCTP service support
+* Adapt selfLink calculation for any k8s objects
+* Adapt selfLink calculation for KuryrPort CRD objects
+* Adapt selfLink calculation for Namespace objects
+* Adapt selfLink calculation for Endpoints objects
+* Adapt selfLink calculation for Service objects
+* Adapt selfLink calculation for KuryrNet CRD objects
+* Adapt selfLink calculation for Pod objects
+* Adapt selfLink calculation for KuryrNetwork CRD objects
+* Adapt selfLink calculation for KuryrNetworkPolicy CRD objects
+* Adapt selfLink calculation for KuryrNetPolicy CRD objects
+* Adapt selfLink calculation for KuryrLoadBalancer CRD objects
+* Fix k8s client for handling empty list in response
+* Added function for figure out link for the resource
+* CNI docs: Fix return code
+* Fix OVN gates
+* K8S Services: add support for SCTP
+* Skip unscheduled pods when handling NP creation
+* Enables SCTPsupport in K8s v1.18 cluster
+* Fix base docker images
+* Fix CI issues
+* Adds doc about ovn-octavia driver support
+* Fix ovn local.conf
+* Fix docs for NP
+* Use centos/golang from quay.io registry
+* Fix spelling errors
+* Add urllib3's SSLError to expected Watcher exc
+* Updating tempest conf file
+* Change registry for fetching coredns image
+* Add basic docs about nested mode
+* Enable Neutron to allow taging on port creation
+* Support for bulk port tagging extension
+* Fix the invalid arguments formatting in exception messages
+* Add support to Endpoints without targetRef
+* Update RDO to use Victoria release
+* Move to quay.io with kuryr/demo docker image
+* Enable neutron-tag-ports-during-bulk-creation extension
+* Ensure members are deleted from pools when there is no endpoints
+* Update TOX\_CONSTRAINTS\_FILE
+* Update tempest configs according Kuryr enabled configs
+* Resolve issues with object races
+* Ensure egress NP works with Service without selectors
+* Skip unscheduled pods when deleting NPs
+* Handle None or {} labels in match\_selector()
+* Returns CNI errors in specified form
+* Updates kuryr\_cni vendor folder
+* Increase tempest test timeout to 30 mintues
+* Remove the unused coding style modules
+* Add release note about update of mtu config value
+* Clean up references to the sg config option
+* Fix SG rules to be created twice for the services
+* Fix exception message in case when bulk creation fails
+* Updates vagrant README
+* Removes the line that removes service\_account.yml
+* updates network policy doc
+* Fix restoring listener in case of removing NP
+* Splits kuryr-controller and kuryr-cni ServiceAccounts
+* removed unused env variable reference
+* Allow to config network MTU
+* Logging level should be lowered
+* Removes generate\_lbaas\_port\_specs method
+* Delete ports created for host networking pods
+* Removes unprovided kuryr-cni.conf file docs
+* CNI: Lookup offending interface on NetlinkError
+* Removes deprecated lbaasv2 haproxy docs
+* Fix the IPv6 enablement
+* corrects  Kubernetes Services handlers
+* Fix installation with Vagrant
+* removes kuryr\_kubernetes\_ingress\_design
+* Fix is\_host\_network()
+* updates docs to "kubectl create deployment"
+* Add protection from unexpected issues
+* Load qos to avoid missing qos-fip on OVN gates
+* Reuse the docs deps to benefit from constraints
+* optimize size and time using --no-cache-dir
+* Ensure LB member is updated if a conflict happens
+* Ensure only kuryr ports are cleaned up
+* Refactor passing params to requests in K8s client
+* Set read timeout for any request in K8sClient
+* requirements: Drop os-testr
+* Skip update of vip sg if lb is gone
+* Ensure klb handler reacretes lb
+* Bump py37 to py38 in tox.ini
+* Clean up unused methods and not needed interactions to k8s API
+* Don't crash on fetching network policy
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+3.0.0
+-----
+
+* Avoid race when pod is deleted before finalizer is added
+* Cleanup ports belonging to deleted nodes
+* Disable dstat to enable tests on Ubuntu 20.04
+* Don't clutter logs with exceptions on retry
+* Leaks of loadbalancer
+* Skip KuryrLoadbalancer creation for Headless Service
+* Added new K8sFieldValueForbidden exception
+* fix typo of unittest
+* Clean lb crd status upon Load Balancer removal
+* Reduce the Octavia health manager threads
+* Fix OVN jobs, expand swap size, fix l-c
+* Civilize logging vol 2
+* Remove Barbican installation from gates
+* Ensure updated lb sgs is used on the CRD
+* Catch exceptions for deleted pod
+* NP: Protect from disappearing resources
+* Delete ports without device\_owner on ns deletion
+* Update 10-kuryr.conf to 10-kuryr.conflist, and generate the 10-kuryr.conflist file from the template file kuryr.conflist.template
+* Skip FIP creation if no external subnet config is set
+* Ensure loadBalancerIP is used when defined on the Service
+* Ensure LB sg is in sync with backend Pods
+* Ignore CRD creation errors when ns is terminated
+* Update documentation for pod-annotation to KuryrPort
+* Remove all usage of six library
+* Ensure proper cleanup of subports
+* [Trivial]Add missing print parameter in log messages
+* Fix kuryr-controller error for not finding created resources
+* Guard against manually removing of KuryrPort CRD
+* Remove the pod interface even if VIF is gone
+* DevStack: Disable leader election for K8s services
+* Remove right finalizer on pod absence
+* Convert KuryrLoadBalancer subsets CRD to EndpointSlice
+* Fix typo
+* NP: Don't add pods without IP to affectedPods
+* Fix run generate\_k8s\_resource\_definitions.sh
+* Upgrade Kubernetes version to 1.18
+* Cleanup minor thing for KuryrPort feature
+* Ensure Service is delete if lb CRD is already gone
+* Move vifs to 'status' in the KuryrPort CRD
+* Ignore update\_lbaas\_sg() failure on NP deletion
+* Add finalizer for the pod as soon as possible
+* Support upgrading LBaaSState annotation to KLB CRD
+* Upgrade ovn version on the gates
+* Ignore update\_lbaas\_sg() failure on NP creation
+* KuryrNetworkPolicy CRD
+* Update loadbalancer CRD with service spec and rely on CRD
+* Speed up container builds
+* Pod annotations to KuryrPort CRD
+* Implement add\_finalizer and remove\_finalizer
+* Fix coverage environment in tox
+* Use plugin instead of devstack service for Neutron
+* Refactor sriov binding driver
+* Added Neutron metadata service to the config files
+* Disable colors for K8s NP e2e tests
+* Run K8s e2e network policy tests
+* Fix duplicated sg rules on NP crd
+* Run coredns service on pod Network
+* Tweak exponential backoff
+* Civilize logging
+* Attempt to autodetect interface in nested setups
+* Periodically fetch full list of watched resources
+* Remove dragonflow
+* Removing pod argument for activate\_vif method
+* Fix CNI image built
+* Add support for amphora to ovn-octavia upgrade
+* CNI: Don't wait for missing pods on DEL
+* drop mock from lower-constraints
+* Ensure allowed\_cidrs field is present on older openstacksdk versions
+* Remove ovn-octavia provider tcp+udp limitation
+* Ensure security\_groups on LBaaSLoadBalancer defaults to empty list
+* Ensure provider information is used when finding lbs
+* Switch to newer openstackdocstheme and reno versions
+* Ensure kuryrnetwork CRs without status can be deleted
+* Remove lb sg creation when octavia provider is ovn-octavia
+* Add gate for Octavia provider OVN
+* Handle binding\_failed error when creating neutron port
+* Add py38 package metadata
+* [Trivial]Add missing white space between words
+* CNI: Confirm pods in cache before connecting
+* Remove .testr.conf
+* Ensure LB resources with ERROR status are deleted
+* Fix hacking min version to 3.0.1
+* Use VFs for DPDK apps in pods inside VM
+* Ignore errors when removing containers in DevStack
+* Fix pep8 job after flake8 upgrade
+* Enable IPv6 in network policy driver
+* Raise quotas for security group rules
+* Pin OVN to branch-20.03
+* Skip LB sg update when no endpoint is found
+* Throw an exception in case of exceeding quota
+* Ensure NP are enforced on SVC with different port and target port
+* Upgrade centos in dockerfiles
+* Make \_create\_ports keys coherent with Neutron API
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+2.0.0.0rc1
+----------
+
+* [ussuri][goal] Update contributor docs
+* Add option cafile default value in kuryr-controller's config
+* Ensure LB state annotation sg matches the SG on the LB
+* Use unittest.mock instead of third party mock
+* Do not configure l3 for VIFVHostUser VIFs
+* Ensure SG rule is deleted from CRD upon Namespace deletion
+* Remove pod\_ip\_caching from \_kuryr\_k8s\_opts
+* Add init containers logs
+* Update OVN local.conf
+* Remove MEMOIZE from get\_pod\_ip
+* Fix ovn gate
+* Disable urllib3 warnings
+* Fix sg rules creations for LB sg when applying members sg
+* Add gcc-c++ into containers to fix grpcio build
+* Remove unused method
+* Change default listening address for health checks
+* Use the right variable in debug message
+* Ensure no attempt to deleted sg rules owned by Octavia happens
+* Run on\_finalize() for ADDED events
+* Remove excess physnet to device mapping
+* Delete neutron ports for Failed/Succeeded pods
+* Fix IPv6 enabled devstack and namespace subnet plugin
+* Preserve unknown in remote\_ip\_prefixes in NP CRD
+* Add IPv6 support to namespace subnet driver
+* Autogenerate path for vhostuserclient socket
+* do not die if cannot remove socket file
+* ignore docker files for better docker image reuse
+* Support DPDK application on bare-metal host
+* Namespace event handling through KuryrNet CRD
+* Make node annotations with pci addresses optional
+* Ensure LB sg rules use IPv6 when enabled
+* Remove unrelated health check for sriov driver
+* Nested CNI: Remove interfaces on DEL requests
+* Log CNI\_ARGS and CNI\_NETNS in kuryr-cni
+* Update class hierarchy for dpdk  driver
+* Remove sgId from KuryrNet CRD
+* Update class hierarchy for sriov driver
+* Make package repo configurable
+* Disable coredns deployment
+* Raise K8sResourceNotFound for all client methods
+* Removing six library
+* Remove remaining notions of python-neutronclient
+* Add IPv6 devstack support for namespace subnet driver
+* Remove \_post\_lb\_resource()
+* Update CRDs from apiextensions.k8s.io/v1beta1 to v1
+* Ensures accurate quota calculation during the readiness checks
+* Move OpenShift job to experimental
+* Ensure list of pods items is retrieved
+* Enable trace on kuryr-kubernetes plugin
+* Remove namespace\_security\_groups from opts.py
+* Nested: Detect MTU mismatch
+* Bump hacking to newer version
+* Accept non-IP as KUBERNETES\_SERVICE\_HOST
+* Get driver for resource but not physnet
+* Basic IPv6 support in DevStack
+* Add info about required RBAC permissions to docs
+* Remove ingress permissions from ServiceAccount
+* Deprecate usage of neutron-client in kuryr-kubernetes
+* Revert "Ensure namespace network resources are deleted even on subnet not found"
+* Add DPDK support for nested pods
+* Remove namespace isolation support
+* Ensure no sg rule is repeated on the Network Policy CRD
+* Deprecate unmaintaned features
+* Remove openshift routes(Ingress) support
+* Ensure LB with error status is only recreated after deleted
+* Fix port creation with generated payload
+* Refactor neutron tag resources for macvlan driver
+* Update exceptions handling for openstacksdk
+* Ensure namespace network resources are deleted even on subnet not found
+* Remove \_get\_trunks method for openstacksdk client
+* Drop use of USE\_SYSTEMD var in devstack plugin
+* Move neutron related code to macvlan driver
+* Use openstacksdk for setting the tags
+* Use openstacksdk for update\_port\_pci\_info function
+* Make OVN job voting
+* Remove get\_ports\_by\_attrs by simply use args in query ports
+* Update neutron\_vif driver to use OpenStackSDK
+* Refactor of os\_vif\_util module
+* Ensure lb SG is not updated on member creation
+* Remove old CNI handlers
+* Update sriov driver to use OpenStackSDK
+* Update nested\_vlan\_vif driver to use OpenStackSDK
+* Update nested\_vif driver to use OpenStackSDK
+* Update network\_policy driver to use OpenStackSDK
+* Update public\_ip driver to use OpenStackSDK
+* Update namespace\_subnet driver to use OpenStackSDK
+* Update vif\_pool driver to use OpenStackSDK
+* Add ability to query for trunks with specified tags
+* Stop passing around neutron client object
+* Update namespace\_security\_groups driver to use OpenStackSDK
+* Update lbaasv2 driver to use OpenStackSDK
+* Fix more problem of changing size during dict iteration
+* Avoid KeyError when deleting NPs
+* Add support for listeners on the same port but different protocol
+* Gather debug info when NetlinkError EEXIST happens
+* Add support to Octavia ACLs
+* Make OpenShift gates to use NPs
+* Fix problem of changing size during dict iteration
+* Fix iteration over remote\_ip\_prefixes field
+* Ensure only lb with no corresponding svc is cleaned up
+* Fix Octavia version detection
+* Add missing parameter Controller in the log message
+* Protect from sg Not Found on multiple np enforcement
+* Ensure LB member is removed upon pod removal
+* Ensure network leftovers without kuryrnet CRD obj are deleted
+* Set defaults for certs and token on the k8s client
+* Bump openstacksdk to 0.36.0
+* Ensure LB sg update is retried when NP is enforced
+* Fix catched exception after transition to OpenStackSDK
+* Allow to use Mellanox smart NICs for DPDK
+* Ensure namespace are recreated upon a k8s client failure
+* Ensure leftover LBaaS are deleted upon Controller start
+* Update the community page
+* Fix lower-constraints gate
+* Ensure egress rules include VIP IPs
+* Nested CNI: Look for leftover ifaces to remove
+* Make kuryr-kubernetes-tempest-containerized voting
+* Switch to use Ubuntu Bionic Octavia Amphora
+* Upgrade OpenShift on gates to 3.11
+* Reap zombie child processes in CNI daemon service
+* Bump OpenStackSDK version to 0.17
+* Fix misprints in sriov binding driver
+* Ensure pools population does not happen until pools are recovered
+* Add support for different loadbalancer algorithms
+* Handle not found subport on Trunk
+* Fix pool population when namespace isolation is enforced
+* Make openshift-dns deployment Python 3 compatible
+* Avoid race between member addition and namespace deletion
+* Add requests.ConnectionError to watcher retries
+* Bump pool\_maxsize for K8sClient to 1000
+* Ensure not found exception is ignored when LB is not present
+* Basic Python 3 compatibility fixes
+* Do not crash on failing to add default route
+* Have configurable additional vifs prefix
+* Use ifname from CNI request for default vif
+* Prevent Kuryr restart due to connection issue
+* Documentation for nested-dpdk case
+* Only delete pod from CNI registry after unplugging the vif
+* Fix deletion of ports on a pool
+* Fix multinode gate after switch to Python 3
+* Ensure last\_update is initialized before used
+* Protection from subport with wrong ACTIVE status
+* Fix lower-constraints gate after switch to py36
+* Remove Python 2 support
+* Set explicitly type of language in code-block directive
+* Correct ordered/unordered lists
+* Change inline hyperlinks to link-target pairs
+* Explicitly use code-block
+* Fix directives formatting
+* Fix text blocks formatting
+* Fix inconsistency in headlines format
+* Remove comment about Amphora building being broken
+* Better log message for pools re-population
+* Fix py3 gate
+* Modify Network Policy gate to run all the tests
+* Ensure LB SG is not updated for egress only policy
+* Ensure Network Policy handles egress traffic to a SVC
+* Added support for bulk create ports
+* Move from Neutron client to OpenStackSDK
+* Switch to Ussuri jobs
+* Set configmap\_modifiable=True in pools gate
+* Use pyroute2 to tweak vf in sriov
+* Remove namespace leftover upon kuryr-controller restart
+* Catch right exception for ConnectFailure at activating vif
+* Avoid race between Retries and Deletion actions
+* NestedVIFPool: React when status.hostIP is missing
+* Update K8s version support matrix
+* Use upper-constraints in docs builds
+* Just check k8s 1.16
+* Add not-ready tolerations to kuryr pods
+* Avoid controller crash upon unexpected neutron error handling ports
+* Add a loadbalancer CRD
+* Improve LOG messaging
+* Fix CNI\_COMMAND=VERSION case
+* Remove unused property from DaemonServerService
+* Get rid of v1beta1 API version in ds/deployment
+* Avoid race between pod creation retry and namespace deletion
+* Avoid namespace deletion error if processing a duplicated event
+* Avoid race between activating vif and pod deletion
+* Make sure subports are unique when removing them
+* Ensure vif handler retry in case of missing ns resources
+* Set subnet\_per\_namespace
+* Ensure ports from pool do not reference deleted SGs/NPs
+* Ensure no KuryrNet addition is tried when namespace is not present
+* Fix incorrect link to k8s api-conventions
+* Ensure lb sg rules are updated upon namespace label updates
+* Ensure no LBaaS SG update is triggered for SVCs without selectors and ports
+* Ensure pod IP is retrieved from annotation
+* Fixes race cond. during updates of neutron resources
+* Update the constraints url
+* DevStack: Adapt \`prefixes\` processing
+* DevStack: Adapt fixed\_ips processing
+* Update master for stable/train
+
+1.1.0
+-----
+
+* Add region\_name to Octavia API connections
+* Ensure LBaaS state is updated upon SVC deletion
+* Make ChunkedEncodingError less scary
+* Timeout connections when watching K8s API
+* Fix sensitivity to the initial device driver
+* Ensure conflicts creating subnet from subnetpools are retried
+* Remove exit\_on\_stop from Watcher
+* Improve readability of vif handler on\_present skip reason
+* Reuse utils.get\_lbaas\_spec in lb handler
+* Skipping sg rule deletion for pods without annotations
+* Avoid Kuryrnet populating pools before namespace handler finishes
+* Remove runtime.LockOSThread() call from kuryr-cni
+* Ensure Pod IP is retrieved after pod is annoated with the VIF
+* Save logs of previous restart of containers
+* Ensure SG is only deleted in case it's present in the KuryrNet CRD
+* Ensure controller is only restarted after the event timesout
+* Increase loadbalancer timeout
+* DPDK in baremetal containers using SR-IOV
+* Provide a proper way to choose VF in CNI
+* Fix for k8s client annotation
+* Put correct API group for Routes RBAC permissions
+* Ensure readiness probe waits for sync pools upon controller restart
+* Bump the openstackdocstheme extension to 1.20
+* cni: print different error logs for timeout errors
+* Print uid with log to facilitate log tracking
+* Ensure namespace network resources are cleaned up
+* Ensure leftover ports are deleted upon kuryr-controller restart
+* Ensure tags are used to recover/clean ports
+* Add PodResources gRPC API updating guide
+* Unset --admission-control when starting K8s API
+* Blacklist sphinx 2.1.0 (autodoc bug)
+* Skip listener creation with same port of existing one
+* Fix wrong exception handled on listener creation
+* Gets rid of the following IPDB warning
+* Delete Kuryr Net CRD in case of k8s exception
+* Change trace pod/pool drivers are incompatible
+* Use CNI\_IFNAME environment variable
+* Fix ip address formattig in kuryr-cni
+* Create lbaas driver instance only when it's needed
+* Set the validate CRD enabled flag at tempest.conf
+* Add Python 3 Train unit tests
+* Speed up pools prepopulation on namespace creation
+* Fix fail to recreate namespace when previous KuryrNet CRD is not deleted
+* Increase admin project quotas
+* Remove subPaths when mounting Kuryr pods volumes
+* Count cni DEL failure as well to mark it unhealthy
+* Raise keystoneauth version in lower-constraints
+* Make SG modifications for LoadBalancers optional
+* Ensure correct exception is catched in case of not found exception
+* Raise right exception in case Kubernetes respond with not found
+* Fix adding pods with host networking to svc in L2 mode
+* Replace git.openstack.org with opendev.org in URLs
+* Support None from Octavia get\_api\_major\_version()
+* Add \`yum/dnf clean all\` to dockerfiles
+* Add CRD validation to KuryrNet and KuryrNetPolicy
+* Add release note and docs about golang kuryr-cni
+* Ensure kuryrnet does not perform multiple repopulations
+* Fix network pool deletion method
+* Access Pool.listeners elements like dict
+* Implement kuryr-cni in golang
+* Add Tempest gate with lower-constraints
+* Create Kuryr router for devstack deployment
+* Fix lBaaS sg rules corresponding to the NP rules are being deleted
+* Use non local port for CNI Daemon
+* Fix misprints in vif\_pool.py
+* Add Network Policy devref Spec
+* Update upper-constraints references in Dockerfile
+* Use constant when calling namespaces K8s endpoint
+* Update Python 3 containers to Fedora 30
+* Ensure NP Security Group is update on pod events
+* Change openstack security group rule create CLI
+* Fix Pod creation do not triggers affected SVC SG update
+* Update octavia CLI to openstack CLI
+* Move route URL to apis/route.openshift.io
+* Improve behaviour of VIFHandler
+* Populate pools upon namespace creation
+* Fix CRD update on SG rule creation
+* Add note about 'protoc' compiler version
+* Fix incombatilibity with openstacksdk <= 0.17.2
+* Add py36 to default tox environments
+* Fix sphinx requirements due to dropped 2.7 support
+* Fix sriov driver leaking resources and exceptions
+* Use proper log type when logging errors in cni
+* Fix Multiple SG rules created when Pod creation follows a NP creation
+* Fix interval ignoring by exponential sleep
+* Add PodResources service client
+* Update sriov neutron ports with pci info
+* Fix SG rule creation when Pod is created after NP
+* Annotate nodes with pci info for direct ports
+* Support sriovdp arbitrary resource names
+* Fix ingress/egress of UDP traffic on allow to/from everywhere Policy
+* Ensure Pod SG is updated on podSelector of NP spec update
+* Use Octavia endpoint paths from openstacksdk
+* Update Python 3 containers to use Fedora 29
+* Set MAC address for VF via netlink message to PF
+* Fix pod creation diagram in devref
+* OpenDev Migration Patch
+* Add support for text ports on Network Policy Spec
+* Add ipBlock support to NP
+* Dropping the py35 testing
+* Ensure LBaaS SG update upon allow from everywhere NP is enforced
+* Ensure port\_range\_min is optional
+* Fix conflict exceptions handling in LB creation
+* Pin coredns container image to 1.4.0 tag
+* Add support for policyTypes at Network Policies
+* Fix LBaaS SG rules update
+* NP: Create allow-all SG and add it to pod SG's
+* Enable tox to run inside containers
+* Switch to CentOS Amphora
+* Improve logging for event dispatcher
+* Add missing ws separator between words
+* NP: Delete default egress rules
+* Update master for stable/stein
+
+1.0.0
+-----
+
+* Replace openstack.org git:// URLs with https://
+* Add option to tag Octavia resources created by us
+* Add support for svc with text targetPorts
+* DevStack: Bump SG quotas for "policy" SG driver
+* Add option to deploy coredns
+* Ensure only affected services are updated on Pod/NetworkPolicy events
+* Switch Octavia API calls to openstacksdk
+* Update documentation about NP handlers needed
+* Fix LBaaS sg rules update on deployment scale
+* Avoid race between NP creation and pod annotation
+* Add option to tag Neutron resources created by us
+* Switch except statements order
+* Skip exception in case kuryrnetpolicy CRD is already deleted
+* Fix CRD podSelector update
+* Avoid \_get\_pods\_ips KeyError exception
+* Fix SG rules on targetPort update
+* Ensure kuryr-controller recover from lb in ERROR status
+* Upgrade Flask version due to security concerns
+* Pools support with Network Policies
+* Update HA doc with corections and minor fixes
+* Remove dragonflow job from experimental jobs
+* Fixup gate names after LBaaS v2 removal
+* Remove way of running without kuryr-daemon
+* Use same pool\_driver for different pod\_vif\_drivers
+* Fix unused members deletion
+* Remove non-voting job from gate
+* Fix a misprint in SR-IOV binding driver
+* devstack: Create LB objects only if Octavia is enabled
+* Enable debug logs on Kubernetes services
+* Avoid doing \`raise ex\` when only logging
+* Ensure NP changes are applied to services
+* Ensure lb sg rules are deleted when no longer allowed
+* Enable ETCD\_USE\_RAMDISK in Kuryr gates
+* Handle exception raised in FIP allocation
+* Ensure host to pod connectivity for NP
+* Fix CRD update when NP has namespaceSelectors
+* Revert "Ensure reaction to svc target-port update"
+* Fixed variables error with 'public-subnet'
+* Removing lbaasv2 related code
+* Avoid octavia default sg rules collision with kuryr ones
+* Use default subnet mapping if subnet is not specified
+* Fix CRD update on pod creation
+
+0.6.1
+-----
+
+* Fix Network Policy documentation
+* Ensure reaction to svc target-port update
+* Update CRD when NP has namespaceSelectors
+* Add Network Policy support to services
+* Adjust default pool values to remove gate flakiness
+* Fix NP creation when it has namespaceSelector
+* Fix some misspellings within Kuryr-Kubernetes
+* Use default subnet if another is not specified in NAD
+* Add a tempest cloud provider option
+* Update CRD when NP has podSelectors
+* Ensure gates run the latest OVS
+* Fix the misspelling of "openvswitch"
+* Avoid namespace isolation on LoadBalancer type svcs
+* Ensure controller healthchecks passes without CRDs
+* Handle loadbalancer SGs are created when sg\_mode is create
+* Drop Octavia providers supported protocols list
+* Ensure lb sg rules are not updated without namespaces
+* dict\_object.keys() is not required for \*in\* operator
+* Lookup container name in cni\_ds\_init
+* Test multi worker k8s
+* Avoid raising ResourceNotReady exception at pod label handler
+* Ensure pools support don't break due to neutron-vif
+* Clean up Dockerfiles and how we build them
+* Add needed driver and handler for policy gate
+* Trivial Fix: fix typos and set default param
+
+0.6.0
+-----
+
+* Ensure network policies are not applied on pod with host networking
+* Add support for podSelector
+* Ensure kubelet pod has default connectivity with Network Policies
+* Log k8s endpoints being ignored by Kuryr
+* Add support to match expressions in Network Policies
+* Ensure pod\_label handler skips host\_network pods
+* Update the kuryr-kubernetes path in devstack
+* spelling error
+* Move job list to project-template
+* fix a typo in docstring
+* devstack: move master config to separate dir
+* Fix -D option on build\_cni\_daemonset\_image
+* Fix labels encode
+* Allocate service FIP after LB was provisioned
+* Set kuryr\_daemon\_enabled in tempest.conf correctly
+* Introduce test case document for SRIOV functionality
+* Ensure pod relabeling is supported by the Network Policy
+* Add experimental gate with cri-o
+* Add KURYR\_ENABLED\_HANDLERS to devstack sample files
+* Change openstack-dev to openstack-discuss
+* Debugging extra fips generation for port\_pool failures
+* devstack: Update Kubernetes to 1.13.0
+* Add namespaceSelector support for NetworkPolicies
+* Add missing $ for bash variable in plugin.sh
+* cri-o support
+* devstack: parametrize openshift version fetching
+* Lowercase hostname when using it as K8s nodeName
+* devstack: Wait for the k8s api to be healthy
+* Ensure existing pods use the right network policy
+* Fix quota readiness check
+* Add security groups driver for NP
+* Support network policy update
+* Remove unused functions from devstack/plugin.sh
+* Fix definition of CNIRunner.get\_container\_id()
+* Allow UDP traffic from host when SG=namespace
+* Add quota readiness check to controller
+* Add missing ws separator between words
+* Work out situation with KUBERNETES\_NODE\_NAME
+* Rename kuryr-status to kuryr-k8s-status
+* Revert "Make LBaaS v2 gates non-voting"
+* Add missing key check while lbaas member add
+* Ensure floatingip information is retrieved
+* Delete duplicate words in network\_policy.rst
+* Link to public document instead of private
+* Adds CRDs readiness checks to Kuryr-Controller
+* Use show\_floatingip method instead of get\_floatingip
+* Update the HTTP links to HTTPS in manual.rstl
+* Remove hooks directory
+* Omit the twice occured words in  npwg\_spec\_support.rst
+* devstack: Update Kubernetes to 1.12.2
+* Remove np spec from kuryrnetworkpolicy annotations
+* Ignore exc on FIP association if state is correct
+* Add container\_id into VIFSriovDriver binding driver
+* Make sure we never have 2 kuryr-controllers
+* Make LBaaS v2 gates non-voting
+* Add HA gate
+* Trivial fix for network namespace doc
+* Remove race between sync\_pools and other pool actions
+* Remove race between sync\_pools and \_get\_port\_from\_pool
+* Ensure namespace and network policy compatibility
+* Set the UDP services enabled flag at tempest.conf
+* Remove etcd\_legacy
+* Move KUBERNETES\_NODE\_NAME env var to controller
+* Remove kuryr-kubernetes-tempest-lbaasv2 job
+* Fix tests in test\_public\_ip.py
+* K8S-services: add support for UDP ports
+* LBaaS driver: optimize Octavia polling timers
+* Enable \`--restart on-failure\` for K8s containers
+* Move Python 3.6 jobs to check and gate as voting
+* Add \`--force\` to \`docker rm\` in DevStack plugin
+* Add missing space in debug log
+* Switch Python 3.6 job to not run pools tests
+* Fix k8s API server access on Nested deployment
+* fix tox -e debug target
+* Use /var/run instead of /var/run/openvswitch
+* Merging port pool and namespace gates
+* Howto document for UDP services
+* Add missing documentation for nested deployment
+* Don't quote {posargs} in tox.ini
+* Add NetworkPolicies resources to kuryr's CR
+* Add routes and multi-vif resources to Kuryr's CR
+* Add kuryr-status utility for upgrade-checkers
+* devstack: Add compatibility for newer k8s
+* Fix devstack deployment when ovn-provider is selected
+* svc namespace isolation support for different octavia drivers
+* drop reraise from the controller
+* Add support for pre-commit-hooks
+* Add support for OVN provider in Endpoint LBaaS driver
+* Drop unnecessary import
+* Translate security group rules
+* ignore Editor tags
+* Add HOWTO for SRIOV use case
+* Add SR-IOV binding driver to CNI
+* Add SR-IOV pod vif driver
+* Add non-containerized Python 3.6 gate
+* LBaaS driver: Add provider support
+* cni\_ds\_init: exec into the main process
+* Spec for vhost-user port type
+* Cleanup cni.main file
+* Add container\_id to connect method of BaseBindingDriver
+* Pass sys.stdin.buffer to json.load() in Python 3
+* Fix Python 3 compatiblity in K8sClient.watch()
+* Add support for python3 containerized kuryr-kubernetes
+* Add kuryr\_daemon\_enabled when kuryr-daemon exists
+* Refactor DriverBase.get\_instance()
+* Remove commented code that should be deleted
+* Fix small typo in controller/handlers/lbaas.py
+* Clean up watch resources after watcher.stop()
+* Produce mount volume only if OVS\_HOST\_PATH is defined
+* Health Manager details update
+* Implement NP SG create/delete actions
+* Ensure ports pool are not duplicated with kuryr-controller HA
+* Introduce proper diver mapping in VIF handler
+* Move dragonflow job to experimental
+* Add experimental check for NPWG multi-vif driver
+* Add interface for binding driver
+* Verify keystone connection using token
+* Fix typo and indents in document
+* Add namespace handler in ingress gate
+* Ensure non-daemon gates run without cni daemon
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* OCP-Router - Fix Ingress controller LB listener creation
+* Update reno for stable/rocky
+* Ensure OpenShift gate uses the namespace subnet/sg drivers
+* Add a new gate for network policies
+* Avoid release\_vif race when using namespaces and pools
+* PodVIFDriver impl - fix release\_vif() signature
+
+0.5.0
+-----
+
+* Update links in README
+* Make daemon-cont-octavia and ovn gate non-voting
+* Remove the duplicated word
+* Adapt pool recovery to new pod annotation format
+* Fix compatiblity with old Pod annotation format
+* OCP-Router: fix external network bug in devstack
+* Get subnet\_caching\_opts from utils
+* Add NPWG Multi-VIF driver option in devstack
+* Move function get\_subnet to kuryr\_kubernetes.utils
+* Separate helper function for pod
+* Ensure delete\_network\_pools include all the ports
+* Allow musl based distros to resolve using search
+* drop deprecated oadm
+* Implement NPWG multi-vif driver
+* Fix wrong reference in kuryr\_k8s\_opts
+* Add namespace isolation for services
+* Add sudo for OpenShift registry CA cert copy
+* devstack: deploy openshift registry on origin envs
+* Set namespace security group driver for namespace gate
+* Avoid namespace security group overwrite
+* Ensure project id is returned for DefaultNamespaceProjectDriver
+* Ensure no api\_root value for containerized deployments
+* Log traceback on errors in Watcher
+* kuryr-tempest-plugin devstack plugin to build kuryr/demo
+* Change Pod annotations format to o.vo
+* Ensure isolation between namespaces
+* Services: Fix service connectivity after service port edit procedure
+* Implement multi-vif driver
+*  Fix trivial misprint
+* OCP-Router: Fix path route to support subpath
+* Using interface name in kubectl plugin
+* Add Network Policies Driver
+* Use K8s API LB IP instead of HOST\_IP in DevStack
+* Try pyroute2 0.5.1
+* Provide data timeouts for K8s API LB
+* Switch to using stestr
+* OCP-Router: Enable the OCP-Route handler unit tests
+* OCP-Router:  Add Zuul experimental gates for Openshift Route
+* process to gracefully exit when last watcher exits
+* Add regenerate controller pod script
+* Running tests in serial
+* Add default namespace project driver
+* Sync up Flask version with global-requirements
+* Add octavia precreated image info
+* Move tempest-octavia-centos-7 back to check
+* Network Custom Resource Definition De-facto Standard support
+* devstack: Set and clean iptables
+* devstack: Fix load balancing project membership
+* Create namespaced resources on the right project
+* Proceed CNI output in format of version 0.3.1
+* Enable externalIPs for DevStack's OpenShift
+* Test Objects Module
+* devstack support for openshift-dns
+* Move multinode gate to check pipeline
+* Make ovn gates voting
+* Add KURYR\_K8S\_LBAAS\_USE\_OCTAVIA=False to LBaaS job
+* OCP-Route: configuration and testing documentation
+* Add octavia based tests to replace LBaaSv2 tests
+* Deprecate running Kuryr-Kubernetes with lbaasv2
+* Split .zuul.yaml into smaller files
+* Move multinode and centos jobs to check pipeline
+* Fix the experimental multinode jobs
+* Services LBaaS driver:  fix ensure LB for existing LB
+* Add contrib folder to irrelevant files
+* Fix health server binding address
+* Remove redundant line from dragonflow config
+* Explicitly set threaded=False when starting Flask
+* Really use the test handler
+* Devstack install fail if docker cgroup driver is systemd
+* Fetch CONTAINERID from Docker API in kuryr-cni
+* Kuryr Kubernetes Port and PortPool CRD design reference document
+* Fix container image creation
+* fix typos
+* add a link to release notes in README file
+* OCP-Router: Update Devref documentation
+* Start kuryr-kubernetes after creating l7 router
+* Create network policy handler and driver
+* OCP-Router: OCP-Route and Ingress LBaaS handlers
+* OCP-Router: Ingress controller support
+* OCP-Router: add support for external Ingress Controller's LB creation
+* kuryr-controller A/P HA
+* Run OVN job containerized and daemonized
+* Experimental gate for namespace subnet driver
+* fix tox python3 overrides
+* Retry namespace deletion to mitigate cascading race
+* Add ports pool clean up support to namespace deletion
+* Ensure different pool related dicts per pool driver
+* Namespace deletion functionality for namespace\_subnet driver
+* Switch containerized job to Octavia
+* devstack: fix octavia allocation ranges
+* Fix precreated ports recovery after pod annotations change
+* Service: Decoupling and improvements of LBaaS driver
+* Ensure namespace creation event is detected
+* Follow the new PTI for document build
+* Change neutron CLI to openstack CLI in devstack plugin.sh
+* Really ignore unsupported service types
+* Allow passing multiple VIFs to CNI
+* Ensure endpoint has pods before add/remove members
+* Add namespace subnet driver for namespace creation
+* Remove admin rights need from verify\_keystone\_connection
+* Set netns\_proc\_dir and docker\_mode in configmap for CNI Daemon
+* Generate\_kuryr\_certificates\_secret: fix parameter handling
+* Fix octavia lb deleting\_race with cascading
+* Clean up legacy playbooks
+* k8s\_resource\_generation: fix parameter handling
+* Update lower-constraints to match requirements.txt
+* Clean up OpenShift DevStack directories on unstack
+* Remove LIBS\_FROM\_GIT as a var in zuul.yaml
+* Fix LB member creation on Nested environment
+* Gate with containerized deployment and OpenShift
+* Raise OpenShift version to 3.9.0
+* Add better octavia coverage at the gate
+* devstack: Fix octavia api lb kubelet iface access
+* Switch amphora tarball to ubuntu xenial
+* Make Neutron LBaaS Activation Timeout configurable
+* Add namespace handler
+* Kuryr controller - pluggable handlers documentation
+* fix a typo
+* Add HTTPS support to K8s API healthchecks
+* Add \`privileged\` SCC to SA in OpenShift DevStack
+* Create CNI bin dir in OpenShift DevStack plugin
+* Kuryr-Controller: make handlers pluggable
+* Devstack deployment - handle LoadBalancer creation failure
+* Dockerfiles: COPY code after installing packages
+* Add tarballed amphora
+* Apply UC to Dockerfiles
+* lbaasv2: Fix for deployments missing the proxy
+* Modify maintainers of Dockerfiles
+* Vagrant: Document the increased Octavia reqs
+* Execute kuryr-cni as \`docker exec\`
+* Fix K8s API access through LBaaS on gates
+* Add documentation about supported kubernetes versions
+* Handle lack of certificate in DevStack
+* Add Kuryr pods logs to gate results
+* [Trivial] Remove redundant check service is enabled
+* Services: update service's status after LB completely provisioned
+* add lower-constraints job
+* Add CA certificates Secret and mount it
+* devstack: add kubelet iface to openshift nodes
+* devstack: Make service subnet routable
+* Adding containerized parameter as True to tempest.conf
+* Creating gate for testing ports pool feature
+* Watcher restarts watching resources in failure
+* Services: Add support for K8S service's port edit use case
+* Updated from global requirements
+* Deprecate running kuryr-k8s without kuryr-daemon
+* fix kury-cni exits unexpectedly when MTU of network is 0
+* Fix Tempest CIs
+* Add network id to pools keys
+* Upgrade default K8s to 1.9 in DevStack
+* Create lockfiles directory in CNI Dockerfile
+* devstack-heat: Make parameters overridable
+* devstack-heat: Do not clone the entire kuryr-k8s
+* Add multi pools support
+* Services: Gracefully ignore exposed UDP ports
+* cni health: track all cgroup memory usage
+* cni: \_has\_cap unit tests system independant
+* [Trivialfix]Modify a grammatical error
+* cni health: Avoid capsh dependency
+* doc: Fix manual installation neutron resource
+* Make CNI Registry Plugin namespace aware
+* Move cni plugins to a common folder
+* Add release note for cni health manager
+* Add namespace info to created ports
+* Update doc title format
+* Fix kuryr-daemon typo on .zuul.yaml
+* Log the exception-info when an error raises in hanlder
+* Services: Rollback openstack resources in case of annotation failure
+* Ensure pools recovery creates the right pool key
+* Minor fixes on docs
+* Services: Set SGs for N-S with haproxy provider
+* Add experimental containerized jobs
+* Services: Set missing SGs for haproxy provider
+* Run OpenShift 3.7.1 in DevStack plugin
+* Refactor Kuryr-Kubernetes gates to Zuul-V3
+* Add readiness and liveness checks to CNI
+* TrivialFix: Make timeout a parameter in wait\_for
+* Add timeout to the wait\_for method in plugin.sh
+* Make ext subnet config optional
+* NestedMacvlanPodVIFDriver gets host port before request vif
+* Delete pods from registry in CNI daemon
+* Revert commits to use UID instead of SelfLink
+* Add support and documentation for OVN
+* Add health server opts
+* Update reno for stable/queens
+
+0.4.0
+-----
+
+* kubectl plugin kuryrvif
+* Fix spelling error
+* Replace Chinese punctuation with English punctuation
+* Use virtualenv to build kuryr-cni Docker image
+* Kubernetes Network Policy support Spec
+* Add liveness checks to Kuryr Controller
+* Kuryr-Kubernetes openshift route integration devref
+* Updated from global requirements
+* Remove SCREEN\_LOGDIR from devstack
+* Kuryr-Kubernetes ingress integration devref
+* Rename jobs for zuul v3
+* CNI Daemon documentation
+* devstack: don't assume there's a running hyperkube
+* Make daemon wait for VIF to become active
+* Add readiness checks for Kuryr Controller
+* Fix kubelet retries issues
+* Add release notes for containerization and daemon
+
+0.3.0
+-----
+
+* Updates ports pool doc information
+* Fix the misspelling of "external"
+* Remove hardcoded "/opt/stack/new" from DevStack
+* Remove Cinder from tempest gates
+* rm tools/tox\_install.sh
+* Fix kuryr-daemon for Werkzeug 0.13
+* Update service documentation with Octavia loadbalancer topology configurtaion
+* Download openshift binaries using curl in DevStack
+* Support kuryr-daemon when running containerized
+* Disable functional jobs on docs or reno changes
+* Make some Tempest gates voting
+* Use K8s 1.8 with Hyperkube
+* Ensure readiness probe is not always enabled
+* Remove setting of version/release from releasenotes
+* Add oslo\_cache to default\_subnet driver
+* Enable debug log level in DevStack
+* Add OpenShift gates
+* Add Reno release notes support to Kuryr-Kubernetes
+* Add CNI daemon Tempest job
+* devstack: add openshift support
+* CNI split - introducing CNI daemon
+* Add VIF-Handler And Drivers Design approach
+* Prevent pyroute2.IPDB threads leaking
+* Ignore the headless services
+* Add readiness probe to kuryr-controller pod
+* Avoid neutron calls at recovering precreated ports
+* Enable Neutron Metadata Agent in Tempest jobs
+* Add icmp sg rules to k8s project
+* Zuul: add file extension to playbook path
+* Fix mistakes in tempest playbook
+* Fix KeyError exception upon  service/deployment deletion
+* Use OVS\_BRIDGE variable for bridge configuration
+* Eliminate wrong ERROR report  when service of type LoadBalancer type is deleted
+* Fix ports pool documentation
+* Update dragonflow devstack local.conf
+* Add basic DevStack installation tutorial
+* Enable port debug in devstack
+* Add list and show pool commands to Pool Manager
+* Add Pool Manager to handle subports
+* Speed up neutron request\_vifs function
+* Remove 99-loopback.conf
+* Add devstack ports pool configuration options
+* metadata.resourceVersion: Invalid value
+* Migrate to Zuulv3
+* Remove SCREEN\_LOGDIR from devstack
+* Add exception handling to \_get\_in\_use\_ports
+* Add support for service type=LoadBalancer
+* Optimize return\_to\_pool actions at Pool drivers
+* Recover precreated ports at NeutronVIFPool driver
+* Updated from global requirements
+* Add Octavia L2 member mode support
+* Avoid port update neutron call during pods boot up
+* [Trivial] Doc fix K8S/K8s -> Kubernetes
+* Clean up ENV vars mistmatches in Dockerfiles
+* Fix local.conf.sample once again
+* devstack: optionally run kuryr containerized
+* CNI container: parametrize and clean up
+* Add support to install Kuryr as a network addon
+* Fix local.conf.sample in without Octavia
+* Add methods to populate/free subport pools
+* "Install kuryr-cni a virtualenv"->"Install kuryr-cni in a virtualenv"
+* Dragonflow support: Installation & Configuration
+* Fix typo at local.conf.odl.sample template
+* Make precreated ports pool recovery not ML2/OVS specific
+* Ensure pool\_key is properly created/retrieved
+* OpenDaylight support: Installation & Configuration
+* Add DevStack base installation section
+* Updated from global requirements
+* modify some misspellings in doc
+
+0.2.0
+-----
+
+* Update Dragonflow-kuryr devstack configuration
+* ipv6: Support pod networking
+* documentation: Document how to install services
+* Fix Incorrect Module Reference
+* [Trivial] Using Similar Format of path like other places in same Doc
+* Replace six.itervalues() with dict.values() in kuryr-kubernetes
+* devstack: fix ovs\_bind device to be on the pod net
+* octavia: Make Octavia ready devstack
+* Add devstack support for multi-node deployment
+* devstack: Don't assume the router ip
+* devstack: create host interface to the pod subnet
+* Add ODL devstack example
+* Update documentation about nested deployment
+* devstack: Use separate nets and project for kuryr
+* Systemd usage of kubernetes startup
+* devstack: Move to devstack-plugin-container
+* Updated from global requirements
+* Update URLs in documents according to document migration
+* Fix k8s service subnet devstack setting
+* Skips kubernetes service without selector
+* devstack: Use pre-defined service subnet for API
+* Use openstackdocstheme over oslosphinx
+* Clarify \_is\_pending function use
+* Updated from global requirements
+* Copy kubeconfig to tempest dir
+* Adding a default ETCD\_PORT to devstack settings for legacy\_etcd
+* Enable some off-by-default checks
+* Delete or recover precreated ports upon controller restart
+* Update ports manager spec with reboot information
+* Add ports pool configuration information at README
+* Removing detected Keystone Port in vagrant kury\_rc
+* Switch gate hook to use etcd3 instead of legacy
+* devstack: Use devstack's etcd3 service
+* Stopping Thread from oslo\_service
+* Enforce E128 pep8 check
+* Update installation documentation
+* Remove self.lock.acquire()
+* Use https links for documentation
+* Add MACVLAN based interfaces for nested containers
+* Change from GenericVIFPool to NeutronVIFPool
+* Nested vlan vif pool driver extension to precreate reusable subports
+* Nested vif driver extension to enable ports reuse
+* Generic vif pool driver extension to precreate reusable ports
+* Generic vif driver extension to enable ports reuse
+* Add support for running kuryr with ocata devstack
+* Add kuryr-sriov spec proposal
+* Cleanup and enforce pep8 checks
+* devstack-heat: refactor and improve
+* controller: Upd. remaining refs to generic vif
+* Refactor the class hierarchy of controller drivers
+* devstack: Retrieve column directly
+* devstack: Create infra for K8s API accessing pods
+* k8s bearer token support
+* devstack: overcloud sample should not ovs bind
+* Add support for USE\_SCREEN
+* devstack: Use config file generation
+* devstack: Generate kubeconfig for kubectl and test
+* contrib: Add devstack-heat
+* devstack: Add configuration for kubelet probes
+* Fix typo
+* Updated from global requirements
+* get nested drivers opts out of neutron defaults
+* Improve nested k8s devstack install mechanism
+* Include neutron\_defaults group into oslo-config-generator output
+* nested\_doc: Fix lack of mention of service\_subnet
+* Remove .testrepository/times.dbm before test runs
+* Bump the devstack HYPERKUBE version to be v1.6.2
+* logging: Improve CNI debug logging:
+* debugging: Add CNI env info to debugging log
+* Adding support for vif pool driver
+* Kuryr Kubernetes Port Manager design reference document
+* Replace six.iteritems() with .items()
+* Remove extra colons in documentation
+* Fix kuryr devstack systemd unit file issues
+* Delete docker socket file only if exists
+* Spec for fuxi-kubernetes
+* Handle LB Conflict exceptions during service deletion
+* Updated from global requirements
+
+0.1.0
+-----
+
+* Implement Guru meditation reports
+* K8s Services support: LoadBalancerHandler
+* Fix KeyError problem at cni/api.py when subnets have dns\_nameservers
+* Remove subunit-trace fork
+* Add devstack support for https k8s api server
+* Fix vagrant ssh issue for virtualbox bento
+* Wait for docker to exit in devstack plugin.sh
+* Switching vagrant boxes to bento provider
+* Updated from global requirements
+* Remove log translations
+* Removing py34 classifier as CI jobs run on py35
+* doc: Add reminder to have https in api\_root
+* remove unused devstack settings
+* Add \*.log to gitignore to ignore vagrant logs
+* update rc files
+* Spec for adding contrail support in kuryr-k8s
+* Fix pep8 gate failure
+* Adding Ubuntu 16.04 Box for parallels
+* devstack: Use stackrc DATA\_DIR by default
+* devstack: fix run\_kubelet data directory
+* Adding vagrant configs to kuryr-kubernetes
+* Updated from global requirements
+* Add support for HTTPS client
+* K8s Services support: LBaaSv2Driver
+* Add project description to README.rst
+* Add Kuryr development policy link to README file
+* requirements: add pyroute2 to the runtime reqs
+* test-requirements drop unused docker-py
+* [Fix gate]Update test requirement
+* doc: kuryr-k8s components missed Watch consumer
+* docs: Add LogExceptions Event Handler description
+* Remove object\_uid
+* Fix typo at generic\_vif unit test
+* Add ddt to test-requirements
+* Moving docs from Kuryr to Kuryr-Kubernetes
+* Remove unused logging import
+* Updated from global requirements
+* Resolve 'resourceVersion' conflicts
+* K8s Services support: LBaaSSpecHandler
+* testing: drop zero hashseed
+* Improve pipeline/Async logging
+* Remove link to modindex
+* OVO model for K8s Services support
+* Bump tox min version to 2.3.1
+* Update ReadMe for nested-pods setup resource requirements
+* vif: avoid exceptions for non exceptional cases
+* Skip stale K8s events
+* Few fixes in steps for running pods-in-vm
+* Add support for nested pods with Vlan trunk port
+* Updated from global requirements
+* docs: Fix image rendering
+* Remove legacy test method
+* Update requirements
+* Kubernetes Service support design reference document
+* Fix Dragonflow variant of devstack gaterc
+* Fix devstacgaterc OVERRIDE\_ENABLED\_SERVICES
+* Updated python debug target from 3.4 to 3.5
+* testing: add offline testing container for CI
+* H402 hacking have been deprecated
+* gating: Dragonflow devstackrc for CI
+* Fix group parameter for cfg.RequiredOptError in default drivers
+* Add DragonFlow Kuryr-Kubernetes local.conf sample
+* gating: devstackrc for CI
+* Add support for native OVS binding
+* Add Constraints support
+* devstack: Have controller wait for K8s API
+* Updated from global requirements
+* kuryr kubernetes design reference document
+* devstack: LBaaSv2 and K8s service subnet
+* Pin docutils version
+* Updated from global requirements
+* Fix the check of docker installation
+* Experimental CNI & VIFBridge binding
+* devstack: add nsenter and fix setup-files race
+* devstack: fix k8s setup-files for hyperkube >=1.4
+* Show team and repo badges on README
+* devstack: add convenience kubectl executable
+* devstack: move to k8s 1.4.6
+* devstack: set neutron\_defaults
+* Controller side of pods' port/VIF binding
+* Generic VIF controller driver
+* Port-to-VIF os-vif translator for hybrid OVS case
+* Default pod security groups driver
+* Default pod subnet driver and os-vif utils
+* Controller driver base and pod project driver
+* tox: fix coverage
+* devstack: make cni paths configurable
+* Controller event handling pipeline
+* DevStack fails if docker service already running
+* Asynchronous handler
+* Retry handler
+* Basic event handling pipeline components
+* DevStack: Fix kuryr-kubernetes service startup
+* Watcher implementation
+* Fix DevStack plugin issues
+* Fix sample config file generation
+* Removing Python 3.5-specific parts
+* Controller service base
+* K8s and Neutron clients support
+* move config and opt generation to new kuryr-lib
+* devstack: First version of kuryr-kubernetes plugin
+* Trival: Remove 'MANIFEST.in'
+* Update home-page link
+* Introduce the translator layer
+* Override python test command on python2.7
+* Add asyncio eventloop
+* Introduce asyncrhonous API requests
+* Introduce \`kuryr-k8s\` service
+* cookiecutter commit for kuryr-kubernetes
+* Added .gitreview

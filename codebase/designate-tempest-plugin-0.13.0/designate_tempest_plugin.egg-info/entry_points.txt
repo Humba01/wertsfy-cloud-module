@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+designate = designate_tempest_plugin.plugin:DesignateTempestPlugin
+

@@ -1,0 +1,6 @@
+[run]
+branch = True
+source = octavia_dashboard
+
+[report]
+ignore_errors = True

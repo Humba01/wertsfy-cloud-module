@@ -1,0 +1,41 @@
+Metadata-Version: 1.1
+Name: manila-tempest-plugin
+Version: 1.7.0
+Summary: Tempest plugin manila-tempest-plugin
+Home-page: https://docs.openstack.org/manila/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: =====================
+        manila-tempest-plugin
+        =====================
+        
+        This repository contains a `Tempest`_ `test plugin`_ to verify the
+        functionality of the `OpenStack Shared File System Service`_, Manila.
+        
+        See `contributor information`_ to learn more.
+        
+        * Free software: Apache license
+        * Documentation: https://docs.openstack.org/manila/latest/
+        * Release notes: https://docs.openstack.org/releasenotes/manila/
+        * Source: https://opendev.org/openstack/manila-tempest-plugin
+        * Bugs: https://bugs.launchpad.net/manila
+        
+        .. _Tempest: https://docs.openstack.org/tempest
+        .. _test plugin: https://docs.openstack.org/tempest/latest/plugin.html
+        .. _contributor information: CONTRIBUTING.rst
+        .. _OpenStack Shared File System Service: https://docs.openstack.org/manila
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8

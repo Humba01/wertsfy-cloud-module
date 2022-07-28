@@ -1,0 +1,59 @@
+Metadata-Version: 1.2
+Name: python-solumclient
+Version: 3.5.0
+Summary: Client library for Solum API
+Home-page: https://docs.openstack.org/python-solumclient/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ========================
+        Team and repository tags
+        ========================
+        
+        .. image:: https://governance.openstack.org/tc/badges/python-solumclient.svg
+            :target: https://governance.openstack.org/tc/reference/tags/index.html
+        
+        .. Change things from this point on
+        
+        Python bindings to the Solum API
+        ================================
+        
+        This is a client library for Solum built on the Solum API.
+        
+        * Free software: Apache license
+        * Documentation: https://wiki.openstack.org/wiki/Solum
+        
+        Installation
+        ============
+        
+        At the command line::
+        
+            $ pip install python-solumclient
+        
+        Or, if you have virtualenvwrapper installed::
+        
+            $ mkvirtualenv python-solumclient
+            $ pip install python-solumclient
+        
+        Usage
+        ========
+        
+        To use python-solumclient in a project::
+        
+            import solumclient
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6

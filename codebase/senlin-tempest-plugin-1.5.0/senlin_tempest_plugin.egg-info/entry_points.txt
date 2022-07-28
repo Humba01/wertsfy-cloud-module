@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+senlin-tempest-plugin = senlin_tempest_plugin.plugin:SenlinTempestPlugin
+

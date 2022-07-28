@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+zun_tests = zun_tempest_plugin.tests.tempest.plugin:ZunTempestPlugin
+

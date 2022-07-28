@@ -1,0 +1,115 @@
+Akihiro Motoki <amotoki@gmail.com>
+Andreas Jaeger <aj@suse.com>
+Andrzej Denisiewicz <andrzej.denisiewicz@orange.com>
+Anh Tran <anhtt@vn.fujitsu.com>
+Antoine Eiche <antoine.eiche@cloudwatt.com>
+Armando Migliaccio <armamig@gmail.com>
+Atsushi SAKAI <sakaia@jp.fujitsu.com>
+Bernard Cafarelli <bcafarel@redhat.com>
+Bhagyashri Shewale <bshewale@redhat.com>
+Bin-Lu <369283883@qq.com>
+Bob Melander <bob.melander@gmail.com>
+Boden R <bodenvmw@gmail.com>
+Cao Xuan Hoang <hoangcx@vn.fujitsu.com>
+Cedric Savignan <cedric.savignan@orange.com>
+Chuck Short <chucks@redhat.com>
+Claire Delcourt <cldelcou@gmail.com>
+Corey Bryant <corey.bryant@canonical.com>
+Cédric Savignan <cedric.savignan@orange.com>
+Daniel Mellado <dmellado@redhat.com>
+Dariusz Smigiel <smigiel.dariusz@gmail.com>
+Davanum Srinivas <davanum@gmail.com>
+David Blaisonneau <david.blaisonneau@orange.com>
+Deepthi V V <deepthi.v.v@ericsson.com>
+Doug Hellmann <doug@doughellmann.com>
+Edouard Thuleau <edouard.thuleau@cloudwatt.com>
+Elod Illes <elod.illes@est.tech>
+Emilien Macchi <emilien@redhat.com>
+Flavio Percoco <flaper87@gmail.com>
+Francois Eleouet <f.eleouet@gmail.com>
+Georg Kunz <georg.kunz@ericsson.com>
+Ghanshyam Mann <gmann@ghanshyammann.com>
+Henry <henry.dong@cn.ibm.com>
+Henry Gessau <HenryG@gessau.net>
+Henry Gessau <gessau@gmail.com>
+Hervé Beraud <hberaud@redhat.com>
+Ian Wienand <iwienand@redhat.com>
+Ihar Hrachyshka <ihrachys@redhat.com>
+James E. Blair <jeblair@redhat.com>
+Jean-Philippe Braun <jean-philippe.braun@cloudwatt.com>
+Jeremy Stanley <fungi@yuggoth.org>
+Ji-Wei <ji.wei3@zte.com.cn>
+Joan Meseguer <joan.llopis@orange.com>
+Jon Schlueter <jschluet@redhat.com>
+Kailun Qin <kailun.qin@intel.com>
+Ken'ichi Ohmichi <ken-oomichi@wx.jp.nec.com>
+Le Hou <houl7@chinaunicom.cn>
+Li-zhigang <li.zhigang3@zte.com.cn>
+Lukas Piwowarski <lpiwowar@redhat.com>
+Luke Hinds <lhinds@redhat.com>
+Luong Anh Tuan <tuanla@vn.fujitsu.com>
+Marios Andreou <marios@redhat.com>
+Masayuki Igawa <masayuki@igawa.io>
+Mathieu Rohon <mathieu.rohon@gmail.com>
+Monty Taylor <mordred@inaugust.com>
+Morgan Richomme <morgan.richomme@orange.com>
+Ngo Quoc Cuong <cuongnq@vn.fujitsu.com>
+Nguyen Hung Phuong <phuongnh@vn.fujitsu.com>
+Nguyen Van Trung <trungnv@vn.fujitsu.com>
+Nikolas Hermanns <nikolas.hermanns@ericsson.com>
+Nishant Kumar <nishant.e.kumar@ericsson.com>
+Oleg Bondarev <obondarev@mirantis.com>
+Omar Sanhaji <sanhaji.omar@gmail.com>
+OpenStack Release Bot <infra-root@openstack.org>
+Paul Carver <pcarver@att.com>
+Pawel Rusak <pawel.rusak@codilime.com>
+Peter V. Saveliev <petr.savelyev@ericsson.com>
+Pierre Crégut <pierre.cregut@orange.com>
+Rafael Folco <rfolco@redhat.com>
+Ramanjaneya <ramanjieee@gmail.com>
+Rodolfo Alonso Hernandez <ralonsoh@redhat.com>
+Romanos Skiadas <rski@intracom-telecom.com>
+Sean McGinnis <sean.mcginnis@gmail.com>
+Slawek Kaplonski <skaplons@redhat.com>
+Thomas Monguillon <thomas.monguillon@orange.com>
+Thomas Morin <thomas.morin@orange.com>
+Thomas Morin <tmmorin.orange@gmail.com>
+Tuan Do Anh <tuanda@vn.fujitsu.com>
+Vieri <15050873171@163.com>
+Vishal Thapar <vishal.thapar@ericsson.com>
+Vivekanandan Narasimhan <n.vivekanandan@ericsson.com>
+Vu Cong Tuan <tuanvc@vn.fujitsu.com>
+Wim De Clercq <wim.de_clercq@nuagenetworks.net>
+YAMAMOTO Takashi <yamamoto@midokura.com>
+YuehuiLei <leiyuehui-s@inspur.com>
+YuehuiLei <leiyuehui@inspur.com>
+bfernando <bruno.fernando@cloudwatt.com>
+bhargavaregalla <br983u@att.com>
+chenxing <chen.xing@99cloud.net>
+davidblaisonneau-orange <david.blaisonneau@orange.com>
+elajkat <lajos.katona@est.tech>
+gengchc2 <geng.changcai2@zte.com.cn>
+ghanshyam <ghanshyammann@gmail.com>
+huang.zhiping <huang.zhiping@99cloud.net>
+janonymous <janonymous.codevulture@gmail.com>
+lidong <lidongbj@inspur.com>
+malei <malei@maleideMacBook-Pro.local>
+manchandavishal <manchandavishal143@gmail.com>
+mathieu-rohon <mathieu.rohon@gmail.com>
+melissaml <ma.lei@99cloud.net>
+pengyuesheng <pengyuesheng@gohighsec.com>
+qinchunhua <qin.chunhua@zte.com.cn>
+ravikiran <rk971w@att.com>
+shanyunfan33 <shanyunfan@inspur.com>
+suresh kumar <sureshkumarr.s@gmail.com>
+wangzihao <wangzihao@yovole.com>
+yatin <ykarel@redhat.com>
+yatinkarel <ykarel@redhat.com>
+ythomas1 <ythomas1.ext@orange.com>
+zhangboye <zhangboye@inspur.com>
+zhanghao <zhanghao2@cmss.chinamobile.com>
+zhangyanxian <zhangyanxianmail@163.com>
+zhaojingjing0067370 <zhao.jingjing2@zte.com.cn>
+Édouard Thuleau <edouard.thuleau@cloudwatt.com>
+Édouard Thuleau <ethuleau@juniper.net>
+Łukasz Rajewski <lukasz.rajewski@orange.com>

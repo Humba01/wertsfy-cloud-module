@@ -1,0 +1,37 @@
+Metadata-Version: 1.2
+Name: sahara-image-elements
+Version: 16.0.0
+Summary: Image elements for Sahara
+Home-page: https://docs.openstack.org/sahara/latest
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: Apache Software License
+Description: ========================
+        Team and repository tags
+        ========================
+        
+        .. image:: https://governance.openstack.org/tc/badges/sahara-image-elements.svg
+            :target: https://governance.openstack.org/tc/reference/tags/index.html
+        
+        .. Change things from this point on
+        
+        Sahara image elements project
+        ==============================
+        
+        This repo is a place for Sahara-related for diskimage-builder elements.
+        
+        Script for creating Fedora and Ubuntu cloud images with our elements and default parameters. You should only need to run this command:
+        
+        .. sourcecode:: bash
+        
+            tox -e venv -- sahara-image-create
+        
+        Note: More information about script `diskimage-create <https://opendev.org/openstack/sahara-image-elements/src/branch/master/diskimage-create/README.rst>`_
+        
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.6

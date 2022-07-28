@@ -1,0 +1,162 @@
+CHANGES
+=======
+
+2.5.0
+-----
+
+* Sync requirements and lower-constraints with nova
+
+2.4.0
+-----
+
+* Allow preemptible instances to run on unused hosts
+* Add release notes for blazar-nova
+* Updating python testing classifier as per Yoga testing runtime
+* Add Python3 yoga unit tests
+* Adjust lower constraints
+
+2.3.0
+-----
+
+* Switch to stestr
+* Sync requirements and lower constraints with nova
+* Add Python3 xena unit tests
+
+2.2.0
+-----
+
+* Change dashes to underscore in setup.cfg
+* Remove six
+* Sync requirements and lower-constraints with nova
+* Add doc/requirements
+* Fix lower-constraints job
+* Update hacking for Python3
+* Add Python3 wallaby unit tests
+* migrate testing to ubuntu focal
+
+2.1.0
+-----
+
+* Cleanup py27 support
+* Add py38 package metadata
+* Clean up zuul jobs
+* Add Python3 victoria unit tests
+
+2.0.0
+-----
+
+* Stop testing with py2
+* Switch to Ussuri jobs
+* Update the constraints url
+
+1.3.0
+-----
+
+* Add Python 3 Train unit tests
+* Update sphinx requirements
+* Use opendev repository
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Replace openstack.org git:// URLs with https://
+
+1.2.0
+-----
+
+* add python 3.7 unit test job
+* Change openstack-dev to openstack-discuss
+* Rename function to better describe test case
+* Remove outdated import\_exceptions for hacking
+* add python 3.6 unit test job
+* import zuul job settings from project-config
+
+1.1.1
+-----
+
+* add lower-constraints job
+* fix tox python3 overrides
+
+1.1.0
+-----
+
+* Remove climate namespace
+* Updated from global requirements
+* Remove commas in setup.cfg package classifiers
+
+1.0.0
+-----
+
+* Add Python3 to the setup configuration
+* Updated from global requirements
+* Updated from global requirements
+* Remove mox from requirements
+* Updated from global requirements
+* Improve README
+* Updated from global requirements
+* Update documentation links
+* Updated from global requirements
+* Updated from global requirements
+
+0.3.0
+-----
+
+* Add instance reservation filtering in BlazarFilter
+* Separate host reservation filtering
+* Follow a change of test-requirements.txt from Nova
+* Change the default value for the config blazar\_az\_prefix
+* Updated from global requirements
+* Add missing requirements
+* Remove the Climate filter
+* Remove old instance reservation code
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+
+0.2.0
+-----
+
+* Define ClimateFilter class
+* Replace climateclient with blazarclient
+* Change filter name
+* Update documents
+* Remove unused logging import
+* Updated from global requirements
+* Remove osapi\_compute\_extension configuration
+* Remove nova tarball from test-requirements
+* Delete openstack.common.test module
+* Remove vim header
+* Remove discover from test-requirements
+* Manual sync with global-requirements
+* H803 no longer exists so no longer ignore it
+* Replace old filter\_properties with new RequestSpec NovaObject
+* Update default environment list
+* Update legacy code depending on Nova V2 API plugin
+* Update .gitreview for new namespace
+* Fix oslo import issues
+* Remove docutils pin
+* Rename climatenova to blazarnova
+* Change logging level AUDIT to INFO
+* Climate to Blazar in Nova filter
+* Climate to Blazar in Nova extensions
+* Updated from global requirements
+* Added blazarnova as an alias package
+* Updated from global requirements
+* Update .gitreview for new project name
+* Updated from global requirements
+* Some code clean up in climate\_filter.py
+* Remove #noqa from filter
+* Unit tests for the ClimateFilter class
+* Fixed Coverage Test Automation in climate-nova
+* Updated from global requirements
+
+0.1.0
+-----
+
+* Add LICENSE and MANIFEST.in files
+* Fix setup.cfg
+* Reservation extensions to Nova API
+* Implement Nova filter for Host Reservation Pools
+* Fix packages naming
+* Remove unnecessary openstack.common modules
+* Bootstrap climate-nova with nova filter
+* Initial commit

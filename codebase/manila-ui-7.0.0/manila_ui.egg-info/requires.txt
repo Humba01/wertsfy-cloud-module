@@ -1,0 +1,7 @@
+django-compressor>=2.0
+horizon>=18.3.1
+iso8601>=0.1.12
+oslo.utils>=4.7.0
+pbr>=5.5.0
+python-keystoneclient>=4.1.1
+python-manilaclient>=2.7.0

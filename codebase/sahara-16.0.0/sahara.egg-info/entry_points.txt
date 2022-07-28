@@ -1,0 +1,49 @@
+[console_scripts]
+_sahara-subprocess = sahara.cli.sahara_subprocess:main
+sahara-all = sahara.cli.sahara_all:main
+sahara-api = sahara.cli.sahara_api:main
+sahara-db-manage = sahara.db.migration.cli:main
+sahara-engine = sahara.cli.sahara_engine:main
+sahara-image-pack = sahara.cli.image_pack.cli:main
+sahara-rootwrap = oslo_rootwrap.cmd:main
+sahara-status = sahara.cli.sahara_status:main
+sahara-templates = sahara.db.templates.cli:main
+
+[oslo.config.opts]
+sahara.config = sahara.config:list_opts
+
+[oslo.config.opts.defaults]
+sahara.config = sahara.common.config:set_config_defaults
+
+[oslo.policy.policies]
+sahara = sahara.common.policies:list_rules
+
+[sahara.cluster.plugins]
+fake = sahara.plugins.fake.plugin:FakePluginProvider
+
+[sahara.data_source.types]
+hdfs = sahara.service.edp.data_sources.hdfs.implementation:HDFSType
+manila = sahara.service.edp.data_sources.manila.implementation:ManilaType
+maprfs = sahara.service.edp.data_sources.maprfs.implementation:MapRFSType
+s3 = sahara.service.edp.data_sources.s3.implementation:S3Type
+swift = sahara.service.edp.data_sources.swift.implementation:SwiftType
+
+[sahara.infrastructure.engine]
+heat = sahara.service.heat.heat_engine:HeatEngine
+
+[sahara.job_binary.types]
+internal-db = sahara.service.edp.job_binaries.internal_db.implementation:InternalDBType
+manila = sahara.service.edp.job_binaries.manila.implementation:ManilaType
+s3 = sahara.service.edp.job_binaries.s3.implementation:S3Type
+swift = sahara.service.edp.job_binaries.swift.implementation:SwiftType
+
+[sahara.remote]
+ssh = sahara.utils.ssh_remote:SshRemoteDriver
+
+[sahara.run.mode]
+all-in-one = sahara.service.ops:LocalOps
+distributed = sahara.service.ops:RemoteOps
+
+[wsgi_scripts]
+sahara-wsgi-api = sahara.cli.sahara_api:setup_api
+

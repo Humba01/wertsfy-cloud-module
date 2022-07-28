@@ -1,0 +1,34 @@
+---
+http_boot_folder: /var/lib/ironic/httpboot
+# Default location to the ssh public key for the user operating Bifrost.
+#ssh_public_key_path: "/path/to/id_rsa.pub"
+deploy_url_protocol: "http"
+
+file_url_port: "8080"
+network_interface: "virbr0"
+ans_network_interface: "{{ network_interface | replace('-', '_') }}"
+ans_hostname: "{{ groups['target'][0] if groups['target'] is defined else 'localhost' }}"
+internal_ip: "{{ hostvars[ans_hostname]['ansible_' + ans_network_interface]['ipv4']['address'] }}"
+
+# Default interface name
+# TODO(TheJulia): Remove this default.
+node_default_network_interface: eth0
+
+testing: false
+use_cirros: false
+# write_interfaces_file is intended for utilizing base logic to write
+# a debian style interfaces file into the configuration drive file
+# such that cirros will receive basic network configuration when
+# performing basic testing.
+write_interfaces_file: "{{ use_cirros }}"
+
+# Basic networking defaults
+ipv4_subnet_mask: 255.255.255.0
+ipv4_gateway: "{{ '192.168.122.1' if testing | bool else '' }}"
+
+# Default ISO generation utility
+iso_gen_utility: "mkisofs"
+
+# Ensure that Ansible is using python interpreter and dependencies inside the bifrost virtual environment
+bifrost_venv_dir: "{{ lookup('env', 'VENV') or '/opt/stack/bifrost' }}"
+ansible_python_interpreter: "{{ bifrost_venv_dir + '/bin/python3' }}"

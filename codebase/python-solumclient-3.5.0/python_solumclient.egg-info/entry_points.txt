@@ -1,0 +1,3 @@
+[console_scripts]
+solum = solumclient.solum:main
+

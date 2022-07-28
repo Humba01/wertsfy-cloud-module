@@ -1,0 +1,19 @@
+FROM {{ namespace }}/{{ infra_image_prefix }}base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block multipathd_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{% if base_package_type == 'rpm' %}
+    {% set multipathd_packages = ['device-mapper-multipath'] %}
+{% elif base_package_type == 'deb' %}
+    {% set multipathd_packages = ['multipath-tools'] %}
+{% endif %}
+
+{{ macros.install_packages(multipathd_packages | customizable("packages")) }}
+
+{% block multipathd_footer %}{% endblock %}
+{% block footer %}{% endblock %}

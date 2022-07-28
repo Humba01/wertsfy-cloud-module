@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    Adds a ``base_package_type`` configuration option which will default to
+    ``rpm`` for RHEL-based distros and ``deb`` for Debian-based systems. This
+    can be used in Dockerfile.j2 files instead of checking based on distro
+    names.

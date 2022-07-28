@@ -1,0 +1,4 @@
+---
+features:
+  - |
+    Adds ``prometheus-v2-server`` image for Prometheus version 2.x.

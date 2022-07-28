@@ -1,0 +1,234 @@
+# {{ ansible_managed }}
+
+[DEFAULT]
+debug = {{ ironic_debug | bool }}
+# NOTE(TheJulia): Until Bifrost supports neutron or some other network
+# configuration besides a flat network where bifrost orchustrates the
+# control instead of ironic, noop is the only available network driver.
+enabled_network_interfaces = noop
+default_deploy_interface = {{ default_deploy_interface }}
+{% if enable_inspector | bool == true %}
+enabled_inspect_interfaces = no-inspect,inspector
+default_inspect_interface = inspector
+{% endif %}
+enabled_bios_interfaces = {{ enabled_bios_interfaces }}
+enabled_boot_interfaces = {{ enabled_boot_interfaces }}
+enabled_management_interfaces = {{ enabled_management_interfaces }}
+enabled_power_interfaces = {{ enabled_power_interfaces }}
+enabled_deploy_interfaces = {{ enabled_deploy_interfaces }}
+enabled_raid_interfaces = {{ enabled_raid_interfaces }}
+enabled_vendor_interfaces = {{ enabled_vendor_interfaces }}
+
+enabled_hardware_types = {{ enabled_hardware_types }}
+
+{% if default_boot_interface is defined %}
+default_boot_interface = {{ default_boot_interface }}
+{% endif %}
+
+default_resource_class = {{ default_resource_class }}
+
+{% if expose_json_rpc | bool %}
+rpc_transport = json-rpc
+{% else %}
+rpc_transport = none
+{% endif %}
+
+{% if enable_keystone | bool %}
+auth_strategy = keystone
+{% elif noauth_mode | bool %}
+auth_strategy = noauth
+{% else %}
+auth_strategy = http_basic
+http_basic_auth_user_file = /etc/ironic/htpasswd
+{% endif %}
+
+{% if ironic_log_dir | default("") != "" %}
+log_dir = {{ ironic_log_dir }}
+{% endif %}
+
+isolinux_bin = {{ isolinux_bin_path }}
+
+grub_config_path = EFI/{{ efi_distro }}/grub.cfg
+
+{% if enable_tls | bool %}
+[api]
+# TLS is handled by nginx is proxy mode
+host_ip = 127.0.0.1
+public_endpoint = {{ api_protocol }}://{{ internal_ip }}:6385
+unix_socket = /run/ironic/ironic.socket
+# Nginx should be able to write to the socket, access will be further limited
+# by the containing directory.
+unix_socket_mode = 0660
+
+{% if expose_json_rpc | bool %}
+[ssl]
+# Only used for JSON RPC when expose_json_rpc is true
+cert_file = {{ tls_certificate_path }}
+key_file = {{ ironic_private_key_path }}
+{% endif %}
+{% endif %}
+
+[agent]
+{% if ironic_store_ramdisk_logs | bool %}
+deploy_logs_collect = always
+{% endif %}
+{% if ironic_agent_deploy_logs_local_path | default("") != "" %}
+deploy_logs_local_path = {{ ironic_agent_deploy_logs_local_path }}
+{% endif %}
+
+[pxe]
+kernel_append_params = {{ pxe_kernel_params }}
+tftp_server = {{ internal_ip }}
+tftp_root = {{ tftp_boot_folder }}
+ipxe_fallback_script = pxelinux.cfg/default
+tftp_master_path = {{ ironic_tftp_master_path }}
+{% if enable_uefi_ipxe | bool %}
+uefi_ipxe_bootfile_name = {{ ipxe_efi_binary }}
+{% endif %}
+enable_netboot_fallback = true
+
+[deploy]
+http_url = http://{{ internal_ip }}:{{ file_url_port }}/
+http_root = {{ http_boot_folder }}
+default_boot_option = local
+default_boot_mode = {{ default_boot_mode }}
+fast_track = {{ fast_track }}
+{% if cleaning_disk_erase | bool %}
+erase_devices_priority = 10
+erase_devices_metadata_priority = 0
+{% else %}
+erase_devices_priority = 0
+erase_devices_metadata_priority = 10
+{% endif %}
+{% if vmedia_enable_tls | bool %}
+external_http_url = https://{{ internal_ip }}:{{ file_url_port_tls }}/
+{% endif %}
+
+[conductor]
+automated_clean = {{ cleaning | lower }}
+deploy_kernel = {{ ipa_kernel_url }}
+deploy_ramdisk = {{ ipa_ramdisk_url }}
+rescue_kernel = {{ ipa_kernel_url }}
+rescue_ramdisk = {{ ipa_ramdisk_url }}
+bootloader = {{ esp_image_url }}
+{% if enable_prometheus_exporter | bool %}
+send_sensor_data = true
+send_sensor_data_for_undeployed_nodes = {{ sensor_data_undeployed_nodes }}
+send_sensor_data_interval = {{ sensor_data_interval }}
+{% endif %}
+
+[database]
+connection = mysql+pymysql://{{ ironic.database.username }}:{{ ironic.database.password }}@{{ ironic.database.host }}/{{ ironic.database.name }}?charset=utf8
+
+[dhcp]
+dhcp_provider = none
+
+{% if enable_cors | bool == true %}
+[cors]
+allowed_origin = {{ cors_allowed_origin | default('allowed_origin=http://localhost:8000') }}
+allow_credentials = {{ enable_cors_credential_support | default('true') }}
+{% endif %}
+
+[ilo]
+use_web_server_for_images = true
+kernel_append_params = {{ ilo_kernel_params }}
+
+[redfish]
+use_swift = False
+kernel_append_params = {{ redfish_kernel_params }}
+
+{% if enable_inspector | bool == true %}
+[inspector]
+power_off = {{ power_off_after_inspection }}
+extra_kernel_params = {{ inspector_extra_kernel_options | default('') }}
+{% if enable_keystone | bool %}
+auth_type = password
+auth_url = {{ ironic.service_catalog.auth_url }}
+username = {{ ironic.service_catalog.username }}
+password = {{ ironic.service_catalog.password }}
+user_domain_id = default
+project_name = {{ ironic.service_catalog.project_name }}
+project_domain_id = default
+region_name = {{ keystone.bootstrap.region_name | default('RegionOne')}}
+# NOTE(dtantsur): this has to be on internal IP even if public IPs are used
+callback_endpoint_override = {{ api_protocol }}://{{ internal_ip }}:5050
+{% elif noauth_mode | bool %}
+auth_type=none
+endpoint_override = {{ ironic_inspector_api_url }}
+{% else %}
+auth_type = http_basic
+endpoint_override = {{ ironic_inspector_api_url }}
+username = {{ admin_username }}
+password = {{ admin_password }}
+{% endif %}
+{% if enable_tls | bool %}
+cafile = {{ tls_certificate_path }}
+{% endif %}
+{% endif %}
+
+{% if enable_keystone is defined and enable_keystone | bool == true %}
+[keystone_authtoken]
+auth_plugin = password
+auth_url = {{ ironic.service_catalog.auth_url }}
+username = {{ ironic.service_catalog.username }}
+password = {{ ironic.service_catalog.password }}
+user_domain_id = default
+project_name = {{ ironic.service_catalog.project_name }}
+project_domain_id = default
+{% if enable_tls | bool %}
+cafile = {{ tls_certificate_path }}
+{% endif %}
+{% endif %}
+
+[service_catalog]
+{% if enable_keystone | bool %}
+auth_url = {{ ironic.service_catalog.auth_url }}
+auth_type = password
+project_name = {{ ironic.service_catalog.project_name }}
+username = {{ ironic.service_catalog.username }}
+password = {{ ironic.service_catalog.password }}
+user_domain_id = default
+project_domain_id = default
+region_name = {{ keystone.bootstrap.region_name | default('RegionOne')}}
+{% elif noauth_mode | bool %}
+auth_type = none
+{% else %}
+auth_type = http_basic
+username = {{ admin_username }}
+password = {{ admin_password }}
+{% endif %}
+# NOTE(dtantsur): this has to be on internal IP even if public IPs are used
+endpoint_override = {{ api_protocol }}://{{ internal_ip }}:6385
+
+{% if expose_json_rpc | bool %}
+[json_rpc]
+{% if enable_tls | bool %}
+cafile = {{ tls_certificate_path }}
+use_ssl = True
+{% endif %}
+{% if enable_keystone | bool %}
+auth_strategy = keystone
+auth_url = {{ ironic.service_catalog.auth_url }}
+auth_type = password
+project_name = {{ ironic.service_catalog.project_name }}
+username = {{ ironic.service_catalog.username }}
+password = {{ ironic.service_catalog.password }}
+user_domain_id = default
+project_domain_id = default
+{% elif not supports_http_auth | bool %}
+auth_strategy = noauth
+{% else %}
+auth_strategy = http_basic
+auth_type = http_basic
+http_basic_auth_user_file = /etc/ironic/htpasswd
+username = {{ admin_username }}
+password = {{ admin_password }}
+{% endif %}
+{% endif %}
+
+{% if enable_prometheus_exporter | bool %}
+[oslo_messaging_notifications]
+driver = prometheus_exporter
+transport_url = fake://
+location = {{ prometheus_exporter_data_dir }}
+{% endif %}

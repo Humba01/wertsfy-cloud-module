@@ -1,0 +1,7 @@
+[Unit]
+Description=Virtual BMC daemon
+
+[Service]
+Type=simple
+Restart=on-failure
+ExecStart={{ bifrost_venv_dir }}/bin/vbmcd --foreground

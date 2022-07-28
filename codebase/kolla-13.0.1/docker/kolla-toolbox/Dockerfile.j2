@@ -1,0 +1,118 @@
+FROM {{ namespace }}/{{ infra_image_prefix }}base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block kolla_toolbox_header %}{% endblock %}
+
+{% set virtualenv_path='/opt/ansible' %}
+{% set os_client_config= virtualenv_path + '/lib/python' + distro_python_version + '/site-packages/os_client_config/defaults.json' %}
+
+{% import "macros.j2" as macros with context %}
+
+{{ macros.add_binary_source_envs() }}
+{{ macros.configure_user(name='ansible') }}
+{{ macros.configure_user(name='rabbitmq') }}
+
+{{ macros.enable_extra_repos(['rabbitmq', 'erlang', 'openvswitch', 'powertools']) }}
+
+{% if base_package_type == 'rpm' %}
+
+    {% set kolla_toolbox_packages = [
+        'crudini',
+        'gcc',
+        'gdisk',
+        'git',
+        'jq',
+        'libffi-devel',
+        'libxml2-devel',
+        'libxslt-devel',
+        'make',
+        'mariadb',
+        'mariadb-devel',
+        'openssh-clients',
+        'openssl-devel',
+        'openvswitch',
+        'python3-devel',
+        ] %}
+
+    {% if base_arch == 'aarch64' %}
+        {% set kolla_toolbox_packages = kolla_toolbox_packages + [
+            'erlang-22.*',
+            'rabbitmq-server-3.8.14'
+            ] %}
+    {% else %}
+        {% set kolla_toolbox_packages = kolla_toolbox_packages + [
+            'erlang-23.*',
+            'rabbitmq-server-3.8.*'
+            ] %}
+    {% endif %}
+
+{% elif base_package_type == 'deb' %}
+    {% set kolla_toolbox_packages = [
+        'build-essential',
+        'ca-certificates',
+        'crudini',
+        'gdisk',
+        'git',
+        'jq',
+        'libffi-dev',
+        'libmariadb-dev-compat',
+        'libssl-dev',
+        'libxslt1-dev',
+        'mariadb-client',
+        'openvswitch-switch',
+        'python3-dev',
+        'rabbitmq-server',
+     ] %}
+{% endif %}
+{{ macros.install_packages(kolla_toolbox_packages | customizable("packages")) }}
+
+{% set kolla_toolbox_pip_virtualenv_packages = [
+        'virtualenv'
+    ] %}
+
+{% block kolla_toolbox_upper_constraints %}
+RUN mkdir -p /requirements \
+    && curl -o /requirements/upper-constraints.txt https://releases.openstack.org/constraints/upper/{{ openstack_release }} \
+    && {{ macros.install_pip(kolla_toolbox_pip_virtualenv_packages | customizable("pip_virtualenv_packages")) }} \
+    && virtualenv --system-site-packages {{ virtualenv_path }}
+{% endblock %}
+
+ENV PATH {{ virtualenv_path }}/bin:$PATH
+
+{% set kolla_toolbox_pip_packages = [
+        'ansible-core==2.11.*',
+        'cmd2',
+        'influxdb',
+        'mysqlclient',
+        'os-client-config',
+        'pbr',
+        'python-openstackclient',
+        'pytz',
+        'pyudev',
+    ] %}
+
+COPY requirements.yml /var/lib/ansible/
+RUN {{ macros.install_pip(kolla_toolbox_pip_packages | customizable("pip_packages")) }} \
+    && mkdir -p /etc/ansible /usr/share/ansible \
+    && echo 'localhost ansible_connection=local ansible_python_interpreter={{ virtualenv_path }}/bin/python' > /etc/ansible/hosts \
+    && sed -i 's|  "identity_api_version": "2.0",|  "identity_api_version": "3",|' {{ os_client_config }} \
+    && ansible-galaxy collection install -p /usr/share/ansible/collections -r /var/lib/ansible/requirements.yml
+
+ENV ANSIBLE_LIBRARY /usr/share/ansible:$ANSIBLE_LIBRARY
+
+COPY find_disks.py /usr/share/ansible/
+COPY ansible.cfg /etc/ansible/ansible.cfg
+RUN chmod 644 /usr/share/ansible/find_disks.py \
+              /etc/ansible/ansible.cfg
+
+COPY ansible_sudoers /etc/sudoers.d/kolla_ansible_sudoers
+RUN chmod 440 /etc/sudoers.d/kolla_ansible_sudoers
+
+COPY extend_start.sh /usr/local/bin/kolla_extend_start
+
+{% block kolla_toolbox_footer %}{% endblock %}
+{% block footer %}{% endblock %}
+
+USER ansible

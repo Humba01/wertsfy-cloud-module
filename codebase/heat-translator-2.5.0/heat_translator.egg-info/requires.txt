@@ -1,0 +1,11 @@
+PyYAML>=3.13
+cliff!=2.9.0,>=2.8.0
+keystoneauth1>=3.4.0
+oslo.log>=3.36.0
+pbr!=2.1.0,>=2.0.0
+python-dateutil>=2.5.3
+python-glanceclient>=2.8.0
+python-heatclient>=1.10.0
+python-novaclient>=9.1.0
+requests>=2.18.0
+tosca-parser>=1.6.1

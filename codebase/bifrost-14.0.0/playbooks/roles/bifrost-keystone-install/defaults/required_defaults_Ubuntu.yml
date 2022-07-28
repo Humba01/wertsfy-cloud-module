@@ -1,0 +1,13 @@
+---
+init_dest_dir: /lib/systemd/system/
+required_packages:
+  - mariadb-server
+  - python3-dev
+  - python3-mysqldb
+  - python3-pymysql
+  - python3-setuptools
+  - libffi-dev
+  - libxslt1-dev
+  - libssl-dev
+  - libxml2-dev
+  - nginx

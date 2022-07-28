@@ -1,0 +1,11 @@
+---
+- name: Ensure the Kolla configuration directories exist
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ ansible_facts.user_uid }}"
+    group: "{{ ansible_facts.user_gid }}"
+    mode: 0750
+  become: True
+  with_items:
+    - "{{ kolla_build_config_path }}"

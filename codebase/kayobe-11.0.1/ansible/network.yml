@@ -1,0 +1,41 @@
+---
+- name: Ensure networking is configured
+  hosts: seed-hypervisor:seed:overcloud:infra-vms
+  tags:
+    - config
+    - network
+  tasks:
+    - block:
+        - name: Validate network interface configuration
+          fail:
+            msg: >
+              Network interface validation failed - no interface configured for
+              {{ item }}. This should be configured via '{{ item }}_interface'.
+          with_items: "{{ ether_interfaces }}"
+          when: not item | net_interface
+
+        - name: Validate bridge interface configuration
+          fail:
+            msg: >
+              Bridge interface validation failed - no interface configured for
+              {{ item }}. This should be configured via '{{ item }}_interface'.
+          with_items: "{{ bridge_interfaces }}"
+          when: not item | net_interface
+
+        - name: Validate bond interface configuration
+          fail:
+            msg: >
+              Bond interface validation failed - no interface configured for
+              {{ item }}. This should be configured via '{{ item }}_interface'.
+          with_items: "{{ bond_interfaces }}"
+          when: not item | net_interface
+      vars:
+        ether_interfaces: "{{ network_interfaces | net_select_ethers | list }}"
+        bridge_interfaces: "{{ network_interfaces | net_select_bridges | list }}"
+        bond_interfaces: "{{ network_interfaces | net_select_bonds | list }}"
+      tags:
+        - config-validation
+
+    - name: Configure the network
+      include_role:
+        name: "network-{{ ansible_facts.os_family | lower }}"

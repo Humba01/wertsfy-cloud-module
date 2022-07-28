@@ -1,0 +1,14 @@
+FROM {{ namespace }}/{{ infra_image_prefix }}base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block dnsmasq_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{% set dnsmasq_packages = ['dnsmasq'] %}
+{{ macros.install_packages(dnsmasq_packages| customizable("packages")) }}
+
+{% block dnsmasq_footer %}{% endblock %}
+{% block footer %}{% endblock %}

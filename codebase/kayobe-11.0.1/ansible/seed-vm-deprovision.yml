@@ -1,0 +1,16 @@
+---
+- name: Ensure that the seed VM is deprovisioned
+  hosts: seed-hypervisor
+  vars:
+    seed_host: "{{ groups['seed'][0] }}"
+  roles:
+    - role: stackhpc.libvirt-vm
+      seed_vm_configdrive_volume:
+        name: "{{ hostvars[seed_host].seed_vm_name }}-configdrive"
+        pool: "{{ hostvars[seed_host].seed_vm_pool }}"
+      libvirt_vm_name: "{{ hostvars[seed_host].seed_vm_name }}"
+      libvirt_vm_memory_mb: "{{ hostvars[seed_host].seed_vm_memory_mb }}"
+      libvirt_vm_vcpus: "{{ hostvars[seed_host].seed_vm_vcpus }}"
+      libvirt_vm_volumes: "{{ hostvars[seed_host].seed_vm_volumes + [seed_vm_configdrive_volume] }}"
+      libvirt_vm_state: "absent"
+      become: True

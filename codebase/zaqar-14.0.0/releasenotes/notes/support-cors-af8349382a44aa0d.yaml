@@ -1,0 +1,3 @@
+---
+features:
+  - Zaqar now supports Cross-Origin Resource Sharing (CORS).

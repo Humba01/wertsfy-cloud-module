@@ -1,0 +1,61 @@
+[console_scripts]
+zaqar-bench = zaqar.bench.conductor:main
+zaqar-gc = zaqar.cmd.gc:run
+zaqar-server = zaqar.cmd.server:run
+zaqar-sql-db-manage = zaqar.storage.sqlalchemy.migration.cli:main
+zaqar-status = zaqar.cmd.status:main
+
+[oslo.config.opts]
+zaqar = zaqar.conf.opts:list_opts
+
+[oslo.policy.policies]
+zaqar = zaqar.common.policies:list_rules
+
+[zaqar.control.storage]
+faulty = zaqar.tests.faulty_storage:ControlDriver
+mongodb = zaqar.storage.mongodb.driver:ControlDriver
+redis = zaqar.storage.redis.driver:ControlDriver
+sqlalchemy = zaqar.storage.sqlalchemy.driver:ControlDriver
+
+[zaqar.data.storage]
+faulty = zaqar.tests.faulty_storage:DataDriver
+mongodb = zaqar.storage.mongodb.driver:DataDriver
+mongodb.fifo = zaqar.storage.mongodb.driver:FIFODataDriver
+redis = zaqar.storage.redis.driver:DataDriver
+swift = zaqar.storage.swift.driver:DataDriver
+
+[zaqar.extraspec.tasks]
+messagecode = zaqar.extraspec.tasks.messagecode:MessageCodeAuthentication
+
+[zaqar.notification.tasks]
+http = zaqar.notification.tasks.webhook:WebhookTask
+https = zaqar.notification.tasks.webhook:WebhookTask
+mailto = zaqar.notification.tasks.mailto:MailtoTask
+trust+http = zaqar.notification.tasks.trust:TrustTask
+trust+https = zaqar.notification.tasks.trust:TrustTask
+
+[zaqar.storage.mongodb.driver.queue.stages]
+message_queue_handler = zaqar.storage.mongodb.messages:MessageQueueHandler
+
+[zaqar.storage.mongodb.driver.topic.stages]
+message_queue_handler = zaqar.storage.mongodb.topic_messages:MessageTopicHandler
+
+[zaqar.storage.redis.driver.queue.stages]
+message_queue_handler = zaqar.storage.redis.messages:MessageQueueHandler
+
+[zaqar.storage.redis.driver.topic.stages]
+message_queue_handler = zaqar.storage.redis.messages:MessageTopicHandler
+
+[zaqar.storage.stages]
+zaqar.notification.notifier = zaqar.notification.notifier:NotifierDriver
+
+[zaqar.storage.swift.driver.queue.stages]
+message_queue_handler = zaqar.storage.swift.messages:MessageQueueHandler
+
+[zaqar.storage.swift.driver.topic.stages]
+message_queue_handler = zaqar.storage.swift.messages:MessageTopicHandler
+
+[zaqar.transport]
+websocket = zaqar.transport.websocket.driver:Driver
+wsgi = zaqar.transport.wsgi.driver:Driver
+

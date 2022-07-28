@@ -1,0 +1,4 @@
+---
+- name: Ensure pip is configured
+  include_tasks: pip_conf.yml
+  when: (pip_local_mirror | bool) or (pip_proxy | length > 0)

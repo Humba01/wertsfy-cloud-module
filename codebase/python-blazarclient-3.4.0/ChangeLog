@@ -1,0 +1,239 @@
+CHANGES
+=======
+
+3.4.0
+-----
+
+* Add commands for resource property API
+* Updating python testing classifier as per Yoga testing runtime
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+3.3.1
+-----
+
+* Fix up client init
+
+3.3.0
+-----
+
+* Add openstackclient support
+* Migrate from testr to stestr
+* Default client service type to reservation
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+* Change dashes to underscore in setup.cfg
+
+3.2.0
+-----
+
+* Provide a default affinity value
+* Uncap PrettyTable
+* Use unittest.mock instead of third party mock
+* Remove use of mock.seal()
+* Bump hacking max version to 3.0.1 and fix pep8
+* Replace deprecated UPPER\_CONSTRAINTS\_FILE variable
+* Remove six
+* Remove the unused coding style modules
+* bump py37 to py38 in tox.ini
+* Remove install unnecessary packages
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+3.1.1
+-----
+
+* Use KSA loading to support more auth methods
+* Fixup failing tests due to passing date threshold
+* Fix test\_args2body\_start\_now unit test
+* migrate testing to ubuntu focal
+* Stop to use the \_\_future\_\_ module
+
+3.1.0
+-----
+
+* Switch to newer openstackdocstheme and reno versions
+* Add py38 package metadata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+3.0.1
+-----
+
+* Cleanup py27 support
+
+3.0.0
+-----
+
+* Don't fetch entire list when looking up by ID
+* tox: Keeping going with docs and cleanup setup.cfg
+* Stop testing with py2
+* Switch to Ussuri jobs
+* Update master for stable/train
+
+2.2.1
+-----
+
+* Support floating IP reservation parameters in lease-update
+* Parse required\_floatingips parameter as a JSON array
+
+2.2.0
+-----
+
+* Add release note for floating IP support
+* Clarify how reservation parameters should be defined
+* Fix parsing of network\_id reservation parameter
+* Add Python 3 Train unit tests
+* Cap sphinx for py2 to match global requirements
+* Add support for floating IP reservation
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Update master for stable/stein
+* add python 3.7 unit test job
+* Update hacking version
+* Use template for lower-constraints
+* Fix typo in exception class name
+* Change openstack-dev to openstack-discuss
+* Add Python 3.6 classifier to setup.cfg
+* add python 3.6 unit test job
+
+2.1.0
+-----
+
+* Add release notes link to README
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Fix link to oslo.i18n usage documentation
+* Fix exception message when there are leases with the same name
+* Fix lease creation when start date is not provided
+* Update reno for stable/rocky
+
+2.0.0
+-----
+
+* Set start date to 'now' rather than current time
+* Catch exceptions for session client
+* Add release note about region support
+* Add reno for release notes management
+* fix tox python3 overrides
+
+1.1.1
+-----
+
+* Respect selected region in multi-region clouds
+
+1.1.0
+-----
+
+* Support resource\_properties key in instance\_reservation
+* add lower-constraints job
+* Support hostname in show, update and delete host operations
+* Remove climate namespace
+* Fix URL to the hacking documentation
+* Updated from global requirements
+* Add Python3 to the setup configuration
+* Remove commas in setup.cfg package classifiers
+* Fix issues with Python3
+
+1.0.0
+-----
+
+* Updated from global requirements
+* Align json indents
+* Remove mox from requirements
+* Fix incorrect descriptions of host commands
+* Updated from global requirements
+* Avoid tox\_install.sh for constraints support
+* Support update lease API for instance reservation plugin
+* Updated from global requirements
+* Replace six.iteritems() with .items()
+* Improve README
+
+0.3.1
+-----
+
+* Restore backward compatibility for init client
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Migrate to keystoneauth1
+* Stop using oslo\_utils.timeutils.strtime()
+* Updated from global requirements
+* Use fixtures instead of deprecated mockpatch module
+
+0.3.0
+-----
+
+* Add a reservation parameter to the lease\_update command
+* Add before\_end\_date and before\_end parameters
+* Accept multiple properties
+* Fix failure to create physical reservations
+* Fix unicode issues with Python 3
+* Convert integer style parameters to integer values
+* Output debug messages when using --debug option
+* Updated from global requirements
+* Remove unnecessary output
+* Updated from global requirements
+* Enable lease-update to update start/end time with date
+* Updated from global requirements
+* Updated from global requirements
+* Validation for --physical-reservation argument
+* Updated from global requirements
+* Remove log translations
+
+0.2.0
+-----
+
+* Updated from global requirements
+* Updated from global requirements
+* Migrate Python namespace from climateclient to blazarclient
+* Support Keystone v3 API in CLI
+* Remove discover from test-requirements
+* Add Constraints support
+* Update default environment list
+* Updated from global requirements
+* Fix help messages for update commands
+* use oslotest
+* use oslo.i18n
+* use oslo.utils
+* Remove o/c/local.py and o/c/log.py
+* Update .gitreview for new namespace
+* Fix testing
+* Deprecated tox -downloadcache option removed
+* Updated from global requirements
+* Added option --advance-by to allow advancing of lease start date
+* Updated from global requirements
+* Updated from global requirements
+* Add the option defer-by to postpone start\_date
+* Add test coverage for base client modules
+* Update gitreview file for repo rename
+* Error message is not correct when list/show non-exist lease
+* Updated from global requirements
+* Climate client now shows the list of commands
+* Handle elapsed\_time params in climate client
+* Add new option to allow lease reductions
+* Updated from global requirements
+* Add sort-by option for climateclient list commands
+* Removing dependencies from test-requirements
+* Updated from global requirements
+* Updated from global requirements
+* Add test framework for climateclient
+* Updated from global requirements
+* Support not-json error responses
+* Fix PEP8 H302 import only modules
+
+0.1.0
+-----
+
+* Add LICENSE and MANIFEST.in files
+* Fix setup.cfg
+* Fix exception rendering for client
+* Updated from global requirements
+* Implement support for provisioning hosts to ClimateClient
+* Fix date format in update lease
+* Implement Lease creation for Physical reservations
+* Initial Climate client implementation
+* Add HACKING.rst with link to the style guidelines
+* Added .gitreview

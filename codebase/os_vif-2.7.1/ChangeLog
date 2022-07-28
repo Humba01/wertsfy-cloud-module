@@ -1,0 +1,399 @@
+CHANGES
+=======
+
+2.7.1
+-----
+
+* Updating python testing classifier as per Yoga testing runtime
+
+2.7.0
+-----
+
+* Fix typos
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+* only register tables used by os-vif
+* Use TCP keepalives for ovsdb connections
+
+2.6.0
+-----
+
+* add configurable per port bridges
+* update os-vif ci to account for devstack default changes
+
+2.5.0
+-----
+
+* Creating oslo.config.opts entry\_points for plugins
+* setup.cfg: Replace dashes with underscores
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+2.4.0
+-----
+
+* Resolve dependency issues
+* Drop use of deprecated collections classes
+
+2.3.0
+-----
+
+* Fix hacking min version to 3.0.1
+* Fix - os-vif fails to get the correct UpLink Representor
+* tox: Rename 'UPPER\_CONSTRAINTS\_FILE' -> 'TOX\_CONSTRAINTS\_FILE'
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+* Refactor code of linux\_net to more cleaner and increase performace
+
+2.2.0
+-----
+
+* deprecate ovs-vsctl driver and make native the default
+* windows: Add missing return
+* update tox envs and support pdf docs
+* [goal] migrate testing to ubuntu focal
+* support pyroute2 0.5.13
+
+2.1.0
+-----
+
+* Use unittest.mock instead of third party mock
+* Switch to newer openstackdocstheme and reno versions
+* Remove .testr.conf
+* Remove egg\_info in setup.cfg
+* Remove translation sections from setup.cfg
+* Remove six
+* [Community goal] Update contributor documentation
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+* Fix doc build job for wanring turn into error
+* trivial: Remove some rules from flake8 ignore list
+* Update hacking for Python3
+
+2.0.0
+-----
+
+* [OVS] VLAN tag should be set in the Port register
+* Revert "[Follow Up] OVS DPDK port representors support"
+* move os-vif-ovs to be a non legacy job
+* [Follow Up] OVS DPDK port representors support
+* Drop python2 support and testing
+* Switch to Ussuri jobs
+* Update the constraints url
+* Update master for stable/train
+
+1.17.0
+------
+
+* Fix code bug in document
+* only disable mac ageing for ovs hybrid plug
+* Bump the openstackdocstheme extension to 1.20
+* Blacklist sphinx 2.1.0 (autodoc bug)
+* Sync Sphinx requirement
+* Add Python 3 Train unit tests
+* set ignore\_basepython\_conflict = True in tox.ini
+* OVS DPDK port representors support
+* Fix mock of built in "open" function in unit tests
+
+1.16.0
+------
+
+* Remove unused vif\_plug\_ovs.i18n module
+* Fix Kuryr-Kubernetes job name
+* Replace git.openstack.org URLs with opendev.org URLs
+* Prevent "qbr" Linux Bridge from replying to ARP messages
+* Remove IP proxy methods
+* OpenDev Migration Patch
+* Refactor functional base test classes
+* Drop testtools from test-requirements.txt
+* Replace openstack.org git:// URLs with https://
+* Update master for stable/stein
+
+1.15.1
+------
+
+* add additional check and gate jobs for os-vif
+* Add "master" parameter to ip.set() API function
+
+1.15.0
+------
+
+* Add native implementation OVSDB API
+* docs: Use sphinx.ext.autodoc for profile, datapath offload types
+* docs: Use sphinx.ext.autodoc for VIF types
+* make functional tests run on python 3
+* Fix nits in brctl removal (vif\_plug\_linux\_bridge)
+* docs: Add API docs for profile, datapath offload types
+* docs: Add API docs for VIF types
+* remove use of brctl from vif\_plug\_linux\_bridge
+* remove brctl from vif\_plug\_ovs
+* Add function "has\_table\_columns" to OVSDB implementation API
+* Clean up versioned object backlevelling code
+* Change python3.5 job to python3.7 job on Stein+
+* Add create\_port field in VIFPortProfileOpenVSwitch profile
+* Convert hardcoded regexes to raw strings for py36
+
+1.14.0
+------
+
+* make kuryr-kubernetes-tempest-daemon-octavia non voting
+* Add test to check os\_vif.internal.command.ip.exists
+* Import IP implementation modules outside privsep context
+* Cleanup device at the end of 'test\_iproute\_object\_closes\_correctly' test
+* do not always plug ovs ports
+* Apply workaround to host\_info serialization test
+* Extend port profiles with datapath offload type
+* Update hacking version
+
+1.13.1
+------
+
+* Create iproute.IPRoute() inside a context
+
+1.13.0
+------
+
+* add isolate\_vif config option
+* Change openstack-dev to openstack-discuss
+* always create ovs port during plug
+* Update min tox version to 2.0
+* Do not import pyroute2 on Windows
+
+1.12.0
+------
+
+* Do not call linux\_net.delete\_net\_dev on Windows
+* Fix random test\_unplug\_ovs failures
+* Reflow docs to 79 columns
+* clean up ip\_command interface
+* Remove IPTools deprecated implementation
+* Add abstract OVSDB API
+* Add support for Windows network commands
+* add nested DPDK VIF classes for kuryr-kubernetes
+* Fix upper-constraints link in tox file
+* Cleanup zuul config file
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Support for OVS DB TCP socket communication
+* Update reno for stable/rocky
+* Add vif\_plug\_noop to setup.cfg packages
+
+1.11.0
+------
+
+* add upper\_constraints support
+* convert os-vif docs to follow PTI
+* doc: Fix arg specs and object types in docs
+* Remove [tox:jenkins] section from tox.ini
+* Remove unnecessary pyNN testenv sections
+* move legacy-tempest-dsvm-nova-os-vif to repo
+* doc: Fix formatting issues
+* add noop plugin
+* Add release note link in README
+* Fix docstrings to work with Sphinx 1.7.4
+* fix tox python3 overrides
+* fix tox py27 job
+* Trivial: Update pypi url to new url
+* Add lower-constraints job
+
+1.10.0
+------
+
+* Add kuryr-kubernetes Tempest job
+* Update links in README
+* ovs: do not delete port if already exists
+* zuul: Enable functional tests in gate
+* Update reno for stable/queens
+* Configure privsep binary
+* Fix VF-rep lookup routine to use parent PF number
+
+1.9.0
+-----
+
+* adds iptools driver for ip commands
+* Revert "Move 'ips' field from Subnet object to VIF object"
+* Git ignore .stestr
+
+1.8.0
+-----
+
+* Migrate from 'ip' commands to 'pyroute2'
+* Check if interface belongs to a Linux Bridge before removing
+* Updated from global requirements
+* Remove setting of version/release from releasenotes
+* Updated from global requirements
+* Move 'ips' field from Subnet object to VIF object
+* Add VersionedObjectPrintable mixin
+* Add Port Profile info to VIF objects Linux Bridge plugin
+* Updated from global requirements
+* ovs-hybrid: should permanently keep MAC entries
+* Add Port Profile info to VIF objects OVS plugin
+* Rehome OVO unit tests to tests.unit.test\_object.py
+* Add \`\`HostPortProfileInfo\`\` class
+* Add plugin names as constants
+* Updated from global requirements
+* Using assertIsNone() instead of assertEqual(None)
+* Read datapath\_type from VIF object
+* Update reno for stable/pike
+* Update the documentation link for doc migration
+* doc: Remove cruft from releasenotes conf.py
+
+1.7.0
+-----
+
+* Improve OVS Representor VF Lookup
+* Improve OVS Representor Lookup
+* Add support for VIFPortProfileOVSRepresentor
+* unplug\_vf\_passthrough: don't try to delete representor netdev
+* Enable some off-by-default checks
+* set mtu on all code paths
+* fix read the representor phys\_port\_name
+* doc: Switch from oslosphinx to openstackdocstheme
+* doc: Create directory structure for docs migration
+* Use \`\`assert\_has\_calls\`\` to check function calls
+* Updated from global requirements
+* Rehome unit tests to \`\`tests\unit\`\` folder
+
+1.6.0
+-----
+
+* hardware offload support for openvswitch
+* Use versionedobjects PCIAddress field
+* Fix typo VIFVIFHostDeviceDevType to VIFHostDeviceDevType
+
+1.5.0
+-----
+
+* Updated from global requirements
+* Standardize README
+* Revert "hardware offload support for openvswitch"
+* hardware offload support for openvswitch
+* Fix typos in vif\_types.rst
+* Add documentation for Linux Bridge plugin
+* Add documentation for OVS plugin
+* docs: Stop building anything but html output
+* doc: Add glossary
+* doc: Rewrap 'vif\_types' document
+* Argument should have 2 params
+* Explain why we bring up the lb in hybird mode
+* Remove log translations
+* Use Sphinx 1.5 warning-is-error
+* Updated from global requirements
+* Updated from global requirements
+* vif\_plug\_ovs: Skip setting MTU on Windows when plugging devices
+* The Python 3.5 is added
+* Don't install iptables rules if neutron is filtering
+* Correct object path in comments
+* Delete H803 from ignore list
+* Update reno for stable/ocata
+* Removing Deprecated hacking Check
+* Fix broken Link
+* [py35] Switch filter to list comprehensions
+* Remove support for py33
+
+1.4.0
+-----
+
+* introduces MTU support for vhost-user
+* vif\_plug\_ovs: Always set MTU when plugging devices
+* os-vif: add new port profiles to enable fast path vhostuser
+* add support for vhost-user reconnect
+* os-vif: add vif\_name to VIFVHostUser class
+* Changed the home-page link
+* Drop MANIFEST.in - it's not needed by pbr
+* Show team and repo badges on README
+* remove use of contextlib and with nested
+* host\_info: add ability to filter list of supported vifs
+* host\_info: fix get\_common\_version method on HostVIFInfo
+* host\_info: fix has\_vif/get\_vif methods on HostPluginInfo
+* Updated from global requirements
+* host\_info: fix has\_plugin/get\_plugin methods on HostInfo
+
+1.3.0
+-----
+
+* Enable release notes translation
+* os-vif: add initial documentation about object model
+* Add oslo.concurrency to requirements
+* Make plugin loading more consistent with logging guidelines
+* Updated from global requirements
+* vif: stop VIFOpenVSwitch inheriting VIFBridge
+* Updated from global requirements
+* Add MTU to Network model and use it in plugging
+* Update reno for stable/newton
+* Adds Windows support for OvsPlugin
+* Check for concurrent bridge creation in bridge add
+
+1.2.0
+-----
+
+* Add a reminder to remove Route.interface field
+* Updated from global requirements
+* Disable IPv6 on bridge devices in linux bridge code
+* Trivial: clean up oslo-incubator related stuff
+* Fix logging calls
+* Remove discover from test-requirements
+
+1.1.0
+-----
+
+* Simplified if statement
+* Updated from global requirements
+* revert removal of create\_ovs\_vif\_port timeout
+* Ensure the OVS bridge exists when plugging
+* Don't create extraneous linux bridge/veth pair for VIFOpenVSwitch
+* Updated from global requirements
+* mtu: don't attempt to set link mtu if it's invalid
+* ovs: Avoids setting MTU if MTU is None or 0
+* os\_vif: fix logging of exceptions during plug/unplug
+* vif\_plug\_ovs: clarify that the plugin was not in fact renamed
+* os\_vif: add logging for each plugin that is loaded
+* os\_vif: register objects before loading plugins
+* Add support for vhost-user
+* This change renames the ovs plugin
+* Updated from global requirements
+* remove unused entrypoints
+
+1.0.0
+-----
+
+* Start using reno for release notes
+* vif\_plug\_ovs: merge both plugins into one
+* ovs: convert over to use privsep module
+* ovs: move code from plugin into linux\_net helper
+* linux\_bridge: convert over to use privsep module
+* test: use real UUID in all UUID fields
+* test: add workaround for non-deterministic ovo object comparison
+* os-vif: introduce a ComputeInfo object to represent compute info
+* linux\_bridge: actually apply the iptables rules
+* Fix calls to create\_ovs\_vif\_port
+* Remove vlan from hostdev and direct vif
+* Change network vlan to integer
+* VIFDirect: replace dev\_name with dev\_address
+* Use names() method of ExtensionManager insted of keys()
+* Remove obsolete obj\_relationships attribute
+* os-vif: add test for versioned object fingerprints
+* os\_vif: ensure objects are in an 'os\_vif' namespace
+* vif\_plug\_ovs: Disable IPv6 on bridge devices
+* import openvswitch plugin implementation
+* import linux bridge plugin implementation
+* Provide plugins an oslo\_config group for their setup
+* Adding dev\_type field to VIFHostDevice
+* Fix PciAddress regex
+* Update the test\_os\_vif.test\_initialize documentation
+* tox: ignore E126, E127, E128 indentation checks
+* Fix logic getting access to stevedore loaded plugin instance
+* plugin: fix typo in method annotation
+* Pass InstanceInfo to the plug/unplug methods
+* Fix definition of subnet object to not be untyped strings
+* Add formal classes for each of the types of VIF backend config
+* don't catch ProcessExecutionError exception as special case
+* remove dependancy on nova object model
+* actually register the various objects we define
+* remove obsolete requirements
+* Remove raise NotImplementedError from abstractmethods
+* remove python 2.6 trove classifier
+* reorder tox envlist to run python 3.4 before 2.7
+* Import of code from https://github.com/jaypipes/os\_vif
+* Added .gitreview

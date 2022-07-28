@@ -1,0 +1,8 @@
+- job:
+    name: ovsdbapp-neutron-ovn-tempest-ovs-release
+    description: Job testing for devstack/tempest testing networking-ovn with the latest released OVN branch and ovsdbapp from source
+    parent: neutron-ovn-tempest-ovs-release
+    vars:
+      devstack_localrc:
+        LIBS_FROM_GIT: ovsdbapp
+        OVN_BUILD_MODULES: False

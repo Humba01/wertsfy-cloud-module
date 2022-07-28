@@ -1,0 +1,4 @@
+---
+features:
+  - Adds Cyborg images. Cyborg is an OpenStack service for managing hardware
+    accelerators.

@@ -1,0 +1,154 @@
+CHANGES
+=======
+
+1.4.0
+-----
+
+* Skip failing tests temporarily
+
+1.3.0
+-----
+
+* [community goal] Update contributor documentation
+* setup.cfg: Replace dashes with underscores
+* Use py3 as the default runtime for tox
+
+1.2.0
+-----
+
+* Adjust Actions API tests
+* Fix Action API tests
+* [goal] Migrate mistral-tempest-plugin jobs to focal
+* Switch to newer openstackdocstheme and reno versions
+* Add py38 package metadata
+* Fix hacking min version to 3.0.1
+* try to fix pip error
+* Add stable branch jobs on the plugins master gate
+
+1.0.0
+-----
+
+* Setting Python version explicitly to 3 for devstack jobs
+* Fix preinstalled workflows tests
+* Remove some pycharm warnings
+* Drop support in py2
+* Skip service api if not supported
+* Add mistral-extra to required projects in zuul
+* [ussuri][goal] Drop python 2.7 support and testing
+* Fix requirements, tox
+* Add test service api
+* [train][goal] Define new 'mistral-devstack-tempest-ipv6-only' job
+* tox: Keeping going with docs
+
+0.3.0
+-----
+
+* Add test for OpenStack services dynamic versions
+* use python3 for gate
+* Fix mistral-devstack quoting
+* Sync Sphinx requirement
+* Update docs job
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Disable SSH actions tests till they are stable
+* Update json module to jsonutils
+
+0.2.0
+-----
+
+* Update hacking version to latest
+* Update hacking version to latest
+* Add release notes link to README
+* Change openstack-dev to openstack-discuss
+* Add Python 3.6 classifier to setup.cfg
+* Add sorting to the "in list filter" test
+* Add python 3.6 unit test job
+* Removed older version of python added 3.5
+
+0.1.0
+-----
+
+* import zuul job settings from project-config
+* Use id of workflow instead of name to keep track of what is created
+* fix tox python3 overrides
+* fix tox python3 overrides
+* Revert "Fix todo that is not needed anymore stestr conf"
+* Fix todo that is not needed anymore stestr conf
+* Adds the force parameter to delete executions
+* Update the old doc links
+* Updated from global requirements
+* Updated from global requirements
+* Fix documentation build
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Simplify the ssh tests and where it gets it's key from
+* Revert "Revert "Add zuul jobs for mistral-tempest-plugin""
+* Updated from global requirements
+* Revert "Add zuul jobs for mistral-tempest-plugin"
+* Updated from global requirements
+* Add zuul jobs for mistral-tempest-plugin
+* Disable unstable tempest test\_run\_ssh\_proxied\_action test
+* Remove all class methods in tempest tests
+* Re-work the direct action call tempest test
+* Disable unstable tempest test\_create\_action\_execution\_sync test
+* Disable unstable tempest multi\_vim\_authentication test
+* Allow filtering executions by their root\_execution\_id
+* Apply cookiecutter to newly split project mistral-tempest-plugin
+* Add new tempest tests for swift and zaqar client actions
+* Decoupling of Mistral tempest test from Mistral code base
+* Fix test for decoding utf8
+* import fails in python3
+* Create and run a workflow within a namespace
+* Remove deprecation warning from tests
+* Add a hacking rule for string interpolation at logging
+* Use 'related\_bug' decorator from stable interface
+* Replace test.attr with decorators.attr
+* Tests: Remove the redundant method
+* Replace the usage of 'admin\_manager' with 'os\_admin'
+* Replace assertEqual([], items) with assertEmpty(items)
+* Fix gate failure
+* Role based resource access control - delete executions
+* Replace six.iteritems() with .items()
+* Change Http action result content encoding
+* Add hacking for code style checks
+* Fix multi\_vim tempest test failure
+* Fix update workflow by admin
+* Add idempotent\_id decorator to tempest testcases
+* Add idempotent\_id decorator to tempest testcases
+* Remove output from list action executions API
+* Use utcnow() instead of now()
+* Python3 common patterns
+* Role based resource access control - get workflows
+* Replace six.iteritems() with .items()
+* Replace uuid4() with generate\_uuid() from oslo\_utils
+* Add type to tasks API
+* Remove logging import unused
+* Stop adding ServiceAvailable group option
+* Accept service catalog from client side
+* Use parenthesis to wrap strings over multiple lines
+* Add functional tests for event engine functions
+* Added unit tests for Workbook and Workflow filtering
+* Filtering support for actions
+* Add target parameters to REST API
+* Get rid of oslo\_db warning about "id" not being in "sort\_keys"
+* Add db models for event trigger
+* Fix SSHActionsTestsV2 failure
+* Refactored tempest tests
+* Add configuration for Mistral tempest testing
+* Refactoring workflow handler
+* Refactor Mistral Engine
+* Disabled ssl warnings while runing tempest tests
+* tempest: fix dir\_path
+* Unblock skipped test
+* Use tempest.lib instead of tempest-lib
+* Fixed 'workflow\_name' key error
+* Change for synchronous Mistral actions from CLI
+* Fix occasional test failure by SSHActions
+* Fix occasional test failure by assertListEqual
+* Removed mistral/tests/functional
+* Added README.rst file for tempest plugin
+* Added base.py to tempest plugin
+* Added engine to tempest plugin
+* Added test\_mistral\_basic\_v2.py to tempest plugin
+* Initial layout for mistral tempest plugin

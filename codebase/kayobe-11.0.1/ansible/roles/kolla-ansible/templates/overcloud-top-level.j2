@@ -1,0 +1,61 @@
+# This inventory section provides a mapping of the top level groups to hosts.
+#
+# Top level groups define the roles of hosts, e.g. controller or compute.
+# Components define groups of services, e.g. nova or ironic.
+# Services define single containers, e.g. nova-compute or ironic-api.
+
+{% for group in kolla_overcloud_top_level_groups %}
+# Top level {{ group }} group.
+[{{ group }}]
+# These hostnames must be resolvable from your deployment host
+{% for host in groups.get(group, []) %}
+{{ host }}
+{% endfor %}
+
+{% endfor %}
+[overcloud:children]
+{% for group in kolla_overcloud_top_level_groups %}
+{{ group }}
+{% endfor %}
+
+[overcloud:vars]
+ansible_user={{ kolla_ansible_user }}
+{% if kolla_ansible_become | bool %}
+ansible_become=true
+{% endif %}
+{% if kolla_ansible_target_venv is not none %}
+# Execute ansible modules on the remote target hosts using a virtualenv.
+ansible_python_interpreter={{ kolla_ansible_target_venv }}/bin/python
+{% endif %}
+
+
+{% for kolla_group, kolla_group_config in kolla_overcloud_inventory_top_level_group_map.items() %}
+{% if 'groups' in kolla_group_config %}
+{% set renamed_groups = kolla_group_config.groups | difference([kolla_group]) | list %}
+{% if renamed_groups | length > 0 %}
+# Mapping from kolla-ansible group {{ kolla_group }} to top level kayobe
+# groups.
+[{{ kolla_group }}:children]
+{% for group in kolla_group_config.groups %}
+{{ group }}
+{% endfor %}
+
+{% endif %}
+{% endif %}
+{% if 'vars' in kolla_group_config %}
+# Mapping from kolla-ansible group {{ kolla_group }} to top level kayobe
+# variables.
+[{{ kolla_group }}:vars]
+{% for var_name, var_value in kayobe_group_config.vars.items() %}
+{{ var_name }}={{ var_value }}
+{% endfor %}
+
+{% endif %}
+{% endfor %}
+{% for group in kolla_overcloud_inventory_kolla_top_level_groups %}
+{% if not kolla_overcloud_inventory_top_level_group_map.get(group, {}).get('groups') %}
+# Empty group definition for {{ group }}.
+[{{ group }}]
+
+{% endif %}
+{% endfor %}

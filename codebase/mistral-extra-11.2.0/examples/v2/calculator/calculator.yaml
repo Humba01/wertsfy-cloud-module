@@ -1,0 +1,128 @@
+---
+version: "2.0"
+
+name: calculator
+
+actions:
+  calc_summ:
+    description: HTTP request to the server.
+    base: std.http
+    base-input:
+      url: 'http://<% $.vm_ip %>:5000/summ'
+      method: POST
+      body:
+        arguments: <% $.arguments %>
+    output:
+      summ_result: <% $.content.result %>
+    input:
+      - vm_ip
+      - arguments
+
+  run_calculator_server:
+    description: SSH command to run the server.
+    base: std.ssh
+    base-input:
+      host: <% $.host %>
+      username: <% $.username %>
+      password: <% $.password %>
+      cmd: 'nohup python ~/web_app.py > web_app.log &'
+    input:
+      - host
+      - username
+      - password
+
+workflows:
+  run_calculator:
+    type: direct
+
+    input:
+      - server_name # Name of the new instance
+      - image_id  # image id from Glance service
+      - flavor_id # flavor id - type of instance hardware
+      - ssh_username # VM username
+      - ssh_password # VM password
+      - to_email # email address to send notifications to
+      - from_email # email address to send notifications from
+      - smtp_server # SMTP server to use for sending emails (e.g. smtp.gmail.com:587)
+      - smtp_password # password to connect to SMTP server
+
+    task-defaults:
+      on-error:
+       - send_create_vm_error
+
+    description: |
+      This workflow spins up a vm,
+      deploys calculator web app on it
+      and runs the calculation by sending
+      a request to calculator app.
+
+    tasks:
+      create_vm:
+        description: Initial request to create a VM.
+        workflow: std.create_instance
+        input:
+          name: <% $.server_name %>
+          image_id: <% $.image_id %>
+          flavor_id: <% $.flavor_id %>
+          ssh_username: <% $.ssh_username %>
+          ssh_password: <% $.ssh_password %>
+        publish:
+          vm_id: <% task(create_vm).result.id %>
+          vm_ip: <% task(create_vm).result.ip %>
+        on-success:
+          - run_server
+
+      run_server:
+        description: When VM is up, we are able to run the server on VM (SSH command).
+        action: run_calculator_server host=<% $.vm_ip %> username=<% $.ssh_username %> password=<% $.ssh_password %>
+        on-success:
+          - calc_summ
+
+      calc_summ:
+        description: Send HTTP request on server and calc the result.
+        action: calc_summ arguments=[32, 45, 23] vm_ip=<% $.vm_ip %>
+        retry:
+          count: 10
+          delay: 1
+        publish:
+          result: <% task(calc_summ).result.summ_result %>
+        on-complete:
+          - send_result_email
+
+      send_result_email:
+        description: Email the result of the calculation.
+        action: std.email
+        input:
+          from_addr: <% $.from_email %>
+          to_addrs: [<% $.to_email %>]
+          subject: Workflow result
+          body: |
+            Workflow result of execution <% execution().id %> is <% $.result %>
+
+            -- Thanks, Mistral Team.
+          smtp_server: <% $.smtp_server %>
+          smtp_password: <% $.smtp_password %>
+        on-complete:
+          - delete_vm
+
+      send_create_vm_error:
+        description: In case of createVM error send e-mail with error message.
+        action: std.email
+        input:
+          from_addr: <% $.from_email %>
+          to_addrs: [<% $.to_email %>]
+          subject: Workflow error
+          body: |
+            Failed to create a VM in execution <% execution().id %>
+
+            -- Thanks, Mistral Team.
+          smtp_server: <% $.smtp_server %>
+          smtp_password: <% $.smtp_password %>
+        on-complete:
+          - delete_vm
+
+      delete_vm:
+        description: Destroy VM.
+        workflow: std.delete_instance instance_id=<% $.vm_id %>
+        on-error:
+          - fail

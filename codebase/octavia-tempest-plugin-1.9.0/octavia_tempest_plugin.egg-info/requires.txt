@@ -1,0 +1,16 @@
+cryptography>=2.1
+httpx[http2]>=0.14.2
+keystoneauth1>=3.3.0
+oslo.config>=5.2.0
+oslo.log>=3.36.0
+oslo.serialization!=2.19.1,>=2.18.0
+oslo.utils>=3.33.0
+oslotest>=3.2.0
+pbr!=2.1.0,>=2.0.0
+pyOpenSSL>=17.1.0
+python-barbicanclient>=4.5.2
+python-dateutil>=2.5.3
+requests>=2.14.2
+tempest>=17.1.0
+tenacity>=4.4.0
+testtools>=2.2.0

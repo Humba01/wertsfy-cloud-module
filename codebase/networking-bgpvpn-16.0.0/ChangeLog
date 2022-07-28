@@ -1,0 +1,731 @@
+CHANGES
+=======
+
+16.0.0
+------
+
+* CI: Use latest Neutron for jobs
+* remove unicode from code
+* Run TripleO jobs on CentOS8 instead of CentOS7
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+15.0.0
+------
+
+* Use assertCountEqual instead of assertItemsEqual
+* Changed minversion in tox to 3.18.0
+* Remove unecessary READER and WRITER context from bgpvpn\_db
+* DOC: remove duplicate mitaka entry
+* Use payloads for PORT events
+* use payloads for ROUTER\_INTERFACE events
+* Explicitly set job networking-bgpvpn-install to ML2/OVS
+* Use quota \`\`DbQuotaDriver\`\` instead of \`\`ConfDriver\`\`
+* setup.cfg: Replace dashes with underscores
+* Update master for stable/wallaby
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+14.0.0
+------
+
+* Use TOX\_CONSTRAINTS\_FILE
+* Imported Translations from Zanata
+* Make lower-constraints job non-voting
+* Imported Translations from Zanata
+* Rename jobs from the experimental queue
+* bump py37 to py38 in tox.ini
+* Bump hacking min version to 3.0.1
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+13.0.0
+------
+
+* Cleanup for Refactor-error-messages
+* Use the 'all' tox env instead of 'all-plugin'
+* [goal] Migrate testing to ubuntu focal
+* finish the zuulv3 migration of some bgpvpn jobs
+* Switch to hacking 3.0.1
+* Fix pep8 job
+* Stop to use the \_\_future\_\_ module
+* Remove \_MovedItems in pylintrc
+* Remove usage of six
+* Switch to newer openstackdocstheme and reno versions
+* Use unittest.mock instead of third party mock
+* test-requirements: upgrade min version of networking-bagpipe
+* Cleanup py27 support
+* Add Python3 victoria unit tests
+* Fix dsvm-functional and cleanup tox.ini
+* mock out ProviderConfiguration.\_\_init\_\_
+* Update master for stable/ussuri
+
+12.0.0
+------
+
+* Fix recent gate failures
+* Add release note on horizon optional dependency
+* Use extras for horizon dependency
+* Switch functional/install jobs to Zuulv3 syntax
+
+12.0.0.0b1
+----------
+
+* Remove references for unittest2
+* Fix lower constraints
+* Fix sphinx requirements
+* Drop Django 1.11 support
+* translation: drop babel extractor definitions
+* Imported Translations from Zanata
+* [ussuri][goal] Drop python 2.7 support and testing
+* use standard\_attr db from neutron-lib
+* Update the constraints url
+* Use Horizon project template for django jobs
+* PDF documentation build
+* Update master for stable/train
+
+11.0.0
+------
+
+* Update api-ref location
+* Add Python 3 Train unit tests
+* Add local bindep.txt
+* Change tempest regex used in devstack-gate-bagpipe-rc
+* Fix bagpipe driver to work with SQLAlchemy 1.3
+* fix tox python3 overrides
+* Remove tempest tests entry point
+* Move db class definitions before orm relationships to those classes
+* Rehome tempest tests to neutron-tempest-plugin repo
+* Update to opendev repository
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* doc: Add policy reference
+* lower-constraints: align pyscopg version to global reqs
+* Replace openstack.org git:// URLs with https://
+* Update master for stable/stein
+
+10.0.0
+------
+
+* fix tox python3 overrides
+* stop using common db mixin
+* add python 3.7 unit test job
+* use rpc from neutron-lib
+* tox: make pep8-dev use python3 like pep8
+* Remove tripleo newton and ocata jobs
+* Upgrade pylint to a version that works with python3
+* make tempest bgpvpn tests voting again
+* Convert policy.json into policy-in-code
+* use neutron-lib for model\_query
+* Replace tripleo scenario004-multinode with scenario004-standalone
+* use payloads for ROUTER\_INTERFACE BEFORE\_DELETE events
+* Change openstack-dev to openstack-discuss
+* Trival-fix: Missing parameter in declaration
+* Update min tox version to 2.0
+* use context manager from neutron-lib
+* Increment versioning with pbr instruction
+* Remove extra publish-openstack-python-branch-tarball job
+* add local tox targets for pep8 and py3
+* opt in for neutron-lib consumption patches
+* Import legacy jobs
+* Fix lower-constraints.txt
+* Drop nose dependencies
+* Cleanup .zuul.yaml
+* mark test\_router\_association\_update unit test as unreliable
+* tempest: reenable tests now that bug 1789878 is fixed
+* Remove opencontrail configurations
+* Remove dead code
+* adjust requirements
+* remove deprecated drivers with out-of-tree alternatives
+* add python 3.6 unit test job
+* tempest: temporarily disable some tests until bug 1789878 is fixed
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Remove use\_mox directive
+* Update reno for stable/rocky
+
+9.0.0
+-----
+
+* update requirements for neutron-lib 1.18.0
+* Trivial fix typo of description
+
+9.0.0.0b3
+---------
+
+* heat plugin: control 'local\_pref' of BGPVPN resource
+* Add Heat support for Port Associations
+* heat plugin: resources depend on the API extension being enabled
+* DB models: add standard attributes
+* Add release notes link in README
+* tempest: mark test\_port\_association\_many\_bgpvpn\_routes unstable
+* [dashboard] Remove old buttons to create/delete associations
+* switch to stestr
+* New tempest test added for many bgvpn routes
+* Add python3 django 1.11 job instead of django 2.0 job
+* dashboard: Fix test failures caused by django test runner
+
+9.0.0.0b2
+---------
+
+* use new neutronclient (more)
+* unit tests: cleanup setup\_extension call
+* devstack: support non-legacy neutron
+* unit test fix: fix api\_extension\_path being overriden
+* Django 2.0 support
+* Change sourcing neutron l2 agent script for devstack
+* ref driver: use decorators for registry callbacks
+* DB: add missing descriptions for migration scripts
+* [dashboard] Modify bgpvpn router associations
+* [dashboard] Modify bgpvpn network associations
+* dashboard: use new neutronclient
+* move n8g-odl and n8g-bagpipe as test requirements
+* heat: use BGPVPN API method from neutronclient
+* use sub-resource API extension support
+* doc: update python API client documentation
+
+9.0.0.0b1
+---------
+
+* tempest: fix test\_bgpvpn\_port\_association\_bgpvpn\_route
+* tempest: dynamic RT allocation
+* use callback registry decorators
+* Use ALIAS instead of LABEL
+* remove unused plugin.get\_plugin\_name()
+* [dashboard] Refactoring some common code
+* add lower-constraints job
+* Updated from global requirements
+* Avoid tox-install.sh
+* Move neutron/horizon to requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Update the outdated links
+* doc update: better introduction, more links
+* Imported Translations from Zanata
+* Update doc to integrate Keystone V3
+* remove use of RESOURCE\_ATTRIBUTE\_MAP
+* doc: update driver feature support matrix
+* bagpipe: documentation update
+* Provide missing release notes
+* tempest: remove now-useless workarounds for unreliable tests
+* tempest: use IP address ranges based on environment
+* Imported Translations from Zanata
+* add tempest test for Port Association routes of type 'bgpvpn'
+* Imported Translations from Zanata
+* Update reno for stable/queens
+
+8.0.0
+-----
+
+* switch to use new DB facade
+* dsvm tempest setup: use ovsfw
+* Correct django template pattern in babel-django.cfg
+* ‘local\_pref’ can be updated in 'test\_bgpvpn\_create\_update\_delete()'
+* enable tempest RT update test
+* routes-control: DB, adjust lazy loading
+* check consistency of BGPVPN types in Port routes of type "bgpvpn"
+* requirements.txt hints for deps managed in tools/tox\_install.sh
+* tempest test improvements
+* Zuul: Remove project name
+* Updated from global requirements
+* functional test fix: ignore more tables in DB consistency check
+* Local\_pref attr tempest test for port association
+* bagpipe: advertise support for VNI extension
+
+8.0.0.0b3
+---------
+
+* tempest: enable test\_bgpvpn\_port\_association\_create\_and\_update
+* Updated from global requirements
+* doc: formatting fix for OSC doc link
+* db: minor, add missing DB migration script message
+* bagpipe v2 driver
+* db: refresh port association db object after route update
+* Deprecates old OpenContrail driver
+* Fix small typo in docs configuration file
+* routes-control: add 'local\_pref' attribute to BGPVPN resource
+* Basic tempest tests for port associations
+* Utility functions for port association tests in tempest
+* Updated from global requirements
+* Updated from global requirements
+* routes-control: add advertise\_extra\_routes to router\_association
+* Updated from global requirements
+* bagpipe: remove use of BGPVPNAssociations
+* [bgpvpn\_dashboard] Fix bug when a network or router name doesn't exist
+* bagpipe driver: add support for Port Associations
+* bagpipe driver doc update
+* [bgpvpn\_dashboard] Minor typo fix
+* Upgrade hacking specs
+* Fix minor problem in bgpvpn\_dashboard unit test
+* Add missing tempest tests for listing and showing objects
+* Add vni attribute to bgpvpn resource
+* change how drivers indicate support for an extension
+* make get\_extended\_resources class methods
+* bagpipe driver: use OVO-based push/pull RPCs
+* Imported Translations from Zanata
+* Updated from global requirements
+* Adding idempotent IDs to tempest tests
+* Imported Translations from Zanata
+
+8.0.0.0b2
+---------
+
+* Improve message information for translation
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* devstack: fix linuxbridge configuration
+* Use SQL BigInteger type to store BGP LOCAL\_PREF
+* zuul: run tripleo scenario004 like before
+* tempest: update to follow code deprecation
+* Remove policy check
+* bagpipe: fix BGPVPN update/delete for router association
+* routes-control: fix driver class for non-DB drivers
+* Remove setting of version/release from releasenotes
+* Updated from global requirements
+* Check if bgpvpn enabled in tempest test
+* Various tempest tests of L3 BGPVPN update
+* Updated from global requirements
+* routes-control: port associations (API ext, DB, driver API)
+* Tempest tests with delete operations
+* Tempest tests to check L3 BGPVPN RTs update
+* Updated from global requirements
+* Tempest utility functions modified
+* dashboard: impossible to add a bgpvpn with a empty route target
+* Updated from global requirements
+* Filter duplicated RTs in compiled list
+* Test that an empty RT is not accepted
+* Update doc to use openstack CLI instead neutron CLI
+
+8.0.0.0b1
+---------
+
+* dashboard: edit variable containing Regex RT
+* dashboard: Add unit tests for bgpvpn\_dashboard
+* Replace the usage of some aliases in tempest
+* functional tests: ignore all ODL tables
+* Replace the usage of some aliases in tempest
+* devstack fixes for linuxbridge
+* bagpipe driver: enable l2vpn
+* Update reno for stable/mitaka
+* Switch DB and driver precommit methods for delete and update
+* dashboard: introduce usage of the policy file
+* dashboard: clean code in forms.py
+* Updated from global requirements
+* Shrink Tempest scenario manager copy
+* Updated from global requirements
+* Two negative tempest tests added
+* Modified utility functions for negative tests
+* dashboard: fix bug about route target validation
+* Updated from global requirements
+* Fix post gate hook to accommodate for new os-testr
+* Two new tempest test variants are added
+* Bug fix in tempest tests
+* Drop MANIFEST.in - it's not needed by pbr
+* Updated from global requirements
+* Updated from global requirements
+* Update reno for stable/pike
+* Tempest test base modified and new variants added
+
+7.0.0.0rc1
+----------
+
+* Updated from global requirements
+* Remove WebTest from test requirements
+* Add auto-generated config reference
+* Automatically generate configuration files
+
+7.0.0.0b3
+---------
+
+* Updated from global requirements
+* Replace deprecated test.attr with decorators.attr
+* Replace deprecated test.attr with decorators.attr
+* Translation support
+* Update the documentation link for doc migration
+* Updated from global requirements
+* dashboard: refactor views
+* Remove "=None" in call to \_make\_net\_assoc\_dict
+* Add driver compatibility matrix to documentation
+* Updated from global requirements
+* dashboard: change admin panel
+* dashboard: fix call of method patterns
+* Using neutron-lib hacking rules
+* doc: rendering cleanup
+* Rearrange existing documentation to fit the new standard layout
+* Switch from oslosphinx to openstackdocstheme
+* Turn on warning-is-error in doc build
+* misc cleanups
+* bgpvpn-routes-control: policy.json
+* devstack: declare n-api-meta
+* policy.json: remove unimplemented attributes
+* dashboard: change clean method in create and update
+* dashboard: fix bug about the create BGPVPN form
+* Speed up tox\_install.sh
+* use service type constants from neutron\_lib plugins
+* Updated from global requirements
+* dashboard: allow bgpvpns with the same name
+* dashboard: fix RT validation
+* Add unit tests for bgpvpn\_dashboard
+* Replace the usage of 'manager' with 'os\_primary'
+* Updated from global requirements
+* Updated from global requirements
+* doc, bagpipe/ovs driver update
+* update doc on installation and versions
+* network\_association\_delete function log errors
+* Updated from global requirements
+
+7.0.0.0b2
+---------
+
+* use networking-odl from pypi instead of git master
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* dashboard: fix constant import for RT/RD validation
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* devstack: source neutron l2 agent script only if q-agt enabled
+* Remove windows-style line breaks
+* consume neutron-lib callbacks
+* use i18n.\_
+* Register query hooks at BGPVPNPluginDb object creation
+* Add net-bgpvpn.conf to config file read by neutron
+* Add constants for bgpvpn\_tests
+* Updated from global requirements
+* Updated from global requirements
+* Move API definition out of n8g-bgpvpn into neutron-lib
+
+7.0.0.0b1
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* remove bagpipe\_bgpvpn agent extension
+* Stop using config backed quota engine in unit tests
+* bagpipe driver: cleanup, remove OVSInterceptBridge
+* Point API entry to neutron-lib API Reference
+* devstack job config cleanups
+* consume ServicePluginBase from neutron-lib
+* Updated from global requirements
+* Update bagpipe driver documentation
+* Indicating the location tests directory in oslo\_debug\_helper
+* Switch to use stable data\_utils
+* Updated from global requirements
+* 'bgpvpn' entry point for neutron.conf:service\_plugins=
+* Switch to use stable data\_utils
+* Updated from global requirements
+* tempest: Switch to local copy of tempset/scenario/manager.py
+* leave branch unspecified for "current" series
+* Updated from global requirements
+* Updated from global requirements
+* bagpipe: follow move of db/models
+* Update reno for stable/ocata
+* Use neutron-lib's context module
+* Introduce precommit hooks for delete\_bgpvpn\_xxx
+
+6.0.0
+-----
+
+* Log a deprecated warning for ODL v1 driver
+* Revert "Add OpenStack client BGP VPN extension"
+* Enable multiple RDs of a BGPVPN to be passed to OpenDaylight
+* doc: improve explanation on the location of config files
+* Advertise support for python 3 and drop py34 jobs
+* Typo fix: datas => data
+* Prepare for using standard python tests
+* Filtering BGP VPN list with resource associations
+* devstack job config: add placement-api service
+* Improve pip installation documentation
+* Remove doc modindex ref
+* Use neutron-lib portbindings api-def
+* Updated from global requirements
+* Updated from global requirements
+* Add router association dict formatter method
+* Removes unnecessary utf-8 encoding
+* Fix reno release naming and dvsm functional job
+* LOG marker mismatch in plugin.py
+* Follow ODL's master
+* Revert "Temporary workaround to our gate issues"
+* Adds Tempest scenario test for networking-bgpvpn
+* devstack: configure tempest at test-config stage
+* Use ExtensionDescriptor from neutron-lib
+* Use DB field sizes instead of \_MAX\_LEN constants
+* Show team and repo badges on README
+* Use model\_base in neutron\_lib
+* Switch to using plugins directory in lieu of neutron manager
+* Replace six.iteritems() with .items()
+* Use uuidutils instead of uuid.uuid4()
+* Replace LOG.warn with LOG.warning
+* Updated from global requirements
+* Updated from global requirements
+* Install networking-bagpipe test dependency via tox\_install/zuul-cloner
+* Use temporary directory for neutron and horizon install
+* Temporary workaround to our gate issues
+* OpenContrail : fix exception class usage issues
+* Remove white space between print () in bgpvpn-sample01.py
+* Add OpenStack client BGP VPN extension
+* Install the networking\_bgpvpn\_heat package
+* Fix tox cover target
+* Remove last vestiges of oslo-incubator
+* migration tests as functional tests
+* Remove custom OVS compilation trigger for Openstack CI
+* Don't include openstack/common in flake8 exclude list
+* bagpipe: rely on ROUTER\_INTERFACE registry callbacks
+* python3: bagpipe driver fix for bridge cookies
+* devstack/bagpipe: pin OVS to branch-2.5
+* Changed the home-page link
+* Update reno for stable/mitaka
+* Modify bgpvpn relations with association tables to select
+* Update reno for stable/newton
+* Support infrastructure for functional tests
+* Fix error when the tenant of a bgpvpn resource doesn't exist
+
+5.0.0
+-----
+
+* undo some of the incorrect changes for prepping Newton
+* prepare Newton release
+* Stop adding ServiceAvailable group option
+* Pin ODL's dependency to a working commit
+* bagpipe: compatibility with Neutron routers
+* opencontrail: not check tenant existence on update
+* import validate\_regex from neutron\_lib
+* Enable release notes translation
+* devstack: fix to load bagpipe l2 agent extension
+* bagpipe: rely on Port AFTER\_DELETE callbacks
+* bagpipe: port+orig\_port are in Port AFTER\_UPDATE callbacks
+* Prevent mixing bgpvpn associations
+* Fix a typo in documentation
+* Remove python 3 from setup.cfg classifiers
+* Import DB model\_base from neutron-lib
+* Use os-testr instead of testr
+* TrivialFix: Remove logging import unused
+* devstack, bagpipe driver: properly set the l2 agent extension
+* Horizon plugin patch to let user handle BGPVPN resources
+* Add doc for devstack configuration
+* Use horizon UT framework
+* Use more permissive UTs
+* Enable L2 BGPVPN to be passed to OpenDaylight
+* Add tempest tests for router association
+* Add more tempest tests for read permissions
+* Raise NotImplementedError instead of NotImplemented
+* Use constrained pip install for all jobs
+* Remove windows-style line breaks
+* Import \_ explicitly from .\_i18n
+* Add error management regarding malformed UUID
+* Add a tempest test on read permission with bgpvpn\_list
+* Added the negative cases
+* Add tempest tests on route-target update
+* import api validators/converters from neutron\_lib
+* enable tempest tests for bgpvpn
+* unit test fix: specify the tenand\_id at Port/Net/Subnet creation
+* Bad parameter name in disassociate\_network\_from\_bgpvpn
+* Add a tenant ID check to create a bgpvpn resource
+* Remove temporary local HasProject
+* Enable DeprecationWarning in test environments
+* Add tempest test associate\_disassociate\_network
+* Delete execute permission of two files
+* Add Python 3.5 classifier and venv
+* Updated from global requirements
+* Updated from global requirements
+* Remove discover from test-requirements
+* Add test delete\_bgpvpn\_as\_non\_admin\_fail
+* Rename DB columns: tenant -> project
+* Bring models in sync with migrations, add test
+* Fix the permission of  file  -rwxr-xr-x
+* Update API usage with Python and a sample code
+* Remove useless/broken call in a bagpipe driver test
+* Remove unused LOG to keep code clean
+* Improve bagpipe unittest involving OVS bridges
+* Fix tox unit test issue
+* Initialize the routers key in make\_bgpvpn\_dict
+* minor doc layout improvement
+* Horizon plugin to let the admin handle BGPVPN
+* Fix RD regex to match RFC 4364, chapter 4.2
+* Move from neutron.i18n to oslo.i18n
+* Update OpenContrail driver documentation
+* README cleanup
+* Update bagpipe driver documentation
+* Make test jobs constrained
+* Import neutron exceptions from neutron\_lib
+* bagpipe driver: add a unit test for agent extension
+* Import constants from neutron\_lib
+* bagpipe: improve unit test
+* bagpipe driver: enable a previously disabled unit test
+* Fix typos in bgpvpn installation manual
+* bagpipe: really use the extension-specific cookie
+* bagpipe: update unit tests to follow a Neutron ML2 change
+* Typo in OpenContrail driver documentation manual
+* Add info on Nuage Networks driver
+* Improve installation documentation
+
+4.0.0
+-----
+
+* bagpipe: ignore all probe ports
+* devstack: fix OVS compilation hook
+* Updated from global requirements
+* bagpipe: do not ignore probe ports
+* Add release notes for mitaka
+* fix release notes build
+* ODL: Add precommit to create/update\_bgpvpn
+* Add support for reno release-notes manager
+* devstack job: enable bagpipe-bgp in bagpipe jobs
+* Add limitation chapter to bagpipe doc
+* bagpipe: skip network:\* ports and external networks ports
+* Add dummy gate\_hook.sh
+* bagpipe driver: no RPC for updates not changing port status
+* Add precommit checks to bagpipe driver
+* devstack: add pre|post\_test\_hook.sh files
+* Add precommit hooks for create\_bgpvpn\_net/router\_assoc
+* Add precommit to the driver create/update\_bgpvpn API
+* Use bagpipe l2 agent extension when bagpipe is activated
+* Update and improve bagpipe driver documentation
+* correcting url for nuage website
+* [Tempest] test\_create\_bgpvpn\_as\_non\_admin\_fail
+* Uplift to latest Tempest
+* Adding missings () after a method call
+* OVS Agent extension for bagpipe driver
+* Add rcfiles for gate jobs
+* Fix client test to follow python-neutronclient change
+* Heat: allow names instead of ids in templates
+* Heat: improve documentation
+* Add BGPVPN-ROUTER-ASSOCIATION to heat plugin
+* Initialize Heat plugin
+* Devstack : configure tempest file during extra hook
+* remove neutron-client@liberty dependency
+* Fixing pylint upgrade issues
+* Fix rendering issues on block diagrams
+* bagpipe: agent, update RPC setup code
+* Follow Neutron master
+* Add support for router association in ODL driver
+* bagpipe: only select gw for IPv4 subnets
+* py26/py33 are no longer supported by Infra's CI
+* remove python 2.6 trove classifier
+
+3.0.0
+-----
+
+* Add a type restriction to bgpvpns when creating a router association
+* Fix RT/RD validation
+* Update the spec : remove RTs consolidation part
+* Add unit tests for neutronclient extension
+* Add help to Neutron BGVPN CLI commands
+* bagpipe: always pass network info to the agent
+* Implementation of router bgpvpn associations
+* Raise an exception for identical associations
+* Remove partial implementation of auto\_aggregate
+* bagpipe: work on notification without port info
+* Zuul tox needs to use the right neutron branch
+* Enable bgpvpn in tempest
+* Init tempest plugin
+* pylint fixes + pylint downgrade
+* bagpipe driver: catch exceptions on Neutron notifs
+* Added documentation for ODL Driver
+* WiP: Porting bgpvpn odldriver
+* driver documentation layout fix
+* bagpipe: port delete action on BEFORE\_DELETE event
+* Add OpenContrail driver
+* Remove a spurious tab in setup.cfg
+* Fix typo in API error message
+* Add tenant-id to subresources
+* Remove hardcoded utf8 coding for bgpvpns table
+* Fix driver control through devstack
+* Checks consistency of net association vs BGPVPN id
+* Fix bogus pip install URI in tox\_install.sh
+* Other adjustments following bagpipe rename
+* rename bagpipe-l2 in test-requirements
+* Client : adding the tenant-id if specified for a net association creation
+* have tox use neutron stable/liberty
+* Fix oslo dependencies
+* Do not enforce non-empty route-target lists
+* bagpipe-l2 now in openstack
+* Client support for associations as sub-resource
+* Treat associations as subresources
+* Populate doc directory
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Fix devstack plugin.sh
+* add pylint in tox pep8 task
+* pylint fixes
+* Updated from global requirements
+* Let devstack configure the service provider
+* Alembic migration update/cleanup
+* Updated from global requirements
+* update requirements
+* bagpipe driver: sync extended OVS agent
+* Neutronclient: one command for all associations
+* Tiny formatting and grammar fix
+* Add introductory documentation for networking-bgpvpn
+* bagpipe driver: missing return to ignore DHCP ports
+* Change ignore-errors to ignore\_errors
+* Set correct default values for some attributes
+* Updated from global requirements
+* Adding network association management : bagpipe driver
+* Fix README : rename networking-bagpipe-l2 links
+* Fix resource map to enforce policy
+* neutronclient: unbreak create/update
+* Fix README : use openstack git instead of github
+* devstack: add service plugin class earlier
+* Log a warning if multiple drivers configured
+* devstack: use helper to add a service plugin
+* Refer to the new specs
+* Adapts neutronclient to the new association API
+* Adding network association management : API & DB layer
+* bagpipe: follow RPC renaming
+* Bagpipe driver: use Neutron registry not an ML2 MD
+* Fixes JSON policy, tenant\_id control and nits
+* Fix a typo in README.rst
+* Add route\_distinguishers field to the DB scheme
+* Fix name of service provider config file
+* Read networking\_bgpvpn.conf for service providers
+* Devstack plugin: create neutron policy.d
+* Complete change 218359
+* oslo.config is now oslo\_config
+* API/DB should not duplicate the policy framework
+* Updated from global requirements
+* Add tests for the service driver interface
+* Updated from global requirements
+* Updated from global requirements
+* Add policy.json
+* Fix one typo on networking-bgpvpn documentation
+* README improvements
+* Updated from global requirements
+* typo correction from BGPVPNDriverBD to BGPVPNDriverDB
+* Remove BGPVPN plugin dependency on database
+* Update BaGPipe OVS agent
+* Neutron constant COMMON\_PREFIXES does not exist anymore
+* Avoid cloning neutron on test jobs
+* README/devstack: fix spurious space in IPVPN driver specification
+* Follow neutron service plugin definition change
+* Complete the removal of bgpvpn module
+* Improved README-bagpipe for devstack use
+* Support route\_distinguishers operation
+* update README-bagpipe.rst for bagpipe-bgp devstack plugin
+* Remove bgpvpn module when useless
+* Move from n.o.commons.uuidutils to osloutils.uuid\_utils
+* Network\_id should not be a foreign key
+* First database unit tests
+* devstack: do not run update-db on a compute node
+* links to stackforge now link to openstack
+* Update .gitreview file for project rename
+* Adding initial unit tests
+* add bagpipe driver and agent
+* Adding the initial spec implemented by the bgpvpn framework
+* add devstack plugin
+* use oslo\_log.log instead of n.openstack.common.log
+* BGVPNDriver: some methods need not be abstract
+* use neutron.openstack.common.log rather than oslo\_log
+* fix bug on BGPVPN connection update
+* Update README
+* Initial proposal with db layer, API extension and client extension
+* Initial Cookiecutter Commit
+* Added .gitreview

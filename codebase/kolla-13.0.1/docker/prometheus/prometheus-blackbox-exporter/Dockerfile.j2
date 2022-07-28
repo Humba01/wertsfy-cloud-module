@@ -1,0 +1,37 @@
+FROM {{ namespace }}/{{ infra_image_prefix }}prometheus-base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block prometheus_blackbox_exporter_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{% block prometheus_blackbox_exporter_repository_version %}
+ENV blackbox_exporter_version=0.16.0
+{% endblock %}
+
+{% if base_package_type == 'rpm' %}
+    {% set blackbox_packages = [
+        'libcap'
+    ] %}
+{% elif base_package_type == 'deb' %}
+    {% set blackbox_packages = [
+        'libcap2-bin'
+    ] %}
+{% endif %}
+
+{{ macros.install_packages(blackbox_packages | customizable("packages")) }}
+
+{% block prometheus_blackbox_exporter_install %}
+RUN curl -o /tmp/blackbox_exporter.tar.gz https://github.com/prometheus/blackbox_exporter/releases/download/v${blackbox_exporter_version}/blackbox_exporter-${blackbox_exporter_version}.linux-{{debian_arch}}.tar.gz \
+    && tar xvf /tmp/blackbox_exporter.tar.gz -C /opt/ \
+    && rm -f /tmp/blackbox_exporter.tar.gz \
+    && ln -s /opt/blackbox_exporter* /opt/blackbox_exporter
+RUN setcap cap_net_raw+ep /opt/blackbox_exporter/blackbox_exporter
+{% endblock %}
+
+{% block prometheus_blackbox_exporter_footer %}{% endblock %}
+{% block footer %}{% endblock %}
+
+USER prometheus

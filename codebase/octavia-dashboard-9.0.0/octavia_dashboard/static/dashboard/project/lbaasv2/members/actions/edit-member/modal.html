@@ -1,0 +1,135 @@
+<div class="modal-header">
+  <h3 class="modal-title">
+    <span translate>Update Member</span>
+  </h3>
+</div>
+<div class="modal-body lbaas-modal">
+  <div ng-form="form">
+    <p translate>Provide the details for the member.</p>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="form-group">
+          <label class="control-label" for="name">
+            <translate>Name</translate>
+          </label>
+          <input name="name" id="name" type="text" class="form-control"
+                 ng-model="modal.name">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="form-group"
+             ng-class="{ 'has-error': form.address.$invalid && form.address.$dirty }">
+          <label class="control-label" for="address">
+            <translate>IP Address</translate>
+            <span class="hz-icon-required fa fa-asterisk"></span>
+          </label>
+          <input name="address" id="address" type="text" class="form-control"
+                 ng-model="modal.address" ng-pattern="::modal.ipPattern" ng-required="true" ng-disabled="true">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="form-group"
+             ng-class="{ 'has-error': form.protocol_port.$invalid && form.protocol_port.$dirty }">
+          <label class="control-label" for="protocol_port">
+            <translate>Protocol Port</translate>
+            <span class="hz-icon-required fa fa-asterisk"></span>
+          </label>
+          <input name="protocol_port" id="protocol_port" type="number" class="form-control"
+                 ng-model="modal.protocol_port" ng-pattern="/^\d+$/" min="1" max="65535" ng-required="true" ng-disabled="true">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="form-group required"
+             ng-class="{ 'has-error': form.weight.$invalid && form.weight.$dirty }">
+          <label class="control-label" for="weight">
+            <translate>Weight</translate>
+            <span class="hz-icon-required fa fa-asterisk"></span>
+          </label>
+          <input name="weight" id="weight" type="number" class="form-control"
+                 ng-model="modal.weight" ng-pattern="/^\d+$/" min="0" max="256"
+                 ng-required="true">
+          <span class="help-block" ng-show="form.weight.$invalid && form.weight.$dirty">
+            {$ ::modal.weightError $}
+          </span>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="form-group"
+             ng-class="{ 'has-error': form.monitor_address.$invalid && form.monitor_address.$dirty }">
+          <label class="control-label" for="monitor_address">
+            <translate>Monitor Address</translate>
+          </label>
+          <input name="monitor_address" id="monitor_address" type="text" class="form-control"
+                 ng-model="modal.monitor_address" ng-pattern="::modal.ipPattern"
+                 >
+          <span class="help-block" ng-show="form.monitor_address.$invalid && form.monitor_address.$dirty">
+            {$ ::modal.monitorAddressError $}
+          </span>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="form-group"
+             ng-class="{ 'has-error': form.monitor_port.$invalid && form.monitor_port.$dirty }">
+          <label class="control-label" for="monitor_port">
+            <translate>Monitor Port</translate>
+          </label>
+          <input name="monitor_port" id="monitor_port" type="number" class="form-control"
+                 ng-model="modal.monitor_port" ng-pattern="/^\d+$/" min="1" max="65535"
+                 >
+          <span class="help-block" ng-show="form.monitor_port.$invalid && form.monitor_port.$dirty">
+            {$ ::modal.monitorPortError $}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-4">
+        <div class="form-group">
+          <label class="control-label required" translate>Admin State Up</label>
+          <div class="form-field">
+            <div class="btn-group">
+              <label class="btn btn-default"
+                     ng-repeat="option in modal.yesNoOptions"
+                     ng-model="modal.admin_state_up"
+                     uib-btn-radio="option.value">{$ ::option.label $}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-4">
+        <div class="form-group">
+          <label class="control-label required" translate>Backup</label>
+          <div class="form-field">
+            <div class="btn-group">
+              <label class="btn btn-default"
+                     ng-repeat="option in modal.yesNoOptions"
+                     ng-model="modal.backup"
+                     uib-btn-radio="option.value">{$ ::option.label $}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <help-panel class="wizard-help">
+    <ng-include src="::modal.helpUrl"></ng-include>
+  </help-panel>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-sm btn-default" ng-click="modal.cancel()">
+    <span class="fa fa-close"></span>
+    <span translate>Cancel</span>
+  </button>
+  <button class="btn btn-sm btn-primary"
+          ng-click="modal.save()"
+          ng-disabled="form.$invalid || modal.saving">
+    <span class="fa" ng-class="modal.saving ? 'fa-spinner fa-spin' : 'fa-check'"></span>
+    <span translate>Update</span>
+  </button>
+</div>

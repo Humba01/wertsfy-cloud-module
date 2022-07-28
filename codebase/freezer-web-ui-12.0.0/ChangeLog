@@ -1,0 +1,349 @@
+CHANGES
+=======
+
+12.0.0
+------
+
+* Fix pylint error:H405
+* Add  python3.9 CI
+* Update support python version
+* Add Python3 yoga unit tests
+
+11.0.0
+------
+
+* [ussuri][goal] Update contributor documentation
+* setup.cfg: Replace dashes with underscores
+* Add Python3 xena unit tests
+
+10.0.0
+------
+
+* Imported Translations from Zanata
+* Use TOX\_CONSTRAINTS\_FILE
+* Bump pylint version to fix pep8 job
+* :Update gate job for wallaby
+
+9.0.0
+-----
+
+* zuul: migrate the freezer-web-ui job to native Zuul v3
+* Add py38 in tox
+* Stop to use the \_\_future\_\_ module
+* Switch to newer openstackdocstheme and reno versions
+* Update to hacking 3.0
+* Add py38 package metadata
+* Remove the mock installed
+* Add Python3 victoria unit tests
+
+8.0.0
+-----
+
+* Cleanup py27 support
+* Remove six useage
+* Imported Translations from Zanata
+* Drop Django 1.11 support
+* translation: drop babel extractor definitions
+* [ussuri][goal] Drop python 2.7 support and testing
+* Update devstack doc
+* Add  py37 and remove py35 in envlst
+* Use Horizon project template for django jobs
+* Bump minimum ksa(3.16.0) to fix gate
+
+7.2.0
+-----
+
+* Sync Sphinx requirement
+* OpenDev Migration Patch
+
+7.1.0
+-----
+
+* Replace openstack.org git:// URLs with https://
+* Make freezer-web-ui-ubuntu as voting job again
+* Add the project source code repository in README
+* Rename and migrate the xenial gate jobsto bionic
+* Use template for lower-constraints
+* Update mailinglist from dev to discuss
+* Update keystoneauth1 3.4.0 to 3.11.0 in lower-constraints.txt
+* Change openstack-dev to openstack-discuss
+* Update document building tox target
+
+7.0.0
+-----
+
+* Use freezerclient.client to support  v1 or v2
+* Add python 3.6 unit test job
+* Don't quote {posargs} in tox.ini
+* Update min tox version to 2.0
+* Fix README.rst error
+* Support freezer API v2
+* add python 3.6 unit test job
+* import zuul job settings from project-config
+* Use Storyboards to replace Release, Blueprints and bugs link
+* fix tox python3 overrides
+* Drop nose dependencies
+* Remove the redundant attributes
+* Add test 'node\_modules' in '.gitignore'
+* Avoid using deprecated opt in Web-UI
+* Imported Translations from Zanata
+* Added engine\_name parameter to action creation
+* Django 2.0 support
+* Use Horizon UT framework
+
+7.0.0.0b1
+---------
+
+* add lower-constraints job
+* Updated from global requirements
+* Updated from global requirements
+* Install horizon from git
+* Updated from global requirements
+* Update links in README
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+
+6.0.0
+-----
+
+* Correct django template pattern in babel-django.cfg
+* Zuul: Remove project name
+* Convert freezer-web-ui-xenial gate job to voting
+* use . instead of source
+
+6.0.0.0b3
+---------
+
+* Imported Translations from Zanata
+* freezer-client: proper use of cacert option
+* modify the wrong list name of schedule\_unit to interval\_uint Closes-Bug: #1744625
+* Updated from global requirements
+* Remove mox from requirements
+
+6.0.0.0b2
+---------
+
+* Move legacy freezer-web-ui jobs to project
+* Updated from global requirements
+* Updated from global requirements
+* Drop django\_openstack\_auth from requirements.txt
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Remove unused code about FREEZER\_WEB\_UI\_DIR in devstack plugin
+* Modify the '.gitignore' file
+* Updated from global requirements
+* Imported Translations from Zanata
+* Fix the wrong links
+* Updated from global requirements
+
+5.0.0
+-----
+
+* Remove warning-is-error from setup.cfg to fix release
+* Replace patterns syntax by url
+* Add attributes "data-display" to clients table row
+* Add delete backup operation in UI
+
+5.0.0.0b3
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+* Correcting author
+* Updated from global requirements
+
+5.0.0.0b2
+---------
+
+* Updated from global requirements
+* Updated from global requirements
+* Enable warnings as errors
+* Updated from global requirements
+* Updated from global requirements
+* Failed to create job using freezer-web-ui
+* Fix a bug when restore a nova instance from UI
+* Updated from global requirements
+* Updated from global requirements
+* Switch BackupObject to use backup\_id
+
+5.0.0.0b1
+---------
+
+* Replace python version for tox
+* Use bindep to define binary deps
+* Updated from global requirements
+* The Python 3.5 is added
+* Better error message in horizon
+* Added project\_id for keystone v3 credentials
+* Replace django\_date with datetime.datetime.strftime
+* Update test requirement
+* fixed the mistake in using update job web page
+* Removes useless 'verify' option in Client args
+* Place the error message to correct position
+* Optimize the checks of instance id for create action
+* Modify the 'Attach To Session' form to 'Bootstrap Modal'
+* Modify "Interval" field to select format
+* Modify "Restore From Date" field to datetime format
+* Add the missing name in confirm delete modal
+* Remove the redundant codes
+* Optimize the checks of container for create action
+* Optimize the form fields for create action
+* Clean imports in code
+* Add .project and .pydevproject to .gitignore
+* Fix installation freezer dashboard
+
+4.0.0
+-----
+
+* Remove link to modindex
+* Remove the redundant "required=True"
+* Use 'trimmed' for blocktrans in html page
+* Updated from global requirements
+* Add the missing name in confirm delete modal
+* Fix some synctactic markup errors
+
+4.0.0.0b3
+---------
+
+* Optimize create backup action
+* Add hyperlink for the "API registration"
+* Imported Translations from Zanata
+* Removes unnecessary utf-8 coding
+* Restore nova from UI
+* Fix saving edited session info successfully but shows original values
+* Updated from global requirements
+
+4.0.0.0b2
+---------
+
+* Replaces uuid.uuid4 with uuidutils.generate\_uuid()
+* Fix listing backups failed with using non-existing method
+* Fix label text
+* Switch to python-freezerclient
+* Show team and repo badges on README
+* Replace LOG.warn with LOG.warning
+* Remove logging import unused
+* Replace directly import of logging with import oslo\_log
+* Don't include openstack/common in flake8 exclude list
+* Use upper-constraints for tox envs
+* Run normal tests instead of tempest tests in gate jobs
+* Install python-freezerclient while using devstack plugin
+* Added gate\_hook.sh to devstack plugin
+* HTML-escape values written to output
+* Updated from global requirements
+
+3.0.0
+-----
+
+* Updated from global requirements
+* Imported Translations from Zanata
+* Retry data not being saved by UI
+* Updated tox.ini to support new test environment
+
+3.0.0.0b3
+---------
+
+* Adds help text and fixes dropdown displays
+* Remove the unused url\_path
+* Fix hardcoded static path
+* Fix jenkins failed
+
+3.0.0.0b2
+---------
+
+* Fixed Catch errors in horizon tables
+* Imported Translations from Zanata
+* Point icon set to font-awesome
+* Enable edition of job actions
+* Remove workaround for web page refresh
+* i18n translation support
+* UX improvements
+* Fixed freezer-web-ui directory when install
+* Use correct parameter when handling exceptions
+* fixed incorrect directory install freezer-web-ui
+* Fixed importError urlresolvers
+* Improve success messages when it takes time to display the action
+* This is incorrect url in example doc and conf
+* fixed compilemessages error when install use devstack
+* Remove redundant Freezer in README.rst
+* Liberty guidelines for freezer web ui
+* Actions for a job no longer shows irrelevant actions for specific cases
+* Sync job status between scheduler and ui
+* Fix misleading labeling for filters
+* Add SSL support for freezer-web-ui
+* Add Sphinx doc build
+* Using a smarter way to get freezer-api URL
+
+1.2.0
+-----
+
+* Align requirements to liberty global-requirements
+* Fix api endpoint for action retrieval
+* Simplify snapshot configuration for actions
+* Fix for sessions that point to non-existing urls
+* Send max retries, interval and mandatory fields
+* Enable restore from date in ui
+* Better logging for freezer ui
+* Add keystone 3 support for freezer ui
+* Add visual clues for mandatory fields in actions
+* Fixes actions list can't be obtained when creating/editing jobs
+* Fix for client\_id wihtout underscores
+* Remove empty tabs in freezer dashboard
+* Improved error messages in action ui
+* Improved cinder and nova backups ui Simplified ui for linux snapshots
+* General dashboard enhancements
+* Prevent job creation without clients
+* Restore from swift, local and ssh from the dashboard
+* Bug fix while editing actions with missing keys
+* Fix versions for Liberty
+
+1.1.3
+-----
+
+* Bumping version for release kilo and pypi release
+* Improved horizon dashboard for freezer
+* Added LICENSE file to freezer dashboard
+* ApiClient now looks for internalURL
+* Quick fix for backups
+* Prepare setup.py to use wheel
+* Add freezer as a dependency from source
+* Clients tab
+* Change query limit to list operations
+* Added logging to freezer-web-ui
+* Add .gitreview
+* Improve backup tab
+* Fix minor bugs in freezer dashboard
+* devstack plugin interface
+* Fixed retrieval of freezer url from keystone catalog
+* Fix: Job creation now sends client\_id instead of uuid
+* Quick Fix: Date Time Picker support for 24 hours format
+* UX Enhancement: Date Time Picker
+* Improve REAMDE file
+* Freezer is now available only for admin users
+* Remove unused files
+* Lint for javascript files
+* Freezer dashboard enhancements
+* Prevent failure if a key is not provided for backup table
+* Prevent job creation when no client is provided
+* Update dashboard for new freezer apiclient new version
+* Prepare UI for split
+* Align requirements with global-requirements
+* Improve installation docs for freezer dashboard
+* Add freezer dashboard documentation to html files
+* Pluggable storages integration for freezer dashboard
+* Backup history
+* Flexible way to create, update, delete actions in a job
+* Refactoring api interface on freezer\_ui
+* Quick fix for freezer dashboard
+* Horizon bulk remove for Jobs and Actions
+* Job creation for multiple clients
+* Horizon implementation for sessions endpoint
+* Horizon implementation for jobs api endpoint
+* Keystone API endpoint discovery
+* First version of setup.py
+* Copied tox.ini and .pylintrc from root directory
+* This version contains the following pages:  - Overview displays charts/reports (Currently only placeholders)  - Configurations allows to define new backup configurations and link them to    instances  - Backups shows a list of all succesful backups and allows to restore them  - Restores shows a history of all restored backups
+* Web UI for freezer
+* Basic structure of the freezer web ui integrated in horizon

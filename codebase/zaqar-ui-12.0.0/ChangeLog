@@ -1,0 +1,354 @@
+CHANGES
+=======
+
+12.0.0
+------
+
+* setup.cfg: Replace dashes by underscores
+* Updating python testing classifier as per Yoga testing runtime
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+11.0.0
+------
+
+* Drop horizon-nodejs10-jobs template
+* Dropping lower constraints testing
+* Add horizon-nodejs14-job template
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+10.0.0
+------
+
+* Imported Translations from Zanata
+* Use TOX\_CONSTRAINTS\_FILE
+* Add py38 package metadata
+* Run npm nodejs job with Firefox browser
+* Imported Translations from Zanata
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+9.0.0
+-----
+
+* [goal] Migrate testing to ubuntu focal
+* Fix npm jobs
+* Imported Translations from Zanata
+* Use unittest.mock instead of mock
+* Stop to use the \_\_future\_\_ module
+* Switch to newer openstackdocstheme and reno versions
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+8.0.0
+-----
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix pyScss version in lower-constraints.txt
+* Fix python36 job setup
+* Remove six usage
+* Drop Django 1.11 support
+* Imported Translations from Zanata
+* translation: drop babel extractor definitions
+* Add requirements.txt to docs reqs
+* [ussuri][goal] Drop python 2.7 support and testing
+* Imported Translations from Zanata
+* Use Horizon project template for django jobs
+* Imported Translations from Zanata
+* Update master for stable/train
+* Sync Sphinx requirement
+
+7.0.0
+-----
+
+* Imported Translations from Zanata
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Imported Translations from Zanata
+* Replace openstack.org git:// URLs with https://
+* Update master for stable/stein
+* Add nodejs10 jobs on bionic
+
+6.0.0
+-----
+
+* Switch to horizon-nodejs4-jobs template
+* Imported Translations from Zanata
+* Update hacking version
+* One more letter d
+* Change openstack-dev to openstack-discuss
+* Bump horizon for Stein
+* Change openstack-dev to openstack-discuss
+* Imported Translations from Zanata
+* Increment versioning with pbr instruction
+* Imported Translations from Zanata
+* Install horizon with upper-constraints.txt in post-install
+* Cleanup .zuul.yaml
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Remove mox3 from doc/requirements.txt
+* Drop nose dependencies
+* Imported Translations from Zanata
+* Update reno for stable/rocky
+
+5.0.0
+-----
+
+* Prepare to support python3.6
+* fix tox python3 overrides
+
+5.0.0.0b3
+---------
+
+* Add python3 django 1.11 job instead of django 2.0 job
+* Rename test files to test\_\* pattern
+* Fix postinstall for npm job
+* Fix tox jobs and remove tox\_helper.sh
+* Add py35dj20 job
+* Follow the new PTI for document build
+* Remove mox3 from test-requirements.txt
+* Imported Translations from Zanata
+* Require the (soon-to-be) Rocky version of Horizon
+
+5.0.0.0b1
+---------
+
+* Imported Translations from Zanata
+* Add documentation and releasenotes links to README
+* Install horizon from git for tox testenv py35dj20
+* Django 2.0 support
+* Updated from global requirements
+* add lower-constraints job
+* Install horizon directly from pypi
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Replaces yaml.load() with yaml.safe\_load()
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update reno for stable/queens
+
+4.0.0
+-----
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix for Queens rc-1
+* Imported Translations from Zanata
+
+4.0.0.0b3
+---------
+
+* Update old http links in docs
+* Updated from global requirements
+* Add .idea for pycharm into .gitignore
+* Updated from global requirements
+* Imported Translations from Zanata
+
+4.0.0.0b2
+---------
+
+* Remove setting of version/release from releasenotes
+* Updated from global requirements
+
+4.0.0.0b1
+---------
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix Zaqar-ui with wrong reference pbr version
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Fix queue create/update without metadata modification
+* Fix js test
+* Imported Translations from Zanata
+* Un-use 'scope' attribute for wizard modal service
+* Updated from global requirements
+* Imported Translations from Zanata
+* Update reno for stable/pike
+
+3.0.0
+-----
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+
+3.0.0.0b3
+---------
+
+* Add release notes for Pike
+* Fix view messages dialog
+* Updated from global requirements
+* Use pbr autodoc feature rather than custom logic
+* Rearrange existing documentation to fit the new standard layout
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Switch from oslosphinx to openstackdocstheme
+* Updated from global requirements
+* Improve docs build
+* Rename pool-flavors module
+* Clean up doc/ and releasenotes/
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix translate tag
+* hacking: Specify white list rules in noqa explicity
+* ignore nose test results
+* fix translation extraction
+
+3.0.0.0b2
+---------
+
+* Updated from global requirements
+* Imported Translations from Zanata
+* Add signed url action for queue
+* Support post messages and get messages
+* Updated from global requirements
+* Add 'rm -f .testrepository/times.dbm' command in testenv
+* Updated from global requirements
+* Imported Translations from Zanata
+* Use common Angular view for Queues panel
+* Refresh test environment
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+
+3.0.0.0b1
+---------
+
+* Updated from global requirements
+* Imported Translations from Zanata
+* Support purge queue
+* Updated from global requirements
+* Update to a newer hacking library
+* Support subscriptoin age and confirmed
+* Better looking to show the queue metadata
+* Fix queue metadata update issue
+* Fix filter that doesn't work properly
+* Fix deletion of subscriber
+* Updated from global requirements
+* Clean imports in code
+* Imported Translations from Zanata
+* Update reno for stable/ocata
+* Imported Translations from Zanata
+
+2.0.0
+-----
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add CRUD actions for pool flavor
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+
+2.0.0.0b3
+---------
+
+* Add CRUD actions for pool
+* Imported Translations from Zanata
+* Add release notes for initAction
+* Updated from global requirements
+* Add reno for releasenotes management
+* Add pool flavors panel into admin dashboard
+* Add pools panel into admin dashboard
+* Add REST APIs for pools and flavors
+
+2.0.0.0b2
+---------
+
+* Use initAction instead initScope
+* Updated from global requirements
+* Show team and repo badges on README
+* Remove mox in zaqar\_ui/test/helpers.py
+
+2.0.0.0b1
+---------
+
+* Updated from global requirements
+* Imported Translations from Zanata
+* Change "Openstack" to "OpenStack"
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Add .mo to .gitignore
+* Add Apache 2.0 license to source file
+* Enable test coverage for python in tox
+* Fix eslint errors
+* Setup JavaScript test environment
+* Update homepage with developer documentation page
+* Remove \*openstack/common\* in flake8 exclude list
+* Setup python test environment
+
+1.0.0
+-----
+
+* Imported Translations from Zanata
+
+1.0.0.0b3
+---------
+
+* Updated from global requirements
+* Use upper constraints for all jobs in tox.ini
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* fix use of Horizon's registration service
+
+1.0.0.0b2
+---------
+
+* Subscriber form validation
+* Queue and Subscriptions file renames
+* Imported Translations from Zanata
+* Ability to add and remove subscriptions
+* Imported Translations from Zanata
+* Fix typo
+* Remove obsolote pot files
+* Fix translation setup
+* Add subscriptions API piece
+* Removing unnecessary requirements
+* Replace deprecated library function os.popen() with subprocess
+* tox tests should respect upper-constraints.txt
+* Remove py27dj17 from tox.ini
+* Deprecated tox -downloadcache option removed
+* Remove version number to fix build
+* Add DevStack plugin settings
+* Fix styles of table views
+* Add update queue action
+* New queues does not display message count
+* Update use of action registration service
+* Removed batch action service
+* Remove unused pngmath Sphinx extension
+* Ability to delete queues
+* Enable auto discovery
+* Queues create wizard
+* Update URLs to Django 1.8 style
+* Fix H405 violations
+* Add queues API and table
+* Fixes test settings
+* Fix installation instruction in README.rst
+* Re-enabling checkout and small fixes
+* Zaqar-ui base project with empty queues panel
+* Added .gitreview

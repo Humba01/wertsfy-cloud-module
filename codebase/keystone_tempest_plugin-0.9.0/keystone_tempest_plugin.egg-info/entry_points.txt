@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+keystone_tests = keystone_tempest_plugin.plugin:KeystoneTempestPlugin
+

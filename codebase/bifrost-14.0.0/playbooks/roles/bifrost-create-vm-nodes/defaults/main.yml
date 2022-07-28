@@ -1,0 +1,92 @@
+---
+# defaults file for bifrost-create-vm-nodes
+baremetal_json_file: '/tmp/baremetal.json'
+baremetal_nodes_json: '/tmp/nodes.json'
+test_vm_memory_size: "3072"
+test_vm_num_nodes: 1
+test_vm_domain_type: "qemu"
+test_vm_arch: "x86_64"
+test_vm_nic: "{{ 'virtio' if default_boot_mode == 'uefi' else 'e1000' }}"
+test_vm_groups: {}
+test_vm_default_groups: "{{ lookup('env', 'DEFAULT_HOST_GROUPS').split() | default(['baremetal'], true) }}"
+test_vm_disk_gib: "{{ lookup('env', 'VM_DISK') | default(10, true) }}"
+test_vm_cpu_count: "{{ lookup('env', 'VM_CPU') | default(1, true) }}"
+test_vm_disk_cache: "{{ lookup('env', 'VM_DISK_CACHE') | default('writeback', true) }}"
+test_vm_node_name_base: "{{ lookup('env', 'NODEBASE') | default('testvm', true) }}"
+test_vm_node_names: "{{ lookup('env', 'TEST_VM_NODE_NAMES').split() }}"
+
+test_vm_node_driver: ipmi
+
+redfish_emulator_host: localhost
+redfish_emulator_port: 9132
+redfish_emulator_state_dir: /var/lib/redfish-emulator
+
+# NOTE(pas-ha) name and default are chosen to be the same
+# as in 'bifrost-ironic-install' role
+network_interface: "virbr0"
+# NOTE(pas-ha) these correspond to settings for the libvirt network created by default
+test_vm_network: "{{ lookup('env', 'VM_NET_BRIDGE') | default('default', true) }}"
+test_vm_network_ip: "192.168.122.1"
+test_vm_network_netmask: "255.255.255.0"
+
+test_vm_storage_pool: "{{ lookup('env', 'LIBVIRT_STORAGE_POOL') | default('default', true) }}"
+test_vm_storage_pool_path: "/var/lib/libvirt/images"
+test_vm_logdir: "/var/log/libvirt/baremetal_logs"
+# NOTE(pas-ha) next two are generic values for most OSes, overridden by distro-specifc vars
+test_vm_emulator: "/usr/bin/qemu-system-x86_64"
+test_vm_machine: "q35"
+# Forces machines to use secure boot. Only compatible with virtual media,
+# requires using a real ramdisk (not tinyIPA) matching the host distribution,
+# as well as a real instance image (not cirros).
+test_vm_secure_boot: false
+default_boot_mode: "{{ 'uefi' if test_vm_secure_boot | bool else '' }}"
+
+# NOTE(pas-ha) not really tested with non-local qemu connections
+test_vm_libvirt_uri: "{{ lookup('env', 'LIBVIRT_CONNECT_URI') | default('qemu:///system', true) }}"
+# Settings related to installing bifrost in a virtual environment
+bifrost_venv_dir: "{{ lookup('env', 'VENV') or '/opt/stack/bifrost' }}"
+bifrost_venv_env:
+  VIRTUAL_ENV: "{{ bifrost_venv_dir }}"
+  PATH: "{{ bifrost_venv_dir }}/bin:{{ ansible_env.PATH }}" # include regular path via lookup env
+ansible_python_interpreter: "{{ bifrost_venv_dir + '/bin/python3' }}"
+
+git_branch: master
+git_root: "/opt/stack"
+git_url_root: https://opendev.org
+reqs_git_url: "{{ git_url_root }}/openstack/requirements"
+reqs_git_folder: "{{ git_root }}/requirements"
+reqs_git_branch: "{{ git_branch }}"
+upper_constraints_file: >-
+  {{ lookup('env', 'UPPER_CONSTRAINTS_FILE')
+     | default(lookup('env', 'TOX_CONSTRAINTS_FILE'), True)
+     | default(reqs_git_folder + '/upper-constraints.txt', True) }}
+
+update_repos: true
+force_update_repos: true
+
+# Conditional variables utilized based on CI or manual testing options.
+copy_from_local_path: false
+
+# NOTE(dtantsur): secure boot capable firmware goes second because some systems
+# (e.g. Ubuntu) provide it but refuse to boot. However, CentOS provides only
+# secure boot capable firmware, and it works for both secure und normal boot.
+efi_loader_locations_normal:
+  - /usr/share/edk2/ovmf/OVMF_CODE.fd
+  - /usr/share/edk2/ovmf/OVMF_CODE.secboot.fd
+  - /usr/share/OVMF/OVMF_CODE.fd
+  - /usr/share/OVMF/OVMF_CODE.secboot.fd
+  - /usr/share/qemu/ovmf-x86_64-code.bin
+efi_loader_locations_secboot:
+  - /usr/share/edk2/ovmf/OVMF_CODE.secboot.fd
+  - /usr/share/OVMF/OVMF_CODE.secboot.fd
+efi_loader_locations: >-
+  {{ efi_loader_locations_secboot if test_vm_secure_boot | bool else efi_loader_locations_normal }}
+efi_nvram_locations_normal:
+  - /usr/share/edk2/ovmf/OVMF_VARS.fd
+  - /usr/share/OVMF/OVMF_VARS.fd
+  - /usr/share/qemu/ovmf-x86_64-vars.bin
+efi_nvram_locations_secboot:
+  - /usr/share/edk2/ovmf/OVMF_VARS.secboot.fd
+  - /usr/share/OVMF/OVMF_VARS.secboot.fd
+efi_nvram_locations: >-
+  {{ efi_nvram_locations_secboot if test_vm_secure_boot | bool else efi_nvram_locations_normal }}

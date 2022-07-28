@@ -1,0 +1,189 @@
+# Cédric Savignan <liced@liced.fr>, 2017. #zanata
+# Thomas Morin <tmmorin.orange@gmail.com>, 2017. #zanata
+# Cédric Savignan <liced@liced.fr>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: networking-bgpvpn VERSION\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2019-12-05 06:33+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-02-12 01:19+0000\n"
+"Last-Translator: Cédric Savignan <liced@liced.fr>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+msgid ""
+"A single BGP Route Target or a comma-separated list of BGP Route Target. "
+"Example: 64512:1 or 64512:1,64512:2,64512:3"
+msgstr ""
+"Un simple Route Target BGP ou une liste de Route Targets  BGP séparés par "
+"des virgules. Exemple: 64512:1 ou 64512:1,64512:2,64512:3 ."
+
+msgid "Associated Network"
+msgstr "Réseau Associé"
+
+msgid "Associated Networks"
+msgstr "Réseaux Associés"
+
+msgid "Associated Router"
+msgstr "Router Associé"
+
+msgid "Associated Routers"
+msgstr "Routers Associés"
+
+msgid "BGP VPNs"
+msgstr "BGP VPNs"
+
+msgid "BGPVPN"
+msgstr "BGPVPN"
+
+#, python-format
+msgid "BGPVPN %s was successfully created."
+msgstr "Le BGPVPN %s a été correctement créé."
+
+#, python-format
+msgid "BGPVPN %s was successfully updated."
+msgstr "Le BGPVPN %s a été correctement mis à jour."
+
+msgid "BGPVPN ID"
+msgstr "BGPVPN ID"
+
+msgid "BGPVPN Interconnections"
+msgstr "Interconnexions BGPVPN"
+
+msgid "BGPVPN Name"
+msgstr "Nom du BGPVPN"
+
+msgid ""
+"Bug, inconsistency between neutron-lib and networking-bgpvpn for RTRD regex"
+msgstr ""
+"Bug, incohérence entre neutron-lib et networking-bgpvpn pour la regex RTRD"
+
+msgid "Create BGPVPN"
+msgstr "Créer un BGPVPN"
+
+msgid "Create a new BGP VPN for any project as you need."
+msgstr "Créez un nouveau BGPVPN pour chaque projet selon vos besoins."
+
+msgid "Delete BGPVPN"
+msgid_plural "Delete BGPVPNs"
+msgstr[0] "Supprimer le  BGPVPN"
+msgstr[1] "Supprimer les BGPVPNs"
+
+msgid "Deleted BGPVPN"
+msgid_plural "Deleted BGPVPNs"
+msgstr[0] "BGPVPN supprimé"
+msgstr[1] "BGPVPN supprimés"
+
+msgid "Description:"
+msgstr "Description:"
+
+msgid "Edit BGPVPN"
+msgstr "Modifier le BGPVPN"
+
+msgid "Export Targets"
+msgstr "Export Targets"
+
+msgid "Export targets"
+msgstr "Export Targets"
+
+msgid "Export targets is not valid"
+msgstr "Export Targets invalide"
+
+#, python-format
+msgid "Failed to create BGPVPN %s"
+msgstr "Echec dans la création du BGPVPN %s"
+
+#, python-format
+msgid "Failed to delete BGPVPN %s"
+msgstr "Echec lors de la suppression du BGPVPN %s"
+
+#, python-format
+msgid "Failed to update BGPVPN %s"
+msgstr "Echec lors de la mise à jour du BGPVPN %s"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Import Targets"
+msgstr "Import Targets"
+
+msgid "Import targets"
+msgstr "Import Targets"
+
+msgid "Import targets is not valid"
+msgstr "Import Targets invalide"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Network Associations"
+msgstr "Associations de Réseaux"
+
+msgid "Networks"
+msgstr "Réseaux"
+
+msgid "Project"
+msgstr "Projet"
+
+msgid "Project ID"
+msgstr "Project ID"
+
+msgid "Route Targets"
+msgstr "Route Targets"
+
+msgid "Route targets"
+msgstr "Route Targets"
+
+msgid "Route targets is not valid"
+msgstr "Route Targets invalide"
+
+msgid "Router Associations"
+msgstr "Associations de Routeurs"
+
+msgid "Routers"
+msgstr "Routeurs"
+
+msgid "Select a project"
+msgstr "Sélectionner un projet"
+
+#, python-format
+msgid "Something went wrong with BGPVPN %s"
+msgstr "Il y a eu un problème avec le BGPVPN %s"
+
+msgid "The type of VPN  and the technology behind it."
+msgstr "Le type de VPN."
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Unable to retrieve BGPVPN details."
+msgstr "Impossible de récupérer les détails du BGPVPN."
+
+#, python-format
+msgid "Unable to retrieve information about the tenant %s"
+msgstr "Impossible de récupérer les informations à propos du tenant %s"
+
+#, python-format
+msgid "Unsupported action type: %s"
+msgstr "Type d'action non supporté: %s"
+
+msgid "Update BGPVPN"
+msgstr "Modifier BGPVPN"
+
+msgid "Update Change"
+msgstr "Sauvegarger les changements"
+
+msgid "You may update the editable properties of your BGP VPN here."
+msgstr ""
+"Vous pouvez mettre à jour ici les propriétés modifiables de votre BGP VPN."
+
+msgid "l2"
+msgstr "l2"
+
+msgid "l3"
+msgstr "l3"

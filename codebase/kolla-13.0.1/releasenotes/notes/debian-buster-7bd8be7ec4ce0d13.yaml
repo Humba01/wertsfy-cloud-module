@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    Debian 'buster' is now used instead of 'stretch'. Buster is the next stable
+    release of Debian, and is currently in a 'freeze' state. Several images
+    gained Debian support with the move to buster.

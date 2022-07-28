@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    Fixes an outdated grub and shim efi binaries path for Red Hat to be
+    under ``EFI/redhat``.

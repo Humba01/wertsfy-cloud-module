@@ -1,0 +1,195 @@
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+
+# TODO(TheJulia): The user and project domains are hardcoded in this.
+# We should likely address that at some point, however I think a user
+# should be the driver of that work.
+
+- name: "Error if credentials are undefined."
+  fail:
+    msg: |
+        Credentials are missing or undefined, unable to proceed.
+        Please consult roled defaults/main.yml.
+  when: >
+      keystone is undefined or keystone.bootstrap is undefined or
+      keystone.bootstrap.username is undefined or
+      keystone.bootstrap.password is undefined or
+      keystone.bootstrap.project_name is undefined or
+      ironic.service_catalog.auth_url is undefined or
+      ironic.service_catalog.username is undefined or
+      ironic.service_catalog.password is undefined or
+      ironic.service_catalog.project_name is undefined or
+      ironic.keystone is undefined or
+      ironic.keystone.default_username is undefined or
+      ironic.keystone.default_password is undefined
+
+- name: "Configure keystone auth"
+  set_fact:
+    keystone_auth:
+      auth_url: "{{ ironic.service_catalog.auth_url | default(keystone_api_url) }}"
+      username: "{{ keystone.bootstrap.username }}"
+      password: "{{ keystone.bootstrap.password }}"
+      project_name: "{{ keystone.bootstrap.project_name | default('admin') }}"
+      project_domain_id: "default"
+      user_domain_id: "default"
+  no_log: true
+
+- name: "Ensure service project is present"
+  openstack.cloud.project:
+    name: "{{ ironic.service_catalog.project_name }}"
+    state: present
+    description: "Service Project"
+    domain_id: "default"
+    enabled: yes
+    auth: "{{ keystone_auth }}"
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+  environment: "{{ bifrost_venv_env }}"
+  no_log: true
+
+- name: "Create service user for ironic"
+  openstack.cloud.identity_user:
+    name: "{{ ironic.service_catalog.username }}"
+    password: "{{ ironic.service_catalog.password }}"
+    state: present
+    domain: "default"
+    default_project: "{{ ironic.service_catalog.project_name }}"
+    auth: "{{ keystone_auth }}"
+    update_password: always
+    wait: yes
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+  environment: "{{ bifrost_venv_env }}"
+  no_log: true
+
+- name: "Associate ironic user to admin role"
+  openstack.cloud.role_assignment:
+    user: "{{ ironic.service_catalog.username }}"
+    role: "admin"
+    project: "{{ ironic.service_catalog.project_name }}"
+    auth: "{{ keystone_auth }}"
+    wait: yes
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+  environment: "{{ bifrost_venv_env }}"
+  no_log: true
+
+- name: "Create keystone service record for ironic"
+  openstack.cloud.catalog_service:
+    state: present
+    name: "ironic"
+    service_type: "baremetal"
+    description: OpenStack Baremetal Service
+    auth: "{{ keystone_auth }}"
+    wait: yes
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+  environment: "{{ bifrost_venv_env }}"
+  register: baremetal_catalog_service
+  no_log: true
+
+- name: "Create ironic admin endpoint"
+  openstack.cloud.endpoint:
+    state: present
+    service: "{{ baremetal_catalog_service.id }}"
+    endpoint_interface: admin
+    url: "{{ ironic.keystone.admin_url | default(ironic_api_url) }}"
+    region: "{{ keystone.bootstrap.region_name | default('RegionOne') }}"
+    auth: "{{ keystone_auth }}"
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+  no_log: true
+  environment: "{{ bifrost_venv_env }}"
+
+- name: "Setting external Ironic public URL"
+  set_fact:
+    ironic_public_url: "{{ api_protocol }}://{{ public_ip }}:6385/"
+  when: public_ip is defined
+
+- name: "Create ironic public endpoint"
+  openstack.cloud.endpoint:
+    state: present
+    service: "{{ baremetal_catalog_service.id }}"
+    endpoint_interface: public
+    url: "{{ ironic.keystone.public_url | default(ironic_public_url) | default(ironic_api_url) }}"
+    region: "{{ keystone.bootstrap.region_name | default('RegionOne') }}"
+    auth: "{{ keystone_auth }}"
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+  no_log: true
+  environment: "{{ bifrost_venv_env }}"
+
+- name: "Setting internal Ironic URL"
+  set_fact:
+    ironic_private_url: "{{ api_protocol }}://{{ private_ip }}:6385/"
+  when: private_ip is defined and private_ip | length > 0
+
+- name: "Create ironic internal endpoint"
+  openstack.cloud.endpoint:
+    state: present
+    service: "{{ baremetal_catalog_service.id }}"
+    endpoint_interface: internal
+    url: "{{ ironic.keystone.internal_url | default(ironic_private_url) | default(ironic_api_url) }}"
+    region: "{{ keystone.bootstrap.region_name | default('RegionOne') }}"
+    auth: "{{ keystone_auth }}"
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+  no_log: true
+  environment: "{{ bifrost_venv_env }}"
+
+- name: "Create baremetal_admin role"
+  openstack.cloud.identity_role:
+    name: "baremetal_admin"
+    state: present
+    auth: "{{ keystone_auth }}"
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+  environment: "{{ bifrost_venv_env }}"
+  no_log: true
+
+- name: "Create baremetal_observer role"
+  openstack.cloud.identity_role:
+    name: "baremetal_observer"
+    state: present
+    auth: "{{ keystone_auth }}"
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+  environment: "{{ bifrost_venv_env }}"
+  no_log: true
+
+- name: "Create baremetal project"
+  os_project:
+    name: "baremetal"
+    state: present
+    description: "Baremetal Project"
+    domain_id: "default"
+    enabled: yes
+    auth: "{{ keystone_auth }}"
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+  environment: "{{ bifrost_venv_env }}"
+  no_log: true
+
+- name: "Create bifrost user"
+  openstack.cloud.identity_user:
+    name: "{{ ironic.keystone.default_username }}"
+    password: "{{ ironic.keystone.default_password }}"
+    default_project: "baremetal"
+    domain: "default"
+    auth: "{{ keystone_auth }}"
+    wait: yes
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+  environment: "{{ bifrost_venv_env }}"
+  no_log: true
+
+- name: "Associate bifrost user with baremetal_admin"
+  openstack.cloud.role_assignment:
+    user: "{{ ironic.keystone.default_username }}"
+    role: "baremetal_admin"
+    project: "baremetal"
+    auth: "{{ keystone_auth }}"
+    wait: yes
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+  environment: "{{ bifrost_venv_env }}"
+  no_log: true

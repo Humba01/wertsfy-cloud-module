@@ -1,0 +1,21 @@
+---
+# TODO:
+# - Seed custom inventory
+# - Overcloud custom inventory
+#   - Group map
+#   - Pass through variables
+# - Nova ironic compute host
+
+- import_playbook: test-defaults.yml
+- import_playbook: test-extras.yml
+- import_playbook: test-requirements.yml
+- import_playbook: test-globals-merge.yml
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Fail if any tests failed
+      fail:
+        msg: >
+          Test failures: {{ test_failures }}
+      when: test_failures is defined

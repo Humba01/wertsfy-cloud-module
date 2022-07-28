@@ -1,0 +1,66 @@
+---
+- hosts: primary
+  tasks:
+
+    # Install the previous release of Kayobe, and use it to deploy a control
+    # plane.
+
+    - block:
+        - name: Ensure kayobe is installed
+          shell:
+            cmd: dev/install.sh &> {{ logs_dir }}/ansible/install-pre-upgrade
+            chdir: "{{ previous_kayobe_src_dir }}"
+            executable: /bin/bash
+
+        - name: Ensure seed is deployed
+          shell:
+            cmd: dev/seed-deploy.sh &> {{ logs_dir }}/ansible/seed-deploy-pre-upgrade
+            chdir: "{{ previous_kayobe_src_dir }}"
+            executable: /bin/bash
+      environment:
+        KAYOBE_CONFIG_SOURCE_PATH: "{{ previous_kayobe_config_src_dir }}"
+        # Don't provision a seed VM - use the Zuul VM as the seed host.
+        KAYOBE_SEED_VM_PROVISION: 0
+
+    # Update the Kayobe configuration to the current release.
+
+    - name: Ensure bifrost overrides directory exists
+      file:
+        path: "{{ kayobe_config_src_dir }}/etc/kayobe/kolla/config/bifrost"
+        state: "directory"
+
+    - name: Copy across relevant kayobe-config files
+      copy:
+        src: "{{ previous_kayobe_config_src_dir }}/{{ item }}"
+        dest: "{{ kayobe_config_src_dir }}/{{ item }}"
+        remote_src: true
+      with_items:
+        - etc/kayobe/kolla/passwords.yml
+        - etc/kayobe/kolla/config/bifrost/bifrost.yml
+
+    # NOTE(mgoddard): Use the name zz-overrides.yml to ensure this takes
+    # precedence over the standard config files.
+    - name: Ensure kayobe-config override config file exists
+      template:
+        src: overrides.yml.j2
+        dest: "{{ kayobe_config_src_dir }}/etc/kayobe/zz-overrides.yml"
+
+    - name: Ensure kolla-ansible globals.yml override config file exists
+      template:
+        src: globals.yml.j2
+        dest: "{{ kayobe_config_src_dir }}/etc/kayobe/kolla/globals.yml"
+
+    # TODO(mgoddard): Perform a smoke test against the previous release.
+
+    - block:
+        # Upgrade Kayobe, and use it to perform an upgrade of the seed.
+
+        - name: Ensure seed is upgraded
+          shell:
+            cmd: "{{ kayobe_src_dir }}/dev/seed-upgrade.sh &> {{ logs_dir }}/ansible/seed-upgrade"
+            executable: /bin/bash
+
+        # TODO(mgoddard): Perform a smoke test against the upgraded current release.
+      environment:
+        KAYOBE_CONFIG_SOURCE_PATH: "{{ kayobe_config_src_dir }}"
+        KAYOBE_SOURCE_PATH: "{{ kayobe_src_dir }}"

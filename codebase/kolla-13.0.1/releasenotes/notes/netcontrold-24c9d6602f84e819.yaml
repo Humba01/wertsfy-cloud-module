@@ -1,0 +1,3 @@
+---
+features:
+  - Adds a ``netcontrold`` image for Open vSwitch.

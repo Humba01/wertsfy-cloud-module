@@ -1,0 +1,21 @@
+# {{ ansible_managed }}
+[uwsgi]
+master = true
+processes = 2
+threads = 2
+no-orphans = true
+# The socket will be read by nginx which is running as nginx_user
+chmod-socket = 660
+virtualenv = {{ bifrost_venv_dir }}
+
+procname-prefix = keystone-public
+
+socket = /run/uwsgi/keystone-public.socket
+pidfile = /run/uwsgi/keystone-public.pid
+
+name = keystone
+uid = keystone
+gid = {{ nginx_user }}
+
+chdir = /var/www/keystone/
+wsgi-file = /var/www/keystone/public

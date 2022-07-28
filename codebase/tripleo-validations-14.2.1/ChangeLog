@@ -1,0 +1,839 @@
+CHANGES
+=======
+
+14.2.1
+------
+
+* NVF OvS DPDK instance emulatorpin validation fix
+* Fix Inventory Generation without Overcloud deployed
+* NFV OvS DPDK zero packet loss validations
+* oslo\_config\_validator: Setting container network to none
+* Corrected the task 'Get file\_descriptors total\_limit' to get the 'fs.file-max' value
+* [wallaby-only] molecule-requirements constraints
+
+14.2.0
+------
+
+* Sort jobs in molecule.yaml file when adding new role
+* Add zuul.d/molecule.yaml file back in the yamllint ignore list
+* Migrate back haproxy validation to tripleo-validations
+* Enabling indentation rule for yamllint
+* Use OS\_CLOUD environment variable
+* Introducing the oslo\_config\_validator role
+* Allow comments in variable files to be rendered in docs
+* Use and ownership info for the ip\_range module
+* Use and ownership info for the check\_flavors module
+* Use and ownership info for the pacemaker module
+* Use and ownership info for the node\_disk module
+* Use and ownership info for the icmp\_ping module
+* Use and ownership info for the ovs\_dpdk\_pmd\_cpus\_check module
+* Use and ownership info for the ceph\_pools\_pg\_protection module
+* Use and ownership info for the verify\_profiles module
+* Use and ownership info for the network\_environment module
+* Use and ownership info for the switch\_vlans module
+* Compute TSX validation
+* Remove the post-update groups
+* Add Validation Development Workflow Documentation
+* Introduce new Ansible validation\_init role
+* Remove workaround for tox-ansible and global molecule config
+* Quick documentation content reorganization
+* Update TOX\_CONSTRAINTS\_FILE for stable/wallaby
+* Use validation\_component for Standalone CI jobs
+* Bump molecule to 3.3.1
+* requirements-check enabled
+* Trigger molecule jobs when modifying molecule-requirements.txt file
+* Add shared configuration for all molecule test
+* Removing python-tripleoclient
+* Update .gitreview for stable/wallaby
+* [overcloud-service-status] Removing pre-upgrade
+
+14.1.1
+------
+
+* Check for dangling images
+* Add validation to check DockerInsecureRegistryAddress matches the UC hostname
+
+14.1.0
+------
+
+* Adding backup-and-restore validation group
+* Add groups.yaml to the openstack-tox-jobs files
+* Exposing default variables in playbook
+* Validation should use the public endpoint
+* Make tls\_everywhere validations compatible with ansible\_facts
+* Removal of osc-lib
+* More detail in arg validation
+* Minor test improvement for ceph\_pools\_pg\_protection
+* Test folder structure rearranged
+* Exceptions constraints improved
+* Superfluous arg removed
+* Rename Dockerfile.j2 to Dockerfile
+* Use a more targeted job for tripleo-validations
+* check-ram is not compat w/ upstream
+* Zuul runs tests in py36 only
+* Coverage considers other all main source folders, omits tests
+* Coverage now uses stestr
+* Remove RoleNames ansible-lint custom rule
+* Add new tripleo-latest-packages-version playbook
+* Move back tripleo\_validator.py to tripleoclient
+* Removes retired services from service status validation
+* Removes retired services from process count validation
+* Remove apk and references from bindep.txt
+* Introduce tox-ansible to tripleo-validations
+* Use static inventory for component CI role and clean component list
+* Remove linters dependency from content-provider in gate
+* Rename system\_encoding playbooks
+* Add update roles on several validations
+* Python tests are now run trough stestr
+* Replace user with openssh\_keypair
+* Trigger molecule tests when modifying CI scripts
+* Activate virtual environment
+* Rename Dockerfile.j2 to Dockerfile
+* Fix unbound variable
+* Fix api call to get\_deployment\_status
+* Replace exception with LOG.info
+* Modify find to use -H to support symbolic links
+* Introducing the overcloud-service-status role
+* [autodoc] guessing converge playbook
+* Optionally fail ceph-health if HEALTH\_WARN
+* Fix typo in readme file
+* Fix set by merging two list without duplicate
+* Fix molecule jobs after release of cryptography3.4
+* Remove six usage in ValidationHasMetadataRule.py
+* Add system encoding to pre-update stage
+* Add new Update validation groups
+* Add post-deployment frr\_status validation
+* Fix the get\_deployment\_status call
+
+14.0.0
+------
+
+* Remove useless \_\_init\_\_.py file in library
+* Generate inventory without any overcloud
+* Local var was redefining built-in range
+* Add tripleo-validations role for component testing
+* Add setuptools
+* Move tripleo validations CLI from tripleoclient to tripleo-validations repo
+* Retire ceilometerdb-size validation
+* Get the undercloud.conf file from where it actually is
+* Restrict Ansible dependency
+* Update role-addition.yml playbook to manage molecule.yaml file again
+* Remove workaround for broken dogpile.cache and lower-constraints file
+* Add validation to verify undercloud.conf content
+* Fix conditionals/types in check\_flavors and verify\_profiles
+* Use the UBI8 image for testing
+* Make local molecule testing running
+* replace max\_fds with sysctl call
+* Replace deprecated UPPER\_CONSTRAINTS\_FILE variable
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+13.0.0
+------
+
+* Move validation to content-provider based jobs
+* Use the default flavor name when flavor parameter is not defined
+* Optimize container\_cli usage by mysql-open-files-limit validation
+* Add validation to verify the RHSM version
+* Remove ceph-pg from openstack tripleo validator run groups
+* Use a Literal Block Scalar instead of Folding one for validation
+* Convert docker molecule usage to podman
+* Switch legacy Zuul jobs to native Zuul v3 jobs
+* Bumps pre-commit config
+* Retire containerized\_undercloud\_docker validation
+* Correct how the image\_serve validation works
+* After leapp has been run, verify that the kernel has been upgraded
+* Docs: Use correct spec link
+* Docs: Replace tags heading with a real heading
+* Remove duplication in molecule gate jobs
+* Revert "Revert "Change path for validation Ansible files""
+
+12.6.0
+------
+
+* Remove callback plugin from tripleo-validation
+* Add ipa-server-check pre-upgrade validation
+* Revert "Revert "Remove objects migrated to validations-common""
+* Fix hacking min version to 3.0.1
+* Ensure we get a prefix for validation roles
+
+12.5.0
+------
+
+* Revert "Remove objects migrated to validations-common"
+* Remove objects migrated to validations-common
+* Revert "Change path for validation Ansible files"
+* Fix lower-constraints errors
+* Updated playbook metadata for package-version
+* Use importlib to take place of imp module
+* Change path for validation Ansible files
+* Add validation to check status of ipa server
+* New validation: Ensure sVirt is active
+* New validation: ensure we have access to the right package version
+* Clarify error message for Nova notification settings
+* Refactor vif plugging validations
+* Add os-cloud support for tripleo-ansible-inventory script
+* Add new Upgrades validation groups
+* Allows to use custom role name for validations
+* Corrected work directory for validate-selinux
+* Updated "overcloud" to "allovercloud" group
+* Add new dependency for the tests: lxml
+* Correct role name in generated playbook
+* Fix neutron\_sanity\_check for ML2/OVS overcloud
+* Make Get OSD stat percentage compatible with jq < 1.5
+* Ensures script is executable
+* Add a validation to check the local
+
+12.4.0
+------
+
+* Remove mock as test requirement
+* Make Get OSD stat percentage compatible with both Luminous and Nautilus
+* Fix ceph-ansible permissions when checking the repo name
+* Ensure virtualenv is installed
+* Add tripleo-validation.py as script in setup.cfg
+* Add "mock" in test-requirements and lower-constraints
+* Add TripleO validation CLI script
+* Update openstackdocstheme
+* Update Ceph role's Get OSD stat to use new data structure
+* Switch to newer openstackdocstheme and reno versions
+* Stop to use the \_\_future\_\_ module
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+* Update python version
+
+12.3.0
+------
+
+* Remove the useless pytest import
+* Avoid broken dogpile.cache
+* Get UUID from ansible environment variables
+* Fix container client variable name
+* Add deployment groups
+* Improve the ceph-ansible repository error message
+* Remove the post-introspection group
+* Fix CentOS8 Migration leftover
+* Ensure we don't pass an empty role\_name
+* Update the tox minversion parameter
+* Introducing tripleo\_delegate\_to on ceph health validation
+* Validation collect-flavors-and-verify-profiles bug
+* Switch install-docker with ensure-docker
+* Remove fwaas\_driver.ini from neutron sanity checks
+* Cleanup py27 support
+
+12.2.0
+------
+
+* Update to hacking 3.0
+* Convert all of the fedora28 container usage to CentOS8
+* Update hacking for Python3
+* Migrate molecule jobs from centos 7 to 8
+* tripleo-validations failing on lower constraints
+* Don't write playbook stats in binary mode
+* Drop eventlet from lower constraints
+* Fix multistack inventory
+* Use unittest.mock instead of third party mock
+* Don't validate token\_flush for non-persistent token formats
+* Skeleton role, get with the decade
+* update centos-7 to centos-8 for validations
+* tripleo-validations failing on lower constraints
+* Updated/corrected service\_status
+* Add basic molecule tests for uncovered roles
+* Add custom ansible-lint rule for Role Names
+* Bump pbr==3.1.1 in lower constraints
+
+12.1.0
+------
+
+* Remove 'no-op-firewall-nova-driver' validator
+* Adds Search Path Override
+* Better task name and loop control
+* zuul: all functional jobs now depend on linter job first
+* Delete healthcheck-service-status role
+* Make groups documentation part dynamic
+* molecule-xfs\_check\_ftypefailure (non-voting), remove from gate
+* Fix role-addition.yaml automation playbook
+* Replace all references to the old role name
+* Normalize role names when generating roles
+* Adds basic molecule testing for ceph validations
+* Remove default ansible option in test runs
+* Add pre/post ceph validation groups
+* Validate the playboooks metadata structure
+* Ceph PG validation unit shouldn't depend on dict order
+* Fix ceph-ansible repo check
+* New validation: validate-selinux
+* Fix upper and lower constraints
+* Introduce Ceph placement group validation
+* Remove the useless environment variable
+* Add a validation to fail if a Ceph dependency is not installed
+* Add an additional validation to check ceph-ansible repository
+* Add new validation\_json callback
+* Removed workaround for ansible-lint issue
+
+12.0.0
+------
+
+* Rename custom "ini" module to "validations\_read\_ini"
+* Add groups.yaml containing Validation Groups definition
+* tox: Keeping going with docs
+* Avoid failure if dhcp\_end or dhcp\_start isn't set
+* Use a better name for the task
+* Stop testing python2.7
+* Switch to Ussuri jobs
+* Update master for stable/train
+* Set validation defaults to match undercloud default settings
+* Fix Molecule tests
+* Add workaround for the ansible-lint installation failure
+
+11.3.0
+------
+
+* Add forgotten reportentry module in the documentation
+* Use dynamic argument\_spec from documentation
+* Hide sensitive data from Ansible run and logging
+* Fix Ironic Authentication exception
+* Fix ost-tox-lower-constraints job indentation
+* Fix missing closing parenthesis in skeleton role
+* Fix Python 3 incompatibility in tripleo-ansible-inventory
+* Update documentation URL link for CPU & RAM Undercloud recommendations
+* Constrain molecule
+* Add playbook creation for the automation
+* New validation: detect failed containers
+* Add new healthcheck-service-status validation
+* Fix get plan\_name default value for inventory script
+* Update the constraints url
+* Fix tripleo-ansible-inventory
+
+11.2.0
+------
+
+* Add different logic when running against the Undercloud or the Controller
+* Deprecation of the ceilometerdb-size validation
+* Add multistack support to tripleo-ansible-inventory
+* Pass undercloud\_connection in TripleoInventory instantiation
+* Set undercloud-connection to local by default
+* Add undercloud-key-file and ssh\_network options
+* Add zuul molecule job for check-latest-packages-version role
+* Adds molecule testing for stonith-exists
+* Modify validation and add Molecule tests for rabbitmq-limits
+* Adds molecule testing for undercloud-tokenflush
+* Adds molecule testing for undercloud-heat-purge-deleted
+* Switch to promote docs job
+* Add Molecule tests for check-network-gateway
+* Do not stop ceph-health but skip if ceph is not deployed
+* Removed older version of python
+* Loosen ironic-boot-configuration
+* Remove useless meta directory for the Ansible ntp role
+* Adds molecule tests to image-serve and correct validation
+* Adds molecule tests for the nova-status validation
+* Adding molecule tests for no-op-firewall-nova-driver validation
+* Convert tox to native zuul
+* Use custom Ceph cluster name in validations
+* Linting hardening with pre-commit
+* Revert "Improve Ceph health checks to work with custom cluster names"
+* Add autodocumentation for roles and library
+* Improve Ceph health checks to work with custom cluster names
+* Simplifying the check of the latest package version validation
+* Blacklist sphinx 2.1.0 (autodoc bug)
+* Corrected how hiera is installed
+* Bump the openstackdocstheme extension to 1.20
+* Correct "repos" validation and adds Molecule tests
+
+11.1.0
+------
+
+* Enable fact gathering for needed validations
+* Adds molecule testing for controller-ulimits
+* Adds molecule testing for controller-token
+* Adds molecule tests for ctlplane-ip-range validation
+* Adding new role automation with Ansible
+* Adds molecule tests for undercloud-disk-space
+* Adds Molecule to haproxy validation role
+* Add molecule testing on undercloud-debug role
+* Add new role to validate tls-everywhere
+* Adds molecule testing for DNS validation
+* Use ansible\_pkg\_mgr fact instead of hardcoding yum command
+* Make Verify the RAM requirements task failing again
+* Add molecule tests for the undercloud-cpu role
+* Add Python 3 Train unit tests
+* Support multi-arch in deploy image validations
+* Fix variables indentation for ceph-health validation
+* Add Molecule tests for the role xfs-check-ftype
+* Add Molecule tests for the role undercloud-ram
+* Deletes validations directory
+* Remove Neutron LBaaS
+* Remove useless roles meta directory
+* Add support for the chrony implementation
+* Remove useless cookiecutter files
+* Documentation update with the new validations architecture
+* Use sorted dictionary before iteration
+* Update the Undercloud Services list for the uc-service-status role
+* Improve stackrc file sourcing
+* Use Undercloud local\_ip to ensure the registry does answer or not
+* Add pkg names better management between OS releases
+* Update ceph-health for containers and failure options
+* Fix typo in the command to get the file\_descriptors total\_limit
+* Add run-validations.sh script
+
+11.0.0
+------
+
+* Fix validations-specific Ansible output callback
+* Sync Sphinx requirement
+* Add option to fail if ceph-ansible is not installed
+* [Python3] Adds bytes to str conversion management
+* Fix invalid 'ignore\_missing\_file' attribute in a task
+* Add nova-status Ansible role
+* Makes rogue\_dhcp.py script Python3 aware
+* Fix Jinja2's default filter usage
+* New validation: ensure services status
+* Add serial option in tripleo-ansible-inventory script
+* New validation: ensure image-serve service is working as expected
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Fix Jinja2's default filter usage
+* Update master for stable/stein
+* Clean up some old roles dependencies
+* Adds roles support in the script generating the validations doc
+
+10.4.0
+------
+
+* Add check-latest-minor-version role
+* Add default-node-count role
+* Add switch-vlans role
+* Add network-environment role
+* Rename undercloud-neutron-sanity-check role
+* Add stack-health role
+* Add deployment-images role
+* Add collect-flavors-and-verify-profiles role
+* Add containerized-undercloud-docker role
+* Add stonith-exists role
+* Add ironic-boot-configuration role
+* Add openstack-endpoints role
+* Add mysql-open-files-limit role
+* Add rabbitmq-limits role
+* Add node-health role
+* Add check-network-gateway role
+* Add node-disks role
+* Migrate ansible-lint to pre-commit
+* Add an --undercloud-connection argument
+* Allow running a no-op validation
+* Add Podman support to rabbitmq-limits validation
+* Add Podman support to mysql-open-files-limit validation
+* Add repos validations role
+* Improve the network\_gateway check on the provisioning network
+* Add ctlplane-ip-range role
+* Add controller-ulimits role
+* Add controller-token role
+* Add no-op-firewall-nova-driver role
+* Add advanced-format-512e-support role
+* Add xfs-check-ftype role
+* Add ceph role
+* Add nova-event-callback role
+* Fix minor typo in validations/check-ftype.yaml
+* Add openshift-on-openstack role
+* Add ntpstat role
+* Add ceilometerdb-size role
+* Add dns role
+* Add pacemaker-status role
+* Add ovs-dpdk-pmd role
+* Add haproxy role
+* Add dhcp-validations role
+* Migrating Undercloud playbooks to their own Ansible Role
+
+10.3.0
+------
+
+* Update undercloud minimum ram
+* Ignore new ansible-lint pipefail rule
+* Update generate\_validations\_doc.py script
+* Add node disks validation
+* Fix introspection data lookup
+* Retire the undercloud-selinux-mode validation
+* Fix the misspelling of "interface"
+* Address python3 string issues with subprocess
+* Fix minor Ansible syntax
+* Fix overcloud neutron sanity validation
+* Fix the containerized location of ceilometer ceilometer.conf
+* Update the bugs link to storyboard
+
+10.2.0
+------
+
+* Fix ansible lint errors
+* dict\_object.keys() is not required for \*in\* operator
+* Fix ceilometerdb-size validation
+* Retire undercloud\_conf custom plugin
+* Fix dhcp-provisioning validation
+* Fix check-network-gateway validation
+* Fix ctlplane-ip-range validations
+* Fix the ironic\_inspector config file in the switch-vlans validation
+* Drop baremetal job template
+* Fix neutron-sanity-check validations
+* Set config path in hiera module
+* Fix mysql-open-files-limit validation to work in HA mode
+* Change openstack-dev to openstack-discuss
+* Remove deprecated inventory option
+* fix tox python3 overrides
+* Add the right ironic\_inspector config file path
+* Avoid 'non-zero return code' msg when ceph-ansible isn't installed
+* Fix the Docker command to get the open\_files\_limit
+* Fix inspector.conf file path again
+* Run pcs command only if the pacemaker service is active
+* Use containerized location of keystone.conf file
+* Add Python 3.6 classifier to setup.cfg
+* Checking the real process name for each containerized component
+* Check the Heat purge\_deleted crontab on the heat\_api\_cron container
+* Fix the ceilometerdb-size validation in the containerized undercloud
+* Improve the openshift-nw-openstack validation
+* Check the keystone token flush on the keystone\_cron container
+* Use the right path for ironic\_inspector config file
+* Skip schema check in network validation
+* Fix containerized services task
+* Remove checks for boot\_option
+* Fix mysql\_open\_files\_limit validation
+* Avoid Ansible Deprecation Warning
+* Fix the introspection interface look up
+* Add ansible\_python\_interpreter to the inventory script
+* Fix disk space validation
+* Fix the undercloud-process-count validation
+* Add python 3.6 unit test job
+* Fix the undercloud-heat-purge-deleted validation
+* Fix the keystone tokenflush validation
+* Correct inline documentation
+* Use containerized location of ironic inspector.conf for validation
+
+10.1.0
+------
+
+* Use containerized location of ironic inspector.conf for validation
+
+10.0.0
+------
+
+* Remove a debug task
+* Removed older version of python added 3.5
+* Use int builtin filter for testing purpose
+* Fix a minor typo in the ceilometerdb-size validation
+* Fix several config file location
+* Fix diskspace validation when size is the limit
+* Validation for no PMD cores on a NUMA node
+* Add new nova-event-callback validation
+* Make inventory fail if Heat engine is down
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* fix bug link in readme
+* Update reno for stable/rocky
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Refactor service client getters
+
+9.3.0
+-----
+
+* Revert "Fail if the Overcloud inventory is empty"
+* Add a networking check for OpenShift on OpenStack
+* Add a OpenShift on OpenStack HW validation
+* Enhanced checkdisk for undercloud
+* add initial role for containerized undercloud validations
+
+9.2.0
+-----
+
+* Adds heat-manage purge\_deleted cron job validation
+* Check baremetal flavors for custom resource class
+* fix tox python3 overrides
+* Check if a bridge with name br-int exists
+
+9.1.0
+-----
+
+* Add validation for checking node counts
+* Run validation only if overcloud exists
+* Fix documentations for pypi
+* Fix node health validation with inventory changes
+* Add validation for verifying profiles
+* Add std\_error output to error log in tripleo-ansible-inventory
+* Add documentation links to README
+* Use clean keystone URL in the keystone validation
+* Fail if the Overcloud inventory is empty
+* Fix the events db size validation
+* Add validation for checking roles against flavors
+* Add ironic boot configuration validation
+* Add validation for checking baremetal boot images
+* fix lower constraints
+* Validate that there should not be XFS volumes with ftype=0
+* Update ceilometerdb-size to support gnocchi and panko
+
+9.0.0
+-----
+
+* Optimize the link address
+* Fix Switch VLANs validation
+* Add a validation that checks for available update
+* Extract 'filtered()' function into 'utils'
+* Add new SELinux validation check
+* add lower-constraints job
+* Updated from global requirements
+* Fix docker img filter in rabbitmq validation
+* Fix MySQL Open Files Limit validation
+* Fix overcloud services connectivity validation
+* Updated from global requirements
+* Update the doc links to the newest ones
+* Updated from global requirements
+* Deprecate ini formatted static-inventory
+* Updated from global requirements
+* Update reno for stable/queens
+* Improve exceptions in tripleo-ansible-inventory
+
+8.3.0
+-----
+
+* Updated from global requirements
+* Replaces yaml.load() with yaml.safe\_load()
+* Add help for --plan, add --stack
+* Fix a spelling mistake in source file
+* Fix function invocations
+* Add a health check for overcloud nodes
+* Add lookup plugin for ironic nodes
+* Zuul: Remove project name
+* Detect overlapping IP ranges
+
+8.2.0
+-----
+
+* Updated from global requirements
+* Fix the rabbitmq fd limits validation
+* Fix the nova config file location
+* Fix the haproxy config file location
+* Invert validation task order
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Add a lookup plugin for nova servers
+* Sanitize validations output
+* Improve netenv validation and add IPv6 tests
+* Adjust TripleoInventory arguments, don't pass config object
+* Add --static-yaml-inventory option to tripleo-ansible-inventory
+* Move tripleo ansible inventory code to tripleo-common
+* Get rid of star imports
+* Unit testing for ini
+* Add a validation to check for working DNS
+* Enhance repo validation to check for unwanted enabled repos
+* Updated from global requirements
+* Change controller ulimit to match the default
+* Change HAProxy validation queue timeout to match the default
+
+8.1.0
+-----
+
+* Add ansible-lint script
+* Remove unused tox\_install.sh
+* Updated from global requirements
+* Add env var for custom ssh user
+* Remove yum warning in ceph-ansible validation
+* Add VipMap to inventory variables
+* Change Nova firewall driver validation host
+* Migrate tripleo-validations to zuul v3 jobs
+* Updated from global requirements
+* Add enabled networks in the role  as part of the inventory
+* Fix the Network Gateway Validation
+* Fix typos in pacemaker module documentation
+* Add per-network bind ips to inventory
+* Fix include action DEPRECATION WARNING (Ansible >2.4)
+* Specify vars after children sections
+* Use OrderedDict to sort the hostname before the alias
+* Add validation to check VLANs against switch info in Ironic intospection data
+* ctlplane-ip-range: Verify lower IP bound is smaller than upper
+* Warn if there are not enough node IPs in pools
+* Explicitly set default to 0 for quiet argument in validate-files script
+
+8.0.0
+-----
+
+* Add Ansible specific files to .gitignore
+* Remove syntax warnings for when statements
+* Fix repo-availability validation with Ansible 2.3
+* Validate library files for documentation string
+* Let the IP range validation fail on low IP range
+* Add missing module documentation
+* Exclude byte code files from tht lookup
+* Updated from global requirements
+* Update services in the process count validation
+* Fix name of controller token validation
+* Add separate fail-if-no-hosts plugin
+* Updated from global requirements
+* Use Python to compute release notes version
+* Update envlist to match what is supported
+* Prevent unnecessary calls to dynamic inventory host()
+* Lazy load the entire stack instead of single outputs
+* Update reno for stable/pike
+* Make validations fail if there are no hosts
+
+7.3.0
+-----
+
+* Make sure to keep case when for host definition in host inventory
+* Do not output empty variables in inventory
+* Updated from global requirements
+* Configurable ansible\_ssh\_user for tripleo-ansible-inventory
+* Updated from global requirements
+* Fix validation names
+
+7.2.0
+-----
+
+* Updated from global requirements
+* Don't modify case of role names in inventory
+* Add jsonschema validation for os-net-config data
+* Print a warning message if ceph-ansible isn't installed
+* Updated from global requirements
+* Update URL home-page in documents according to document migration
+* Fix \`when\` statement in deployment image validation
+* Fixup the undercloud service list used in the validation
+* Remove the pre-update group and add a post-upgrade group
+* Switch from oslosphinx to openstackdocstheme
+* Add role\_name to inventory
+* Add deploy\_server\_id and bootstrap\_node\_id to inventory
+* Port the network environment validation
+* Check repository availability
+* Updated from global requirements
+* Updated from global requirements
+* Add stack health check validation
+* Adds pre-upgrade/update to the overcloud endpoint validation
+* Unit testing for undercloud\_conf
+* Reference the new pre-update/pre-upgrade groups
+* Validate undercloud service status before update/upgrade
+
+7.1.0
+-----
+
+* Add pre-upgrade group to undercloud RAM validation
+* Pre-upgrade: Check disk space
+* Fix inventory without existing stack
+* Updated from global requirements
+* Add per host groups to dynamic inventory
+* Updated from global requirements
+* Add host list by service to inventory
+* Retreive AdminPassword from heat instead of mistral
+* Add ability to write static inventory
+* Pass printing responsibility to dynamic inventory script
+* Show all roles in inventory
+* Use OS\_PROJECT\_NAME and fallback to TENANT for inventory script
+* Updated from global requirements
+* Updated from global requirements
+* Add 'become: true' to haproxy validation
+* Add lookup plugin for tripleo heat templates
+* Updated from global requirements
+* Unit testing for ip\_range
+* Updated from global requirements
+* Let undercloud-process-count succeed with warnings
+* Drop scapy dependency
+
+7.0.0
+-----
+
+* Blacklist setuptools versions 34.0.0-34.3.2
+* Fix token auth in ansible inventory script
+* Update reno for stable/ocata
+* Fix docs to reflect Ansible 2.0 requirements
+* Create the neutron-sanity-check validations
+* Updated from global requirements
+* Use generic keystone plugins instead of version-specific
+* Add missing mistralclient requirement
+* Migrate from keystoneclient to keystoneauth
+* Check for Ceph status in post-deployment
+* Updated from global requirements
+* Add a 'warn' ansible module
+* Typo fix: choses => chooses
+* [trivial] Remove broken link
+
+5.4.0
+-----
+
+* Add reno for release notes management
+* prevent validations from failing  when undercloud.conf is missing:
+* controller-token.yaml: Checks that keystone token is disabled after deployment
+
+5.3.0
+-----
+
+* deployment-images.yaml: Validation checking existence of required images
+* Updated from global requirements
+* ceilometerdb-size.yaml: Fix ceilometer database validation
+* Don't rely on overcloudrc
+* Fixes undercloud-tokenflush validation
+* Remove TODO in Validation description, revise description
+* Replace six.iteritems() with .items()
+* Show team and repo badges on README
+* Updated from global requirements
+* Updated from global requirements
+* validation\_output.py: Provided output for ansible debug module
+
+5.2.0
+-----
+
+* Fix the DHCP validations
+* callback\_plugins/validation\_output.py: improved output
+* undercloud-tokenflush: changed group to pre-introspection
+* Updated from global requirements
+* Validation stonith device exists in OpenStack Platform HA cluster
+* Updated from global requirements
+* undercloud-disk-space.yaml: improved output
+* Change HAProxy timeouts to match the defaults
+* Fix the mysql-open-files-limit validation
+* Fix the pacemaker-status validation
+* Fix the ctlplane-ip-range validation
+* Fix the rabbitmq-limits validations
+* Fix the check-network-gateway validation
+* Fix typo in the group for check-network-gateway
+* Pass the the custom cacert to nova and heat client
+* Use custom CA cert with tripleo-ansible-inventory
+* Updated from global requirements
+* Updated from global requirements
+* Validate the IP range for the control plane
+* Validation to detect if undercloud disks use 512e
+* Validation to verify connectivity to overcloud
+* Validate haproxy configuration values
+* Add the NoopFirewallDriver validation
+* Add a validation-specific Ansible output callback
+* Validate rogue DHCP servers
+* Updated from global requirements
+* Add network gateway validation
+* Make the ini-based validations more robust
+* modify the home-page info with the developer documentation
+* Generate documentation for validations
+* Remove \`become: true\` from the inventory script
+
+5.1.0
+-----
+
+* Check to ensure debug is disabled on undercloud services
+* Added check for ceilometerdb size
+* Added check for keystone token\_flush cronjob
+* Updated from global requirements
+* Cleanup tox.ini, enable constraints
+* Validate rabbitmq limits
+
+5.0.0
+-----
+
+* Add a dynamic ansible inventory script
+* Validate the open-files-limit value in mysql
+* Validate pacemaker status
+* Validate ntp is running and synchronised
+* Validation to check ulimits on controller
+* Validation to check the undercloud processes
+* Validation to verify undercloud disk size reqs
+* Autogenerate the list of existing validations
+* Validation to verify the undercloud CPU reqs
+* Validation to verify the undercloud RAM reqs
+* Documentation how validations work
+* Use tripleo bug tracker on launchpad
+* Updated from global requirements
+* Fix requirements
+* Initial Cookiecutter Commit
+* Added .gitreview

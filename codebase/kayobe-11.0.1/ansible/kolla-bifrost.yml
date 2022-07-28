@@ -1,0 +1,18 @@
+---
+- name: Ensure Kolla Bifrost is configured
+  hosts: localhost
+  tags:
+    - kolla-bifrost
+  roles:
+    - role: kolla-bifrost
+
+      # Network configuration.
+      kolla_bifrost_dhcp_pool_start: "{{ provision_oc_net_name | net_inspection_allocation_pool_start }}"
+      kolla_bifrost_dhcp_pool_end: "{{ provision_oc_net_name | net_inspection_allocation_pool_end }}"
+      kolla_bifrost_dnsmasq_router: "{{ provision_oc_net_name | net_gateway }}"
+      kolla_bifrost_dnsmasq_dns_servers: "{{ resolv_nameservers | default([]) }}"
+      kolla_bifrost_domain: "{{ resolv_domain | default }}"
+      kolla_bifrost_download_ipa: "{{ not ipa_build_images | bool }}"
+      kolla_bifrost_config_paths_extra:
+        - "{{ kayobe_config_path }}"
+        - "{{ kayobe_env_config_path }}"

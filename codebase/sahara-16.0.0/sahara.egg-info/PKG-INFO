@@ -1,0 +1,56 @@
+Metadata-Version: 1.2
+Name: sahara
+Version: 16.0.0
+Summary: Sahara project
+Home-page: https://docs.openstack.org/sahara/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: Apache Software License
+Description: ========================
+        Team and repository tags
+        ========================
+        
+        .. image:: https://governance.openstack.org/tc/badges/sahara.svg
+            :target: https://governance.openstack.org/tc/reference/tags/index.html
+        
+        .. Change things from this point on
+        
+        OpenStack Data Processing ("Sahara") project
+        ============================================
+        
+        Sahara at wiki.openstack.org: https://wiki.openstack.org/wiki/Sahara
+        
+        Storyboard project: https://storyboard.openstack.org/#!/project/935
+        
+        Sahara docs site: https://docs.openstack.org/sahara/latest/
+        
+        Roadmap: https://wiki.openstack.org/wiki/Sahara/Roadmap
+        
+        Quickstart guide: https://docs.openstack.org/sahara/latest/user/quickstart.html
+        
+        How to participate: https://docs.openstack.org/sahara/latest/contributor/how-to-participate.html
+        
+        Source: https://opendev.org/openstack/sahara
+        
+        Bugs and feature requests: https://storyboard.openstack.org/#!/project/935
+        
+        Release notes: https://docs.openstack.org/releasenotes/sahara/
+        
+        License
+        -------
+        
+        Apache License Version 2.0 http://www.apache.org/licenses/LICENSE-2.0
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.6

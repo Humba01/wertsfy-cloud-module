@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# WARNING: This file is managed by bifrost.
+for _os_key in $(set | awk '{FS="="}  /^OS_/ {print $1}'); do
+    unset $_os_key;
+done
+unset _os_key
+
+{% if enable_keystone | bool %}
+export OS_AUTH_TYPE=password
+case "$1" in
+{% for cloud in clouds | default({}) | dictsort %}
+# Section for {{ cloud.0 }}
+    "{{ cloud.0 }}")
+    export OS_PROJECT_DOMAIN_NAME="{{ cloud.1.config_project_domain_id | default('default') }}"
+    export OS_USER_DOMAIN_NAME="{{ cloud.1.config_user_domain_id | default('default') }}"
+    export OS_PROJECT_NAME="{{ cloud.1.config_project_name }}"
+    export OS_USERNAME="{{ cloud.1.config_username }}"
+    export OS_PASSWORD="{{ cloud.1.config_password }}"
+    export OS_AUTH_URL={{ cloud.1.config_auth_url }}
+    export OS_IDENTITY_API_VERSION=3
+    ;;
+{% endfor %}
+    *) echo -e "\nERROR unsupported or unspecified profile: $1\nMust be one of {{ clouds | default({}) | dictsort | map(attribute='0') | join(',') }}";;
+esac
+{% elif noauth_mode | bool %}
+export OS_AUTH_TYPE=none
+export OS_ENDPOINT={{ ironic_api_url }}
+{% else %}
+export OS_AUTH_TYPE=http_basic
+export OS_ENDPOINT={{ ironic_api_url }}
+case "${1:-bifrost}" in
+    "bifrost")
+        export OS_USERNAME="{{ default_username }}"
+        export OS_PASSWORD="{{ default_password }}"
+        ;;
+    "bifrost-admin")
+        export OS_USERNAME="{{ admin_username }}"
+        export OS_PASSWORD="{{ admin_password }}"
+        ;;
+    *) echo -e "\nERROR unsupported or unspecified profile: $1\nMust be one of bifrost, bifrost-admin";;
+esac
+{% endif %}
+
+{% if enable_tls | bool %}
+export OS_CACERT="{{ tls_certificate_path }}"
+{% endif %}

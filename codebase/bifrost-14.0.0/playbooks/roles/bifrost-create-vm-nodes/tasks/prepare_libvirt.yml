@@ -1,0 +1,302 @@
+# Copyright (c) 2017 Mirantis Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Setup libvirt - ensure network and storage pool are defined and active,
+# prepare dir for vm logs
+---
+- name: fail if secure boot is requested without UEFI
+  fail:
+    msg: Secure boot support requires default_boot_mode set to "uefi"
+  when:
+    - default_boot_mode != 'uefi'
+    - test_vm_secure_boot | bool
+
+- name: install libvirt-python, gunicorn and lxml
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: "{{ item }}"
+  loop:
+    - libvirt-python
+    - gunicorn
+    - lxml
+
+- name: configure libvirt log filters for qemu
+  blockinfile:
+    path: /etc/libvirt/libvirtd.conf
+    block: |
+      log_filters="1:qemu 1:libvirt 4:object 4:json 4:event 1:util"
+      log_outputs="1:file:/var/log/libvirt/libvirtd.log"
+
+- name: "Restart libvirt service"
+  service: name="{{ libvirt_service_name }}" state=restarted
+
+# NOTE(Shrews) We need to enable ip forwarding for the libvirt bridge to
+# operate properly with dnsmasq. This should be done before starting dnsmasq.
+- name: "Enable IP forwarding in sysctl"
+  sysctl:
+    name: "net.ipv4.ip_forward"
+    value: 1
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+# NOTE(Shrews) Ubuntu packaging+apparmor issue prevents libvirt from loading
+# the ROM from /usr/share/misc.
+- name: "Look for sgabios in {{ sgabios_dir }}"
+  stat: path={{ sgabios_dir }}/sgabios.bin
+  register: test_sgabios_qemu
+
+- name: "Look for sgabios in /usr/share/misc"
+  stat: path=/usr/share/misc/sgabios.bin
+  register: test_sgabios_misc
+
+- name: "Place sgabios.bin"
+  command: cp /usr/share/misc/sgabios.bin /usr/share/qemu/sgabios.bin
+  when:
+    - not test_sgabios_qemu.stat.exists
+    - test_sgabios_misc.stat.exists
+
+# NOTE(TheJulia): In order to prevent conflicts, stop
+# dnsmasq to prevent conflicts with libvirt restarting.
+# TODO(TheJulia): We shouldn't need to do this, but the
+# libvirt dhcp instance conflicts withour specific config
+# and taking this path allows us to not refactor dhcp at
+# this moment. Our DHCP serving should be refactored
+# so we don't need to do this.
+- name: "Stop default dnsmasq service"
+  service:
+    name: dnsmasq
+    state: stopped
+  ignore_errors: true
+
+# NOTE(TheJulia): Seems if you test in a VM, this might
+# be helpful if your installed your host originally
+# with the default 192.168.122/0/24 network
+- name: destroy libvirt network
+  virt_net:
+    name: "{{ test_vm_network }}"
+    state: absent
+    uri: "{{ test_vm_libvirt_uri }}"
+
+- name: ensure libvirt network is present
+  virt_net:
+    name: "{{ test_vm_network }}"
+    state: present
+    xml: "{{ lookup('template', 'net.xml.j2') }}"
+    uri: "{{ test_vm_libvirt_uri }}"
+
+- name: find facts on libvirt networks
+  virt_net:
+    name: "{{ test_vm_network }}"
+    command: facts
+    uri: "{{ test_vm_libvirt_uri }}"
+
+# NOTE(pas-ha) yet another place where non-local libvirt will not work
+- name: "Delete network interface if virtual network is not active"
+  command: ip link del {{ ansible_libvirt_networks[test_vm_network].bridge }}
+  when:
+    - ansible_libvirt_networks[test_vm_network].state != 'active'
+    - test_vm_libvirt_uri == 'qemu:///system'
+  ignore_errors: yes
+
+- name: set libvirt network to autostart
+  virt_net:
+    name: "{{ test_vm_network }}"
+    autostart: yes
+    uri: "{{ test_vm_libvirt_uri }}"
+
+- name: ensure libvirt network is running
+  virt_net:
+    name: "{{ test_vm_network }}"
+    state: active
+    uri: "{{ test_vm_libvirt_uri }}"
+
+- name: get libvirt network status
+  virt_net:
+    name: "{{ test_vm_network }}"
+    command: status
+    uri: "{{ test_vm_libvirt_uri }}"
+  register: test_vm_net_status
+
+- name: fail if libvirt network is not active
+  assert:
+    that: test_vm_net_status.status == 'active'
+
+- name: define a libvirt pool if not set
+  virt_pool:
+    name: "{{ test_vm_storage_pool }}"
+    state: present
+    uri: "{{ test_vm_libvirt_uri }}"
+    xml: "{{ lookup('template', 'pool_dir.xml.j2') }}"
+
+- name: ensure libvirt pool is running
+  virt_pool:
+    name: "{{ test_vm_storage_pool }}"
+    state: active
+    autostart: yes
+    uri: "{{ test_vm_libvirt_uri }}"
+
+- name: create dir for bm logs
+  file:
+    state: directory
+    path: "{{ test_vm_logdir }}"
+    recurse: yes
+    mode: "0755"
+
+- name: ensure parent dir for bm logs has proper rights
+  file:
+    state: directory
+    path: "{{ test_vm_logdir | dirname }}"
+    mode: "0755"
+
+- name: install virtualbmc
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: virtualbmc
+
+- name: ensure Virtual BMC systemd service is configured
+  template:
+    src: vbmcd.service.j2
+    dest: /etc/systemd/system/vbmcd.service
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+  register: vbmcd_service_file
+
+- name: create Virtual BMC configuration directory
+  file:
+    path: /etc/virtualbmc
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+
+- name: write Virtual BMC configuration file
+  template:
+    src: virtualbmc.conf
+    dest: /etc/virtualbmc/virtualbmc.conf
+    owner: root
+    group: root
+    mode: 0600
+  become: true
+
+- name: ensure Virtual BMC systemd service is started and enabled
+  systemd:
+    name: vbmcd
+    enabled: yes
+    state: started
+    daemon_reload: "{{ vbmcd_service_file.changed }}"
+  become: true
+
+- name: install sushy-tools
+  include_role:
+    name: bifrost-pip-install
+  vars:
+    package: sushy-tools>=0.18.2
+
+- name: create Redfish Emulator state directory
+  file:
+    name: "{{ redfish_emulator_state_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0600
+  become: true
+
+- name: ensure Redfish Emulator systemd service is configured
+  template:
+    src: redfish-emulator.service.j2
+    dest: /etc/systemd/system/redfish-emulator.service
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+  register: redfish_emulator_service_file
+
+- name: reload systemd units if needed
+  systemd:
+    daemon_reload: "{{ redfish_emulator_service_file.changed }}"
+
+- name: find OVMF firmware
+  set_fact:
+    efi_loader_path: "{{ item }}"
+  with_first_found: "{{ efi_loader_locations }}"
+  ignore_errors: true
+  when: efi_loader_path is undefined
+
+- name: fail if UEFI is requested and no OVMF firmware is found
+  fail:
+    msg: >
+      UEFI is requested but no OVMF firmware can be found. Please set
+      efi_loader_path explicitly. Note that firmware with secure boot enabled
+      may not work yet.
+  when:
+    - efi_loader_path is undefined
+    - default_boot_mode == 'uefi'
+
+- name: find OVMF NVRAM
+  set_fact:
+    efi_nvram_path: "{{ item }}"
+  with_first_found: "{{ efi_nvram_locations }}"
+  when: default_boot_mode == 'uefi'
+
+- name: write Redfish Emulator password file
+  htpasswd:
+    path: /etc/redfish-emulator.htpasswd
+    crypt_scheme: bcrypt
+    name: "admin"
+    password: "password"
+    owner: root
+    group: root
+    mode: 0600
+
+- name: write Redfish Emulator configuration file
+  template:
+    src: redfish-emulator.conf.j2
+    dest: /etc/redfish-emulator.conf
+    owner: root
+    group: root
+    mode: 0600
+  become: true
+  register: redfish_emulator_config_file
+
+# NOTE(dtantsur): the migration can be removed after Xena
+
+- name: check for the old state directory
+  stat:
+    path: /tmp/sushy-emulator
+  register: redfish_emulator_old_state_dir
+
+- block:
+  - name: stop Redfish Emulator before migrating its state directory
+    systemd:
+      name: redfish-emulator
+      state: stopped
+  - name: migrate existing Redfish Emulator state directory
+    shell: mv /tmp/sushy-emulator/*.sqlite "{{ redfish_emulator_state_dir }}"
+  become: true
+  ignore_errors: true
+  when: redfish_emulator_old_state_dir.stat.exists
+        and redfish_emulator_state_dir != '/tmp/sushy-emulator'
+
+- name: ensure Redfish Emulator systemd service is started and enabled
+  systemd:
+    name: redfish-emulator
+    enabled: yes
+    state: restarted
+  become: true

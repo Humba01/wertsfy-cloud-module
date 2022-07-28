@@ -1,0 +1,71 @@
+{% load i18n sizeformat %}
+
+<div class="detail">
+  <div class="info detail">
+    <h4>{% trans "Lease" %}</h4>
+    <hr class="header_rule">
+    <dl class="dl-horizontal">
+      <dt>{% trans "Name" %}</dt>
+      <dd>{{ lease.name|default:_("None") }}</dd>
+      <dt>{% trans "Id" %}</dt>
+      <dd>{{ lease.id|default:_("None") }}</dd>
+      <dt>{% trans "Project Id" %}</dt>
+      <dd>{{ lease.project_id|default:_("None") }}</dd>
+      <dt>{% trans "Start date" %}</dt>
+      <dd>{{ lease.start_date|parse_isotime|date:"Y-m-d H:i T"|default:"-" }}</dd>
+      <dt>{% trans "End date" %}</dt>
+      <dd>{{ lease.end_date|parse_isotime|date:"Y-m-d H:i T"|default:"-" }}</dd>
+      <dt>{% trans "Status" %}</dt>
+      <dd>{{ lease.status|default:"-" }}</dd>
+      <dt>{% trans "Degraded" %}</dt>
+      <dd>{{ lease.degraded|yesno|capfirst|default:"-" }}</dd>
+    </dl>
+  </div>
+
+  <div class="info detail">
+    <h4>{% trans "Events" %}</h4>
+    <hr class="header_rule">
+    <dl class="dl-horizontal">
+    {% for event in lease.events %}
+      <dt>{{ event.event_type }}</dt>
+      <dd>
+        <ul>
+          <li><em>{% trans "Status:" %}</em>&nbsp;{{ event.status|replace_underscores|lower|capfirst }}</li>
+          <li><em>{% trans "Time:" %}</em>&nbsp;{{ event.time|parse_isotime|date:"Y-m-d H:i T"|default:"-" }}</li>
+        </ul>
+      </dd>
+      {% empty %}
+      <dt>{% trans "No events defined." %}</dt>
+    {% endfor %}
+    </dl>
+  </div>
+
+  <div class="info detail">
+    <h4>{% trans "Reservations" %}</h4>
+    {% for reservation in lease.reservations %}
+      <hr class="header_rule">
+      <dl class="dl-horizontal">
+        <dt>{% trans "id" %}</dt>
+        <dd>{{ reservation.id|default:"-" }}</dd>
+        <dt>{% trans "status" %}</dt>
+        <dd>{{ reservation.status|default:"-" }}</dd>
+        <dt>{% trans "resource type" %}</dt>
+        <dd>{{ reservation.resource_type|default:"-" }}</dd>
+        <dt>{% trans "missing resources" %}</dt>
+        <dd>{{ reservation.missing_resources|yesno|capfirst|default:"-" }}</dd>
+        <dt>{% trans "resources changed" %}</dt>
+        <dd>{{ reservation.resources_changed|yesno|capfirst|default:"-" }}</dd>
+        {% for key, value in reservation.items %}
+          {% if key not in reservation_generals %}
+            <dt>{{ key }}</dt>
+            {% if value is True or value is False %}
+              <dd>{{ value|yesno|capfirst|default:"-" }}</dd>
+            {% else %}
+              <dd>{{ value|default:"-" }}</dd>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </dl>
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,12 @@
+---
+- name: Ensure the Kolla build configuration file exists
+  merge_configs:
+    sources: "{{ kolla_build_config_paths | product(['/kolla/kolla-build.conf']) | map('join') | list }}"
+    dest: "{{ kolla_build_config_path }}/kolla-build.conf"
+    mode: 0644
+
+- name: Ensure the Kolla build template overrides file exists
+  template:
+    src: template-override.j2.j2
+    dest: "{{ kolla_build_config_path }}/template-override.j2"
+    mode: 0644

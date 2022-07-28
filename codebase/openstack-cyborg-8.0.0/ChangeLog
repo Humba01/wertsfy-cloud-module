@@ -1,0 +1,574 @@
+CHANGES
+=======
+
+8.0.0
+-----
+
+* no type field in ExpectedOneObject format message
+* Fix the null value of \`deployable\_id\` in arq
+* Add unittest test\_obj\_make\_compatible() for dp objects
+* Add description of the device's parameter
+* Fix missing model of inspur's FPGA
+* Fix some typos
+* Add missing error codes for deployables APIs
+* Add ut for getting by non-existed id
+* Update error codes in getting device API
+* fix bug that missing context param
+* Fix the typo of device profile name
+* Add ut for list device profile by name
+* Update contributor page
+* Add install index page
+* Updating python testing classifier as per Yoga testing runtime
+* Get device profile by name
+* doc: mark the max microversion for Victoria
+* Do not get non-inspur fpga devices when enable inspur\_fpga\_driver
+* Doc Improvment:Add doc about cyborg-nova interaction
+* Docs: Add the missing parameter table in deployables API
+* docs: Add parameters table to devices APIs
+* overriding configured project name with name extracted from the package (openstack-cyborg)
+* Trival change:remove unused code
+* Fix the help text format
+* Refactor the get\_pci\_devices method
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+7.0.0
+-----
+
+* Fix the wrong link
+* Fix the arq post api doc
+* Add description comment for device profile create
+* Resolve mysql conflict message
+* Add the microversion history docs
+* Remove the redundant index page for APIs entry
+* Changed minversion in tox to 3.18.0
+* update oslo.db version to 10.0.0
+* Delete trait from placement
+* Add test cases for checking device profile create params
+* Fix oslo policy DeprecatedRule warnings
+* Erase previously collected coverage for cybrog
+* Add test case for create device profile
+* Replace deprecated with\_lockmode with with\_for\_update
+* imporve api "delete arq by uuids"
+* Add ut for nova returns HTTP 207 with all event code 400
+* Fill the msg of exception
+* Fix the exception content
+* docs: Update Freenode to OFTC
+* Update rc to placement in reporting datas when rc changed
+* Bump WSME and sphinxcontrib-pecanwsme version
+* removed the duplicate “EnumField = object\_fields.EnumField
+* Correct comment message
+* Give a more detailed picture about the cyborg architecture
+* Correct wrong comment
+* docs: Add parameters list to device profile APIs
+* revert the created device datas
+* Transport the param with ['deployable\_id ','key'] when filter the attribute by deployable\_id and key
+* Give a more precise definition and fix a sphinx syntax error
+* setup.cfg: Replace dashes with underscores
+* Fix wrong args when calling unbind() method
+* Remove TODO tag
+* Remove personal name in the docs
+* Using pop method to avoid incompatible data type
+* Switch using Launchpad instead of Storyboard
+* Add backup and snapshot support matrix
+* Revert device\_profile key to show device profile API
+* tools: Allow check-cherry-picks.sh to be disabled by an env var
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+* Travil Change: Correct comment errors
+
+6.0.0.0rc1
+----------
+
+* Remove ARQInvalidState exception
+* improve drivers with enumerate()
+* bug-fix: correct the comment for each vendor driver
+* Add NVMe SSD driver
+* Update server operations support in matrix
+* support configuring multiple vgpu types in cyborg
+* Add tags to .gitignore
+* Add intel NIC driver
+* Add newline to enable lists
+* Revert "remove py37"
+* Trival: Fix the key error in log msg
+* Installation document improvement
+* Remove \_\_unicode in CyborgException
+* remove py37
+* remove unicode from code
+* Use TOX\_CONSTRAINTS\_FILE
+* Refresh cyborg-api link
+* Change the dependency with the testenv:docs
+* Dep's should be restricted by upper-constraints
+* refresh device profile link in API doc
+* Import HTTPStatus instead of http\_client
+* Add db migrations test
+* Add project\_id description in api\_ref
+* Remove cyborg-dbsync unsupport argument
+* Add microversion instructions
+* Add intel\_qat\_driver for enabled\_drivers help
+* Add packages required for pdf-docs run to bindep.txt
+* Add index page for contributors guide
+* Remove tmp bitstream file always
+* Correct some small errors
+* Refactor device\_profile retrieve in ARQ post API
+* Bump py37 to py38 in tox.ini
+* Add releasenote for policy refresh base and device profile policies
+* improve pep8 check logic
+* Remove usage of six
+* Add fast8 check for cybrog
+* add document for cyborg new policy
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+* Signal to conductor service to apply patch accelerator requests
+* Add rc check for POST Device Profile
+* Add trait check for POST Device Profile
+* fix cyborg uwsgi doc error
+* Change default policy file from JSON to YAML
+
+5.0.0.0rc1
+----------
+
+* [goal] Fixing lower constraints for Ubuntu Focal
+* Programming support (v2 Deployable API)
+* Add releasenote for programming method
+* Change arq delete to cyborg-conductor service write db
+* Replace wsme to \`convert\_with\_links\` for device profile API
+* Change arq create to cyborg-conductor service write db
+* Introduce scope\_types in Device Profiles Actions
+* Add new default roles in Device Profile API policies
+* Add releasenote for Intel QAT driver
+* Suppress policy deprecated warnings in tests
+* Add new default rules and mapping in policy base class
+* Add policies tests for existing device\_profile APIs
+* Add Inspur FPGA driver releasenote
+* Keep Inspur FPGA deployable\_name unique
+* Add Inspur FPGA driver
+* Add releasenote for add project\_id for arq patch api
+* keep FPGA driver's deployable\_name unique
+* Add Inspur FPGA driver matrix
+* Add a new column in driver matrix
+* keep GPU driver's deployable\_name unique
+* Add instance project\_id for arq patch
+* Correct spell error from \`seperate\` to \`separate\`
+* Add a new driver for Intel QAT card
+* Optimize microversion support
+* Revert "Add new default policy"
+* Add new default policy
+* update API documentation
+* Removed unused image api methods
+* Remove deprecated cyborg.image.download.modules
+* Remove api\_servers references
+* hacking: force explicit import of python's mock
+* Use uwsgi binary from path and docs job fix
+* Use unittest.mock instead of third party mock
+* Remove future imports
+* Remove OPAE dependency in devstack
+* Enable openstackdocs config to storyboard
+* Always reset CONF when starting the wsgi app
+* Switch to newer openstackdocstheme and reno versions
+* Fix flake8 error from hacking <3.0.1
+* add ut for get arqs list
+* Fix hacking min version to 3.0.1
+* Monkey patch original current\_thread \_active
+* Fix fake attribute old interface
+* optimize gpu driver generate attribute list
+* Fix copy-paste typo
+* Remove translation sections from setup.cfg
+* Update docs building
+* Add py38 package metadata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+4.0.0
+-----
+
+* Fix bandit error: Ascend driver:[B602:subprocess\_popen\_with\_shell\_equals\_true]
+* Fix bandit error: [B104:hardcoded\_bind\_all\_interfaces]
+* Fix bandit error: [B108:hardcoded\_tmp\_directory]
+* revert device and deployable when resource provider create fail
+* Change bandit job from non-voting to voting
+* Fix bandit error: SPDK driver:[B602:subprocess\_popen\_with\_shell\_equals\_true]
+* Refactor v2 arq api
+* Bump openstacksdk>=0.46.0
+* Introduce microversion
+* Finish v2 API doc
+* Cleanup py27 support
+* Optimize device profiles APIs
+* Upgrade minversion to match python3
+* Update contributing.rst per Ussuri goal and guidelines
+* Update Nova API microversion in nova\_client.py
+* Add comments for deletion of ARQs by instance or ARQ UUIDs
+* Update hacking for Python3
+* Check during ARQ bind that the target instance has no other ARQs
+* default host to socket.gethostname()
+* Generate PDF documentation
+* Add Cyborg API Reference to Cyborg index page
+* Add 'description' field to the device profile object
+* Add description column to device\_profiles db
+* Deployable V2 API implementation
+* Always stop cyborg-api process uwsgi container
+* Fix setting cyborg agent hostname
+* add support for installing cyborg client
+* simplify devstack plugin
+* move functions from devstack/plugin.sh to devstack/lib/cyborg
+* support standard devstack plugin cloning
+* Fix GPU's improper cpid\_type allowed value and attach\_handle\_type value
+* Bugfix: Set the appropriate status code for ServiceUnavailable
+* Improve the accuracy of device profile API responses in docs
+* Bugfix: expose placement service unavailable before diff cyborg db
+* Bump oslo.messaging version >= 10.3.0
+* Remove V1 API and related codes
+* Fix minor error in extarq job
+* Optimize deployble object module
+* Remove useless interfaces in agent
+* move setting to devstack/settings
+* Remove useless interfaces in cond
+* Add obj\_make\_compatible()
+* Delete sandbox directory
+* add support for multi node deployments to fake driver
+* Revert "Solve py37 timeout"
+* add testcases for async job bind
+* Fix exceptions defined with improper \_msg\_fmt
+* Avoid creating a root provider when parent is not found
+* change default SimpleQueue to \_PySimpleQueue for queue
+* add testcase for check\_bindings\_result failed
+* UT for job manager
+* Solve py37 timeout
+* Use ResourceNotFound replace ControlpathIDNotFound
+* Improve UT for cyborg/db ExtArq
+* Remove useless attributes list in Deployable
+* Improve UT for cyborg/db deployable
+* Improve UT for cyborg/db device
+* Improve UT for cyborg/db attach handle
+* Remove the invalid specs from doc/source
+* Fix warning in logs that '' is not a valid UUID
+* Send a separate bind event to Nova for each ARQ in an instance
+* Some bug fixes in async bind path
+* bugs fix for compatibility issues between Py2 and Py3
+* Guess for the root cause of timeout
+* Enhance the db layer to verify filters
+* Document the alembic CLI better in README
+* Update gpu driver
+* Improve UT for cyborg/db device profile
+* Define fake db objects for UT
+* testcase for FPGAExtARQ
+* Use ResourceNotFound replace RP and Image NotFound
+* Remove useless get\_test\_accelerator method and fix uuid error
+* Use ResourceNotFound replace DeployableNotFound
+* Set default value in get fpga trait
+* Use ResourceNotFound replace DeviceNotFound
+* Use ResourceNotFound replace AttachHandleNotFound
+* Implementation of Device v2 API
+* Use ResourceNotFound replace ExtArq and Attribute NotFound
+* Use ResourceNotFound replace DeviceProfileNotFound
+* Introduce bandit security linter
+* Add created\_time and update\_time for device profile API
+* Improve objects/device.py UT coverage from 82% to 100%
+* BugFix: Modify objects/device.py get\_by\_device\_id method
+* Modify api-paste.ini v1 to v2
+* Refactor \_gen\_resource\_inventory
+* Enable UT for objects/deployable.py and fix import error
+* BugFix: modify the max allocation limit of acceleration resources
+* Do not fail ARQ binding for specific Nova notification errors
+* Replace pycodestyle with pep8 for python3 compatible
+* Remove 'base object' that no longer exist
+* Add 5 placeholder db migration scripts for Train
+* Update api-ref: Add accelerator requests(ARQs) section
+* Update api-ref: deprecate v1 add v2 device\_profile section
+* Set ARQ get\_all return 423 when any ARQ for vm is not resolved
+* Add procname for uwsgi based service cyborg-api
+* Set ignore\_basepython\_conflict (fixes confusing pep8 message)
+* Improve objects/attach\_handle.py UT coverage from 68% to 100%
+* Remove api in doc
+* BugFix: FakeDirver put RC FPGA error
+* Stop testing python2.7
+* Set compute API microversion to 'latest' when calling Nova
+* Simplify devstack script for generating cyborg.conf
+* Increase #accelerators in fake driver
+* Fix method names and coding conventions in Placement client
+* Exclude cyborg tests dir in UT cover report
+* Bugfix: modify the log location for successful async bind ARQs
+* Bugfix: \_needs\_programming lack one situation process
+* Enable openstack-cover-jobs in zuul check for cyborg
+* Update docstring for apply\_patch
+* Remove useless glance api\_servers define
+* Switch to Ussuri jobs
+* Fix attach\_handle status error when creating vm successfully
+* bug fix: ensure resource class instead of getting it
+* Add GPU to supportted device
+* Bump the openstackdocstheme extension to 1.20
+* API documentation update
+* Update driver section
+* Cleanup index / add in driver support matrix
+* async job for bind
+* Update master for stable/train
+
+3.0.0
+-----
+
+* Fix delete arq 403 failed and skip non-admin arq policy check
+* Program FPGAs with oslo.privsep
+* Fix the hardcoding of user role using sdk\_adapter approach
+* Implement privsep boilerplate in cyborg
+* conductor writes device\_profile update to db
+* Enable fake\_driver by default
+* Enable api v2 policy check
+* Fix v1 API
+* remove rootwrap in cyborg
+* Blacklist eventlet 0.23.0,0.25.0
+* [train][goal] Run 'cyborg-tempest-ipv6-only' job in gate
+* Fix arq api errors in delete and unbind
+* bug fixing: let FPGA driver report correct traits when no SRIOV enabled
+* P8: Fix pep8 error in cyborg/tests and add post\_mortem\_debug.py
+* P7: Fix pep8 error in cyborg/objects and cyborg/image
+* P6: Fix pep8 error in cyborg/agent and cyborg/db
+* P5: Fix pep8 error in cyborg/accelerator
+* python3 patch (including zuul config)
+* add cyborg-tempest job and remove cyborg-devstack job
+* Notify Nova when all ARQs are resolved for an instance
+* Make ResourceNotFound as NotFound exception
+* P9: Enable v2 API in devstack
+* P8: Changes for programming
+* P7: Changes for ARQs and ExtARQs
+* P6: Changes for device profiles
+* P5.5: Additional changes to db layer
+* P5: Basic changes for API layer
+* Using str replace encode or decode
+* Fix placement report error in python3
+* Remove the delete rc\_fields in fake driver
+* Add driver\_name to deployable reported by fake driver
+* Placement report
+* Add Huawei Ascend driver
+* bug fix: generate attach\_handle query in DB session
+* Update README.rst for cyborg
+* P4: Fix pep8 error in cyborg/api
+* P3: Fix pep8 error in cyborg/common and cyborg/conductor
+* P2: Fix pep8 error in cyborg/conf and cyborg/cmd
+* Fix pep8 error in cyborg/\*.py and add Forbidden class
+* enable branch selection in devstack installation
+* Fill "driver\_name" field in Deployable object
+* Solve execute flake8 stuck in cyborg
+* Fix docs gate issue
+* fake driver bug fix
+* Add the fake driver
+* Add serialization/deserialization for control\_path.cpid\_info
+* Bug-fix in FPGA driver test case
+* fix cannot load 'stub' error for gpu discover
+* Add bindep support
+* P4: Basic changes for objects layer
+* P3: Changes for services
+* P2: Changes for db layer, constants and exceptions
+* Update api-ref location
+* improve intel FPGA driver
+* do not diff stub devices
+* Remove old load fpga and gpu driver way
+* P1: Disable old tests and add base for APIv2 tests
+* Change attach\_info, cpid\_info from string to a dict
+* Fix re defination of GPU
+* Add AICHIP and GENERIC type in DB and obj
+* Add the new generic driver
+* Remove the old generic driver
+* Mailing lists change openstack-dev to openstack-discuss
+* Update json module to jsonutils
+* bug fix: deploy every cyborg components correctly
+* Fix the section of enabled\_drivers
+* Move to releases.openstack.org
+* Sync Sphinx requirement
+* Dropping the py35 testing
+* Improve Intel sysinfo based FPGA driver
+* Fix auth config in "Install Cyborg from Source"
+* Use opendev repository
+* OpenDev Migration Patch
+* add knob for OPAE install
+* Bug-fix: attach\_type or control path type should be majuscule
+* Add deployables to api-ref
+* Fix Invalid fpgconfig options in driver.py
+* fix api context load failure for cyborg-api runs by uwsgi
+* Add cyborg driver development guide
+* Fix destroy DBReferenceError in driver\_device.py
+* Replace openstack.org git:// URLs with https://
+* Initial commit for cyborg api-ref
+* Update master for stable/stein
+
+2.0.0
+-----
+
+* let conductor to update DB and placement
+* Add driver-side OVO functions
+* Add gpu driver
+* Fix undefined name 'api\_dep' error in deployables.py
+* Add the module used but not be imported
+* Add the params default value for method \_paginate\_query()
+* Fix method 'test\_discover' assertError in test\_driver.py
+* Improve Intel FPGA driver
+* Fix failures in v1 accelerator API. Updated documentation
+* Report data to conductor
+* Fix bug: deployable object related bugs
+* Modify the deployable's api for new database work
+* Bug fix: Change object definition according to the newest DB
+* Fix:add python-glanceclient to cyborg requirements
+* Add New Driver OVO
+* Modified the Deployable Object
+* Add Device and DeviceProfile objects
+* Add AttachHandle and ControlpathID objects
+* Modify "extended\_accelerator\_requests" table "project\_id" field
+* Fix New DB Schema problems
+* Add ExtArq and ARQ object
+* Add new DB schema: sqlachemy and alembic scripts
+* Fix tox -e py27
+* Update the API content in the document to Rocky
+* Add OS-limitation in the devstack\_setup doc
+* Add "Report device data to cyborg"
+* Devstack enablement for OPAE FPGA driver
+* List accelerators for all-tenants by default
+* [Docs] Install cyborg from source code
+* Replacing the HTTP protocal with HTTPS in devstack\_setup.rst
+* Added downloading bitstream when programming fpga
+* Add cyborg-status upgrade check command framework
+* bug fix: fix 2 bugs for image client
+* use context to get project\_id and user\_id
+* Fix imports in spdk driver
+* [docs] Deploy cyborg api under WSGI server
+* Deploy cyborg-api via uwsgi
+* Don't quote {posargs} in tox.ini
+* Add WSGI support script for cyborg API
+* PY3 : Replice dict.iteritems() with dict.items()
+* Bug fix: add missing fields required when adding deployables
+* Added Glance Client for Image downloading
+* Increment versioning with pbr instruction
+* python2/3 compatibilty for spdk/util using oslo.log
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Improve pep8 checking along with hacking
+* Quota usage support in Cyborg
+* Fix deployable attribute object issues and unit test failures
+* Update reno for stable/rocky
+* Follow the new PTI for document build
+* Update html\_theme so cyborg doc page displays in standard page theme
+
+1.0.0
+-----
+
+* support sub provider
+* Fix deployable get all sort issue and unit test failure
+* Docs: Autogenerate config documentation
+* Imply new cyborg deployable api
+* Added rest API for FPGA programming
+* Switch to stestr
+
+1.0.0.0b3
+---------
+
+* Add "interface\_type" field in deployable DB
+* Improve .gitignore for project
+* remove AUTHORS file from git
+* Move specs under doc/source so they build
+* fix tox python3 overrides
+* Bug fix in setup.cfg for rocky ms2
+* Introduce Cyborg Resource Quota -- Usage Part
+* Fix tox -egenconfig
+* Added bitstream metadata standardization spec
+* Specification for Cyborg/Nova interaction for scheduling
+* Added cyborg fpga programming spec
+* use config options from keystoneauth1 under placement
+
+1.0.0.0b2
+---------
+
+* Specification for Cyborg Agent-Driver API
+* Load cyborg-api app with paste\_deploy
+* Add note to dev\_setup doc
+* Fix Deployable get\_by\_host
+* doc fix: devstack setup doc can not display well
+* Specification for Cyborg/Nova/Glance interaction in the compute node, including os-acc library API
+* change service type to "accelerator"
+* Add doc8 to pep8 check for cyborg project
+* Added attribute object and its unit tests
+* uncap eventlet
+* Fix remote call conductor error
+* bug fix: endpoint register, import and devstack broken issues
+
+1.0.0.0b1
+---------
+
+* Enable mutable config in Cyborg
+* Implemented the Objects and APIs for vf/pf
+* bug fix: devstack can not start cyborg
+* Add default configuration files to data\_files
+* Remove etc/cyborg/cyborg.conf.sample from project
+* queens release doc fix part 3
+* It's releasenotes - plural
+* Remove ChangeLog
+* Fix doc build warnings
+* queens release doc fix part 2
+* Add release pkg related files
+
+0.1.0
+-----
+
+* bug fix: devstack adds cyborg account and endpoint
+* bug fix: rename accelerator to Accelerator
+* bug fix: missing i18n.\_()
+* add test case for agent resource tracker
+* queens release doc fix part 1
+* Provide reference implementation for Cyborg
+* Added Unit tests for object Accelerator and Deployable
+* Add Cyborg SPDK Driver
+* Implement FPGA data model and corresponding API
+* FPGA driver support
+* aggent support resource tracker for FPGA
+* Zuul: Remove project name
+* Added NOVA Placement API Client and unit tests. This feature is used for updating the placement DB on NOVA side Cyborg DB should be kept up to date with the placement DB all the time
+* Fix bug in cyborg/devstack script
+* Added proposal for fpga modelling
+* Internal API spec
+* Let user to setup and run Cyborg by devstack
+* Supplementing accelerator CRUD api
+* Cyborg FPGA driver support
+* Move legacy jobs to project
+* Fix 500 error when creating accelerators
+* Indicating the location tests directory in oslo\_debug\_helper
+* Auto generate cyborg.conf with oslo-config-generator
+* Replace jsonutils by common json package
+* Cyborg Nova interaction take 2
+* Cleanup test-requirements
+* Add Cyborg SPDK driver
+* Fix issues with devstack script
+* add api unit test
+* Pike doc clean up
+* Update and replace http with https for doc links in cyborg
+* Add devstack plugin for Cyborg
+* add authtoken-middleware
+* Add Release Notes and Architecture Docs
+* Update contributing guide
+* Updated Hacking doc
+* Replace all occurences of Nomad with Cyborg
+* Replace DbMigrationError with DBMigrationError
+* add policy support
+* Cyborg deployment script
+* Modify tox.ini to reflect patch tests
+* add cyborg-conductor & db
+* add cyborg-api v1 & hooks
+* Rename nomad to cyborg
+* Updating the link of docs,bugs,bps in README.rst
+* Database interface using sqlalchemy
+* Add cyborg-api command
+* Add Pecan/WSME framework for API
+* Create driver directories and prototype generic driver
+* Cyborg Conductor Stubs
+* Removed older version of python added 3.5
+* Initial cyborg api and db design proposal
+* Agent Stubs
+* Accelerator class for internal representation
+* Drop MANIFEST.in - it's not needed by pbr
+* Don't include openstack/common in flake8 exclude list
+* Add basic gitignore file
+* Add spec for Cyborg generic driver implementation
+* Cyborg Agent Spec
+* Conductor spec
+* Setup sandbox and specs folder
+* Rename old Nomad files to Cyborg
+* Rename project in .gitreview
+* Cleanup tox.ini: Remove obsolete constraints
+* initial setup "correct tox.ini testr and test-requirement.txt requirement , add .testr.cof"
+* Added .gitreview

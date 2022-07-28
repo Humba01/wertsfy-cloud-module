@@ -1,0 +1,29 @@
+CHANGES
+=======
+
+3.0.0
+-----
+
+* Remove use of ansible\_fqdn
+
+1.1.0
+-----
+
+* Add task to remove clients from HSM
+
+1.0.0
+-----
+
+* Ignore mode warning for unarchive
+* Fix certificate file name
+* Add support for High Availability
+* Small cleanups
+* Use underscore instead of dash
+* Set ha\_slot fact
+* Use ansible expect task instead of expect command
+* Add zuul jobs
+* Remove WIP hieradata tasks
+* Fix yaml syntax errors
+* Check for errors in lunacm commands
+* Remove zuul config
+* Initial commit

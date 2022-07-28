@@ -1,0 +1,49 @@
+---
+# NOTE(mgoddard): The acl package is required for the setfacl command, used by
+# become_user.
+- name: Ensure acl package is installed
+  package:
+    name: acl
+    cache_valid_time: "{{ apt_cache_valid_time if ansible_facts.os_family == 'Debian' else omit }}"
+    update_cache: "{{ True if ansible_facts.os_family == 'Debian' else omit }}"
+  become: true
+
+- name: Create local .pip directory
+  file:
+    path: "~{{ item }}/.pip"
+    state: directory
+  become: True
+  become_user: "{{ item }}"
+  loop: "{{ pip_applicable_users }}"
+
+- name: Create pip.conf
+  copy:
+    content: |
+      [global]
+      {% if pip_index_url | length > 0 -%}
+      index-url = {{ pip_index_url }}
+      {% endif -%}
+      {% if pip_trusted_hosts | length > 0 -%}
+      trusted-host =
+        {% for host in pip_trusted_hosts | unique -%}
+        {{ host }}
+        {% endfor -%}
+      {% endif -%}
+      {% if pip_proxy | length > 0 -%}
+      proxy = {{ pip_proxy }}
+      {% endif -%}
+    dest: "~{{ item }}/.pip/pip.conf"
+  become: True
+  become_user: "{{ item }}"
+  loop: "{{ pip_applicable_users }}"
+
+- name: Create .pydistutils.cfg
+  copy:
+    content: |
+      [easy_install]
+      index-url = {{ pip_index_url }}
+    dest: "~{{ item }}/.pydistutils.cfg"
+  when: pip_index_url | length > 0
+  become: True
+  become_user: "{{ item }}"
+  loop: "{{ pip_applicable_users }}"

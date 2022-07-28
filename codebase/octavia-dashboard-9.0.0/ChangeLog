@@ -1,0 +1,434 @@
+CHANGES
+=======
+
+9.0.0
+-----
+
+* Display Draining state correctly
+* setup.cfg: Replace dashes by underscores
+* Updating python testing classifier as per Yoga testing runtime
+* Fix invalid value range for member weight
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+8.0.0
+-----
+
+* Change the Octavia Barbican namespace
+* Drop horizon-nodejs10-jobs template
+* Imported Translations from Zanata
+* Add example logging setting
+* Add horizon-nodejs14-job template
+* Fix deleting multiple resources
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+7.0.0
+-----
+
+* Imported Translations from Zanata
+* Disable Load Balancers panel when Octavia service is not deployed
+* Allows creation of resources without forcing the creation of children
+* Add TLS enabled support for pools
+* Add ciphers options for listeners and pools
+* Imported Translations from Zanata
+* Remove unicode to adapt to python3
+* Fix lower-constraints for new pip release
+* Add textarea field for allowed\_cidrs in the listener api
+* Imported Translations from Zanata
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+* Add support for SCTP
+
+6.0.0.0rc1
+----------
+
+* [goal] Migrate testing to ubuntu focal
+* Add proxy protocol v2 support to dashboard
+* Fix up display of selected Availability zone in workflow
+* Imported Translations from Zanata
+* Bump the minimum openstacksdk version
+* drop mock from lower-constraints
+* Cleanup py27 support
+* Switch to newer openstackdocstheme and reno versions
+* Switch to hacking 3.0
+* Imported Translations from Zanata
+* Add py38 package metadata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+5.0.0.0rc1
+----------
+
+* Availability zone support
+* Imported Translations from Zanata
+* Add missing fields for HTTPS health monitors
+* Fix pyScss version in lower-constraints.txt
+* Remove six usage
+* Drop Django 1.11 support
+* OpenStack is dropping the py2.7 support in ussuri cycle
+* translation: drop babel extractor definitions
+* Fix Django version in lower-constraints
+* Imported Translations from Zanata
+* Fix fip address display for loadbalancer
+* Imported Translations from Zanata
+* Switch to official Ussuri jobs
+* Use Horizon project template for django jobs
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update master for stable/train
+* Imported Translations from Zanata
+
+4.0.0.0rc1
+----------
+
+* Fix dashboard certificates skipping pkcs12 bundles
+* Enable fail-fast on the gate queue
+* Generate PDF documentation
+* Imported Translations from Zanata
+* Use lower-constraints template
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update api-ref location
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Added UDP support for listener and health-monitor
+* Bump the openstackdocstheme extension to 1.20
+* Sync Sphinx requirement
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add Python 3 Train unit tests
+* Update tox.ini for new upper constraints strategy
+* Remove reference to Neutron LBaaS dashboard
+* Fix devstack plugin python3 support
+* Fix 403 issue when creating load balancers
+* Imported Translations from Zanata
+* Changes for url transition to OpenDev
+* OpenDev Migration Patch
+* witch python3 versions of test jobs to match Train PTI
+* Drop nodejs4 jobs
+* Displays the subnet id when the subnet name is empty
+* Update master for stable/stein
+
+3.0.0
+-----
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add nodejs10 jobs on bionic
+* Switch to horizon-nodejs4-jobs template
+* Add load balancer flavor support
+* Imported Translations from Zanata
+* Fix auth url for Barbican client
+* Allow cascade deletion of load balancer
+* add python 3.7 unit test job
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+*     Honor OPENSTACK\_ENDPOINT\_TYPE in Horizon's local\_settings.py
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update hacking version
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Implements a filtered select
+* fix typo mistakes
+* Imported Translations from Zanata
+* Modify http to https
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Change openstack-dev to openstack-discuss
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Modify the wrong url
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update min tox version to 2.0
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Support the X-Forwarded-Proto insertion header
+* Show the 'Insert Headers' when listener protocol is 'HTTP' or 'TERMINATED\_HTTPS'
+* Increment versioning with pbr instruction
+* Imported Translations from Zanata
+* Add Python 3.6 unit test jobs
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Imported Translations from Zanata
+* Remove obsolete gate hooks
+* Imported Translations from Zanata
+* Drop nose dependencies
+* Cannot update ssl certificate when update listener
+* Update reno for stable/rocky
+* Add Apple OS X ".DS\_Store" to ".gitignore" file
+
+2.0.0.0rc1
+----------
+
+* Set a minimum coverage threshold for javascript
+* Update octavia-dashboard tox for stestr
+* fix tox python3 overrides
+
+2.0.0.0b2
+---------
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Allow detail pages to auto refresh upon action
+* Imported Translations from Zanata
+* Allow members to be set as "backup"
+* Allow member name to be set and updated
+* Imported Translations from Zanata
+* Replace noop tests with registration test
+* Fix sphinx-docs job for sphinx >1.7
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add the missing type for Health Monitor
+* Make the display of none consistent in detail page
+* Add timeout options for listener
+* Replace unicode punctation with ascii
+
+2.0.0.0b1
+---------
+
+* Being able to change insert headers of listener
+* Align model with v2 api
+* Use pool name as hint for selecting pool id
+* Add rbac support for octavia service apis
+* Add release notes link to README
+* add lower-constraints job
+* Add l7 support
+* Being able to edit default pool of listener
+* List children pools on LB details page
+* Update tox.ini
+* Add package-lock.json
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Remove tox\_install
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Adds some notes on enabling both dashboards
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Modify the '.gitignore' file
+* Update reno for stable/queens
+* Add the missing protocol for listener
+* Remove the unused codes
+
+1.0.0.0rc1
+----------
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* [trivial] fix typo in octavia\_dashboard lbaasv2
+* Update docs config for storyboard bugs
+* Update the release notes for Queens
+* Show last updated timestamp for docs
+* Imported Translations from Zanata
+* Change "Method" to "Algorithm" in pool step
+* Setup octavia-dashboard for Queens release
+
+1.0.0.0b3
+---------
+
+* i18n: Do not include html directives in translation strings
+* Updated from global requirements
+* Imported Translations from Zanata
+* Show certificates step only for secure listener
+* Able to change admin state for all resources
+* Handle singular and plural when deleting resources
+* Make breadcrumb same as other pages
+* Handle a resource delete race condition
+* Remove members with a pool id
+* Updated from global requirements
+* Update the installation and contributors documents
+* Remove oslosphinx from docs
+* Updated from global requirements
+* Updating for new sphinx docs jobs
+* Updated from global requirements
+* Catch up with horizon framework
+* Test requirements cleanup
+* Imported Translations from Zanata
+* Update gitignore
+* Make whitelist externals os agnostic
+* Imported Translations from Zanata
+* Use standard nodejs4 tests
+* Imported Translations from Zanata
+
+1.0.0.0b2
+---------
+
+* Update openstacksdk construction to be forward compatible
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add delete to member row actions
+* Simplify the text of pool edit button
+* Able to change monitor address and port of member
+* Add release notes support to octavia-dashboard
+* Updated from global requirements
+* Able to edit connection limit of listener
+* Imported Translations from Zanata
+* Able to manipulate retries down of health monitor
+* Updated from global requirements
+* Zuul: add file extension to playbook path
+
+1.0.0.0b1
+---------
+
+* Set package.json version to 1.0.0.0b1 Queens MS1
+* Add created-at and updated-at to all detail pages
+* Move Octavia dashboard zuulv3 config in repo
+* Update tox\_install.sh for zuulv3
+* Imported Translations from Zanata
+* Update health monitor max retries correctly
+* Allow updating expected codes on health monitor
+* Being able to change session persistence of pool
+* Pull action button right without floating around
+* Updated from global requirements
+* Add subnet\_id to member details page
+* Imported Translations from Zanata
+* Fix project requirements
+* Updated from global requirements
+* Use storyboard for bugs tracking
+* Updated from global requirements
+* Able to change lb algorithm on pool updating
+* Convert octavia-dashboard to use Octavia v2 API
+* Update links in README
+* Replace http with https for doc links in octavia-dashboard
+* Remove neutron-lbaas checks and rename "slug"
+* Remove old unused code
+* Updated from global requirements
+* Updated from global requirements
+* Get rid of removed Django code
+* Add loading and error status to detail pages
+* Update URL home-page in documents according to document migration
+* Fix URL patterns
+* Show the member status properties
+* Move FIP api from network to neutron
+* Make it work with devstack
+* Updated from global requirements
+* Optimize the link address
+* Updating for octavia-dashboard
+* Exclude node\_modules from pep8 checking
+* Fix npm test
+* Updated from global requirements
+* Replace SortedDict with OrderedDict and fixing Python 3.5 test
+* Updated from global requirements
+* Imported Translations from Zanata
+* Fix bugs URL for project ownership change
+* Imported Translations from Zanata
+* Added link to modindex
+* Updated from global requirements
+* Imported Translations from Zanata
+* Allow hacking 0.12.x
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update for ui bootstrap changes
+* Imported Translations from Zanata
+* Add Constraints support
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Show team and repo badges on README
+* Using horizon's templateview instead of generic one from django
+* Imported Translations from Zanata
+* Updated from global requirements
+* Using oslo\_log instead of logging
+* Imported Translations from Zanata
+* Updated from global requirements
+* Drop MANIFEST.in - it's not needed by pbr
+* modify the home-page info with the developer documentation
+* Translation preparation for neutron-lbaas-dashboard
+* Don't include openstack/common in flake8 exclude list
+* Remove unused logging
+* Subnet dropdown list has empty fields
+* Remove discover from test-requirements
+* Fix list\_loadbalancers function
+* LBaaS dashboard resepects OPENSTACK\_SSL settings
+* Updated from global requirements
+* Fix devstack plugin clean-up
+* Updated from global requirements
+* Make Barbican client respect OPENSTACK\_ENDPOINT\_TYPE
+* Update load balancer wizard help
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* fix unit tests
+* Improve the technique for generating default resource names
+* Indicate table loading, error, and empty states
+* Move to post versioning
+* Add release note for LBaaS v2 dashboard work in Mitaka
+* Do not allow deleting a listener that has a default pool
+* Hide load balancers v2 panel if not enabled
+* Add the Angular LBaaS V2 'Update Member List' Table Action
+* Reload route after performing actions
+* Add trailing slash to all URLs calling the REST API
+* Fix gate scripts to use script dir for sourcing commons
+* Add action for updating pool member weight
+* Add edit health monitor action
+* Add create health monitor action
+* Add health monitor delete action
+* Add the Angular LBaaS V2 'Edit Pool' Workflow
+* Add the Angular LBaaS V2 'Create Pool' workflow
+* Add pool delete action
+* Handle missing key-manager service in workflow
+* Add listener delete actions
+* Add the Angular LBaaS V2 'Create Listener' workflow
+* Update styles to match latest horizon
+* Add associate and disassociate floating IP actions
+* Add delete load balancer actions
+* Make workflow enforce all required fields
+* Clean up create load balancer workflow
+* Add support for TERMINATED\_HTTPS protocol
+* Add the angular LBaaS V2 Edit Action for Listeners
+* Remove page header from pages on tabs
+* Adding integration test support
+* Update install instruction for LBaaS v2 dashboard
+* Use the horizon limit filter for connection limit
+* Add general load balancer service
+* Use static file auto-discovery
+* Update URL routing
+* Updated from global requirements
+* Support external members when creating load balancer
+* Add the angular LBaaS V2 health monitor detail page
+* Add the angular LBaaS V2 members table and detail pages
+* Add the angular LBaaS V2 pools detail page
+* Fix typo in enable file
+* Add angular LBaaS V2 Listeners table and detail pages
+* Add support for editing a load balancer
+* Make create load balancer workflow generic
+* Add monitor tab to create load balancer workflow
+* Update npm dependencies
+* Add members tab to create load balancer workflow
+* Add listener and pool to create load balancer workflow
+* Include javascript lint and unit test in tox
+* Add initial workflow for creating load balancer
+* devstack plugin for neutron-lbaas-dashboard
+* Add routing and load balancer detail page
+* Add angular Load Balancers V2 panel
+* Initial commit for horizon lbaas v2 dashboard
+* Make sure django env var is set
+* Add requirement for testing
+* Open Mitaka development
+* Change ignore-errors to ignore\_errors
+* Initial cookiecutter commit
+* Added .gitreview

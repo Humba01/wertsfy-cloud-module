@@ -1,0 +1,496 @@
+CHANGES
+=======
+
+1.5.0
+-----
+
+* Revert "Make all functional jobs non-voting"
+
+1.4.0
+-----
+
+* Use Block Storage API v3 instead of API v2
+* Make all functional jobs non-voting
+
+1.3.0
+-----
+
+* [ussuri][goal] Update contributor documentation
+* Migrate from testr to stestr
+* Add stable/wallaby jobs on master gate
+
+1.2.0
+-----
+
+* Update hacking for Python3
+* Functional tests for OS::Neutron::ExtraRouteSet
+* Add heat-functional-victoria job to check
+
+1.1.0
+-----
+
+* [goal] Migrate tox based testing to Focal
+* Fixing typo for cert\_validate
+* Add stable ussuri job on master gate
+* Remove Extended maintainance stable branch job from master gate
+* Use Bionic node for stable stein or train jobs
+
+1.0.0
+-----
+
+* [ussuri][goal] Drop python 2.7 support and testing
+* Resume tests on rocky and queens
+* [stable gate fix] Check if cert\_validate is supported
+* Rectify volumes tests
+* Pass disable\_ssl\_certificate\_validation to gabbit tests
+* Use nodeset legacy-ubuntu-xenial for stable branch
+* Update master(Ussuri) jobs and stable branch jobs
+* Add tls support for tests
+* Allow retry when wc\_notify not successed
+* Add poll interval for gabbi api tests
+* Allow empty list of tags instead of None
+* Allow to pass --insecure options into VMs
+* Drop "docs" tox target and the docs integration
+* Fix for boot\_config\_env default path
+
+0.4.0
+-----
+
+* Use floating\_network\_name instead of 'public'
+* Don't require in-place MAC address update
+* Provide software config name in api test
+* Increase timeout for WaitCondition test
+* OpenDev Migration Patch
+
+0.3.0
+-----
+
+* Use cfn tools under /usr/bin instead of /opt/aws/bin
+* Fix test\_server\_software\_config scenario test
+* Skip tests based on service features disabled in tempest
+* Change openstack-dev to openstack-discuss
+* Fix heat service availability config option name
+* Use utctime when adding measures
+* fix tox python3 overrides
+* Add requires\_service\_type test decorator
+* Add functional test for multi-cloud
+* Check against stable/rocky
+* Check for lb provisioning\_status in octavia tests
+* import zuul job settings from project-config
+
+0.2.0
+-----
+
+* Add function descriptions for tempest plugin
+* Remove handling for client status races
+* Use configured endpoint instead of hardcoded ones
+* Add test for remote nested stacks
+* Include file content in scenario tests
+* Move Octavia tests to scenario tests
+* Obtain a token right before API test execution
+* Remove non-apache job from gate jobs
+* Fix software config/deployment api tests
+* Pass SSL options to swiftclient explicitly
+* Add external\_ref test for update stack
+* Add gabbi api tests for software config/deployment
+* Make hidden stack tag configurable
+* Force API test listing even if auth fails
+* remove eventlet
+* Run stable/queens branch jobs
+* Add parameter public\_net in ServerSignalIntegrationTest
+* Add feature flags in config to enable tests conditionally
+* Updated from global requirements
+* Add functional test for octavia lbaas
+* Add decorator to skip tests for a required resource type
+* API tests: Don't depend on template versions >mitaka
+* Add tempest id for api tests
+* Fix idempotent id for heat scenario tests
+* Updated from global requirements
+* Avoid race in OSWaitCondition test
+* Add tempest ids for functional and scenario tests
+* Check group metadata for autoscaling completion
+* Use keystone session with heatclient in integration tests
+* Zuul: Remove project name
+* Clear heat inner functionaltests
+* Add os-collect-config to requirements
+* Add Functional Tests for exclude networks
+* Updated from global requirements
+* Update test to check subnet change
+* Access Tempest config.CONF directly
+* Add endpoint\_type config option
+
+0.1.0
+-----
+
+* Modify flavor for integration test
+* Added LICENSE file to heat tempest plugin
+* Increase gabbi API test retry time
+* Add cross repo voting gate jobs from heat
+* Revert back to using [heat\_plugin] section in tempest.conf
+* Add oslo.messaging to requirements
+* Remove dependence on heat.common
+* Fix imports for test\_simultaneous\_update
+* Add functional tests for stack cancel
+* Cleanup ROLLBACK\_COMPLETE stack after the test finishes
+* Return Environment from validate\_template
+* Fix AodhAlarmTest to use gnocchi
+* Initial movement to new repo with cleanup
+* Retrigger new traversals after resource timeout
+* Add integration tests for simultaneous updates
+* Fix regex for updated\_time in PATCH update api test
+* Add action\_wait\_secs for update
+* API Tests: Ensure updated\_time changes in stack patch update
+* Allow convergence-specific Tempest tests
+* Defer exceptions in calculating node\_data()
+* \* Add new HOT version for Queens release
+* Add gabbi api tests for stack update/patch-update
+* Fix race in ZaqarEventSinkTest.test\_events
+* Use zaqar v2 in integration tests
+* Implement handle\_<action>\_cancel for SoftwareDeployment
+* Get dep\_attrs from StackDefinition
+* Add trunk functional testcases to heat
+* Don't load new copies of current resources
+* Add a functional test for nested get\_attr functions
+* Fix ResourceActionNotSupported errors in log
+* Add test for basic resources as heat define test
+* Fix race in new condition test
+* Improve StackValidationFailed exception
+* Update functional tests missing skip check
+* Add functional test for conditions during updates
+* Fix races in SoftwareDeploymentGroupTest
+* Increase cooldown in test\_asg\_cooldown
+* Use signal\_url in TestAodhAlarm scenario test
+* Get the deployment group resources again after CREATE\_COMPLETE
+* Check for correct Neutron exceptions harder
+* Check for correct neutron exceptions
+* Fix handle\_restore for server and volume resources
+* Change user name limit to 255 characters
+* Bring back signal-related tests
+* Allow retries when resource acquires lock
+* Consolidate resource locking with state changes
+* Copy template version when update fails
+* Add auth\_version config option
+* Add few functional tests for translation
+* Use project\_name/admin\_project\_name config option
+* Wait for the policy to be done in tests
+* Fix calls to call\_until\_true
+* Fix format\_stack\_preview for py3
+* Remove encoding for application/json in response
+* Fix remaining py3 tests
+* Fix some functional tests for py3
+* Remove log translations
+* Skip integration tests when Swift is not available
+* Add new HOT version for Pike release
+* Fix missing spaces in strings
+* Encode exception message in tests
+* Fix config file management in tests
+* Skip test\_update\_with\_mac\_address without admin credentials
+* Reduce wait condition signal number
+* Use keystone v3 and session for swiftclient
+* Fix swift key generation in python3
+* Use os\_cache in place of no\_cache
+* Skip integration tests when not configured
+* Add gabbi tests for resource REST API
+* Make API services with apache the default
+* Set content-type when signaling deployment
+* Correct to 'heat\_config\_notify\_script'
+* Add more gabbi REST API tests
+* Initial heat REST API tests with gabbi
+* Don't use hardcoded flavors in tests
+* Use both domain id and name
+* Do not set the mime-type for userdata
+* Allow 'mac\_address' updatable for neutron port
+* Use more specific asserts in tests
+* m1.tiny is not always there
+* Speed up lbaasv2 test
+* Resolve all functions before RESOLVE translation
+* Remove unnecessary setUp and tearDown
+* Use minimal image wherever possible
+* Increase the timeout for the stop\_stack message
+* Wait for deletion\_time in integration tests
+* Add a new HOT template version for Ocata
+* Fix cancel update for nova server with defined port
+* Allow referencing conditions by name
+* Copy correct definition to the backup stack
+* Add functional test for SDG rolling\_update
+* Add test for SoftwareDeploymentGroup resource
+* Revert "Allow reference conditions by name"
+* Allow reference conditions by name
+* Modify use of assertTrue(A in B)
+* Non-destructive upgrade for deprecated resources
+* Provide 'or' function
+* Provide 'and' function
+* Provides 'not' condition function
+* Provides 'if' intrinsic function
+* Support condition for output
+* Add functional test coverage for files API
+* Support condition for resource
+* Run heat\_integrationtests as a tempest plugin
+* Do not use env var conf defaults
+* Use tempest.conf when running under tempest
+* Don't manipulate config for admin creds
+* Register heat tempest plugin
+* Add support for a resource level external\_id
+* Add scenario test\_server\_signal
+* Remove additional purge test
+* Adopt tempest plugin config namespace
+* Add an integration for server using neutron
+* Increase default sighup\_timeout
+* Supplement：use assertEqual() instead of assertDictEqual()
+* Purge deleted stacks for specific project
+* Correct reraising of exception
+* Remove unused LOG to keep code clean
+* Fix another test race in test\_update\_restricted
+* Migrate to aodh for OS::Ceilometer::Alarm
+* Add default release names for template versions
+* Add a sleep after delete before purging
+* Config: no need to set default=None
+* Use LOG.exception() properly
+* Wait for stack status instead of group status
+*    Fix some spelling mistakes in heat as follows:
+* Add wait\_sec for test\_stack\_update\_from\_failed
+* Fix test\_update\_restricted timeouts due to timestamp resolution
+* Add integration tests for admin actions
+* Authorize super admin actions on all projects
+* Fix env passed to test\_replace
+* Fix tests on Neutron port behavior
+* Don't hard code subnet
+* Pass keystone session to clients
+* Migrate to nova api version 2.1
+* Fix resource loading in resource filtering
+* Use keystoneauth1 instead of keystoneclient.auth
+* Add wait\_secs to test\_stack\_update\_from\_failed\_patch
+* Adds default policy rule for resources limited to administrator
+* Remove unnecessary usage of stack\_name
+* Set security\_groups when create internal ports for nova server
+* Functional test for asg cooldown property
+* Functional test for asg max\_size and min\_size
+* Removes duplicate code autoscale\_complete
+* Fix properties usage in ResourceChain update
+* Revert "Check RBAC policy for nested stacks"
+* Revert "Check RBAC policy for nested stacks"
+* Increase timeout of WaitCondition due to ConcurrentTransactions
+* Increase timeout of WaitCondition due to ConcurrentTransactions
+* Add lbaas v2 scenario test
+* Fix race condition for WaitCondition with several signals
+* Add a new HOT template version for Newton
+* Use domain env variables as defaults
+* Use region from config in functional tests
+* Fix race condition for WaitCondition with several signals
+* Remove unknown parameters in patched update
+* Remove unknown parameters in patched update
+* Check RBAC policy for nested stacks
+* Add functional lbaas v2 tests
+* Fix race condition in reload\_on\_sighup functional
+* Fix stack preview
+* Heat integration tests failing against https endpoints
+* Fix error msg for wrong auth\_url in functional
+* Fix problems in unicode template support
+* Return HTTPBadRequest error from API for immutable parameters
+* Add functional test for immutable parameters
+* Make ZaqarEventSinkTest more lenient
+* Revert "Check RBAC policy for nested stacks"
+* Add function tests for event sinks
+* Don't resolve outputs during polling stack status
+* Use yaml.safe\_dump instead of yaml.dump
+* Add functional tests for update restrict
+* Fix test\_encryption\_vol\_type to take admin creds from conf
+* Ignore connection error when testing load balancer
+* Use yaml.safe\_load() instead of yaml.load()
+* Use oslo.utils.reflection to extract class name
+* Don't pass both network\_id and port\_id when attach interface
+* Hook into environment merging on server
+* Ignore errors on old properties during update
+* Add test for zaqar-based wait conditions
+* Fix imports for pep8 check
+* Accommodate v2 and v3 auth for integration tests
+* Fix update preview to handle nested stacks
+* Fix some word spellings
+* Check RBAC policy for nested stacks
+* Add test for stack outputs
+* Remove redundant \_stack\_rand\_name from func tests
+* Software config zaqar integration tests
+* Edit backslashes for lines continuation
+* FunctionalTests don't run non-test check\_skip\_test
+* test\_preview\_update only create one stack per test
+* Do not pass both port-id and fixed-ip to create server
+* Add tests for heat template apis
+* Fix race condition in tests with swift key
+* Improve gateway\_ip updation for subnet
+* Replace assertTrue(isinstance()) with assertIsInstance()
+* Using LOG.warning replace LOG.warn
+* Wrong usage of "a"
+* Trivial: Remove unused logging import
+* Added ResourceChain plugin
+* Fix database purge query
+* Split abandon into pre-abandon(export) and abandon
+* Allow in-place updates for all compatible types
+* Add a test for environment change in failed update
+* Remove default None value for config options
+* Allow to update subnet without 'allocation\_pools'
+* Use assertTrue/False instead of assertEqual(T/F)
+* Expand test in-progress workaround
+* Add functional test for ResourceGroup rolling\_update
+* Allow LBaas integration tests to dynamically skip
+* Remove unnecessary update\_replace parameter
+* Fix [H405] pep rule in heat\_integrationtests
+* Try polling swift object before creating stack
+* Add functional test coverage for PATCH updates
+* Change cinder client version to 2 for integration tests
+* Allow nested validation for template-validate
+* Add integration tests for preview update
+* Add a functional test proving OS::Heat::None works with validate
+* Always return default via template-validate "Default"
+* Adding basic test to exercise the heat event APIs
+* Add initial functional test for template-validate
+* Handle replace and rollback cases for Port
+* Make the stack tags template non-empty
+* Add integration test for UPDATE\_FAILED recovery
+* Return error message if validate fail when clearing hook
+* Wait for metadata actually set to server
+* Move TestResource in-tree
+* Make the TestResource a bit smarter
+* Test case for resource\_facade
+* Add resource\_type-specific policies
+* Update encrypted param template Added the encrypted parameter as a property for a Nova server
+* Fix incorrect resource's information while describing
+* Assert DELETE\_COMPLETE on all stack delete cleanup
+* Revert failing tests and use v3 for ec2 tokens
+* Increase the concurrency of software-config functional test
+* Adds option to skip specific tests
+* Skip failing integration tests
+* Don't use Ref in hot template (functional test)
+* Add cleanup when skipping tests for stack actions
+* Functional test for encryption volume type
+* Add config entries to skip integration tests
+* Validate TemplateResource schema when based on other templates
+* Add basic stack-preview functional test
+* Revert "Temporarily skip failing scenario tests"
+* Add functional test for resource exposure
+* Add test for template resource suspend/resume
+* Integration test check for OS\_PROJECT\_NAME too
+* Temporarily skip failing scenario tests
+* Add a functional test option to skip notification tests
+* Scan for output errors in functional tests
+* Adding functional integration test for encrypted parameters
+* Removes replace-on-update for SwiftSignalHandle resource
+* Always commit after deployment db operations
+* Catch NotFound in format\_stack\_resource for nested()
+* Adds coverage for AWS EIP resource in scenario tests
+* Wait until child process will be killed
+* Re-enable the ceilometer alarm test
+* Temporarily skip the ceilometer alarm test(again)
+* Extract tags before pass them in create/update
+* Update wsgi.py to support reload from conf on SIGHUP
+* Specify network for server in test\_validation
+* Re-enable ceilometer alarm test
+* Temporarily skip the ceilometer alarm test
+* Produce more meaningful exception messages in nested stacks
+* Add functional test for neutron port
+* Use network 'heat-net' for integration\_tests
+* Run functional tests when no ceilometer endpoint
+* Fix property validation for TemplateResource during update
+* Add basic Ceilometer alarm test
+* Assert that we can update TemplateResources with a new file path
+* Run heat\_integrationtests in parallel
+* Add functional tests for stack tags/hidden stacks
+* Don't assert against all the lb-members
+* Prevent false positives of \*\_FAILED status
+* Wait for the stack lock to be released
+* Prevent false positives of UPDATE\_COMPLETE in integration tests
+* Use ipv4 address for connectivity in lb integration test
+* Use ipv4 subnet in Heat scenario tests
+* Update urllib/httplib/cStringIO to use six.moves
+* Fix ResourceGroup validate when there are removal\_policies
+* Fix ResourceGroup validate when there are removal\_policies
+* Persist parent\_resource\_name and make sure it's available
+* Remove redundant checks of stack status
+* Improve StackValidationFailed response in properties
+* Use helper functions stack\_suspend and stack\_resume
+* Persist parent\_resource\_name and make sure it's available
+* Fix NeutronLoadBalancerTest.test\_neutron\_loadbalancer timeout
+* test\_resource for functional tests
+* Fix functional test\_signal\_during\_suspend
+* Create an event when signalling fails
+* Prove that we can't signal during a suspend
+* Correctly initialize copies of stack during updating stack
+* test\_hooks remove race-prone status wait
+* Fix some new PEP8 errors found at gate
+* Add minimal\_instance\_type config option
+* Add floating network config option
+* Func tests use fedora-heat-test-image
+* iniset heat\_integrationtests.conf
+* Use outputs section for getting ip addresses
+* Add a functional test for hooks/breakpoints
+* Add integration scenario test for Neutron LBaaS
+* Use oslo.log for heat\_integrationtests
+* Remove capacity check from AWS::AG update
+* Move test\_notifications to functional
+* Refactor '\_get\_default\_network' method in the integration tests
+* Use AWS::EC2::EIP for test\_server\_cfn\_init
+* Func test conf to specify boot config
+* Fixes for test\_server\_software\_config
+* Func test use param for software\_config\_transport
+* Integration scenario test refactoring
+* Reduce the load on functional tests
+* Fix variables reference in the integration tests methods
+* Add ability to pass parameters during update
+* Add ability to pass 0, "", {} or [] as a parameter
+* Only parse complex types if there is a value
+* Use the AWS instance type in the cfn\_init scenario
+* Integration test for software-config tools
+* Make import of oslo libraries namespaceless
+* Move nested stack delete test to functional
+* Move assign\_keypair method in base class
+* Re-use stack\_create method from base class
+* Split templates and tests in scenario tests
+* Move autoscaling tests with signals to functional
+* Remove some unused functions and improve call\_until\_true
+* fixed typo from dependant to dependent
+* Fix formatting issues in NeutronAutoscalingTest
+* Test for path attributes in OS::Heat::AutoScalingGroup
+* Skip Stack Adopt/Abandon integration tests when Stack Adopt is disabled
+* Move suspend/resume autoscaling tests to functional
+* Apply instance group fix to AS functional test
+* Move aws nested stack tests to functional tests
+* Fix update on failed stack
+* Wait for all resources to get updated before asserting state
+* Test auto-scaling for neutron
+* Convert parser tests that need nested stacks to unit tests
+* Move resource group property update tests to functional
+* Move ResourceGroup update sequence test to functional
+* Move the resource group adopt test to functional
+* Move autoscaling update policy to functional
+* Enable H305 and H307 style checks
+* Move instance group update policy tests to functional
+* Remove keypairs from test\_instance\_group.py
+* Remove now unneeded functional test
+* Make StackResource less strict on initial validation
+* Move template resource tests to functional
+* Prevent occasional test failures due to duplicate stack names
+* Use oslo.config generator
+* Cleanup heat/openstack/common
+* Create and update func tests for resource group
+* Fix json syntax in inline template
+* Disable nested validation for ResourceGroup with zero count
+* Move instance\_error\_causes\_group\_error() to functional tests
+* Move test\_update\_group\_replace() to functional tests
+* Move test\_create\_config\_prop\_validation to functional
+* Move test\_size\_updates\_work() to functional tests
+* Add "parameter\_defaults" to the environment
+* Integration test for remote stack
+* Move basic instance group functional tests
+* Fix [H302] errors in heat\_integrationtests
+* Add support for running tests against standalone Heat
+* Add logging fixture to integration tests
+* Create common stack\_create functional test helper
+* Move common functions into functional test base-class
+* Add functional test for update of group of provider resources
+* Add functional test for update of provider resource
+* Functional tests skip volume\_create\_backup\_restore
+* Halt test\_cinder\_volume\_create\_backup\_restore on error
+* Functional test UpdateStackTest
+* Add volume backup/restore integration test
+* Configure flavor and image from env
+* Move test\_server\_cfn\_init from tempest to heat
+* Support classes for heat integration tests

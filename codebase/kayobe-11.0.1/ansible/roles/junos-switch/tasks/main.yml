@@ -1,0 +1,27 @@
+---
+# The NETCONF client ncclient is required. This must be installed on the
+# Ansible control host where the ansible-connection subprocess is executed.
+- name: Ensure python dependencies are installed
+  vars:
+    # NOTE(mgoddard): 0.6.7 includes a fix for host key checking:
+    # https://github.com/ncclient/ncclient/issues/302.
+    ncclient_version: ">=0.6.7,<0.7.0"
+  local_action:
+    module: pip
+    name: "ncclient{{ ncclient_version }}"
+    virtualenv: "{{ lookup('env', 'VIRTUAL_ENV') | default(omit, true) }}"
+  become: "{{ lookup('env', 'VIRTUAL_ENV') == None }}"
+  run_once: true
+
+- name: Ensure Juniper switches are configured
+  local_action:
+    module: junos_config
+    provider: "{{ junos_switch_provider }}"
+    src: "{{ junos_switch_src }}"
+    src_format: "{{ junos_switch_config_format }}"
+  vars:
+    junos_switch_config_format_to_src:
+      set: junos-config-set.j2
+      text: junos-config.j2
+      json: junos-config.json.j2
+    junos_switch_src: "{{ junos_switch_config_format_to_src[junos_switch_config_format] }}"

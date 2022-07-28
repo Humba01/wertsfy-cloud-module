@@ -1,0 +1,609 @@
+CHANGES
+=======
+
+5.0.0
+-----
+
+* Updating python testing classifier as per Yoga testing runtime
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+* Dropping lower constraints testing
+* Use py3 as the default runtime for tox
+
+4.0.0
+-----
+
+* Drop horizon-nodejs10-jobs template
+* Add horizon-nodejs14-job template
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+3.0.0
+-----
+
+* Imported Translations from Zanata
+* Use TOX\_CONSTRAINTS\_FILE
+* Imported Translations from Zanata
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+* Imported Translations from Zanata
+
+2.0.0.0rc1
+----------
+
+* [goal] Migrate testing to ubuntu focal
+* Cleanup for Refactor-error-messages
+* Remove the unused coding style modules
+* Imported Translations from Zanata
+* Fix npm job
+* drop mock from lower-constraints
+* Switch to newer openstackdocstheme and reno versions
+* Fix hacking min version to 3.0.1
+* Update hacking for Python3
+* Add py38 package metadata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+1.0.0.0rc1
+----------
+
+* Use unittest.mock instead of third party mock
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix pyScss version in lower-constraints.txt
+* Imported Translations from Zanata
+* Remove six usage
+* Drop Django 1.11 support
+* Imported Translations from Zanata
+* Make py36 check job voting again
+* translation: drop babel extractor definitions
+* Add requirements.txt to docs reqs
+* Imported Translations from Zanata
+* [ussuri][goal] Drop python 2.7 support and testing
+* Switch to official Ussuri jobs
+* Refactor error messages
+* Use Horizon project template for django jobs
+* Fix failed test for django22 support
+* Imported Translations from Zanata
+* Update master for stable/train
+* Imported Translations from Zanata
+
+0.11.0
+------
+
+* Add Senlin-dashboard Train release notes
+* Sync Sphinx requirement
+* Imported Translations from Zanata
+* Add Python 3 Train unit tests
+* Switch to the new canonical constraints URL on master
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Update master for stable/stein
+
+0.10.1
+------
+
+* Imported Translations from Zanata
+* Switch nodejs4-jobs to nodejs10-jobs
+* Switch to horizon-nodejs4-jobs template
+
+0.10.0
+------
+
+* Add Stein release notes
+* Bump openstacksdk to 0.24.0
+* Update hacking version
+* Bump horizon for Stein
+* Update mailinglist from dev to discuss
+* Fix missing auth\_url when create senlinclient
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix senlin profile create through file upload
+* Install horizon with upper-constraints.txt in post-install
+* fix tox python3 overrides
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Cleanup .zuul.yaml
+* Remove use\_mox flag
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Remove mox3 dependencies
+* Drop nose dependencies
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Drop mox3 from RecieverList
+* Drop mox from PoliciesTest
+* Update reno for stable/rocky
+* Drop mox3 from NodesTest
+
+0.9.0
+-----
+
+* Add release notes for Rocky
+* fix syntax error in readme
+* Drop mox from ClustersTest
+* Drop mox3 from ProfilesTest
+* Prepare to support python3.6
+* fix tox python3 overrides
+* Remove bad utf-8 char in README.rst
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Clear selections for table view
+* Add python3 django 1.11 job instead of django 2.0 job
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Rename test files to test\_\* pattern
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix postinstall for npm job
+* Fix tox jobs and remove tox\_helper.sh
+* Django 2.0 support
+* Follow the new PTI for document build
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Require the (soon-to-be) Rocky version of Horizon
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Reproduce navigations
+* Install Horizon from git repository in tox test
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix type\_name for profile
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add documentation and releasenotes links to README
+* Drop testenvs using django<=1.10 from tox
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* add lower-constraints job
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Install horizon directly from pypi
+* Updated from global requirements
+* Updated from global requirements
+* Be Angular-based panels as default
+* Adding test to ensure compatibility with senlinclient and openstacksdk
+* Imported Translations from Zanata
+* Updated from global requirements
+* Fix SenlinApiTests for it to be run by tox
+* Add resize action for cluster
+* Fixing incompatibility with openstacksdk 0.10 and higher
+* Change senlin dashboard to not be the default dashboard
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Modify Descripition
+* Update home-page url
+* Imported Translations from Zanata
+* Update reno for stable/queens
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* [trivial] fix typo in senlin\_dashboard/api/utils.py
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Add release notes for Queens
+
+0.8.0
+-----
+
+* Updated from global requirements
+* Adding region support
+* Updated from global requirements
+* Switch to OSC module
+* Fix issue the deleted item is selected again with batch delete
+* Can not recover a clusetr in warning status by senlin-dashboard
+* Use load-edit directive for specs field
+* Imported Translations from Zanata
+* Show nodelist in NodesTab of a cluster failed
+* Imported Translations from Zanata
+* Remove setting of version/release from releasenotes
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Move contents for README.rst
+* Update reno for stable/pike
+* Update links in README
+
+0.7.0
+-----
+
+* Updated from global requirements
+* Modify the '.gitignore' file
+* Updated from global requirements
+* Update Devstack Installation in develop.rst
+* Imported Translations from Zanata
+* Modify Devstack Installation in develop.rst
+* Update links in README
+* Imported Translations from Zanata
+* Add cluster scale-in/out actions
+* Add receiver update action
+* Update node failed
+* Updated from global requirements
+* Imported Translations from Zanata
+* Unable to update profile
+* Unable to update policy
+* Can not create receiver
+* Create policy failed
+* Can not create node
+* Add release notes for Pike
+* Rearrange existing documentation to fit the new standard layout
+* Can not create profile
+* Switch from oslosphinx to openstackdocstheme
+* Updated from global requirements
+* Enable some off-by-default checks
+* Updated from global requirements
+* hacking: Specify white list rules in noqa explicity
+* ignore nose test results
+* Optimize the link address
+* Updated from global requirements
+* Replaces yaml.load() with yaml.safe\_load()
+* Fix the profile view
+* Updated from global requirements
+* Updated from global requirements
+* Refresh test environments
+* Updated from global requirements
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Use detailRoute constant for path of details view
+* Updated from global requirements
+* Updated from global requirements
+* Update to a newer hacking library
+* Fix oslo\_debug\_helper not running
+* Fix warning when running \`tox -e debug\`
+* Update reno for stable/ocata
+
+0.6.0
+-----
+
+* Update README file
+* Reorganize docs
+* Remove the file encoding which is unnecessary
+* Imported Translations from Zanata
+* Updated from global requirements
+* Add senlin-dashboard installation guide
+* Cluster status should be translatable
+* Use type rather than type\_name
+* Imported Translations from Zanata
+* Node Status should be translatable
+* Cleanup unnecessary blank line
+* Use more readable toast message
+* Fix typo in senlin rest api
+* Imported Translations from Zanata
+* Cleanup help messages
+* Add policy for delete resources
+* Add file loader for spec of policy
+* Use ModalFormService instead wizard-modal
+* Display error message when create/update failed
+* Clean up initAction and scope
+* Imported Translations from Zanata
+* Add release note for Angularization
+* Imported Translations from Zanata
+* Add create action into Receiver panel
+* Add update action for cluster
+* Add delete action for cluster
+* Add create and update actions for policy
+* Implement action updating cluster policies
+* Updated from global requirements
+* Imported Translations from Zanata
+* Add delete action for policies panel
+* Add details view into Policies panel
+* Add angular policies table
+* Address receiver panel to recent Horizon framework
+* Updated from global requirements
+* Imported Translations from Zanata
+* Display selected panel name on browser title bar
+* Add update profile action for angular profile panel
+* Following up patch of ddf8b00fe49c571994955eff25c1e2d6e7255c06
+* Move \_50\_senlin.py into senlin\_dashboard/enabled folder
+* Add node create/update actions
+* Imported Translations from Zanata
+* Fix typo on error for profile creation
+* Add create cluster action
+* Following patch for angular cluster table
+* Add delete action for angular nodes panel
+* Angularize node tables
+* angularize cluster tables
+* Updated from global requirements
+* Replace mox with mock
+* Show team and repo badges on README
+* Use proper assert check
+* Add JS tests for profile create service
+* Improve translate attribute for profile creation workflow
+* Update karma coverage threshold values
+* Update reno for stable/newton
+* Add JS tests for receiver delete service
+* Add filterFacets for angular profile table
+* Add JS tests for profile delete service
+* Updated from global requirements
+* Remove unnecessary variable assignment
+* Add spec file for profiles.service.js
+* Imported Translations from Zanata
+* Updated from global requirements
+* Fix the wrong url to the policy detail page in cluster detail page
+* Change an attribute name from 'type' to 'type\_name'
+* Return single promise rather than array-like promises
+* Update karma coverage threshold values
+* [Improve Test Coverage] Add spec file for senlin.service.js
+* Clean up profile.service.js
+* Add 'Action' info in receiver detail page
+* Update REST API docstring
+* Add 'type\_name' to Profile class to fix errors related with profile.type
+* Add create profile action for angular profile panel
+* Add the detail link for the cluster in receiver detail page
+* Updated from global requirements
+* Add setting file for enabling Angularized panel
+* Add angurlar toggle feature for receivers panel
+* Add delete action for angular profile panel
+* Add allowed function Cluster/Node delete action
+* angularize profile tables
+* Fix typo
+* Imported Translations from Zanata
+* Fix the update time not display error
+* Add node recover action in table row actions
+* Add spec file for receiver action module
+* Remove static from .gitignore
+* Fix no-redeclare warning in js lint
+* Add missing RecoverCluster row actions
+* Batch action should check datum
+* Return APIResourceWrapper object for senlin api
+* Add allowed function Cluster/Node recover action
+* Cleanup .gitignore and tox.ini
+* Fix typo
+* Cleanup allowed() for cluster/node action
+*  Add cluster recover for cluster object
+* Add node recover for node object
+* Add cluster check for cluster object
+* Add node check for node object
+* Relocate policies in cluster detial overview
+* Add api test for senlin receiver\_list
+* Add sticky for tab group
+* Remove unused paramters of pagination utils
+*  Enable pagination in event table
+
+0.5.0
+-----
+
+* Server-side filtering policy
+* Server-side filtering receivers
+* Server-side filtering nodes
+* Server-side filtering clusters
+* Server-side filtering profile
+* Define modal header and submit in views instead of template
+* Fix profile update error
+* Use name as the sort key while list nodes
+* Fix policy update error
+* Update the help text of profile update
+* Use type rather type\_name for profile
+* Use generated\_at for event list
+* Enable release notes translation
+* Ignore cover directory which is generated by karma coverageReporter
+* Fix Django 1.10 Compatibility
+* Fix the issue 'no-pep8' option is ignored
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Update package.json and karma.conf.js
+* Use isotime format in senlin-dashboard
+* Imported Translations from Zanata
+* Remove unnecessary spaces
+* Imported Translations from Zanata
+* Add angular-schema-form into karma.conf
+* Remove \*openstack/common\* in tox.ini
+* [TrivialFix] Remove unnecessary context in template
+* Add initial senlin policy file
+* Add yesno and capfirst for cluster policy 'Enable' column
+* Add private function to populate request and page size
+* Add "Status Reason" in cluster detail page
+* Modify the 'update' help text in some forms
+* Provide "Update Policy" in the tables actions on the Policies panel
+* Add "Status Reason" in node detail page
+
+0.4.0
+-----
+
+* Release notes for newton-3 milestone
+* Use constraints in tox.ini
+* Prevent long names breaking table layouts
+* Fix home-page url in setup.cfg file
+* Add "\*.swo" to ".gitignore" file
+* Fix senlin-dashboard devstack installation guide
+* Fix test\_create\_policy fail
+* Add Apple OS X ".DS\_Store" to ".gitignore" file
+* Add unit test for senlin-dashboard rest api
+* Imported Translations from Zanata
+* Fix click into node detail bug
+* Updated from global requirements
+* Show name\_or\_id when profile name is white space
+* show the policy type in policy detail page
+* There should a space between the two buttons in "Manage Policies" form
+* show cluster info in node detail page
+* Imported Translations from Zanata
+* Fix senlin-dashboard unit test
+* Imported Translations from Zanata
+* Add deletion action in angular senlin receiver table
+* Add Angular senlin receiver details use registry
+* Add Angular Senlin Receivers Table use registry
+* Add missing cluster link in receiver table
+* Updated from global requirements
+* Enable eslint and karma test(Javascript test)
+* Enable pagination in node table
+* Imported Translations from Zanata
+* Horizon selects are now themable: Senlin Panels
+* Updated from global requirements
+* Imported Translations from Zanata
+* Delete duplicate period
+* modify help\_text message
+* Imported Translations from Zanata
+* Add more details in cluster details page
+* Remove unnecessary 'url' in cluster detail context
+* Update .gitignore for JetBrains(PyCharm) users
+* Add unit test for cluster policy mamagement
+* Use entities.reverse() rather sorted(.., reverse=True)
+* Remove unnecessary params
+* Enable pagination in receiver table
+* Updated from global requirements
+* Remove unnecessary dot
+* Imported Translations from Zanata
+* Enable pagination in policy table
+* Enable pagination in cluster table
+* Enable pagination in profile table
+* Add sort key and dir for node\_list
+* Update Cluster&Node status
+* Add sort key and dir for cluster\_list
+* Add sort key and dir for profile\_list
+* Add reno for release notes management
+* Imported Translations from Zanata
+* Add node update action
+* Fix empty \`Timestamp\` column in cluster/node event tables
+* Add cluster policies in cluster detail page
+* Fix empty Create/Update column in cluster/profile... tables
+* Add assert for api test
+* Fix test\_cluster\_event in clusters test
+
+0.2.0
+-----
+
+* Imported Translations from Zanata
+* Updated from global requirements
+* Imported Translations from Zanata
+* Remove policies which had attached to cluster while attaching policy
+* Remove useless variable assignment
+* Delete useless return statement
+* Add detach policy in manage-policies forms
+* Add DeletePolicy row action for policy table
+* Fix translation setup
+* Add \`Manage Polices\` row action for cluster
+* Use scheduled deletion msg while deleting node/cluster
+* Add proper created\_at in receiver detail page
+* Add cluster id column in node table
+* Update URLs to Django 1.8 style
+* Remove the attribute \`permission\` of profile
+* Add receiver detail page
+* Enable translation jobs
+* Add receiver deletion table/row action
+* Add receiver creation form
+* Fix page hang in node/cluster deletion
+* Add \`Select Profile\` choice in cluster-create form
+* Hide cooldown and level in create-policy form and policy detail page
+* Add cluster nodes in cluster detail page
+* Update README.rst
+* Updated from global requirements
+* Add event table in cluster detail
+* As a common practice, we should remove the copyright notice
+* Add receivers panel
+* Cleanup requirements.txt
+
+0.1.0
+-----
+
+* Add event table in node detail
+* Fix the broken senlin dashboard
+* Use the defined INDEX\_URL in clusters forms and views
+* Remove django<1.8 from tests
+* Add Django1.8 to tests
+* url template tag change
+* Remove "builtins = \_" from tox.ini
+* Set the right messages type to cluster\_create
+* Use the default \`url\` tag instead
+* Add policy detail page
+* Remove \`return None\` for get\_physical\_link()
+* Remove timesince\_or\_never filter and make created/updated more readable
+* Add cluster detail page
+* Update node detail page and use breadcrumb
+* Update profile detail page and use breadcrumb
+* Use page\_title attr in Cluster/Profile/Polices/Nodes IndexView
+* Fix broken unit test aganist the latest horizon
+* Updated from global requirements
+* Add event-list api
+* Return node.physical\_id while node is creating
+* Updated from global requirements
+* Hide \`Updated\` in detail page while it's value is None
+* Make cluster status value translatable
+* Make node status value translatable
+* Add policy deletion action
+* Support creating policy
+* Add link for physical id
+* The profile spec should be readonly while updating profile
+* Add profile link in profile column of cluster table
+* Add node detail test
+* Add profile link in profile column of node table
+* Add profile deltail test
+* Updated from global requirements
+* Add python-senlinclient in requirements.txt
+* Add link to Profile Detail from Node Detail
+* Change repository from stackforge to openstack
+* Add STATUS into detail view of node
+* Update .gitreview for new namespace
+* Add node details overview page
+* Add cluster creation unit test
+* Improve profile update form
+* Add node creation unit test
+* Hide permission in profile table
+* Add profile create test
+* Detemine the node row status base on node status via ajax
+* Add node delete action
+* Hide permission and use None for permission by default
+* Add node creation action
+* Add help text and remove length restrictive
+* Clean the spec data
+* Hide parent cluster field in cluster create form
+* Detemine the cluster row status base on cluster status via ajax
+* Add node create api
+* Add cluster delete action
+* Add cluster create action
+* Hide metadata while metadata dict is empty
+* Add cluster create api
+* Add detail view in profiles panel
+* Add update action in profiles panel
+* Support creating profile from yaml and file
+* Add node table
+* Fix typo
+* Add senlin node\_list api
+* Move \_parse\_dict() and \_profile\_dict to profile/forms.py
+* senlinclient related bug fix
+* Updated from global requirements
+* Add profile form test
+* Add senlin api test
+* Add test no cluster/policy/profile
+* Add test exception for profile\_list&policy\_list
+* Add test exception for cluster\_list
+* Add policy panel
+* Add unit test for cluster
+* Add try..exception block for clusters/profiles list
+* Clean some code for test
+* Add create action in profiles panel
+* Updated from global requirements
+* Add senlin dashboard test framwork
+* Add table filter for cluster&profile
+* Add row delete action in profiles table And add "Delete Profiles" action to table
+* Updated from global requirements
+* Updated from global requirements
+* Add profiles table
+* Updated from global requirements
+* Add clusters table
+* Wrap senlin client object
+* Add senlinclient exceptions to horizon types
+* Add cluster dashboard
+* Bump pbr version to match global requirement
+* Add init repo
+* Added .gitreview

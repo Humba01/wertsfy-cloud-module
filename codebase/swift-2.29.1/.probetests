@@ -1,0 +1,10 @@
+#!/bin/bash
+
+SRC_DIR=$(dirname $(realpath "$0"))
+
+cd ${SRC_DIR}/test/probe
+nosetests --exe $@
+rvalue=$?
+cd -
+
+exit $rvalue

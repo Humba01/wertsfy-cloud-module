@@ -1,0 +1,32 @@
+FROM {{ namespace }}/{{ image_prefix }}cloudkitty-base:{{ tag }}
+{% block labels %}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+{% endblock %}
+
+{% block cloudkitty_processor_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{% if install_type == 'binary' %}
+    {% if base_package_type == 'rpm' %}
+
+        {% set cloudkitty_processor_packages = [
+                'openstack-cloudkitty-processor',
+        ] %}
+
+    {% elif base_package_type == 'deb' %}
+
+        {% set cloudkitty_processor_packages = [
+                'cloudkitty-processor',
+        ] %}
+
+    {% endif %}
+
+{% endif %}
+
+{{ macros.install_packages(cloudkitty_processor_packages | customizable("packages")) }}
+
+{% block cloudkitty_processor_footer %}{% endblock %}
+{% block footer %}{% endblock %}
+
+USER cloudkitty

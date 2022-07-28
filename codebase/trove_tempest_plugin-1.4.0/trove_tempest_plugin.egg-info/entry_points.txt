@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+trove_tests = trove_tempest_plugin.plugin:TroveTempestPlugin
+

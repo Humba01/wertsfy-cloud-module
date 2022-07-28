@@ -1,0 +1,124 @@
+# Copyright (c) 2015 Hewlett-Packard Development Company, L.P.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+# TODO(TheJulia) It would make sense to perform basic validation prior
+# to deployment, although direct definition of instance info on
+# the pass-through could mean that the user could deploy
+# things that are not directly accessible or reasonable
+# to be inspected.
+
+- import_role:
+    name: bifrost-cloud-config
+
+# Note(TheJulia): This step allows us to collect things that
+# ironic knows, that we do not know potentially, such as an UUID
+# should a node have been created without one.
+- name: "Collecting node facts"
+  os_ironic_node_info:
+    cloud: "{{ cloud_name | default(omit) }}"
+    auth_type: "{{ auth_type | default(omit) }}"
+    auth: "{{ auth | default(omit) }}"
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+    ironic_url: "{{ ironic_url | default(omit) }}"
+    uuid: "{{ uuid | default() }}"
+    name: "{{ name | default() }}"
+    skip_items:
+      - instance_info
+  register: node_info
+  when: uuid is undefined
+
+- name: "Set UUID from Ironic"
+  set_fact:
+    uuid: "{{ node_info.node.uuid }}"
+  when: uuid is undefined
+
+- name: "Setup DHCP for nodes."
+  template:
+    src: dhcp-host.j2
+    dest: "/etc/dnsmasq.d/bifrost.dhcp-hosts.d/{{ inventory_hostname }}"
+    owner: root
+    group: root
+    mode: 0644
+  when: inventory_dhcp | bool
+  become: yes
+
+- name: "Setup DNS address for nodes."
+  template:
+    src: dns-address.j2
+    dest: "/etc/dnsmasq.d/host_record_{{ inventory_hostname }}"
+    owner: root
+    group: root
+    mode: 0644
+  when: inventory_dns | bool
+  become: yes
+
+- name: "Restarting dnsmasq"
+  service:
+    name: dnsmasq
+    state: restarted
+  become: yes
+  when: inventory_dhcp | bool or inventory_dns | bool
+
+- name: "Create instance info"
+  block:
+
+    - name: "Figure out image checksum"
+      block:
+
+        - name: "Collect the checksum of the deployment image."
+          stat:
+            path: "{{ deploy_image_path }}"
+            get_checksum: yes
+            checksum_algorithm: md5
+          register: test_deploy_image
+          become: yes
+
+        - name: "Error if deploy_image_path is not present, and instance_info is not defined"
+          fail:
+            msg: "The user-defined deploy_image_path, which is the image to be written to the remote node(s) upon deployment, was not found. Cannot proceed."
+          when: not test_deploy_image.stat.exists
+
+        - name: "Set the calculated checksum"
+          set_fact:
+            deploy_image_checksum: "{{ test_deploy_image.stat.checksum }}"
+
+      when:
+        - deploy_image_checksum is not defined
+        - not deploy_image_source.startswith('file://')
+
+    - name: "Set generated instance_info"
+      set_fact:
+        instance_info:
+          image_source: "{{ deploy_image_source }}"
+          image_checksum: "{{ deploy_image_checksum | default(omit) }}"
+          image_rootfs_uuid: "{{ deploy_image_rootfs | default(omit) }}"
+          image_type: "{{ deploy_image_type | default(omit) }}"
+          root_gb: "{{ deploy_root_gb if deploy_image_type | default('') == 'partition' else omit }}"
+
+  when: instance_info is not defined or instance_info == {}
+
+- name: "Deploy to hardware"
+  openstack.cloud.baremetal_node_action:
+    cloud: "{{ cloud_name | default(omit) }}"
+    auth_type: "{{ auth_type | default(omit) }}"
+    auth: "{{ auth | default(omit) }}"
+    ca_cert: "{{ tls_certificate_path | default(omit) }}"
+    ironic_url: "{{ ironic_url | default(omit) }}"
+    uuid: "{{ uuid }}"
+    state: present
+    # Allow instance_info in the inventory to override configdrive
+    config_drive: "{{ instance_info.configdrive | default(deploy_config_drive) | default(omit) }}"
+    instance_info: "{{ instance_info }}"
+    wait: "{{ wait_for_node_deploy }}"
+    timeout: " {{ wait_timeout | default(1800) }}"

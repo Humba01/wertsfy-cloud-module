@@ -1,0 +1,34 @@
+{% load i18n  %}
+
+<div class="detail">
+  <dl class="dl-horizontal">
+    <dt>{% trans "BGPVPN Name" %}</dt>
+    <dd>{{ bgpvpn.name }}</dd>
+    <dt>{% trans "BGPVPN ID" %}</dt>
+    <dd>{{ bgpvpn.id }}</dd>
+    <dt>{% trans "Type" %}</dt>
+    <dd>{{ bgpvpn.type }}</dd>
+    <dt>{% trans "Route Targets" %}</dt>
+      <dd>
+          {% for rt in bgpvpn.route_targets %}
+            {{ rt }}
+          {% endfor %}
+      </dd>
+    <dt>{% trans "Import Targets" %}</dt>
+      <dd>
+          {% for it in bgpvpn.import_targets %}
+            {{ it }}
+          {% endfor %}
+      </dd>
+    <dt>{% trans "Export Targets" %}</dt>
+      <dd>
+      {% for et in bgpvpn.export_targets %}
+        {{ et }}
+      {% endfor %}
+      </dd>
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ bgpvpn.tenant_id }}</dd>
+      {% include "project/bgpvpn/_associated_networks.html" %}
+      {% include "project/bgpvpn/_associated_routers.html" %}
+  </dl>
+</div>

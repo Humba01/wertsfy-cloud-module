@@ -1,0 +1,43 @@
+---
+- import_role:
+    name: ahuffman.resolv
+  when: resolv_is_managed | bool
+  become: True
+
+- name: Ensure IP routing tables are defined for iproute2
+  become: true
+  blockinfile:
+    dest: /etc/iproute2/rt_tables
+    block: |
+      {% for table in network_route_tables %}
+      {{ table.id }} {{ table.name }}
+      {% endfor %}
+
+- name: Remove netplan.io packages
+  become: true
+  package:
+    name:
+      - libnetplan0
+      - netplan.io
+    state: absent
+  notify:
+    - Remove netplan systemd-networkd configuration
+
+# NOTE(mgoddard): The above needs to fire before any restart of
+# systemd-networkd, to avoid shadowing of our configuration files by those
+# provided by netplan.
+- meta: flush_handlers
+
+- name: Configure systemd-networkd
+  import_role:
+    name: stackhpc.systemd_networkd
+  vars:
+    systemd_networkd_link: "{{ network_interfaces | networkd_links }}"
+    systemd_networkd_netdev: "{{ network_interfaces | networkd_netdevs }}"
+    systemd_networkd_network: "{{ network_interfaces | networkd_networks }}"
+    systemd_networkd_apply_config: true
+    systemd_networkd_enable_resolved: false
+    systemd_networkd_symlink_resolv_conf: false
+    systemd_networkd_cleanup: true
+    systemd_networkd_cleanup_patterns:
+      - "{{ networkd_prefix }}*"

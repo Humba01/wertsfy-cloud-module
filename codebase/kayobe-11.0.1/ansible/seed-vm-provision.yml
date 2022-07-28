@@ -1,0 +1,132 @@
+---
+- name: Ensure that the seed VM configdrive exists
+  hosts: seed-hypervisor
+  vars:
+    seed_host: "{{ groups['seed'][0] }}"
+  pre_tasks:
+    - name: Verify the seed host exists in the Ansible inventory
+      fail:
+        msg: >
+          There should be exactly one host in the seed group. There are
+          currently {{ groups['seed'] | length }}.
+      when: groups['seed'] | length != 1
+
+    # NOTE(priteau): On seed hypervisors running CentOS 8, the configdrive role
+    # will fail to install coreutils if coreutils-single is already present.
+    # Until the role handles it, install it using the --allowerasing option
+    # which will remove coreutils-single.
+    - name: Ensure coreutils package is installed
+      command: "dnf install coreutils -y --allowerasing"
+      become: True
+      when:
+        - ansible_facts.os_family == 'RedHat'
+
+    - name: Ensure the image cache directory exists
+      file:
+        path: "{{ image_cache_path }}"
+        state: directory
+        owner: "{{ ansible_facts.user_uid }}"
+        group: "{{ ansible_facts.user_gid }}"
+      become: True
+
+    # NOTE(mgoddard): Prior to the Xena release, the seed VM was provisioned
+    # using the stackhpc.livirt-vm role with become=true. This resulted in the
+    # cached image being owned by root. Since Xena, we execute the role without
+    # become=true. Correct the image ownership to avoid a permission denied
+    # error when downloading a new image of the same name.
+    - name: Stat image files
+      stat:
+        path: "{{ image_cache_path }}/{{ item.image | basename }}"
+      with_items: "{{ hostvars[seed_host].seed_vm_volumes | selectattr('image', 'defined') }}"
+      register: image_stat_result
+
+    - name: Fix image ownership
+      file:
+        path: "{{ image_cache_path }}/{{ item.item.image | basename }}"
+        owner: "{{ ansible_facts.user_uid }}"
+        group: "{{ ansible_facts.user_gid }}"
+      with_items: "{{ image_stat_result.results }}"
+      when: item.stat.exists
+      become: true
+
+  roles:
+    - role: jriguera.configdrive
+      # For now assume the VM OS family is the same as the hypervisor's.
+      configdrive_os_family: "{{ ansible_facts.os_family }}"
+      configdrive_uuid: "{{ seed_host | to_uuid }}"
+      configdrive_fqdn: "{{ seed_host }}"
+      configdrive_name: "{{ seed_host }}"
+      configdrive_ssh_public_key: "{{ lookup('file', ssh_public_key_path) }}"
+      configdrive_config_dir: "{{ image_cache_path }}"
+      configdrive_volume_path: "{{ image_cache_path }}"
+      configdrive_config_dir_delete: True
+      configdrive_resolv:
+        domain: "{{ hostvars[seed_host].resolv_domain | default }}"
+        search: "{{ hostvars[seed_host].resolv_search | default }}"
+        dns: "{{ hostvars[seed_host].resolv_nameservers | default([]) }}"
+      configdrive_network_device_list: >
+        {{ hostvars[seed_host].network_interfaces |
+           map('net_configdrive_network_device', seed_host) |
+           list }}
+
+  tasks:
+    - name: Set a fact containing the configdrive image path
+      set_fact:
+        seed_vm_configdrive_path: "{{ image_cache_path }}/{{ seed_host }}.iso"
+
+    - name: Ensure configdrive is decoded and decompressed
+      shell: >
+          base64 -d {{ image_cache_path }}/{{ seed_host | to_uuid }}.gz
+          | gunzip
+          > {{ seed_vm_configdrive_path }}
+
+    - name: Ensure unnecessary files are removed
+      file:
+        path: "{{ item }}"
+        state: absent
+      with_items:
+        - "{{ image_cache_path }}/{{ seed_host | to_uuid }}.gz"
+
+- name: Ensure that the seed VM is provisioned
+  hosts: seed-hypervisor
+  vars:
+    seed_host: "{{ groups['seed'][0] }}"
+  pre_tasks:
+    - name: Check the size of the configdrive image
+      stat:
+        path: "{{ seed_vm_configdrive_path }}"
+        get_checksum: False
+        get_md5: False
+        mime: False
+      register: stat_result
+
+  roles:
+    - role: stackhpc.libvirt-vm
+      seed_vm_configdrive_device: cdrom
+      seed_vm_configdrive_volume:
+        name: "{{ hostvars[seed_host].seed_vm_name }}-configdrive"
+        pool: "{{ hostvars[seed_host].seed_vm_pool }}"
+        # Round size up to next multiple of 4096.
+        capacity: "{{ (stat_result.stat.size + 4095) // 4096 * 4096 }}"
+        device: "{{ seed_vm_configdrive_device }}"
+        format: "raw"
+        image: "{{ seed_vm_configdrive_path }}"
+      libvirt_vm_image_cache_path: "{{ image_cache_path }}"
+      libvirt_vms:
+        - name: "{{ hostvars[seed_host].seed_vm_name }}"
+          memory_mb: "{{ hostvars[seed_host].seed_vm_memory_mb }}"
+          vcpus: "{{ hostvars[seed_host].seed_vm_vcpus }}"
+          volumes: "{{ hostvars[seed_host].seed_vm_volumes + [seed_vm_configdrive_volume] }}"
+          interfaces: "{{ hostvars[seed_host].seed_vm_interfaces }}"
+          console_log_enabled: true
+
+  tasks:
+    - name: Wait for SSH access to the seed VM
+      local_action:
+        module: wait_for
+        host: "{{ hostvars[seed_host].ansible_host }}"
+        port: 22
+        state: started
+        # NOTE: Ensure we exceed the 5 minute DHCP timeout of the eth0
+        # interface if necessary.
+        timeout: 360

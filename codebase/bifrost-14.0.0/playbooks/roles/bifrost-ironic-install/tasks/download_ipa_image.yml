@@ -1,0 +1,106 @@
+# Copyright (c) 2015 Hewlett-Packard Development Company, L.P.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+# This is overly complex, however get_url will always re-retrieve the file
+# if it already exists, and this is to prevent that behavior.
+- name: "Test if IPA kernel is present"
+  stat: path={{ ipa_kernel }}
+  register: test_ipa_kernel_present
+
+- name: "Download IPA kernel checksum file"
+  get_url:
+    url: "{{ ipa_kernel_upstream_checksum_url }}"
+    dest: "{{ ipa_kernel }}.{{ ipa_kernel_upstream_checksum_algo }}"
+    headers: "{{ ipa_download_headers | default(omit, true) }}"
+    timeout: 300
+    force: yes
+    owner: ironic
+    group: ironic
+    mode: 0644
+
+- name: "Extract IPA kernel checksum"
+  command: awk '/{{ ipa_kernel_upstream_url | basename }}|^[a-z0-9]+$/{print $1}' "{{ ipa_kernel }}.{{ ipa_kernel_upstream_checksum_algo }}"
+  register: parsed_ipa_kernel_checksum
+  failed_when: parsed_ipa_kernel_checksum is failed
+               or not parsed_ipa_kernel_checksum.stdout
+
+- set_fact:
+    ipa_kernel_checksum: "{{ ipa_kernel_upstream_checksum_algo }}:{{ parsed_ipa_kernel_checksum.stdout }}"
+
+- name: "Download IPA kernel"
+  get_url:
+    url: "{{ ipa_kernel_upstream_url }}"
+    dest: "{{ ipa_kernel }}"
+    owner: ironic
+    group: ironic
+    mode: 0644
+    checksum: "{{ ipa_kernel_checksum | default(omit) }}"
+    timeout: 300
+    headers: "{{ ipa_download_headers | default(omit, true) }}"
+    # Keep downloading it until we get a good copy
+    force: yes
+  register: ipa_kernel_download_done
+  until: ipa_kernel_download_done is succeeded or
+         (ipa_kernel_download_done is failed)
+  retries: 5
+  delay: 10
+  when:
+    - update_ipa | bool or
+      not test_ipa_kernel_present.stat.exists
+
+- name: "Test if IPA image is present"
+  stat: path={{ ipa_ramdisk }}
+  register: test_ipa_image_present
+
+- name: "Download IPA image checksum"
+  get_url:
+    url: "{{ ipa_ramdisk_upstream_checksum_url }}"
+    dest: "{{ ipa_ramdisk }}.{{ ipa_ramdisk_upstream_checksum_algo }}"
+    headers: "{{ ipa_download_headers | default(omit, true) }}"
+    timeout: 300
+    force: yes
+    owner: ironic
+    group: ironic
+    mode: 0644
+
+- name: "Extract IPA ramdisk checksum"
+  command: awk '/{{ ipa_ramdisk_upstream_url | basename }}|^[a-z0-9]+$/{print $1}' "{{ ipa_ramdisk }}.{{ ipa_ramdisk_upstream_checksum_algo }}"
+  register: parsed_ipa_ramdisk_checksum
+  failed_when: parsed_ipa_ramdisk_checksum is failed
+               or not parsed_ipa_ramdisk_checksum.stdout
+
+- set_fact:
+    ipa_ramdisk_checksum: "{{ ipa_ramdisk_upstream_checksum_algo }}:{{ parsed_ipa_ramdisk_checksum.stdout }}"
+
+- name: "Download IPA image"
+  get_url:
+    url: "{{ ipa_ramdisk_upstream_url }}"
+    dest: "{{ ipa_ramdisk }}"
+    owner: ironic
+    group: ironic
+    headers: "{{ ipa_download_headers | default(omit, true) }}"
+    mode: 0644
+    checksum: "{{ ipa_ramdisk_checksum | default(omit) }}"
+    timeout: 300
+    # Keep downloading it until we get a good copy
+    force: yes
+  register: ipa_ramdisk_download_done
+  until: ipa_ramdisk_download_done is succeeded or
+         (ipa_ramdisk_download_done is failed and ipa_ramdisk_download_done.status_code is defined and ipa_ramdisk_download_done.status_code == 404)
+  retries: 5
+  delay: 10
+  when:
+    - update_ipa | bool or
+      not test_ipa_image_present.stat.exists

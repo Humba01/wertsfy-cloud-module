@@ -1,0 +1,58 @@
+[console_scripts]
+zun-api = zun.cmd.api:main
+zun-cni = zun.cni.cmd.cni:main
+zun-cni-daemon = zun.cni.cmd.cni_daemon:main
+zun-compute = zun.cmd.compute:main
+zun-db-manage = zun.cmd.db_manage:main
+zun-rootwrap = oslo_rootwrap.cmd:main
+zun-status = zun.cmd.status:main
+zun-wsproxy = zun.cmd.wsproxy:main
+
+[oslo.config.opts]
+zun.conf = zun.conf.opts:list_opts
+
+[oslo.config.opts.defaults]
+zun = zun.common.config:set_config_defaults
+
+[oslo.policy.policies]
+zun = zun.common.policies:list_rules
+
+[wsgi_scripts]
+zun-api-wsgi = zun.api.wsgi:init_application
+
+[zun.capsule.driver]
+cri = zun.container.cri.driver:CriDriver
+docker = zun.container.docker.driver:DockerDriver
+fake = zun.tests.unit.container.fake_driver:FakeDriver
+
+[zun.cni.binding]
+VIFBridge = zun.cni.binding.bridge:BridgeDriver
+VIFOpenVSwitch = zun.cni.binding.bridge:VIFOpenVSwitchDriver
+
+[zun.container.driver]
+docker = zun.container.docker.driver:DockerDriver
+fake = zun.tests.unit.container.fake_driver:FakeDriver
+
+[zun.database.migration_backend]
+sqlalchemy = zun.db.sqlalchemy.migration
+
+[zun.image.driver]
+docker = zun.image.docker.driver:DockerDriver
+glance = zun.image.glance.driver:GlanceDriver
+
+[zun.network.driver]
+cni = zun.network.cni_network:ZunCNI
+kuryr = zun.network.kuryr_network:KuryrNetwork
+
+[zun.scheduler.driver]
+chance_scheduler = zun.scheduler.chance_scheduler:ChanceScheduler
+fake_scheduler = zun.tests.unit.scheduler.fakes:FakeScheduler
+filter_scheduler = zun.scheduler.filter_scheduler:FilterScheduler
+
+[zun.vif_translators]
+ovs = zun.network.os_vif_util:neutron_to_osvif_vif_ovs
+
+[zun.volume.driver]
+cinder = zun.volume.driver:Cinder
+local = zun.volume.driver:Local
+

@@ -1,0 +1,20 @@
+# This template configures each role to use Vlans on a single nic for
+# each isolated network.
+# This template assumes use of network-isolation.yaml.
+#
+# FIXME: if/when we add functionality to heatclient to include heat
+# environment files we should think about using it here to automatically
+# include network-isolation.yaml.
+
+resource_registry:
+{%- for role in roles %}
+  OS::TripleO::{{role.name}}::Net::SoftwareConfig: OS::Heat::None
+{%- endfor %}
+parameter_defaults:
+{%- for role in roles %}
+{%- if 'storage' in role.tags %}
+  {{role.name}}NetworkConfigTemplate: 'templates/single_nic_linux_bridge_vlans/single_nic_linux_bridge_vlans_storage.j2'
+{%- else %}
+  {{role.name}}NetworkConfigTemplate: 'templates/single_nic_linux_bridge_vlans/single_nic_linux_bridge_vlans.j2'
+{%- endif %}
+{%- endfor %}

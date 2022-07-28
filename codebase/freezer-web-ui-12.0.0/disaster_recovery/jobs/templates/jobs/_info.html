@@ -1,0 +1,14 @@
+{% load i18n horizon humanize %}
+
+{% block help_message %}
+<h4>{% blocktrans trimmed %}Job{% endblocktrans %}</h4>
+<p>{% blocktrans trimmed %}Describes actions to be executed by a client.{% endblocktrans %}</p>
+<p>{% blocktrans trimmed %}Job executions can be executed and scheduled, by providing the following settings.{% endblocktrans %}</p>
+
+<link rel="stylesheet" href="{{ STATIC_URL }}freezer/css/bootstrap-datetimepicker.min.css">
+<script type='text/javascript' src='{{ STATIC_URL }}freezer/js/vendor/moment.js'></script>
+<script type='text/javascript' src='{{ STATIC_URL }}freezer/js/vendor/bootstrap-datetimepicker.js'></script>
+<script type='text/javascript' src='{{ STATIC_URL }}freezer/js/freezer.datetimepicker.js'></script>
+<script type='text/javascript' src='{{ STATIC_URL }}freezer/js/freezer.jobs.create.infos.js'></script>
+
+{% endblock %}

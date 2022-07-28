@@ -1,0 +1,34 @@
+- project:
+    templates:
+      - check-requirements
+      - tempest-plugin-jobs
+    check:
+      jobs:
+        - manila-tempest-plugin-dummy-no-dhss
+        - manila-tempest-plugin-dummy-dhss
+        - manila-tempest-plugin-lvm
+        - manila-tempest-plugin-lvm-xena
+        - manila-tempest-plugin-lvm-wallaby
+        - manila-tempest-plugin-lvm-victoria
+        - manila-tempest-plugin-zfsonlinux:
+            voting: false
+        - manila-tempest-plugin-cephfs-native:
+            voting: false
+        - manila-tempest-plugin-cephfs-nfs:
+            voting: false
+        - manila-tempest-plugin-container:
+            voting: false
+        - manila-tempest-plugin-generic:
+            voting: false
+        - manila-tempest-plugin-glusterfs-nfs:
+            voting: false
+    gate:
+      queue: manila
+      jobs:
+        - manila-tempest-plugin-dummy-no-dhss
+        - manila-tempest-plugin-dummy-dhss
+        - manila-tempest-plugin-lvm
+    experimental:
+      jobs:
+        - manila-tempest-plugin-glusterfs-native:
+            voting: false

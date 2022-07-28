@@ -1,0 +1,280 @@
+CHANGES
+=======
+
+2.5.0
+-----
+
+* Add support for PROMETHEUS listeners
+* Ignore new pylint checker
+* Add Python3 yoga unit tests
+* Update master for stable/xena
+
+2.4.0
+-----
+
+* Fix some typos
+* Improve the client performance on large clouds
+* Support pagination for 'list' API calls
+* setup.cfg: Replace dashes with underscores
+* Use py3 as the default runtime for tox
+* Add Python3 xena unit tests
+* Update master for stable/wallaby
+
+2.3.0
+-----
+
+* Remove Babel
+* Improve error messages in list/show calls
+* Remove install unnecessary packages
+* Add ALPN support for pools
+* Fix lower-constraints job
+* remove unicode from code
+* Add tag support for Octavia resources
+* Add support for PROXYV2 protocol
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+2.2.0
+-----
+
+* Add SCTP support
+* Fix the lower-constraints job for focal
+* Add amphora delete command
+* Fix hacking min version to 3.0.1
+* Add TLS versions and ciphers unsets
+* Add ALPN support for listeners
+* Fix new pylint errors
+
+2.1.0
+-----
+
+* Show operating\_status in listing LB output
+* Switch to newer openstackdocstheme and reno versions
+* Add the ability to specify TLS protocols for a pool
+* Add l7policy and l7rule to octavia quota
+* Add Python3 victoria unit tests
+* Remove mocking of functools.partial
+* Add the ability to specify TLS protocols for a listener
+* Remove Babel requirement
+* Update master for stable/ussuri
+
+2.0.1
+-----
+
+* Add the ability to specify the cipher list for a listener
+* Add the ability to specify the cipher list for a pool
+* Cleanup py27 support
+* Update hacking for Python3
+* Fix doc8 check
+* Align python-octaviaclient to octavia coding style
+* Remove the dependency on the "mock" package
+* Fix Octavia client for API endpoint 503
+* Add --long to amphora-list to show more columns
+* Fix long CLI error messages
+
+2.0.0
+-----
+
+* Add support for availability zone [profiles]
+* Add amphora stats show API and CLI
+* Fix API breakage due to new exceptions module
+* Add "--wait" functionality
+* Do not get all resources if ID is passed
+* Stop testing python 2
+
+1.11.0
+------
+
+* Add librsvg2-bin/-tools to bindep.txt
+* List l7poclies by listener
+* Drop netifaces from requirements.txt
+* Update master for stable/train
+
+1.10.0
+------
+
+* Add support for SOURCE\_IP\_PORT algorithm
+* Wrap several show api calls with correct\_return\_codes
+* Add support to VIP access control list
+* Generate PDF documentation
+* Fix a bad unit test for amphora list
+* Bump the openstackdocstheme extension to 1.20
+* Blacklist sphinx 2.1.0 (autodoc bug)
+* Add Python 3 Train unit tests
+* Update tox.ini for new upper constraints strategy
+
+1.9.0
+-----
+
+* Adds "unset" action to the quota command
+* Adds "unset" action to the l7rule command
+* Adds "unset" action to the l7policy command
+* Adds "unset" action to the flavor command
+* Adds "unset" action to the healthmonitor command
+* Adds "unset" action to the member command
+* Adds "unset" action to the pool command
+* Cleanup requirements.txt
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Remove python3.5 jobs for Train
+* Adds "unset" action to the listener command
+* Adds "unset" action to the loadbalancer command
+* Make sure we always requests JSON responses
+* Update master for stable/stein
+
+1.8.0
+-----
+
+* Add new options to HealthMonitor CLI
+* Add a new option '--redirect-http-code' into L7Policy CLI
+* Add enable\_tls option into Pool CLI
+* Add 2 new options to Pool for support backend certificates validation
+* Add 'tls\_container\_ref' option into Pool for backend re-encrption
+* Adds loadbalancer amphora configure to OSC
+* Add 4 l7rule types into Octavia CLI
+* Add client\_crl\_container\_ref for Listener API in CLI
+* Add 'client\_authentication' in Listener on client
+* Add 'client\_ca\_tls\_container\_ref' in Listener on client side
+* Update json module to jsonutils
+* Add load balancer flavor support to the OSC client
+* add python 3.7 unit test job
+* Make the documentation reproducible
+* Add some commands for octavia flavor and flavor\_profile
+* Add provider command support
+* Add --provider to load balancer create
+* Fix coverage and set a minimum
+
+1.7.0
+-----
+
+* Fixed some typos
+* Add failover an amphora client support
+* Add compute\_flavor field to amphora
+* Support REDIRECT\_PREFIX for openstack client
+* Change openstack-dev to openstack-discuss
+* Add Python 3.6 classifier to setup.cfg
+* Add python 3.6 unit test job
+* Use templates for cover and lower-constraints
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Update reno for stable/rocky
+
+1.6.0
+-----
+
+* LB support UDP - Client part
+* Support backup members
+* Add some filter options to load balancer list command
+* Fix missing docs command mapping for status show
+* fix tox python3 overrides
+
+1.5.0
+-----
+
+* Add timeout options to listener resource
+* Add loadbalancer status show client api and osc
+* update cmd2 dependency to handle py3 only versions
+* Update python-octaviaclient tox for stestr
+* Fix for docs build in tox.ini
+* Update the outdated links
+* fix a typo: s/extention/extension
+* Minor changes in docs
+* Updated from global requirements
+* Add release notes link to README
+* add lower-constraints job
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Add image\_id and timestamps to amphora
+* Update http links in docs
+* Updated from global requirements
+* fix error url
+* Update docs config for storyboard bugs
+* Updates the command mapping to include LB stats
+* Updated from global requirements
+* Update reno for stable/queens
+
+1.4.0
+-----
+
+* Update and add listener stats release notes
+* Updated from global requirements
+* Remove direct dependency on testtools
+* Updated from global requirements
+* Improve unit testing scalability
+* Code cleanup
+* Update new documentation PTI jobs
+* Updated from global requirements
+* Updated from global requirements
+* Allow case-insensitive entries when selecting from choices
+* Add VIP QoS Policy client support
+* Add listener stats client api and osc
+* Fix release notes theme
+
+1.3.0
+-----
+
+* Complement Octavia client with a set of features
+* Extend loadbalancer\_create valid VIP parameters combinations
+* Add Quota client API and OSC support
+* Add loadbalancer stats client api and osc
+* Updated from global requirements
+* Avoid tox\_install.sh for constraints support
+* Remove .testrepository/times.dbm in tox.ini
+* Updated from global requirements
+* Updated from global requirements
+* Fix missing TLS handling in listener create
+* Updated from global requirements
+* Improve error reporting for the octavia plugin
+* Updated from global requirements
+* Updated from global requirements
+* Move to auto-generated CLI reference
+* Remove positional from requirements
+* Lowercase vip\_Address in return
+* Remove reqs from test-req that exist in req
+* Updated from global requirements
+* Update reno for stable/pike
+* Update python-octaviaclient docs for migration
+* Updated from global requirements
+* Updated from global requirements
+* Replaces uuid.uuid4 with uuidutils.generate\_uuid()
+
+1.1.0
+-----
+
+* Remove rogue calls to str.upper in l7rules
+* Replace six.iteritems() with .items()
+* Updated from global requirements
+* Add TLS-HELLO option for HealthMonitors
+* Remove old pep8 ignores that are no longer necessary
+* Updated from global requirements
+
+1.0.0
+-----
+
+* Add check O346 to disallow backslash line continuation
+* Fix command to include PROXY and update metavars
+* Update help text for all commands
+* Add healthmonitor commands to client
+* Add l7rule commands to client
+* Add l7policy commands to client
+* Add member commands to client
+* Updated from global requirements
+* Add hacking checks
+* Add pool commands to client
+* Add Listener commands to client
+* Add loadbalancer commands to client
+* Updated from global requirements
+* Add install information to readme.rst
+* Version name correction to allow installing
+* Optimize the link address
+
+0.1.0
+-----
+
+* Initialize plugin for OSC
+* Update Docs for more information and dummy commands
+* Add mapping documentation between legacy Neutron CLI and Octavia
+* Initial setup of the python-octaviaclient repo
+* Added .gitreview

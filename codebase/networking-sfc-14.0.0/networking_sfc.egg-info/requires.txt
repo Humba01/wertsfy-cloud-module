@@ -1,0 +1,15 @@
+SQLAlchemy>=1.2.0
+alembic>=0.9.6
+eventlet>=0.25.1
+netaddr>=0.7.18
+neutron-lib>=2.19.0
+neutron>=17.0.0
+oslo.config>=8.0.0
+oslo.i18n>=3.20.0
+oslo.log>=4.3.0
+oslo.messaging>=12.4.0
+oslo.serialization>=2.25.0
+oslo.utils>=4.5.0
+pbr>=4.0.0
+python-neutronclient>=6.7.0
+stevedore>=1.20.0

@@ -1,0 +1,31 @@
+{
+  "id": "76057f8e65ab37fb82d9382dfc3f3c8b",
+  "filter": {
+    "vnfInstanceSubscriptionFilter": {
+      "vnfdIds": [],
+      "vnfProductsFromProviders": {
+          "vnfProvider": "Vnf Provider 1",
+          "vnfProducts": [
+            {
+              "vnfProductName": "Vnf Product 1",
+              "versions": [
+                  {
+                      "vnfSoftwareVersion": "v1",
+                      "vnfdVersions": ["vnfd.v1.1"]
+                  }
+              ]
+            }
+          ]
+      }
+    },
+    "notificationTypes": [
+      "VnfLcmOperationOccurrenceNotification"
+    ]
+  },
+  "callbackUri": "http://sample1.com/notification",
+  "_links": {
+    "self": {
+      "href": "https://sample1.com/vnflcm/v1/subscriptions/76057f8e65ab37fb82d9382dfc3f3c8b"
+    }
+  }
+}

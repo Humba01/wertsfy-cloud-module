@@ -1,0 +1,90 @@
+CHANGES
+=======
+
+1.4.0
+-----
+
+* Migrate from testr to stestr
+
+1.3.0
+-----
+
+* Add doc/requirements
+
+1.2.0
+-----
+
+* New native Zuul v3 version of the tempest jobs
+* Cleanup py27 support
+* Switch to newer openstackdocstheme and reno versions
+
+1.0.0
+-----
+
+* Optimize the tempest job for zaqar-tempest-plugin
+* Add tempest jobs for zaqar tempest plugin
+* Fix bug/1863560
+* Fix bug 1863560
+* Add tempest test for querying queus with count
+* Revert "Add tempest test for querying queus with count"
+* Add tempest test for querying queus with count
+* [ussuri][goal] Drop python 2.7 support and testing
+* Fix incompatibility in python3
+
+0.3.0
+-----
+
+* Fix Tempest error
+* OpenDev Migration Patch
+
+0.2.0
+-----
+
+* Update the outdated README.rst in zaqat\_tempest\_plugin
+* Change openstack-dev to openstack-discuss
+* import zuul job settings from project-config
+* Remove the ambiguous test
+
+0.1.0
+-----
+
+* Fix documentation build
+* Add test for claim for non existing queue
+* fix error url
+* Tempest plugin support for message body md5
+* Fix zaqar tempest plugin grenade ci failure
+* Tempest plugin support for delayed queues
+* Delete the number of queue metadata check
+* Revert "Tempest plugin support for delayed queues"
+* Tempest plugin support for delayed queues
+* Added docs for installation and running tests
+* Refactored zaqar tempest plugin directory structure
+* Apply cookiecutter to newly split project
+* Fix bug in mongodb backend for dead letter queue
+* Fix tempest test\_set\_and\_get\_queue\_metadata
+* Remove Deprecation tempest Warning
+* Replace uuid.uuid4().hex with uuidutils.generate\_uuid()
+* Replace test.attr with decorators.attr
+* Remove redundancy code
+* Fix claim ttl test
+* Switch to use stable data\_utils
+* Switch to use test\_utils.call\_until\_true
+* Switch to decorators.idempotent\_id
+* don't allow get/update/delete subscirtions with wrong queue
+* Removes unnecessary utf-8 encoding
+* Add tempest test for purge queue
+* Use build interval and timeout from conf
+* Subscription Confirmation Support-2
+* Subscription Confirmation Support-1
+* Adding Negative tests cases to Zaqar v2
+* Start accepting \*\*kwargs in service clients
+* Add a trust notifier task
+* Let v2 tempest base on the base tests
+* Replace tempest-lib with tempest.lib
+* Fix tempest tests list
+* Fix service\_available opt registration and extra comma
+* Use assertEqual/GreaterEqual/LessEqual
+* Add tempest test for wsgi v2
+* Add tempest test for v1.1
+* Fix the tempest test error
+* Add zaqar tempest plugin

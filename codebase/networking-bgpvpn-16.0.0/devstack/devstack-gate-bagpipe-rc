@@ -1,0 +1,30 @@
+# This file is hooked from https://github.com/openstack-infra/project-config/blob/master/jenkins/jobs/networking-bgpvpn.yaml
+
+export OVERRIDE_ENABLED_SERVICES=n-api,n-crt,n-cpu,n-cond,n-api-meta,n-sch,placement-api,g-api,g-reg,neutron-api,neutron-agent,neutron-dhcp,neutron-l3,neutron-metadata-agent,neutron-bagpipe-bgp,key,mysql,rabbit
+
+if [[ $DEVSTACK_GATE_TEMPEST -eq 1 ]] ; then
+    export DEVSTACK_GATE_TEMPEST_REGEX="^neutron_tempest_plugin\.bgpvpn"
+    export OVERRIDE_ENABLED_SERVICES=${OVERRIDE_ENABLED_SERVICES},tempest
+fi
+
+export DEVSTACK_LOCAL_CONFIG+=$'\n'"NETWORKING_BGPVPN_DRIVER=BGPVPN:BaGPipe:networking_bgpvpn.neutron.services.service_drivers.bagpipe.bagpipe_v2.BaGPipeBGPVPNDriver:default"
+export DEVSTACK_LOCAL_CONFIG+=$'\n'"enable_plugin networking-bagpipe https://opendev.org/openstack/networking-bagpipe"
+export DEVSTACK_LOCAL_CONFIG+=$'\n'"BAGPIPE_DATAPLANE_DRIVER_IPVPN=ovs"
+
+# until we do multinode, there is no BGP peer to connect to
+export DEVSTACK_LOCAL_CONFIG+=$'\n'"BAGPIPE_BGP_PEERS=-"
+
+# https://bugs.launchpad.net/devstack/+bug/1567052
+# so we need VERBOSE=False until bagpipe-bgp uses rootwrap and is not run with sudo (same for bagpipe-fakerr)
+export DEVSTACK_LOCAL_CONFIG+=$'\n'"VERBOSE=False"
+
+# at least some DB setup things (e.g. for functional tests) require
+# helpers from neutron devstack plugin
+export DEVSTACK_LOCAL_CONFIG+=$'\n'"enable_plugin neutron https://opendev.org/openstack/neutron"
+
+# Using the openvswitch firewall driver for security groups is currently
+# required to allow BGPVPN/router coexistence in single node or DVR setup
+export DEVSTACK_LOCAL_CONFIG+=$'\n'"[[post-config|/etc/neutron/plugins/ml2/ml2_conf.ini]]"
+export DEVSTACK_LOCAL_CONFIG+=$'\n'"[securitygroup]"
+export DEVSTACK_LOCAL_CONFIG+=$'\n'"firewall_driver = openvswitch"
+

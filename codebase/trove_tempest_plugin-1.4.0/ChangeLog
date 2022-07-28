@@ -1,0 +1,98 @@
+CHANGES
+=======
+
+1.4.0
+-----
+
+* Show trove guest agent log when instance creation failed
+
+1.3.0
+-----
+
+* Improve rebuild test
+* Show instance fault message when ERROR
+
+1.2.0
+-----
+
+* Move updating access test case to a separate test class
+
+1.1.0
+-----
+
+* Update access test
+* Support PostgreSQL
+* Disable upgrade test if not configured
+* Add rebuild test
+* Add volume resize functional test for replication
+* Add config database\_restore\_timeout
+* Clean up object storage for test user
+* Fix configuration test
+* Move replication test to separate file
+* Add tests: resize
+* Add tests: replication
+* Add tests: configuration
+* Add tests: user management
+* Add tests: datastore upgrade
+* Add tests: Backup and restore
+* Add py38 package metadata
+* Fix upgrade instance test
+* Switch to newer openstackdocstheme and reno versions
+* Fix getting database address
+* Cleanup cruft
+
+1.0.0
+-----
+
+* Drop python 2.7 support and testing
+* Add instance upgrade API test
+* Support HEALTHY status
+* Improve the basic test case for mysql
+* Refactor trove-tempest-plugin
+
+0.3.0
+-----
+
+* [train][goal] Define new 'trove-tempest-ipv6-only' job
+* OpenDev Migration Patch
+* Replace openstack.org git:// URLs with https://
+
+0.2.0
+-----
+
+* Enable publishing plugin docs
+* Change openstack-dev to openstack-discuss
+* Add python 3.6 unit test job
+* [Trivial Fix] update home-page url
+* Fix the old or invalid doc links
+* fix tox python3 overrides
+* import zuul job settings from project-config
+
+0.1.0
+-----
+
+* Add common base class for test cases
+* Make use of service clients interface
+* Flatten service clients and tests directories
+* Create base class for client to avoid code duplication
+* A new Zuul job for trove-tempest-plugin itself
+* change default python 3 env in tox to 3.5
+* Fix deprecation warning in test\_flavors.py
+* doc: Fix copy-paste errors in install guide
+* Updated from global requirements
+* Updated from global requirements
+* Fix documentation build
+* Updated from global requirements
+* Follow troveclient zuul job rename
+* use tempest-neutron-src-python-troveclient job in trove-tempest-plugin
+* Apply cookiecutter to newly split project trove-tempest-plugin
+* Replace deprecated alias 'os' with 'os\_primary'
+* Revert "Remove the tempest plugin"
+* Remove the tempest plugin
+* Fix Trove tempest plugin
+* Stop adding ServiceAvailable group option
+* Display more flavor information in trove flavor-list command
+* tempest/test\_flavors: vcpus is in db
+* Fix config registration for Trove tempest plugin
+* Fix tempest base: add missing imports
+* Add trove tempest plugin

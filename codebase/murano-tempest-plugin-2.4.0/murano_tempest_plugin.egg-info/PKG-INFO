@@ -1,0 +1,63 @@
+Metadata-Version: 1.2
+Name: murano-tempest-plugin
+Version: 2.4.0
+Summary: Tempest plugin for the murano project.
+Home-page: https://docs.openstack.org/murano/latest/
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ========================
+        Team and repository tags
+        ========================
+        
+        .. image:: http://governance.openstack.org/tc/badges/murano-tempest-plugin.svg
+            :target: http://governance.openstack.org/tc/reference/tags/index.html
+        
+        =====================
+        murano-tempest-plugin
+        =====================
+        
+        This directory contains Tempest tests to cover the Murano project, as well
+        as a plugin to automatically load these tests into tempest.
+        
+        See the Tempest plugin docs for information on using it:
+        https://docs.openstack.org/tempest/latest/#using-plugins
+        
+        * Free software: Apache license
+        * Documentation: https://docs.openstack.org/murano/latest/
+        * Release notes: https://docs.openstack.org/releasenotes/murano/
+        * Source: https://opendev.org/openstack/murano-tempest-plugin
+        * Bugs: https://bugs.launchpad.net/murano
+        
+        Running the tests
+        -----------------
+        
+        To run all tests from this plugin, install Murano into your environment and
+        navigate to tempest directory::
+        
+            $ cd /opt/stack/tempest
+        
+        Run this command::
+        
+            $ tox -e all-plugin -- application_catalog 
+        
+        To run a single test case, run with the test case name, for example::
+        
+            $ tox -e all-plugin -- murano_tempest_tests.tests.api.application_catalog.test_categories.TestCategories.test_list_categories
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6

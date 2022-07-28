@@ -1,0 +1,253 @@
+---
+- job:
+    name: kayobe-tox-ansible-syntax
+    description: |
+      Tox job that checks Ansible playbook syntax.
+    parent: openstack-tox
+    vars:
+      tox_envlist: ansible-syntax
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*
+      - ^releasenotes/.*
+      - ^setup.cfg$
+      - ^zuul.d/.*
+
+- job:
+    name: kayobe-tox-ansible
+    description: |
+      Tox job that runs native Ansible role tests.
+    parent: openstack-tox-with-sudo
+    vars:
+      tox_envlist: ansible
+    required-projects:
+      - name: openstack/requirements
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*
+      - ^releasenotes/.*
+      - ^setup.cfg$
+      - ^zuul.d/.*
+
+- job:
+    name: kayobe-tox-molecule
+    description: |
+      Tox job that runs molecule-based Ansible role tests.
+    parent: openstack-tox-with-sudo
+    pre-run: playbooks/kayobe-tox-molecule/pre.yml
+    timeout: 3600
+    required-projects:
+      - openstack/requirements
+    vars:
+      tox_envlist: molecule
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*
+      - ^releasenotes/.*
+      - ^setup.cfg$
+      - ^zuul.d/.*
+
+- job:
+    name: kayobe-base
+    description: |
+      Base job for all deployment jobs.
+    pre-run: playbooks/kayobe-base/pre.yml
+    post-run: playbooks/kayobe-base/post.yml
+    attempts: 5
+    required-projects:
+      # Include kayobe to ensure other projects can use this job.
+      - name: openstack/kayobe
+      - name: openstack/kayobe-config-dev
+      - name: openstack/kolla
+        # TODO(mnasiadka): Remove when kayobe stable/xena exists.
+        override-checkout: stable/xena
+      - name: openstack/kolla-ansible
+        # TODO(mnasiadka): Remove when kayobe stable/xena exists.
+        override-checkout: stable/xena
+      - name: openstack/requirements
+        # TODO(mnasiadka): Remove when kayobe stable/xena exists.
+        override-checkout: stable/xena
+      - name: openstack/tenks
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^doc/.*
+      - ^releasenotes/.*
+      - ^setup.cfg$
+      - ^test-requirements.txt
+      - ^tools/.*$
+      - ^tox.ini$
+      - ^zuul.d/.*
+    vars:
+      # Name of the release to upgrade from for upgrade jobs.
+      previous_release: wallaby
+      logs_dir: "/tmp/logs"
+      kayobe_src_dir: "{{ ansible_env.PWD ~ '/' ~ zuul.projects['opendev.org/openstack/kayobe'].src_dir }}"
+      kayobe_config_src_dir: "{{ ansible_env.PWD ~ '/' ~ zuul.projects['opendev.org/openstack/kayobe-config-dev'].src_dir }}"
+      previous_kayobe_src_dir: "{{ ansible_env.PWD ~ '/previous/kayobe' }}"
+      previous_kayobe_config_src_dir: "{{ ansible_env.PWD ~ '/previous/kayobe-config' }}"
+      requirements_src_dir: "{{ ansible_env.PWD ~ '/' ~ zuul.projects['opendev.org/openstack/requirements'].src_dir }}"
+      tenks_src_dir: "{{ ansible_env.PWD ~ '/' ~ zuul.projects['opendev.org/openstack/tenks'].src_dir }}"
+      is_upgrade: "{{ 'upgrade' in zuul.job }}"
+      tls_enabled: false
+
+- job:
+    name: kayobe-overcloud-base
+    parent: kayobe-base
+    description: |
+      Base job for testing overcloud deployment.
+
+      Configures the primary VM as an overcloud controller.
+    pre-run: playbooks/kayobe-overcloud-base/pre.yml
+    run: playbooks/kayobe-overcloud-base/run.yml
+    timeout: 7200
+
+- job:
+    name: kayobe-overcloud-centos8s
+    parent: kayobe-overcloud-base
+    nodeset: kayobe-centos8s
+
+- job:
+    name: kayobe-overcloud-ubuntu-focal
+    parent: kayobe-overcloud-base
+    nodeset: kayobe-ubuntu-focal
+
+- job:
+    name: kayobe-overcloud-tls-base
+    parent: kayobe-overcloud-base
+    vars:
+      tls_enabled: true
+
+- job:
+    name: kayobe-overcloud-tls-centos8s
+    parent: kayobe-overcloud-tls-base
+    nodeset: kayobe-centos8s
+
+- job:
+    name: kayobe-overcloud-upgrade-base
+    parent: kayobe-base
+    description: |
+      Base job for testing overcloud upgrades.
+
+      Configures the primary VM as an overcloud controller using the previous
+      OpenStack release, and upgrades it to the current release.
+    pre-run: playbooks/kayobe-overcloud-upgrade-base/pre.yml
+    run: playbooks/kayobe-overcloud-upgrade-base/run.yml
+    timeout: 9000
+
+- job:
+    name: kayobe-overcloud-upgrade-centos8s
+    parent: kayobe-overcloud-upgrade-base
+    nodeset: kayobe-centos8s
+
+- job:
+    name: kayobe-overcloud-upgrade-ubuntu-focal
+    parent: kayobe-overcloud-upgrade-base
+    nodeset: kayobe-ubuntu-focal
+
+- job:
+    name: kayobe-seed-base
+    parent: kayobe-base
+    description: |
+      Base job for testing seed deployment.
+
+      Configures the primary VM as a seed.
+    pre-run: playbooks/kayobe-seed-base/pre.yml
+    run: playbooks/kayobe-seed-base/run.yml
+    timeout: 5400
+
+- job:
+    name: kayobe-seed-centos8s
+    parent: kayobe-seed-base
+    nodeset: kayobe-centos8s
+
+- job:
+    name: kayobe-seed-ubuntu-focal
+    parent: kayobe-seed-base
+    nodeset: kayobe-ubuntu-focal
+
+- job:
+    name: kayobe-overcloud-host-configure-base
+    parent: kayobe-overcloud-base
+    description: |
+      Base job for testing overcloud host configure.
+
+      Configures the primary VM as an overcloud controller.
+    pre-run: playbooks/kayobe-overcloud-host-configure-base/pre.yml
+    run: playbooks/kayobe-overcloud-host-configure-base/run.yml
+    timeout: 7200
+
+- job:
+    name: kayobe-overcloud-host-configure-centos8s
+    parent: kayobe-overcloud-host-configure-base
+    nodeset: kayobe-centos8s
+
+- job:
+    name: kayobe-overcloud-host-configure-ubuntu-focal
+    parent: kayobe-overcloud-host-configure-base
+    nodeset: kayobe-ubuntu-focal
+
+- job:
+    name: kayobe-seed-upgrade-base
+    parent: kayobe-base
+    description: |
+      Base job for testing seed upgrades.
+
+      Configures the primary VM as a seed using the previous OpenStack release,
+      and upgrades it to the current release.
+    pre-run: playbooks/kayobe-seed-upgrade-base/pre.yml
+    run: playbooks/kayobe-seed-upgrade-base/run.yml
+    timeout: 5400
+
+- job:
+    name: kayobe-seed-upgrade-centos8s
+    parent: kayobe-seed-upgrade-base
+    nodeset: kayobe-centos8s
+
+- job:
+    name: kayobe-seed-upgrade-ubuntu-focal
+    parent: kayobe-seed-upgrade-base
+    nodeset: kayobe-ubuntu-focal
+
+- job:
+    name: kayobe-seed-vm-base
+    parent: kayobe-base
+    description: |
+      Base job for testing seed VM provisioning.
+
+      Configures the primary VM as a libvirt hypervisor, and provisions a seed
+      as a VM.
+    pre-run: playbooks/kayobe-seed-vm-base/pre.yml
+    run: playbooks/kayobe-seed-vm-base/run.yml
+    timeout: 5400
+
+- job:
+    name: kayobe-seed-vm-centos8s
+    parent: kayobe-seed-vm-base
+    nodeset: kayobe-centos8s
+
+- job:
+    name: kayobe-seed-vm-ubuntu-focal
+    parent: kayobe-seed-vm-base
+    nodeset: kayobe-ubuntu-focal
+
+- job:
+    name: kayobe-infra-vm-base
+    parent: kayobe-base
+    description: |
+      Base job for testing infra VM provisioning.
+
+      Configures the primary VM as a libvirt hypervisor, and provisions an
+      infra VM.
+    pre-run: playbooks/kayobe-infra-vm-base/pre.yml
+    run: playbooks/kayobe-infra-vm-base/run.yml
+    timeout: 5400
+
+- job:
+    name: kayobe-infra-vm-centos8s
+    parent: kayobe-infra-vm-base
+    nodeset: kayobe-centos8s
+
+- job:
+    name: kayobe-infra-vm-ubuntu-focal
+    parent: kayobe-infra-vm-base
+    nodeset: kayobe-ubuntu-focal

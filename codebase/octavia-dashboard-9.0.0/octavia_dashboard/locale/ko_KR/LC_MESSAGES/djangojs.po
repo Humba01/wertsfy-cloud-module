@@ -1,0 +1,1523 @@
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
+# ByungYeol Woo <wby1089@gmail.com>, 2018. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
+# Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
+# ByungYeol Woo <wby1089@gmail.com>, 2019. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2020. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: octavia-dashboard VERSION\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2020-09-25 16:30+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2020-05-05 11:50+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"Language-Team: Korean (South Korea)\n"
+"Language: ko_KR\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid "%(ip)s..."
+msgstr "%(ip)s..."
+
+msgid "A new health monitor is being created."
+msgstr "새로운 상태 모니터가 생성되고 있습니다."
+
+msgid "A new l7 policy is being created."
+msgstr "새로운 l7 정책이 생성되고 있습니다."
+
+msgid "A new listener is being created."
+msgstr "새로운 리스너를 생성하고 있습니다."
+
+msgid "A new load balancer is being created."
+msgstr "새로운 로드 밸런서를 생성하고 있습니다."
+
+msgid "A new pool is being created."
+msgstr "새로운 풀이 생성되고 있습니다."
+
+msgid ""
+"A pool represents a group of members over which the load balancing will be "
+"applied."
+msgstr "풀은 로드 밸런싱이 적용되는 멤버의 그룹을 나타냅니다."
+
+msgid "APP_COOKIE: Session persistence based on application cookie."
+msgstr "APP_COOKIE:  세션 지속성 기반의 어플리케이션 쿠키."
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Action:"
+msgstr "동작:"
+
+msgid "Active"
+msgstr "활성"
+
+msgid "Add"
+msgstr "추가"
+
+msgid "Add external member"
+msgstr "외부 멤버 추가"
+
+msgid "Add members to the load balancer pool."
+msgstr "로드 밸런서 풀에 멤버를 추가합니다."
+
+msgid "Add/Remove Members"
+msgstr "멤버 추가/삭제"
+
+msgid "Add/Remove Pool Members"
+msgstr "풀 멤버 추가/삭제"
+
+msgid ""
+"Additional headers insertion into HTTP header,\n"
+"  only \"X-Forwarded-For\", \"X-Forwarded-Port\" and \"X-Forwarded-Proto\" "
+"are supported."
+msgstr ""
+"HTTP 헤더에 삽입하는 부가적인 헤더에는,\n"
+"  \"X-Forwarded-For\", \"X-Forwarded-Port\", \"X-Forwarded-Proto\"만 지원됩니"
+"다."
+
+msgid "Admin State Up"
+msgstr "관리자 업 상태"
+
+msgid "Algorithm"
+msgstr "알고리즘"
+
+msgid "Algorithm:"
+msgstr "알고리즘:"
+
+msgid "Allocated Members"
+msgstr "할당된 멤버"
+
+msgid ""
+"An L7 Policy is a collection of L7 rules associated with a Listener, and "
+"which may also have an association to a back-end pool"
+msgstr ""
+"L7 정책은 리스너와 연결된 L7 규칙의 집합이고, 백엔드 풀과 연결되어 있을 수도 "
+"있습니다."
+
+msgid ""
+"An L7 Rule is a single, simple logical test which returns either true or\n"
+"false."
+msgstr "L7 규칙은 참 또는 거짓으로 응답하는 간단한 단일 논리 검사입니다."
+
+msgid ""
+"An alternate IP address used for health monitoring a backend member.\n"
+"  Default is null which monitors the member address."
+msgstr ""
+"백엔드 멤버의 상태 모니터링에 사용되는 대체 IP주소입니다.\n"
+"  멤버 주소를 모니터하는 기본 설정은 null입니다."
+
+msgid ""
+"An alternate protocol port used for health monitoring a backend member.\n"
+"  Default is null which monitors the member protocol port."
+msgstr ""
+"백엔드 멤버의 상태 모니터링에 사용되는 대체 프로토콜 포트입니다.\n"
+"  멤버 프로토콜 포트를 모니터하는 기본 설정은 null입니다."
+
+msgid "An error occurred. Please try again later."
+msgstr "오류가 발생했습니다. 나중에 다시 시도하십시오."
+
+msgid "Associate"
+msgstr "연결"
+
+msgid "Associate Floating IP"
+msgstr "Floating IP 연결"
+
+msgid "Associate Floating IP Address"
+msgstr "Floating IP 주소와 연결"
+
+msgid "Associating floating IP with load balancer."
+msgstr "Floating IP와 로드 밸런서 연결"
+
+msgid "Availability Zone"
+msgstr "가용 구역"
+
+msgid "Available Instances"
+msgstr "사용 가능한 인스턴스"
+
+msgid "Backend member connection timeout in milliseconds. Default: 5000."
+msgstr "백엔드 멤버 연결 타임아웃(밀리 초). 기본 값: 5000."
+
+msgid "Backend member inactivity timeout in milliseconds. Default: 50000."
+msgstr "벡엔드 멤버 비활성 타임아웃 (밀리 초). 기본값: 50000."
+
+msgid "Backup"
+msgstr "백업"
+
+msgid "Backup:"
+msgstr "백업:"
+
+msgid "CIDR"
+msgstr "CIDR"
+
+msgid "CONTAINS: String contains."
+msgstr "CONTAINS: 문자열 포함"
+
+msgid ""
+"COOKIE: The rule looks for a cookie named by the key parameter and\n"
+"      compares it against the value parameter in the rule."
+msgstr ""
+"COOKIE: 규칙은 키 매개변수로 이름붙여진 쿠키를 찾고\n"
+"      규칙 내의 값 매개변수와 비교합니다."
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Certificate Name"
+msgstr "인증서 이름"
+
+msgid "Client Data Timeout"
+msgstr "클라이언트 데이터 타임아웃"
+
+msgid "Client Data Timeout:"
+msgstr "클라이언트 데이터 타임아웃:"
+
+msgid "Compare Type"
+msgstr "유형 비교"
+
+msgid "Compare Type:"
+msgstr "유형 비교:"
+
+msgid "Confirm Delete Health Monitor"
+msgid_plural "Confirm Delete Health Monitors"
+msgstr[0] "상태 모니터 삭제 확인"
+
+msgid "Confirm Delete L7 Policy"
+msgid_plural "Confirm Delete L7 Policies"
+msgstr[0] "L7 정책 삭제 확인"
+
+msgid "Confirm Delete L7 Rule"
+msgid_plural "Confirm Delete L7 Rules"
+msgstr[0] "L7 규칙 삭제 확인"
+
+msgid "Confirm Delete Listener"
+msgid_plural "Confirm Delete Listeners"
+msgstr[0] "리스터 삭제 확인"
+
+msgid "Confirm Delete Load Balancer"
+msgid_plural "Confirm Delete Load Balancers"
+msgstr[0] "로드 밸런서 삭제 확인"
+
+msgid "Confirm Delete Member"
+msgid_plural "Confirm Delete Members"
+msgstr[0] "멤버 삭제 확인"
+
+msgid "Confirm Delete Pool"
+msgid_plural "Confirm Delete Pools"
+msgstr[0] "풀 삭제 확인"
+
+msgid "Confirm Disassociate Floating IP Address"
+msgstr "Floating IP 주소 연결 해제 확인"
+
+msgid "Connection Limit"
+msgstr "연결 제한"
+
+msgid "Connection Limit:"
+msgstr "접속 제한:"
+
+msgid "Contains"
+msgstr "Contains"
+
+msgid "Cookie"
+msgstr "쿠키"
+
+msgid "Cookie Name"
+msgstr "쿠키 이름"
+
+msgid "Create Health Monitor"
+msgstr "상태 모니터 생성"
+
+msgid "Create L7 Policy"
+msgstr "L7 정책 생성"
+
+msgid "Create L7 Rule"
+msgstr "L7 규칙 생성"
+
+msgid "Create Listener"
+msgstr "리스너 생성"
+
+msgid "Create Load Balancer"
+msgstr "로드 밸런서 생성"
+
+msgid "Create Pool"
+msgstr "풀 생성"
+
+msgid "Created At"
+msgstr "생성 시점"
+
+msgid "Default Pool ID"
+msgstr "기본 풀 ID"
+
+msgid "Default Pool ID:"
+msgstr "기본 풀 ID:"
+
+msgid "Default TLS Container Ref"
+msgstr "디폴트 TLS 컨테이너 참조"
+
+msgid "Degraded"
+msgstr "감소됨"
+
+msgid "Delay"
+msgstr "지연"
+
+msgid "Delay (sec)"
+msgstr "지연 (초)"
+
+msgid "Delay:"
+msgstr "지연:"
+
+msgid "Delete Health Monitor"
+msgid_plural "Delete Health Monitors"
+msgstr[0] "상태 모니터 삭제"
+
+msgid "Delete Health Monitors"
+msgstr "상태 모니터 삭제"
+
+msgid "Delete L7 Policies"
+msgstr "L7 정책 삭제"
+
+msgid "Delete L7 Policy"
+msgid_plural "Delete L7 Policies"
+msgstr[0] "L7 정책 삭제"
+
+msgid "Delete L7 Rule"
+msgid_plural "Delete L7 Rules"
+msgstr[0] "L7 규칙 삭제"
+
+msgid "Delete L7 Rules"
+msgstr "L7 규칙 삭제"
+
+msgid "Delete Listener"
+msgid_plural "Delete Listeners"
+msgstr[0] "리스너 삭제"
+
+msgid "Delete Listeners"
+msgstr "리스너 삭제"
+
+msgid "Delete Load Balancer"
+msgid_plural "Delete Load Balancers"
+msgstr[0] "로드 밸런서 삭제"
+
+msgid "Delete Load Balancers"
+msgstr "로드 밸런서 삭제"
+
+msgid "Delete Member"
+msgid_plural "Delete Members"
+msgstr[0] "멤버 삭제"
+
+msgid "Delete Members"
+msgstr "멤버 삭제"
+
+msgid "Delete Pool"
+msgid_plural "Delete Pools"
+msgstr[0] "풀 삭제"
+
+msgid "Delete Pools"
+msgstr "풀 삭제"
+
+#, python-format
+msgid "Deleted Health Monitor: %s."
+msgid_plural "Deleted Health Monitors: %s."
+msgstr[0] "삭제된 상태 모니터: %s."
+
+#, python-format
+msgid "Deleted L7 Policy: %s."
+msgid_plural "Deleted L7 Policies: %s."
+msgstr[0] "삭제된 L7 정책: %s."
+
+#, python-format
+msgid "Deleted L7 Rule: %s."
+msgid_plural "Deleted L7 Rules: %s."
+msgstr[0] "L7 규칙 삭제됨: %s"
+
+#, python-format
+msgid "Deleted Listener: %s."
+msgid_plural "Deleted Listeners: %s."
+msgstr[0] "삭제된 리스너: %s."
+
+#, python-format
+msgid "Deleted Load Balancer: %s."
+msgid_plural "Deleted Load Balancers: %s."
+msgstr[0] "로드 밸런서 삭제됨: %s."
+
+#, python-format
+msgid "Deleted Member: %s."
+msgid_plural "Deleted Members: %s."
+msgstr[0] "멤버 삭제됨: %s."
+
+#, python-format
+msgid "Deleted Pool: %s."
+msgid_plural "Deleted Pools: %s."
+msgstr[0] "삭제된 풀: %s."
+
+msgid "Description"
+msgstr "설명"
+
+msgid "Disassociate"
+msgstr "연결 해제"
+
+msgid "Disassociate Floating IP"
+msgstr "Floating IP 연결 해제"
+
+#, python-format
+msgid "Disassociated floating IP address from load balancer: %s."
+msgstr "로드 밸런서에서 Floating IP 주소가 연결 해제됨 : %s."
+
+msgid "ENDS_WITH: String ends with."
+msgstr "ENDS_WITH: 문자열로 종료."
+
+msgid "EQUAL_TO: String is equal to."
+msgstr "EQUAL_TO: 문자열과 동일."
+
+msgid ""
+"Each port that listens for traffic on a particular load balancer is "
+"configured separately and\n"
+"  tied to the load balancer. Multiple listeners can be associated with the "
+"same load balancer but\n"
+"  each must use a unique port."
+msgstr ""
+"특정 로드 밸런서의 트래픽을 수신하는 리스너의 각 포트는 별도로 설정되고\n"
+"  로드 밸런서에 연결됩니다. 여러 리스너는 동일한 로드 밸런서에 연결될 수 있지"
+"만\n"
+"  각각 유일한 포트를 사용해야 합니다."
+
+msgid "Edit Health Monitor"
+msgstr "상태 모니터 편집"
+
+msgid "Edit L7 Policy"
+msgstr "L7 정책 수정"
+
+msgid "Edit L7 Rule"
+msgstr "L7 규칙 수정"
+
+msgid "Edit Listener"
+msgstr "리스터 편집"
+
+msgid "Edit Load Balancer"
+msgstr "로드 밸런서 편집"
+
+msgid "Edit Member"
+msgstr "멤버 편집"
+
+msgid "Edit Pool"
+msgstr "풀 편집"
+
+msgid "Ends With"
+msgstr "Ends With"
+
+msgid "Equal To"
+msgstr "Equal To"
+
+msgid "Error"
+msgstr "에러"
+
+msgid "Expected Codes"
+msgstr "예상 코드"
+
+msgid "Expected Codes:"
+msgstr "예상 코드:"
+
+msgid "Expiration Date"
+msgstr "만기 일자"
+
+msgid ""
+"FILE_TYPE: The rule compares the last portion of the URI against\n"
+"      the value parameter in the rule. (eg. \"txt\", \"jpg\", etc.)"
+msgstr ""
+"FILE_TYPE: 규칙은 URI의 마지막 위치와\n"
+"      규칙 내의 값 매개변수를 비교합니다. (예: \"txt\", \"jpg\" 등)"
+
+msgid "File Type"
+msgstr "파일 타입"
+
+msgid "Flavor"
+msgstr "Flavor"
+
+msgid "Flavor Description"
+msgstr "Flavor 설명"
+
+msgid "Flavor ID"
+msgstr "Flavor ID"
+
+msgid "Floating IP"
+msgstr "플로팅 IP"
+
+msgid "Floating IP address or pool"
+msgstr "플로팅 IP 주소 또는 풀"
+
+msgid "Floating IP addresses"
+msgstr "Floating IP 주소"
+
+msgid "Floating IP pools"
+msgstr "Floating IP 풀"
+
+msgid "Frontend client inactivity timeout in milliseconds. Default: 50000."
+msgstr "프론트엔드 클라이언트의 비활성 타임아웃 (밀리 초). 기본값: 50000."
+
+msgid ""
+"HEADER: The rule looks for a header defined in the key parameter\n"
+"      and compares it against the value parameter in the rule."
+msgstr ""
+"HEADER: 규칙은 키 파라미터로 정의된 헤더를 찾고\n"
+"      규칙 내의 값 매개변수와 비교합니다."
+
+msgid ""
+"HOST_NAME: The rule does a comparison between the HTTP/1.1\n"
+"      hostname in the request against the value parameter in the rule."
+msgstr ""
+"HOST_NAME: 규칙은 요청의 HTTP/1.1 호스트이름과\n"
+"      규칙 내의 값 매개변수를 비교합니다."
+
+msgid "HTTP Method"
+msgstr "HTTP 메서드"
+
+msgid "HTTP Method:"
+msgstr "HTTP 메소드:"
+
+msgid "HTTP_COOKIE: Session persistence based on http cookie."
+msgstr "HTTP_COOKIE: 세션 지속성 기반의 http 쿠키."
+
+msgid "Header"
+msgstr "해더"
+
+msgid "Health Monitor"
+msgstr "상태 모니터"
+
+msgid "Health Monitor ID"
+msgstr "상태 모니터 ID"
+
+msgid "Health Monitors"
+msgstr "상태 모니터"
+
+msgid "Host Name"
+msgstr "호스트 이름"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "IP Address"
+msgstr "IP 주소"
+
+#, python-format
+msgid "IP Addresses (%(count)s)"
+msgstr "IP 주소 (%(count)s)"
+
+msgid "IP address"
+msgstr "IP 주소"
+
+msgid "IP address:"
+msgstr "IP 주소:"
+
+msgid ""
+"If an IP address is provided it must be a well-formed IPv4 or IPv6 address. "
+"The system will\n"
+"  attempt to assign the provided IP address to the load balancer. If an IP "
+"address is not provided\n"
+"  then one will be allocated for you."
+msgstr ""
+" IP 주소가 제공된 경우 올바른 형식의 IPv4 또는 IPv6 주소여야합니다. 시스템"
+"은\n"
+"   제공된 IP 주소를 로드 밸런서에 할당하려고 시도합니다. IP 주소가 제공되지 "
+"않은 경우\n"
+"   하나가 할당될 것입니다."
+
+msgid ""
+"If the listener uses the TERMINATED_HTTPS protocol, then one or more SSL "
+"certificates must\n"
+"  be selected. The first certificate will be the default."
+msgstr ""
+"만약 리스너가 TERMINATED_HTTPS 프로토콜을 사용한다면, 하나 이상의 SSL 인증서"
+"가 \n"
+"선택되어야 합니다. 첫 인증서는 기본값이 됩니다."
+
+msgid "Inactive"
+msgstr "비활성"
+
+msgid "Insert Headers"
+msgstr "헤더 삽입"
+
+msgid "Insert Headers:"
+msgstr "헤더 추가:"
+
+msgid "Invert"
+msgstr "반전"
+
+msgid "Invert:"
+msgstr "반전:"
+
+msgid ""
+"Is the member a backup? Backup members only receive traffic when all\n"
+"  non-backup members are down."
+msgstr ""
+"멤버가 백업인가요? 백업 멤버는 모든 비 백업 멤버가 다운됐을 때만\n"
+"  트래픽을 수신합니다."
+
+msgid "Key"
+msgstr "키"
+
+msgid "Key Manager API Guide: Creating a Certificate Container"
+msgstr "키 관리자 API 가이드: 인증서 컨테이너 생성하기"
+
+msgid "Key Manager Service Command-Line Client"
+msgstr "키 관리자 서비스 커맨드라인 클라이언트"
+
+msgid "Key:"
+msgstr "키:"
+
+msgid "L7 Policies"
+msgstr "L7 정책"
+
+msgid "L7 Policy"
+msgstr "L7 정책"
+
+msgid "L7 Policy Details"
+msgstr "L7 정책 상세 정보"
+
+msgid "L7 Rule"
+msgstr "l7 규칙"
+
+msgid "L7 Rule Details"
+msgstr "L7 규칙 상세 정보"
+
+msgid "L7 Rules"
+msgstr "L7 규칙"
+
+msgid ""
+"LEAST_CONNECTIONS: Allocates requests to the instance with the least number "
+"of active\n"
+"      connections."
+msgstr ""
+"LEAST_CONNECTIONS: 활성화된 연결이 가장 적은 인스턴스로\n"
+"      요청을 할당합니다."
+
+msgid "Least Connections"
+msgstr "최소 연결"
+
+msgid "Listener"
+msgstr "리스너"
+
+msgid "Listener Details"
+msgstr "리스너 세부정보"
+
+msgid "Listener ID"
+msgstr "리스너 ID"
+
+msgid "Listeners"
+msgstr "리스너"
+
+msgid "Load Balancer"
+msgstr "로드 밸런서"
+
+msgid "Load Balancer Details"
+msgstr "로드 밸런서 세부정보"
+
+msgid "Load Balancers"
+msgstr "로드 밸런서"
+
+msgid "Loading"
+msgstr "불러오는 중"
+
+msgid "Max Retries"
+msgstr "최대 재시도"
+
+msgid "Max Retries Down"
+msgstr "최대 재시도 다운"
+
+msgid "Max Retries Down:"
+msgstr "최대 재시도 다운:"
+
+msgid "Max Retries:"
+msgstr "최대 재시도:"
+
+msgid "Member"
+msgstr "멤버"
+
+msgid "Member Connect Timeout"
+msgstr "멤버 연결 타임아웃"
+
+msgid "Member Connect Timeout:"
+msgstr "멤버 연결 타임아웃:"
+
+msgid "Member Data Timeout"
+msgstr "멤버 데이터 타임아웃"
+
+msgid "Member Data Timeout:"
+msgstr "멤버 데이터 타임아웃:"
+
+msgid "Members"
+msgstr "멤버"
+
+msgid ""
+"Members are the actual IP addresses that will receive traffic from the load "
+"balancer. Each\n"
+"  member must have a unique combination of IP address and port."
+msgstr ""
+"멤버는 로드 밸런서에서 트래픽을 받게 되는 실제 IP 주소입니다.\n"
+"  각 멤버는 유일한 IP 주소와 포트의 조합을 가지고 있어야 합니다."
+
+msgid "Monitor Address"
+msgstr "모니터 주소"
+
+msgid "Monitor Address:"
+msgstr "모니터 주소:"
+
+msgid "Monitor Details"
+msgstr "모니터 세부 정보"
+
+msgid "Monitor Port"
+msgstr "모니터 포트"
+
+msgid "Monitor Port:"
+msgstr "모니터 포트:"
+
+msgid "Name"
+msgstr "이름"
+
+msgid "Network"
+msgstr "네트워크"
+
+msgid "Network ID"
+msgstr "네트워크 ID"
+
+msgid "No"
+msgstr "아니오"
+
+msgid "No Monitor"
+msgstr "모니터 없음"
+
+msgid "No available certificates"
+msgstr "이용 가능한 인증서가 없음"
+
+msgid "No available instances"
+msgstr "사용 가능한 인스턴스가 없음"
+
+msgid "No items to display."
+msgstr "표시할 항목이 없습니다."
+
+msgid "No matching options"
+msgstr "매칭되는 옵션이 없음"
+
+msgid "No members have been allocated"
+msgstr "할당된 멤버가 없음"
+
+msgid "None"
+msgstr "없음"
+
+msgid "Offline"
+msgstr "오프라인"
+
+msgid "Online"
+msgstr "온라인"
+
+msgid "Operating Status"
+msgstr "운영 상태"
+
+msgid "Overview"
+msgstr "개요"
+
+msgid ""
+"PATH: The rule compares the path portion of the HTTP URI against\n"
+"      the value parameter in the rule."
+msgstr ""
+"PATH: 규칙은 HTTP URI의 경로 위치와\n"
+"      규칙 내의 값 매개변수를 비교합니다."
+
+msgid "Path"
+msgstr "경로"
+
+msgid "Pending Create"
+msgstr "생성 대기중"
+
+msgid "Pending Delete"
+msgstr "삭제 대기중"
+
+msgid "Pending Update"
+msgstr "업데이트 대기중"
+
+msgid "Please Wait"
+msgstr "기다려 주십시오"
+
+msgid "Pool"
+msgstr "풀"
+
+msgid "Pool Details"
+msgstr "풀 세부 정보"
+
+msgid "Pool Members"
+msgstr "풀 멤버"
+
+msgid "Pool member has been updated."
+msgstr "풀 멤버가 업데이트 되었습니다."
+
+msgid "Pools"
+msgstr "풀"
+
+msgid "Port"
+msgstr "포트"
+
+msgid "Port ID"
+msgstr "포트 ID"
+
+msgid "Port:"
+msgstr "포트:"
+
+msgid "Position"
+msgstr "위치"
+
+msgid "Position:"
+msgstr "위치: "
+
+msgid "Project"
+msgstr "프로젝트"
+
+msgid "Project ID"
+msgstr "프로젝트 ID"
+
+msgid "Protocol"
+msgstr "프로토콜"
+
+msgid "Protocol Port"
+msgstr "프로토콜 포트"
+
+msgid "Protocol:"
+msgstr "프로토콜:"
+
+msgid "Provide the details for the health monitor."
+msgstr "상태 모니터의 세부 사항을 제공하십시오."
+
+msgid "Provide the details for the l7 policy."
+msgstr "L7 정책의 세부 사항을 제공하세요."
+
+msgid "Provide the details for the l7 rule."
+msgstr "L7 규칙에 대한 세부 사항 제공."
+
+msgid "Provide the details for the listener."
+msgstr "리스너에 대한 자세한 정보를 제공하십시오."
+
+msgid "Provide the details for the load balancer."
+msgstr "로드 밸런서에 대한 자세한 정보를 제공하십시오."
+
+msgid "Provide the details for the member."
+msgstr "멤버에 대한 세부 사항을 제공하십시오."
+
+msgid "Provide the details for the pool."
+msgstr "풀에 대한 세부 사항을 제공하십시오."
+
+msgid "Provider"
+msgstr "프로바이더"
+
+msgid "Provisioning Status"
+msgstr "프로비저닝 상태"
+
+msgid ""
+"REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated "
+"with the L7 policy."
+msgstr "REDIRECT_TO_POOL: 요청은 L7 정책과 함께 연결된 백엔드 풀로 전달됩니다."
+
+msgid ""
+"REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in "
+"the redirect_url parameter."
+msgstr ""
+"REDIRECT_TO_URL: redirect_url 매개변수에 정의된 URL로 HTTP 리디렉션이 요청자"
+"에게 전송됩니다."
+
+msgid "REGEX: Perl type regular expression matching."
+msgstr "REGEX: 펄 유형의 정규 표현식 일치."
+
+msgid ""
+"REJECT: The request is denied with an appropriate response code, and not "
+"forwarded on to any back-end pool."
+msgstr ""
+"REJECT: 요청은 적절한 응답 코드로 거부되고, 어떠한 백엔드 풀로도 전달되지 않"
+"습니다."
+
+msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
+msgstr "ROUND_ROBIN: 여러 인스턴스들 사이에서 짝수로 요청을 순환합니다."
+
+msgid "Redirect Pool ID"
+msgstr "리디렉션 풀 ID"
+
+msgid "Redirect Pool ID:"
+msgstr "리디렉션 풀 ID:"
+
+msgid "Redirect URL"
+msgstr "리디렉션 URL"
+
+msgid "Redirect URL:"
+msgstr "리디렉션 URL:"
+
+msgid "Redirect to Pool"
+msgstr "풀로 리디렉션"
+
+msgid "Redirect to URL"
+msgstr "URL로 리디렉션"
+
+msgid "Regex"
+msgstr "정규표현식"
+
+msgid "Reject"
+msgstr "거부"
+
+msgid "Remove"
+msgstr "제거"
+
+msgid ""
+"Requests matching this policy will be redirected to the pool with this ID. "
+"Only valid if action is REDIRECT_TO_POOL."
+msgstr ""
+"이 정책에 매칭되는 요청은 이 ID로 풀에 리디렉트 됩니다. REDIRECT_TO_POOL 동작"
+"일때만 유효합니다."
+
+msgid ""
+"Requests matching this policy will be redirected to this URL. Only valid if "
+"action is REDIRECT_TO_URL."
+msgstr ""
+"이 정책에 매칭되는 요청은 이 URL로 리디렉트 됩니다. REDIRECT_TO_URL 동작일때"
+"만 유효합니다."
+
+msgid "Round Robin"
+msgstr "라운드 로빈"
+
+msgid "Rules"
+msgstr "규칙"
+
+msgid "SNI Container Refs"
+msgstr "SNI 컨테이너 참조"
+
+msgid ""
+"SOURCE_IP: Requests from a unique source IP address are consistently "
+"directed to the same instance."
+msgstr ""
+"SOURCE_IP: 하나의 고유한 소스 IP 주소로부터의 요청들은 지속적으로 같은 인스턴"
+"스로 이동합니다."
+
+msgid "SOURCE_IP: Session persistence based on source ip."
+msgstr "SOURCE_IP: 세션 지속성 기반의 소스 ip."
+
+msgid "SSL Certificates"
+msgstr "SSL 인증서"
+
+msgid "STARTS_WITH: String starts with."
+msgstr "STARTS_WITH: 문자열로 시작."
+
+msgid ""
+"Select a floating IP address to associate with the load balancer or a "
+"floating IP pool in which to allocate a new floating IP address."
+msgstr ""
+"로드밸런서나 Floating IP 풀과 연결하기 위하여 Floating IP 주소를 선택합니다."
+
+msgid "Select certificates from the available certificates below"
+msgstr "아래의 이용 가능한 인증서 중에서 선택"
+
+msgid "Select one or more SSL certificates for the listener."
+msgstr "리스너에 대한 하나 이상의 SSL 인증서를 선택하십시오."
+
+msgid "Session Persistence"
+msgstr "세션 지속성"
+
+msgid "Session Persistence:"
+msgstr "세션 지속성:"
+
+msgid "Source IP"
+msgstr "소스 IP"
+
+msgid "Starts With"
+msgstr "Starts With"
+
+msgid "Subnet"
+msgstr "서브넷"
+
+msgid "Subnet ID"
+msgstr "서브넷 ID"
+
+msgid "Subnet:"
+msgstr "서브넷:"
+
+msgid "TCP Inspect Timeout"
+msgstr "TCP 검사 타임아웃"
+
+msgid "TCP Inspect Timeout:"
+msgstr "TCP 검사 타임아웃:"
+
+msgid ""
+"The Available Instances table contains existing compute instances that can "
+"be added as members\n"
+"  of the pool. Use the \"Add external member\" button to add a member not "
+"found in the Available\n"
+"  Instances table."
+msgstr ""
+"사용 가능한 인스턴스 테이블에는 풀의 멤버로 추가될 수 있고 존재하는 컴퓨트 인"
+"스턴스가 \n"
+"  포함되어 있습니다. 사용 가능한 인스턴스 테이블에 없는 멤버를 추가하기 위하"
+"여 \n"
+"  \"외부 멤버 추가\" 버튼을 사용하시오"
+
+msgid "The HTTP method used to perform the health check."
+msgstr "상태 체크를 수행하기 위한 HTTP 메소드."
+
+msgid "The ID of the pool used by the listener if no L7 policies match."
+msgstr "매칭되는 L7 정책이 없는 경우 리스너에서 사용하는 풀 ID"
+
+msgid "The IP address is not valid."
+msgstr "IP 주소가 유효하지 않습니다."
+
+msgid ""
+"The IP address of the member to receive traffic from the load balancer. Must "
+"be a well-formed\n"
+"  IPv4 or IPv6 address."
+msgstr ""
+"로드 밸런서에서 트래픽을 받는 멤버의 IP 주소입니다. 양식에 맞는 \n"
+"  IPv4나 IPv6 주소이어야 합니다."
+
+msgid ""
+"The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL."
+msgstr "L7 정책 동작. REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL 중 하나."
+
+msgid "The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
+msgstr "L7 규칙 유형. COOKIE, FILE_TYPE, HEADER, HOST_NAME, PATH 중 하나."
+
+msgid "The URL path is not valid."
+msgstr "URL 경로가 유효하지 않습니다."
+
+msgid ""
+"The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,\n"
+"  EQUAL_TO, REGEX, or STARTS_WITH."
+msgstr ""
+"L7 규칙의 비교 유형. CONTAINS, ENDS_WITH,\n"
+"  EQUAL_TO, REGEX, STARTS_WITH 중 하나."
+
+msgid "The connection limit must be a number greater than or equal to -1."
+msgstr "접속 제한은 -1 이상이어야 합니다."
+
+msgid ""
+"The expected HTTP status codes to get from a successful health check. Must "
+"be a single number,\n"
+"  a comma separated list of numbers, or a range (two numbers separated by a "
+"hyphen)."
+msgstr ""
+"상태 체크가 성공했을 때 수신하게 되는 HTTP 상태 코드입니다.  단일 숫자이어야 "
+"하고,\n"
+"  쉼표로 구분된 숫자 리스트이거나 두 개의 숫자가 하이픈으로 구별된 범주이어"
+"야 합니다."
+
+msgid "The expected status code is not valid."
+msgstr "예상된 상태 코드가 유효하지 않습니다."
+
+msgid "The health check interval must be greater than or equal to the timeout."
+msgstr "상태 체크 간격은 타임아웃 값 이상이어야 합니다."
+
+msgid "The health monitor has been updated."
+msgstr "상태 모니터가 업데이트 되었습니다."
+
+msgid ""
+"The health monitor is used to determine the health of your pool members. "
+"Health checks\n"
+"  routinely run against each member within the pool and the result of the "
+"health check is used\n"
+"  to determine if the member receives new connections. Each pool can only "
+"have one health\n"
+"  monitor."
+msgstr ""
+"상태 모니터는 풀 멤버의 상태를 결정하는 데 사용됩니다. 상태 체크는\n"
+"  풀 내의 각 멤버에 대해 주기적으로 실행하고, 상태 체크 결과로 \n"
+"  멤버가 새 연결을 받을 수 있는지를 결정합니다. 각 풀은 하나의 상태 모니터"
+"만 \n"
+"  가질 수 있습니다."
+
+msgid ""
+"The interval between health checks. Must be greater than or equal to the "
+"timeout."
+msgstr "상태 체크 사이의 간격. 타임아웃 설정값 이상이어야 합니다."
+
+msgid ""
+"The key to use for the comparison. For example, the name of the cookie\n"
+"  to evaluate."
+msgstr ""
+"비교에 사용되는 키. 예를 들어, 평가에 사용될\n"
+" 쿠키의 이름."
+
+msgid "The l7policy has been updated."
+msgstr "L7 정책이 업데이트 되었습니다."
+
+msgid "The l7rule has been updated."
+msgstr "L7 규칙이 업데이트 되었습니다."
+
+msgid "The listener has been updated."
+msgstr "리스너가 업데이트 되었습니다."
+
+msgid ""
+"The load balancer algorithm that distributes traffic to the pool members."
+msgstr "풀 멤버에게 트래픽을 분배시키는 로드 밸런서 알고리즘."
+
+msgid "The load balancer has been updated."
+msgstr "로드 밸런서가 업데이트 되었습니다."
+
+msgid ""
+"The load balancer occupies a neutron network port and has an IP address "
+"assigned from a subnet."
+msgstr ""
+"로드 밸런서는 뉴트론 네트워크 포트를 사용하고 서브넷에서 할당된 IP를 가집니"
+"다."
+
+msgid "The max retry count must be a number between 1 and 10."
+msgstr "최대 재시도 횟수는 1 ~ 10 사이입니다."
+
+msgid "The max retry down count must be a number between 1 and 10."
+msgstr "최대 재시도 횟수는 1 ~ 10 사이입니다."
+
+msgid ""
+"The maximum number of connections permitted for this listener.\n"
+"  Default value is -1 which represents infinite connections."
+msgstr ""
+"이 리스너에 허용된 최대 접속 제한 수.\n"
+"  기본 값은 -1이고, 이는 무제한을 나타냅니다."
+
+msgid "The monitor address must be a valid IP address."
+msgstr "모니터 주소는 유효한 IP 주소이어야 합니다."
+
+msgid "The monitor port must be a number between 1 and 65535."
+msgstr "모니터 포트는 반드시 1 ~ 65535 사이의 숫자이어야 합니다."
+
+msgid "The network on which to allocate the load balancer's IP address."
+msgstr "로드 밸런서의 IP 주소를 할당하기 위한 네트워크"
+
+msgid "The network which contains the IP address of the member."
+msgstr "멤버의 IP 주소를 포함하고 있는  네트워크입니다."
+
+msgid ""
+"The number of allowed connection failures before marking the member as "
+"error. Must be a\n"
+"  number from 1 to 10. The default is 3."
+msgstr ""
+"재시도 횟수를 초과하여 연결이 실패하면 멤버는 에러 상태가 되고, 재시도 횟수"
+"는\n"
+"   1에서 10까지의 숫자이어야 합니다. 기본 값은 3."
+
+msgid ""
+"The number of allowed connection failures before marking the member as "
+"inactive. Must be a\n"
+"  number from 1 to 10."
+msgstr ""
+"재시도 횟수를 초과하여 연결이 실패하면 멤버는 비활성화 되고, 재시도 횟수는\n"
+"   1에서 10까지의 숫자이어야 합니다."
+
+msgid "The pool has been updated."
+msgstr "풀이 업데이트 되었습니다."
+
+msgid "The pool members have been updated."
+msgstr "풀 멤버가 업데이트 되었습니다."
+
+msgid "The port must be a number between 1 and 65535."
+msgstr "포트 번호는 1 ~ 65535 사이 숫자이어야 합니다."
+
+msgid ""
+"The port must be unique among all listeners attached to this load balancer."
+msgstr "이 로드 밸런서에 연결되는 모든 리스너에서 포트는 유일해야 합니다."
+
+msgid ""
+"The port on which the front end listens. Must be an integer from 1 to 65535."
+msgstr "프런트 엔드에서 listen하는 포트. 1에서 65535 사이의 정수여야 합니다."
+
+msgid ""
+"The port on which the member listens for traffic. Must be a number from 1 to "
+"65535."
+msgstr ""
+"트래픽을 수신하는 멤버의 포트 번호입니다. 포트 번호는 1 ~ 65535 사이 숫자이어"
+"야 합니다."
+
+msgid "The position must be a number between 1 and 2147483647."
+msgstr "위치는 1에서 2147483647까지의 숫자여야 합니다."
+
+msgid "The position of this policy on the listener. Positions start at 1."
+msgstr "리스너에서의 이 정책의 위치. 위치는 1에서 시작합니다."
+
+msgid ""
+"The protocol for which the front end listens. The TERMINATED_HTTPS protocol "
+"is only available if\n"
+"  the key-manager service is enabled and you have authority to list "
+"certificate containers and\n"
+"  secrets."
+msgstr ""
+"프런트 엔드에서 수신하는 프로토콜. TERMINATED_HTTPS 프로토콜은\n"
+"  key-manager 서비스가 활성화되고  인증서 컨테이너와 비밀값을 리스트할 수 있"
+"는 \n"
+"  권한이 있어야 이용이 가능합니다."
+
+msgid "The redirect url must be a valid http or https url."
+msgstr "리디렉션 url은 유효한 http 또는 https url이어야 합니다."
+
+msgid ""
+"The target of the health check HTTP request to the member. Must be a valid "
+"URL path."
+msgstr ""
+"상태 체크하기 위해 멤버에게 HTTP 요청하는 대상. 유효한 URL 경로이어야 합니다."
+
+msgid ""
+"The time after which a health check times out. Must be a number greater than "
+"or equal to 0\n"
+"  and less than or equal to the interval."
+msgstr ""
+"상태 체크 시간이 종료되는 시간. 0 이상의 숫자이어야 하고\n"
+"  타임아웃 값은 상태 체크 간격 값 이하이어야 합니다."
+
+msgid "The timeout must be a number between 0 and 31536000000."
+msgstr "타임아웃은 0에서 3153600000까지의 숫자여야 합니다."
+
+msgid "The timeout must be a number greater than or equal to 0."
+msgstr "타임아웃 시간은 0 이상이어야 합니다."
+
+msgid ""
+"The type of session persistence for distributing traffic to the pool members."
+msgstr "풀 펨버에게 트래픽을 분배시키는 세션 지속성 유형."
+
+msgid ""
+"The value to use for the comparison. For example, the file type to compare."
+msgstr "비교에 사용되는 키. 예를 들어, 비교에 사용되는 파일 유형."
+
+msgid "The weight must be a number between 1 and 256."
+msgstr "가중치는 반드시 숫자 1과 256사이여야 합니다."
+
+msgid ""
+"The weight of a member determines the portion of requests or connections it "
+"services compared\n"
+"  to the other members of the pool. A higher weight means it will receive "
+"more traffic. Must be\n"
+"  a number from 1 to 256."
+msgstr ""
+"멤버의 가중치는 풀의 다른 멤버와 비교하여 요청이나 연결의\n"
+"  양을 결정합니다. 가중치가 높을수록 더 많은 트래픽을 받게 됩니다.\n"
+"  가중치는 숫자 1과 256사이여야 합니다."
+
+msgid ""
+"Time, in milliseconds, to wait for additional TCP packets for content\n"
+"  inspection. Default: 0."
+msgstr ""
+"컨텐츠 검사 용으로 부가적인 TCP 패킷을 기다리기 위한\n"
+"  시간 (밀리 초). 기본값: 0."
+
+msgid "Timeout"
+msgstr "제한시간"
+
+msgid "Timeout (sec)"
+msgstr "타임아웃 (초)"
+
+msgid "Timeout:"
+msgstr "타임아웃:"
+
+msgid "Type"
+msgstr "유형"
+
+msgid "Type:"
+msgstr "유형:"
+
+msgid "URL Path"
+msgstr "URL 경로"
+
+msgid "URL Path:"
+msgstr "URL 경로:"
+
+msgid "Unable to create flavor profile."
+msgstr "Flavor 프로필을 생성할 수 없습니다."
+
+msgid "Unable to create flavor."
+msgstr "Flavor를 생성할 수 없습니다."
+
+msgid "Unable to create health monitor."
+msgstr "상태 모니터를 생성할 수 없습니다."
+
+msgid "Unable to create l7 policy."
+msgstr "L7 정책을 생성하지 못했습니다."
+
+msgid "Unable to create l7 rule."
+msgstr "L7 규칙을 생성하지 못했습니다."
+
+msgid "Unable to create listener."
+msgstr "리스너를 생성할 수 없습니다."
+
+msgid "Unable to create load balancer."
+msgstr "로드 밸런서를 생성할 수 없습니다."
+
+msgid "Unable to create pool."
+msgstr "풀을 생성할 수 없습니다."
+
+#, python-format
+msgid "Unable to delete Health Monitor: %s."
+msgid_plural "Unable to delete Health Monitors: %s."
+msgstr[0] "상태 모니터를 삭제할 수 없습니다: %s."
+
+#, python-format
+msgid "Unable to delete L7 Policy: %s."
+msgid_plural "Unable to delete L7 Policies: %s."
+msgstr[0] "L7 정책을 삭제할 수 없습니다: %s."
+
+#, python-format
+msgid "Unable to delete L7 Rule: %s."
+msgid_plural "Unable to delete L7 Rules: %s."
+msgstr[0] "L7 규칙을 삭제할 수 없습니다: %s"
+
+#, python-format
+msgid "Unable to delete Listener: %s."
+msgid_plural "Unable to delete Listeners: %s."
+msgstr[0] "리스너를 삭제할 수 없습니다: %s."
+
+#, python-format
+msgid "Unable to delete Load Balancer: %s."
+msgid_plural "Unable to delete Load Balancers: %s."
+msgstr[0] "로드 밸런서를 삭제할 수 없습니다: %s."
+
+#, python-format
+msgid "Unable to delete Member: %s."
+msgid_plural "Unable to delete Members: %s."
+msgstr[0] "멤버를 삭제할 수 없습니다: %s."
+
+#, python-format
+msgid "Unable to delete Pool: %s."
+msgid_plural "Unable to delete Pools: %s."
+msgstr[0] "다음 풀을 삭제할 수 없습니다: %s."
+
+msgid "Unable to delete flavor profile."
+msgstr "Flavor 프로필을 삭제할 수 없습니다."
+
+msgid "Unable to delete flavor."
+msgstr "Flavor를 삭제할 수 없습니다."
+
+msgid "Unable to delete health monitor."
+msgstr "상태 모니터를 삭제할 수 없습니다."
+
+msgid "Unable to delete l7 policy."
+msgstr "L7 정책을 삭제하지 못했습니다."
+
+msgid "Unable to delete l7 rule."
+msgstr "L7 규칙을 삭제하지 못했습니다."
+
+msgid "Unable to delete listener."
+msgstr "리스너를 삭제할 수 없습니다."
+
+msgid "Unable to delete load balancer."
+msgstr "로드 밸런서를 삭제할 수 없습니다."
+
+msgid "Unable to delete member."
+msgstr "멤버를 삭제할 수 없습니다."
+
+msgid "Unable to delete pool."
+msgstr "풀을 삭제할 수 없습니다."
+
+#, python-format
+msgid "Unable to disassociate floating IP address from load balancer: %s."
+msgstr "다음 로드 밸런서에서 Floating IP를 연결 해제 할 수 없습니다: %s"
+
+msgid "Unable to retrieve SSL certificates."
+msgstr "SSL 인증을 가져올 수 없습니다."
+
+msgid "Unable to retrieve availability zones."
+msgstr "가용 구역을 가져올 수 없습니다."
+
+msgid "Unable to retrieve flavor profile."
+msgstr "Flavor 프로필을 가져올 수 없습니다."
+
+msgid "Unable to retrieve flavor profiles."
+msgstr "Flavor 프로필을 가져올 수 없습니다."
+
+msgid "Unable to retrieve flavor."
+msgstr "Flavor를 가져올 수 없습니다."
+
+msgid "Unable to retrieve flavors."
+msgstr "Flavor를 가져올 수 없습니다."
+
+msgid "Unable to retrieve health monitor."
+msgstr "상태 모니터를 가져올 수 없습니다."
+
+msgid "Unable to retrieve health monitors."
+msgstr "상태 모니터를 가져올 수 없습니다."
+
+msgid "Unable to retrieve l7 policies."
+msgstr "L7 정책들을 찾을 수 없습니다."
+
+msgid "Unable to retrieve l7 policy."
+msgstr "L7 정책을 찾을 수 없습니다."
+
+msgid "Unable to retrieve l7 rule."
+msgstr "L7 규칙을 찾을 수 없습니다."
+
+msgid "Unable to retrieve l7 rules."
+msgstr "L7 규칙들을 찾을 수 없습니다."
+
+msgid "Unable to retrieve listener."
+msgstr "리스너를 가져올 수 없습니다."
+
+msgid "Unable to retrieve listeners."
+msgstr "리스너를 가져올 수 없습니다."
+
+msgid "Unable to retrieve load balancer."
+msgstr "로드 밸런서를 가져올 수 없습니다."
+
+msgid "Unable to retrieve load balancers."
+msgstr "로드 밸런서를 가져올 수 없습니다."
+
+msgid "Unable to retrieve member."
+msgstr "멤버를 가져올 수 없습니다."
+
+msgid "Unable to retrieve members."
+msgstr "멤버를 가져올 수 없습니다."
+
+msgid "Unable to retrieve pool."
+msgstr "풀을 가져올 수 없습니다."
+
+msgid "Unable to retrieve pools."
+msgstr "풀을 가져올 수 없습니다."
+
+msgid "Unable to retrieve secrets."
+msgstr "비밀키를 가져올 수 없습니다."
+
+msgid "Unable to update flavor profile."
+msgstr "Flavor 프로필을 업데이트할 수 없습니다."
+
+msgid "Unable to update flavor."
+msgstr "Flavor를 업데이트할 수 없습니다."
+
+msgid "Unable to update health monitor."
+msgstr "상태 모니터를 업데이트할 수 없습니다."
+
+msgid "Unable to update l7 policy."
+msgstr "L7 정책을 갱신하지 못했습니다."
+
+msgid "Unable to update l7 rule."
+msgstr "L7 규칙을 갱신하지 못했습니다."
+
+msgid "Unable to update listener."
+msgstr "리스너를 업데이트할 수 없습니다."
+
+msgid "Unable to update load balancer."
+msgstr "로드 밸런서를 업데이트할 수 없습니다. "
+
+msgid "Unable to update member list."
+msgstr "멤버 목록을 업데이트할 수 없습니다."
+
+msgid "Unable to update member."
+msgstr "멤버를 업데이트할 수 없습니다."
+
+msgid "Unable to update pool."
+msgstr "풀을 업데이트할 수 없습니다."
+
+msgid "Update"
+msgstr "업데이트"
+
+msgid "Update Health Monitor"
+msgstr "상태 모니터 업데이트"
+
+msgid "Update L7 Policy"
+msgstr "L7 정책 업데이트"
+
+msgid "Update L7 Rule"
+msgstr "L7 규칙 업데이트"
+
+msgid "Update Listener"
+msgstr "리스너 업데이트"
+
+msgid "Update Load Balancer"
+msgstr "로드 밸런서 업데이트"
+
+msgid "Update Member"
+msgstr "멤버 업데이트"
+
+msgid "Update Pool"
+msgstr "풀 업데이트"
+
+msgid "Updated At"
+msgstr "업데이트"
+
+msgid ""
+"Use the key-manager service to create any certificate containers before "
+"creating the listener.\n"
+"    The following documentation provides information on how to create a "
+"certificate container:"
+msgstr ""
+"리스너를 만들기 전에 인증서 컨테이너를 만들기 위해 키 관리자 서비스를 사용하"
+"세요.\n"
+"  다음 문서는 인증서 컨테이너를 어떻게 만드는지에 대한 정보를 제공합니다:"
+
+msgid "Value"
+msgstr "값"
+
+msgid "Value:"
+msgstr "값:"
+
+msgid "Weight"
+msgstr "가중치"
+
+msgid "Weight:"
+msgstr "가중치:"
+
+msgid ""
+"When true the logic of the rule is inverted. For example, with invert\n"
+"  true, equal to would become not equal to."
+msgstr ""
+"값이 참일 때 규칙의 논리가 반전됩니다. 예를 들어,\n"
+"  invert true일 때, equal to는 not equal to가 됩니다."
+
+msgid "X-Forwarded-For"
+msgstr "X-Forwarded-For"
+
+msgid "X-Forwarded-Port"
+msgstr "X-Forwarded-Port"
+
+msgid "X-Forwarded-Proto"
+msgstr "X-Forwarded-Proto"
+
+msgid "Yes"
+msgstr "예"
+
+#, python-format
+msgid ""
+"You are about to disassociate the floating IP address from load balancer \"%s"
+"\". Please confirm."
+msgstr ""
+"Floating IP 주소를 로드 밸런서 \"%s\"에서 연결 해제하려고 합니다. 확인해주세"
+"요. "
+
+#, python-format
+msgid "You have selected \"%s\". Deleted L7 Policy is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted L7 Policies are not recoverable."
+msgstr[0] "\"%s\" 를 선택하였습니다. 삭제된 L7 정책은 복구할 수 없습니다."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted L7 Rule is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted L7 Rules are not recoverable."
+msgstr[0] "\"%s\" 를 선택했습니다. 삭제된 L7 규칙은 복구할 수 없습니다."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted health monitor is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted health monitors are not recoverable."
+msgstr[0] "\"%s\"를 선택했습니다. 삭제된 상태 모니터는 복구할 수 없습니다."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted listener is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted listeners are not recoverable."
+msgstr[0] "\"%s\"를 선택했습니다. 삭제된 리스너는 복구할 수 없습니다."
+
+#, python-format
+msgid ""
+"You have selected \"%s\". Deleted load balancer is not recoverable and this "
+"deletion will delete all of the sub-resources."
+msgid_plural ""
+"You have selected \"%s\". Deleted load balancers are not recoverable and "
+"this deletion will delete all of the sub-resources."
+msgstr[0] ""
+"\"%s\"를 선택했습니다. 삭제된 로드 밸런서는 복구할 수 없고 모든 하부 리소스"
+"도 함께 삭제됩니다."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted member is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted members are not recoverable."
+msgstr[0] "\"%s\"를 선택했습니다. 삭제된 멤버는 복구되지 않습니다."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted pool is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted pools are not recoverable."
+msgstr[0] "\"%s\"를 선택했습니다. 삭제된 풀은 복구되지 않습니다."

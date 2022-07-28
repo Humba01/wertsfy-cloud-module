@@ -1,0 +1,767 @@
+CHANGES
+=======
+
+7.0.0
+-----
+
+* Update master for stable/xena
+
+6.0.0
+-----
+
+* Update master for stable/wallaby
+
+5.0.0
+-----
+
+* Fix reqs (focal), remove linters from l-r
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+4.0.0
+-----
+
+* drop mock from lower-constraints
+* Stop to use the \_\_future\_\_ module
+* Switch to newer openstackdocstheme and reno versions
+* Fix hacking min version to 3.0.1
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Bump default tox env from py37 to py38
+* Add py38 package metadata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+3.0.0
+-----
+
+* Ussuri contributor docs community goal
+* Use unittest.mock instead of third party mock
+* Cleanup py27 support
+* Update hacking for Python3
+* [ussuri][goal] Drop python 2.7 support and testing
+* Switch to Ussuri jobs
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update master for stable/train
+
+2.0.0.0rc1
+----------
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update the constraints url
+* Doc updates: bump theme to 1.20.0, add PDF build
+* Imported Translations from Zanata
+* Limit envlist to py37 for Python 3 Train goal
+* Update sphinx from current requirements
+* Update Python 3 test runtimes for Train
+* Imported Translations from Zanata
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Update master for stable/stein
+* Add the buildimages job to the check queue
+
+1.0.0
+-----
+
+* add python 3.7 unit test job
+* Fix image generation for ambari plugin on Ubuntu
+* Reduce the dependencies, add more common Zuul jobs
+* Fix regressions introduced by the plugin split
+* Migrate away from oslo\_i18n.enable\_lazy()
+* Fix translations: add the babel.cfg file
+* Post-import fixes: name, license, doc, translations
+* Updating plugin documentation and release notes
+* Add .gitreview and basic Zuul jobs
+* Plugins splitted from sahara core
+* Update devel info: mailing list, meeting time
+* Add python 3.6 unit test job
+* Add framework for sahara-status upgrade check
+* doc: restructure the image building documentation
+* Fixing image validation for Ambari 2.3
+* Cleanup tox.ini constraint handling
+* Increase the startup time of ambari-server to 180s
+* sahara-image-pack: use curl for tarballs.openstack.org
+* sahara-image-pack: remove bashisms from shell scripts
+* Add template param for ambari pkg install timeout
+* doc: update distro information and cloud-init users
+* Fixed link for more information about Ambari images
+* Correct repo\_id\_map for hdp 2.5
+* Correct Hbase ports in Ambari plugin
+* Imported Translations from Zanata
+* Update reno for stable/rocky
+* Imported Translations from Zanata
+* Adding Ambari 2.6 to image pack
+* S3 data source
+* Switch the coverage tox target to stestr
+* Switch ostestr to stestr
+* Bump Flask version according requirements
+* Remove any reference to pre-built images
+* fix tox python3 overrides
+* Restore Ambari with newer JDK security policies
+* Fixing java version for Ambari
+* doc: add the redirect for a file recently renamed
+* Fix the installation of Swift Hadoop connector (Ambari)
+* Remove the (now obsolete) pip-missing-reqs tox target
+* Adding Ambari missing versions
+* uncap eventlet
+* Support of HDP 2.6
+* Follow the new PTI for document build
+* Updated from global requirements
+* add lower-constraints job
+* Migration to Storyboard
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Adding support for RHEL images
+* Updated from global requirements
+* Updated from global requirements
+* Imported Translations from Zanata
+* Migrate the artifact link to sahara-extra, use https
+* Updated from global requirements
+* Updated from global requirements
+* Adding Ambari 2.4.2.0 to image gen
+* Imported Translations from Zanata
+* Update reno for stable/queens
+* Replace chinese quotes
+* Enable hacking-extensions H204, H205
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* S3 job binary and binary retriever
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove setting of version/release from releasenotes
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Policy in code for Sahara
+* Image generation for Ambari Plugin
+* Updated from global requirements
+* Updated from global requirements
+* Add default configuration files to data\_files
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* [ut] replace .testr.conf with .stestr.conf
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* doc: point to the main git repository and update links
+* Updated from global requirements
+* Updated from global requirements
+* Imported Translations from Zanata
+* Update reno for stable/pike
+* Updated from global requirements
+* Restructure the documentation according the new spec
+* Enable some off-by-default checks
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Update the documentation link for doc migration
+* Update Documention link
+* Updated from global requirements
+* Enable warnings as errors for doc building
+* Enable H904 check
+* doc: update the configuration of the theme
+* Updated from global requirements
+* doc: switch to openstackdocstheme and add metadata
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Basic script for pack-based build image
+* Remove usage of parameter enforce\_type
+* Updated from global requirements
+* Updated from global requirements
+* Remove log translations
+* Updated from global requirements
+* Remove log translations
+* Remove log translations
+* Remove log translations
+* Updated from global requirements
+* Apply monkeypatching from eventlet before the tests starts
+* install saharaclient from pypi if not from source
+* Add ability to install with Apache in devstack
+* Support Job binary pluggability
+* Add missing tests to ambari/configs.py
+* Updated from global requirements
+* Updated from global requirements
+* Support Data Source pluggability
+* Add missing tests to plugin ambari
+* Add missing test to ambari client
+* Indicating the location tests directory in oslo\_debug\_helper
+* Fix api-ref build
+* Updated from global requirements
+* [Fix gate]Update test requirement
+* Updated from global requirements
+* Adding missing tests to ambari test\_client
+* add test to plugins/ambari/client.py
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Add test\_add\_host\_to\_cluster()
+* Remove support for py34
+* Update reno for stable/ocata
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* support of HDP 2.5
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove enable\_notifications option
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Constraints are ready to be used for tox.ini
+* Enable release notes translation
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Fix incorrect event log for ambari
+* Updated from global requirements
+* Update reno for stable/newton
+* fix docs env
+* [Ambari] fix Ubuntu deploy
+* Remove entry point of sahara tempest plugin
+* Updated from global requirements
+* Remove Tempest-like tests for clients (see sahara-tests)
+* standardize release note page ordering
+* reimplement oozie client as abstract
+* allow configuration of strategy for UI
+* Add event log for HDP plugin
+* Updated from global requirements
+* [Ambari] More flexible auto configuration
+* Added rack awareness in HDP plugin
+* Updated from global requirements
+* Updating DOC on floating IPs change
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Add auto configs to HDP plugin
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Image argument validation and declaration
+* [ambari] support kerberos deployment
+* Health check for Designate
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Designate integration
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Use assertEqual() instead of assertDictEqual()
+* Updated from global requirements
+* Updated from global requirements
+* Add Python 3.5 classifier and venv
+* CLI for Plugin-Declared Image Declaration
+* Simplify tox hacking rule to match other projects
+* Resolves issue where to allow custom repo URLS
+* Updated from global requirements
+* Updated from global requirements
+* fix building api ref docs
+* forbid cluster creation without secondarynamenode
+* Updated from global requirements
+* Updated from global requirements
+* sleep before waiting requests
+* Updated from global requirements
+* novaclient.v2.images to glanceclient migration
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Moving WADL docs to Sahara repository
+* Updated from global requirements
+* remove config groups associated with removed hosts
+* Updated from global requirements
+* workaround to fix ambari start on centos7
+* Updated from global requirements
+* New version of HDP plugin 2.4
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Code refactoring of ambari deploy processes
+* Fix down scaling of ambari cluster
+* HDP hive HDFS support
+* improve description of ambari plugin
+* Remove hdp 2.0.6 plugin
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove openstack/common related stuff
+* Added unit tests for ha\_helper file
+* Updated from global requirements
+* Updated from global requirements
+* keystoneclient to keystoneauth migration
+* PrettyTable and rfc3986 are no longer used in tests
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Bandit password tests
+* Add hadoop openstack swift jar to ambari cluster
+* Move bandit to pep8
+* Revert "Remove PyMySQL and psycopg2 from test-requirements.txt"
+* Remove PyMySQL and psycopg2 from test-requirements.txt
+* Update reno for stable/mitaka
+* Inject drivers to jars in Ambari Spark engine
+* register the config generator default hook with the right name
+* Fix HA for Resourcemanager
+* Updated from global requirements
+* Moved CORS middleware configuration into oslo-config-generator
+* Fix blueprints configuration for HA
+* Improve exception message for wait\_ambari\_requests
+* Updated from global requirements
+* HA for NameNode and ResourceManager in HDP 2.2
+* Updated from global requirements
+* Use ostestr instead of the custom pretty\_tox.sh
+* ambari health check implementation
+* Updated from global requirements
+* Added #nosec for bandit check
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Added scaling support for HDP 2.2 / 2.3
+* Add support running Sahara as wsgi app
+* Remove support of HDP 2.2
+* Python3: Fix using dictionary keys()
+* Updated from global requirements
+* Distributed periodic tasks implementation
+* Updated from global requirements
+* Remove outdated pot files
+* Updated from global requirements
+* Updated from global requirements
+* Remove scenario tests and related files
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* add debug testenv in tox
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Use run\_as\_root instead of sudo to execute\_command
+* Ensure default arguments are not mutable
+* Initial key manager implementation
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Deprecated tox -downloadcache option removed
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* test: make enforce\_type=True in CONF.set\_override
+* Remove version from setup.cfg
+* Force releasenotes warnings to be treated as errors
+* Updated from global requirements
+* Updated from global requirements
+* Support of Spark EDP in Ambari plugin
+* Updated from global requirements
+* Drop direct engine support
+* Remove old integration tests for sahara codebase
+* Updated from global requirements
+* Updated from global requirements
+* Add "unreleased" release notes page
+* Support reno for release notes management
+* Updated from global requirements
+* Fix doc8 check failures
+* Updated from global requirements
+* Run py34 first in default tox run
+* Updated from global requirements
+* Disable base repos by the option
+* Publish sample conf to docs
+* Move doc8 dependency to test-requirements.txt
+* Fix E005 bashate error
+* Missing stuff for Kafka in Ambari plugin
+* Disable security for Oozie in Ambari
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Fix issue with job types in Ambari plugin
+* Updated from global requirements
+* Add testresources used by oslo.db fixture
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Open Mitaka development
+* Fix problem with loading Ambari configs
+* Updated from global requirements
+* Adapt python client tests to use Tempest plugin interface
+* Formatting and mounting methods changed for ironic
+* Updated from global requirements
+* Register SSL cert in Java keystore to access to swift via SSL
+* Updated from global requirements
+* Updated from global requirements
+* Remove useless test dependency 'discover'
+* Add additional HDP services
+* Add EDP services to new HDP plugin
+* Add base services support for HDP 2.2 / 2.3
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* New version of HDP plugin
+* Updated from global requirements
+* Updated from global requirements
+* Add script to report uncovered new lines
+* Updated from global requirements
+* Updated from global requirements
+* Mount share API
+* Updated from global requirements
+* Updated from global requirements
+* Cleanup .gitignore
+* Ignore .eggs directory in git
+* Remove openstack.common package
+* updating documentation on devstack usage
+* Updated from global requirements
+* Updated from global requirements
+* Add py34 to envlist
+* Add bashate check for devstack scripts
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* pass environment variables of proxy to tox
+* Switch to oslo.service
+* Updated from global requirements
+* Updated from global requirements
+* Update version for Liberty
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Use PyMySQL as MySQL DB driver for unit tests
+* Updated from global requirements
+* Updated from global requirements
+* Remove sqlalchemy-migrate from test-requirements
+* Updated from global requirements
+* Adding basic bandit config
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Open Liberty development
+* Migrate to oslo.policy lib instead of copy-pasted oslo-incubator
+* Add unit-tests for new integration tests
+* Add a CLI tool for managing default templates
+* Add validation in new integration tests
+* Updated from global requirements
+* Remove the sahara.conf.sample file
+* Adding barbican client and keymgr module
+* Updated from global requirements
+* Updated from global requirements
+* Add support of several scenario files in integration tests
+* Collect errors in new integration tests
+* Add support for oslo\_debug\_helper to tox.ini
+* Updated from global requirements
+* Updated from global requirements
+* Reorganized heat template generation code
+* New integration tests - base functional
+* Updated from global requirements
+* Refactor MapR plugin for Sahara
+* Updated from global requirements
+* Updated from global requirements
+* Using oslo\_\* instead of oslo.\*
+* Updated from global requirements
+* Remove log module from common modules
+* Drop cli/sahara-rootwrap
+* Updated from global requirements
+* Migrate to oslo.log
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove useless packages from requirements
+* Use pretty-tox for better test output
+* Updated from global requirements
+* Move to hacking 0.10
+* Added ability to listen HTTPS port
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Adding Storm entry point to setup.cfg
+* Cleaned up config generator settings
+* Extracted config check from pep8 to separate env
+* Migrate to oslo.concurrency
+* Updated from global requirements
+* Updated from global requirements
+* Migrate to oslo.context
+* Updated from global requirements
+* Updated from global requirements
+* Inherit Context from oslo
+* Remove py26 from tox
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove oslo-incubator's gettextutils
+* Drop obsolete oslo-confing-generator
+* MapR plugin implementation
+* Use oslo.middleware instead of copy-pasted
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Add bashate checks
+* Updated from global requirements
+* Adding support for oslo.rootwrap to namespace access
+* Support Cinder API version 2
+* Open Kilo development
+* Updated from global requirements
+* Add pip-missing-reqs tox env
+* Add genconfig tox env
+* Updated from global requirements
+* Updated from global requirements
+* Migrate to oslo.serialization
+* Add warn re sorting requirements
+* Add doc8 tox env
+* Removed comment about hashseed reset in unit tests
+* Updated from global requirements
+* Use auth\_token from keystonemiddleware
+* Updated from global requirements
+* Do not rely on hash ordering in tests
+* Updated from global requirements
+* Add translation support to plugin modules
+* Migration to oslo.utils
+* Update oslo.messaging to alpha/juno version
+* Update oslo.config to the alpha/juno version
+* Updated from global requirements
+* Removed a duplicate directive
+* Set python hash seed to 0 in tox.ini
+* Add CDH plugin to Sahara
+* Add rm from docs env to whitelist to avoid warn
+* Migration to oslo.db
+* Add translation support to upper level modules
+* Updated from global requirements
+* Update oslo-incubator lockutils module
+* Updated from global requirements
+* Use oslo.i18n
+* Add oslo.i18n lib to requirements
+* Remove docutils pin
+* Switched Sahara unit tests base class to oslotest
+* Updated from global requirements
+* Corrected a number of pep8 errors
+* Updated from global requirements
+* Updated from global requirements
+* Fixed number of hacking errors
+* Updated from global requirements
+* Fixed H405 pep8 style check
+* Updated from global requirements
+* Migrated integration tests to testtools
+* Updated from global requirements
+* Fixed E265 pep8
+* Added new hacking version to requirements
+* Updated from global requirements
+* Hided not found logger messages in unit tests
+* Migrated unit tests to testtools
+* Use in-memory sqlite DB for unit tests
+* Updated from global requirements
+* Sync the latest DB code from oslo-incubator
+* Updated from global requirements
+* Add Spark plugin to Sahara
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Split sahara into sahara-api and sahara-engine
+* Add sahara-all binary
+* Fix eventlet monkey patch and threadlocal usage
+* Add simple fake plugin for testing
+* Updated from global requirements
+* Remove IDH plugin from sahara
+* Add \*.log files to gitignore
+* Updated from global requirements
+* Check that all po/pot files are valid
+* Open Juno dev
+* Updated from global requirements
+* Remove agent remote
+* Updated from global requirements
+* Move integration tests to python-saharaclient 0.6.0
+* Change remaining savanna namespaces in setup.cfg
+* Renaming files with savanna words in its names
+* Move the savanna subdir to sahara
+* Update i18n config due to the renaming
+* Updated from global requirements
+* Updated from global requirements
+* Make savanna able to be executed as sahara
+* Updated from global requirements
+* Add alias 'direct' for savanna/direct engine
+* Intial Agent remote implementation
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Auto generate and check config sample
+* Switch over to oslosphinx
+* Further preparation for transition to guest agent
+* Sync with global requirements
+* Make remote pluggable
+* Sync with global-requirements
+* Remove kombu from requirements
+* Bump stevedore to >=0.14
+* Updated from global requirements
+* Updated from global requirements
+* Add integration test for Oozie java action
+* Updated from global requirements
+* Add alembic migration tool to sqlalchemy
+* Add missed i18n configs to setup.cfg
+* Extract common part of instances.py and instances\_heat.py
+* Adding IDH plugin basic implementation
+* Removal of AUTHORS file from repo
+* Launch integration tests with testr
+* Provisioning via Heat
+* Migrating to testr
+* Sync requirements: pin Sphinx to <1.2
+* Bump savanna client used for tests to >= 0.4.0
+* Make infrastructure engine pluggable
+* Use stevedore for plugins loading
+* There is no sense to keep py33 in tox envs
+* Revert "Support building wheels (PEP-427)"
+* Bump version to 2014.1
+* Support building wheels (PEP-427)
+* Hacking contains all needed requirements
+* Fix style errors and upgrade hacking
+* Enable network operations over neutron private nets
+* Sync with global-requirements
+* Use release version of python-savannaclient
+* Add lower bound for the six dep
+* Use python-savannaclient 0.3.rc4
+* Use savanna client 0.3-rc3
+* Added EDP testing
+* Move swift client to runtime requirements
+* Hide savanna-subprocess endpoint from end users
+* Added rack topology configuration for hadoop cluster
+* Bump savanna client version to 0.3-rc2
+* Add missing package dependency for test\_requirements.txt
+* Sync with global requirements
+* Replace copy-pasted sphinx theme with oslo.sphinx
+* Migration to new integration tests
+* Revert bump of alembic version
+* Integration test refactoring
+* Bump oslo.config version to use Havana release
+* Add default sqlite db to .gitignore
+* Sync requirements with global requirements
+* Remove version pbr pins from setup\_requires
+* Floating ip assignement support
+* Add direct dependency on iso8601
+* Wrapping ssh calls into subprocesses
+* Sync requirements with os/requirements
+* Use setup.py develop for tox install
+* Move Babel from test to runtime requirements
+* Sync requirements with global-requirements
+* Get rid of pycrypto dep
+* Install configs to share/savanna from etc/savanna
+* Migrate to pbr
+* First steps for i18n support
+* Limit requests version
+* Sync OpenStack commons with oslo-incubator
+* Migrate to Conductor
+* Sync with global requirements
+* Raise eventlet to 0.13.0
+* Bump hacking to 0.7
+* Made Ambari RPM location configurable
+* Bump version to 0.3
+* Fix docs build
+* Fix requests version
+* Add check S361 for imports of savanna.db module
+* Update requirements to the latest versions
+* Improve coverage calculation
+* Created savanna-db-manage script for new DB
+* Workflow creator
+* Docs build fixed
+* Enforce hacking >=0.6.0
+* Allow sqlalchemy 0.8.X
+* Move requirements files to the common place
+* Use console\_scripts instead of bin
+* Cluster scaling: deletion
+* Added config tests
+* Fix author/homepage in setup.py
+* Rollback sitepackages fix for tox.ini
+* Fix pep8 and pycrypto versions, fix tox.ini
+* Posargs has been added to the flake8 command
+* License hacking tests has been added
+* XML coverage report added (cobertura)
+* Add cover report to .gitignore
+* Heap Size can be applied for Hadoop services now
+* Vanilla plugin configs are more informative now
+* Helper for Swift integration was added
+* Implementation of Vanilla Plugin
+* Adding lintstack to support pylint testing
+* Enable all code style tests
+* Introduce py33 to tox.ini
+* AUTHORS added to the repo
+* Initial version of Savanna v0.2
+* .gitignore updated
+* cscope.out has been added to .gitignore
+* bump version to 0.1.2
+* Adds xml hadoop config generating
+* Implements integration tests
+* Re-add setuptools-git to setup.py
+* All tools modev to tox
+* bump version to 0.1.1
+* Remove an invalid trove classifier
+* setup.py has been improved
+* setuptools-get has been removed from deps
+* AUTHORS and ChangeLog has been added to .gitignore
+* resources has been added to sdist tarball
+* savanna-manage added to the scripts section of setup.py
+* Several fixes in tools and docs
+* Tools has been improved
+* savanna-manage has been added; reset-db/gen-templates moved to it
+* Author email has been fixed
+* dev-conf is now supported
+* some confs cleanup, pyflakes added to tox
+* simple tox.ini has been added
+* eho -> savanna
+* Build docs is now implemented using setup.py
+* setup utils is now from oslo-incubator
+* setup.py has been added
+* using conf files instead of hardcoded values
+* pylint and pyflakes static analysis has been added
+* nosetests.xml added to .gitignore
+* \*.db added to .gitignore
+* tests, coverage added
+* bin added
+* Initial commit

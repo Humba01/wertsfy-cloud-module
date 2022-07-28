@@ -1,0 +1,5 @@
+---
+upgrade:
+  - |
+    Separates the single ``zaqar`` image into ``zaqar-server`` and
+    ``zaqar-wsgi`` images.

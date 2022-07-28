@@ -1,0 +1,90 @@
+---
+# Directory where Kolla custom configuration files will be installed.
+kolla_node_custom_config_path:
+
+# DIB image OS element.
+kolla_bifrost_dib_os_element:
+
+# DIB image OS release.
+kolla_bifrost_dib_os_release:
+
+# List of DIB image elements.
+kolla_bifrost_dib_elements: []
+
+# DIB image init element.
+kolla_bifrost_dib_init_element:
+
+# DIB image environment variables.
+kolla_bifrost_dib_env_vars: {}
+
+# List of DIB image packages.
+kolla_bifrost_dib_packages: []
+
+# List of hardware types to enable for Bifrost's Ironic.
+kolla_bifrost_enabled_hardware_types: []
+
+# List of extra kernel parameters for Bifrost's Ironic PXE configuration.
+# Default is empty.
+kolla_bifrost_extra_kernel_options: []
+
+# IP address range for DHCP.
+kolla_bifrost_dhcp_pool_start:
+kolla_bifrost_dhcp_pool_end:
+
+# Default route provided to nodes via DHCP.
+kolla_bifrost_dnsmasq_router:
+
+# List of DNS servers provided to nodes via DHCP.
+kolla_bifrost_dnsmasq_dns_servers: []
+
+# DNS domain provided to nodes via DHCP.
+kolla_bifrost_domain:
+
+# List of of inspector processing plugins.
+kolla_bifrost_inspector_processing_hooks:
+
+# Which MAC addresses to add as ports during introspection. One of 'all',
+# 'active' or 'pxe'.
+kolla_bifrost_inspector_port_addition:
+
+# List of extra kernel parameters for the inspector default PXE configuration.
+kolla_bifrost_inspector_extra_kernel_options:
+
+# Whether to download the Ironic Python Agent (IPA) images.
+kolla_bifrost_download_ipa: true
+
+# URL of Ironic Python Agent (IPA) kernel image.
+kolla_bifrost_ipa_kernel_upstream_url:
+
+# URL of checksum of Ironic Python Agent (IPA) kernel image.
+kolla_bifrost_ipa_kernel_checksum_url:
+
+# Algorithm of checksum of Ironic Python Agent (IPA) kernel image.
+kolla_bifrost_ipa_kernel_checksum_algorithm:
+
+# URL of Ironic Python Agent (IPA) ramdisk image.
+kolla_bifrost_ipa_ramdisk_upstream_url:
+
+# URL of checksum of Ironic Python Agent (IPA) ramdisk image.
+kolla_bifrost_ipa_ramdisk_checksum_url:
+
+# Algorithm of checksum of Ironic Python Agent (IPA) ramdisk image.
+kolla_bifrost_ipa_ramdisk_checksum_algorithm:
+
+# Server inventory to be configured in {{ kolla_node_custom_config_path }}/bifrost/servers.yml.
+kolla_bifrost_servers: {}
+
+# Deprecated.
+# Free form extra configuration to append to {{ kolla_node_custom_config_path }}/bifrost/bifrost.yml.
+kolla_bifrost_extra_globals:
+
+# Paths to Kolla Ansible custom configuration.
+kolla_bifrost_config_paths_default:
+  - "{{ role_path }}/templates"
+
+# Paths to Kolla Ansible custom configuration.
+kolla_bifrost_config_paths_extra: []
+
+# Paths to Kolla Ansible custom configuration. Defaults to a combination of
+# kolla_bifrost_config_paths_default and kolla_bifrost_config_paths_extra.
+kolla_bifrost_config_paths: "{{ kolla_bifrost_config_paths_default + kolla_bifrost_config_paths_extra }}"

@@ -1,0 +1,3 @@
+[tempest.test_plugins]
+solum_tests = solum_tempest_plugin.plugin:SolumTempestPlugin
+

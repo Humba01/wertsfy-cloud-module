@@ -1,0 +1,258 @@
+---
+centos:
+  ceph: "centos-ceph-pacific"
+  elasticsearch: "elasticsearch-kibana-logstash-7.x"
+  epel: "epel"
+  epel-modular: "epel-modular"
+  erlang: "rabbitmq_rabbitmq-erlang"
+  extras: "extras"
+  grafana: "grafana"
+  hacluster: "ha"
+  haproxy: "centos-nfv-extras"
+  influxdb: "influxdb"
+  kibana: "elasticsearch-kibana-logstash-7.x"
+  libvirt: "centos-advanced-virtualization"
+  logstash: "elasticsearch-kibana-logstash-7.x"
+  mariadb: "mariadb"
+  openvswitch: "centos-nfv-openvswitch"
+  opstools: "centos-opstools"
+  powertools: "powertools"
+  proxysql: "proxysql"
+  rabbitmq: "rabbitmq_rabbitmq-server"
+  td-agent: "treasuredata"
+
+centos-aarch64:
+  ceph: "centos-ceph-pacific"
+  elasticsearch: "elasticsearch-kibana-logstash-7.x"
+  epel: "epel"
+  epel-modular: "epel-modular"
+  erlang: "centos-rabbitmq-38"
+  extras: "extras"
+  grafana: "grafana"
+  hacluster: "ha"
+  haproxy: "centos-nfv-extras"
+  kibana: "elasticsearch-kibana-logstash-7.x"
+  libvirt: "centos-advanced-virtualization"
+  logstash: "elasticsearch-kibana-logstash-7.x"
+  mariadb: "mariadb"
+  openvswitch: "centos-nfv-openvswitch"
+  opstools: "centos-opstools"
+  powertools: "powertools"
+  proxysql: "proxysql"
+  rabbitmq: "rabbitmq_rabbitmq-server"
+  td-agent: "treasuredata"
+
+debian:
+  elasticsearch:
+    url: "https://artifacts.elastic.co/packages/oss-7.x/apt"
+    suite: "stable"
+    component: "main"
+    gpg_key: "elasticsearch.asc"
+  erlang:
+    # NOTE(mnasiadka): Erlang repo - Debian Buster/Bullseye needs to use bionic as per RabbitMQ docs
+    url: "http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu"
+    suite: "bionic"
+    component: "main"
+    gpg_key: "erlang.gpg"
+  grafana:
+    url: "https://packages.grafana.com/oss/deb"
+    suite: "stable"
+    component: "main"
+    gpg_key: "grafana.asc"
+  influxdb:
+    url: "https://repos.influxdata.com/debian"
+    suite: "bullseye"
+    component: "stable"
+    gpg_key: "influxdb.asc"
+  logstash:
+    url: "https://artifacts.elastic.co/packages/oss-7.x/apt"
+    suite: "stable"
+    component: "main"
+    gpg_key: "elasticsearch.asc"
+  kibana:
+    url: "https://artifacts.elastic.co/packages/oss-7.x/apt"
+    suite: "stable"
+    component: "main"
+    gpg_key: "elasticsearch.asc"
+  mariadb:
+    url: "http://downloads.mariadb.com/MariaDB/mariadb-10.5/repo/debian"
+    suite: "bullseye"
+    component: "main"
+    gpg_key: "mariadb.gpg"
+  rabbitmq:
+    url: "https://packagecloud.io/rabbitmq/rabbitmq-server/debian/"
+    suite: "bullseye"
+    component: "main"
+    gpg_key: "rabbitmq.gpg"
+  td-agent:
+    url: "http://packages.treasuredata.com/4/debian/bullseye"
+    suite: "bullseye"
+    component: "contrib"
+    gpg_key: "treasuredata.asc"
+  proxysql:
+    url: "https://repo.proxysql.com/ProxySQL/proxysql-2.3.x/bullseye/"
+    suite: "./"
+    component: ""
+    gpg_key: "proxysql.asc"
+
+debian-aarch64:
+  elasticsearch:
+    url: "https://artifacts.elastic.co/packages/oss-7.x/apt"
+    suite: "stable"
+    component: "main"
+    gpg_key: "elasticsearch.asc"
+  erlang:
+    # NOTE(mnasiadka): Erlang repo - Debian Buster/Bullseye needs to use bionic as per RabbitMQ docs
+    url: "http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu"
+    suite: "bionic"
+    component: "main"
+    gpg_key: "erlang.gpg"
+  grafana:
+    url: "https://packages.grafana.com/oss/deb"
+    suite: "stable"
+    component: "main"
+    gpg_key: "grafana.asc"
+  influxdb:
+    url: "https://repos.influxdata.com/debian"
+    suite: "bullseye"
+    component: "stable"
+    gpg_key: "influxdb.asc"
+  logstash:
+    url: "https://artifacts.elastic.co/packages/oss-7.x/apt"
+    suite: "stable"
+    component: "main"
+    gpg_key: "elasticsearch.asc"
+  kibana:
+    url: "https://artifacts.elastic.co/packages/oss-7.x/apt"
+    suite: "stable"
+    component: "main"
+    gpg_key: "elasticsearch.asc"
+  mariadb:
+    url: "http://downloads.mariadb.com/MariaDB/mariadb-10.5/repo/debian"
+    suite: "bullseye"
+    component: "main"
+    gpg_key: "mariadb.gpg"
+  rabbitmq:
+    url: "https://packagecloud.io/rabbitmq/rabbitmq-server/debian/"
+    suite: "bullseye"
+    component: "main"
+    gpg_key: "rabbitmq.gpg"
+  td-agent:
+    url: "http://packages.treasuredata.com/4/debian/bullseye"
+    suite: "bullseye"
+    component: "contrib"
+    gpg_key: "treasuredata.asc"
+  proxysql:
+    url: "https://repo.proxysql.com/ProxySQL/proxysql-2.3.x/bullseye/"
+    suite: "./"
+    component: ""
+    gpg_key: "proxysql.asc"
+
+ubuntu:
+  elasticsearch:
+    url: "https://artifacts.elastic.co/packages/oss-7.x/apt"
+    suite: "stable"
+    component: "main"
+    gpg_key: "elasticsearch.asc"
+  erlang:
+    url: "http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu"
+    suite: "focal"
+    component: "main"
+    gpg_key: "erlang.gpg"
+  grafana:
+    url: "https://packages.grafana.com/oss/deb"
+    suite: "stable"
+    component: "main"
+    gpg_key: "grafana.asc"
+  haproxy:
+    url: "http://ppa.launchpad.net/vbernat/haproxy-2.2/ubuntu"
+    suite: "focal"
+    component: "main"
+    gpg_key: "haproxy.gpg"
+  influxdb:
+    url: "https://repos.influxdata.com/ubuntu"
+    suite: "focal"
+    component: "stable"
+    gpg_key: "influxdb.asc"
+  logstash:
+    url: "https://artifacts.elastic.co/packages/oss-7.x/apt"
+    suite: "stable"
+    component: "main"
+    gpg_key: "elasticsearch.asc"
+  kibana:
+    url: "https://artifacts.elastic.co/packages/oss-7.x/apt"
+    suite: "stable"
+    component: "main"
+    gpg_key: "elasticsearch.asc"
+  mariadb:
+    url: "http://downloads.mariadb.com/MariaDB/mariadb-10.5/repo/ubuntu"
+    suite: "focal"
+    component: "main"
+    gpg_key: "mariadb.gpg"
+  rabbitmq:
+    url: "https://packagecloud.io/rabbitmq/rabbitmq-server/ubuntu/"
+    suite: "focal"
+    component: "main"
+    gpg_key: "rabbitmq.gpg"
+  td-agent:
+    url: "http://packages.treasuredata.com/4/ubuntu/focal/"
+    suite: "focal"
+    component: "contrib"
+    gpg_key: "treasuredata.asc"
+  proxysql:
+    url: "https://repo.proxysql.com/ProxySQL/proxysql-2.3.x/focal/"
+    suite: "./"
+    component: ""
+    gpg_key: "proxysql.asc"
+
+ubuntu-aarch64:
+  elasticsearch:
+    url: "https://artifacts.elastic.co/packages/oss-7.x/apt"
+    suite: "stable"
+    component: "main"
+    gpg_key: "elasticsearch.asc"
+  erlang:
+    url: "http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu"
+    suite: "focal"
+    component: "main"
+    gpg_key: "erlang.gpg"
+  grafana:
+    url: "https://packages.grafana.com/oss/deb"
+    suite: "stable"
+    component: "main"
+    gpg_key: "grafana.asc"
+  haproxy:
+    url: "http://ppa.launchpad.net/vbernat/haproxy-2.2/ubuntu"
+    suite: "focal"
+    component: "main"
+    gpg_key: "haproxy.gpg"
+  influxdb:
+    url: "https://repos.influxdata.com/ubuntu"
+    suite: "focal"
+    component: "stable"
+    gpg_key: "influxdb.asc"
+  logstash:
+    url: "https://artifacts.elastic.co/packages/oss-7.x/apt"
+    suite: "stable"
+    component: "main"
+    gpg_key: "elasticsearch.asc"
+  mariadb:
+    url: "http://downloads.mariadb.com/MariaDB/mariadb-10.5/repo/ubuntu"
+    suite: "focal"
+    component: "main"
+    gpg_key: "mariadb.gpg"
+  rabbitmq:
+    url: "https://packagecloud.io/rabbitmq/rabbitmq-server/ubuntu/"
+    suite: "focal"
+    component: "main"
+    gpg_key: "rabbitmq.gpg"
+  td-agent:
+    url: "http://packages.treasuredata.com/4/ubuntu/focal/"
+    suite: "focal"
+    component: "contrib"
+    gpg_key: "treasuredata.asc"
+  proxysql:
+    url: "https://repo.proxysql.com/ProxySQL/proxysql-2.3.x/focal/"
+    suite: "./"
+    component: ""
+    gpg_key: "proxysql.asc"

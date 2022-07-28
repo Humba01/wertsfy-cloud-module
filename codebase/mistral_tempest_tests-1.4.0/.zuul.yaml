@@ -1,0 +1,126 @@
+- job:
+    name: mistral-devstack-tempest-base
+    parent: devstack-tempest
+    pre-run: playbooks/tempest/pre.yaml
+    timeout: 9000
+    required-projects: &base_required_projects
+      - openstack/devstack
+      - openstack/devstack-gate
+      - openstack/heat
+      - openstack/mistral
+      - openstack/mistral-lib
+      - openstack/mistral-extra
+      - openstack/mistral-tempest-plugin
+      - openstack/python-mistralclient
+      - openstack/tempest
+    vars: &base_vars
+      tox_envlist: all
+      tempest_test_regex: mistral
+      devstack_localrc:
+        TEMPEST_PLUGINS: "/opt/stack/mistral-tempest-plugin"
+        SWIFT_HASH: secrethash
+        MYSQL_ROOT_PW: secretdatabase
+        MISTRAL_USE_MOD_WSGI: true
+        MISTRAL_RPC_IMPLEMENTATION: oslo
+        USE_PYTHON3: true
+      devstack_services:
+        heat: true
+        h-api: true
+        h-api-cfn: true
+        h-api-cw: true
+        h-eng: true
+        s-proxy: true
+        s-object: true
+        s-container: true
+        s-account: true
+        tempest: true
+      devstack_plugins:
+        mistral: https://opendev.org/openstack/mistral
+        heat: https://opendev.org/openstack/heat
+
+- job:
+    name: mistral-devstack-tempest-ipv6-only
+    parent: devstack-tempest-ipv6
+    description: |
+      Mistral devstack tempest tests job for IPv6-only deployment
+    pre-run: playbooks/tempest/pre.yaml
+    timeout: 9000
+    required-projects: *base_required_projects
+    vars: *base_vars
+
+- job:
+    name: mistral-devstack-non-apache-tempest-ipv6-only
+    parent: mistral-devstack-tempest-ipv6-only
+    description: |
+      Mistral devstack non apache tempest tests job for IPv6-only deployment
+    vars:
+      devstack_localrc:
+        MISTRAL_USE_MOD_WSGI: false
+
+- job:
+    name: mistral-devstack
+    parent: mistral-devstack-tempest-base
+
+- job:
+    name: mistral-devstack-kombu
+    parent: mistral-devstack-tempest-base
+    vars:
+      devstack_localrc:
+        MISTRAL_RPC_IMPLEMENTATION: kombu
+
+- job:
+    name: mistral-devstack-non-apache
+    parent: mistral-devstack-tempest-base
+    vars:
+      devstack_localrc:
+        MISTRAL_USE_MOD_WSGI: false
+
+- project:
+    templates:
+      - build-openstack-docs-pti
+      - check-requirements
+      - tempest-plugin-jobs
+    check:
+      jobs:
+        - mistral-devstack
+        - mistral-devstack-tempest-ipv6-only
+        - mistral-devstack-non-apache-tempest-ipv6-only
+        - mistral-devstack-non-apache:
+            branches: ^(?!stable/(newton|ocata)).*$
+        - mistral-devstack-kombu:
+            branches: ^(?!stable/newton).*$
+        - mistral-devstack-ussuri
+        - mistral-devstack-train
+        - mistral-devstack-stein
+    gate:
+      queue: mistral
+      jobs:
+        - mistral-devstack
+        - mistral-devstack-tempest-ipv6-only
+        - mistral-devstack-non-apache-tempest-ipv6-only
+        - mistral-devstack-non-apache
+        - mistral-devstack-kombu
+
+- job:
+    name: mistral-devstack-ussuri
+    parent: mistral-devstack
+    nodeset: openstack-single-node-bionic
+    override-checkout: stable/ussuri
+
+- job:
+    name: mistral-devstack-train
+    parent: mistral-devstack
+    nodeset: openstack-single-node-bionic
+    override-checkout: stable/train
+    vars:
+      devstack_localrc:
+        USE_PYTHON3: True
+
+- job:
+    name: mistral-devstack-stein
+    parent: mistral-devstack
+    override-checkout: stable/stein
+    nodeset: openstack-single-node-bionic
+    vars:
+      devstack_localrc:
+        USE_PYTHON3: True

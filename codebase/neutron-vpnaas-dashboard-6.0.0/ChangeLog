@@ -1,0 +1,210 @@
+CHANGES
+=======
+
+6.0.0
+-----
+
+* Imported Translations from Zanata
+* Fix lower-constraints
+* Imported Translations from Zanata
+* Add Python3 wallaby unit tests
+* Update master for stable/victoria
+
+3.0.0
+-----
+
+* Cleanup for Refactor-error-messages
+* [goal] Migrate testing to ubuntu focal
+* Add aggressive negotiation mode for ikepolicy
+* Imported Translations from Zanata
+* drop mock from lower-constraints and requirements
+* Stop to use the \_\_future\_\_ module
+* Switch to newer openstackdocstheme and reno versions
+* Fix hacking min version to 3.0.1
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Bump default tox env from py37 to py38
+* Add py38 package metadata
+* Imported Translations from Zanata
+* Add Python3 victoria unit tests
+* Update master for stable/ussuri
+
+2.0.0
+-----
+
+* Imported Translations from Zanata
+* Fix pyScss version in lower-constraints.txt
+* Update hacking for Python3
+* Drop Django 1.11 support
+* translation: drop babel extractor definitions
+* [ussuri][goal] Drop python 2.7 support and testing
+* Switch to official Ussuri jobs
+* Imported Translations from Zanata
+* Update master for stable/train
+* Imported Translations from Zanata
+* Fix help text for "Authorization algorithm"
+* Add tox env and job for Django 2.2
+* Update the constraints url
+
+1.6.0
+-----
+
+* Change PDF file name
+* PDF documentation build
+* Add release notes link for README
+* Sync Sphinx requirement
+* Imported Translations from Zanata
+* Add Python 3 Train unit tests
+* Imported Translations from Zanata
+* Replace git.openstack.org URLs with opendev.org URLs
+* OpenDev Migration Patch
+* Dropping the py35 testing
+* Imported Translations from Zanata
+* Update master for stable/stein
+* Imported Translations from Zanata
+
+1.5.1
+-----
+
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Fix devstack plugin to work with Python 3
+* Bump hacking to 1.1.0
+
+1.5.0
+-----
+
+* Imported Translations from Zanata
+* Remove use\_mox usage
+* Update the VPNaaS dashboard documentation link
+* Support alrogithms other than sha1
+* Bump horizon lower-constraints
+* Change openstack-dev to openstack-discuss
+* Imported Translations from Zanata
+* Cleanup zuul.yaml
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Update reno for stable/rocky
+
+1.4.0
+-----
+
+* Switch test runner to django default runner
+* fix tox python3 overrides
+* Add python3 django 1.11 job instead of django 2.0 job
+
+1.3.0
+-----
+
+* Imported Translations from Zanata
+* Follow the new PTI for document build
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Show team and repo badges on README
+* Fix pep8 errors
+* Django 2.0 support
+* add lower-constraints job
+* Updated from global requirements
+* Imported Translations from Zanata
+* Updated from global requirements
+* Updated from global requirements
+* Imported Translations from Zanata
+* Avoid tox-install.sh
+* Updated from global requirements
+* Updated from global requirements
+* Imported Translations from Zanata
+* Drop mox3 from test-requirements.txt
+* Drop mox usage from VPNaaS panel tests
+* Drop mox usage from VPNaaS API tests
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* Drop BRANCH\_NAME and CLIENT\_NAME in tox.ini
+* Updated from global requirements
+* [trivial] fixed typo in vpn/forms.py
+* Imported Translations from Zanata
+* Update reno for stable/queens
+* Imported Translations from Zanata
+
+1.2.1
+-----
+
+* Imported Translations from Zanata
+* Correct django template pattern in babel-django.cfg
+* Imported Translations from Zanata
+* Add VPN service: List only routers with external gateway
+* Replace None with - (hyphen) for value None
+* Fix unnecessary capitalized messages
+* Make switched multiple choice field work
+* Imported Translations from Zanata
+* Imported Translations from Zanata
+* doc: remove symlink for releasenotes
+* Updated from global requirements
+* Imported Translations from Zanata
+* Updated from global requirements
+
+1.2.0
+-----
+
+* Fix the typo
+* Align tox\_install.sh with other projects
+* Remove setting of version/release from releasenotes
+* Updated from global requirements
+* .gitignore: add translation catalogs (.mo and .pot)
+* Disable status handling in VPN service table
+* Use TextInput widget for readonly choice fields
+* Use ThemableChoiceField
+* Allow peer\_id and peer\_address input formats other than IP address
+* IPsec site connection should support id
+* Cleanup unnessary reverse\_lazy() in code
+* Cleanup unnessary ID attribute in code
+* Fix VPN Service Details page
+* Add deliverables info
+* Update tox from py34 to py35
+* Updated from global requirements
+* Use 'IPsec' consistently
+* Fix typo
+
+1.1.0
+-----
+
+* Use flake8-import-order plugin
+* Updated from global requirements
+* Add support for Endpoint Group
+* devstack: Remove workaround for horizon plugin framework
+* Move VPN panel in the left menu lower by default
+* Release note for stable/pike
+
+0.1.0
+-----
+
+* Update Korean translation
+* Update URLs in documents according to document migration
+* Ensure log messages are not translated
+* Translation import
+* Translation import for ja
+* tox\_install: Don't leave IFS set
+* Updated from global requirements
+* Updated from global requirements
+* Manually sync with g-r
+* Update openstackdocstheme configuration
+* Consume horizon master
+* Prepare initial documentationn
+* DevStack plugin for neutron-vpnaas-dashboard
+* Add .gitreview
+* Change the hirarchy of vpn panel
+* Setup release notes
+* Setup documentation build
+* Cleanup test env
+* Import API tests
+* Pass unit tests
+* Update flake8 and hacking rules
+* Import VPNaaS test data
+* Use horizon local fork w/o VPNaaS dashboard
+* Setup test environment
+* Add some required python files
+* Initial commit
