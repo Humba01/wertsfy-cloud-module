@@ -14,6 +14,7 @@
 (function () {
   'use strict';
 
+  // @ts-ignore
   angular
     .module('horizon.app.core.openstack-service-api')
     .factory('horizon.app.core.openstack-service-api.zun', ZunAPI);
@@ -284,3 +285,7 @@
     }
   }
 }());
+function interpolate(msg, arg1, arg2) {
+  throw new Error("Function not implemented.");
+}
+
