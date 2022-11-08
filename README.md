@@ -1,4 +1,4 @@
-# hn-cloud-computing-database
+# wertsfy-cloud-services
 
 ![Cloud Computing](https://img.shields.io/badge/Cloud_Computing-000066.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
 ![Openstack](https://img.shields.io/badge/Openstack-darkorange.svg?style=for-the-badge&logo=openstack&logoColor=white)
