@@ -1,4 +1,4 @@
-# wertsfy-cloud-services
+# wertsfy-cloud-module
 
 ![Cloud Computing](https://img.shields.io/badge/Cloud_Computing-222222.svg?style=for-the-badge&logo=google-cloud&logoColor=blue)
 ![Openstack](https://img.shields.io/badge/Openstack-222222.svg?style=for-the-badge&logo=openstack&logoColor=gold)
