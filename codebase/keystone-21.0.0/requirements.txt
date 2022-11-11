@@ -4,7 +4,7 @@
 
 pbr!=2.1.0,>=2.0.0 # Apache-2.0
 WebOb>=1.7.1 # MIT
-Flask!=0.11,>=1.0.2  # BSD
+flask>=1.0.0 # BSD
 Flask-RESTful>=0.3.5  # BSD
 cryptography>=2.7 # BSD/Apache-2.0
 SQLAlchemy>=1.3.0 # MIT
